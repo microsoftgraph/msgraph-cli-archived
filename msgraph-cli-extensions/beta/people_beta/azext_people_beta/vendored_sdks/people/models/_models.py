@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofactivitystatistics(msrest.serialization.Model):
+class CollectionOfActivityStatistics(msrest.serialization.Model):
     """Collection of activityStatistics.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphactivitystatistics]
+    :type value: list[~people.models.MicrosoftGraphActivityStatistics]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphactivitystatistics]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphActivityStatistics]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class collectionofactivitystatistics(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofactivitystatistics, self).__init__(**kwargs)
+        super(CollectionOfActivityStatistics, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofeducationalactivity(msrest.serialization.Model):
+class CollectionOfEducationalActivity(msrest.serialization.Model):
     """Collection of educationalActivity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgrapheducationalactivity]
+    :type value: list[~people.models.MicrosoftGraphEducationalActivity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgrapheducationalactivity]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEducationalActivity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class collectionofeducationalactivity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofeducationalactivity, self).__init__(**kwargs)
+        super(CollectionOfEducationalActivity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofitemaddress(msrest.serialization.Model):
+class CollectionOfItemAddress(msrest.serialization.Model):
     """Collection of itemAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphitemaddress]
+    :type value: list[~people.models.MicrosoftGraphItemAddress]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitemaddress]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemAddress]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class collectionofitemaddress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofitemaddress, self).__init__(**kwargs)
+        super(CollectionOfItemAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofitememail(msrest.serialization.Model):
+class CollectionOfItemEmail(msrest.serialization.Model):
     """Collection of itemEmail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphitememail]
+    :type value: list[~people.models.MicrosoftGraphItemEmail]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitememail]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemEmail]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class collectionofitememail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofitememail, self).__init__(**kwargs)
+        super(CollectionOfItemEmail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofitempatent(msrest.serialization.Model):
+class CollectionOfItemPatent(msrest.serialization.Model):
     """Collection of itemPatent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphitempatent]
+    :type value: list[~people.models.MicrosoftGraphItemPatent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitempatent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemPatent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class collectionofitempatent(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofitempatent, self).__init__(**kwargs)
+        super(CollectionOfItemPatent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofitemphone(msrest.serialization.Model):
+class CollectionOfItemPhone(msrest.serialization.Model):
     """Collection of itemPhone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphitemphone]
+    :type value: list[~people.models.MicrosoftGraphItemPhone]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitemphone]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemPhone]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class collectionofitemphone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofitemphone, self).__init__(**kwargs)
+        super(CollectionOfItemPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofitempublication(msrest.serialization.Model):
+class CollectionOfItemPublication(msrest.serialization.Model):
     """Collection of itemPublication.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphitempublication]
+    :type value: list[~people.models.MicrosoftGraphItemPublication]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitempublication]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemPublication]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class collectionofitempublication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofitempublication, self).__init__(**kwargs)
+        super(CollectionOfItemPublication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflanguageproficiency(msrest.serialization.Model):
+class CollectionOfLanguageProficiency(msrest.serialization.Model):
     """Collection of languageProficiency.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphlanguageproficiency]
+    :type value: list[~people.models.MicrosoftGraphLanguageProficiency]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphlanguageproficiency]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphLanguageProficiency]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class collectionoflanguageproficiency(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflanguageproficiency, self).__init__(**kwargs)
+        super(CollectionOfLanguageProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofperson(msrest.serialization.Model):
+class CollectionOfPerson(msrest.serialization.Model):
     """Collection of person.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphperson]
+    :type value: list[~people.models.MicrosoftGraphPerson]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphperson]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPerson]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class collectionofperson(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofperson, self).__init__(**kwargs)
+        super(CollectionOfPerson, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersonanniversary(msrest.serialization.Model):
+class CollectionOfPersonAnniversary(msrest.serialization.Model):
     """Collection of personAnniversary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersonanniversary]
+    :type value: list[~people.models.MicrosoftGraphPersonAnniversary]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersonanniversary]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonAnniversary]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,27 +284,27 @@ class collectionofpersonanniversary(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersonanniversary, self).__init__(**kwargs)
+        super(CollectionOfPersonAnniversary, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersonannotation(msrest.serialization.Model):
+class CollectionOfPersonAnnotation(msrest.serialization.Model):
     """Collection of personAnnotation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersonannotation]
+    :type value: list[~people.models.MicrosoftGraphPersonAnnotation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersonannotation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonAnnotation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -312,27 +312,27 @@ class collectionofpersonannotation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersonannotation, self).__init__(**kwargs)
+        super(CollectionOfPersonAnnotation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersonaward(msrest.serialization.Model):
+class CollectionOfPersonAward(msrest.serialization.Model):
     """Collection of personAward.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersonaward]
+    :type value: list[~people.models.MicrosoftGraphPersonAward]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersonaward]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonAward]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -340,27 +340,27 @@ class collectionofpersonaward(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersonaward, self).__init__(**kwargs)
+        super(CollectionOfPersonAward, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersoncertification(msrest.serialization.Model):
+class CollectionOfPersonCertification(msrest.serialization.Model):
     """Collection of personCertification.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersoncertification]
+    :type value: list[~people.models.MicrosoftGraphPersonCertification]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersoncertification]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonCertification]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -368,27 +368,27 @@ class collectionofpersoncertification(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersoncertification, self).__init__(**kwargs)
+        super(CollectionOfPersonCertification, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersoninterest(msrest.serialization.Model):
+class CollectionOfPersonInterest(msrest.serialization.Model):
     """Collection of personInterest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersoninterest]
+    :type value: list[~people.models.MicrosoftGraphPersonInterest]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersoninterest]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonInterest]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -396,27 +396,27 @@ class collectionofpersoninterest(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersoninterest, self).__init__(**kwargs)
+        super(CollectionOfPersonInterest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersonname(msrest.serialization.Model):
+class CollectionOfPersonName(msrest.serialization.Model):
     """Collection of personName.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersonname]
+    :type value: list[~people.models.MicrosoftGraphPersonName]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersonname]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonName]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -424,27 +424,27 @@ class collectionofpersonname(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersonname, self).__init__(**kwargs)
+        super(CollectionOfPersonName, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpersonwebsite(msrest.serialization.Model):
+class CollectionOfPersonWebsite(msrest.serialization.Model):
     """Collection of personWebsite.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphpersonwebsite]
+    :type value: list[~people.models.MicrosoftGraphPersonWebsite]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpersonwebsite]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPersonWebsite]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -452,27 +452,27 @@ class collectionofpersonwebsite(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpersonwebsite, self).__init__(**kwargs)
+        super(CollectionOfPersonWebsite, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofprojectparticipation(msrest.serialization.Model):
+class CollectionOfProjectParticipation(msrest.serialization.Model):
     """Collection of projectParticipation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphprojectparticipation]
+    :type value: list[~people.models.MicrosoftGraphProjectParticipation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphprojectparticipation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphProjectParticipation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -480,27 +480,27 @@ class collectionofprojectparticipation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofprojectparticipation, self).__init__(**kwargs)
+        super(CollectionOfProjectParticipation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofskillproficiency(msrest.serialization.Model):
+class CollectionOfSkillProficiency(msrest.serialization.Model):
     """Collection of skillProficiency.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphskillproficiency]
+    :type value: list[~people.models.MicrosoftGraphSkillProficiency]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphskillproficiency]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSkillProficiency]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -508,27 +508,27 @@ class collectionofskillproficiency(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofskillproficiency, self).__init__(**kwargs)
+        super(CollectionOfSkillProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofuseraccountinformation(msrest.serialization.Model):
+class CollectionOfUserAccountInformation(msrest.serialization.Model):
     """Collection of userAccountInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphuseraccountinformation]
+    :type value: list[~people.models.MicrosoftGraphUserAccountInformation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphuseraccountinformation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphUserAccountInformation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -536,27 +536,27 @@ class collectionofuseraccountinformation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofuseraccountinformation, self).__init__(**kwargs)
+        super(CollectionOfUserAccountInformation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofwebaccount(msrest.serialization.Model):
+class CollectionOfWebAccount(msrest.serialization.Model):
     """Collection of webAccount.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphwebaccount]
+    :type value: list[~people.models.MicrosoftGraphWebAccount]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphwebaccount]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphWebAccount]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -564,27 +564,27 @@ class collectionofwebaccount(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofwebaccount, self).__init__(**kwargs)
+        super(CollectionOfWebAccount, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofworkposition(msrest.serialization.Model):
+class CollectionOfWorkPosition(msrest.serialization.Model):
     """Collection of workPosition.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphworkposition]
+    :type value: list[~people.models.MicrosoftGraphWorkPosition]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphworkposition]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphWorkPosition]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -592,13 +592,13 @@ class collectionofworkposition(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofworkposition, self).__init__(**kwargs)
+        super(CollectionOfWorkPosition, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -617,12 +617,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphactivitystatistics(microsoftgraphentity):
+class MicrosoftGraphActivityStatistics(MicrosoftGraphEntity):
     """activityStatistics.
 
     :param id: Read-only.
@@ -631,7 +631,7 @@ class microsoftgraphactivitystatistics(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param activity:  Possible values include: "Email", "Meeting", "Focus", "Chat", "Call".
-    :type activity: str or ~people.models.Microsoftgraphanalyticsactivitytype
+    :type activity: str or ~people.models.MicrosoftGraphAnalyticsActivityType
     :param duration:
     :type duration: ~datetime.timedelta
     :param end_date:
@@ -656,7 +656,7 @@ class microsoftgraphactivitystatistics(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphactivitystatistics, self).__init__(**kwargs)
+        super(MicrosoftGraphActivityStatistics, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.activity = kwargs.get('activity', None)
         self.duration = kwargs.get('duration', None)
@@ -665,14 +665,14 @@ class microsoftgraphactivitystatistics(microsoftgraphentity):
         self.time_zone_used = kwargs.get('time_zone_used', None)
 
 
-class microsoftgraphcompanydetail(msrest.serialization.Model):
+class MicrosoftGraphCompanyDetail(msrest.serialization.Model):
     """companyDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~people.models.microsoftgraphphysicaladdress
+    :type address: ~people.models.MicrosoftGraphPhysicalAddress
     :param department:
     :type department: str
     :param display_name:
@@ -687,7 +687,7 @@ class microsoftgraphcompanydetail(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
@@ -699,7 +699,7 @@ class microsoftgraphcompanydetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcompanydetail, self).__init__(**kwargs)
+        super(MicrosoftGraphCompanyDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.department = kwargs.get('department', None)
@@ -709,7 +709,7 @@ class microsoftgraphcompanydetail(msrest.serialization.Model):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphitemfacet(microsoftgraphentity):
+class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
     """itemFacet.
 
     :param id: Read-only.
@@ -719,38 +719,38 @@ class microsoftgraphitemfacet(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphitemfacet, self).__init__(**kwargs)
+        super(MicrosoftGraphItemFacet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allowed_audiences = kwargs.get('allowed_audiences', None)
         self.created_by = kwargs.get('created_by', None)
@@ -761,26 +761,26 @@ class microsoftgraphitemfacet(microsoftgraphentity):
         self.source = kwargs.get('source', None)
 
 
-class microsoftgrapheducationalactivity(microsoftgraphitemfacet):
+class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """educationalActivity.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -789,9 +789,9 @@ class microsoftgrapheducationalactivity(microsoftgraphitemfacet):
     :param end_month_year:
     :type end_month_year: ~datetime.date
     :param institution: institutionData.
-    :type institution: ~people.models.microsoftgraphinstitutiondata
+    :type institution: ~people.models.MicrosoftGraphInstitutionData
     :param program: educationalActivityDetail.
-    :type program: ~people.models.microsoftgrapheducationalactivitydetail
+    :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
     :param start_month_year:
     :type start_month_year: ~datetime.date
     """
@@ -799,17 +799,17 @@ class microsoftgrapheducationalactivity(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_month_year': {'key': 'completionMonthYear', 'type': 'date'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
-        'institution': {'key': 'institution', 'type': 'microsoftgraphinstitutiondata'},
-        'program': {'key': 'program', 'type': 'microsoftgrapheducationalactivitydetail'},
+        'institution': {'key': 'institution', 'type': 'MicrosoftGraphInstitutionData'},
+        'program': {'key': 'program', 'type': 'MicrosoftGraphEducationalActivityDetail'},
         'start_month_year': {'key': 'startMonthYear', 'type': 'date'},
     }
 
@@ -817,7 +817,7 @@ class microsoftgrapheducationalactivity(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgrapheducationalactivity, self).__init__(**kwargs)
+        super(MicrosoftGraphEducationalActivity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_month_year = kwargs.get('completion_month_year', None)
         self.end_month_year = kwargs.get('end_month_year', None)
@@ -826,7 +826,7 @@ class microsoftgrapheducationalactivity(microsoftgraphitemfacet):
         self.start_month_year = kwargs.get('start_month_year', None)
 
 
-class microsoftgrapheducationalactivitydetail(msrest.serialization.Model):
+class MicrosoftGraphEducationalActivityDetail(msrest.serialization.Model):
     """educationalActivityDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -869,7 +869,7 @@ class microsoftgrapheducationalactivitydetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgrapheducationalactivitydetail, self).__init__(**kwargs)
+        super(MicrosoftGraphEducationalActivityDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.abbreviation = kwargs.get('abbreviation', None)
         self.activities = kwargs.get('activities', None)
@@ -882,7 +882,7 @@ class microsoftgrapheducationalactivitydetail(msrest.serialization.Model):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
     """geoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -908,14 +908,14 @@ class microsoftgraphgeocoordinates(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.altitude = kwargs.get('altitude', None)
         self.latitude = kwargs.get('latitude', None)
         self.longitude = kwargs.get('longitude', None)
 
 
-class microsoftgraphidentity(msrest.serialization.Model):
+class MicrosoftGraphIdentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -940,45 +940,45 @@ class microsoftgraphidentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphidentityset(msrest.serialization.Model):
+class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     """identitySet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~people.models.microsoftgraphidentity
+    :type application: ~people.models.MicrosoftGraphIdentity
     :param device: identity.
-    :type device: ~people.models.microsoftgraphidentity
+    :type device: ~people.models.MicrosoftGraphIdentity
     :param user: identity.
-    :type user: ~people.models.microsoftgraphidentity
+    :type user: ~people.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
-        'device': {'key': 'device', 'type': 'microsoftgraphidentity'},
-        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphidentityset, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application = kwargs.get('application', None)
         self.device = kwargs.get('device', None)
         self.user = kwargs.get('user', None)
 
 
-class microsoftgraphinferencedata(msrest.serialization.Model):
+class MicrosoftGraphInferenceData(msrest.serialization.Model):
     """inferenceData.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1000,13 +1000,13 @@ class microsoftgraphinferencedata(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphinferencedata, self).__init__(**kwargs)
+        super(MicrosoftGraphInferenceData, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.confidence_score = kwargs.get('confidence_score', None)
         self.user_has_verified_accuracy = kwargs.get('user_has_verified_accuracy', None)
 
 
-class microsoftgraphinstitutiondata(msrest.serialization.Model):
+class MicrosoftGraphInstitutionData(msrest.serialization.Model):
     """institutionData.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1017,7 +1017,7 @@ class microsoftgraphinstitutiondata(msrest.serialization.Model):
     :param display_name:
     :type display_name: str
     :param location: physicalAddress.
-    :type location: ~people.models.microsoftgraphphysicaladdress
+    :type location: ~people.models.MicrosoftGraphPhysicalAddress
     :param web_url:
     :type web_url: str
     """
@@ -1026,7 +1026,7 @@ class microsoftgraphinstitutiondata(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'location': {'key': 'location', 'type': 'microsoftgraphphysicaladdress'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphPhysicalAddress'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
     }
 
@@ -1034,7 +1034,7 @@ class microsoftgraphinstitutiondata(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphinstitutiondata, self).__init__(**kwargs)
+        super(MicrosoftGraphInstitutionData, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1042,64 +1042,64 @@ class microsoftgraphinstitutiondata(msrest.serialization.Model):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphitemaddress(microsoftgraphitemfacet):
+class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """itemAddress.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param detail: physicalAddress.
-    :type detail: ~people.models.microsoftgraphphysicaladdress
+    :type detail: ~people.models.MicrosoftGraphPhysicalAddress
     :param display_name:
     :type display_name: str
     :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~people.models.microsoftgraphgeocoordinates
+    :type geo_coordinates: ~people.models.MicrosoftGraphGeoCoordinates
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'detail': {'key': 'detail', 'type': 'microsoftgraphphysicaladdress'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPhysicalAddress'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'microsoftgraphgeocoordinates'},
+        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphitemaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphItemAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
         self.geo_coordinates = kwargs.get('geo_coordinates', None)
 
 
-class microsoftgraphitembody(msrest.serialization.Model):
+class MicrosoftGraphItemBody(msrest.serialization.Model):
     """itemBody.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1108,7 +1108,7 @@ class microsoftgraphitembody(msrest.serialization.Model):
     :param content: The content of the item.
     :type content: str
     :param content_type:  Possible values include: "text", "html".
-    :type content_type: str or ~people.models.Microsoftgraphbodytype
+    :type content_type: str or ~people.models.MicrosoftGraphBodyType
     """
 
     _attribute_map = {
@@ -1121,32 +1121,32 @@ class microsoftgraphitembody(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphitembody, self).__init__(**kwargs)
+        super(MicrosoftGraphItemBody, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_type = kwargs.get('content_type', None)
 
 
-class microsoftgraphitememail(microsoftgraphitemfacet):
+class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """itemEmail.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1155,18 +1155,18 @@ class microsoftgraphitememail(microsoftgraphitemfacet):
     :param display_name:
     :type display_name: str
     :param type:  Possible values include: "unknown", "work", "personal", "main", "other".
-    :type type: str or ~people.models.Microsoftgraphemailtype
+    :type type: str or ~people.models.MicrosoftGraphEmailType
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1177,33 +1177,33 @@ class microsoftgraphitememail(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphitememail, self).__init__(**kwargs)
+        super(MicrosoftGraphItemEmail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphitempatent(microsoftgraphitemfacet):
+class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """itemPatent.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1226,12 +1226,12 @@ class microsoftgraphitempatent(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1246,7 +1246,7 @@ class microsoftgraphitempatent(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphitempatent, self).__init__(**kwargs)
+        super(MicrosoftGraphItemPatent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1257,26 +1257,26 @@ class microsoftgraphitempatent(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphitemphone(microsoftgraphitemfacet):
+class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """itemPhone.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1286,18 +1286,18 @@ class microsoftgraphitemphone(microsoftgraphitemfacet):
     :type number: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~people.models.Microsoftgraphphonetype
+    :type type: str or ~people.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'number': {'key': 'number', 'type': 'str'},
@@ -1308,33 +1308,33 @@ class microsoftgraphitemphone(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphitemphone, self).__init__(**kwargs)
+        super(MicrosoftGraphItemPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphitempublication(microsoftgraphitemfacet):
+class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """itemPublication.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1355,12 +1355,12 @@ class microsoftgraphitempublication(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1374,7 +1374,7 @@ class microsoftgraphitempublication(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphitempublication, self).__init__(**kwargs)
+        super(MicrosoftGraphItemPublication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1384,26 +1384,26 @@ class microsoftgraphitempublication(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphlanguageproficiency(microsoftgraphitemfacet):
+class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """languageProficiency.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1411,29 +1411,29 @@ class microsoftgraphlanguageproficiency(microsoftgraphitemfacet):
     :type display_name: str
     :param proficiency:  Possible values include: "elementary", "conversational", "limitedWorking",
      "professionalWorking", "fullProfessional", "nativeOrBilingual", "unknownFutureValue".
-    :type proficiency: str or ~people.models.Microsoftgraphlanguageproficiencylevel
+    :type proficiency: str or ~people.models.MicrosoftGraphLanguageProficiencyLevel
     :param reading:  Possible values include: "elementary", "conversational", "limitedWorking",
      "professionalWorking", "fullProfessional", "nativeOrBilingual", "unknownFutureValue".
-    :type reading: str or ~people.models.Microsoftgraphlanguageproficiencylevel
+    :type reading: str or ~people.models.MicrosoftGraphLanguageProficiencyLevel
     :param spoken:  Possible values include: "elementary", "conversational", "limitedWorking",
      "professionalWorking", "fullProfessional", "nativeOrBilingual", "unknownFutureValue".
-    :type spoken: str or ~people.models.Microsoftgraphlanguageproficiencylevel
+    :type spoken: str or ~people.models.MicrosoftGraphLanguageProficiencyLevel
     :param tag:
     :type tag: str
     :param written:  Possible values include: "elementary", "conversational", "limitedWorking",
      "professionalWorking", "fullProfessional", "nativeOrBilingual", "unknownFutureValue".
-    :type written: str or ~people.models.Microsoftgraphlanguageproficiencylevel
+    :type written: str or ~people.models.MicrosoftGraphLanguageProficiencyLevel
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'proficiency': {'key': 'proficiency', 'type': 'str'},
@@ -1447,7 +1447,7 @@ class microsoftgraphlanguageproficiency(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphlanguageproficiency, self).__init__(**kwargs)
+        super(MicrosoftGraphLanguageProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.proficiency = kwargs.get('proficiency', None)
@@ -1457,7 +1457,7 @@ class microsoftgraphlanguageproficiency(microsoftgraphitemfacet):
         self.written = kwargs.get('written', None)
 
 
-class microsoftgraphlocaleinfo(msrest.serialization.Model):
+class MicrosoftGraphLocaleInfo(msrest.serialization.Model):
     """localeInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1483,22 +1483,22 @@ class microsoftgraphlocaleinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphlocaleinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphLocaleInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.locale = kwargs.get('locale', None)
 
 
-class microsoftgraphlocation(msrest.serialization.Model):
+class MicrosoftGraphLocation(msrest.serialization.Model):
     """location.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~people.models.microsoftgraphphysicaladdress
+    :type address: ~people.models.MicrosoftGraphPhysicalAddress
     :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~people.models.microsoftgraphoutlookgeocoordinates
+    :type coordinates: ~people.models.MicrosoftGraphOutlookGeoCoordinates
     :param display_name: The name associated with the location.
     :type display_name: str
     :param location_email_address: Optional email address of the location.
@@ -1506,20 +1506,20 @@ class microsoftgraphlocation(msrest.serialization.Model):
     :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
      "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
      "postalAddress".
-    :type location_type: str or ~people.models.Microsoftgraphlocationtype
+    :type location_type: str or ~people.models.MicrosoftGraphLocationType
     :param location_uri: Optional URI representing the location.
     :type location_uri: str
     :param unique_id: For internal use only.
     :type unique_id: str
     :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
      "private", "bing".
-    :type unique_id_type: str or ~people.models.Microsoftgraphlocationuniqueidtype
+    :type unique_id_type: str or ~people.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'coordinates': {'key': 'coordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'coordinates': {'key': 'coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'location_email_address': {'key': 'locationEmailAddress', 'type': 'str'},
         'location_type': {'key': 'locationType', 'type': 'str'},
@@ -1532,7 +1532,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphLocation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.coordinates = kwargs.get('coordinates', None)
@@ -1544,7 +1544,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self.unique_id_type = kwargs.get('unique_id_type', None)
 
 
-class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
     """outlookGeoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1576,7 +1576,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphoutlookgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.accuracy = kwargs.get('accuracy', None)
         self.altitude = kwargs.get('altitude', None)
@@ -1585,7 +1585,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self.longitude = kwargs.get('longitude', None)
 
 
-class microsoftgraphperson(microsoftgraphentity):
+class MicrosoftGraphPerson(MicrosoftGraphEntity):
     """person.
 
     :param id: Read-only.
@@ -1602,7 +1602,7 @@ class microsoftgraphperson(microsoftgraphentity):
     :param display_name: The person's display name.
     :type display_name: str
     :param email_addresses:
-    :type email_addresses: list[~people.models.microsoftgraphrankedemailaddress]
+    :type email_addresses: list[~people.models.MicrosoftGraphRankedEmailAddress]
     :param given_name: The person's given name.
     :type given_name: str
     :param is_favorite: true if the user has flagged this person as a favorite.
@@ -1616,13 +1616,13 @@ class microsoftgraphperson(microsoftgraphentity):
     :param person_type: The type of person.
     :type person_type: str
     :param phones: The person's phone numbers.
-    :type phones: list[~people.models.microsoftgraphphone]
+    :type phones: list[~people.models.MicrosoftGraphPhone]
     :param postal_addresses: The person's addresses.
-    :type postal_addresses: list[~people.models.microsoftgraphlocation]
+    :type postal_addresses: list[~people.models.MicrosoftGraphLocation]
     :param profession: The person's profession.
     :type profession: str
     :param sources:
-    :type sources: list[~people.models.microsoftgraphpersondatasource]
+    :type sources: list[~people.models.MicrosoftGraphPersonDataSource]
     :param surname: The person's surname.
     :type surname: str
     :param title:
@@ -1632,7 +1632,7 @@ class microsoftgraphperson(microsoftgraphentity):
      this should map to the person's email name. The general format is alias@domain.
     :type user_principal_name: str
     :param websites: The person's websites.
-    :type websites: list[~people.models.microsoftgraphwebsite]
+    :type websites: list[~people.models.MicrosoftGraphWebsite]
     :param yomi_company: The phonetic Japanese name of the person's company.
     :type yomi_company: str
     """
@@ -1644,21 +1644,21 @@ class microsoftgraphperson(microsoftgraphentity):
         'company_name': {'key': 'companyName', 'type': 'str'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'email_addresses': {'key': 'emailAddresses', 'type': '[microsoftgraphrankedemailaddress]'},
+        'email_addresses': {'key': 'emailAddresses', 'type': '[MicrosoftGraphRankedEmailAddress]'},
         'given_name': {'key': 'givenName', 'type': 'str'},
         'is_favorite': {'key': 'isFavorite', 'type': 'bool'},
         'mailbox_type': {'key': 'mailboxType', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
         'person_notes': {'key': 'personNotes', 'type': 'str'},
         'person_type': {'key': 'personType', 'type': 'str'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
-        'postal_addresses': {'key': 'postalAddresses', 'type': '[microsoftgraphlocation]'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
+        'postal_addresses': {'key': 'postalAddresses', 'type': '[MicrosoftGraphLocation]'},
         'profession': {'key': 'profession', 'type': 'str'},
-        'sources': {'key': 'sources', 'type': '[microsoftgraphpersondatasource]'},
+        'sources': {'key': 'sources', 'type': '[MicrosoftGraphPersonDataSource]'},
         'surname': {'key': 'surname', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'websites': {'key': 'websites', 'type': '[microsoftgraphwebsite]'},
+        'websites': {'key': 'websites', 'type': '[MicrosoftGraphWebsite]'},
         'yomi_company': {'key': 'yomiCompany', 'type': 'str'},
     }
 
@@ -1666,7 +1666,7 @@ class microsoftgraphperson(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphperson, self).__init__(**kwargs)
+        super(MicrosoftGraphPerson, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.birthday = kwargs.get('birthday', None)
         self.company_name = kwargs.get('company_name', None)
@@ -1690,44 +1690,44 @@ class microsoftgraphperson(microsoftgraphentity):
         self.yomi_company = kwargs.get('yomi_company', None)
 
 
-class microsoftgraphpersonanniversary(microsoftgraphitemfacet):
+class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """personAnniversary.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param date:
     :type date: ~datetime.date
     :param type:  Possible values include: "birthday", "wedding", "unknownFutureValue".
-    :type type: str or ~people.models.Microsoftgraphanniversarytype
+    :type type: str or ~people.models.MicrosoftGraphAnniversaryType
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'date': {'key': 'date', 'type': 'date'},
         'type': {'key': 'type', 'type': 'str'},
@@ -1737,37 +1737,37 @@ class microsoftgraphpersonanniversary(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersonanniversary, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonAnniversary, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.date = kwargs.get('date', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphpersonannotation(microsoftgraphitemfacet):
+class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """personAnnotation.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param detail: itemBody.
-    :type detail: ~people.models.microsoftgraphitembody
+    :type detail: ~people.models.MicrosoftGraphItemBody
     :param display_name:
     :type display_name: str
     """
@@ -1775,14 +1775,14 @@ class microsoftgraphpersonannotation(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'detail': {'key': 'detail', 'type': 'microsoftgraphitembody'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphItemBody'},
         'display_name': {'key': 'displayName', 'type': 'str'},
     }
 
@@ -1790,32 +1790,32 @@ class microsoftgraphpersonannotation(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersonannotation, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonAnnotation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
 
 
-class microsoftgraphpersonaward(microsoftgraphitemfacet):
+class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """personAward.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1836,12 +1836,12 @@ class microsoftgraphpersonaward(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1855,7 +1855,7 @@ class microsoftgraphpersonaward(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersonaward, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonAward, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1865,26 +1865,26 @@ class microsoftgraphpersonaward(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphpersoncertification(microsoftgraphitemfacet):
+class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """personCertification.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1913,12 +1913,12 @@ class microsoftgraphpersoncertification(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'certification_id': {'key': 'certificationId', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
@@ -1936,7 +1936,7 @@ class microsoftgraphpersoncertification(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersoncertification, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonCertification, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.certification_id = kwargs.get('certification_id', None)
         self.description = kwargs.get('description', None)
@@ -1950,7 +1950,7 @@ class microsoftgraphpersoncertification(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphpersondatasource(msrest.serialization.Model):
+class MicrosoftGraphPersonDataSource(msrest.serialization.Model):
     """personDataSource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1969,12 +1969,12 @@ class microsoftgraphpersondatasource(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersondatasource, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonDataSource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphpersondatasources(msrest.serialization.Model):
+class MicrosoftGraphPersonDataSources(msrest.serialization.Model):
     """personDataSources.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1993,31 +1993,31 @@ class microsoftgraphpersondatasources(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersondatasources, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonDataSources, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphpersoninterest(microsoftgraphitemfacet):
+class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """personInterest.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2036,12 +2036,12 @@ class microsoftgraphpersoninterest(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -2054,7 +2054,7 @@ class microsoftgraphpersoninterest(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersoninterest, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonInterest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
@@ -2063,26 +2063,26 @@ class microsoftgraphpersoninterest(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphpersonname(microsoftgraphitemfacet):
+class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """personName.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2103,7 +2103,7 @@ class microsoftgraphpersonname(microsoftgraphitemfacet):
     :param nickname:
     :type nickname: str
     :param pronunciation: yomiPersonName.
-    :type pronunciation: ~people.models.microsoftgraphyomipersonname
+    :type pronunciation: ~people.models.MicrosoftGraphYomiPersonName
     :param suffix:
     :type suffix: str
     :param title:
@@ -2113,12 +2113,12 @@ class microsoftgraphpersonname(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'first': {'key': 'first', 'type': 'str'},
@@ -2128,7 +2128,7 @@ class microsoftgraphpersonname(microsoftgraphitemfacet):
         'maiden': {'key': 'maiden', 'type': 'str'},
         'middle': {'key': 'middle', 'type': 'str'},
         'nickname': {'key': 'nickname', 'type': 'str'},
-        'pronunciation': {'key': 'pronunciation', 'type': 'microsoftgraphyomipersonname'},
+        'pronunciation': {'key': 'pronunciation', 'type': 'MicrosoftGraphYomiPersonName'},
         'suffix': {'key': 'suffix', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
     }
@@ -2137,7 +2137,7 @@ class microsoftgraphpersonname(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersonname, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonName, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.first = kwargs.get('first', None)
@@ -2152,26 +2152,26 @@ class microsoftgraphpersonname(microsoftgraphitemfacet):
         self.title = kwargs.get('title', None)
 
 
-class microsoftgraphpersonwebsite(microsoftgraphitemfacet):
+class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """personWebsite.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2188,12 +2188,12 @@ class microsoftgraphpersonwebsite(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'description': {'key': 'description', 'type': 'str'},
@@ -2205,7 +2205,7 @@ class microsoftgraphpersonwebsite(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphpersonwebsite, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonWebsite, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.description = kwargs.get('description', None)
@@ -2213,7 +2213,7 @@ class microsoftgraphpersonwebsite(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphphone(msrest.serialization.Model):
+class MicrosoftGraphPhone(msrest.serialization.Model):
     """phone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2223,7 +2223,7 @@ class microsoftgraphphone(msrest.serialization.Model):
     :type number: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~people.models.Microsoftgraphphonetype
+    :type type: str or ~people.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
@@ -2236,13 +2236,13 @@ class microsoftgraphphone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphphone, self).__init__(**kwargs)
+        super(MicrosoftGraphPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2262,7 +2262,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
     :param street: The street.
     :type street: str
     :param type:  Possible values include: "unknown", "home", "business", "other".
-    :type type: str or ~people.models.Microsoftgraphphysicaladdresstype
+    :type type: str or ~people.models.MicrosoftGraphPhysicalAddressType
     """
 
     _attribute_map = {
@@ -2280,7 +2280,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.city = kwargs.get('city', None)
         self.country_or_region = kwargs.get('country_or_region', None)
@@ -2291,14 +2291,14 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphpositiondetail(msrest.serialization.Model):
+class MicrosoftGraphPositionDetail(msrest.serialization.Model):
     """positionDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param company: companyDetail.
-    :type company: ~people.models.microsoftgraphcompanydetail
+    :type company: ~people.models.MicrosoftGraphCompanyDetail
     :param description:
     :type description: str
     :param end_month_year:
@@ -2315,7 +2315,7 @@ class microsoftgraphpositiondetail(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'company': {'key': 'company', 'type': 'microsoftgraphcompanydetail'},
+        'company': {'key': 'company', 'type': 'MicrosoftGraphCompanyDetail'},
         'description': {'key': 'description', 'type': 'str'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
         'job_title': {'key': 'jobTitle', 'type': 'str'},
@@ -2328,7 +2328,7 @@ class microsoftgraphpositiondetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpositiondetail, self).__init__(**kwargs)
+        super(MicrosoftGraphPositionDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.company = kwargs.get('company', None)
         self.description = kwargs.get('description', None)
@@ -2339,7 +2339,7 @@ class microsoftgraphpositiondetail(msrest.serialization.Model):
         self.summary = kwargs.get('summary', None)
 
 
-class microsoftgraphprofile(microsoftgraphentity):
+class MicrosoftGraphProfile(MicrosoftGraphEntity):
     """profile.
 
     :param id: Read-only.
@@ -2348,74 +2348,74 @@ class microsoftgraphprofile(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param account:
-    :type account: list[~people.models.microsoftgraphuseraccountinformation]
+    :type account: list[~people.models.MicrosoftGraphUserAccountInformation]
     :param addresses:
-    :type addresses: list[~people.models.microsoftgraphitemaddress]
+    :type addresses: list[~people.models.MicrosoftGraphItemAddress]
     :param anniversaries:
-    :type anniversaries: list[~people.models.microsoftgraphpersonanniversary]
+    :type anniversaries: list[~people.models.MicrosoftGraphPersonAnniversary]
     :param awards:
-    :type awards: list[~people.models.microsoftgraphpersonaward]
+    :type awards: list[~people.models.MicrosoftGraphPersonAward]
     :param certifications:
-    :type certifications: list[~people.models.microsoftgraphpersoncertification]
+    :type certifications: list[~people.models.MicrosoftGraphPersonCertification]
     :param educational_activities:
-    :type educational_activities: list[~people.models.microsoftgrapheducationalactivity]
+    :type educational_activities: list[~people.models.MicrosoftGraphEducationalActivity]
     :param emails:
-    :type emails: list[~people.models.microsoftgraphitememail]
+    :type emails: list[~people.models.MicrosoftGraphItemEmail]
     :param interests:
-    :type interests: list[~people.models.microsoftgraphpersoninterest]
+    :type interests: list[~people.models.MicrosoftGraphPersonInterest]
     :param languages:
-    :type languages: list[~people.models.microsoftgraphlanguageproficiency]
+    :type languages: list[~people.models.MicrosoftGraphLanguageProficiency]
     :param names:
-    :type names: list[~people.models.microsoftgraphpersonname]
+    :type names: list[~people.models.MicrosoftGraphPersonName]
     :param notes:
-    :type notes: list[~people.models.microsoftgraphpersonannotation]
+    :type notes: list[~people.models.MicrosoftGraphPersonAnnotation]
     :param patents:
-    :type patents: list[~people.models.microsoftgraphitempatent]
+    :type patents: list[~people.models.MicrosoftGraphItemPatent]
     :param phones:
-    :type phones: list[~people.models.microsoftgraphitemphone]
+    :type phones: list[~people.models.MicrosoftGraphItemPhone]
     :param positions:
-    :type positions: list[~people.models.microsoftgraphworkposition]
+    :type positions: list[~people.models.MicrosoftGraphWorkPosition]
     :param projects:
-    :type projects: list[~people.models.microsoftgraphprojectparticipation]
+    :type projects: list[~people.models.MicrosoftGraphProjectParticipation]
     :param publications:
-    :type publications: list[~people.models.microsoftgraphitempublication]
+    :type publications: list[~people.models.MicrosoftGraphItemPublication]
     :param skills:
-    :type skills: list[~people.models.microsoftgraphskillproficiency]
+    :type skills: list[~people.models.MicrosoftGraphSkillProficiency]
     :param web_accounts:
-    :type web_accounts: list[~people.models.microsoftgraphwebaccount]
+    :type web_accounts: list[~people.models.MicrosoftGraphWebAccount]
     :param websites:
-    :type websites: list[~people.models.microsoftgraphpersonwebsite]
+    :type websites: list[~people.models.MicrosoftGraphPersonWebsite]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'account': {'key': 'account', 'type': '[microsoftgraphuseraccountinformation]'},
-        'addresses': {'key': 'addresses', 'type': '[microsoftgraphitemaddress]'},
-        'anniversaries': {'key': 'anniversaries', 'type': '[microsoftgraphpersonanniversary]'},
-        'awards': {'key': 'awards', 'type': '[microsoftgraphpersonaward]'},
-        'certifications': {'key': 'certifications', 'type': '[microsoftgraphpersoncertification]'},
-        'educational_activities': {'key': 'educationalActivities', 'type': '[microsoftgrapheducationalactivity]'},
-        'emails': {'key': 'emails', 'type': '[microsoftgraphitememail]'},
-        'interests': {'key': 'interests', 'type': '[microsoftgraphpersoninterest]'},
-        'languages': {'key': 'languages', 'type': '[microsoftgraphlanguageproficiency]'},
-        'names': {'key': 'names', 'type': '[microsoftgraphpersonname]'},
-        'notes': {'key': 'notes', 'type': '[microsoftgraphpersonannotation]'},
-        'patents': {'key': 'patents', 'type': '[microsoftgraphitempatent]'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphitemphone]'},
-        'positions': {'key': 'positions', 'type': '[microsoftgraphworkposition]'},
-        'projects': {'key': 'projects', 'type': '[microsoftgraphprojectparticipation]'},
-        'publications': {'key': 'publications', 'type': '[microsoftgraphitempublication]'},
-        'skills': {'key': 'skills', 'type': '[microsoftgraphskillproficiency]'},
-        'web_accounts': {'key': 'webAccounts', 'type': '[microsoftgraphwebaccount]'},
-        'websites': {'key': 'websites', 'type': '[microsoftgraphpersonwebsite]'},
+        'account': {'key': 'account', 'type': '[MicrosoftGraphUserAccountInformation]'},
+        'addresses': {'key': 'addresses', 'type': '[MicrosoftGraphItemAddress]'},
+        'anniversaries': {'key': 'anniversaries', 'type': '[MicrosoftGraphPersonAnniversary]'},
+        'awards': {'key': 'awards', 'type': '[MicrosoftGraphPersonAward]'},
+        'certifications': {'key': 'certifications', 'type': '[MicrosoftGraphPersonCertification]'},
+        'educational_activities': {'key': 'educationalActivities', 'type': '[MicrosoftGraphEducationalActivity]'},
+        'emails': {'key': 'emails', 'type': '[MicrosoftGraphItemEmail]'},
+        'interests': {'key': 'interests', 'type': '[MicrosoftGraphPersonInterest]'},
+        'languages': {'key': 'languages', 'type': '[MicrosoftGraphLanguageProficiency]'},
+        'names': {'key': 'names', 'type': '[MicrosoftGraphPersonName]'},
+        'notes': {'key': 'notes', 'type': '[MicrosoftGraphPersonAnnotation]'},
+        'patents': {'key': 'patents', 'type': '[MicrosoftGraphItemPatent]'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphItemPhone]'},
+        'positions': {'key': 'positions', 'type': '[MicrosoftGraphWorkPosition]'},
+        'projects': {'key': 'projects', 'type': '[MicrosoftGraphProjectParticipation]'},
+        'publications': {'key': 'publications', 'type': '[MicrosoftGraphItemPublication]'},
+        'skills': {'key': 'skills', 'type': '[MicrosoftGraphSkillProficiency]'},
+        'web_accounts': {'key': 'webAccounts', 'type': '[MicrosoftGraphWebAccount]'},
+        'websites': {'key': 'websites', 'type': '[MicrosoftGraphPersonWebsite]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphprofile, self).__init__(**kwargs)
+        super(MicrosoftGraphProfile, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account = kwargs.get('account', None)
         self.addresses = kwargs.get('addresses', None)
@@ -2438,69 +2438,69 @@ class microsoftgraphprofile(microsoftgraphentity):
         self.websites = kwargs.get('websites', None)
 
 
-class microsoftgraphprojectparticipation(microsoftgraphitemfacet):
+class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """projectParticipation.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param categories:
     :type categories: list[str]
     :param client: companyDetail.
-    :type client: ~people.models.microsoftgraphcompanydetail
+    :type client: ~people.models.MicrosoftGraphCompanyDetail
     :param collaboration_tags:
     :type collaboration_tags: list[str]
     :param colleagues:
-    :type colleagues: list[~people.models.microsoftgraphrelatedperson]
+    :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
     :param detail: positionDetail.
-    :type detail: ~people.models.microsoftgraphpositiondetail
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param display_name:
     :type display_name: str
     :param sponsors:
-    :type sponsors: list[~people.models.microsoftgraphrelatedperson]
+    :type sponsors: list[~people.models.MicrosoftGraphRelatedPerson]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
-        'client': {'key': 'client', 'type': 'microsoftgraphcompanydetail'},
+        'client': {'key': 'client', 'type': 'MicrosoftGraphCompanyDetail'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
-        'colleagues': {'key': 'colleagues', 'type': '[microsoftgraphrelatedperson]'},
-        'detail': {'key': 'detail', 'type': 'microsoftgraphpositiondetail'},
+        'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'sponsors': {'key': 'sponsors', 'type': '[microsoftgraphrelatedperson]'},
+        'sponsors': {'key': 'sponsors', 'type': '[MicrosoftGraphRelatedPerson]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphprojectparticipation, self).__init__(**kwargs)
+        super(MicrosoftGraphProjectParticipation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.client = kwargs.get('client', None)
@@ -2511,7 +2511,7 @@ class microsoftgraphprojectparticipation(microsoftgraphitemfacet):
         self.sponsors = kwargs.get('sponsors', None)
 
 
-class microsoftgraphrankedemailaddress(msrest.serialization.Model):
+class MicrosoftGraphRankedEmailAddress(msrest.serialization.Model):
     """rankedEmailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2533,13 +2533,13 @@ class microsoftgraphrankedemailaddress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphrankedemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphRankedEmailAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.rank = kwargs.get('rank', None)
 
 
-class microsoftgraphrelatedperson(msrest.serialization.Model):
+class MicrosoftGraphRelatedPerson(msrest.serialization.Model):
     """relatedPerson.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2550,7 +2550,7 @@ class microsoftgraphrelatedperson(msrest.serialization.Model):
     :param relationship:  Possible values include: "manager", "colleague", "directReport",
      "dotLineReport", "assistant", "dotLineManager", "alternateContact", "friend", "spouse",
      "sibling", "child", "parent", "sponsor", "emergencyContact", "other", "unknownFutureValue".
-    :type relationship: str or ~people.models.Microsoftgraphpersonrelationship
+    :type relationship: str or ~people.models.MicrosoftGraphPersonRelationship
     :param user_principal_name:
     :type user_principal_name: str
     """
@@ -2566,14 +2566,14 @@ class microsoftgraphrelatedperson(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphrelatedperson, self).__init__(**kwargs)
+        super(MicrosoftGraphRelatedPerson, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.relationship = kwargs.get('relationship', None)
         self.user_principal_name = kwargs.get('user_principal_name', None)
 
 
-class microsoftgraphserviceinformation(msrest.serialization.Model):
+class MicrosoftGraphServiceInformation(msrest.serialization.Model):
     """serviceInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2595,13 +2595,13 @@ class microsoftgraphserviceinformation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphserviceinformation, self).__init__(**kwargs)
+        super(MicrosoftGraphServiceInformation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphsettings(msrest.serialization.Model):
+class MicrosoftGraphSettings(msrest.serialization.Model):
     """settings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2626,33 +2626,33 @@ class microsoftgraphsettings(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphSettings, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.has_graph_mailbox = kwargs.get('has_graph_mailbox', None)
         self.has_license = kwargs.get('has_license', None)
         self.has_opted_out = kwargs.get('has_opted_out', None)
 
 
-class microsoftgraphskillproficiency(microsoftgraphitemfacet):
+class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """skillProficiency.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2664,7 +2664,7 @@ class microsoftgraphskillproficiency(microsoftgraphitemfacet):
     :type display_name: str
     :param proficiency:  Possible values include: "elementary", "limitedWorking",
      "generalProfessional", "advancedProfessional", "expert", "unknownFutureValue".
-    :type proficiency: str or ~people.models.Microsoftgraphskillproficiencylevel
+    :type proficiency: str or ~people.models.MicrosoftGraphSkillProficiencyLevel
     :param web_url:
     :type web_url: str
     """
@@ -2672,12 +2672,12 @@ class microsoftgraphskillproficiency(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -2690,7 +2690,7 @@ class microsoftgraphskillproficiency(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphskillproficiency, self).__init__(**kwargs)
+        super(MicrosoftGraphSkillProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
@@ -2699,26 +2699,26 @@ class microsoftgraphskillproficiency(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphuseraccountinformation(microsoftgraphitemfacet):
+class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """userAccountInformation.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2727,7 +2727,7 @@ class microsoftgraphuseraccountinformation(microsoftgraphitemfacet):
     :param country_code:
     :type country_code: str
     :param preferred_language_tag: localeInfo.
-    :type preferred_language_tag: ~people.models.microsoftgraphlocaleinfo
+    :type preferred_language_tag: ~people.models.MicrosoftGraphLocaleInfo
     :param user_principal_name:
     :type user_principal_name: str
     """
@@ -2735,16 +2735,16 @@ class microsoftgraphuseraccountinformation(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'age_group': {'key': 'ageGroup', 'type': 'str'},
         'country_code': {'key': 'countryCode', 'type': 'str'},
-        'preferred_language_tag': {'key': 'preferredLanguageTag', 'type': 'microsoftgraphlocaleinfo'},
+        'preferred_language_tag': {'key': 'preferredLanguageTag', 'type': 'MicrosoftGraphLocaleInfo'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
     }
 
@@ -2752,7 +2752,7 @@ class microsoftgraphuseraccountinformation(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphuseraccountinformation, self).__init__(**kwargs)
+        super(MicrosoftGraphUserAccountInformation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.age_group = kwargs.get('age_group', None)
         self.country_code = kwargs.get('country_code', None)
@@ -2760,7 +2760,7 @@ class microsoftgraphuseraccountinformation(microsoftgraphitemfacet):
         self.user_principal_name = kwargs.get('user_principal_name', None)
 
 
-class microsoftgraphuseranalytics(microsoftgraphentity):
+class MicrosoftGraphUserAnalytics(MicrosoftGraphEntity):
     """userAnalytics.
 
     :param id: Read-only.
@@ -2769,55 +2769,55 @@ class microsoftgraphuseranalytics(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param settings: settings.
-    :type settings: ~people.models.microsoftgraphsettings
+    :type settings: ~people.models.MicrosoftGraphSettings
     :param activity_statistics:
-    :type activity_statistics: list[~people.models.microsoftgraphactivitystatistics]
+    :type activity_statistics: list[~people.models.MicrosoftGraphActivityStatistics]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'settings': {'key': 'settings', 'type': 'microsoftgraphsettings'},
-        'activity_statistics': {'key': 'activityStatistics', 'type': '[microsoftgraphactivitystatistics]'},
+        'settings': {'key': 'settings', 'type': 'MicrosoftGraphSettings'},
+        'activity_statistics': {'key': 'activityStatistics', 'type': '[MicrosoftGraphActivityStatistics]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphuseranalytics, self).__init__(**kwargs)
+        super(MicrosoftGraphUserAnalytics, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.settings = kwargs.get('settings', None)
         self.activity_statistics = kwargs.get('activity_statistics', None)
 
 
-class microsoftgraphwebaccount(microsoftgraphitemfacet):
+class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """webAccount.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param description:
     :type description: str
     :param service: serviceInformation.
-    :type service: ~people.models.microsoftgraphserviceinformation
+    :type service: ~people.models.MicrosoftGraphServiceInformation
     :param status_message:
     :type status_message: str
     :param user_id:
@@ -2829,15 +2829,15 @@ class microsoftgraphwebaccount(microsoftgraphitemfacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
-        'service': {'key': 'service', 'type': 'microsoftgraphserviceinformation'},
+        'service': {'key': 'service', 'type': 'MicrosoftGraphServiceInformation'},
         'status_message': {'key': 'statusMessage', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
@@ -2847,7 +2847,7 @@ class microsoftgraphwebaccount(microsoftgraphitemfacet):
         self,
         **kwargs
     ):
-        super(microsoftgraphwebaccount, self).__init__(**kwargs)
+        super(MicrosoftGraphWebAccount, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.service = kwargs.get('service', None)
@@ -2856,7 +2856,7 @@ class microsoftgraphwebaccount(microsoftgraphitemfacet):
         self.web_url = kwargs.get('web_url', None)
 
 
-class microsoftgraphwebsite(msrest.serialization.Model):
+class MicrosoftGraphWebsite(msrest.serialization.Model):
     """website.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2867,7 +2867,7 @@ class microsoftgraphwebsite(msrest.serialization.Model):
     :param display_name: The display name of the web site.
     :type display_name: str
     :param type:  Possible values include: "other", "home", "work", "blog", "profile".
-    :type type: str or ~people.models.Microsoftgraphwebsitetype
+    :type type: str or ~people.models.MicrosoftGraphWebsiteType
     """
 
     _attribute_map = {
@@ -2881,70 +2881,70 @@ class microsoftgraphwebsite(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphwebsite, self).__init__(**kwargs)
+        super(MicrosoftGraphWebsite, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphworkposition(microsoftgraphitemfacet):
+class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """workPosition.
 
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
-    :type allowed_audiences: str or ~people.models.Microsoftgraphallowedaudiences
+    :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
     :param created_by: identitySet.
-    :type created_by: ~people.models.microsoftgraphidentityset
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
-    :type inference: ~people.models.microsoftgraphinferencedata
+    :type inference: ~people.models.MicrosoftGraphInferenceData
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~people.models.microsoftgraphidentityset
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
-    :type source: ~people.models.microsoftgraphpersondatasources
+    :type source: ~people.models.MicrosoftGraphPersonDataSources
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param categories:
     :type categories: list[str]
     :param colleagues:
-    :type colleagues: list[~people.models.microsoftgraphrelatedperson]
+    :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
     :param detail: positionDetail.
-    :type detail: ~people.models.microsoftgraphpositiondetail
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param is_current:
     :type is_current: bool
     :param manager: relatedPerson.
-    :type manager: ~people.models.microsoftgraphrelatedperson
+    :type manager: ~people.models.MicrosoftGraphRelatedPerson
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'inference': {'key': 'inference', 'type': 'microsoftgraphinferencedata'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'source': {'key': 'source', 'type': 'microsoftgraphpersondatasources'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
-        'colleagues': {'key': 'colleagues', 'type': '[microsoftgraphrelatedperson]'},
-        'detail': {'key': 'detail', 'type': 'microsoftgraphpositiondetail'},
+        'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'is_current': {'key': 'isCurrent', 'type': 'bool'},
-        'manager': {'key': 'manager', 'type': 'microsoftgraphrelatedperson'},
+        'manager': {'key': 'manager', 'type': 'MicrosoftGraphRelatedPerson'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphworkposition, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkPosition, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.colleagues = kwargs.get('colleagues', None)
@@ -2953,7 +2953,7 @@ class microsoftgraphworkposition(microsoftgraphitemfacet):
         self.manager = kwargs.get('manager', None)
 
 
-class microsoftgraphyomipersonname(msrest.serialization.Model):
+class MicrosoftGraphYomiPersonName(msrest.serialization.Model):
     """yomiPersonName.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2984,7 +2984,7 @@ class microsoftgraphyomipersonname(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphyomipersonname, self).__init__(**kwargs)
+        super(MicrosoftGraphYomiPersonName, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.first = kwargs.get('first', None)
@@ -2993,8 +2993,8 @@ class microsoftgraphyomipersonname(msrest.serialization.Model):
         self.middle = kwargs.get('middle', None)
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -3002,7 +3002,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~people.models.odataerrormain
+    :type error: ~people.models.OdataErrorMain
     """
 
     _validation = {
@@ -3011,20 +3011,20 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -3055,15 +3055,15 @@ class odataerrordetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -3077,7 +3077,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~people.models.odataerrordetail]
+    :type details: list[~people.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -3092,7 +3092,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -3100,7 +3100,7 @@ class odataerrormain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

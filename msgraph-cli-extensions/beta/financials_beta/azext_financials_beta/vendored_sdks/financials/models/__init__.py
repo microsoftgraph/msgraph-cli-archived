@@ -7,221 +7,221 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofaccount
-    from ._models_py3 import collectionofagedaccountspayable
-    from ._models_py3 import collectionofagedaccountsreceivable
-    from ._models_py3 import collectionofcompany
-    from ._models_py3 import collectionofcompanyinformation
-    from ._models_py3 import collectionofcountryregion
-    from ._models_py3 import collectionofcurrency
-    from ._models_py3 import collectionofcustomer
-    from ._models_py3 import collectionofcustomerpayment
-    from ._models_py3 import collectionofcustomerpayment0
-    from ._models_py3 import collectionofcustomerpaymentjournal
-    from ._models_py3 import collectionofdimension
-    from ._models_py3 import collectionofdimensionvalue
-    from ._models_py3 import collectionofdimensionvalue0
-    from ._models_py3 import collectionofemployee
-    from ._models_py3 import collectionofgeneralledgerentry
-    from ._models_py3 import collectionofitem
-    from ._models_py3 import collectionofitemcategory
-    from ._models_py3 import collectionofjournal
-    from ._models_py3 import collectionofjournalline
-    from ._models_py3 import collectionofjournalline0
-    from ._models_py3 import collectionofpaymentmethod
-    from ._models_py3 import collectionofpaymentterm
-    from ._models_py3 import collectionofpicture
-    from ._models_py3 import collectionofpicture0
-    from ._models_py3 import collectionofpicture1
-    from ._models_py3 import collectionofpicture10
-    from ._models_py3 import collectionofpicture11
-    from ._models_py3 import collectionofpicture12
-    from ._models_py3 import collectionofpicture13
-    from ._models_py3 import collectionofpicture14
-    from ._models_py3 import collectionofpicture15
-    from ._models_py3 import collectionofpicture16
-    from ._models_py3 import collectionofpicture17
-    from ._models_py3 import collectionofpicture18
-    from ._models_py3 import collectionofpicture19
-    from ._models_py3 import collectionofpicture2
-    from ._models_py3 import collectionofpicture20
-    from ._models_py3 import collectionofpicture3
-    from ._models_py3 import collectionofpicture4
-    from ._models_py3 import collectionofpicture5
-    from ._models_py3 import collectionofpicture6
-    from ._models_py3 import collectionofpicture7
-    from ._models_py3 import collectionofpicture8
-    from ._models_py3 import collectionofpicture9
-    from ._models_py3 import collectionofpurchaseinvoice
-    from ._models_py3 import collectionofpurchaseinvoiceline
-    from ._models_py3 import collectionofpurchaseinvoiceline0
-    from ._models_py3 import collectionofsalescreditmemo
-    from ._models_py3 import collectionofsalescreditmemoline
-    from ._models_py3 import collectionofsalescreditmemoline0
-    from ._models_py3 import collectionofsalesinvoice
-    from ._models_py3 import collectionofsalesinvoiceline
-    from ._models_py3 import collectionofsalesinvoiceline0
-    from ._models_py3 import collectionofsalesorder
-    from ._models_py3 import collectionofsalesorderline
-    from ._models_py3 import collectionofsalesorderline0
-    from ._models_py3 import collectionofsalesquote
-    from ._models_py3 import collectionofsalesquoteline
-    from ._models_py3 import collectionofsalesquoteline0
-    from ._models_py3 import collectionofshipmentmethod
-    from ._models_py3 import collectionoftaxarea
-    from ._models_py3 import collectionoftaxgroup
-    from ._models_py3 import collectionofunitofmeasure
-    from ._models_py3 import collectionofvendor
-    from ._models_py3 import microsoftgraphaccount
-    from ._models_py3 import microsoftgraphagedaccountspayable
-    from ._models_py3 import microsoftgraphagedaccountsreceivable
-    from ._models_py3 import microsoftgraphcompany
-    from ._models_py3 import microsoftgraphcompanyinformation
-    from ._models_py3 import microsoftgraphcountryregion
-    from ._models_py3 import microsoftgraphcurrency
-    from ._models_py3 import microsoftgraphcustomer
-    from ._models_py3 import microsoftgraphcustomerpayment
-    from ._models_py3 import microsoftgraphcustomerpaymentjournal
-    from ._models_py3 import microsoftgraphdimension
-    from ._models_py3 import microsoftgraphdimensionvalue
-    from ._models_py3 import microsoftgraphemployee
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphfinancials
-    from ._models_py3 import microsoftgraphgeneralledgerentry
-    from ._models_py3 import microsoftgraphitem
-    from ._models_py3 import microsoftgraphitemcategory
-    from ._models_py3 import microsoftgraphjournal
-    from ._models_py3 import microsoftgraphjournalline
-    from ._models_py3 import microsoftgraphpaymentmethod
-    from ._models_py3 import microsoftgraphpaymentterm
-    from ._models_py3 import microsoftgraphpicture
-    from ._models_py3 import microsoftgraphpostaladdresstype
-    from ._models_py3 import microsoftgraphpurchaseinvoice
-    from ._models_py3 import microsoftgraphpurchaseinvoiceline
-    from ._models_py3 import microsoftgraphsalescreditmemo
-    from ._models_py3 import microsoftgraphsalescreditmemoline
-    from ._models_py3 import microsoftgraphsalesinvoice
-    from ._models_py3 import microsoftgraphsalesinvoiceline
-    from ._models_py3 import microsoftgraphsalesorder
-    from ._models_py3 import microsoftgraphsalesorderline
-    from ._models_py3 import microsoftgraphsalesquote
-    from ._models_py3 import microsoftgraphsalesquoteline
-    from ._models_py3 import microsoftgraphshipmentmethod
-    from ._models_py3 import microsoftgraphtaxarea
-    from ._models_py3 import microsoftgraphtaxgroup
-    from ._models_py3 import microsoftgraphunitofmeasure
-    from ._models_py3 import microsoftgraphvendor
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfAccount
+    from ._models_py3 import CollectionOfAgedAccountsPayable
+    from ._models_py3 import CollectionOfAgedAccountsReceivable
+    from ._models_py3 import CollectionOfCompany
+    from ._models_py3 import CollectionOfCompanyInformation
+    from ._models_py3 import CollectionOfCountryRegion
+    from ._models_py3 import CollectionOfCurrency
+    from ._models_py3 import CollectionOfCustomer
+    from ._models_py3 import CollectionOfCustomerPayment
+    from ._models_py3 import CollectionOfCustomerPayment0
+    from ._models_py3 import CollectionOfCustomerPaymentJournal
+    from ._models_py3 import CollectionOfDimension
+    from ._models_py3 import CollectionOfDimensionValue
+    from ._models_py3 import CollectionOfDimensionValue0
+    from ._models_py3 import CollectionOfEmployee
+    from ._models_py3 import CollectionOfGeneralLedgerEntry
+    from ._models_py3 import CollectionOfItem
+    from ._models_py3 import CollectionOfItemCategory
+    from ._models_py3 import CollectionOfJournal
+    from ._models_py3 import CollectionOfJournalLine
+    from ._models_py3 import CollectionOfJournalLine0
+    from ._models_py3 import CollectionOfPaymentMethod
+    from ._models_py3 import CollectionOfPaymentTerm
+    from ._models_py3 import CollectionOfPicture
+    from ._models_py3 import CollectionOfPicture0
+    from ._models_py3 import CollectionOfPicture1
+    from ._models_py3 import CollectionOfPicture10
+    from ._models_py3 import CollectionOfPicture11
+    from ._models_py3 import CollectionOfPicture12
+    from ._models_py3 import CollectionOfPicture13
+    from ._models_py3 import CollectionOfPicture14
+    from ._models_py3 import CollectionOfPicture15
+    from ._models_py3 import CollectionOfPicture16
+    from ._models_py3 import CollectionOfPicture17
+    from ._models_py3 import CollectionOfPicture18
+    from ._models_py3 import CollectionOfPicture19
+    from ._models_py3 import CollectionOfPicture2
+    from ._models_py3 import CollectionOfPicture20
+    from ._models_py3 import CollectionOfPicture3
+    from ._models_py3 import CollectionOfPicture4
+    from ._models_py3 import CollectionOfPicture5
+    from ._models_py3 import CollectionOfPicture6
+    from ._models_py3 import CollectionOfPicture7
+    from ._models_py3 import CollectionOfPicture8
+    from ._models_py3 import CollectionOfPicture9
+    from ._models_py3 import CollectionOfPurchaseInvoice
+    from ._models_py3 import CollectionOfPurchaseInvoiceLine
+    from ._models_py3 import CollectionOfPurchaseInvoiceLine0
+    from ._models_py3 import CollectionOfSalesCreditMemo
+    from ._models_py3 import CollectionOfSalesCreditMemoLine
+    from ._models_py3 import CollectionOfSalesCreditMemoLine0
+    from ._models_py3 import CollectionOfSalesInvoice
+    from ._models_py3 import CollectionOfSalesInvoiceLine
+    from ._models_py3 import CollectionOfSalesInvoiceLine0
+    from ._models_py3 import CollectionOfSalesOrder
+    from ._models_py3 import CollectionOfSalesOrderLine
+    from ._models_py3 import CollectionOfSalesOrderLine0
+    from ._models_py3 import CollectionOfSalesQuote
+    from ._models_py3 import CollectionOfSalesQuoteLine
+    from ._models_py3 import CollectionOfSalesQuoteLine0
+    from ._models_py3 import CollectionOfShipmentMethod
+    from ._models_py3 import CollectionOfTaxArea
+    from ._models_py3 import CollectionOfTaxGroup
+    from ._models_py3 import CollectionOfUnitOfMeasure
+    from ._models_py3 import CollectionOfVendor
+    from ._models_py3 import MicrosoftGraphAccount
+    from ._models_py3 import MicrosoftGraphAgedAccountsPayable
+    from ._models_py3 import MicrosoftGraphAgedAccountsReceivable
+    from ._models_py3 import MicrosoftGraphCompany
+    from ._models_py3 import MicrosoftGraphCompanyInformation
+    from ._models_py3 import MicrosoftGraphCountryRegion
+    from ._models_py3 import MicrosoftGraphCurrency
+    from ._models_py3 import MicrosoftGraphCustomer
+    from ._models_py3 import MicrosoftGraphCustomerPayment
+    from ._models_py3 import MicrosoftGraphCustomerPaymentJournal
+    from ._models_py3 import MicrosoftGraphDimension
+    from ._models_py3 import MicrosoftGraphDimensionValue
+    from ._models_py3 import MicrosoftGraphEmployee
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphFinancials
+    from ._models_py3 import MicrosoftGraphGeneralLedgerEntry
+    from ._models_py3 import MicrosoftGraphItem
+    from ._models_py3 import MicrosoftGraphItemCategory
+    from ._models_py3 import MicrosoftGraphJournal
+    from ._models_py3 import MicrosoftGraphJournalLine
+    from ._models_py3 import MicrosoftGraphPaymentMethod
+    from ._models_py3 import MicrosoftGraphPaymentTerm
+    from ._models_py3 import MicrosoftGraphPicture
+    from ._models_py3 import MicrosoftGraphPostalAddressType
+    from ._models_py3 import MicrosoftGraphPurchaseInvoice
+    from ._models_py3 import MicrosoftGraphPurchaseInvoiceLine
+    from ._models_py3 import MicrosoftGraphSalesCreditMemo
+    from ._models_py3 import MicrosoftGraphSalesCreditMemoLine
+    from ._models_py3 import MicrosoftGraphSalesInvoice
+    from ._models_py3 import MicrosoftGraphSalesInvoiceLine
+    from ._models_py3 import MicrosoftGraphSalesOrder
+    from ._models_py3 import MicrosoftGraphSalesOrderLine
+    from ._models_py3 import MicrosoftGraphSalesQuote
+    from ._models_py3 import MicrosoftGraphSalesQuoteLine
+    from ._models_py3 import MicrosoftGraphShipmentMethod
+    from ._models_py3 import MicrosoftGraphTaxArea
+    from ._models_py3 import MicrosoftGraphTaxGroup
+    from ._models_py3 import MicrosoftGraphUnitOfMeasure
+    from ._models_py3 import MicrosoftGraphVendor
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofaccount  # type: ignore
-    from ._models import collectionofagedaccountspayable  # type: ignore
-    from ._models import collectionofagedaccountsreceivable  # type: ignore
-    from ._models import collectionofcompany  # type: ignore
-    from ._models import collectionofcompanyinformation  # type: ignore
-    from ._models import collectionofcountryregion  # type: ignore
-    from ._models import collectionofcurrency  # type: ignore
-    from ._models import collectionofcustomer  # type: ignore
-    from ._models import collectionofcustomerpayment  # type: ignore
-    from ._models import collectionofcustomerpayment0  # type: ignore
-    from ._models import collectionofcustomerpaymentjournal  # type: ignore
-    from ._models import collectionofdimension  # type: ignore
-    from ._models import collectionofdimensionvalue  # type: ignore
-    from ._models import collectionofdimensionvalue0  # type: ignore
-    from ._models import collectionofemployee  # type: ignore
-    from ._models import collectionofgeneralledgerentry  # type: ignore
-    from ._models import collectionofitem  # type: ignore
-    from ._models import collectionofitemcategory  # type: ignore
-    from ._models import collectionofjournal  # type: ignore
-    from ._models import collectionofjournalline  # type: ignore
-    from ._models import collectionofjournalline0  # type: ignore
-    from ._models import collectionofpaymentmethod  # type: ignore
-    from ._models import collectionofpaymentterm  # type: ignore
-    from ._models import collectionofpicture  # type: ignore
-    from ._models import collectionofpicture0  # type: ignore
-    from ._models import collectionofpicture1  # type: ignore
-    from ._models import collectionofpicture10  # type: ignore
-    from ._models import collectionofpicture11  # type: ignore
-    from ._models import collectionofpicture12  # type: ignore
-    from ._models import collectionofpicture13  # type: ignore
-    from ._models import collectionofpicture14  # type: ignore
-    from ._models import collectionofpicture15  # type: ignore
-    from ._models import collectionofpicture16  # type: ignore
-    from ._models import collectionofpicture17  # type: ignore
-    from ._models import collectionofpicture18  # type: ignore
-    from ._models import collectionofpicture19  # type: ignore
-    from ._models import collectionofpicture2  # type: ignore
-    from ._models import collectionofpicture20  # type: ignore
-    from ._models import collectionofpicture3  # type: ignore
-    from ._models import collectionofpicture4  # type: ignore
-    from ._models import collectionofpicture5  # type: ignore
-    from ._models import collectionofpicture6  # type: ignore
-    from ._models import collectionofpicture7  # type: ignore
-    from ._models import collectionofpicture8  # type: ignore
-    from ._models import collectionofpicture9  # type: ignore
-    from ._models import collectionofpurchaseinvoice  # type: ignore
-    from ._models import collectionofpurchaseinvoiceline  # type: ignore
-    from ._models import collectionofpurchaseinvoiceline0  # type: ignore
-    from ._models import collectionofsalescreditmemo  # type: ignore
-    from ._models import collectionofsalescreditmemoline  # type: ignore
-    from ._models import collectionofsalescreditmemoline0  # type: ignore
-    from ._models import collectionofsalesinvoice  # type: ignore
-    from ._models import collectionofsalesinvoiceline  # type: ignore
-    from ._models import collectionofsalesinvoiceline0  # type: ignore
-    from ._models import collectionofsalesorder  # type: ignore
-    from ._models import collectionofsalesorderline  # type: ignore
-    from ._models import collectionofsalesorderline0  # type: ignore
-    from ._models import collectionofsalesquote  # type: ignore
-    from ._models import collectionofsalesquoteline  # type: ignore
-    from ._models import collectionofsalesquoteline0  # type: ignore
-    from ._models import collectionofshipmentmethod  # type: ignore
-    from ._models import collectionoftaxarea  # type: ignore
-    from ._models import collectionoftaxgroup  # type: ignore
-    from ._models import collectionofunitofmeasure  # type: ignore
-    from ._models import collectionofvendor  # type: ignore
-    from ._models import microsoftgraphaccount  # type: ignore
-    from ._models import microsoftgraphagedaccountspayable  # type: ignore
-    from ._models import microsoftgraphagedaccountsreceivable  # type: ignore
-    from ._models import microsoftgraphcompany  # type: ignore
-    from ._models import microsoftgraphcompanyinformation  # type: ignore
-    from ._models import microsoftgraphcountryregion  # type: ignore
-    from ._models import microsoftgraphcurrency  # type: ignore
-    from ._models import microsoftgraphcustomer  # type: ignore
-    from ._models import microsoftgraphcustomerpayment  # type: ignore
-    from ._models import microsoftgraphcustomerpaymentjournal  # type: ignore
-    from ._models import microsoftgraphdimension  # type: ignore
-    from ._models import microsoftgraphdimensionvalue  # type: ignore
-    from ._models import microsoftgraphemployee  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphfinancials  # type: ignore
-    from ._models import microsoftgraphgeneralledgerentry  # type: ignore
-    from ._models import microsoftgraphitem  # type: ignore
-    from ._models import microsoftgraphitemcategory  # type: ignore
-    from ._models import microsoftgraphjournal  # type: ignore
-    from ._models import microsoftgraphjournalline  # type: ignore
-    from ._models import microsoftgraphpaymentmethod  # type: ignore
-    from ._models import microsoftgraphpaymentterm  # type: ignore
-    from ._models import microsoftgraphpicture  # type: ignore
-    from ._models import microsoftgraphpostaladdresstype  # type: ignore
-    from ._models import microsoftgraphpurchaseinvoice  # type: ignore
-    from ._models import microsoftgraphpurchaseinvoiceline  # type: ignore
-    from ._models import microsoftgraphsalescreditmemo  # type: ignore
-    from ._models import microsoftgraphsalescreditmemoline  # type: ignore
-    from ._models import microsoftgraphsalesinvoice  # type: ignore
-    from ._models import microsoftgraphsalesinvoiceline  # type: ignore
-    from ._models import microsoftgraphsalesorder  # type: ignore
-    from ._models import microsoftgraphsalesorderline  # type: ignore
-    from ._models import microsoftgraphsalesquote  # type: ignore
-    from ._models import microsoftgraphsalesquoteline  # type: ignore
-    from ._models import microsoftgraphshipmentmethod  # type: ignore
-    from ._models import microsoftgraphtaxarea  # type: ignore
-    from ._models import microsoftgraphtaxgroup  # type: ignore
-    from ._models import microsoftgraphunitofmeasure  # type: ignore
-    from ._models import microsoftgraphvendor  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfAccount  # type: ignore
+    from ._models import CollectionOfAgedAccountsPayable  # type: ignore
+    from ._models import CollectionOfAgedAccountsReceivable  # type: ignore
+    from ._models import CollectionOfCompany  # type: ignore
+    from ._models import CollectionOfCompanyInformation  # type: ignore
+    from ._models import CollectionOfCountryRegion  # type: ignore
+    from ._models import CollectionOfCurrency  # type: ignore
+    from ._models import CollectionOfCustomer  # type: ignore
+    from ._models import CollectionOfCustomerPayment  # type: ignore
+    from ._models import CollectionOfCustomerPayment0  # type: ignore
+    from ._models import CollectionOfCustomerPaymentJournal  # type: ignore
+    from ._models import CollectionOfDimension  # type: ignore
+    from ._models import CollectionOfDimensionValue  # type: ignore
+    from ._models import CollectionOfDimensionValue0  # type: ignore
+    from ._models import CollectionOfEmployee  # type: ignore
+    from ._models import CollectionOfGeneralLedgerEntry  # type: ignore
+    from ._models import CollectionOfItem  # type: ignore
+    from ._models import CollectionOfItemCategory  # type: ignore
+    from ._models import CollectionOfJournal  # type: ignore
+    from ._models import CollectionOfJournalLine  # type: ignore
+    from ._models import CollectionOfJournalLine0  # type: ignore
+    from ._models import CollectionOfPaymentMethod  # type: ignore
+    from ._models import CollectionOfPaymentTerm  # type: ignore
+    from ._models import CollectionOfPicture  # type: ignore
+    from ._models import CollectionOfPicture0  # type: ignore
+    from ._models import CollectionOfPicture1  # type: ignore
+    from ._models import CollectionOfPicture10  # type: ignore
+    from ._models import CollectionOfPicture11  # type: ignore
+    from ._models import CollectionOfPicture12  # type: ignore
+    from ._models import CollectionOfPicture13  # type: ignore
+    from ._models import CollectionOfPicture14  # type: ignore
+    from ._models import CollectionOfPicture15  # type: ignore
+    from ._models import CollectionOfPicture16  # type: ignore
+    from ._models import CollectionOfPicture17  # type: ignore
+    from ._models import CollectionOfPicture18  # type: ignore
+    from ._models import CollectionOfPicture19  # type: ignore
+    from ._models import CollectionOfPicture2  # type: ignore
+    from ._models import CollectionOfPicture20  # type: ignore
+    from ._models import CollectionOfPicture3  # type: ignore
+    from ._models import CollectionOfPicture4  # type: ignore
+    from ._models import CollectionOfPicture5  # type: ignore
+    from ._models import CollectionOfPicture6  # type: ignore
+    from ._models import CollectionOfPicture7  # type: ignore
+    from ._models import CollectionOfPicture8  # type: ignore
+    from ._models import CollectionOfPicture9  # type: ignore
+    from ._models import CollectionOfPurchaseInvoice  # type: ignore
+    from ._models import CollectionOfPurchaseInvoiceLine  # type: ignore
+    from ._models import CollectionOfPurchaseInvoiceLine0  # type: ignore
+    from ._models import CollectionOfSalesCreditMemo  # type: ignore
+    from ._models import CollectionOfSalesCreditMemoLine  # type: ignore
+    from ._models import CollectionOfSalesCreditMemoLine0  # type: ignore
+    from ._models import CollectionOfSalesInvoice  # type: ignore
+    from ._models import CollectionOfSalesInvoiceLine  # type: ignore
+    from ._models import CollectionOfSalesInvoiceLine0  # type: ignore
+    from ._models import CollectionOfSalesOrder  # type: ignore
+    from ._models import CollectionOfSalesOrderLine  # type: ignore
+    from ._models import CollectionOfSalesOrderLine0  # type: ignore
+    from ._models import CollectionOfSalesQuote  # type: ignore
+    from ._models import CollectionOfSalesQuoteLine  # type: ignore
+    from ._models import CollectionOfSalesQuoteLine0  # type: ignore
+    from ._models import CollectionOfShipmentMethod  # type: ignore
+    from ._models import CollectionOfTaxArea  # type: ignore
+    from ._models import CollectionOfTaxGroup  # type: ignore
+    from ._models import CollectionOfUnitOfMeasure  # type: ignore
+    from ._models import CollectionOfVendor  # type: ignore
+    from ._models import MicrosoftGraphAccount  # type: ignore
+    from ._models import MicrosoftGraphAgedAccountsPayable  # type: ignore
+    from ._models import MicrosoftGraphAgedAccountsReceivable  # type: ignore
+    from ._models import MicrosoftGraphCompany  # type: ignore
+    from ._models import MicrosoftGraphCompanyInformation  # type: ignore
+    from ._models import MicrosoftGraphCountryRegion  # type: ignore
+    from ._models import MicrosoftGraphCurrency  # type: ignore
+    from ._models import MicrosoftGraphCustomer  # type: ignore
+    from ._models import MicrosoftGraphCustomerPayment  # type: ignore
+    from ._models import MicrosoftGraphCustomerPaymentJournal  # type: ignore
+    from ._models import MicrosoftGraphDimension  # type: ignore
+    from ._models import MicrosoftGraphDimensionValue  # type: ignore
+    from ._models import MicrosoftGraphEmployee  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphFinancials  # type: ignore
+    from ._models import MicrosoftGraphGeneralLedgerEntry  # type: ignore
+    from ._models import MicrosoftGraphItem  # type: ignore
+    from ._models import MicrosoftGraphItemCategory  # type: ignore
+    from ._models import MicrosoftGraphJournal  # type: ignore
+    from ._models import MicrosoftGraphJournalLine  # type: ignore
+    from ._models import MicrosoftGraphPaymentMethod  # type: ignore
+    from ._models import MicrosoftGraphPaymentTerm  # type: ignore
+    from ._models import MicrosoftGraphPicture  # type: ignore
+    from ._models import MicrosoftGraphPostalAddressType  # type: ignore
+    from ._models import MicrosoftGraphPurchaseInvoice  # type: ignore
+    from ._models import MicrosoftGraphPurchaseInvoiceLine  # type: ignore
+    from ._models import MicrosoftGraphSalesCreditMemo  # type: ignore
+    from ._models import MicrosoftGraphSalesCreditMemoLine  # type: ignore
+    from ._models import MicrosoftGraphSalesInvoice  # type: ignore
+    from ._models import MicrosoftGraphSalesInvoiceLine  # type: ignore
+    from ._models import MicrosoftGraphSalesOrder  # type: ignore
+    from ._models import MicrosoftGraphSalesOrderLine  # type: ignore
+    from ._models import MicrosoftGraphSalesQuote  # type: ignore
+    from ._models import MicrosoftGraphSalesQuoteLine  # type: ignore
+    from ._models import MicrosoftGraphShipmentMethod  # type: ignore
+    from ._models import MicrosoftGraphTaxArea  # type: ignore
+    from ._models import MicrosoftGraphTaxGroup  # type: ignore
+    from ._models import MicrosoftGraphUnitOfMeasure  # type: ignore
+    from ._models import MicrosoftGraphVendor  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._financials_enums import (
     Enum10,
@@ -574,123 +574,123 @@ from ._financials_enums import (
     Enum97,
     Enum98,
     Enum99,
-    Get1itemsitem,
-    Get2itemsitem,
-    Get4itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
-    Get9itemsitem,
+    Get1ItemsItem,
+    Get2ItemsItem,
+    Get4ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
+    Get9ItemsItem,
 )
 
 __all__ = [
-    'collectionofaccount',
-    'collectionofagedaccountspayable',
-    'collectionofagedaccountsreceivable',
-    'collectionofcompany',
-    'collectionofcompanyinformation',
-    'collectionofcountryregion',
-    'collectionofcurrency',
-    'collectionofcustomer',
-    'collectionofcustomerpayment',
-    'collectionofcustomerpayment0',
-    'collectionofcustomerpaymentjournal',
-    'collectionofdimension',
-    'collectionofdimensionvalue',
-    'collectionofdimensionvalue0',
-    'collectionofemployee',
-    'collectionofgeneralledgerentry',
-    'collectionofitem',
-    'collectionofitemcategory',
-    'collectionofjournal',
-    'collectionofjournalline',
-    'collectionofjournalline0',
-    'collectionofpaymentmethod',
-    'collectionofpaymentterm',
-    'collectionofpicture',
-    'collectionofpicture0',
-    'collectionofpicture1',
-    'collectionofpicture10',
-    'collectionofpicture11',
-    'collectionofpicture12',
-    'collectionofpicture13',
-    'collectionofpicture14',
-    'collectionofpicture15',
-    'collectionofpicture16',
-    'collectionofpicture17',
-    'collectionofpicture18',
-    'collectionofpicture19',
-    'collectionofpicture2',
-    'collectionofpicture20',
-    'collectionofpicture3',
-    'collectionofpicture4',
-    'collectionofpicture5',
-    'collectionofpicture6',
-    'collectionofpicture7',
-    'collectionofpicture8',
-    'collectionofpicture9',
-    'collectionofpurchaseinvoice',
-    'collectionofpurchaseinvoiceline',
-    'collectionofpurchaseinvoiceline0',
-    'collectionofsalescreditmemo',
-    'collectionofsalescreditmemoline',
-    'collectionofsalescreditmemoline0',
-    'collectionofsalesinvoice',
-    'collectionofsalesinvoiceline',
-    'collectionofsalesinvoiceline0',
-    'collectionofsalesorder',
-    'collectionofsalesorderline',
-    'collectionofsalesorderline0',
-    'collectionofsalesquote',
-    'collectionofsalesquoteline',
-    'collectionofsalesquoteline0',
-    'collectionofshipmentmethod',
-    'collectionoftaxarea',
-    'collectionoftaxgroup',
-    'collectionofunitofmeasure',
-    'collectionofvendor',
-    'microsoftgraphaccount',
-    'microsoftgraphagedaccountspayable',
-    'microsoftgraphagedaccountsreceivable',
-    'microsoftgraphcompany',
-    'microsoftgraphcompanyinformation',
-    'microsoftgraphcountryregion',
-    'microsoftgraphcurrency',
-    'microsoftgraphcustomer',
-    'microsoftgraphcustomerpayment',
-    'microsoftgraphcustomerpaymentjournal',
-    'microsoftgraphdimension',
-    'microsoftgraphdimensionvalue',
-    'microsoftgraphemployee',
-    'microsoftgraphentity',
-    'microsoftgraphfinancials',
-    'microsoftgraphgeneralledgerentry',
-    'microsoftgraphitem',
-    'microsoftgraphitemcategory',
-    'microsoftgraphjournal',
-    'microsoftgraphjournalline',
-    'microsoftgraphpaymentmethod',
-    'microsoftgraphpaymentterm',
-    'microsoftgraphpicture',
-    'microsoftgraphpostaladdresstype',
-    'microsoftgraphpurchaseinvoice',
-    'microsoftgraphpurchaseinvoiceline',
-    'microsoftgraphsalescreditmemo',
-    'microsoftgraphsalescreditmemoline',
-    'microsoftgraphsalesinvoice',
-    'microsoftgraphsalesinvoiceline',
-    'microsoftgraphsalesorder',
-    'microsoftgraphsalesorderline',
-    'microsoftgraphsalesquote',
-    'microsoftgraphsalesquoteline',
-    'microsoftgraphshipmentmethod',
-    'microsoftgraphtaxarea',
-    'microsoftgraphtaxgroup',
-    'microsoftgraphunitofmeasure',
-    'microsoftgraphvendor',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfAccount',
+    'CollectionOfAgedAccountsPayable',
+    'CollectionOfAgedAccountsReceivable',
+    'CollectionOfCompany',
+    'CollectionOfCompanyInformation',
+    'CollectionOfCountryRegion',
+    'CollectionOfCurrency',
+    'CollectionOfCustomer',
+    'CollectionOfCustomerPayment',
+    'CollectionOfCustomerPayment0',
+    'CollectionOfCustomerPaymentJournal',
+    'CollectionOfDimension',
+    'CollectionOfDimensionValue',
+    'CollectionOfDimensionValue0',
+    'CollectionOfEmployee',
+    'CollectionOfGeneralLedgerEntry',
+    'CollectionOfItem',
+    'CollectionOfItemCategory',
+    'CollectionOfJournal',
+    'CollectionOfJournalLine',
+    'CollectionOfJournalLine0',
+    'CollectionOfPaymentMethod',
+    'CollectionOfPaymentTerm',
+    'CollectionOfPicture',
+    'CollectionOfPicture0',
+    'CollectionOfPicture1',
+    'CollectionOfPicture10',
+    'CollectionOfPicture11',
+    'CollectionOfPicture12',
+    'CollectionOfPicture13',
+    'CollectionOfPicture14',
+    'CollectionOfPicture15',
+    'CollectionOfPicture16',
+    'CollectionOfPicture17',
+    'CollectionOfPicture18',
+    'CollectionOfPicture19',
+    'CollectionOfPicture2',
+    'CollectionOfPicture20',
+    'CollectionOfPicture3',
+    'CollectionOfPicture4',
+    'CollectionOfPicture5',
+    'CollectionOfPicture6',
+    'CollectionOfPicture7',
+    'CollectionOfPicture8',
+    'CollectionOfPicture9',
+    'CollectionOfPurchaseInvoice',
+    'CollectionOfPurchaseInvoiceLine',
+    'CollectionOfPurchaseInvoiceLine0',
+    'CollectionOfSalesCreditMemo',
+    'CollectionOfSalesCreditMemoLine',
+    'CollectionOfSalesCreditMemoLine0',
+    'CollectionOfSalesInvoice',
+    'CollectionOfSalesInvoiceLine',
+    'CollectionOfSalesInvoiceLine0',
+    'CollectionOfSalesOrder',
+    'CollectionOfSalesOrderLine',
+    'CollectionOfSalesOrderLine0',
+    'CollectionOfSalesQuote',
+    'CollectionOfSalesQuoteLine',
+    'CollectionOfSalesQuoteLine0',
+    'CollectionOfShipmentMethod',
+    'CollectionOfTaxArea',
+    'CollectionOfTaxGroup',
+    'CollectionOfUnitOfMeasure',
+    'CollectionOfVendor',
+    'MicrosoftGraphAccount',
+    'MicrosoftGraphAgedAccountsPayable',
+    'MicrosoftGraphAgedAccountsReceivable',
+    'MicrosoftGraphCompany',
+    'MicrosoftGraphCompanyInformation',
+    'MicrosoftGraphCountryRegion',
+    'MicrosoftGraphCurrency',
+    'MicrosoftGraphCustomer',
+    'MicrosoftGraphCustomerPayment',
+    'MicrosoftGraphCustomerPaymentJournal',
+    'MicrosoftGraphDimension',
+    'MicrosoftGraphDimensionValue',
+    'MicrosoftGraphEmployee',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphFinancials',
+    'MicrosoftGraphGeneralLedgerEntry',
+    'MicrosoftGraphItem',
+    'MicrosoftGraphItemCategory',
+    'MicrosoftGraphJournal',
+    'MicrosoftGraphJournalLine',
+    'MicrosoftGraphPaymentMethod',
+    'MicrosoftGraphPaymentTerm',
+    'MicrosoftGraphPicture',
+    'MicrosoftGraphPostalAddressType',
+    'MicrosoftGraphPurchaseInvoice',
+    'MicrosoftGraphPurchaseInvoiceLine',
+    'MicrosoftGraphSalesCreditMemo',
+    'MicrosoftGraphSalesCreditMemoLine',
+    'MicrosoftGraphSalesInvoice',
+    'MicrosoftGraphSalesInvoiceLine',
+    'MicrosoftGraphSalesOrder',
+    'MicrosoftGraphSalesOrderLine',
+    'MicrosoftGraphSalesQuote',
+    'MicrosoftGraphSalesQuoteLine',
+    'MicrosoftGraphShipmentMethod',
+    'MicrosoftGraphTaxArea',
+    'MicrosoftGraphTaxGroup',
+    'MicrosoftGraphUnitOfMeasure',
+    'MicrosoftGraphVendor',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum10',
     'Enum100',
     'Enum101',
@@ -1041,11 +1041,11 @@ __all__ = [
     'Enum97',
     'Enum98',
     'Enum99',
-    'Get1itemsitem',
-    'Get2itemsitem',
-    'Get4itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
-    'Get9itemsitem',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
+    'Get4ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
+    'Get9ItemsItem',
 ]

@@ -10,19 +10,19 @@
 # pylint: disable=too-many-lines
 
 
-def cloudcommunications_communicationscloudcommunication_show_cloud_communication(client,
-                                                                                  select=None,
-                                                                                  expand=None):
+def cloudcommunications_communication_cloud_communication_show_cloud_communication(client,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.get_cloud_communications(select=select,
                                            expand=expand)
 
 
-def cloudcommunications_communicationscloudcommunication_update_cloud_communication(client,
-                                                                                    id_=None,
-                                                                                    calls=None,
-                                                                                    call_records=None,
-                                                                                    online_meetings=None,
-                                                                                    presences=None):
+def cloudcommunications_communication_cloud_communication_update_cloud_communication(client,
+                                                                                     id_=None,
+                                                                                     calls=None,
+                                                                                     call_records=None,
+                                                                                     online_meetings=None,
+                                                                                     presences=None):
     body = {}
     body['id'] = id_
     body['calls'] = calls
@@ -531,16 +531,16 @@ def cloudcommunications_communication_update_presence(client,
                                    body=body)
 
 
-def cloudcommunications_communicationscallrecord_create_session(client,
-                                                                call_record_id,
-                                                                id_=None,
-                                                                end_date_time=None,
-                                                                failure_info=None,
-                                                                modalities=None,
-                                                                start_date_time=None,
-                                                                segments=None,
-                                                                user_agent=None,
-                                                                microsoft_graph_call_records_user_agent=None):
+def cloudcommunications_communication_call_record_create_session(client,
+                                                                 call_record_id,
+                                                                 id_=None,
+                                                                 end_date_time=None,
+                                                                 failure_info=None,
+                                                                 modalities=None,
+                                                                 start_date_time=None,
+                                                                 segments=None,
+                                                                 user_agent=None,
+                                                                 microsoft_graph_call_records_user_agent=None):
     body = {}
     body['id'] = id_
     body['end_date_time'] = end_date_time
@@ -556,48 +556,48 @@ def cloudcommunications_communicationscallrecord_create_session(client,
                                   body=body)
 
 
-def cloudcommunications_communicationscallrecord_delete_session(client,
-                                                                call_record_id,
-                                                                session_id,
-                                                                if_match=None):
+def cloudcommunications_communication_call_record_delete_session(client,
+                                                                 call_record_id,
+                                                                 session_id,
+                                                                 if_match=None):
     return client.delete_sessions(call_record_id=call_record_id,
                                   session_id=session_id,
                                   if_match=if_match)
 
 
-def cloudcommunications_communicationscallrecord_list_session(client,
-                                                              call_record_id,
-                                                              orderby=None,
-                                                              select=None,
-                                                              expand=None):
+def cloudcommunications_communication_call_record_list_session(client,
+                                                               call_record_id,
+                                                               orderby=None,
+                                                               select=None,
+                                                               expand=None):
     return client.list_sessions(call_record_id=call_record_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def cloudcommunications_communicationscallrecord_show_session(client,
-                                                              call_record_id,
-                                                              session_id,
-                                                              select=None,
-                                                              expand=None):
+def cloudcommunications_communication_call_record_show_session(client,
+                                                               call_record_id,
+                                                               session_id,
+                                                               select=None,
+                                                               expand=None):
     return client.get_sessions(call_record_id=call_record_id,
                                session_id=session_id,
                                select=select,
                                expand=expand)
 
 
-def cloudcommunications_communicationscallrecord_update_session(client,
-                                                                call_record_id,
-                                                                session_id,
-                                                                id_=None,
-                                                                end_date_time=None,
-                                                                failure_info=None,
-                                                                modalities=None,
-                                                                start_date_time=None,
-                                                                segments=None,
-                                                                user_agent=None,
-                                                                microsoft_graph_call_records_user_agent=None):
+def cloudcommunications_communication_call_record_update_session(client,
+                                                                 call_record_id,
+                                                                 session_id,
+                                                                 id_=None,
+                                                                 end_date_time=None,
+                                                                 failure_info=None,
+                                                                 modalities=None,
+                                                                 start_date_time=None,
+                                                                 segments=None,
+                                                                 user_agent=None,
+                                                                 microsoft_graph_call_records_user_agent=None):
     body = {}
     body['id'] = id_
     body['end_date_time'] = end_date_time
@@ -614,16 +614,16 @@ def cloudcommunications_communicationscallrecord_update_session(client,
                                   body=body)
 
 
-def cloudcommunications_communicationscallrecordssession_create_segment(client,
-                                                                        call_record_id,
-                                                                        session_id,
-                                                                        id_=None,
-                                                                        end_date_time=None,
-                                                                        failure_info=None,
-                                                                        media=None,
-                                                                        start_date_time=None,
-                                                                        user_agent=None,
-                                                                        microsoft_graph_call_records_user_agent=None):
+def cloudcommunications_communication_call_record_session_create_segment(client,
+                                                                         call_record_id,
+                                                                         session_id,
+                                                                         id_=None,
+                                                                         end_date_time=None,
+                                                                         failure_info=None,
+                                                                         media=None,
+                                                                         start_date_time=None,
+                                                                         user_agent=None,
+                                                                         microsoft_graph_call_records_user_agent=None):
     body = {}
     body['id'] = id_
     body['end_date_time'] = end_date_time
@@ -639,23 +639,23 @@ def cloudcommunications_communicationscallrecordssession_create_segment(client,
                                   body=body)
 
 
-def cloudcommunications_communicationscallrecordssession_delete_segment(client,
-                                                                        call_record_id,
-                                                                        session_id,
-                                                                        segment_id,
-                                                                        if_match=None):
+def cloudcommunications_communication_call_record_session_delete_segment(client,
+                                                                         call_record_id,
+                                                                         session_id,
+                                                                         segment_id,
+                                                                         if_match=None):
     return client.delete_segments(call_record_id=call_record_id,
                                   session_id=session_id,
                                   segment_id=segment_id,
                                   if_match=if_match)
 
 
-def cloudcommunications_communicationscallrecordssession_list_segment(client,
-                                                                      call_record_id,
-                                                                      session_id,
-                                                                      orderby=None,
-                                                                      select=None,
-                                                                      expand=None):
+def cloudcommunications_communication_call_record_session_list_segment(client,
+                                                                       call_record_id,
+                                                                       session_id,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
     return client.list_segments(call_record_id=call_record_id,
                                 session_id=session_id,
                                 orderby=orderby,
@@ -663,12 +663,12 @@ def cloudcommunications_communicationscallrecordssession_list_segment(client,
                                 expand=expand)
 
 
-def cloudcommunications_communicationscallrecordssession_show_segment(client,
-                                                                      call_record_id,
-                                                                      session_id,
-                                                                      segment_id,
-                                                                      select=None,
-                                                                      expand=None):
+def cloudcommunications_communication_call_record_session_show_segment(client,
+                                                                       call_record_id,
+                                                                       session_id,
+                                                                       segment_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_segments(call_record_id=call_record_id,
                                session_id=session_id,
                                segment_id=segment_id,
@@ -676,17 +676,17 @@ def cloudcommunications_communicationscallrecordssession_show_segment(client,
                                expand=expand)
 
 
-def cloudcommunications_communicationscallrecordssession_update_segment(client,
-                                                                        call_record_id,
-                                                                        session_id,
-                                                                        segment_id,
-                                                                        id_=None,
-                                                                        end_date_time=None,
-                                                                        failure_info=None,
-                                                                        media=None,
-                                                                        start_date_time=None,
-                                                                        user_agent=None,
-                                                                        microsoft_graph_call_records_user_agent=None):
+def cloudcommunications_communication_call_record_session_update_segment(client,
+                                                                         call_record_id,
+                                                                         session_id,
+                                                                         segment_id,
+                                                                         id_=None,
+                                                                         end_date_time=None,
+                                                                         failure_info=None,
+                                                                         media=None,
+                                                                         start_date_time=None,
+                                                                         user_agent=None,
+                                                                         microsoft_graph_call_records_user_agent=None):
     body = {}
     body['id'] = id_
     body['end_date_time'] = end_date_time
@@ -703,7 +703,7 @@ def cloudcommunications_communicationscallrecordssession_update_segment(client,
                                   body=body)
 
 
-def cloudcommunications_communicationscall_answer(client,
+def cloudcommunications_communication_call_answer(client,
                                                   call_id,
                                                   callback_uri=None,
                                                   accepted_modalities=None,
@@ -717,7 +717,7 @@ def cloudcommunications_communicationscall_answer(client,
                          body=body)
 
 
-def cloudcommunications_communicationscall_cancel_media_processing(client,
+def cloudcommunications_communication_call_cancel_media_processing(client,
                                                                    call_id,
                                                                    client_context=None):
     body = {}
@@ -726,7 +726,7 @@ def cloudcommunications_communicationscall_cancel_media_processing(client,
                                           body=body)
 
 
-def cloudcommunications_communicationscall_change_screen_sharing_role(client,
+def cloudcommunications_communication_call_change_screen_sharing_role(client,
                                                                       call_id,
                                                                       role=None):
     body = {}
@@ -735,7 +735,7 @@ def cloudcommunications_communicationscall_change_screen_sharing_role(client,
                                              body=body)
 
 
-def cloudcommunications_communicationscall_create_audio_routing_group(client,
+def cloudcommunications_communication_call_create_audio_routing_group(client,
                                                                       call_id,
                                                                       id_=None,
                                                                       receivers=None,
@@ -750,7 +750,7 @@ def cloudcommunications_communicationscall_create_audio_routing_group(client,
                                               body=body)
 
 
-def cloudcommunications_communicationscall_create_operation(client,
+def cloudcommunications_communication_call_create_operation(client,
                                                             call_id,
                                                             id_=None,
                                                             client_context=None,
@@ -765,7 +765,7 @@ def cloudcommunications_communicationscall_create_operation(client,
                                     body=body)
 
 
-def cloudcommunications_communicationscall_create_participant(client,
+def cloudcommunications_communication_call_create_participant(client,
                                                               call_id,
                                                               id_=None,
                                                               is_in_lobby=None,
@@ -800,7 +800,7 @@ def cloudcommunications_communicationscall_create_participant(client,
                                       body=body)
 
 
-def cloudcommunications_communicationscall_delete_audio_routing_group(client,
+def cloudcommunications_communication_call_delete_audio_routing_group(client,
                                                                       call_id,
                                                                       audio_routing_group_id,
                                                                       if_match=None):
@@ -809,7 +809,7 @@ def cloudcommunications_communicationscall_delete_audio_routing_group(client,
                                               if_match=if_match)
 
 
-def cloudcommunications_communicationscall_delete_operation(client,
+def cloudcommunications_communication_call_delete_operation(client,
                                                             call_id,
                                                             comms_operation_id,
                                                             if_match=None):
@@ -818,7 +818,7 @@ def cloudcommunications_communicationscall_delete_operation(client,
                                     if_match=if_match)
 
 
-def cloudcommunications_communicationscall_delete_participant(client,
+def cloudcommunications_communication_call_delete_participant(client,
                                                               call_id,
                                                               participant_id,
                                                               if_match=None):
@@ -827,12 +827,12 @@ def cloudcommunications_communicationscall_delete_participant(client,
                                       if_match=if_match)
 
 
-def cloudcommunications_communicationscall_keep_alive(client,
+def cloudcommunications_communication_call_keep_alive(client,
                                                       call_id):
     return client.keep_alive(call_id=call_id)
 
 
-def cloudcommunications_communicationscall_list_audio_routing_group(client,
+def cloudcommunications_communication_call_list_audio_routing_group(client,
                                                                     call_id,
                                                                     orderby=None,
                                                                     select=None,
@@ -843,7 +843,7 @@ def cloudcommunications_communicationscall_list_audio_routing_group(client,
                                             expand=expand)
 
 
-def cloudcommunications_communicationscall_list_operation(client,
+def cloudcommunications_communication_call_list_operation(client,
                                                           call_id,
                                                           orderby=None,
                                                           select=None,
@@ -854,7 +854,7 @@ def cloudcommunications_communicationscall_list_operation(client,
                                   expand=expand)
 
 
-def cloudcommunications_communicationscall_list_participant(client,
+def cloudcommunications_communication_call_list_participant(client,
                                                             call_id,
                                                             orderby=None,
                                                             select=None,
@@ -865,7 +865,7 @@ def cloudcommunications_communicationscall_list_participant(client,
                                     expand=expand)
 
 
-def cloudcommunications_communicationscall_log_teleconference_device_quality(client,
+def cloudcommunications_communication_call_log_teleconference_device_quality(client,
                                                                              call_chain_id=None,
                                                                              cloud_service_deployment_environment=None,
                                                                              cloud_service_deployment_id=None,
@@ -891,7 +891,7 @@ def cloudcommunications_communicationscall_log_teleconference_device_quality(cli
     return client.log_teleconference_device_quality(body=body)
 
 
-def cloudcommunications_communicationscall_mute(client,
+def cloudcommunications_communication_call_mute(client,
                                                 call_id,
                                                 client_context=None):
     body = {}
@@ -900,7 +900,7 @@ def cloudcommunications_communicationscall_mute(client,
                        body=body)
 
 
-def cloudcommunications_communicationscall_play_prompt(client,
+def cloudcommunications_communication_call_play_prompt(client,
                                                        call_id,
                                                        prompts=None,
                                                        loop=None,
@@ -915,7 +915,7 @@ def cloudcommunications_communicationscall_play_prompt(client,
                               body=body)
 
 
-def cloudcommunications_communicationscall_record(client,
+def cloudcommunications_communication_call_record(client,
                                                   call_id,
                                                   prompts=None,
                                                   barge_in_allowed=None,
@@ -946,7 +946,7 @@ def cloudcommunications_communicationscall_record(client,
                          body=body)
 
 
-def cloudcommunications_communicationscall_record_response(client,
+def cloudcommunications_communication_call_record_response(client,
                                                            call_id,
                                                            prompts=None,
                                                            barge_in_allowed=None,
@@ -977,7 +977,7 @@ def cloudcommunications_communicationscall_record_response(client,
                                   body=body)
 
 
-def cloudcommunications_communicationscall_redirect(client,
+def cloudcommunications_communication_call_redirect(client,
                                                     call_id,
                                                     targets=None,
                                                     target_disposition=None,
@@ -1000,7 +1000,7 @@ def cloudcommunications_communicationscall_redirect(client,
                            body=body)
 
 
-def cloudcommunications_communicationscall_reject(client,
+def cloudcommunications_communication_call_reject(client,
                                                   call_id,
                                                   reason=None,
                                                   callback_uri=None):
@@ -1011,7 +1011,7 @@ def cloudcommunications_communicationscall_reject(client,
                          body=body)
 
 
-def cloudcommunications_communicationscall_show_audio_routing_group(client,
+def cloudcommunications_communication_call_show_audio_routing_group(client,
                                                                     call_id,
                                                                     audio_routing_group_id,
                                                                     select=None,
@@ -1022,7 +1022,7 @@ def cloudcommunications_communicationscall_show_audio_routing_group(client,
                                            expand=expand)
 
 
-def cloudcommunications_communicationscall_show_operation(client,
+def cloudcommunications_communication_call_show_operation(client,
                                                           call_id,
                                                           comms_operation_id,
                                                           select=None,
@@ -1033,7 +1033,7 @@ def cloudcommunications_communicationscall_show_operation(client,
                                  expand=expand)
 
 
-def cloudcommunications_communicationscall_show_participant(client,
+def cloudcommunications_communication_call_show_participant(client,
                                                             call_id,
                                                             participant_id,
                                                             select=None,
@@ -1044,7 +1044,7 @@ def cloudcommunications_communicationscall_show_participant(client,
                                    expand=expand)
 
 
-def cloudcommunications_communicationscall_subscribe_to_tone(client,
+def cloudcommunications_communication_call_subscribe_to_tone(client,
                                                              call_id,
                                                              client_context=None):
     body = {}
@@ -1053,7 +1053,7 @@ def cloudcommunications_communicationscall_subscribe_to_tone(client,
                                     body=body)
 
 
-def cloudcommunications_communicationscall_transfer(client,
+def cloudcommunications_communication_call_transfer(client,
                                                     call_id,
                                                     endpoint_type=None,
                                                     replaces_call_id=None,
@@ -1072,7 +1072,7 @@ def cloudcommunications_communicationscall_transfer(client,
                            body=body)
 
 
-def cloudcommunications_communicationscall_unmute(client,
+def cloudcommunications_communication_call_unmute(client,
                                                   call_id,
                                                   client_context=None):
     body = {}
@@ -1081,7 +1081,7 @@ def cloudcommunications_communicationscall_unmute(client,
                          body=body)
 
 
-def cloudcommunications_communicationscall_update_audio_routing_group(client,
+def cloudcommunications_communication_call_update_audio_routing_group(client,
                                                                       call_id,
                                                                       audio_routing_group_id,
                                                                       id_=None,
@@ -1098,7 +1098,7 @@ def cloudcommunications_communicationscall_update_audio_routing_group(client,
                                               body=body)
 
 
-def cloudcommunications_communicationscall_update_operation(client,
+def cloudcommunications_communication_call_update_operation(client,
                                                             call_id,
                                                             comms_operation_id,
                                                             id_=None,
@@ -1115,7 +1115,7 @@ def cloudcommunications_communicationscall_update_operation(client,
                                     body=body)
 
 
-def cloudcommunications_communicationscall_update_participant(client,
+def cloudcommunications_communication_call_update_participant(client,
                                                               call_id,
                                                               participant_id,
                                                               id_=None,
@@ -1152,7 +1152,7 @@ def cloudcommunications_communicationscall_update_participant(client,
                                       body=body)
 
 
-def cloudcommunications_communicationscall_update_recording_status(client,
+def cloudcommunications_communication_call_update_recording_status(client,
                                                                    call_id,
                                                                    status=None,
                                                                    client_context=None):
@@ -1163,7 +1163,7 @@ def cloudcommunications_communicationscall_update_recording_status(client,
                                           body=body)
 
 
-def cloudcommunications_communicationscallsparticipant_invite(client,
+def cloudcommunications_communication_call_participant_invite(client,
                                                               call_id,
                                                               participants=None,
                                                               client_context=None):
@@ -1174,7 +1174,7 @@ def cloudcommunications_communicationscallsparticipant_invite(client,
                          body=body)
 
 
-def cloudcommunications_communicationscallsparticipant_mute(client,
+def cloudcommunications_communication_call_participant_mute(client,
                                                             call_id,
                                                             participant_id,
                                                             client_context=None):
@@ -1185,7 +1185,7 @@ def cloudcommunications_communicationscallsparticipant_mute(client,
                        body=body)
 
 
-def cloudcommunications_communicationscallsparticipant_mute_all(client,
+def cloudcommunications_communication_call_participant_mute_all(client,
                                                                 call_id,
                                                                 participants=None,
                                                                 client_context=None):
@@ -1196,16 +1196,16 @@ def cloudcommunications_communicationscallsparticipant_mute_all(client,
                            body=body)
 
 
-def cloudcommunications_communicationsonlinemeeting_create_or_get(client,
-                                                                  chat_info=None,
-                                                                  end_date_time=None,
-                                                                  external_id=None,
-                                                                  start_date_time=None,
-                                                                  subject=None,
-                                                                  attendees=None,
-                                                                  contributors=None,
-                                                                  organizer=None,
-                                                                  producers=None):
+def cloudcommunications_communication_online_meeting_create_or_get(client,
+                                                                   chat_info=None,
+                                                                   end_date_time=None,
+                                                                   external_id=None,
+                                                                   start_date_time=None,
+                                                                   subject=None,
+                                                                   attendees=None,
+                                                                   contributors=None,
+                                                                   organizer=None,
+                                                                   producers=None):
     body = {}
     body['chat_info'] = chat_info
     body['end_date_time'] = end_date_time

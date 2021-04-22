@@ -15,7 +15,7 @@ import msrest.serialization
 from ._planner_enums import *
 
 
-class collectionoflinksofplannerplan(msrest.serialization.Model):
+class CollectionOfLinksOfPlannerPlan(msrest.serialization.Model):
     """Collection of links of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -41,13 +41,13 @@ class collectionoflinksofplannerplan(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoflinksofplannerplan, self).__init__(**kwargs)
+        super(CollectionOfLinksOfPlannerPlan, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoflinksofplannerplan0(msrest.serialization.Model):
+class CollectionOfLinksOfPlannerPlan0(msrest.serialization.Model):
     """Collection of links of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -73,27 +73,27 @@ class collectionoflinksofplannerplan0(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoflinksofplannerplan0, self).__init__(**kwargs)
+        super(CollectionOfLinksOfPlannerPlan0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerbucket(msrest.serialization.Model):
+class CollectionOfPlannerBucket(msrest.serialization.Model):
     """Collection of plannerBucket.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerbucket]
+    :type value: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerbucket]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerBucket]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,31 +101,31 @@ class collectionofplannerbucket(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerbucket"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerbucket, self).__init__(**kwargs)
+        super(CollectionOfPlannerBucket, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerbucket0(msrest.serialization.Model):
+class CollectionOfPlannerBucket0(msrest.serialization.Model):
     """Collection of plannerBucket.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerbucket]
+    :type value: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerbucket]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerBucket]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -133,31 +133,31 @@ class collectionofplannerbucket0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerbucket"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerbucket0, self).__init__(**kwargs)
+        super(CollectionOfPlannerBucket0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerbucket1(msrest.serialization.Model):
+class CollectionOfPlannerBucket1(msrest.serialization.Model):
     """Collection of plannerBucket.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerbucket]
+    :type value: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerbucket]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerBucket]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -165,31 +165,31 @@ class collectionofplannerbucket1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerbucket"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerbucket1, self).__init__(**kwargs)
+        super(CollectionOfPlannerBucket1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerbucket2(msrest.serialization.Model):
+class CollectionOfPlannerBucket2(msrest.serialization.Model):
     """Collection of plannerBucket.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerbucket]
+    :type value: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerbucket]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerBucket]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -197,31 +197,31 @@ class collectionofplannerbucket2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerbucket"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerbucket2, self).__init__(**kwargs)
+        super(CollectionOfPlannerBucket2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerdelta(msrest.serialization.Model):
+class CollectionOfPlannerDelta(msrest.serialization.Model):
     """Collection of plannerDelta.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerdelta]
+    :type value: list[~planner.models.MicrosoftGraphPlannerDelta]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerdelta]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerDelta]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -229,31 +229,31 @@ class collectionofplannerdelta(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerdelta"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerDelta"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerdelta, self).__init__(**kwargs)
+        super(CollectionOfPlannerDelta, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerplan(msrest.serialization.Model):
+class CollectionOfPlannerPlan(msrest.serialization.Model):
     """Collection of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerplan]
+    :type value: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerplan]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerPlan]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -261,31 +261,31 @@ class collectionofplannerplan(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerplan"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerplan, self).__init__(**kwargs)
+        super(CollectionOfPlannerPlan, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerplan0(msrest.serialization.Model):
+class CollectionOfPlannerPlan0(msrest.serialization.Model):
     """Collection of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerplan]
+    :type value: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerplan]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerPlan]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -293,31 +293,31 @@ class collectionofplannerplan0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerplan"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerplan0, self).__init__(**kwargs)
+        super(CollectionOfPlannerPlan0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerplan1(msrest.serialization.Model):
+class CollectionOfPlannerPlan1(msrest.serialization.Model):
     """Collection of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerplan]
+    :type value: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerplan]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerPlan]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -325,31 +325,31 @@ class collectionofplannerplan1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerplan"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerplan1, self).__init__(**kwargs)
+        super(CollectionOfPlannerPlan1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerplan2(msrest.serialization.Model):
+class CollectionOfPlannerPlan2(msrest.serialization.Model):
     """Collection of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerplan]
+    :type value: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerplan]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerPlan]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -357,31 +357,31 @@ class collectionofplannerplan2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerplan"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerplan2, self).__init__(**kwargs)
+        super(CollectionOfPlannerPlan2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannerplan3(msrest.serialization.Model):
+class CollectionOfPlannerPlan3(msrest.serialization.Model):
     """Collection of plannerPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannerplan]
+    :type value: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannerplan]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerPlan]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -389,31 +389,31 @@ class collectionofplannerplan3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannerplan"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannerplan3, self).__init__(**kwargs)
+        super(CollectionOfPlannerPlan3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask(msrest.serialization.Model):
+class CollectionOfPlannerTask(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -421,31 +421,31 @@ class collectionofplannertask(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask0(msrest.serialization.Model):
+class CollectionOfPlannerTask0(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -453,31 +453,31 @@ class collectionofplannertask0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask0, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask1(msrest.serialization.Model):
+class CollectionOfPlannerTask1(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -485,31 +485,31 @@ class collectionofplannertask1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask1, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask2(msrest.serialization.Model):
+class CollectionOfPlannerTask2(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -517,31 +517,31 @@ class collectionofplannertask2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask2, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask3(msrest.serialization.Model):
+class CollectionOfPlannerTask3(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -549,31 +549,31 @@ class collectionofplannertask3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask3, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask4(msrest.serialization.Model):
+class CollectionOfPlannerTask4(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -581,31 +581,31 @@ class collectionofplannertask4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask4, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask5(msrest.serialization.Model):
+class CollectionOfPlannerTask5(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -613,31 +613,31 @@ class collectionofplannertask5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask5, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask6(msrest.serialization.Model):
+class CollectionOfPlannerTask6(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -645,31 +645,31 @@ class collectionofplannertask6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask6, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplannertask7(msrest.serialization.Model):
+class CollectionOfPlannerTask7(msrest.serialization.Model):
     """Collection of plannerTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~planner.models.microsoftgraphplannertask]
+    :type value: list[~planner.models.MicrosoftGraphPlannerTask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplannertask]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlannerTask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -677,17 +677,17 @@ class collectionofplannertask7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplannertask"]] = None,
+        value: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplannertask7, self).__init__(**kwargs)
+        super(CollectionOfPlannerTask7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -709,12 +709,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphidentity(msrest.serialization.Model):
+class MicrosoftGraphIdentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -743,50 +743,50 @@ class microsoftgraphidentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
 
 
-class microsoftgraphidentityset(msrest.serialization.Model):
+class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     """identitySet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~planner.models.microsoftgraphidentity
+    :type application: ~planner.models.MicrosoftGraphIdentity
     :param device: identity.
-    :type device: ~planner.models.microsoftgraphidentity
+    :type device: ~planner.models.MicrosoftGraphIdentity
     :param user: identity.
-    :type user: ~planner.models.microsoftgraphidentity
+    :type user: ~planner.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
-        'device': {'key': 'device', 'type': 'microsoftgraphidentity'},
-        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        application: Optional["microsoftgraphidentity"] = None,
-        device: Optional["microsoftgraphidentity"] = None,
-        user: Optional["microsoftgraphidentity"] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
-        super(microsoftgraphidentityset, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.application = application
         self.device = device
         self.user = user
 
 
-class microsoftgraphplanner(microsoftgraphentity):
+class MicrosoftGraphPlanner(MicrosoftGraphEntity):
     """planner.
 
     :param id: Read-only.
@@ -795,19 +795,19 @@ class microsoftgraphplanner(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param buckets: Read-only. Nullable. Returns a collection of the specified buckets.
-    :type buckets: list[~planner.models.microsoftgraphplannerbucket]
+    :type buckets: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param plans: Read-only. Nullable. Returns a collection of the specified plans.
-    :type plans: list[~planner.models.microsoftgraphplannerplan]
+    :type plans: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param tasks: Read-only. Nullable. Returns a collection of the specified tasks.
-    :type tasks: list[~planner.models.microsoftgraphplannertask]
+    :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'buckets': {'key': 'buckets', 'type': '[microsoftgraphplannerbucket]'},
-        'plans': {'key': 'plans', 'type': '[microsoftgraphplannerplan]'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'buckets': {'key': 'buckets', 'type': '[MicrosoftGraphPlannerBucket]'},
+        'plans': {'key': 'plans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -815,19 +815,19 @@ class microsoftgraphplanner(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        buckets: Optional[List["microsoftgraphplannerbucket"]] = None,
-        plans: Optional[List["microsoftgraphplannerplan"]] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        buckets: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplanner, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlanner, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.buckets = buckets
         self.plans = plans
         self.tasks = tasks
 
 
-class microsoftgraphplannerdelta(microsoftgraphentity):
+class MicrosoftGraphPlannerDelta(MicrosoftGraphEntity):
     """plannerDelta.
 
     :param id: Read-only.
@@ -849,11 +849,11 @@ class microsoftgraphplannerdelta(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerdelta, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerDelta, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphplannerassignedtotaskboardtaskformat(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerAssignedToTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -886,13 +886,13 @@ class microsoftgraphplannerassignedtotaskboardtaskformat(microsoftgraphplannerde
         unassigned_order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerassignedtotaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hints_by_assignee = order_hints_by_assignee
         self.unassigned_order_hint = unassigned_order_hint
 
 
-class microsoftgraphplannerbucket(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """plannerBucket.
 
     :param id: Read-only.
@@ -908,7 +908,7 @@ class microsoftgraphplannerbucket(microsoftgraphplannerdelta):
     :param plan_id: Plan ID to which the bucket belongs.
     :type plan_id: str
     :param tasks: Read-only. Nullable. The collection of tasks in the bucket.
-    :type tasks: list[~planner.models.microsoftgraphplannertask]
+    :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
@@ -917,7 +917,7 @@ class microsoftgraphplannerbucket(microsoftgraphplannerdelta):
         'name': {'key': 'name', 'type': 'str'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
         'plan_id': {'key': 'planId', 'type': 'str'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -928,10 +928,10 @@ class microsoftgraphplannerbucket(microsoftgraphplannerdelta):
         name: Optional[str] = None,
         order_hint: Optional[str] = None,
         plan_id: Optional[str] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerbucket, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerBucket, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.order_hint = order_hint
@@ -939,7 +939,7 @@ class microsoftgraphplannerbucket(microsoftgraphplannerdelta):
         self.tasks = tasks
 
 
-class microsoftgraphplannerbuckettaskboardtaskformat(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerBucketTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -966,12 +966,12 @@ class microsoftgraphplannerbuckettaskboardtaskformat(microsoftgraphplannerdelta)
         order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerbuckettaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerBucketTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hint = order_hint
 
 
-class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
+class MicrosoftGraphPlannerCategoryDescriptions(msrest.serialization.Model):
     """plannerCategoryDescriptions.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1013,7 +1013,7 @@ class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
         category6: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannercategorydescriptions, self).__init__(**kwargs)
+        super(MicrosoftGraphPlannerCategoryDescriptions, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.category1 = category1
         self.category2 = category2
@@ -1023,7 +1023,7 @@ class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
         self.category6 = category6
 
 
-class microsoftgraphplannergroup(microsoftgraphentity):
+class MicrosoftGraphPlannerGroup(MicrosoftGraphEntity):
     """plannerGroup.
 
     :param id: Read-only.
@@ -1032,13 +1032,13 @@ class microsoftgraphplannergroup(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param plans: Read-only. Nullable. Returns the plannerPlans owned by the group.
-    :type plans: list[~planner.models.microsoftgraphplannerplan]
+    :type plans: list[~planner.models.MicrosoftGraphPlannerPlan]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'plans': {'key': 'plans', 'type': '[microsoftgraphplannerplan]'},
+        'plans': {'key': 'plans', 'type': '[MicrosoftGraphPlannerPlan]'},
     }
 
     def __init__(
@@ -1046,15 +1046,15 @@ class microsoftgraphplannergroup(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        plans: Optional[List["microsoftgraphplannerplan"]] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannergroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.plans = plans
 
 
-class microsoftgraphplannerplan(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """plannerPlan.
 
     :param id: Read-only.
@@ -1065,7 +1065,7 @@ class microsoftgraphplannerplan(microsoftgraphplannerdelta):
     :param contexts: plannerPlanContextCollection.
     :type contexts: dict[str, object]
     :param created_by: identitySet.
-    :type created_by: ~planner.models.microsoftgraphidentityset
+    :type created_by: ~planner.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the plan is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1076,24 +1076,24 @@ class microsoftgraphplannerplan(microsoftgraphplannerdelta):
     :param title: Required. Title of the plan.
     :type title: str
     :param buckets: Read-only. Nullable. Collection of buckets in the plan.
-    :type buckets: list[~planner.models.microsoftgraphplannerbucket]
+    :type buckets: list[~planner.models.MicrosoftGraphPlannerBucket]
     :param details: plannerPlanDetails.
-    :type details: ~planner.models.microsoftgraphplannerplandetails
+    :type details: ~planner.models.MicrosoftGraphPlannerPlanDetails
     :param tasks: Read-only. Nullable. Collection of tasks in the plan.
-    :type tasks: list[~planner.models.microsoftgraphplannertask]
+    :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'contexts': {'key': 'contexts', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'owner': {'key': 'owner', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
-        'buckets': {'key': 'buckets', 'type': '[microsoftgraphplannerbucket]'},
-        'details': {'key': 'details', 'type': 'microsoftgraphplannerplandetails'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'buckets': {'key': 'buckets', 'type': '[MicrosoftGraphPlannerBucket]'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerPlanDetails'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -1102,16 +1102,16 @@ class microsoftgraphplannerplan(microsoftgraphplannerdelta):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         contexts: Optional[Dict[str, object]] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         owner: Optional[str] = None,
         title: Optional[str] = None,
-        buckets: Optional[List["microsoftgraphplannerbucket"]] = None,
-        details: Optional["microsoftgraphplannerplandetails"] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        buckets: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
+        details: Optional["MicrosoftGraphPlannerPlanDetails"] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerplan, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerPlan, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.contexts = contexts
         self.created_by = created_by
@@ -1123,7 +1123,7 @@ class microsoftgraphplannerplan(microsoftgraphplannerdelta):
         self.tasks = tasks
 
 
-class microsoftgraphplannerplandetails(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """plannerPlanDetails.
 
     :param id: Read-only.
@@ -1132,7 +1132,7 @@ class microsoftgraphplannerplandetails(microsoftgraphplannerdelta):
      collection.
     :type additional_properties: dict[str, object]
     :param category_descriptions: plannerCategoryDescriptions.
-    :type category_descriptions: ~planner.models.microsoftgraphplannercategorydescriptions
+    :type category_descriptions: ~planner.models.MicrosoftGraphPlannerCategoryDescriptions
     :param context_details: plannerPlanContextDetailsCollection.
     :type context_details: dict[str, object]
     :param shared_with: plannerUserIds.
@@ -1142,7 +1142,7 @@ class microsoftgraphplannerplandetails(microsoftgraphplannerdelta):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'category_descriptions': {'key': 'categoryDescriptions', 'type': 'microsoftgraphplannercategorydescriptions'},
+        'category_descriptions': {'key': 'categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
         'context_details': {'key': 'contextDetails', 'type': '{object}'},
         'shared_with': {'key': 'sharedWith', 'type': '{object}'},
     }
@@ -1152,19 +1152,19 @@ class microsoftgraphplannerplandetails(microsoftgraphplannerdelta):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        category_descriptions: Optional["microsoftgraphplannercategorydescriptions"] = None,
+        category_descriptions: Optional["MicrosoftGraphPlannerCategoryDescriptions"] = None,
         context_details: Optional[Dict[str, object]] = None,
         shared_with: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerplandetails, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerPlanDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.category_descriptions = category_descriptions
         self.context_details = context_details
         self.shared_with = shared_with
 
 
-class microsoftgraphplannerprogresstaskboardtaskformat(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerProgressTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -1191,12 +1191,12 @@ class microsoftgraphplannerprogresstaskboardtaskformat(microsoftgraphplannerdelt
         order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerprogresstaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerProgressTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hint = order_hint
 
 
-class microsoftgraphplannertask(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     """plannerTask.
 
     :param id: Read-only.
@@ -1221,7 +1221,7 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
     :param checklist_item_count: Number of checklist items that are present on the task.
     :type checklist_item_count: int
     :param completed_by: identitySet.
-    :type completed_by: ~planner.models.microsoftgraphidentityset
+    :type completed_by: ~planner.models.MicrosoftGraphIdentitySet
     :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
      is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
      and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
@@ -1231,7 +1231,7 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
      conversation thread object created in the group.
     :type conversation_thread_id: str
     :param created_by: identitySet.
-    :type created_by: ~planner.models.microsoftgraphidentityset
+    :type created_by: ~planner.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1253,7 +1253,7 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
     :type plan_id: str
     :param preview_type:  Possible values include: "automatic", "noPreview", "checklist",
      "description", "reference".
-    :type preview_type: str or ~planner.models.Microsoftgraphplannerpreviewtype
+    :type preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
     :param priority:
     :type priority: int
     :param reference_count: Number of external references that exist on the task.
@@ -1266,14 +1266,14 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
     :type title: str
     :param assigned_to_task_board_format: plannerAssignedToTaskBoardTaskFormat.
     :type assigned_to_task_board_format:
-     ~planner.models.microsoftgraphplannerassignedtotaskboardtaskformat
+     ~planner.models.MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
     :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
-    :type bucket_task_board_format: ~planner.models.microsoftgraphplannerbuckettaskboardtaskformat
+    :type bucket_task_board_format: ~planner.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
     :param details: plannerTaskDetails.
-    :type details: ~planner.models.microsoftgraphplannertaskdetails
+    :type details: ~planner.models.MicrosoftGraphPlannerTaskDetails
     :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
     :type progress_task_board_format:
-     ~planner.models.microsoftgraphplannerprogresstaskboardtaskformat
+     ~planner.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
     """
 
     _validation = {
@@ -1293,10 +1293,10 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
         'assignments': {'key': 'assignments', 'type': '{object}'},
         'bucket_id': {'key': 'bucketId', 'type': 'str'},
         'checklist_item_count': {'key': 'checklistItemCount', 'type': 'int'},
-        'completed_by': {'key': 'completedBy', 'type': 'microsoftgraphidentityset'},
+        'completed_by': {'key': 'completedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'completed_date_time': {'key': 'completedDateTime', 'type': 'iso-8601'},
         'conversation_thread_id': {'key': 'conversationThreadId', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'has_description': {'key': 'hasDescription', 'type': 'bool'},
@@ -1308,10 +1308,10 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
         'reference_count': {'key': 'referenceCount', 'type': 'int'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'title': {'key': 'title', 'type': 'str'},
-        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'microsoftgraphplannerassignedtotaskboardtaskformat'},
-        'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'microsoftgraphplannerbuckettaskboardtaskformat'},
-        'details': {'key': 'details', 'type': 'microsoftgraphplannertaskdetails'},
-        'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'microsoftgraphplannerprogresstaskboardtaskformat'},
+        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat'},
+        'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'MicrosoftGraphPlannerBucketTaskBoardTaskFormat'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerTaskDetails'},
+        'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'MicrosoftGraphPlannerProgressTaskBoardTaskFormat'},
     }
 
     def __init__(
@@ -1325,28 +1325,28 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
         assignments: Optional[Dict[str, object]] = None,
         bucket_id: Optional[str] = None,
         checklist_item_count: Optional[int] = None,
-        completed_by: Optional["microsoftgraphidentityset"] = None,
+        completed_by: Optional["MicrosoftGraphIdentitySet"] = None,
         completed_date_time: Optional[datetime.datetime] = None,
         conversation_thread_id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         due_date_time: Optional[datetime.datetime] = None,
         has_description: Optional[bool] = None,
         order_hint: Optional[str] = None,
         percent_complete: Optional[int] = None,
         plan_id: Optional[str] = None,
-        preview_type: Optional[Union[str, "Microsoftgraphplannerpreviewtype"]] = None,
+        preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
         priority: Optional[int] = None,
         reference_count: Optional[int] = None,
         start_date_time: Optional[datetime.datetime] = None,
         title: Optional[str] = None,
-        assigned_to_task_board_format: Optional["microsoftgraphplannerassignedtotaskboardtaskformat"] = None,
-        bucket_task_board_format: Optional["microsoftgraphplannerbuckettaskboardtaskformat"] = None,
-        details: Optional["microsoftgraphplannertaskdetails"] = None,
-        progress_task_board_format: Optional["microsoftgraphplannerprogresstaskboardtaskformat"] = None,
+        assigned_to_task_board_format: Optional["MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat"] = None,
+        bucket_task_board_format: Optional["MicrosoftGraphPlannerBucketTaskBoardTaskFormat"] = None,
+        details: Optional["MicrosoftGraphPlannerTaskDetails"] = None,
+        progress_task_board_format: Optional["MicrosoftGraphPlannerProgressTaskBoardTaskFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphplannertask, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerTask, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.active_checklist_item_count = active_checklist_item_count
         self.applied_categories = applied_categories
@@ -1375,7 +1375,7 @@ class microsoftgraphplannertask(microsoftgraphplannerdelta):
         self.progress_task_board_format = progress_task_board_format
 
 
-class microsoftgraphplannertaskdetails(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """plannerTaskDetails.
 
     :param id: Read-only.
@@ -1389,7 +1389,7 @@ class microsoftgraphplannertaskdetails(microsoftgraphplannerdelta):
     :type description: str
     :param preview_type:  Possible values include: "automatic", "noPreview", "checklist",
      "description", "reference".
-    :type preview_type: str or ~planner.models.Microsoftgraphplannerpreviewtype
+    :type preview_type: str or ~planner.models.MicrosoftGraphPlannerPreviewType
     :param references: plannerExternalReferences.
     :type references: dict[str, object]
     """
@@ -1410,11 +1410,11 @@ class microsoftgraphplannertaskdetails(microsoftgraphplannerdelta):
         additional_properties: Optional[Dict[str, object]] = None,
         checklist: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
-        preview_type: Optional[Union[str, "Microsoftgraphplannerpreviewtype"]] = None,
+        preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
         references: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannertaskdetails, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerTaskDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.checklist = checklist
         self.description = description
@@ -1422,7 +1422,7 @@ class microsoftgraphplannertaskdetails(microsoftgraphplannerdelta):
         self.references = references
 
 
-class microsoftgraphplanneruser(microsoftgraphplannerdelta):
+class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """plannerUser.
 
     :param id: Read-only.
@@ -1435,15 +1435,15 @@ class microsoftgraphplanneruser(microsoftgraphplannerdelta):
     :param recent_plan_references: plannerRecentPlanReferenceCollection.
     :type recent_plan_references: dict[str, object]
     :param all:
-    :type all: list[~planner.models.microsoftgraphplannerdelta]
+    :type all: list[~planner.models.MicrosoftGraphPlannerDelta]
     :param favorite_plans:
-    :type favorite_plans: list[~planner.models.microsoftgraphplannerplan]
+    :type favorite_plans: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param plans: Read-only. Nullable. Returns the plannerTasks assigned to the user.
-    :type plans: list[~planner.models.microsoftgraphplannerplan]
+    :type plans: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param recent_plans:
-    :type recent_plans: list[~planner.models.microsoftgraphplannerplan]
+    :type recent_plans: list[~planner.models.MicrosoftGraphPlannerPlan]
     :param tasks: Read-only. Nullable. Returns the plannerPlans shared with the user.
-    :type tasks: list[~planner.models.microsoftgraphplannertask]
+    :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
@@ -1451,11 +1451,11 @@ class microsoftgraphplanneruser(microsoftgraphplannerdelta):
         'additional_properties': {'key': '', 'type': '{object}'},
         'favorite_plan_references': {'key': 'favoritePlanReferences', 'type': '{object}'},
         'recent_plan_references': {'key': 'recentPlanReferences', 'type': '{object}'},
-        'all': {'key': 'all', 'type': '[microsoftgraphplannerdelta]'},
-        'favorite_plans': {'key': 'favoritePlans', 'type': '[microsoftgraphplannerplan]'},
-        'plans': {'key': 'plans', 'type': '[microsoftgraphplannerplan]'},
-        'recent_plans': {'key': 'recentPlans', 'type': '[microsoftgraphplannerplan]'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'all': {'key': 'all', 'type': '[MicrosoftGraphPlannerDelta]'},
+        'favorite_plans': {'key': 'favoritePlans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'plans': {'key': 'plans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'recent_plans': {'key': 'recentPlans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -1465,14 +1465,14 @@ class microsoftgraphplanneruser(microsoftgraphplannerdelta):
         additional_properties: Optional[Dict[str, object]] = None,
         favorite_plan_references: Optional[Dict[str, object]] = None,
         recent_plan_references: Optional[Dict[str, object]] = None,
-        all: Optional[List["microsoftgraphplannerdelta"]] = None,
-        favorite_plans: Optional[List["microsoftgraphplannerplan"]] = None,
-        plans: Optional[List["microsoftgraphplannerplan"]] = None,
-        recent_plans: Optional[List["microsoftgraphplannerplan"]] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        all: Optional[List["MicrosoftGraphPlannerDelta"]] = None,
+        favorite_plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        recent_plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplanneruser, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerUser, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.favorite_plan_references = favorite_plan_references
         self.recent_plan_references = recent_plan_references
@@ -1483,8 +1483,8 @@ class microsoftgraphplanneruser(microsoftgraphplannerdelta):
         self.tasks = tasks
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1492,7 +1492,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~planner.models.odataerrormain
+    :type error: ~planner.models.OdataErrorMain
     """
 
     _validation = {
@@ -1501,23 +1501,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1553,15 +1553,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1575,7 +1575,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~planner.models.odataerrordetail]
+    :type details: list[~planner.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1590,7 +1590,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1601,11 +1601,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message

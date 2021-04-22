@@ -11,6 +11,7 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -21,8 +22,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -50,7 +51,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum278"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphauthentication"
+        # type: (...) -> "models.MicrosoftGraphAuthentication"
         """Get authentication from users.
 
         Get authentication from users.
@@ -62,11 +63,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum278]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphauthentication, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphauthentication
+        :return: MicrosoftGraphAuthentication, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphAuthentication
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphauthentication"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAuthentication"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -97,10 +98,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphauthentication', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAuthentication', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -111,7 +112,7 @@ class usersOperations(object):
     def update_authentication(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphauthentication"
+        body,  # type: "models.MicrosoftGraphAuthentication"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -122,7 +123,7 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphauthentication
+        :type body: ~identity_sign_ins.models.MicrosoftGraphAuthentication
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -152,7 +153,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphauthentication')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAuthentication')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -160,8 +161,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -217,8 +218,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -232,7 +233,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum297"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphinformationprotection"
+        # type: (...) -> "models.MicrosoftGraphInformationProtection"
         """Get informationProtection from users.
 
         Get informationProtection from users.
@@ -244,11 +245,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum297]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphinformationprotection, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphinformationprotection
+        :return: MicrosoftGraphInformationProtection, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphInformationProtection
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphinformationprotection"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInformationProtection"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -279,10 +280,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphinformationprotection', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphInformationProtection', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -293,7 +294,7 @@ class usersOperations(object):
     def update_information_protection(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphinformationprotection"
+        body,  # type: "models.MicrosoftGraphInformationProtection"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -304,7 +305,7 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphinformationprotection
+        :type body: ~identity_sign_ins.models.MicrosoftGraphInformationProtection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -334,7 +335,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphinformationprotection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInformationProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -342,8 +343,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -399,8 +400,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

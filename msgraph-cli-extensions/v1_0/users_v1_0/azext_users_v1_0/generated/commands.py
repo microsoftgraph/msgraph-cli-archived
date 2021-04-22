@@ -13,45 +13,44 @@
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
-from azext_users_v1_0.generated._client_factory import cf_usersuser, cf_user, cf_usersoutlook, cf_userssetting
+from azext_users_v1_0.generated._client_factory import cf_user_user, cf_user, cf_user_outlook, cf_user_setting
 
 
-users_v1_0_usersuser = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._usersuser_operations#usersuserOperations.{}',
-    client_factory=cf_usersuser,
+users_v1_0_user_user = CliCommandType(
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_user_operations#UsersUserOperations.{}',
+    client_factory=cf_user_user,
 )
 
 
 users_v1_0_user = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-users_v1_0_usersoutlook = CliCommandType(
+users_v1_0_user_outlook = CliCommandType(
     operations_tmpl=(
-        'azext_users_v1_0.vendored_sdks.users.operations._usersoutlook_operations#usersoutlookOperations.{}'
+        'azext_users_v1_0.vendored_sdks.users.operations._users_outlook_operations#UsersOutlookOperations.{}'
     ),
-    client_factory=cf_usersoutlook,
+    client_factory=cf_user_outlook,
 )
 
 
-users_v1_0_userssetting = CliCommandType(
+users_v1_0_user_setting = CliCommandType(
     operations_tmpl=(
-        'azext_users_v1_0.vendored_sdks.users.operations._userssettings_operations#userssettingsOperations.{}'
+        'azext_users_v1_0.vendored_sdks.users.operations._users_settings_operations#UsersSettingsOperations.{}'
     ),
-    client_factory=cf_userssetting,
+    client_factory=cf_user_setting,
 )
 
 
 def load_command_table(self, _):
 
-    with self.command_group('users usersuser', users_v1_0_usersuser, client_factory=cf_usersuser) as g:
-        g.custom_command('create-user', 'users_usersuser_create_user')
-        g.custom_command('delete-user', 'users_usersuser_delete_user')
-        g.custom_command('list-user', 'users_usersuser_list_user')
-        g.custom_command('show-user', 'users_usersuser_show_user')
-        g.custom_command('update-user', 'users_usersuser_update_user')
+    with self.command_group('users user', users_v1_0_user_user, client_factory=cf_user_user) as g:
+        g.custom_command('list', 'users_user_list')
+        g.custom_command('create', 'users_user_create')
+        g.custom_command('delete-user', 'users_user_delete_user')
+        g.custom_command('show-user', 'users_user_show_user')
 
     with self.command_group('users user', users_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-extension', 'users_user_create_extension')
@@ -104,17 +103,17 @@ def load_command_table(self, _):
         g.custom_command('update-photo', 'users_user_update_photo')
         g.custom_command('update-setting', 'users_user_update_setting')
 
-    with self.command_group('users usersoutlook', users_v1_0_usersoutlook, client_factory=cf_usersoutlook) as g:
-        g.custom_command('create-master-category', 'users_usersoutlook_create_master_category')
-        g.custom_command('delete-master-category', 'users_usersoutlook_delete_master_category')
-        g.custom_command('list-master-category', 'users_usersoutlook_list_master_category')
-        g.custom_command('show-master-category', 'users_usersoutlook_show_master_category')
-        g.custom_command('update-master-category', 'users_usersoutlook_update_master_category')
+    with self.command_group('users user-outlook', users_v1_0_user_outlook, client_factory=cf_user_outlook) as g:
+        g.custom_command('create-master-category', 'users_user_outlook_create_master_category')
+        g.custom_command('delete-master-category', 'users_user_outlook_delete_master_category')
+        g.custom_command('list-master-category', 'users_user_outlook_list_master_category')
+        g.custom_command('show-master-category', 'users_user_outlook_show_master_category')
+        g.custom_command('update-master-category', 'users_user_outlook_update_master_category')
 
-    with self.command_group('users userssetting', users_v1_0_userssetting, client_factory=cf_userssetting) as g:
-        g.custom_command('delete-shift-preference', 'users_userssetting_delete_shift_preference')
-        g.custom_command('show-shift-preference', 'users_userssetting_show_shift_preference')
-        g.custom_command('update-shift-preference', 'users_userssetting_update_shift_preference')
+    with self.command_group('users user-setting', users_v1_0_user_setting, client_factory=cf_user_setting) as g:
+        g.custom_command('delete-shift-preference', 'users_user_setting_delete_shift_preference')
+        g.custom_command('show-shift-preference', 'users_user_setting_show_shift_preference')
+        g.custom_command('update-shift-preference', 'users_user_setting_update_shift_preference')
 
     with self.command_group('users_v1_0', is_experimental=True):
         pass

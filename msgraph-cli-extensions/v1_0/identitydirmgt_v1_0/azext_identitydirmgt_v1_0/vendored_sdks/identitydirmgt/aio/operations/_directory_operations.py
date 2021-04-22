@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class directoryOperations:
-    """directoryOperations async operations.
+class DirectoryOperations:
+    """DirectoryOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,7 +47,7 @@ class directoryOperations:
         select: Optional[List[Union[str, "models.Enum40"]]] = None,
         expand: Optional[List[Union[str, "models.Enum41"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofadministrativeunit"]:
+    ) -> AsyncIterable["models.CollectionOfAdministrativeUnit"]:
         """Get administrativeUnits from directory.
 
         Get administrativeUnits from directory.
@@ -58,11 +59,11 @@ class directoryOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_directory_management.models.Enum41]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofadministrativeunit or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofadministrativeunit]
+        :return: An iterator like instance of either CollectionOfAdministrativeUnit or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfAdministrativeUnit]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofadministrativeunit"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAdministrativeUnit"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -104,7 +105,7 @@ class directoryOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofadministrativeunit', pipeline_response)
+            deserialized = self._deserialize('CollectionOfAdministrativeUnit', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -117,9 +118,9 @@ class directoryOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -130,21 +131,21 @@ class directoryOperations:
 
     async def create_administrative_units(
         self,
-        body: "models.microsoftgraphadministrativeunit",
+        body: "models.MicrosoftGraphAdministrativeUnit",
         **kwargs
-    ) -> "models.microsoftgraphadministrativeunit":
+    ) -> "models.MicrosoftGraphAdministrativeUnit":
         """Create new navigation property to administrativeUnits for directory.
 
         Create new navigation property to administrativeUnits for directory.
 
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphadministrativeunit
+        :type body: ~identity_directory_management.models.MicrosoftGraphAdministrativeUnit
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphadministrativeunit, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphadministrativeunit
+        :return: MicrosoftGraphAdministrativeUnit, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphAdministrativeUnit
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphadministrativeunit"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAdministrativeUnit"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -164,7 +165,7 @@ class directoryOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphadministrativeunit')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAdministrativeUnit')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -172,10 +173,10 @@ class directoryOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphadministrativeunit', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAdministrativeUnit', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -189,7 +190,7 @@ class directoryOperations:
         select: Optional[List[Union[str, "models.Enum42"]]] = None,
         expand: Optional[List[Union[str, "models.Enum43"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphadministrativeunit":
+    ) -> "models.MicrosoftGraphAdministrativeUnit":
         """Get administrativeUnits from directory.
 
         Get administrativeUnits from directory.
@@ -201,11 +202,11 @@ class directoryOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_directory_management.models.Enum43]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphadministrativeunit, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphadministrativeunit
+        :return: MicrosoftGraphAdministrativeUnit, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphAdministrativeUnit
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphadministrativeunit"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAdministrativeUnit"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -236,10 +237,10 @@ class directoryOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphadministrativeunit', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAdministrativeUnit', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -250,7 +251,7 @@ class directoryOperations:
     async def update_administrative_units(
         self,
         administrative_unit_id: str,
-        body: "models.microsoftgraphadministrativeunit",
+        body: "models.MicrosoftGraphAdministrativeUnit",
         **kwargs
     ) -> None:
         """Update the navigation property administrativeUnits in directory.
@@ -260,7 +261,7 @@ class directoryOperations:
         :param administrative_unit_id: key: id of administrativeUnit.
         :type administrative_unit_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphadministrativeunit
+        :type body: ~identity_directory_management.models.MicrosoftGraphAdministrativeUnit
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -290,7 +291,7 @@ class directoryOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphadministrativeunit')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAdministrativeUnit')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -298,8 +299,8 @@ class directoryOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -354,8 +355,8 @@ class directoryOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -368,7 +369,7 @@ class directoryOperations:
         select: Optional[List[Union[str, "models.Enum52"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdirectoryobject7"]:
+    ) -> AsyncIterable["models.CollectionOfDirectoryObject7"]:
         """Get deletedItems from directory.
 
         Get deletedItems from directory.
@@ -380,11 +381,11 @@ class directoryOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject7 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofdirectoryobject7]
+        :return: An iterator like instance of either CollectionOfDirectoryObject7 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject7]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject7"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject7"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -426,7 +427,7 @@ class directoryOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject7', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject7', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -439,9 +440,9 @@ class directoryOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -452,21 +453,21 @@ class directoryOperations:
 
     async def create_deleted_items(
         self,
-        body: "models.microsoftgraphdirectoryobject",
+        body: "models.MicrosoftGraphDirectoryObject",
         **kwargs
-    ) -> "models.microsoftgraphdirectoryobject":
+    ) -> "models.MicrosoftGraphDirectoryObject":
         """Create new navigation property to deletedItems for directory.
 
         Create new navigation property to deletedItems for directory.
 
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :type body: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -486,7 +487,7 @@ class directoryOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdirectoryobject')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDirectoryObject')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -494,10 +495,10 @@ class directoryOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -511,7 +512,7 @@ class directoryOperations:
         select: Optional[List[Union[str, "models.Enum53"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdirectoryobject":
+    ) -> "models.MicrosoftGraphDirectoryObject":
         """Get deletedItems from directory.
 
         Get deletedItems from directory.
@@ -523,11 +524,11 @@ class directoryOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -558,10 +559,10 @@ class directoryOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -572,7 +573,7 @@ class directoryOperations:
     async def update_deleted_items(
         self,
         directory_object_id: str,
-        body: "models.microsoftgraphdirectoryobject",
+        body: "models.MicrosoftGraphDirectoryObject",
         **kwargs
     ) -> None:
         """Update the navigation property deletedItems in directory.
@@ -582,7 +583,7 @@ class directoryOperations:
         :param directory_object_id: key: id of directoryObject.
         :type directory_object_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :type body: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -612,7 +613,7 @@ class directoryOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdirectoryobject')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDirectoryObject')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -620,8 +621,8 @@ class directoryOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -676,8 +677,8 @@ class directoryOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

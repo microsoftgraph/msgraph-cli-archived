@@ -17,12 +17,12 @@ helps['files_v1_0'] = '''
     short-summary: Manage Files
 '''
 
-helps['files drivesdrive'] = """
+helps['files drive-drive'] = """
     type: group
-    short-summary: Manage drivesdrive with files_v1_0
+    short-summary: Manage drive drive with files_v1_0
 """
 
-helps['files drivesdrive create-drive'] = """
+helps['files drive-drive create-drive'] = """
     type: command
     short-summary: "Add new entity to drives."
     parameters:
@@ -270,22 +270,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files drivesdrive delete-drive'] = """
+helps['files drive-drive delete-drive'] = """
     type: command
     short-summary: "Delete entity from drives."
 """
 
-helps['files drivesdrive list-drive'] = """
+helps['files drive-drive list-drive'] = """
     type: command
     short-summary: "Get entities from drives."
 """
 
-helps['files drivesdrive show-drive'] = """
+helps['files drive-drive show-drive'] = """
     type: command
     short-summary: "Get entity from drives by key."
 """
 
-helps['files drivesdrive update-drive'] = """
+helps['files drive-drive update-drive'] = """
     type: command
     short-summary: "Update entity in drives."
     parameters:
@@ -541,16 +541,1267 @@ helps['files drive'] = """
 helps['files drive create-following'] = """
     type: command
     short-summary: "Create new navigation property to following for drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive create-special'] = """
     type: command
     short-summary: "Create new navigation property to special for drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive delete-following'] = """
@@ -636,11 +1887,845 @@ helps['files drive show-special'] = """
 helps['files drive update-following'] = """
     type: command
     short-summary: "Update the navigation property following in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive update-item'] = """
     type: command
     short-summary: "Update the navigation property items in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive update-list'] = """
@@ -779,19 +2864,853 @@ must make use of the HTTPS protocol.
 helps['files drive update-root'] = """
     type: command
     short-summary: "Update the navigation property root in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files drive update-special'] = """
     type: command
     short-summary: "Update the navigation property special in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['files driveslist'] = """
+helps['files drive-list'] = """
     type: group
-    short-summary: Manage driveslist with files_v1_0
+    short-summary: Manage drive list with files_v1_0
 """
 
-helps['files driveslist create-column'] = """
+helps['files drive-list create-column'] = """
     type: command
     short-summary: "Create new navigation property to columns for drives."
     parameters:
@@ -876,7 +3795,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files driveslist create-content-type'] = """
+helps['files drive-list create-content-type'] = """
     type: command
     short-summary: "Create new navigation property to contentTypes for drives."
     parameters:
@@ -912,7 +3831,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files driveslist create-item'] = """
+helps['files drive-list create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for drives."
     parameters:
@@ -1022,82 +3941,82 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files driveslist create-subscription'] = """
+helps['files drive-list create-subscription'] = """
     type: command
     short-summary: "Create new navigation property to subscriptions for drives."
 """
 
-helps['files driveslist delete-column'] = """
+helps['files drive-list delete-column'] = """
     type: command
     short-summary: "Delete navigation property columns for drives."
 """
 
-helps['files driveslist delete-content-type'] = """
+helps['files drive-list delete-content-type'] = """
     type: command
     short-summary: "Delete navigation property contentTypes for drives."
 """
 
-helps['files driveslist delete-drive'] = """
+helps['files drive-list delete-drive'] = """
     type: command
     short-summary: "Delete navigation property drive for drives."
 """
 
-helps['files driveslist delete-item'] = """
+helps['files drive-list delete-item'] = """
     type: command
     short-summary: "Delete navigation property items for drives."
 """
 
-helps['files driveslist delete-subscription'] = """
+helps['files drive-list delete-subscription'] = """
     type: command
     short-summary: "Delete navigation property subscriptions for drives."
 """
 
-helps['files driveslist list-column'] = """
+helps['files drive-list list-column'] = """
     type: command
     short-summary: "Get columns from drives."
 """
 
-helps['files driveslist list-content-type'] = """
+helps['files drive-list list-content-type'] = """
     type: command
     short-summary: "Get contentTypes from drives."
 """
 
-helps['files driveslist list-item'] = """
+helps['files drive-list list-item'] = """
     type: command
     short-summary: "Get items from drives."
 """
 
-helps['files driveslist list-subscription'] = """
+helps['files drive-list list-subscription'] = """
     type: command
     short-summary: "Get subscriptions from drives."
 """
 
-helps['files driveslist show-column'] = """
+helps['files drive-list show-column'] = """
     type: command
     short-summary: "Get columns from drives."
 """
 
-helps['files driveslist show-content-type'] = """
+helps['files drive-list show-content-type'] = """
     type: command
     short-summary: "Get contentTypes from drives."
 """
 
-helps['files driveslist show-drive'] = """
+helps['files drive-list show-drive'] = """
     type: command
     short-summary: "Get drive from drives."
 """
 
-helps['files driveslist show-item'] = """
+helps['files drive-list show-item'] = """
     type: command
     short-summary: "Get items from drives."
 """
 
-helps['files driveslist show-subscription'] = """
+helps['files drive-list show-subscription'] = """
     type: command
     short-summary: "Get subscriptions from drives."
 """
 
-helps['files driveslist update-column'] = """
+helps['files drive-list update-column'] = """
     type: command
     short-summary: "Update the navigation property columns in drives."
     parameters:
@@ -1182,7 +4101,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files driveslist update-content-type'] = """
+helps['files drive-list update-content-type'] = """
     type: command
     short-summary: "Update the navigation property contentTypes in drives."
     parameters:
@@ -1218,7 +4137,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files driveslist update-drive'] = """
+helps['files drive-list update-drive'] = """
     type: command
     short-summary: "Update the navigation property drive in drives."
     parameters:
@@ -1466,7 +4385,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files driveslist update-item'] = """
+helps['files drive-list update-item'] = """
     type: command
     short-summary: "Update the navigation property items in drives."
     parameters:
@@ -1576,47 +4495,47 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files driveslist update-subscription'] = """
+helps['files drive-list update-subscription'] = """
     type: command
     short-summary: "Update the navigation property subscriptions in drives."
 """
 
-helps['files driveslistcontenttype'] = """
+helps['files drive-list-content-type'] = """
     type: group
-    short-summary: Manage driveslistcontenttype with files_v1_0
+    short-summary: Manage drive list content type with files_v1_0
 """
 
-helps['files driveslistcontenttype create-column-link'] = """
+helps['files drive-list-content-type create-column-link'] = """
     type: command
     short-summary: "Create new navigation property to columnLinks for drives."
 """
 
-helps['files driveslistcontenttype delete-column-link'] = """
+helps['files drive-list-content-type delete-column-link'] = """
     type: command
     short-summary: "Delete navigation property columnLinks for drives."
 """
 
-helps['files driveslistcontenttype list-column-link'] = """
+helps['files drive-list-content-type list-column-link'] = """
     type: command
     short-summary: "Get columnLinks from drives."
 """
 
-helps['files driveslistcontenttype show-column-link'] = """
+helps['files drive-list-content-type show-column-link'] = """
     type: command
     short-summary: "Get columnLinks from drives."
 """
 
-helps['files driveslistcontenttype update-column-link'] = """
+helps['files drive-list-content-type update-column-link'] = """
     type: command
     short-summary: "Update the navigation property columnLinks in drives."
 """
 
-helps['files driveslistitem'] = """
+helps['files drive-list-item'] = """
     type: group
-    short-summary: Manage driveslistitem with files_v1_0
+    short-summary: Manage drive list item with files_v1_0
 """
 
-helps['files driveslistitem create-version'] = """
+helps['files drive-list-item create-version'] = """
     type: command
     short-summary: "Create new navigation property to versions for drives."
     parameters:
@@ -1656,77 +4575,494 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files driveslistitem delete-drive-item'] = """
+helps['files drive-list-item delete-drive-item'] = """
     type: command
     short-summary: "Delete navigation property driveItem for drives."
 """
 
-helps['files driveslistitem delete-field'] = """
+helps['files drive-list-item delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for drives."
 """
 
-helps['files driveslistitem delete-ref-analytic'] = """
+helps['files drive-list-item delete-ref-analytic'] = """
     type: command
     short-summary: "Delete ref of navigation property analytics for drives."
 """
 
-helps['files driveslistitem delete-version'] = """
+helps['files drive-list-item delete-version'] = """
     type: command
     short-summary: "Delete navigation property versions for drives."
 """
 
-helps['files driveslistitem list-version'] = """
+helps['files drive-list-item list-version'] = """
     type: command
     short-summary: "Get versions from drives."
 """
 
-helps['files driveslistitem set-ref-analytic'] = """
+helps['files drive-list-item set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in drives."
 """
 
-helps['files driveslistitem show-activity'] = """
+helps['files drive-list-item show-activity'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval And Invoke function getActivitiesByInterval."
 """
 
-helps['files driveslistitem show-analytic'] = """
+helps['files drive-list-item show-analytic'] = """
     type: command
     short-summary: "Get analytics from drives."
 """
 
-helps['files driveslistitem show-drive-item'] = """
+helps['files drive-list-item show-drive-item'] = """
     type: command
     short-summary: "Get driveItem from drives."
 """
 
-helps['files driveslistitem show-field'] = """
+helps['files drive-list-item show-field'] = """
     type: command
     short-summary: "Get fields from drives."
 """
 
-helps['files driveslistitem show-ref-analytic'] = """
+helps['files drive-list-item show-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from drives."
 """
 
-helps['files driveslistitem show-version'] = """
+helps['files drive-list-item show-version'] = """
     type: command
     short-summary: "Get versions from drives."
 """
 
-helps['files driveslistitem update-drive-item'] = """
+helps['files drive-list-item update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['files driveslistitem update-field'] = """
+helps['files drive-list-item update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in drives."
 """
 
-helps['files driveslistitem update-version'] = """
+helps['files drive-list-item update-version'] = """
     type: command
     short-summary: "Update the navigation property versions in drives."
     parameters:
@@ -1766,27 +5102,27 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files driveslistitemsversion'] = """
+helps['files drive-list-item-version'] = """
     type: group
-    short-summary: Manage driveslistitemsversion with files_v1_0
+    short-summary: Manage drive list item version with files_v1_0
 """
 
-helps['files driveslistitemsversion delete-field'] = """
+helps['files drive-list-item-version delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for drives."
 """
 
-helps['files driveslistitemsversion restore-version'] = """
+helps['files drive-list-item-version restore-version'] = """
     type: command
     short-summary: "Invoke action restoreVersion."
 """
 
-helps['files driveslistitemsversion show-field'] = """
+helps['files drive-list-item-version show-field'] = """
     type: command
     short-summary: "Get fields from drives."
 """
 
-helps['files driveslistitemsversion update-field'] = """
+helps['files drive-list-item-version update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in drives."
 """
@@ -2550,34 +5886,788 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files sharesshareddriveitem'] = """
+helps['files share-shared-drive-item'] = """
     type: group
-    short-summary: Manage sharesshareddriveitem with files_v1_0
+    short-summary: Manage share shared drive item with files_v1_0
 """
 
-helps['files sharesshareddriveitem create-shared-drive-item'] = """
+helps['files share-shared-drive-item create-shared-drive-item'] = """
     type: command
     short-summary: "Add new entity to shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --sharepoint-ids4
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids4 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --application7
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application7 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['files sharesshareddriveitem delete-shared-drive-item'] = """
+helps['files share-shared-drive-item delete-shared-drive-item'] = """
     type: command
     short-summary: "Delete entity from shares."
 """
 
-helps['files sharesshareddriveitem list-shared-drive-item'] = """
+helps['files share-shared-drive-item list-shared-drive-item'] = """
     type: command
     short-summary: "Get entities from shares."
 """
 
-helps['files sharesshareddriveitem show-shared-drive-item'] = """
+helps['files share-shared-drive-item show-shared-drive-item'] = """
     type: command
     short-summary: "Get entity from shares by key."
 """
 
-helps['files sharesshareddriveitem update-shared-drive-item'] = """
+helps['files share-shared-drive-item update-shared-drive-item'] = """
     type: command
     short-summary: "Update entity in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --versions id-fields-id=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user4
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user4 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user5
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user5 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --sharepoint-ids4
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids4 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --application7
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application7 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user6
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user6 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['files share'] = """
@@ -2588,6 +6678,423 @@ helps['files share'] = """
 helps['files share create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files share delete-drive-item'] = """
@@ -2668,11 +7175,845 @@ helps['files share show-site'] = """
 helps['files share update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files share update-item'] = """
     type: command
     short-summary: "Update the navigation property items in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files share update-list'] = """
@@ -2921,11 +8262,479 @@ user=XX id=XX
 helps['files share update-permission'] = """
     type: command
     short-summary: "Update the navigation property permission in shares."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['files share update-root'] = """
     type: command
     short-summary: "Update the navigation property root in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
 helps['files share update-site'] = """
@@ -3039,12 +8848,12 @@ supported, but you can get the binary content of a specific resource. Read-only.
 
 """
 
-helps['files shareslist'] = """
+helps['files share-list'] = """
     type: group
-    short-summary: Manage shareslist with files_v1_0
+    short-summary: Manage share list with files_v1_0
 """
 
-helps['files shareslist create-column'] = """
+helps['files share-list create-column'] = """
     type: command
     short-summary: "Create new navigation property to columns for shares."
     parameters:
@@ -3129,7 +8938,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files shareslist create-content-type'] = """
+helps['files share-list create-content-type'] = """
     type: command
     short-summary: "Create new navigation property to contentTypes for shares."
     parameters:
@@ -3165,7 +8974,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files shareslist create-item'] = """
+helps['files share-list create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for shares."
     parameters:
@@ -3275,82 +9084,82 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files shareslist create-subscription'] = """
+helps['files share-list create-subscription'] = """
     type: command
     short-summary: "Create new navigation property to subscriptions for shares."
 """
 
-helps['files shareslist delete-column'] = """
+helps['files share-list delete-column'] = """
     type: command
     short-summary: "Delete navigation property columns for shares."
 """
 
-helps['files shareslist delete-content-type'] = """
+helps['files share-list delete-content-type'] = """
     type: command
     short-summary: "Delete navigation property contentTypes for shares."
 """
 
-helps['files shareslist delete-drive'] = """
+helps['files share-list delete-drive'] = """
     type: command
     short-summary: "Delete navigation property drive for shares."
 """
 
-helps['files shareslist delete-item'] = """
+helps['files share-list delete-item'] = """
     type: command
     short-summary: "Delete navigation property items for shares."
 """
 
-helps['files shareslist delete-subscription'] = """
+helps['files share-list delete-subscription'] = """
     type: command
     short-summary: "Delete navigation property subscriptions for shares."
 """
 
-helps['files shareslist list-column'] = """
+helps['files share-list list-column'] = """
     type: command
     short-summary: "Get columns from shares."
 """
 
-helps['files shareslist list-content-type'] = """
+helps['files share-list list-content-type'] = """
     type: command
     short-summary: "Get contentTypes from shares."
 """
 
-helps['files shareslist list-item'] = """
+helps['files share-list list-item'] = """
     type: command
     short-summary: "Get items from shares."
 """
 
-helps['files shareslist list-subscription'] = """
+helps['files share-list list-subscription'] = """
     type: command
     short-summary: "Get subscriptions from shares."
 """
 
-helps['files shareslist show-column'] = """
+helps['files share-list show-column'] = """
     type: command
     short-summary: "Get columns from shares."
 """
 
-helps['files shareslist show-content-type'] = """
+helps['files share-list show-content-type'] = """
     type: command
     short-summary: "Get contentTypes from shares."
 """
 
-helps['files shareslist show-drive'] = """
+helps['files share-list show-drive'] = """
     type: command
     short-summary: "Get drive from shares."
 """
 
-helps['files shareslist show-item'] = """
+helps['files share-list show-item'] = """
     type: command
     short-summary: "Get items from shares."
 """
 
-helps['files shareslist show-subscription'] = """
+helps['files share-list show-subscription'] = """
     type: command
     short-summary: "Get subscriptions from shares."
 """
 
-helps['files shareslist update-column'] = """
+helps['files share-list update-column'] = """
     type: command
     short-summary: "Update the navigation property columns in shares."
     parameters:
@@ -3435,7 +9244,7 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files shareslist update-content-type'] = """
+helps['files share-list update-content-type'] = """
     type: command
     short-summary: "Update the navigation property contentTypes in shares."
     parameters:
@@ -3471,7 +9280,7 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files shareslist update-drive'] = """
+helps['files share-list update-drive'] = """
     type: command
     short-summary: "Update the navigation property drive in shares."
     parameters:
@@ -3719,7 +9528,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files shareslist update-item'] = """
+helps['files share-list update-item'] = """
     type: command
     short-summary: "Update the navigation property items in shares."
     parameters:
@@ -3829,47 +9638,47 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files shareslist update-subscription'] = """
+helps['files share-list update-subscription'] = """
     type: command
     short-summary: "Update the navigation property subscriptions in shares."
 """
 
-helps['files shareslistcontenttype'] = """
+helps['files share-list-content-type'] = """
     type: group
-    short-summary: Manage shareslistcontenttype with files_v1_0
+    short-summary: Manage share list content type with files_v1_0
 """
 
-helps['files shareslistcontenttype create-column-link'] = """
+helps['files share-list-content-type create-column-link'] = """
     type: command
     short-summary: "Create new navigation property to columnLinks for shares."
 """
 
-helps['files shareslistcontenttype delete-column-link'] = """
+helps['files share-list-content-type delete-column-link'] = """
     type: command
     short-summary: "Delete navigation property columnLinks for shares."
 """
 
-helps['files shareslistcontenttype list-column-link'] = """
+helps['files share-list-content-type list-column-link'] = """
     type: command
     short-summary: "Get columnLinks from shares."
 """
 
-helps['files shareslistcontenttype show-column-link'] = """
+helps['files share-list-content-type show-column-link'] = """
     type: command
     short-summary: "Get columnLinks from shares."
 """
 
-helps['files shareslistcontenttype update-column-link'] = """
+helps['files share-list-content-type update-column-link'] = """
     type: command
     short-summary: "Update the navigation property columnLinks in shares."
 """
 
-helps['files shareslistitem'] = """
+helps['files share-list-item'] = """
     type: group
-    short-summary: Manage shareslistitem with files_v1_0
+    short-summary: Manage share list item with files_v1_0
 """
 
-helps['files shareslistitem create-version'] = """
+helps['files share-list-item create-version'] = """
     type: command
     short-summary: "Create new navigation property to versions for shares."
     parameters:
@@ -3909,77 +9718,494 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files shareslistitem delete-drive-item'] = """
+helps['files share-list-item delete-drive-item'] = """
     type: command
     short-summary: "Delete navigation property driveItem for shares."
 """
 
-helps['files shareslistitem delete-field'] = """
+helps['files share-list-item delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files shareslistitem delete-ref-analytic'] = """
+helps['files share-list-item delete-ref-analytic'] = """
     type: command
     short-summary: "Delete ref of navigation property analytics for shares."
 """
 
-helps['files shareslistitem delete-version'] = """
+helps['files share-list-item delete-version'] = """
     type: command
     short-summary: "Delete navigation property versions for shares."
 """
 
-helps['files shareslistitem list-version'] = """
+helps['files share-list-item list-version'] = """
     type: command
     short-summary: "Get versions from shares."
 """
 
-helps['files shareslistitem set-ref-analytic'] = """
+helps['files share-list-item set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in shares."
 """
 
-helps['files shareslistitem show-activity'] = """
+helps['files share-list-item show-activity'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval And Invoke function getActivitiesByInterval."
 """
 
-helps['files shareslistitem show-analytic'] = """
+helps['files share-list-item show-analytic'] = """
     type: command
     short-summary: "Get analytics from shares."
 """
 
-helps['files shareslistitem show-drive-item'] = """
+helps['files share-list-item show-drive-item'] = """
     type: command
     short-summary: "Get driveItem from shares."
 """
 
-helps['files shareslistitem show-field'] = """
+helps['files share-list-item show-field'] = """
     type: command
     short-summary: "Get fields from shares."
 """
 
-helps['files shareslistitem show-ref-analytic'] = """
+helps['files share-list-item show-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from shares."
 """
 
-helps['files shareslistitem show-version'] = """
+helps['files share-list-item show-version'] = """
     type: command
     short-summary: "Get versions from shares."
 """
 
-helps['files shareslistitem update-drive-item'] = """
+helps['files share-list-item update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['files shareslistitem update-field'] = """
+helps['files share-list-item update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files shareslistitem update-version'] = """
+helps['files share-list-item update-version'] = """
     type: command
     short-summary: "Update the navigation property versions in shares."
     parameters:
@@ -4019,37 +10245,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files shareslistitemsversion'] = """
+helps['files share-list-item-version'] = """
     type: group
-    short-summary: Manage shareslistitemsversion with files_v1_0
+    short-summary: Manage share list item version with files_v1_0
 """
 
-helps['files shareslistitemsversion delete-field'] = """
+helps['files share-list-item-version delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files shareslistitemsversion restore-version'] = """
+helps['files share-list-item-version restore-version'] = """
     type: command
     short-summary: "Invoke action restoreVersion."
 """
 
-helps['files shareslistitemsversion show-field'] = """
+helps['files share-list-item-version show-field'] = """
     type: command
     short-summary: "Get fields from shares."
 """
 
-helps['files shareslistitemsversion update-field'] = """
+helps['files share-list-item-version update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files shareslistitem'] = """
+helps['files share-list-item'] = """
     type: group
-    short-summary: Manage shareslistitem with files_v1_0
+    short-summary: Manage share list item with files_v1_0
 """
 
-helps['files shareslistitem create-version'] = """
+helps['files share-list-item create-version'] = """
     type: command
     short-summary: "Create new navigation property to versions for shares."
     parameters:
@@ -4089,77 +10315,494 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files shareslistitem delete-drive-item'] = """
+helps['files share-list-item delete-drive-item'] = """
     type: command
     short-summary: "Delete navigation property driveItem for shares."
 """
 
-helps['files shareslistitem delete-field'] = """
+helps['files share-list-item delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files shareslistitem delete-ref-analytic'] = """
+helps['files share-list-item delete-ref-analytic'] = """
     type: command
     short-summary: "Delete ref of navigation property analytics for shares."
 """
 
-helps['files shareslistitem delete-version'] = """
+helps['files share-list-item delete-version'] = """
     type: command
     short-summary: "Delete navigation property versions for shares."
 """
 
-helps['files shareslistitem list-version'] = """
+helps['files share-list-item list-version'] = """
     type: command
     short-summary: "Get versions from shares."
 """
 
-helps['files shareslistitem set-ref-analytic'] = """
+helps['files share-list-item set-ref-analytic'] = """
     type: command
     short-summary: "Update the ref of navigation property analytics in shares."
 """
 
-helps['files shareslistitem show-activity'] = """
+helps['files share-list-item show-activity'] = """
     type: command
     short-summary: "Invoke function getActivitiesByInterval And Invoke function getActivitiesByInterval."
 """
 
-helps['files shareslistitem show-analytic'] = """
+helps['files share-list-item show-analytic'] = """
     type: command
     short-summary: "Get analytics from shares."
 """
 
-helps['files shareslistitem show-drive-item'] = """
+helps['files share-list-item show-drive-item'] = """
     type: command
     short-summary: "Get driveItem from shares."
 """
 
-helps['files shareslistitem show-field'] = """
+helps['files share-list-item show-field'] = """
     type: command
     short-summary: "Get fields from shares."
 """
 
-helps['files shareslistitem show-ref-analytic'] = """
+helps['files share-list-item show-ref-analytic'] = """
     type: command
     short-summary: "Get ref of analytics from shares."
 """
 
-helps['files shareslistitem show-version'] = """
+helps['files share-list-item show-version'] = """
     type: command
     short-summary: "Get versions from shares."
 """
 
-helps['files shareslistitem update-drive-item'] = """
+helps['files share-list-item update-drive-item'] = """
     type: command
     short-summary: "Update the navigation property driveItem in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --audio
+        short-summary: "audio"
+        long-summary: |
+            Usage: --audio album=XX album-artist=XX artist=XX bitrate=XX composers=XX copyright=XX disc=XX \
+disc-count=XX duration=XX genre=XX has-drm=XX is-variable-bitrate=XX title=XX track=XX track-count=XX year=XX
+
+            album: The title of the album for this audio file.
+            album-artist: The artist named on the album for the audio file.
+            artist: The performing artist for the audio file.
+            bitrate: Bitrate expressed in kbps.
+            composers: The name of the composer of the audio file.
+            copyright: Copyright information for the audio file.
+            disc: The number of the disc this audio file came from.
+            disc-count: The total number of discs in this album.
+            duration: Duration of the audio file, expressed in milliseconds
+            genre: The genre of this audio file.
+            has-drm: Indicates if the file is protected with digital rights management.
+            is-variable-bitrate: Indicates if the file is encoded with a variable bitrate.
+            title: The title of the audio file.
+            track: The number of the track on the original disc for this audio file.
+            track-count: The total number of tracks on the original disc for this audio file.
+            year: The year the audio file was recorded.
+      - name: --file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --file-system-info created-date-time=XX last-accessed-date-time=XX last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --image
+        short-summary: "image"
+        long-summary: |
+            Usage: --image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --location
+        short-summary: "geoCoordinates"
+        long-summary: |
+            Usage: --location altitude=XX latitude=XX longitude=XX
+
+            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+            latitude: Optional. The latitude, in decimal, for the item. Read-only.
+            longitude: Optional. The longitude, in decimal, for the item. Read-only.
+      - name: --photo
+        short-summary: "photo"
+        long-summary: |
+            Usage: --photo camera-make=XX camera-model=XX exposure-denominator=XX exposure-numerator=XX f-number=XX \
+focal-length=XX iso=XX orientation=XX taken-date-time=XX
+
+            camera-make: Camera manufacturer. Read-only.
+            camera-model: Camera model. Read-only.
+            exposure-denominator: The denominator for the exposure time fraction from the camera. Read-only.
+            exposure-numerator: The numerator for the exposure time fraction from the camera. Read-only.
+            f-number: The F-stop value from the camera. Read-only.
+            focal-length: The focal length from the camera. Read-only.
+            iso: The ISO value from the camera. Read-only.
+            orientation: The orientation value from the camera. Writable on OneDrive Personal.
+            taken-date-time: Represents the date and time the photo was taken. Read-only.
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --video
+        short-summary: "video"
+        long-summary: |
+            Usage: --video audio-bits-per-sample=XX audio-channels=XX audio-format=XX audio-samples-per-second=XX \
+bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the item. Only supported on the root of a drive."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-resource-data=XX \
+latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --versions
+        short-summary: "The list of previous versions of the item. For more info, see [getting previous versions][]. \
+Read-only. Nullable."
+        long-summary: |
+            Usage: --versions content=XX size=XX last-modified-date-time=XX publication=XX application=XX device=XX \
+user=XX id=XX
+
+            content: The content stream for this version of the item.
+            size: Indicates the size of the content stream for this version of the item.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --versions argument.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
+        long-summary: |
+            Usage: --content-type id=XX name=XX
+
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-list-item-versions
+        short-summary: "The list of previous versions of the list item."
+        long-summary: |
+            Usage: --microsoft-graph-list-item-versions id-fields-id=XX last-modified-date-time=XX publication=XX \
+application=XX device=XX user=XX id=XX
+
+            id-fields-id: Read-only.
+            last-modified-date-time: Date and time the version was last modified. Read-only.
+            publication: publicationFacet
+            application: identity
+            device: identity
+            user: identity
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --microsoft-graph-list-item-versions argument.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
+        short-summary: "specialFolder"
+        long-summary: |
+            Usage: --special-folder name=XX
+
+            name: The unique identifier for this item in the /drive/special collection
+      - name: --microsoft-graph-video
+        short-summary: "video"
+        long-summary: |
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
+
+            audio-bits-per-sample: Number of audio bits per sample.
+            audio-channels: Number of audio channels.
+            audio-format: Name of the audio format (AAC, MP3, etc.).
+            audio-samples-per-second: Number of audio samples per second.
+            bitrate: Bit rate of the video in bits per second.
+            duration: Duration of the file in milliseconds.
+            four-cc: 'Four character code' name of the video format.
+            frame-rate: Frame rate of the video.
+            height: Height of the video, in pixels.
+            width: Width of the video, in pixels.
+      - name: --view
+        short-summary: "folderView"
+        long-summary: |
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
+
+            sort-by: The method by which the folder should be sorted.
+            sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
+sorted ascending.
+            view-type: The type of view that should be used to represent the folder.
+      - name: --hashes
+        short-summary: "hashes"
+        long-summary: |
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+
+            crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
+            quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
+have changed (if available). Read-only.
+            sha1-hash: SHA1 hash for the contents of the file (if available). Read-only.
+            sha256-hash: SHA256 hash for the contents of the file (if available). Read-only.
 """
 
-helps['files shareslistitem update-field'] = """
+helps['files share-list-item update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files shareslistitem update-version'] = """
+helps['files share-list-item update-version'] = """
     type: command
     short-summary: "Update the navigation property versions in shares."
     parameters:
@@ -4199,37 +10842,37 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files shareslistitemversion'] = """
+helps['files share-list-item-version'] = """
     type: group
-    short-summary: Manage shareslistitemversion with files_v1_0
+    short-summary: Manage share list item version with files_v1_0
 """
 
-helps['files shareslistitemversion delete-field'] = """
+helps['files share-list-item-version delete-field'] = """
     type: command
     short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files shareslistitemversion restore-version'] = """
+helps['files share-list-item-version restore-version'] = """
     type: command
     short-summary: "Invoke action restoreVersion."
 """
 
-helps['files shareslistitemversion show-field'] = """
+helps['files share-list-item-version show-field'] = """
     type: command
     short-summary: "Get fields from shares."
 """
 
-helps['files shareslistitemversion update-field'] = """
+helps['files share-list-item-version update-field'] = """
     type: command
     short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files sharespermission'] = """
+helps['files share-permission'] = """
     type: group
-    short-summary: Manage sharespermission with files_v1_0
+    short-summary: Manage share permission with files_v1_0
 """
 
-helps['files sharespermission grant'] = """
+helps['files share-permission grant'] = """
     type: command
     short-summary: "Invoke action grant."
     parameters:

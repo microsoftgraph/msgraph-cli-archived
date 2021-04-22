@@ -10,23 +10,23 @@
 # pylint: disable=too-many-lines
 
 
-def devicescloudprint_print_show_print(client,
-                                       select=None,
-                                       expand=None):
+def devicescloudprint_print_print_show_print(client,
+                                             select=None,
+                                             expand=None):
     return client.get_print(select=select,
                             expand=expand)
 
 
-def devicescloudprint_print_update_print(client,
-                                         connectors=None,
-                                         operations=None,
-                                         printers=None,
-                                         printer_shares=None,
-                                         reports=None,
-                                         services=None,
-                                         shares=None,
-                                         task_definitions=None,
-                                         document_conversion_enabled=None):
+def devicescloudprint_print_print_update_print(client,
+                                               connectors=None,
+                                               operations=None,
+                                               printers=None,
+                                               printer_shares=None,
+                                               reports=None,
+                                               services=None,
+                                               shares=None,
+                                               task_definitions=None,
+                                               document_conversion_enabled=None):
     body = {}
     body['connectors'] = connectors
     body['operations'] = operations
@@ -1113,14 +1113,14 @@ def devicescloudprint_print_update_task_definition(client,
                                           body=body)
 
 
-def devicescloudprint_printprinter_create(client,
-                                          display_name=None,
-                                          manufacturer=None,
-                                          model=None,
-                                          physical_device_id=None,
-                                          has_physical_device=None,
-                                          certificate_signing_request=None,
-                                          connector_id=None):
+def devicescloudprint_print_printer_create(client,
+                                           display_name=None,
+                                           manufacturer=None,
+                                           model=None,
+                                           physical_device_id=None,
+                                           has_physical_device=None,
+                                           certificate_signing_request=None,
+                                           connector_id=None):
     if has_physical_device is None:
         has_physical_device = False
     body = {}
@@ -1134,10 +1134,10 @@ def devicescloudprint_printprinter_create(client,
     return client.create(body=body)
 
 
-def devicescloudprint_printprinter_create_allowed_group(client,
-                                                        printer_id,
-                                                        id_=None,
-                                                        display_name=None):
+def devicescloudprint_print_printer_create_allowed_group(client,
+                                                         printer_id,
+                                                         id_=None,
+                                                         display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1145,12 +1145,12 @@ def devicescloudprint_printprinter_create_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printprinter_create_allowed_user(client,
-                                                       printer_id,
-                                                       id_=None,
-                                                       display_name=None,
-                                                       ip_address=None,
-                                                       user_principal_name=None):
+def devicescloudprint_print_printer_create_allowed_user(client,
+                                                        printer_id,
+                                                        id_=None,
+                                                        display_name=None,
+                                                        ip_address=None,
+                                                        user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1160,25 +1160,25 @@ def devicescloudprint_printprinter_create_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printprinter_create_ref_connector(client,
-                                                        printer_id,
-                                                        body):
+def devicescloudprint_print_printer_create_ref_connector(client,
+                                                         printer_id,
+                                                         body):
     return client.create_ref_connectors(printer_id=printer_id,
                                         body=body)
 
 
-def devicescloudprint_printprinter_create_ref_share(client,
-                                                    printer_id,
-                                                    body):
+def devicescloudprint_print_printer_create_ref_share(client,
+                                                     printer_id,
+                                                     body):
     return client.create_ref_shares(printer_id=printer_id,
                                     body=body)
 
 
-def devicescloudprint_printprinter_create_task_trigger(client,
-                                                       printer_id,
-                                                       id_=None,
-                                                       event=None,
-                                                       definition=None):
+def devicescloudprint_print_printer_create_task_trigger(client,
+                                                        printer_id,
+                                                        id_=None,
+                                                        event=None,
+                                                        definition=None):
     body = {}
     body['id'] = id_
     body['event'] = event
@@ -1187,183 +1187,183 @@ def devicescloudprint_printprinter_create_task_trigger(client,
                                        body=body)
 
 
-def devicescloudprint_printprinter_delete_allowed_group(client,
-                                                        printer_id,
-                                                        print_identity_id,
-                                                        if_match=None):
+def devicescloudprint_print_printer_delete_allowed_group(client,
+                                                         printer_id,
+                                                         print_identity_id,
+                                                         if_match=None):
     return client.delete_allowed_groups(printer_id=printer_id,
                                         print_identity_id=print_identity_id,
                                         if_match=if_match)
 
 
-def devicescloudprint_printprinter_delete_allowed_user(client,
-                                                       printer_id,
-                                                       print_user_identity_id,
-                                                       if_match=None):
+def devicescloudprint_print_printer_delete_allowed_user(client,
+                                                        printer_id,
+                                                        print_user_identity_id,
+                                                        if_match=None):
     return client.delete_allowed_users(printer_id=printer_id,
                                        print_user_identity_id=print_user_identity_id,
                                        if_match=if_match)
 
 
-def devicescloudprint_printprinter_delete_ref_share(client,
-                                                    printer_id,
-                                                    if_match=None):
+def devicescloudprint_print_printer_delete_ref_share(client,
+                                                     printer_id,
+                                                     if_match=None):
     return client.delete_ref_share(printer_id=printer_id,
                                    if_match=if_match)
 
 
-def devicescloudprint_printprinter_delete_task_trigger(client,
-                                                       printer_id,
-                                                       print_task_trigger_id,
-                                                       if_match=None):
+def devicescloudprint_print_printer_delete_task_trigger(client,
+                                                        printer_id,
+                                                        print_task_trigger_id,
+                                                        if_match=None):
     return client.delete_task_triggers(printer_id=printer_id,
                                        print_task_trigger_id=print_task_trigger_id,
                                        if_match=if_match)
 
 
-def devicescloudprint_printprinter_list_allowed_group(client,
-                                                      printer_id,
-                                                      orderby=None,
-                                                      select=None,
-                                                      expand=None):
+def devicescloudprint_print_printer_list_allowed_group(client,
+                                                       printer_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
     return client.list_allowed_groups(printer_id=printer_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def devicescloudprint_printprinter_list_allowed_user(client,
-                                                     printer_id,
-                                                     orderby=None,
-                                                     select=None,
-                                                     expand=None):
+def devicescloudprint_print_printer_list_allowed_user(client,
+                                                      printer_id,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
     return client.list_allowed_users(printer_id=printer_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printprinter_list_connector(client,
-                                                  printer_id,
-                                                  orderby=None,
-                                                  select=None,
-                                                  expand=None):
+def devicescloudprint_print_printer_list_connector(client,
+                                                   printer_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_connectors(printer_id=printer_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def devicescloudprint_printprinter_list_ref_connector(client,
-                                                      printer_id,
-                                                      orderby=None):
+def devicescloudprint_print_printer_list_ref_connector(client,
+                                                       printer_id,
+                                                       orderby=None):
     return client.list_ref_connectors(printer_id=printer_id,
                                       orderby=orderby)
 
 
-def devicescloudprint_printprinter_list_ref_share(client,
-                                                  printer_id,
-                                                  orderby=None):
+def devicescloudprint_print_printer_list_ref_share(client,
+                                                   printer_id,
+                                                   orderby=None):
     return client.list_ref_shares(printer_id=printer_id,
                                   orderby=orderby)
 
 
-def devicescloudprint_printprinter_list_share(client,
-                                              printer_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def devicescloudprint_print_printer_list_share(client,
+                                               printer_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
     return client.list_shares(printer_id=printer_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def devicescloudprint_printprinter_list_task_trigger(client,
-                                                     printer_id,
-                                                     orderby=None,
-                                                     select=None,
-                                                     expand=None):
+def devicescloudprint_print_printer_list_task_trigger(client,
+                                                      printer_id,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
     return client.list_task_triggers(printer_id=printer_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printprinter_reset_default(client,
-                                                 printer_id):
+def devicescloudprint_print_printer_reset_default(client,
+                                                  printer_id):
     return client.reset_defaults(printer_id=printer_id)
 
 
-def devicescloudprint_printprinter_restore_factory_default(client,
-                                                           printer_id):
+def devicescloudprint_print_printer_restore_factory_default(client,
+                                                            printer_id):
     return client.restore_factory_defaults(printer_id=printer_id)
 
 
-def devicescloudprint_printprinter_set_ref_share(client,
-                                                 printer_id,
-                                                 body):
+def devicescloudprint_print_printer_set_ref_share(client,
+                                                  printer_id,
+                                                  body):
     return client.set_ref_share(printer_id=printer_id,
                                 body=body)
 
 
-def devicescloudprint_printprinter_show_allowed_group(client,
-                                                      printer_id,
-                                                      print_identity_id,
-                                                      select=None,
-                                                      expand=None):
+def devicescloudprint_print_printer_show_allowed_group(client,
+                                                       printer_id,
+                                                       print_identity_id,
+                                                       select=None,
+                                                       expand=None):
     return client.get_allowed_groups(printer_id=printer_id,
                                      print_identity_id=print_identity_id,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printprinter_show_allowed_user(client,
-                                                     printer_id,
-                                                     print_user_identity_id,
-                                                     select=None,
-                                                     expand=None):
+def devicescloudprint_print_printer_show_allowed_user(client,
+                                                      printer_id,
+                                                      print_user_identity_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_allowed_users(printer_id=printer_id,
                                     print_user_identity_id=print_user_identity_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescloudprint_printprinter_show_capability(client,
-                                                   printer_id):
+def devicescloudprint_print_printer_show_capability(client,
+                                                    printer_id):
     return client.get_capabilities(printer_id=printer_id)
 
 
-def devicescloudprint_printprinter_show_ref_share(client,
-                                                  printer_id):
+def devicescloudprint_print_printer_show_ref_share(client,
+                                                   printer_id):
     return client.get_ref_share(printer_id=printer_id)
 
 
-def devicescloudprint_printprinter_show_share(client,
-                                              printer_id,
-                                              select=None,
-                                              expand=None):
+def devicescloudprint_print_printer_show_share(client,
+                                               printer_id,
+                                               select=None,
+                                               expand=None):
     return client.get_share(printer_id=printer_id,
                             select=select,
                             expand=expand)
 
 
-def devicescloudprint_printprinter_show_task_trigger(client,
-                                                     printer_id,
-                                                     print_task_trigger_id,
-                                                     select=None,
-                                                     expand=None):
+def devicescloudprint_print_printer_show_task_trigger(client,
+                                                      printer_id,
+                                                      print_task_trigger_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_task_triggers(printer_id=printer_id,
                                     print_task_trigger_id=print_task_trigger_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescloudprint_printprinter_update_allowed_group(client,
-                                                        printer_id,
-                                                        print_identity_id,
-                                                        id_=None,
-                                                        display_name=None):
+def devicescloudprint_print_printer_update_allowed_group(client,
+                                                         printer_id,
+                                                         print_identity_id,
+                                                         id_=None,
+                                                         display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1372,13 +1372,13 @@ def devicescloudprint_printprinter_update_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printprinter_update_allowed_user(client,
-                                                       printer_id,
-                                                       print_user_identity_id,
-                                                       id_=None,
-                                                       display_name=None,
-                                                       ip_address=None,
-                                                       user_principal_name=None):
+def devicescloudprint_print_printer_update_allowed_user(client,
+                                                        printer_id,
+                                                        print_user_identity_id,
+                                                        id_=None,
+                                                        display_name=None,
+                                                        ip_address=None,
+                                                        user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1389,12 +1389,12 @@ def devicescloudprint_printprinter_update_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printprinter_update_task_trigger(client,
-                                                       printer_id,
-                                                       print_task_trigger_id,
-                                                       id_=None,
-                                                       event=None,
-                                                       definition=None):
+def devicescloudprint_print_printer_update_task_trigger(client,
+                                                        printer_id,
+                                                        print_task_trigger_id,
+                                                        id_=None,
+                                                        event=None,
+                                                        definition=None):
     body = {}
     body['id'] = id_
     body['event'] = event
@@ -1404,46 +1404,46 @@ def devicescloudprint_printprinter_update_task_trigger(client,
                                        body=body)
 
 
-def devicescloudprint_printprinterstasktrigger_delete_ref_definition(client,
-                                                                     printer_id,
-                                                                     print_task_trigger_id,
-                                                                     if_match=None):
+def devicescloudprint_print_printer_task_trigger_delete_ref_definition(client,
+                                                                       printer_id,
+                                                                       print_task_trigger_id,
+                                                                       if_match=None):
     return client.delete_ref_definition(printer_id=printer_id,
                                         print_task_trigger_id=print_task_trigger_id,
                                         if_match=if_match)
 
 
-def devicescloudprint_printprinterstasktrigger_set_ref_definition(client,
-                                                                  printer_id,
-                                                                  print_task_trigger_id,
-                                                                  body):
+def devicescloudprint_print_printer_task_trigger_set_ref_definition(client,
+                                                                    printer_id,
+                                                                    print_task_trigger_id,
+                                                                    body):
     return client.set_ref_definition(printer_id=printer_id,
                                      print_task_trigger_id=print_task_trigger_id,
                                      body=body)
 
 
-def devicescloudprint_printprinterstasktrigger_show_definition(client,
-                                                               printer_id,
-                                                               print_task_trigger_id,
-                                                               select=None,
-                                                               expand=None):
+def devicescloudprint_print_printer_task_trigger_show_definition(client,
+                                                                 printer_id,
+                                                                 print_task_trigger_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_definition(printer_id=printer_id,
                                  print_task_trigger_id=print_task_trigger_id,
                                  select=select,
                                  expand=expand)
 
 
-def devicescloudprint_printprinterstasktrigger_show_ref_definition(client,
-                                                                   printer_id,
-                                                                   print_task_trigger_id):
+def devicescloudprint_print_printer_task_trigger_show_ref_definition(client,
+                                                                     printer_id,
+                                                                     print_task_trigger_id):
     return client.get_ref_definition(printer_id=printer_id,
                                      print_task_trigger_id=print_task_trigger_id)
 
 
-def devicescloudprint_printprintershare_create_allowed_group(client,
-                                                             printer_share_id,
-                                                             id_=None,
-                                                             display_name=None):
+def devicescloudprint_print_printer_share_create_allowed_group(client,
+                                                               printer_share_id,
+                                                               id_=None,
+                                                               display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1451,12 +1451,12 @@ def devicescloudprint_printprintershare_create_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printprintershare_create_allowed_user(client,
-                                                            printer_share_id,
-                                                            id_=None,
-                                                            display_name=None,
-                                                            ip_address=None,
-                                                            user_principal_name=None):
+def devicescloudprint_print_printer_share_create_allowed_user(client,
+                                                              printer_share_id,
+                                                              id_=None,
+                                                              display_name=None,
+                                                              ip_address=None,
+                                                              user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1466,101 +1466,101 @@ def devicescloudprint_printprintershare_create_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printprintershare_delete_allowed_group(client,
-                                                             printer_share_id,
-                                                             print_identity_id,
-                                                             if_match=None):
+def devicescloudprint_print_printer_share_delete_allowed_group(client,
+                                                               printer_share_id,
+                                                               print_identity_id,
+                                                               if_match=None):
     return client.delete_allowed_groups(printer_share_id=printer_share_id,
                                         print_identity_id=print_identity_id,
                                         if_match=if_match)
 
 
-def devicescloudprint_printprintershare_delete_allowed_user(client,
-                                                            printer_share_id,
-                                                            print_user_identity_id,
-                                                            if_match=None):
+def devicescloudprint_print_printer_share_delete_allowed_user(client,
+                                                              printer_share_id,
+                                                              print_user_identity_id,
+                                                              if_match=None):
     return client.delete_allowed_users(printer_share_id=printer_share_id,
                                        print_user_identity_id=print_user_identity_id,
                                        if_match=if_match)
 
 
-def devicescloudprint_printprintershare_delete_ref_printer(client,
-                                                           printer_share_id,
-                                                           if_match=None):
+def devicescloudprint_print_printer_share_delete_ref_printer(client,
+                                                             printer_share_id,
+                                                             if_match=None):
     return client.delete_ref_printer(printer_share_id=printer_share_id,
                                      if_match=if_match)
 
 
-def devicescloudprint_printprintershare_list_allowed_group(client,
-                                                           printer_share_id,
-                                                           orderby=None,
-                                                           select=None,
-                                                           expand=None):
+def devicescloudprint_print_printer_share_list_allowed_group(client,
+                                                             printer_share_id,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_allowed_groups(printer_share_id=printer_share_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def devicescloudprint_printprintershare_list_allowed_user(client,
-                                                          printer_share_id,
-                                                          orderby=None,
-                                                          select=None,
-                                                          expand=None):
+def devicescloudprint_print_printer_share_list_allowed_user(client,
+                                                            printer_share_id,
+                                                            orderby=None,
+                                                            select=None,
+                                                            expand=None):
     return client.list_allowed_users(printer_share_id=printer_share_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printprintershare_set_ref_printer(client,
-                                                        printer_share_id,
-                                                        body):
+def devicescloudprint_print_printer_share_set_ref_printer(client,
+                                                          printer_share_id,
+                                                          body):
     return client.set_ref_printer(printer_share_id=printer_share_id,
                                   body=body)
 
 
-def devicescloudprint_printprintershare_show_allowed_group(client,
-                                                           printer_share_id,
-                                                           print_identity_id,
-                                                           select=None,
-                                                           expand=None):
+def devicescloudprint_print_printer_share_show_allowed_group(client,
+                                                             printer_share_id,
+                                                             print_identity_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_allowed_groups(printer_share_id=printer_share_id,
                                      print_identity_id=print_identity_id,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printprintershare_show_allowed_user(client,
-                                                          printer_share_id,
-                                                          print_user_identity_id,
-                                                          select=None,
-                                                          expand=None):
+def devicescloudprint_print_printer_share_show_allowed_user(client,
+                                                            printer_share_id,
+                                                            print_user_identity_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_allowed_users(printer_share_id=printer_share_id,
                                     print_user_identity_id=print_user_identity_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescloudprint_printprintershare_show_printer(client,
-                                                     printer_share_id,
-                                                     select=None,
-                                                     expand=None):
+def devicescloudprint_print_printer_share_show_printer(client,
+                                                       printer_share_id,
+                                                       select=None,
+                                                       expand=None):
     return client.get_printer(printer_share_id=printer_share_id,
                               select=select,
                               expand=expand)
 
 
-def devicescloudprint_printprintershare_show_ref_printer(client,
-                                                         printer_share_id):
+def devicescloudprint_print_printer_share_show_ref_printer(client,
+                                                           printer_share_id):
     return client.get_ref_printer(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printprintershare_update_allowed_group(client,
-                                                             printer_share_id,
-                                                             print_identity_id,
-                                                             id_=None,
-                                                             display_name=None):
+def devicescloudprint_print_printer_share_update_allowed_group(client,
+                                                               printer_share_id,
+                                                               print_identity_id,
+                                                               id_=None,
+                                                               display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1569,13 +1569,13 @@ def devicescloudprint_printprintershare_update_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printprintershare_update_allowed_user(client,
-                                                            printer_share_id,
-                                                            print_user_identity_id,
-                                                            id_=None,
-                                                            display_name=None,
-                                                            ip_address=None,
-                                                            user_principal_name=None):
+def devicescloudprint_print_printer_share_update_allowed_user(client,
+                                                              printer_share_id,
+                                                              print_user_identity_id,
+                                                              id_=None,
+                                                              display_name=None,
+                                                              ip_address=None,
+                                                              user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1586,52 +1586,52 @@ def devicescloudprint_printprintershare_update_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printprintersharesprinter_reset_default(client,
-                                                              printer_share_id):
+def devicescloudprint_print_printer_share_printer_reset_default(client,
+                                                                printer_share_id):
     return client.reset_defaults(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printprintersharesprinter_restore_factory_default(client,
-                                                                        printer_share_id):
+def devicescloudprint_print_printer_share_printer_restore_factory_default(client,
+                                                                          printer_share_id):
     return client.restore_factory_defaults(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printprintersharesprinter_show_capability(client,
-                                                                printer_share_id):
+def devicescloudprint_print_printer_share_printer_show_capability(client,
+                                                                  printer_share_id):
     return client.get_capabilities(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printreport_show_group_archived_print_job(client,
-                                                                group_id,
-                                                                period_start,
-                                                                period_end):
+def devicescloudprint_print_report_show_group_archived_print_job(client,
+                                                                 group_id,
+                                                                 period_start,
+                                                                 period_end):
     return client.get_group_archived_print_jobs(group_id=group_id,
                                                 period_start=period_start,
                                                 period_end=period_end)
 
 
-def devicescloudprint_printreport_show_group_print_usage_summary(client,
-                                                                 group_id,
-                                                                 period_start,
-                                                                 period_end):
+def devicescloudprint_print_report_show_group_print_usage_summary(client,
+                                                                  group_id,
+                                                                  period_start,
+                                                                  period_end):
     return client.get_group_print_usage_summary(group_id=group_id,
                                                 period_start=period_start,
                                                 period_end=period_end)
 
 
-def devicescloudprint_printreport_show_overall_print_usage_summary(client,
-                                                                   period_start,
-                                                                   period_end,
-                                                                   top_lists_size):
+def devicescloudprint_print_report_show_overall_print_usage_summary(client,
+                                                                    period_start,
+                                                                    period_end,
+                                                                    top_lists_size):
     return client.get_overall_print_usage_summary(period_start=period_start,
                                                   period_end=period_end,
                                                   top_lists_size=top_lists_size)
 
 
-def devicescloudprint_printreport_show_print_usage_summary(client,
-                                                           period_start,
-                                                           period_end,
-                                                           time_span_in_minutes=None):
+def devicescloudprint_print_report_show_print_usage_summary(client,
+                                                            period_start,
+                                                            period_end,
+                                                            time_span_in_minutes=None):
     if period_start is not None and period_end is not None and time_span_in_minutes is not None:
         return client.get_print_usage_summaries_by_time_span(period_start=period_start,
                                                              period_end=period_end,
@@ -1646,47 +1646,47 @@ def devicescloudprint_printreport_show_print_usage_summary(client,
                                                     period_end=period_end)
 
 
-def devicescloudprint_printreport_show_printer_archived_print_job(client,
-                                                                  printer_id,
-                                                                  period_start,
-                                                                  period_end):
+def devicescloudprint_print_report_show_printer_archived_print_job(client,
+                                                                   printer_id,
+                                                                   period_start,
+                                                                   period_end):
     return client.get_printer_archived_print_jobs(printer_id=printer_id,
                                                   period_start=period_start,
                                                   period_end=period_end)
 
 
-def devicescloudprint_printreport_show_printer_usage_summary(client,
-                                                             printer_id,
-                                                             period_start,
-                                                             period_end):
+def devicescloudprint_print_report_show_printer_usage_summary(client,
+                                                              printer_id,
+                                                              period_start,
+                                                              period_end):
     return client.get_printer_usage_summary(printer_id=printer_id,
                                             period_start=period_start,
                                             period_end=period_end)
 
 
-def devicescloudprint_printreport_show_user_archived_print_job(client,
-                                                               user_id,
-                                                               period_start,
-                                                               period_end):
+def devicescloudprint_print_report_show_user_archived_print_job(client,
+                                                                user_id,
+                                                                period_start,
+                                                                period_end):
     return client.get_user_archived_print_jobs(user_id=user_id,
                                                period_start=period_start,
                                                period_end=period_end)
 
 
-def devicescloudprint_printreport_show_user_print_usage_summary(client,
-                                                                user_id,
-                                                                period_start,
-                                                                period_end):
+def devicescloudprint_print_report_show_user_print_usage_summary(client,
+                                                                 user_id,
+                                                                 period_start,
+                                                                 period_end):
     return client.get_user_print_usage_summary(user_id=user_id,
                                                period_start=period_start,
                                                period_end=period_end)
 
 
-def devicescloudprint_printservice_create_endpoint(client,
-                                                   print_service_id,
-                                                   id_=None,
-                                                   display_name=None,
-                                                   uri=None):
+def devicescloudprint_print_service_create_endpoint(client,
+                                                    print_service_id,
+                                                    id_=None,
+                                                    display_name=None,
+                                                    uri=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1695,43 +1695,43 @@ def devicescloudprint_printservice_create_endpoint(client,
                                    body=body)
 
 
-def devicescloudprint_printservice_delete_endpoint(client,
-                                                   print_service_id,
-                                                   print_service_endpoint_id,
-                                                   if_match=None):
+def devicescloudprint_print_service_delete_endpoint(client,
+                                                    print_service_id,
+                                                    print_service_endpoint_id,
+                                                    if_match=None):
     return client.delete_endpoints(print_service_id=print_service_id,
                                    print_service_endpoint_id=print_service_endpoint_id,
                                    if_match=if_match)
 
 
-def devicescloudprint_printservice_list_endpoint(client,
-                                                 print_service_id,
-                                                 orderby=None,
-                                                 select=None,
-                                                 expand=None):
+def devicescloudprint_print_service_list_endpoint(client,
+                                                  print_service_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
     return client.list_endpoints(print_service_id=print_service_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def devicescloudprint_printservice_show_endpoint(client,
-                                                 print_service_id,
-                                                 print_service_endpoint_id,
-                                                 select=None,
-                                                 expand=None):
+def devicescloudprint_print_service_show_endpoint(client,
+                                                  print_service_id,
+                                                  print_service_endpoint_id,
+                                                  select=None,
+                                                  expand=None):
     return client.get_endpoints(print_service_id=print_service_id,
                                 print_service_endpoint_id=print_service_endpoint_id,
                                 select=select,
                                 expand=expand)
 
 
-def devicescloudprint_printservice_update_endpoint(client,
-                                                   print_service_id,
-                                                   print_service_endpoint_id,
-                                                   id_=None,
-                                                   display_name=None,
-                                                   uri=None):
+def devicescloudprint_print_service_update_endpoint(client,
+                                                    print_service_id,
+                                                    print_service_endpoint_id,
+                                                    id_=None,
+                                                    display_name=None,
+                                                    uri=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1741,10 +1741,10 @@ def devicescloudprint_printservice_update_endpoint(client,
                                    body=body)
 
 
-def devicescloudprint_printshare_create_allowed_group(client,
-                                                      printer_share_id,
-                                                      id_=None,
-                                                      display_name=None):
+def devicescloudprint_print_share_create_allowed_group(client,
+                                                       printer_share_id,
+                                                       id_=None,
+                                                       display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1752,12 +1752,12 @@ def devicescloudprint_printshare_create_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printshare_create_allowed_user(client,
-                                                     printer_share_id,
-                                                     id_=None,
-                                                     display_name=None,
-                                                     ip_address=None,
-                                                     user_principal_name=None):
+def devicescloudprint_print_share_create_allowed_user(client,
+                                                      printer_share_id,
+                                                      id_=None,
+                                                      display_name=None,
+                                                      ip_address=None,
+                                                      user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1767,101 +1767,101 @@ def devicescloudprint_printshare_create_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printshare_delete_allowed_group(client,
-                                                      printer_share_id,
-                                                      print_identity_id,
-                                                      if_match=None):
+def devicescloudprint_print_share_delete_allowed_group(client,
+                                                       printer_share_id,
+                                                       print_identity_id,
+                                                       if_match=None):
     return client.delete_allowed_groups(printer_share_id=printer_share_id,
                                         print_identity_id=print_identity_id,
                                         if_match=if_match)
 
 
-def devicescloudprint_printshare_delete_allowed_user(client,
-                                                     printer_share_id,
-                                                     print_user_identity_id,
-                                                     if_match=None):
+def devicescloudprint_print_share_delete_allowed_user(client,
+                                                      printer_share_id,
+                                                      print_user_identity_id,
+                                                      if_match=None):
     return client.delete_allowed_users(printer_share_id=printer_share_id,
                                        print_user_identity_id=print_user_identity_id,
                                        if_match=if_match)
 
 
-def devicescloudprint_printshare_delete_ref_printer(client,
-                                                    printer_share_id,
-                                                    if_match=None):
+def devicescloudprint_print_share_delete_ref_printer(client,
+                                                     printer_share_id,
+                                                     if_match=None):
     return client.delete_ref_printer(printer_share_id=printer_share_id,
                                      if_match=if_match)
 
 
-def devicescloudprint_printshare_list_allowed_group(client,
-                                                    printer_share_id,
-                                                    orderby=None,
-                                                    select=None,
-                                                    expand=None):
+def devicescloudprint_print_share_list_allowed_group(client,
+                                                     printer_share_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
     return client.list_allowed_groups(printer_share_id=printer_share_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def devicescloudprint_printshare_list_allowed_user(client,
-                                                   printer_share_id,
-                                                   orderby=None,
-                                                   select=None,
-                                                   expand=None):
+def devicescloudprint_print_share_list_allowed_user(client,
+                                                    printer_share_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
     return client.list_allowed_users(printer_share_id=printer_share_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printshare_set_ref_printer(client,
-                                                 printer_share_id,
-                                                 body):
+def devicescloudprint_print_share_set_ref_printer(client,
+                                                  printer_share_id,
+                                                  body):
     return client.set_ref_printer(printer_share_id=printer_share_id,
                                   body=body)
 
 
-def devicescloudprint_printshare_show_allowed_group(client,
-                                                    printer_share_id,
-                                                    print_identity_id,
-                                                    select=None,
-                                                    expand=None):
+def devicescloudprint_print_share_show_allowed_group(client,
+                                                     printer_share_id,
+                                                     print_identity_id,
+                                                     select=None,
+                                                     expand=None):
     return client.get_allowed_groups(printer_share_id=printer_share_id,
                                      print_identity_id=print_identity_id,
                                      select=select,
                                      expand=expand)
 
 
-def devicescloudprint_printshare_show_allowed_user(client,
-                                                   printer_share_id,
-                                                   print_user_identity_id,
-                                                   select=None,
-                                                   expand=None):
+def devicescloudprint_print_share_show_allowed_user(client,
+                                                    printer_share_id,
+                                                    print_user_identity_id,
+                                                    select=None,
+                                                    expand=None):
     return client.get_allowed_users(printer_share_id=printer_share_id,
                                     print_user_identity_id=print_user_identity_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescloudprint_printshare_show_printer(client,
-                                              printer_share_id,
-                                              select=None,
-                                              expand=None):
+def devicescloudprint_print_share_show_printer(client,
+                                               printer_share_id,
+                                               select=None,
+                                               expand=None):
     return client.get_printer(printer_share_id=printer_share_id,
                               select=select,
                               expand=expand)
 
 
-def devicescloudprint_printshare_show_ref_printer(client,
-                                                  printer_share_id):
+def devicescloudprint_print_share_show_ref_printer(client,
+                                                   printer_share_id):
     return client.get_ref_printer(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printshare_update_allowed_group(client,
-                                                      printer_share_id,
-                                                      print_identity_id,
-                                                      id_=None,
-                                                      display_name=None):
+def devicescloudprint_print_share_update_allowed_group(client,
+                                                       printer_share_id,
+                                                       print_identity_id,
+                                                       id_=None,
+                                                       display_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1870,13 +1870,13 @@ def devicescloudprint_printshare_update_allowed_group(client,
                                         body=body)
 
 
-def devicescloudprint_printshare_update_allowed_user(client,
-                                                     printer_share_id,
-                                                     print_user_identity_id,
-                                                     id_=None,
-                                                     display_name=None,
-                                                     ip_address=None,
-                                                     user_principal_name=None):
+def devicescloudprint_print_share_update_allowed_user(client,
+                                                      printer_share_id,
+                                                      print_user_identity_id,
+                                                      id_=None,
+                                                      display_name=None,
+                                                      ip_address=None,
+                                                      user_principal_name=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1887,30 +1887,30 @@ def devicescloudprint_printshare_update_allowed_user(client,
                                        body=body)
 
 
-def devicescloudprint_printsharesprinter_reset_default(client,
-                                                       printer_share_id):
+def devicescloudprint_print_share_printer_reset_default(client,
+                                                        printer_share_id):
     return client.reset_defaults(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printsharesprinter_restore_factory_default(client,
-                                                                 printer_share_id):
+def devicescloudprint_print_share_printer_restore_factory_default(client,
+                                                                  printer_share_id):
     return client.restore_factory_defaults(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printsharesprinter_show_capability(client,
-                                                         printer_share_id):
+def devicescloudprint_print_share_printer_show_capability(client,
+                                                          printer_share_id):
     return client.get_capabilities(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_printtaskdefinition_create_task(client,
-                                                      print_task_definition_id,
-                                                      id_=None,
-                                                      parent_url=None,
-                                                      status=None,
-                                                      definition=None,
-                                                      microsoft_graph_entity_id=None,
-                                                      event=None,
-                                                      microsoft_graph_print_task_definition=None):
+def devicescloudprint_print_task_definition_create_task(client,
+                                                        print_task_definition_id,
+                                                        id_=None,
+                                                        parent_url=None,
+                                                        status=None,
+                                                        definition=None,
+                                                        microsoft_graph_entity_id=None,
+                                                        event=None,
+                                                        microsoft_graph_print_task_definition=None):
     body = {}
     body['id'] = id_
     body['parent_url'] = parent_url
@@ -1924,47 +1924,47 @@ def devicescloudprint_printtaskdefinition_create_task(client,
                                body=body)
 
 
-def devicescloudprint_printtaskdefinition_delete_task(client,
-                                                      print_task_definition_id,
-                                                      print_task_id,
-                                                      if_match=None):
+def devicescloudprint_print_task_definition_delete_task(client,
+                                                        print_task_definition_id,
+                                                        print_task_id,
+                                                        if_match=None):
     return client.delete_tasks(print_task_definition_id=print_task_definition_id,
                                print_task_id=print_task_id,
                                if_match=if_match)
 
 
-def devicescloudprint_printtaskdefinition_list_task(client,
-                                                    print_task_definition_id,
-                                                    orderby=None,
-                                                    select=None,
-                                                    expand=None):
+def devicescloudprint_print_task_definition_list_task(client,
+                                                      print_task_definition_id,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
     return client.list_tasks(print_task_definition_id=print_task_definition_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def devicescloudprint_printtaskdefinition_show_task(client,
-                                                    print_task_definition_id,
-                                                    print_task_id,
-                                                    select=None,
-                                                    expand=None):
+def devicescloudprint_print_task_definition_show_task(client,
+                                                      print_task_definition_id,
+                                                      print_task_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_tasks(print_task_definition_id=print_task_definition_id,
                             print_task_id=print_task_id,
                             select=select,
                             expand=expand)
 
 
-def devicescloudprint_printtaskdefinition_update_task(client,
-                                                      print_task_definition_id,
-                                                      print_task_id,
-                                                      id_=None,
-                                                      parent_url=None,
-                                                      status=None,
-                                                      definition=None,
-                                                      microsoft_graph_entity_id=None,
-                                                      event=None,
-                                                      microsoft_graph_print_task_definition=None):
+def devicescloudprint_print_task_definition_update_task(client,
+                                                        print_task_definition_id,
+                                                        print_task_id,
+                                                        id_=None,
+                                                        parent_url=None,
+                                                        status=None,
+                                                        definition=None,
+                                                        microsoft_graph_entity_id=None,
+                                                        event=None,
+                                                        microsoft_graph_print_task_definition=None):
     body = {}
     body['id'] = id_
     body['parent_url'] = parent_url
@@ -1979,72 +1979,72 @@ def devicescloudprint_printtaskdefinition_update_task(client,
                                body=body)
 
 
-def devicescloudprint_printtaskdefinitionstask_delete_ref_definition(client,
-                                                                     print_task_definition_id,
-                                                                     print_task_id,
-                                                                     if_match=None):
+def devicescloudprint_print_task_definition_task_delete_ref_definition(client,
+                                                                       print_task_definition_id,
+                                                                       print_task_id,
+                                                                       if_match=None):
     return client.delete_ref_definition(print_task_definition_id=print_task_definition_id,
                                         print_task_id=print_task_id,
                                         if_match=if_match)
 
 
-def devicescloudprint_printtaskdefinitionstask_delete_ref_trigger(client,
-                                                                  print_task_definition_id,
-                                                                  print_task_id,
-                                                                  if_match=None):
+def devicescloudprint_print_task_definition_task_delete_ref_trigger(client,
+                                                                    print_task_definition_id,
+                                                                    print_task_id,
+                                                                    if_match=None):
     return client.delete_ref_trigger(print_task_definition_id=print_task_definition_id,
                                      print_task_id=print_task_id,
                                      if_match=if_match)
 
 
-def devicescloudprint_printtaskdefinitionstask_set_ref_definition(client,
-                                                                  print_task_definition_id,
-                                                                  print_task_id,
-                                                                  body):
+def devicescloudprint_print_task_definition_task_set_ref_definition(client,
+                                                                    print_task_definition_id,
+                                                                    print_task_id,
+                                                                    body):
     return client.set_ref_definition(print_task_definition_id=print_task_definition_id,
                                      print_task_id=print_task_id,
                                      body=body)
 
 
-def devicescloudprint_printtaskdefinitionstask_set_ref_trigger(client,
-                                                               print_task_definition_id,
-                                                               print_task_id,
-                                                               body):
+def devicescloudprint_print_task_definition_task_set_ref_trigger(client,
+                                                                 print_task_definition_id,
+                                                                 print_task_id,
+                                                                 body):
     return client.set_ref_trigger(print_task_definition_id=print_task_definition_id,
                                   print_task_id=print_task_id,
                                   body=body)
 
 
-def devicescloudprint_printtaskdefinitionstask_show_definition(client,
-                                                               print_task_definition_id,
-                                                               print_task_id,
-                                                               select=None,
-                                                               expand=None):
+def devicescloudprint_print_task_definition_task_show_definition(client,
+                                                                 print_task_definition_id,
+                                                                 print_task_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_definition(print_task_definition_id=print_task_definition_id,
                                  print_task_id=print_task_id,
                                  select=select,
                                  expand=expand)
 
 
-def devicescloudprint_printtaskdefinitionstask_show_ref_definition(client,
-                                                                   print_task_definition_id,
-                                                                   print_task_id):
+def devicescloudprint_print_task_definition_task_show_ref_definition(client,
+                                                                     print_task_definition_id,
+                                                                     print_task_id):
     return client.get_ref_definition(print_task_definition_id=print_task_definition_id,
                                      print_task_id=print_task_id)
 
 
-def devicescloudprint_printtaskdefinitionstask_show_ref_trigger(client,
-                                                                print_task_definition_id,
-                                                                print_task_id):
+def devicescloudprint_print_task_definition_task_show_ref_trigger(client,
+                                                                  print_task_definition_id,
+                                                                  print_task_id):
     return client.get_ref_trigger(print_task_definition_id=print_task_definition_id,
                                   print_task_id=print_task_id)
 
 
-def devicescloudprint_printtaskdefinitionstask_show_trigger(client,
-                                                            print_task_definition_id,
-                                                            print_task_id,
-                                                            select=None,
-                                                            expand=None):
+def devicescloudprint_print_task_definition_task_show_trigger(client,
+                                                              print_task_definition_id,
+                                                              print_task_id,
+                                                              select=None,
+                                                              expand=None):
     return client.get_trigger(print_task_definition_id=print_task_definition_id,
                               print_task_id=print_task_id,
                               select=select,

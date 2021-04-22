@@ -18,9 +18,9 @@ def cf_directoryobjects_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_directoryobjectsdirectoryobject(cli_ctx, *_):
-    return cf_directoryobjects_v1_0_cl(cli_ctx).directoryobjectsdirectoryobject
+def cf_directory_object_directory_object(cli_ctx, *_):
+    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_objects_directory_object
 
 
-def cf_directoryobject(cli_ctx, *_):
-    return cf_directoryobjects_v1_0_cl(cli_ctx).directoryobjects
+def cf_directory_object(cli_ctx, *_):
+    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_objects

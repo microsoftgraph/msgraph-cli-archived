@@ -7,57 +7,57 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofperson
-    from ._models_py3 import collectionofsharedinsight
-    from ._models_py3 import collectionoftrending
-    from ._models_py3 import collectionofusedinsight
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphinsightidentity
-    from ._models_py3 import microsoftgraphlocation
-    from ._models_py3 import microsoftgraphofficegraphinsights
-    from ._models_py3 import microsoftgraphoutlookgeocoordinates
-    from ._models_py3 import microsoftgraphperson
-    from ._models_py3 import microsoftgraphpersontype
-    from ._models_py3 import microsoftgraphphone
-    from ._models_py3 import microsoftgraphphysicaladdress
-    from ._models_py3 import microsoftgraphresourcereference
-    from ._models_py3 import microsoftgraphresourcevisualization
-    from ._models_py3 import microsoftgraphscoredemailaddress
-    from ._models_py3 import microsoftgraphsharedinsight
-    from ._models_py3 import microsoftgraphsharingdetail
-    from ._models_py3 import microsoftgraphtrending
-    from ._models_py3 import microsoftgraphusagedetails
-    from ._models_py3 import microsoftgraphusedinsight
-    from ._models_py3 import microsoftgraphwebsite
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfPerson
+    from ._models_py3 import CollectionOfSharedInsight
+    from ._models_py3 import CollectionOfTrending
+    from ._models_py3 import CollectionOfUsedInsight
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphInsightIdentity
+    from ._models_py3 import MicrosoftGraphLocation
+    from ._models_py3 import MicrosoftGraphOfficeGraphInsights
+    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
+    from ._models_py3 import MicrosoftGraphPerson
+    from ._models_py3 import MicrosoftGraphPersonType
+    from ._models_py3 import MicrosoftGraphPhone
+    from ._models_py3 import MicrosoftGraphPhysicalAddress
+    from ._models_py3 import MicrosoftGraphResourceReference
+    from ._models_py3 import MicrosoftGraphResourceVisualization
+    from ._models_py3 import MicrosoftGraphScoredEmailAddress
+    from ._models_py3 import MicrosoftGraphSharedInsight
+    from ._models_py3 import MicrosoftGraphSharingDetail
+    from ._models_py3 import MicrosoftGraphTrending
+    from ._models_py3 import MicrosoftGraphUsageDetails
+    from ._models_py3 import MicrosoftGraphUsedInsight
+    from ._models_py3 import MicrosoftGraphWebsite
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofperson  # type: ignore
-    from ._models import collectionofsharedinsight  # type: ignore
-    from ._models import collectionoftrending  # type: ignore
-    from ._models import collectionofusedinsight  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphinsightidentity  # type: ignore
-    from ._models import microsoftgraphlocation  # type: ignore
-    from ._models import microsoftgraphofficegraphinsights  # type: ignore
-    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
-    from ._models import microsoftgraphperson  # type: ignore
-    from ._models import microsoftgraphpersontype  # type: ignore
-    from ._models import microsoftgraphphone  # type: ignore
-    from ._models import microsoftgraphphysicaladdress  # type: ignore
-    from ._models import microsoftgraphresourcereference  # type: ignore
-    from ._models import microsoftgraphresourcevisualization  # type: ignore
-    from ._models import microsoftgraphscoredemailaddress  # type: ignore
-    from ._models import microsoftgraphsharedinsight  # type: ignore
-    from ._models import microsoftgraphsharingdetail  # type: ignore
-    from ._models import microsoftgraphtrending  # type: ignore
-    from ._models import microsoftgraphusagedetails  # type: ignore
-    from ._models import microsoftgraphusedinsight  # type: ignore
-    from ._models import microsoftgraphwebsite  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfPerson  # type: ignore
+    from ._models import CollectionOfSharedInsight  # type: ignore
+    from ._models import CollectionOfTrending  # type: ignore
+    from ._models import CollectionOfUsedInsight  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphInsightIdentity  # type: ignore
+    from ._models import MicrosoftGraphLocation  # type: ignore
+    from ._models import MicrosoftGraphOfficeGraphInsights  # type: ignore
+    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
+    from ._models import MicrosoftGraphPerson  # type: ignore
+    from ._models import MicrosoftGraphPersonType  # type: ignore
+    from ._models import MicrosoftGraphPhone  # type: ignore
+    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
+    from ._models import MicrosoftGraphResourceReference  # type: ignore
+    from ._models import MicrosoftGraphResourceVisualization  # type: ignore
+    from ._models import MicrosoftGraphScoredEmailAddress  # type: ignore
+    from ._models import MicrosoftGraphSharedInsight  # type: ignore
+    from ._models import MicrosoftGraphSharingDetail  # type: ignore
+    from ._models import MicrosoftGraphTrending  # type: ignore
+    from ._models import MicrosoftGraphUsageDetails  # type: ignore
+    from ._models import MicrosoftGraphUsedInsight  # type: ignore
+    from ._models import MicrosoftGraphWebsite  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._people_enums import (
     Enum10,
@@ -74,45 +74,45 @@ from ._people_enums import (
     Enum7,
     Enum8,
     Enum9,
-    Get1itemsitem,
-    Get2itemsitem,
-    Get3itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
-    Get8itemsitem,
-    Microsoftgraphlocationtype,
-    Microsoftgraphlocationuniqueidtype,
-    Microsoftgraphphonetype,
-    Microsoftgraphselectionlikelihoodinfo,
-    Microsoftgraphwebsitetype,
+    Get1ItemsItem,
+    Get2ItemsItem,
+    Get3ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
+    Get8ItemsItem,
+    MicrosoftGraphLocationType,
+    MicrosoftGraphLocationUniqueIdType,
+    MicrosoftGraphPhoneType,
+    MicrosoftGraphSelectionLikelihoodInfo,
+    MicrosoftGraphWebsiteType,
 )
 
 __all__ = [
-    'collectionofperson',
-    'collectionofsharedinsight',
-    'collectionoftrending',
-    'collectionofusedinsight',
-    'microsoftgraphentity',
-    'microsoftgraphinsightidentity',
-    'microsoftgraphlocation',
-    'microsoftgraphofficegraphinsights',
-    'microsoftgraphoutlookgeocoordinates',
-    'microsoftgraphperson',
-    'microsoftgraphpersontype',
-    'microsoftgraphphone',
-    'microsoftgraphphysicaladdress',
-    'microsoftgraphresourcereference',
-    'microsoftgraphresourcevisualization',
-    'microsoftgraphscoredemailaddress',
-    'microsoftgraphsharedinsight',
-    'microsoftgraphsharingdetail',
-    'microsoftgraphtrending',
-    'microsoftgraphusagedetails',
-    'microsoftgraphusedinsight',
-    'microsoftgraphwebsite',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfPerson',
+    'CollectionOfSharedInsight',
+    'CollectionOfTrending',
+    'CollectionOfUsedInsight',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphInsightIdentity',
+    'MicrosoftGraphLocation',
+    'MicrosoftGraphOfficeGraphInsights',
+    'MicrosoftGraphOutlookGeoCoordinates',
+    'MicrosoftGraphPerson',
+    'MicrosoftGraphPersonType',
+    'MicrosoftGraphPhone',
+    'MicrosoftGraphPhysicalAddress',
+    'MicrosoftGraphResourceReference',
+    'MicrosoftGraphResourceVisualization',
+    'MicrosoftGraphScoredEmailAddress',
+    'MicrosoftGraphSharedInsight',
+    'MicrosoftGraphSharingDetail',
+    'MicrosoftGraphTrending',
+    'MicrosoftGraphUsageDetails',
+    'MicrosoftGraphUsedInsight',
+    'MicrosoftGraphWebsite',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum10',
     'Enum11',
     'Enum12',
@@ -127,15 +127,15 @@ __all__ = [
     'Enum7',
     'Enum8',
     'Enum9',
-    'Get1itemsitem',
-    'Get2itemsitem',
-    'Get3itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
-    'Get8itemsitem',
-    'Microsoftgraphlocationtype',
-    'Microsoftgraphlocationuniqueidtype',
-    'Microsoftgraphphonetype',
-    'Microsoftgraphselectionlikelihoodinfo',
-    'Microsoftgraphwebsitetype',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
+    'Get3ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
+    'Get8ItemsItem',
+    'MicrosoftGraphLocationType',
+    'MicrosoftGraphLocationUniqueIdType',
+    'MicrosoftGraphPhoneType',
+    'MicrosoftGraphSelectionLikelihoodInfo',
+    'MicrosoftGraphWebsiteType',
 ]

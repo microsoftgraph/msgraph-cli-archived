@@ -18,112 +18,112 @@ def cf_teams_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_appcatalog(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).appcatalogs
+def cf_app_catalog(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).app_catalogs
 
 
-def cf_appcatalogsteamsapp(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).appcatalogsteamsapps
+def cf_app_catalog_team_app(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).app_catalogs_teams_apps
 
 
-def cf_chatschat(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatschat
+def cf_chat_chat(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_chat
 
 
 def cf_chat(cli_ctx, *_):
     return cf_teams_beta_cl(cli_ctx).chats
 
 
-def cf_chatsinstalledapp(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatsinstalledapps
+def cf_chat_installed_app(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_installed_apps
 
 
-def cf_chatsmember(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatsmembers
+def cf_chat_member(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_members
 
 
-def cf_chatsmessage(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatsmessages
+def cf_chat_message(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_messages
 
 
-def cf_chatsmessagesreply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatsmessagesreplies
+def cf_chat_message_reply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_messages_replies
 
 
-def cf_chatstab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chatstabs
+def cf_chat_tab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chats_tabs
 
 
 def cf_group(cli_ctx, *_):
     return cf_teams_beta_cl(cli_ctx).groups
 
 
-def cf_teamsteam(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsteam
+def cf_team_team(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_team
 
 
 def cf_team(cli_ctx, *_):
     return cf_teams_beta_cl(cli_ctx).teams
 
 
-def cf_teamschannel(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamschannels
+def cf_team_channel(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_channels
 
 
-def cf_teamschannelsmember(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamschannelsmembers
+def cf_team_channel_member(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_channels_members
 
 
-def cf_teamschannelsmessage(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamschannelsmessages
+def cf_team_channel_message(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_channels_messages
 
 
-def cf_teamschannelsmessagesreply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamschannelsmessagesreplies
+def cf_team_channel_message_reply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_channels_messages_replies
 
 
-def cf_teamschannelstab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamschannelstabs
+def cf_team_channel_tab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_channels_tabs
 
 
-def cf_teamsinstalledapp(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsinstalledapps
+def cf_team_installed_app(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_installed_apps
 
 
-def cf_teamsmember(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsmembers
+def cf_team_member(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_members
 
 
-def cf_teamsprimarychannel(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsprimarychannel
+def cf_team_primary_channel(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_primary_channel
 
 
-def cf_teamsprimarychannelmember(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmembers
+def cf_team_primary_channel_member(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_primary_channel_members
 
 
-def cf_teamsprimarychannelmessage(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmessages
+def cf_team_primary_channel_message(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_primary_channel_messages
 
 
-def cf_teamsprimarychannelmessagesreply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmessagesreplies
+def cf_team_primary_channel_message_reply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_primary_channel_messages_replies
 
 
-def cf_teamsprimarychanneltab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsprimarychanneltabs
+def cf_team_primary_channel_tab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_primary_channel_tabs
 
 
-def cf_teamsschedule(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsschedule
+def cf_team_schedule(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_schedule
 
 
-def cf_teamsscheduletimecard(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamsscheduletimecards
+def cf_team_schedule_time_card(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teams_schedule_time_cards
 
 
-def cf_teamwork(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamworkteamwork
+def cf_teamwork_teamwork(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamwork_teamwork
 
 
 def cf_teamwork(cli_ctx, *_):
@@ -134,9 +134,9 @@ def cf_user(cli_ctx, *_):
     return cf_teams_beta_cl(cli_ctx).users
 
 
-def cf_usersteamwork(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).usersteamwork
+def cf_user_teamwork(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).users_teamwork
 
 
-def cf_usersteamworkinstalledapp(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).usersteamworkinstalledapps
+def cf_user_teamwork_installed_app(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).users_teamwork_installed_apps

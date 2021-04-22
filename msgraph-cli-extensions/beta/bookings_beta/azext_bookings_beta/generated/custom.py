@@ -10,24 +10,24 @@
 # pylint: disable=too-many-lines
 
 
-def bookings_bookingbusinessesbookingbusiness_create_booking_business(client,
-                                                                      id_=None,
-                                                                      display_name=None,
-                                                                      address=None,
-                                                                      business_hours=None,
-                                                                      business_type=None,
-                                                                      default_currency_iso=None,
-                                                                      email=None,
-                                                                      is_published=None,
-                                                                      phone=None,
-                                                                      public_url=None,
-                                                                      scheduling_policy=None,
-                                                                      web_site_url=None,
-                                                                      appointments=None,
-                                                                      calendar_view=None,
-                                                                      customers=None,
-                                                                      services=None,
-                                                                      staff_members=None):
+def bookings_booking_business_booking_business_create_booking_business(client,
+                                                                       id_=None,
+                                                                       display_name=None,
+                                                                       address=None,
+                                                                       business_hours=None,
+                                                                       business_type=None,
+                                                                       default_currency_iso=None,
+                                                                       email=None,
+                                                                       is_published=None,
+                                                                       phone=None,
+                                                                       public_url=None,
+                                                                       scheduling_policy=None,
+                                                                       web_site_url=None,
+                                                                       appointments=None,
+                                                                       calendar_view=None,
+                                                                       customers=None,
+                                                                       services=None,
+                                                                       staff_members=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -49,50 +49,50 @@ def bookings_bookingbusinessesbookingbusiness_create_booking_business(client,
     return client.create_booking_business(body=body)
 
 
-def bookings_bookingbusinessesbookingbusiness_delete_booking_business(client,
-                                                                      booking_business_id,
-                                                                      if_match=None):
+def bookings_booking_business_booking_business_delete_booking_business(client,
+                                                                       booking_business_id,
+                                                                       if_match=None):
     return client.delete_booking_business(booking_business_id=booking_business_id,
                                           if_match=if_match)
 
 
-def bookings_bookingbusinessesbookingbusiness_list_booking_business(client,
-                                                                    orderby=None,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_business_booking_business_list_booking_business(client,
+                                                                     orderby=None,
+                                                                     select=None,
+                                                                     expand=None):
     return client.list_booking_business(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def bookings_bookingbusinessesbookingbusiness_show_booking_business(client,
-                                                                    booking_business_id,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_business_booking_business_show_booking_business(client,
+                                                                     booking_business_id,
+                                                                     select=None,
+                                                                     expand=None):
     return client.get_booking_business(booking_business_id=booking_business_id,
                                        select=select,
                                        expand=expand)
 
 
-def bookings_bookingbusinessesbookingbusiness_update_booking_business(client,
-                                                                      booking_business_id,
-                                                                      id_=None,
-                                                                      display_name=None,
-                                                                      address=None,
-                                                                      business_hours=None,
-                                                                      business_type=None,
-                                                                      default_currency_iso=None,
-                                                                      email=None,
-                                                                      is_published=None,
-                                                                      phone=None,
-                                                                      public_url=None,
-                                                                      scheduling_policy=None,
-                                                                      web_site_url=None,
-                                                                      appointments=None,
-                                                                      calendar_view=None,
-                                                                      customers=None,
-                                                                      services=None,
-                                                                      staff_members=None):
+def bookings_booking_business_booking_business_update_booking_business(client,
+                                                                       booking_business_id,
+                                                                       id_=None,
+                                                                       display_name=None,
+                                                                       address=None,
+                                                                       business_hours=None,
+                                                                       business_type=None,
+                                                                       default_currency_iso=None,
+                                                                       email=None,
+                                                                       is_published=None,
+                                                                       phone=None,
+                                                                       public_url=None,
+                                                                       scheduling_policy=None,
+                                                                       web_site_url=None,
+                                                                       appointments=None,
+                                                                       calendar_view=None,
+                                                                       customers=None,
+                                                                       services=None,
+                                                                       staff_members=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -115,52 +115,52 @@ def bookings_bookingbusinessesbookingbusiness_update_booking_business(client,
                                           body=body)
 
 
-def bookings_bookingbusiness_create_appointment(client,
-                                                booking_business_id,
-                                                id_=None,
-                                                additional_information=None,
-                                                customer_email_address=None,
-                                                customer_id=None,
-                                                customer_name=None,
-                                                customer_notes=None,
-                                                customer_phone=None,
-                                                duration=None,
-                                                end=None,
-                                                invoice_amount=None,
-                                                invoice_date=None,
-                                                invoice_id=None,
-                                                invoice_status=None,
-                                                invoice_url=None,
-                                                is_location_online=None,
-                                                online_meeting_url=None,
-                                                opt_out_of_customer_email=None,
-                                                post_buffer=None,
-                                                pre_buffer=None,
-                                                price=None,
-                                                price_type=None,
-                                                reminders=None,
-                                                self_service_appointment_id=None,
-                                                service_id=None,
-                                                service_name=None,
-                                                service_notes=None,
-                                                staff_member_ids=None,
-                                                start=None,
-                                                address=None,
-                                                coordinates=None,
-                                                display_name=None,
-                                                location_email_address=None,
-                                                location_type=None,
-                                                location_uri=None,
-                                                unique_id=None,
-                                                unique_id_type=None,
-                                                microsoft_graph_physical_address=None,
-                                                microsoft_graph_outlook_geo_coordinates=None,
-                                                microsoft_graph_location_display_name=None,
-                                                microsoft_graph_location_email_address_location_email_address=None,
-                                                microsoft_graph_location_type=None,
-                                                microsoft_graph_location_uri=None,
-                                                microsoft_graph_location_unique_id=None,
-                                                microsoft_graph_location_unique_id_type_unique_id_type=None):
+def bookings_booking_business_create_appointment(client,
+                                                 booking_business_id,
+                                                 id_=None,
+                                                 additional_information=None,
+                                                 customer_email_address=None,
+                                                 customer_id=None,
+                                                 customer_name=None,
+                                                 customer_notes=None,
+                                                 customer_phone=None,
+                                                 duration=None,
+                                                 end=None,
+                                                 invoice_amount=None,
+                                                 invoice_date=None,
+                                                 invoice_id=None,
+                                                 invoice_status=None,
+                                                 invoice_url=None,
+                                                 is_location_online=None,
+                                                 online_meeting_url=None,
+                                                 opt_out_of_customer_email=None,
+                                                 post_buffer=None,
+                                                 pre_buffer=None,
+                                                 price=None,
+                                                 price_type=None,
+                                                 reminders=None,
+                                                 self_service_appointment_id=None,
+                                                 service_id=None,
+                                                 service_name=None,
+                                                 service_notes=None,
+                                                 staff_member_ids=None,
+                                                 start=None,
+                                                 address=None,
+                                                 coordinates=None,
+                                                 display_name=None,
+                                                 location_email_address=None,
+                                                 location_type=None,
+                                                 location_uri=None,
+                                                 unique_id=None,
+                                                 unique_id_type=None,
+                                                 microsoft_graph_physical_address=None,
+                                                 microsoft_graph_outlook_geo_coordinates=None,
+                                                 microsoft_graph_location_display_name=None,
+                                                 microsoft_graph_location_email_address_location_email_address=None,
+                                                 microsoft_graph_location_type=None,
+                                                 microsoft_graph_location_uri=None,
+                                                 microsoft_graph_location_unique_id=None,
+                                                 microsoft_graph_location_unique_id_type_unique_id_type=None):
     body = {}
     body['id'] = id_
     body['additional_information'] = additional_information
@@ -212,52 +212,52 @@ def bookings_bookingbusiness_create_appointment(client,
                                       body=body)
 
 
-def bookings_bookingbusiness_create_calendar_view(client,
-                                                  booking_business_id,
-                                                  id_=None,
-                                                  additional_information=None,
-                                                  customer_email_address=None,
-                                                  customer_id=None,
-                                                  customer_name=None,
-                                                  customer_notes=None,
-                                                  customer_phone=None,
-                                                  duration=None,
-                                                  end=None,
-                                                  invoice_amount=None,
-                                                  invoice_date=None,
-                                                  invoice_id=None,
-                                                  invoice_status=None,
-                                                  invoice_url=None,
-                                                  is_location_online=None,
-                                                  online_meeting_url=None,
-                                                  opt_out_of_customer_email=None,
-                                                  post_buffer=None,
-                                                  pre_buffer=None,
-                                                  price=None,
-                                                  price_type=None,
-                                                  reminders=None,
-                                                  self_service_appointment_id=None,
-                                                  service_id=None,
-                                                  service_name=None,
-                                                  service_notes=None,
-                                                  staff_member_ids=None,
-                                                  start=None,
-                                                  address=None,
-                                                  coordinates=None,
-                                                  display_name=None,
-                                                  location_email_address=None,
-                                                  location_type=None,
-                                                  location_uri=None,
-                                                  unique_id=None,
-                                                  unique_id_type=None,
-                                                  microsoft_graph_physical_address=None,
-                                                  microsoft_graph_outlook_geo_coordinates=None,
-                                                  microsoft_graph_location_display_name=None,
-                                                  microsoft_graph_location_email_address_location_email_address=None,
-                                                  microsoft_graph_location_type=None,
-                                                  microsoft_graph_location_uri=None,
-                                                  microsoft_graph_location_unique_id=None,
-                                                  microsoft_graph_location_unique_id_type_unique_id_type=None):
+def bookings_booking_business_create_calendar_view(client,
+                                                   booking_business_id,
+                                                   id_=None,
+                                                   additional_information=None,
+                                                   customer_email_address=None,
+                                                   customer_id=None,
+                                                   customer_name=None,
+                                                   customer_notes=None,
+                                                   customer_phone=None,
+                                                   duration=None,
+                                                   end=None,
+                                                   invoice_amount=None,
+                                                   invoice_date=None,
+                                                   invoice_id=None,
+                                                   invoice_status=None,
+                                                   invoice_url=None,
+                                                   is_location_online=None,
+                                                   online_meeting_url=None,
+                                                   opt_out_of_customer_email=None,
+                                                   post_buffer=None,
+                                                   pre_buffer=None,
+                                                   price=None,
+                                                   price_type=None,
+                                                   reminders=None,
+                                                   self_service_appointment_id=None,
+                                                   service_id=None,
+                                                   service_name=None,
+                                                   service_notes=None,
+                                                   staff_member_ids=None,
+                                                   start=None,
+                                                   address=None,
+                                                   coordinates=None,
+                                                   display_name=None,
+                                                   location_email_address=None,
+                                                   location_type=None,
+                                                   location_uri=None,
+                                                   unique_id=None,
+                                                   unique_id_type=None,
+                                                   microsoft_graph_physical_address=None,
+                                                   microsoft_graph_outlook_geo_coordinates=None,
+                                                   microsoft_graph_location_display_name=None,
+                                                   microsoft_graph_location_email_address_location_email_address=None,
+                                                   microsoft_graph_location_type=None,
+                                                   microsoft_graph_location_uri=None,
+                                                   microsoft_graph_location_unique_id=None,
+                                                   microsoft_graph_location_unique_id_type_unique_id_type=None):
     body = {}
     body['id'] = id_
     body['additional_information'] = additional_information
@@ -309,11 +309,11 @@ def bookings_bookingbusiness_create_calendar_view(client,
                                        body=body)
 
 
-def bookings_bookingbusiness_create_customer(client,
-                                             booking_business_id,
-                                             id_=None,
-                                             display_name=None,
-                                             email_address=None):
+def bookings_booking_business_create_customer(client,
+                                              booking_business_id,
+                                              id_=None,
+                                              display_name=None,
+                                              email_address=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -322,31 +322,31 @@ def bookings_bookingbusiness_create_customer(client,
                                    body=body)
 
 
-def bookings_bookingbusiness_create_service(client,
-                                            booking_business_id,
-                                            id_=None,
-                                            display_name=None,
-                                            additional_information=None,
-                                            default_duration=None,
-                                            default_price=None,
-                                            default_price_type=None,
-                                            default_reminders=None,
-                                            description=None,
-                                            is_hidden_from_customers=None,
-                                            is_location_online=None,
-                                            notes=None,
-                                            post_buffer=None,
-                                            pre_buffer=None,
-                                            scheduling_policy=None,
-                                            staff_member_ids=None,
-                                            address=None,
-                                            coordinates=None,
-                                            microsoft_graph_location_display_name=None,
-                                            location_email_address=None,
-                                            location_type=None,
-                                            location_uri=None,
-                                            unique_id=None,
-                                            unique_id_type=None):
+def bookings_booking_business_create_service(client,
+                                             booking_business_id,
+                                             id_=None,
+                                             display_name=None,
+                                             additional_information=None,
+                                             default_duration=None,
+                                             default_price=None,
+                                             default_price_type=None,
+                                             default_reminders=None,
+                                             description=None,
+                                             is_hidden_from_customers=None,
+                                             is_location_online=None,
+                                             notes=None,
+                                             post_buffer=None,
+                                             pre_buffer=None,
+                                             scheduling_policy=None,
+                                             staff_member_ids=None,
+                                             address=None,
+                                             coordinates=None,
+                                             microsoft_graph_location_display_name=None,
+                                             location_email_address=None,
+                                             location_type=None,
+                                             location_uri=None,
+                                             unique_id=None,
+                                             unique_id_type=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -376,16 +376,16 @@ def bookings_bookingbusiness_create_service(client,
                                   body=body)
 
 
-def bookings_bookingbusiness_create_staff_member(client,
-                                                 booking_business_id,
-                                                 id_=None,
-                                                 display_name=None,
-                                                 email_address=None,
-                                                 availability_is_affected_by_personal_calendar=None,
-                                                 color_index=None,
-                                                 role=None,
-                                                 use_business_hours=None,
-                                                 working_hours=None):
+def bookings_booking_business_create_staff_member(client,
+                                                  booking_business_id,
+                                                  id_=None,
+                                                  display_name=None,
+                                                  email_address=None,
+                                                  availability_is_affected_by_personal_calendar=None,
+                                                  color_index=None,
+                                                  role=None,
+                                                  use_business_hours=None,
+                                                  working_hours=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -399,69 +399,69 @@ def bookings_bookingbusiness_create_staff_member(client,
                                        body=body)
 
 
-def bookings_bookingbusiness_delete_appointment(client,
-                                                booking_business_id,
-                                                booking_appointment_id,
-                                                if_match=None):
+def bookings_booking_business_delete_appointment(client,
+                                                 booking_business_id,
+                                                 booking_appointment_id,
+                                                 if_match=None):
     return client.delete_appointments(booking_business_id=booking_business_id,
                                       booking_appointment_id=booking_appointment_id,
                                       if_match=if_match)
 
 
-def bookings_bookingbusiness_delete_calendar_view(client,
-                                                  booking_business_id,
-                                                  booking_appointment_id,
-                                                  if_match=None):
+def bookings_booking_business_delete_calendar_view(client,
+                                                   booking_business_id,
+                                                   booking_appointment_id,
+                                                   if_match=None):
     return client.delete_calendar_view(booking_business_id=booking_business_id,
                                        booking_appointment_id=booking_appointment_id,
                                        if_match=if_match)
 
 
-def bookings_bookingbusiness_delete_customer(client,
-                                             booking_business_id,
-                                             booking_customer_id,
-                                             if_match=None):
+def bookings_booking_business_delete_customer(client,
+                                              booking_business_id,
+                                              booking_customer_id,
+                                              if_match=None):
     return client.delete_customers(booking_business_id=booking_business_id,
                                    booking_customer_id=booking_customer_id,
                                    if_match=if_match)
 
 
-def bookings_bookingbusiness_delete_service(client,
-                                            booking_business_id,
-                                            booking_service_id,
-                                            if_match=None):
+def bookings_booking_business_delete_service(client,
+                                             booking_business_id,
+                                             booking_service_id,
+                                             if_match=None):
     return client.delete_services(booking_business_id=booking_business_id,
                                   booking_service_id=booking_service_id,
                                   if_match=if_match)
 
 
-def bookings_bookingbusiness_delete_staff_member(client,
-                                                 booking_business_id,
-                                                 booking_staff_member_id,
-                                                 if_match=None):
+def bookings_booking_business_delete_staff_member(client,
+                                                  booking_business_id,
+                                                  booking_staff_member_id,
+                                                  if_match=None):
     return client.delete_staff_members(booking_business_id=booking_business_id,
                                        booking_staff_member_id=booking_staff_member_id,
                                        if_match=if_match)
 
 
-def bookings_bookingbusiness_list_appointment(client,
-                                              booking_business_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def bookings_booking_business_list_appointment(client,
+                                               booking_business_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
     return client.list_appointments(booking_business_id=booking_business_id,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def bookings_bookingbusiness_list_calendar_view(client,
-                                                booking_business_id,
-                                                start,
-                                                end,
-                                                orderby=None,
-                                                select=None,
-                                                expand=None):
+def bookings_booking_business_list_calendar_view(client,
+                                                 booking_business_id,
+                                                 start,
+                                                 end,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
     return client.list_calendar_view(booking_business_id=booking_business_id,
                                      start=start,
                                      end=end,
@@ -470,62 +470,62 @@ def bookings_bookingbusiness_list_calendar_view(client,
                                      expand=expand)
 
 
-def bookings_bookingbusiness_list_customer(client,
-                                           booking_business_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
+def bookings_booking_business_list_customer(client,
+                                            booking_business_id,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
     return client.list_customers(booking_business_id=booking_business_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def bookings_bookingbusiness_list_service(client,
-                                          booking_business_id,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def bookings_booking_business_list_service(client,
+                                           booking_business_id,
+                                           orderby=None,
+                                           select=None,
+                                           expand=None):
     return client.list_services(booking_business_id=booking_business_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def bookings_bookingbusiness_list_staff_member(client,
-                                               booking_business_id,
-                                               orderby=None,
-                                               select=None,
-                                               expand=None):
+def bookings_booking_business_list_staff_member(client,
+                                                booking_business_id,
+                                                orderby=None,
+                                                select=None,
+                                                expand=None):
     return client.list_staff_members(booking_business_id=booking_business_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def bookings_bookingbusiness_publish(client,
-                                     booking_business_id):
+def bookings_booking_business_publish(client,
+                                      booking_business_id):
     return client.publish(booking_business_id=booking_business_id)
 
 
-def bookings_bookingbusiness_show_appointment(client,
-                                              booking_business_id,
-                                              booking_appointment_id,
-                                              select=None,
-                                              expand=None):
+def bookings_booking_business_show_appointment(client,
+                                               booking_business_id,
+                                               booking_appointment_id,
+                                               select=None,
+                                               expand=None):
     return client.get_appointments(booking_business_id=booking_business_id,
                                    booking_appointment_id=booking_appointment_id,
                                    select=select,
                                    expand=expand)
 
 
-def bookings_bookingbusiness_show_calendar_view(client,
-                                                booking_business_id,
-                                                booking_appointment_id,
-                                                start,
-                                                end,
-                                                select=None,
-                                                expand=None):
+def bookings_booking_business_show_calendar_view(client,
+                                                 booking_business_id,
+                                                 booking_appointment_id,
+                                                 start,
+                                                 end,
+                                                 select=None,
+                                                 expand=None):
     return client.get_calendar_view(booking_business_id=booking_business_id,
                                     booking_appointment_id=booking_appointment_id,
                                     start=start,
@@ -534,91 +534,91 @@ def bookings_bookingbusiness_show_calendar_view(client,
                                     expand=expand)
 
 
-def bookings_bookingbusiness_show_customer(client,
-                                           booking_business_id,
-                                           booking_customer_id,
-                                           select=None,
-                                           expand=None):
+def bookings_booking_business_show_customer(client,
+                                            booking_business_id,
+                                            booking_customer_id,
+                                            select=None,
+                                            expand=None):
     return client.get_customers(booking_business_id=booking_business_id,
                                 booking_customer_id=booking_customer_id,
                                 select=select,
                                 expand=expand)
 
 
-def bookings_bookingbusiness_show_service(client,
-                                          booking_business_id,
-                                          booking_service_id,
-                                          select=None,
-                                          expand=None):
+def bookings_booking_business_show_service(client,
+                                           booking_business_id,
+                                           booking_service_id,
+                                           select=None,
+                                           expand=None):
     return client.get_services(booking_business_id=booking_business_id,
                                booking_service_id=booking_service_id,
                                select=select,
                                expand=expand)
 
 
-def bookings_bookingbusiness_show_staff_member(client,
-                                               booking_business_id,
-                                               booking_staff_member_id,
-                                               select=None,
-                                               expand=None):
+def bookings_booking_business_show_staff_member(client,
+                                                booking_business_id,
+                                                booking_staff_member_id,
+                                                select=None,
+                                                expand=None):
     return client.get_staff_members(booking_business_id=booking_business_id,
                                     booking_staff_member_id=booking_staff_member_id,
                                     select=select,
                                     expand=expand)
 
 
-def bookings_bookingbusiness_unpublish(client,
-                                       booking_business_id):
+def bookings_booking_business_unpublish(client,
+                                        booking_business_id):
     return client.unpublish(booking_business_id=booking_business_id)
 
 
-def bookings_bookingbusiness_update_appointment(client,
-                                                booking_business_id,
-                                                booking_appointment_id,
-                                                id_=None,
-                                                additional_information=None,
-                                                customer_email_address=None,
-                                                customer_id=None,
-                                                customer_name=None,
-                                                customer_notes=None,
-                                                customer_phone=None,
-                                                duration=None,
-                                                end=None,
-                                                invoice_amount=None,
-                                                invoice_date=None,
-                                                invoice_id=None,
-                                                invoice_status=None,
-                                                invoice_url=None,
-                                                is_location_online=None,
-                                                online_meeting_url=None,
-                                                opt_out_of_customer_email=None,
-                                                post_buffer=None,
-                                                pre_buffer=None,
-                                                price=None,
-                                                price_type=None,
-                                                reminders=None,
-                                                self_service_appointment_id=None,
-                                                service_id=None,
-                                                service_name=None,
-                                                service_notes=None,
-                                                staff_member_ids=None,
-                                                start=None,
-                                                address=None,
-                                                coordinates=None,
-                                                display_name=None,
-                                                location_email_address=None,
-                                                location_type=None,
-                                                location_uri=None,
-                                                unique_id=None,
-                                                unique_id_type=None,
-                                                microsoft_graph_physical_address=None,
-                                                microsoft_graph_outlook_geo_coordinates=None,
-                                                microsoft_graph_location_display_name=None,
-                                                microsoft_graph_location_email_address_location_email_address=None,
-                                                microsoft_graph_location_type=None,
-                                                microsoft_graph_location_uri=None,
-                                                microsoft_graph_location_unique_id=None,
-                                                microsoft_graph_location_unique_id_type_unique_id_type=None):
+def bookings_booking_business_update_appointment(client,
+                                                 booking_business_id,
+                                                 booking_appointment_id,
+                                                 id_=None,
+                                                 additional_information=None,
+                                                 customer_email_address=None,
+                                                 customer_id=None,
+                                                 customer_name=None,
+                                                 customer_notes=None,
+                                                 customer_phone=None,
+                                                 duration=None,
+                                                 end=None,
+                                                 invoice_amount=None,
+                                                 invoice_date=None,
+                                                 invoice_id=None,
+                                                 invoice_status=None,
+                                                 invoice_url=None,
+                                                 is_location_online=None,
+                                                 online_meeting_url=None,
+                                                 opt_out_of_customer_email=None,
+                                                 post_buffer=None,
+                                                 pre_buffer=None,
+                                                 price=None,
+                                                 price_type=None,
+                                                 reminders=None,
+                                                 self_service_appointment_id=None,
+                                                 service_id=None,
+                                                 service_name=None,
+                                                 service_notes=None,
+                                                 staff_member_ids=None,
+                                                 start=None,
+                                                 address=None,
+                                                 coordinates=None,
+                                                 display_name=None,
+                                                 location_email_address=None,
+                                                 location_type=None,
+                                                 location_uri=None,
+                                                 unique_id=None,
+                                                 unique_id_type=None,
+                                                 microsoft_graph_physical_address=None,
+                                                 microsoft_graph_outlook_geo_coordinates=None,
+                                                 microsoft_graph_location_display_name=None,
+                                                 microsoft_graph_location_email_address_location_email_address=None,
+                                                 microsoft_graph_location_type=None,
+                                                 microsoft_graph_location_uri=None,
+                                                 microsoft_graph_location_unique_id=None,
+                                                 microsoft_graph_location_unique_id_type_unique_id_type=None):
     body = {}
     body['id'] = id_
     body['additional_information'] = additional_information
@@ -671,53 +671,53 @@ def bookings_bookingbusiness_update_appointment(client,
                                       body=body)
 
 
-def bookings_bookingbusiness_update_calendar_view(client,
-                                                  booking_business_id,
-                                                  booking_appointment_id,
-                                                  id_=None,
-                                                  additional_information=None,
-                                                  customer_email_address=None,
-                                                  customer_id=None,
-                                                  customer_name=None,
-                                                  customer_notes=None,
-                                                  customer_phone=None,
-                                                  duration=None,
-                                                  end=None,
-                                                  invoice_amount=None,
-                                                  invoice_date=None,
-                                                  invoice_id=None,
-                                                  invoice_status=None,
-                                                  invoice_url=None,
-                                                  is_location_online=None,
-                                                  online_meeting_url=None,
-                                                  opt_out_of_customer_email=None,
-                                                  post_buffer=None,
-                                                  pre_buffer=None,
-                                                  price=None,
-                                                  price_type=None,
-                                                  reminders=None,
-                                                  self_service_appointment_id=None,
-                                                  service_id=None,
-                                                  service_name=None,
-                                                  service_notes=None,
-                                                  staff_member_ids=None,
-                                                  start=None,
-                                                  address=None,
-                                                  coordinates=None,
-                                                  display_name=None,
-                                                  location_email_address=None,
-                                                  location_type=None,
-                                                  location_uri=None,
-                                                  unique_id=None,
-                                                  unique_id_type=None,
-                                                  microsoft_graph_physical_address=None,
-                                                  microsoft_graph_outlook_geo_coordinates=None,
-                                                  microsoft_graph_location_display_name=None,
-                                                  microsoft_graph_location_email_address_location_email_address=None,
-                                                  microsoft_graph_location_type=None,
-                                                  microsoft_graph_location_uri=None,
-                                                  microsoft_graph_location_unique_id=None,
-                                                  microsoft_graph_location_unique_id_type_unique_id_type=None):
+def bookings_booking_business_update_calendar_view(client,
+                                                   booking_business_id,
+                                                   booking_appointment_id,
+                                                   id_=None,
+                                                   additional_information=None,
+                                                   customer_email_address=None,
+                                                   customer_id=None,
+                                                   customer_name=None,
+                                                   customer_notes=None,
+                                                   customer_phone=None,
+                                                   duration=None,
+                                                   end=None,
+                                                   invoice_amount=None,
+                                                   invoice_date=None,
+                                                   invoice_id=None,
+                                                   invoice_status=None,
+                                                   invoice_url=None,
+                                                   is_location_online=None,
+                                                   online_meeting_url=None,
+                                                   opt_out_of_customer_email=None,
+                                                   post_buffer=None,
+                                                   pre_buffer=None,
+                                                   price=None,
+                                                   price_type=None,
+                                                   reminders=None,
+                                                   self_service_appointment_id=None,
+                                                   service_id=None,
+                                                   service_name=None,
+                                                   service_notes=None,
+                                                   staff_member_ids=None,
+                                                   start=None,
+                                                   address=None,
+                                                   coordinates=None,
+                                                   display_name=None,
+                                                   location_email_address=None,
+                                                   location_type=None,
+                                                   location_uri=None,
+                                                   unique_id=None,
+                                                   unique_id_type=None,
+                                                   microsoft_graph_physical_address=None,
+                                                   microsoft_graph_outlook_geo_coordinates=None,
+                                                   microsoft_graph_location_display_name=None,
+                                                   microsoft_graph_location_email_address_location_email_address=None,
+                                                   microsoft_graph_location_type=None,
+                                                   microsoft_graph_location_uri=None,
+                                                   microsoft_graph_location_unique_id=None,
+                                                   microsoft_graph_location_unique_id_type_unique_id_type=None):
     body = {}
     body['id'] = id_
     body['additional_information'] = additional_information
@@ -770,12 +770,12 @@ def bookings_bookingbusiness_update_calendar_view(client,
                                        body=body)
 
 
-def bookings_bookingbusiness_update_customer(client,
-                                             booking_business_id,
-                                             booking_customer_id,
-                                             id_=None,
-                                             display_name=None,
-                                             email_address=None):
+def bookings_booking_business_update_customer(client,
+                                              booking_business_id,
+                                              booking_customer_id,
+                                              id_=None,
+                                              display_name=None,
+                                              email_address=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -785,32 +785,32 @@ def bookings_bookingbusiness_update_customer(client,
                                    body=body)
 
 
-def bookings_bookingbusiness_update_service(client,
-                                            booking_business_id,
-                                            booking_service_id,
-                                            id_=None,
-                                            display_name=None,
-                                            additional_information=None,
-                                            default_duration=None,
-                                            default_price=None,
-                                            default_price_type=None,
-                                            default_reminders=None,
-                                            description=None,
-                                            is_hidden_from_customers=None,
-                                            is_location_online=None,
-                                            notes=None,
-                                            post_buffer=None,
-                                            pre_buffer=None,
-                                            scheduling_policy=None,
-                                            staff_member_ids=None,
-                                            address=None,
-                                            coordinates=None,
-                                            microsoft_graph_location_display_name=None,
-                                            location_email_address=None,
-                                            location_type=None,
-                                            location_uri=None,
-                                            unique_id=None,
-                                            unique_id_type=None):
+def bookings_booking_business_update_service(client,
+                                             booking_business_id,
+                                             booking_service_id,
+                                             id_=None,
+                                             display_name=None,
+                                             additional_information=None,
+                                             default_duration=None,
+                                             default_price=None,
+                                             default_price_type=None,
+                                             default_reminders=None,
+                                             description=None,
+                                             is_hidden_from_customers=None,
+                                             is_location_online=None,
+                                             notes=None,
+                                             post_buffer=None,
+                                             pre_buffer=None,
+                                             scheduling_policy=None,
+                                             staff_member_ids=None,
+                                             address=None,
+                                             coordinates=None,
+                                             microsoft_graph_location_display_name=None,
+                                             location_email_address=None,
+                                             location_type=None,
+                                             location_uri=None,
+                                             unique_id=None,
+                                             unique_id_type=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -841,17 +841,17 @@ def bookings_bookingbusiness_update_service(client,
                                   body=body)
 
 
-def bookings_bookingbusiness_update_staff_member(client,
-                                                 booking_business_id,
-                                                 booking_staff_member_id,
-                                                 id_=None,
-                                                 display_name=None,
-                                                 email_address=None,
-                                                 availability_is_affected_by_personal_calendar=None,
-                                                 color_index=None,
-                                                 role=None,
-                                                 use_business_hours=None,
-                                                 working_hours=None):
+def bookings_booking_business_update_staff_member(client,
+                                                  booking_business_id,
+                                                  booking_staff_member_id,
+                                                  id_=None,
+                                                  display_name=None,
+                                                  email_address=None,
+                                                  availability_is_affected_by_personal_calendar=None,
+                                                  color_index=None,
+                                                  role=None,
+                                                  use_business_hours=None,
+                                                  working_hours=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -866,7 +866,7 @@ def bookings_bookingbusiness_update_staff_member(client,
                                        body=body)
 
 
-def bookings_bookingbusinessesappointment_cancel(client,
+def bookings_booking_business_appointment_cancel(client,
                                                  booking_business_id,
                                                  booking_appointment_id,
                                                  cancellation_message=None):
@@ -877,10 +877,10 @@ def bookings_bookingbusinessesappointment_cancel(client,
                          body=body)
 
 
-def bookings_bookingbusinessescalendarview_cancel(client,
-                                                  booking_business_id,
-                                                  booking_appointment_id,
-                                                  cancellation_message=None):
+def bookings_booking_business_calendar_view_cancel(client,
+                                                   booking_business_id,
+                                                   booking_appointment_id,
+                                                   cancellation_message=None):
     body = {}
     body['cancellation_message'] = cancellation_message
     return client.cancel(booking_business_id=booking_business_id,
@@ -888,44 +888,44 @@ def bookings_bookingbusinessescalendarview_cancel(client,
                          body=body)
 
 
-def bookings_bookingcurrenciesbookingcurrency_create_booking_currency(client,
-                                                                      id_=None,
-                                                                      symbol=None):
+def bookings_booking_currency_booking_currency_create_booking_currency(client,
+                                                                       id_=None,
+                                                                       symbol=None):
     body = {}
     body['id'] = id_
     body['symbol'] = symbol
     return client.create_booking_currency(body=body)
 
 
-def bookings_bookingcurrenciesbookingcurrency_delete_booking_currency(client,
-                                                                      booking_currency_id,
-                                                                      if_match=None):
+def bookings_booking_currency_booking_currency_delete_booking_currency(client,
+                                                                       booking_currency_id,
+                                                                       if_match=None):
     return client.delete_booking_currency(booking_currency_id=booking_currency_id,
                                           if_match=if_match)
 
 
-def bookings_bookingcurrenciesbookingcurrency_list_booking_currency(client,
-                                                                    orderby=None,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_currency_booking_currency_list_booking_currency(client,
+                                                                     orderby=None,
+                                                                     select=None,
+                                                                     expand=None):
     return client.list_booking_currency(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def bookings_bookingcurrenciesbookingcurrency_show_booking_currency(client,
-                                                                    booking_currency_id,
-                                                                    select=None,
-                                                                    expand=None):
+def bookings_booking_currency_booking_currency_show_booking_currency(client,
+                                                                     booking_currency_id,
+                                                                     select=None,
+                                                                     expand=None):
     return client.get_booking_currency(booking_currency_id=booking_currency_id,
                                        select=select,
                                        expand=expand)
 
 
-def bookings_bookingcurrenciesbookingcurrency_update_booking_currency(client,
-                                                                      booking_currency_id,
-                                                                      id_=None,
-                                                                      symbol=None):
+def bookings_booking_currency_booking_currency_update_booking_currency(client,
+                                                                       booking_currency_id,
+                                                                       id_=None,
+                                                                       symbol=None):
     body = {}
     body['id'] = id_
     body['symbol'] = symbol

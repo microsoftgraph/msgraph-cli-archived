@@ -14,100 +14,102 @@
 
 from msgraph.cli.core.commands import CliCommandType
 from azext_devicescloudprint_beta.generated._client_factory import (
+    cf_print_print,
     cf_print,
-    cf_print,
-    cf_printprinter,
-    cf_printprinterstasktrigger,
-    cf_printprintershare,
-    cf_printprintersharesprinter,
-    cf_printreport,
-    cf_printservice,
-    cf_printshare,
-    cf_printsharesprinter,
-    cf_printtaskdefinition,
-    cf_printtaskdefinitionstask,
+    cf_print_printer,
+    cf_print_printer_task_trigger,
+    cf_print_printer_share,
+    cf_print_printer_share_printer,
+    cf_print_report,
+    cf_print_service,
+    cf_print_share,
+    cf_print_share_printer,
+    cf_print_task_definition,
+    cf_print_task_definition_task,
 )
 
 
-devicescloudprint_beta_print = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printprint_operations#printprintOperations.{}',
-    client_factory=cf_print,
+devicescloudprint_beta_print_print = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_print_operations#PrintPrintOperations.{}',
+    client_factory=cf_print_print,
 )
 
 
 devicescloudprint_beta_print = CliCommandType(
     operations_tmpl=(
-        'azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_operations#printOperations.{}'
+        'azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_operations#PrintOperations.{}'
     ),
     client_factory=cf_print,
 )
 
 
-devicescloudprint_beta_printprinter = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printprinters_operations#printprintersOperations.{}',
-    client_factory=cf_printprinter,
+devicescloudprint_beta_print_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printers_operations#PrintPrintersOperations.{}',
+    client_factory=cf_print_printer,
 )
 
 
-devicescloudprint_beta_printprinterstasktrigger = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printprinterstasktriggers_operations#printprinterstasktriggersOperations.{}',
-    client_factory=cf_printprinterstasktrigger,
+devicescloudprint_beta_print_printer_task_trigger = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printers_task_triggers_operations#PrintPrintersTaskTriggersOperations.{}',
+    client_factory=cf_print_printer_task_trigger,
 )
 
 
-devicescloudprint_beta_printprintershare = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printprintershares_operations#printprintersharesOperations.{}',
-    client_factory=cf_printprintershare,
+devicescloudprint_beta_print_printer_share = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_shares_operations#PrintPrinterSharesOperations.{}',
+    client_factory=cf_print_printer_share,
 )
 
 
-devicescloudprint_beta_printprintersharesprinter = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printprintersharesprinter_operations#printprintersharesprinterOperations.{}',
-    client_factory=cf_printprintersharesprinter,
+devicescloudprint_beta_print_printer_share_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_shares_printer_operations#PrintPrinterSharesPrinterOperations.{}',
+    client_factory=cf_print_printer_share_printer,
 )
 
 
-devicescloudprint_beta_printreport = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printreports_operations#printreportsOperations.{}',
-    client_factory=cf_printreport,
+devicescloudprint_beta_print_report = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_reports_operations#PrintReportsOperations.{}',
+    client_factory=cf_print_report,
 )
 
 
-devicescloudprint_beta_printservice = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printservices_operations#printservicesOperations.{}',
-    client_factory=cf_printservice,
+devicescloudprint_beta_print_service = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_services_operations#PrintServicesOperations.{}',
+    client_factory=cf_print_service,
 )
 
 
-devicescloudprint_beta_printshare = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printshares_operations#printsharesOperations.{}',
-    client_factory=cf_printshare,
+devicescloudprint_beta_print_share = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_shares_operations#PrintSharesOperations.{}',
+    client_factory=cf_print_share,
 )
 
 
-devicescloudprint_beta_printsharesprinter = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printsharesprinter_operations#printsharesprinterOperations.{}',
-    client_factory=cf_printsharesprinter,
+devicescloudprint_beta_print_share_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_shares_printer_operations#PrintSharesPrinterOperations.{}',
+    client_factory=cf_print_share_printer,
 )
 
 
-devicescloudprint_beta_printtaskdefinition = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printtaskdefinitions_operations#printtaskdefinitionsOperations.{}',
-    client_factory=cf_printtaskdefinition,
+devicescloudprint_beta_print_task_definition = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definitions_operations#PrintTaskDefinitionsOperations.{}',
+    client_factory=cf_print_task_definition,
 )
 
 
-devicescloudprint_beta_printtaskdefinitionstask = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._printtaskdefinitionstasks_operations#printtaskdefinitionstasksOperations.{}',
-    client_factory=cf_printtaskdefinitionstask,
+devicescloudprint_beta_print_task_definition_task = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definitions_tasks_operations#PrintTaskDefinitionsTasksOperations.{}',
+    client_factory=cf_print_task_definition_task,
 )
 
 
 def load_command_table(self, _):
 
-    with self.command_group('devicescloudprint print', devicescloudprint_beta_print, client_factory=cf_print) as g:
-        g.custom_command('show-print', 'devicescloudprint_print_show_print')
-        g.custom_command('update-print', 'devicescloudprint_print_update_print')
+    with self.command_group(
+        'devicescloudprint print-print', devicescloudprint_beta_print_print, client_factory=cf_print_print
+    ) as g:
+        g.custom_command('show-print', 'devicescloudprint_print_print_show_print')
+        g.custom_command('update-print', 'devicescloudprint_print_print_update_print')
 
     with self.command_group('devicescloudprint print', devicescloudprint_beta_print, client_factory=cf_print) as g:
         g.custom_command('create-connector', 'devicescloudprint_print_create_connector')
@@ -152,157 +154,161 @@ def load_command_table(self, _):
         g.custom_command('update-task-definition', 'devicescloudprint_print_update_task_definition')
 
     with self.command_group(
-        'devicescloudprint printprinter', devicescloudprint_beta_printprinter, client_factory=cf_printprinter
+        'devicescloudprint print-printer', devicescloudprint_beta_print_printer, client_factory=cf_print_printer
     ) as g:
-        g.custom_command('create', 'devicescloudprint_printprinter_create')
-        g.custom_command('create-allowed-group', 'devicescloudprint_printprinter_create_allowed_group')
-        g.custom_command('create-allowed-user', 'devicescloudprint_printprinter_create_allowed_user')
-        g.custom_command('create-ref-connector', 'devicescloudprint_printprinter_create_ref_connector')
-        g.custom_command('create-ref-share', 'devicescloudprint_printprinter_create_ref_share')
-        g.custom_command('create-task-trigger', 'devicescloudprint_printprinter_create_task_trigger')
-        g.custom_command('delete-allowed-group', 'devicescloudprint_printprinter_delete_allowed_group')
-        g.custom_command('delete-allowed-user', 'devicescloudprint_printprinter_delete_allowed_user')
-        g.custom_command('delete-ref-share', 'devicescloudprint_printprinter_delete_ref_share')
-        g.custom_command('delete-task-trigger', 'devicescloudprint_printprinter_delete_task_trigger')
-        g.custom_command('list-allowed-group', 'devicescloudprint_printprinter_list_allowed_group')
-        g.custom_command('list-allowed-user', 'devicescloudprint_printprinter_list_allowed_user')
-        g.custom_command('list-connector', 'devicescloudprint_printprinter_list_connector')
-        g.custom_command('list-ref-connector', 'devicescloudprint_printprinter_list_ref_connector')
-        g.custom_command('list-ref-share', 'devicescloudprint_printprinter_list_ref_share')
-        g.custom_command('list-share', 'devicescloudprint_printprinter_list_share')
-        g.custom_command('list-task-trigger', 'devicescloudprint_printprinter_list_task_trigger')
-        g.custom_command('reset-default', 'devicescloudprint_printprinter_reset_default')
-        g.custom_command('restore-factory-default', 'devicescloudprint_printprinter_restore_factory_default')
-        g.custom_command('set-ref-share', 'devicescloudprint_printprinter_set_ref_share')
-        g.custom_command('show-allowed-group', 'devicescloudprint_printprinter_show_allowed_group')
-        g.custom_command('show-allowed-user', 'devicescloudprint_printprinter_show_allowed_user')
-        g.custom_command('show-capability', 'devicescloudprint_printprinter_show_capability')
-        g.custom_command('show-ref-share', 'devicescloudprint_printprinter_show_ref_share')
-        g.custom_command('show-share', 'devicescloudprint_printprinter_show_share')
-        g.custom_command('show-task-trigger', 'devicescloudprint_printprinter_show_task_trigger')
-        g.custom_command('update-allowed-group', 'devicescloudprint_printprinter_update_allowed_group')
-        g.custom_command('update-allowed-user', 'devicescloudprint_printprinter_update_allowed_user')
-        g.custom_command('update-task-trigger', 'devicescloudprint_printprinter_update_task_trigger')
+        g.custom_command('create', 'devicescloudprint_print_printer_create')
+        g.custom_command('create-allowed-group', 'devicescloudprint_print_printer_create_allowed_group')
+        g.custom_command('create-allowed-user', 'devicescloudprint_print_printer_create_allowed_user')
+        g.custom_command('create-ref-connector', 'devicescloudprint_print_printer_create_ref_connector')
+        g.custom_command('create-ref-share', 'devicescloudprint_print_printer_create_ref_share')
+        g.custom_command('create-task-trigger', 'devicescloudprint_print_printer_create_task_trigger')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_printer_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_printer_delete_allowed_user')
+        g.custom_command('delete-ref-share', 'devicescloudprint_print_printer_delete_ref_share')
+        g.custom_command('delete-task-trigger', 'devicescloudprint_print_printer_delete_task_trigger')
+        g.custom_command('list-allowed-group', 'devicescloudprint_print_printer_list_allowed_group')
+        g.custom_command('list-allowed-user', 'devicescloudprint_print_printer_list_allowed_user')
+        g.custom_command('list-connector', 'devicescloudprint_print_printer_list_connector')
+        g.custom_command('list-ref-connector', 'devicescloudprint_print_printer_list_ref_connector')
+        g.custom_command('list-ref-share', 'devicescloudprint_print_printer_list_ref_share')
+        g.custom_command('list-share', 'devicescloudprint_print_printer_list_share')
+        g.custom_command('list-task-trigger', 'devicescloudprint_print_printer_list_task_trigger')
+        g.custom_command('reset-default', 'devicescloudprint_print_printer_reset_default')
+        g.custom_command('restore-factory-default', 'devicescloudprint_print_printer_restore_factory_default')
+        g.custom_command('set-ref-share', 'devicescloudprint_print_printer_set_ref_share')
+        g.custom_command('show-allowed-group', 'devicescloudprint_print_printer_show_allowed_group')
+        g.custom_command('show-allowed-user', 'devicescloudprint_print_printer_show_allowed_user')
+        g.custom_command('show-capability', 'devicescloudprint_print_printer_show_capability')
+        g.custom_command('show-ref-share', 'devicescloudprint_print_printer_show_ref_share')
+        g.custom_command('show-share', 'devicescloudprint_print_printer_show_share')
+        g.custom_command('show-task-trigger', 'devicescloudprint_print_printer_show_task_trigger')
+        g.custom_command('update-allowed-group', 'devicescloudprint_print_printer_update_allowed_group')
+        g.custom_command('update-allowed-user', 'devicescloudprint_print_printer_update_allowed_user')
+        g.custom_command('update-task-trigger', 'devicescloudprint_print_printer_update_task_trigger')
 
     with self.command_group(
-        'devicescloudprint printprinterstasktrigger',
-        devicescloudprint_beta_printprinterstasktrigger,
-        client_factory=cf_printprinterstasktrigger,
+        'devicescloudprint print-printer-task-trigger',
+        devicescloudprint_beta_print_printer_task_trigger,
+        client_factory=cf_print_printer_task_trigger,
     ) as g:
-        g.custom_command('delete-ref-definition', 'devicescloudprint_printprinterstasktrigger_delete_ref_definition')
-        g.custom_command('set-ref-definition', 'devicescloudprint_printprinterstasktrigger_set_ref_definition')
-        g.custom_command('show-definition', 'devicescloudprint_printprinterstasktrigger_show_definition')
-        g.custom_command('show-ref-definition', 'devicescloudprint_printprinterstasktrigger_show_ref_definition')
+        g.custom_command('delete-ref-definition', 'devicescloudprint_print_printer_task_trigger_delete_ref_definition')
+        g.custom_command('set-ref-definition', 'devicescloudprint_print_printer_task_trigger_set_ref_definition')
+        g.custom_command('show-definition', 'devicescloudprint_print_printer_task_trigger_show_definition')
+        g.custom_command('show-ref-definition', 'devicescloudprint_print_printer_task_trigger_show_ref_definition')
 
     with self.command_group(
-        'devicescloudprint printprintershare',
-        devicescloudprint_beta_printprintershare,
-        client_factory=cf_printprintershare,
+        'devicescloudprint print-printer-share',
+        devicescloudprint_beta_print_printer_share,
+        client_factory=cf_print_printer_share,
     ) as g:
-        g.custom_command('create-allowed-group', 'devicescloudprint_printprintershare_create_allowed_group')
-        g.custom_command('create-allowed-user', 'devicescloudprint_printprintershare_create_allowed_user')
-        g.custom_command('delete-allowed-group', 'devicescloudprint_printprintershare_delete_allowed_group')
-        g.custom_command('delete-allowed-user', 'devicescloudprint_printprintershare_delete_allowed_user')
-        g.custom_command('delete-ref-printer', 'devicescloudprint_printprintershare_delete_ref_printer')
-        g.custom_command('list-allowed-group', 'devicescloudprint_printprintershare_list_allowed_group')
-        g.custom_command('list-allowed-user', 'devicescloudprint_printprintershare_list_allowed_user')
-        g.custom_command('set-ref-printer', 'devicescloudprint_printprintershare_set_ref_printer')
-        g.custom_command('show-allowed-group', 'devicescloudprint_printprintershare_show_allowed_group')
-        g.custom_command('show-allowed-user', 'devicescloudprint_printprintershare_show_allowed_user')
-        g.custom_command('show-printer', 'devicescloudprint_printprintershare_show_printer')
-        g.custom_command('show-ref-printer', 'devicescloudprint_printprintershare_show_ref_printer')
-        g.custom_command('update-allowed-group', 'devicescloudprint_printprintershare_update_allowed_group')
-        g.custom_command('update-allowed-user', 'devicescloudprint_printprintershare_update_allowed_user')
+        g.custom_command('create-allowed-group', 'devicescloudprint_print_printer_share_create_allowed_group')
+        g.custom_command('create-allowed-user', 'devicescloudprint_print_printer_share_create_allowed_user')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_printer_share_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_printer_share_delete_allowed_user')
+        g.custom_command('delete-ref-printer', 'devicescloudprint_print_printer_share_delete_ref_printer')
+        g.custom_command('list-allowed-group', 'devicescloudprint_print_printer_share_list_allowed_group')
+        g.custom_command('list-allowed-user', 'devicescloudprint_print_printer_share_list_allowed_user')
+        g.custom_command('set-ref-printer', 'devicescloudprint_print_printer_share_set_ref_printer')
+        g.custom_command('show-allowed-group', 'devicescloudprint_print_printer_share_show_allowed_group')
+        g.custom_command('show-allowed-user', 'devicescloudprint_print_printer_share_show_allowed_user')
+        g.custom_command('show-printer', 'devicescloudprint_print_printer_share_show_printer')
+        g.custom_command('show-ref-printer', 'devicescloudprint_print_printer_share_show_ref_printer')
+        g.custom_command('update-allowed-group', 'devicescloudprint_print_printer_share_update_allowed_group')
+        g.custom_command('update-allowed-user', 'devicescloudprint_print_printer_share_update_allowed_user')
 
     with self.command_group(
-        'devicescloudprint printprintersharesprinter',
-        devicescloudprint_beta_printprintersharesprinter,
-        client_factory=cf_printprintersharesprinter,
+        'devicescloudprint print-printer-share-printer',
+        devicescloudprint_beta_print_printer_share_printer,
+        client_factory=cf_print_printer_share_printer,
     ) as g:
-        g.custom_command('reset-default', 'devicescloudprint_printprintersharesprinter_reset_default')
+        g.custom_command('reset-default', 'devicescloudprint_print_printer_share_printer_reset_default')
         g.custom_command(
-            'restore-factory-default', 'devicescloudprint_printprintersharesprinter_restore_factory_default'
+            'restore-factory-default', 'devicescloudprint_print_printer_share_printer_restore_factory_default'
         )
-        g.custom_command('show-capability', 'devicescloudprint_printprintersharesprinter_show_capability')
+        g.custom_command('show-capability', 'devicescloudprint_print_printer_share_printer_show_capability')
 
     with self.command_group(
-        'devicescloudprint printreport', devicescloudprint_beta_printreport, client_factory=cf_printreport
+        'devicescloudprint print-report', devicescloudprint_beta_print_report, client_factory=cf_print_report
     ) as g:
-        g.custom_command('show-group-archived-print-job', 'devicescloudprint_printreport_show_group_archived_print_job')
         g.custom_command(
-            'show-group-print-usage-summary', 'devicescloudprint_printreport_show_group_print_usage_summary'
+            'show-group-archived-print-job', 'devicescloudprint_print_report_show_group_archived_print_job'
         )
         g.custom_command(
-            'show-overall-print-usage-summary', 'devicescloudprint_printreport_show_overall_print_usage_summary'
+            'show-group-print-usage-summary', 'devicescloudprint_print_report_show_group_print_usage_summary'
         )
-        g.custom_command('show-print-usage-summary', 'devicescloudprint_printreport_show_print_usage_summary')
         g.custom_command(
-            'show-printer-archived-print-job', 'devicescloudprint_printreport_show_printer_archived_print_job'
+            'show-overall-print-usage-summary', 'devicescloudprint_print_report_show_overall_print_usage_summary'
         )
-        g.custom_command('show-printer-usage-summary', 'devicescloudprint_printreport_show_printer_usage_summary')
-        g.custom_command('show-user-archived-print-job', 'devicescloudprint_printreport_show_user_archived_print_job')
-        g.custom_command('show-user-print-usage-summary', 'devicescloudprint_printreport_show_user_print_usage_summary')
+        g.custom_command('show-print-usage-summary', 'devicescloudprint_print_report_show_print_usage_summary')
+        g.custom_command(
+            'show-printer-archived-print-job', 'devicescloudprint_print_report_show_printer_archived_print_job'
+        )
+        g.custom_command('show-printer-usage-summary', 'devicescloudprint_print_report_show_printer_usage_summary')
+        g.custom_command('show-user-archived-print-job', 'devicescloudprint_print_report_show_user_archived_print_job')
+        g.custom_command(
+            'show-user-print-usage-summary', 'devicescloudprint_print_report_show_user_print_usage_summary'
+        )
 
     with self.command_group(
-        'devicescloudprint printservice', devicescloudprint_beta_printservice, client_factory=cf_printservice
+        'devicescloudprint print-service', devicescloudprint_beta_print_service, client_factory=cf_print_service
     ) as g:
-        g.custom_command('create-endpoint', 'devicescloudprint_printservice_create_endpoint')
-        g.custom_command('delete-endpoint', 'devicescloudprint_printservice_delete_endpoint')
-        g.custom_command('list-endpoint', 'devicescloudprint_printservice_list_endpoint')
-        g.custom_command('show-endpoint', 'devicescloudprint_printservice_show_endpoint')
-        g.custom_command('update-endpoint', 'devicescloudprint_printservice_update_endpoint')
+        g.custom_command('create-endpoint', 'devicescloudprint_print_service_create_endpoint')
+        g.custom_command('delete-endpoint', 'devicescloudprint_print_service_delete_endpoint')
+        g.custom_command('list-endpoint', 'devicescloudprint_print_service_list_endpoint')
+        g.custom_command('show-endpoint', 'devicescloudprint_print_service_show_endpoint')
+        g.custom_command('update-endpoint', 'devicescloudprint_print_service_update_endpoint')
 
     with self.command_group(
-        'devicescloudprint printshare', devicescloudprint_beta_printshare, client_factory=cf_printshare
+        'devicescloudprint print-share', devicescloudprint_beta_print_share, client_factory=cf_print_share
     ) as g:
-        g.custom_command('create-allowed-group', 'devicescloudprint_printshare_create_allowed_group')
-        g.custom_command('create-allowed-user', 'devicescloudprint_printshare_create_allowed_user')
-        g.custom_command('delete-allowed-group', 'devicescloudprint_printshare_delete_allowed_group')
-        g.custom_command('delete-allowed-user', 'devicescloudprint_printshare_delete_allowed_user')
-        g.custom_command('delete-ref-printer', 'devicescloudprint_printshare_delete_ref_printer')
-        g.custom_command('list-allowed-group', 'devicescloudprint_printshare_list_allowed_group')
-        g.custom_command('list-allowed-user', 'devicescloudprint_printshare_list_allowed_user')
-        g.custom_command('set-ref-printer', 'devicescloudprint_printshare_set_ref_printer')
-        g.custom_command('show-allowed-group', 'devicescloudprint_printshare_show_allowed_group')
-        g.custom_command('show-allowed-user', 'devicescloudprint_printshare_show_allowed_user')
-        g.custom_command('show-printer', 'devicescloudprint_printshare_show_printer')
-        g.custom_command('show-ref-printer', 'devicescloudprint_printshare_show_ref_printer')
-        g.custom_command('update-allowed-group', 'devicescloudprint_printshare_update_allowed_group')
-        g.custom_command('update-allowed-user', 'devicescloudprint_printshare_update_allowed_user')
+        g.custom_command('create-allowed-group', 'devicescloudprint_print_share_create_allowed_group')
+        g.custom_command('create-allowed-user', 'devicescloudprint_print_share_create_allowed_user')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_share_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_share_delete_allowed_user')
+        g.custom_command('delete-ref-printer', 'devicescloudprint_print_share_delete_ref_printer')
+        g.custom_command('list-allowed-group', 'devicescloudprint_print_share_list_allowed_group')
+        g.custom_command('list-allowed-user', 'devicescloudprint_print_share_list_allowed_user')
+        g.custom_command('set-ref-printer', 'devicescloudprint_print_share_set_ref_printer')
+        g.custom_command('show-allowed-group', 'devicescloudprint_print_share_show_allowed_group')
+        g.custom_command('show-allowed-user', 'devicescloudprint_print_share_show_allowed_user')
+        g.custom_command('show-printer', 'devicescloudprint_print_share_show_printer')
+        g.custom_command('show-ref-printer', 'devicescloudprint_print_share_show_ref_printer')
+        g.custom_command('update-allowed-group', 'devicescloudprint_print_share_update_allowed_group')
+        g.custom_command('update-allowed-user', 'devicescloudprint_print_share_update_allowed_user')
 
     with self.command_group(
-        'devicescloudprint printsharesprinter',
-        devicescloudprint_beta_printsharesprinter,
-        client_factory=cf_printsharesprinter,
+        'devicescloudprint print-share-printer',
+        devicescloudprint_beta_print_share_printer,
+        client_factory=cf_print_share_printer,
     ) as g:
-        g.custom_command('reset-default', 'devicescloudprint_printsharesprinter_reset_default')
-        g.custom_command('restore-factory-default', 'devicescloudprint_printsharesprinter_restore_factory_default')
-        g.custom_command('show-capability', 'devicescloudprint_printsharesprinter_show_capability')
+        g.custom_command('reset-default', 'devicescloudprint_print_share_printer_reset_default')
+        g.custom_command('restore-factory-default', 'devicescloudprint_print_share_printer_restore_factory_default')
+        g.custom_command('show-capability', 'devicescloudprint_print_share_printer_show_capability')
 
     with self.command_group(
-        'devicescloudprint printtaskdefinition',
-        devicescloudprint_beta_printtaskdefinition,
-        client_factory=cf_printtaskdefinition,
+        'devicescloudprint print-task-definition',
+        devicescloudprint_beta_print_task_definition,
+        client_factory=cf_print_task_definition,
     ) as g:
-        g.custom_command('create-task', 'devicescloudprint_printtaskdefinition_create_task')
-        g.custom_command('delete-task', 'devicescloudprint_printtaskdefinition_delete_task')
-        g.custom_command('list-task', 'devicescloudprint_printtaskdefinition_list_task')
-        g.custom_command('show-task', 'devicescloudprint_printtaskdefinition_show_task')
-        g.custom_command('update-task', 'devicescloudprint_printtaskdefinition_update_task')
+        g.custom_command('create-task', 'devicescloudprint_print_task_definition_create_task')
+        g.custom_command('delete-task', 'devicescloudprint_print_task_definition_delete_task')
+        g.custom_command('list-task', 'devicescloudprint_print_task_definition_list_task')
+        g.custom_command('show-task', 'devicescloudprint_print_task_definition_show_task')
+        g.custom_command('update-task', 'devicescloudprint_print_task_definition_update_task')
 
     with self.command_group(
-        'devicescloudprint printtaskdefinitionstask',
-        devicescloudprint_beta_printtaskdefinitionstask,
-        client_factory=cf_printtaskdefinitionstask,
+        'devicescloudprint print-task-definition-task',
+        devicescloudprint_beta_print_task_definition_task,
+        client_factory=cf_print_task_definition_task,
     ) as g:
-        g.custom_command('delete-ref-definition', 'devicescloudprint_printtaskdefinitionstask_delete_ref_definition')
-        g.custom_command('delete-ref-trigger', 'devicescloudprint_printtaskdefinitionstask_delete_ref_trigger')
-        g.custom_command('set-ref-definition', 'devicescloudprint_printtaskdefinitionstask_set_ref_definition')
-        g.custom_command('set-ref-trigger', 'devicescloudprint_printtaskdefinitionstask_set_ref_trigger')
-        g.custom_command('show-definition', 'devicescloudprint_printtaskdefinitionstask_show_definition')
-        g.custom_command('show-ref-definition', 'devicescloudprint_printtaskdefinitionstask_show_ref_definition')
-        g.custom_command('show-ref-trigger', 'devicescloudprint_printtaskdefinitionstask_show_ref_trigger')
-        g.custom_command('show-trigger', 'devicescloudprint_printtaskdefinitionstask_show_trigger')
+        g.custom_command('delete-ref-definition', 'devicescloudprint_print_task_definition_task_delete_ref_definition')
+        g.custom_command('delete-ref-trigger', 'devicescloudprint_print_task_definition_task_delete_ref_trigger')
+        g.custom_command('set-ref-definition', 'devicescloudprint_print_task_definition_task_set_ref_definition')
+        g.custom_command('set-ref-trigger', 'devicescloudprint_print_task_definition_task_set_ref_trigger')
+        g.custom_command('show-definition', 'devicescloudprint_print_task_definition_task_show_definition')
+        g.custom_command('show-ref-definition', 'devicescloudprint_print_task_definition_task_show_ref_definition')
+        g.custom_command('show-ref-trigger', 'devicescloudprint_print_task_definition_task_show_ref_trigger')
+        g.custom_command('show-trigger', 'devicescloudprint_print_task_definition_task_show_trigger')
 
     with self.command_group('devicescloudprint_beta', is_experimental=True):
         pass

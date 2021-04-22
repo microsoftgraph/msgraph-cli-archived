@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofbookingappointment(msrest.serialization.Model):
+class CollectionOfBookingAppointment(msrest.serialization.Model):
     """Collection of bookingAppointment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingappointment]
+    :type value: list[~bookings.models.MicrosoftGraphBookingAppointment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingappointment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingAppointment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class collectionofbookingappointment(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingappointment, self).__init__(**kwargs)
+        super(CollectionOfBookingAppointment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingappointment0(msrest.serialization.Model):
+class CollectionOfBookingAppointment0(msrest.serialization.Model):
     """Collection of bookingAppointment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingappointment]
+    :type value: list[~bookings.models.MicrosoftGraphBookingAppointment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingappointment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingAppointment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class collectionofbookingappointment0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingappointment0, self).__init__(**kwargs)
+        super(CollectionOfBookingAppointment0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingbusiness(msrest.serialization.Model):
+class CollectionOfBookingBusiness(msrest.serialization.Model):
     """Collection of bookingBusiness.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingbusiness]
+    :type value: list[~bookings.models.MicrosoftGraphBookingBusiness]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingbusiness]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingBusiness]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class collectionofbookingbusiness(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingbusiness, self).__init__(**kwargs)
+        super(CollectionOfBookingBusiness, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingcurrency(msrest.serialization.Model):
+class CollectionOfBookingCurrency(msrest.serialization.Model):
     """Collection of bookingCurrency.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingcurrency]
+    :type value: list[~bookings.models.MicrosoftGraphBookingCurrency]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingcurrency]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingCurrency]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class collectionofbookingcurrency(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingcurrency, self).__init__(**kwargs)
+        super(CollectionOfBookingCurrency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingcustomer(msrest.serialization.Model):
+class CollectionOfBookingCustomer(msrest.serialization.Model):
     """Collection of bookingCustomer.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingcustomer]
+    :type value: list[~bookings.models.MicrosoftGraphBookingCustomer]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingcustomer]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingCustomer]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class collectionofbookingcustomer(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingcustomer, self).__init__(**kwargs)
+        super(CollectionOfBookingCustomer, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingservice(msrest.serialization.Model):
+class CollectionOfBookingService(msrest.serialization.Model):
     """Collection of bookingService.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingservice]
+    :type value: list[~bookings.models.MicrosoftGraphBookingService]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingservice]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingService]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class collectionofbookingservice(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingservice, self).__init__(**kwargs)
+        super(CollectionOfBookingService, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofbookingstaffmember(msrest.serialization.Model):
+class CollectionOfBookingStaffMember(msrest.serialization.Model):
     """Collection of bookingStaffMember.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~bookings.models.microsoftgraphbookingstaffmember]
+    :type value: list[~bookings.models.MicrosoftGraphBookingStaffMember]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphbookingstaffmember]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphBookingStaffMember]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,13 +200,13 @@ class collectionofbookingstaffmember(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofbookingstaffmember, self).__init__(**kwargs)
+        super(CollectionOfBookingStaffMember, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -225,12 +225,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphbookingappointment(microsoftgraphentity):
+class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
     """Represents a booked appointment of a service by a customer in a business.
 
     :param id: Read-only.
@@ -245,7 +245,7 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
     :param customer_id: The id of the booking customer associated with this appointment.
     :type customer_id: str
     :param customer_location: location.
-    :type customer_location: ~bookings.models.microsoftgraphlocation
+    :type customer_location: ~bookings.models.MicrosoftGraphLocation
     :param customer_name:
     :type customer_name: str
     :param customer_notes: Notes from the customer associated with this appointment.
@@ -255,16 +255,16 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
     :param duration:
     :type duration: ~datetime.timedelta
     :param end: dateTimeTimeZone.
-    :type end: ~bookings.models.microsoftgraphdatetimezone
+    :type end: ~bookings.models.MicrosoftGraphDateTimeZone
     :param invoice_amount:
     :type invoice_amount: float
     :param invoice_date: dateTimeTimeZone.
-    :type invoice_date: ~bookings.models.microsoftgraphdatetimezone
+    :type invoice_date: ~bookings.models.MicrosoftGraphDateTimeZone
     :param invoice_id:
     :type invoice_id: str
     :param invoice_status:  Possible values include: "draft", "reviewing", "open", "canceled",
      "paid", "corrective".
-    :type invoice_status: str or ~bookings.models.Microsoftgraphbookinginvoicestatus
+    :type invoice_status: str or ~bookings.models.MicrosoftGraphBookingInvoiceStatus
     :param invoice_url:
     :type invoice_url: str
     :param is_location_online:
@@ -281,15 +281,15 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
     :type price: float
     :param price_type:  Possible values include: "undefined", "fixedPrice", "startingAt", "hourly",
      "free", "priceVaries", "callUs", "notSet".
-    :type price_type: str or ~bookings.models.Microsoftgraphbookingpricetype
+    :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
     :param reminders:
-    :type reminders: list[~bookings.models.microsoftgraphbookingreminder]
+    :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
     :param self_service_appointment_id:
     :type self_service_appointment_id: str
     :param service_id: The id of the booking service associated with this appointment.
     :type service_id: str
     :param service_location: location.
-    :type service_location: ~bookings.models.microsoftgraphlocation
+    :type service_location: ~bookings.models.MicrosoftGraphLocation
     :param service_name: The name of the booking service associated with this appointment.
     :type service_name: str
     :param service_notes:
@@ -297,7 +297,7 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
     :param staff_member_ids:
     :type staff_member_ids: list[str]
     :param start: dateTimeTimeZone.
-    :type start: ~bookings.models.microsoftgraphdatetimezone
+    :type start: ~bookings.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
@@ -306,14 +306,14 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
         'additional_information': {'key': 'additionalInformation', 'type': 'str'},
         'customer_email_address': {'key': 'customerEmailAddress', 'type': 'str'},
         'customer_id': {'key': 'customerId', 'type': 'str'},
-        'customer_location': {'key': 'customerLocation', 'type': 'microsoftgraphlocation'},
+        'customer_location': {'key': 'customerLocation', 'type': 'MicrosoftGraphLocation'},
         'customer_name': {'key': 'customerName', 'type': 'str'},
         'customer_notes': {'key': 'customerNotes', 'type': 'str'},
         'customer_phone': {'key': 'customerPhone', 'type': 'str'},
         'duration': {'key': 'duration', 'type': 'duration'},
-        'end': {'key': 'end', 'type': 'microsoftgraphdatetimezone'},
+        'end': {'key': 'end', 'type': 'MicrosoftGraphDateTimeZone'},
         'invoice_amount': {'key': 'invoiceAmount', 'type': 'float'},
-        'invoice_date': {'key': 'invoiceDate', 'type': 'microsoftgraphdatetimezone'},
+        'invoice_date': {'key': 'invoiceDate', 'type': 'MicrosoftGraphDateTimeZone'},
         'invoice_id': {'key': 'invoiceId', 'type': 'str'},
         'invoice_status': {'key': 'invoiceStatus', 'type': 'str'},
         'invoice_url': {'key': 'invoiceUrl', 'type': 'str'},
@@ -324,21 +324,21 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
         'pre_buffer': {'key': 'preBuffer', 'type': 'duration'},
         'price': {'key': 'price', 'type': 'float'},
         'price_type': {'key': 'priceType', 'type': 'str'},
-        'reminders': {'key': 'reminders', 'type': '[microsoftgraphbookingreminder]'},
+        'reminders': {'key': 'reminders', 'type': '[MicrosoftGraphBookingReminder]'},
         'self_service_appointment_id': {'key': 'selfServiceAppointmentId', 'type': 'str'},
         'service_id': {'key': 'serviceId', 'type': 'str'},
-        'service_location': {'key': 'serviceLocation', 'type': 'microsoftgraphlocation'},
+        'service_location': {'key': 'serviceLocation', 'type': 'MicrosoftGraphLocation'},
         'service_name': {'key': 'serviceName', 'type': 'str'},
         'service_notes': {'key': 'serviceNotes', 'type': 'str'},
         'staff_member_ids': {'key': 'staffMemberIds', 'type': '[str]'},
-        'start': {'key': 'start', 'type': 'microsoftgraphdatetimezone'},
+        'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingappointment, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingAppointment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_information = kwargs.get('additional_information', None)
         self.customer_email_address = kwargs.get('customer_email_address', None)
@@ -371,7 +371,7 @@ class microsoftgraphbookingappointment(microsoftgraphentity):
         self.start = kwargs.get('start', None)
 
 
-class microsoftgraphbookingnamedentity(microsoftgraphentity):
+class MicrosoftGraphBookingNamedEntity(MicrosoftGraphEntity):
     """Booking entities that provide a display name.
 
     :param id: Read-only.
@@ -393,12 +393,12 @@ class microsoftgraphbookingnamedentity(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingnamedentity, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingNamedEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
 
 
-class microsoftgraphbookingbusiness(microsoftgraphbookingnamedentity):
+class MicrosoftGraphBookingBusiness(MicrosoftGraphBookingNamedEntity):
     """Represents a Microsot Bookings Business.
 
     :param id: Read-only.
@@ -409,9 +409,9 @@ class microsoftgraphbookingbusiness(microsoftgraphbookingnamedentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~bookings.models.microsoftgraphphysicaladdress
+    :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
     :param business_hours:
-    :type business_hours: list[~bookings.models.microsoftgraphbookingworkhours]
+    :type business_hours: list[~bookings.models.MicrosoftGraphBookingWorkHours]
     :param business_type:
     :type business_type: str
     :param default_currency_iso:
@@ -426,47 +426,47 @@ class microsoftgraphbookingbusiness(microsoftgraphbookingnamedentity):
     :type public_url: str
     :param scheduling_policy: This type represents the set of policies that dictate how bookings
      can be created in a Booking Calendar.
-    :type scheduling_policy: ~bookings.models.microsoftgraphbookingschedulingpolicy
+    :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
     :param web_site_url: The URL of the business web site.
     :type web_site_url: str
     :param appointments: All appointments in this business.
-    :type appointments: list[~bookings.models.microsoftgraphbookingappointment]
+    :type appointments: list[~bookings.models.MicrosoftGraphBookingAppointment]
     :param calendar_view: A calendar view of appointments in this business.
-    :type calendar_view: list[~bookings.models.microsoftgraphbookingappointment]
+    :type calendar_view: list[~bookings.models.MicrosoftGraphBookingAppointment]
     :param customers: All customers of this business.
-    :type customers: list[~bookings.models.microsoftgraphbookingcustomer]
+    :type customers: list[~bookings.models.MicrosoftGraphBookingCustomer]
     :param services: All services offered by this business.
-    :type services: list[~bookings.models.microsoftgraphbookingservice]
+    :type services: list[~bookings.models.MicrosoftGraphBookingService]
     :param staff_members: All staff members that provides services in this business.
-    :type staff_members: list[~bookings.models.microsoftgraphbookingstaffmember]
+    :type staff_members: list[~bookings.models.MicrosoftGraphBookingStaffMember]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'business_hours': {'key': 'businessHours', 'type': '[microsoftgraphbookingworkhours]'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'business_hours': {'key': 'businessHours', 'type': '[MicrosoftGraphBookingWorkHours]'},
         'business_type': {'key': 'businessType', 'type': 'str'},
         'default_currency_iso': {'key': 'defaultCurrencyIso', 'type': 'str'},
         'email': {'key': 'email', 'type': 'str'},
         'is_published': {'key': 'isPublished', 'type': 'bool'},
         'phone': {'key': 'phone', 'type': 'str'},
         'public_url': {'key': 'publicUrl', 'type': 'str'},
-        'scheduling_policy': {'key': 'schedulingPolicy', 'type': 'microsoftgraphbookingschedulingpolicy'},
+        'scheduling_policy': {'key': 'schedulingPolicy', 'type': 'MicrosoftGraphBookingSchedulingPolicy'},
         'web_site_url': {'key': 'webSiteUrl', 'type': 'str'},
-        'appointments': {'key': 'appointments', 'type': '[microsoftgraphbookingappointment]'},
-        'calendar_view': {'key': 'calendarView', 'type': '[microsoftgraphbookingappointment]'},
-        'customers': {'key': 'customers', 'type': '[microsoftgraphbookingcustomer]'},
-        'services': {'key': 'services', 'type': '[microsoftgraphbookingservice]'},
-        'staff_members': {'key': 'staffMembers', 'type': '[microsoftgraphbookingstaffmember]'},
+        'appointments': {'key': 'appointments', 'type': '[MicrosoftGraphBookingAppointment]'},
+        'calendar_view': {'key': 'calendarView', 'type': '[MicrosoftGraphBookingAppointment]'},
+        'customers': {'key': 'customers', 'type': '[MicrosoftGraphBookingCustomer]'},
+        'services': {'key': 'services', 'type': '[MicrosoftGraphBookingService]'},
+        'staff_members': {'key': 'staffMembers', 'type': '[MicrosoftGraphBookingStaffMember]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingbusiness, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingBusiness, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.business_hours = kwargs.get('business_hours', None)
@@ -485,7 +485,7 @@ class microsoftgraphbookingbusiness(microsoftgraphbookingnamedentity):
         self.staff_members = kwargs.get('staff_members', None)
 
 
-class microsoftgraphbookingcurrency(microsoftgraphentity):
+class MicrosoftGraphBookingCurrency(MicrosoftGraphEntity):
     """bookingCurrency.
 
     :param id: Read-only.
@@ -507,12 +507,12 @@ class microsoftgraphbookingcurrency(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingcurrency, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingCurrency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.symbol = kwargs.get('symbol', None)
 
 
-class microsoftgraphbookingperson(microsoftgraphbookingnamedentity):
+class MicrosoftGraphBookingPerson(MicrosoftGraphBookingNamedEntity):
     """Represents a booking customer or staff member.
 
     :param id: Read-only.
@@ -537,12 +537,12 @@ class microsoftgraphbookingperson(microsoftgraphbookingnamedentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingperson, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingPerson, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.email_address = kwargs.get('email_address', None)
 
 
-class microsoftgraphbookingcustomer(microsoftgraphbookingperson):
+class MicrosoftGraphBookingCustomer(MicrosoftGraphBookingPerson):
     """Represents a customer of the business.
 
     :param id: Read-only.
@@ -567,11 +567,11 @@ class microsoftgraphbookingcustomer(microsoftgraphbookingperson):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingcustomer, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingCustomer, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphbookingreminder(msrest.serialization.Model):
+class MicrosoftGraphBookingReminder(msrest.serialization.Model):
     """This type represents when and to whom to send an e-mail reminder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -582,7 +582,7 @@ class microsoftgraphbookingreminder(msrest.serialization.Model):
     :param offset: How much time before an appointment the reminder should be sent.
     :type offset: ~datetime.timedelta
     :param recipients:  Possible values include: "allAttendees", "staff", "customer".
-    :type recipients: str or ~bookings.models.Microsoftgraphbookingreminderrecipients
+    :type recipients: str or ~bookings.models.MicrosoftGraphBookingReminderRecipients
     """
 
     _attribute_map = {
@@ -596,14 +596,14 @@ class microsoftgraphbookingreminder(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingreminder, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingReminder, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.message = kwargs.get('message', None)
         self.offset = kwargs.get('offset', None)
         self.recipients = kwargs.get('recipients', None)
 
 
-class microsoftgraphbookingschedulingpolicy(msrest.serialization.Model):
+class MicrosoftGraphBookingSchedulingPolicy(msrest.serialization.Model):
     """This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -635,7 +635,7 @@ class microsoftgraphbookingschedulingpolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingschedulingpolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingSchedulingPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_staff_selection = kwargs.get('allow_staff_selection', None)
         self.maximum_advance = kwargs.get('maximum_advance', None)
@@ -644,7 +644,7 @@ class microsoftgraphbookingschedulingpolicy(msrest.serialization.Model):
         self.time_slot_interval = kwargs.get('time_slot_interval', None)
 
 
-class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
+class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     """Represents a particular service offered by a booking business.
 
     :param id: Read-only.
@@ -659,14 +659,14 @@ class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
     :param default_duration:
     :type default_duration: ~datetime.timedelta
     :param default_location: location.
-    :type default_location: ~bookings.models.microsoftgraphlocation
+    :type default_location: ~bookings.models.MicrosoftGraphLocation
     :param default_price:
     :type default_price: float
     :param default_price_type:  Possible values include: "undefined", "fixedPrice", "startingAt",
      "hourly", "free", "priceVaries", "callUs", "notSet".
-    :type default_price_type: str or ~bookings.models.Microsoftgraphbookingpricetype
+    :type default_price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
     :param default_reminders: The default reminders set in an appointment of this service.
-    :type default_reminders: list[~bookings.models.microsoftgraphbookingreminder]
+    :type default_reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
     :param description:
     :type description: str
     :param is_hidden_from_customers:
@@ -681,7 +681,7 @@ class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
     :type pre_buffer: ~datetime.timedelta
     :param scheduling_policy: This type represents the set of policies that dictate how bookings
      can be created in a Booking Calendar.
-    :type scheduling_policy: ~bookings.models.microsoftgraphbookingschedulingpolicy
+    :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
     :param staff_member_ids:
     :type staff_member_ids: list[str]
     """
@@ -692,17 +692,17 @@ class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'additional_information': {'key': 'additionalInformation', 'type': 'str'},
         'default_duration': {'key': 'defaultDuration', 'type': 'duration'},
-        'default_location': {'key': 'defaultLocation', 'type': 'microsoftgraphlocation'},
+        'default_location': {'key': 'defaultLocation', 'type': 'MicrosoftGraphLocation'},
         'default_price': {'key': 'defaultPrice', 'type': 'float'},
         'default_price_type': {'key': 'defaultPriceType', 'type': 'str'},
-        'default_reminders': {'key': 'defaultReminders', 'type': '[microsoftgraphbookingreminder]'},
+        'default_reminders': {'key': 'defaultReminders', 'type': '[MicrosoftGraphBookingReminder]'},
         'description': {'key': 'description', 'type': 'str'},
         'is_hidden_from_customers': {'key': 'isHiddenFromCustomers', 'type': 'bool'},
         'is_location_online': {'key': 'isLocationOnline', 'type': 'bool'},
         'notes': {'key': 'notes', 'type': 'str'},
         'post_buffer': {'key': 'postBuffer', 'type': 'duration'},
         'pre_buffer': {'key': 'preBuffer', 'type': 'duration'},
-        'scheduling_policy': {'key': 'schedulingPolicy', 'type': 'microsoftgraphbookingschedulingpolicy'},
+        'scheduling_policy': {'key': 'schedulingPolicy', 'type': 'MicrosoftGraphBookingSchedulingPolicy'},
         'staff_member_ids': {'key': 'staffMemberIds', 'type': '[str]'},
     }
 
@@ -710,7 +710,7 @@ class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingservice, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingService, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_information = kwargs.get('additional_information', None)
         self.default_duration = kwargs.get('default_duration', None)
@@ -728,7 +728,7 @@ class microsoftgraphbookingservice(microsoftgraphbookingnamedentity):
         self.staff_member_ids = kwargs.get('staff_member_ids', None)
 
 
-class microsoftgraphbookingstaffmember(microsoftgraphbookingperson):
+class MicrosoftGraphBookingStaffMember(MicrosoftGraphBookingPerson):
     """Represents a staff member who provides services in a business.
 
     :param id: Read-only.
@@ -745,11 +745,11 @@ class microsoftgraphbookingstaffmember(microsoftgraphbookingperson):
     :param color_index:
     :type color_index: int
     :param role:  Possible values include: "guest", "administrator", "viewer", "externalGuest".
-    :type role: str or ~bookings.models.Microsoftgraphbookingstaffrole
+    :type role: str or ~bookings.models.MicrosoftGraphBookingStaffRole
     :param use_business_hours:
     :type use_business_hours: bool
     :param working_hours:
-    :type working_hours: list[~bookings.models.microsoftgraphbookingworkhours]
+    :type working_hours: list[~bookings.models.MicrosoftGraphBookingWorkHours]
     """
 
     _validation = {
@@ -765,14 +765,14 @@ class microsoftgraphbookingstaffmember(microsoftgraphbookingperson):
         'color_index': {'key': 'colorIndex', 'type': 'int'},
         'role': {'key': 'role', 'type': 'str'},
         'use_business_hours': {'key': 'useBusinessHours', 'type': 'bool'},
-        'working_hours': {'key': 'workingHours', 'type': '[microsoftgraphbookingworkhours]'},
+        'working_hours': {'key': 'workingHours', 'type': '[MicrosoftGraphBookingWorkHours]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingstaffmember, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingStaffMember, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.availability_is_affected_by_personal_calendar = kwargs.get('availability_is_affected_by_personal_calendar', None)
         self.color_index = kwargs.get('color_index', None)
@@ -781,7 +781,7 @@ class microsoftgraphbookingstaffmember(microsoftgraphbookingperson):
         self.working_hours = kwargs.get('working_hours', None)
 
 
-class microsoftgraphbookingworkhours(msrest.serialization.Model):
+class MicrosoftGraphBookingWorkHours(msrest.serialization.Model):
     """This type represents the set of working hours in a single day of the week.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -789,28 +789,28 @@ class microsoftgraphbookingworkhours(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param day:  Possible values include: "sunday", "monday", "tuesday", "wednesday", "thursday",
      "friday", "saturday".
-    :type day: str or ~bookings.models.Microsoftgraphdayofweek
+    :type day: str or ~bookings.models.MicrosoftGraphDayOfWeek
     :param time_slots: A list of start/end times during a day.
-    :type time_slots: list[~bookings.models.microsoftgraphbookingworktimeslot]
+    :type time_slots: list[~bookings.models.MicrosoftGraphBookingWorkTimeSlot]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'day': {'key': 'day', 'type': 'str'},
-        'time_slots': {'key': 'timeSlots', 'type': '[microsoftgraphbookingworktimeslot]'},
+        'time_slots': {'key': 'timeSlots', 'type': '[MicrosoftGraphBookingWorkTimeSlot]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingworkhours, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingWorkHours, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.day = kwargs.get('day', None)
         self.time_slots = kwargs.get('time_slots', None)
 
 
-class microsoftgraphbookingworktimeslot(msrest.serialization.Model):
+class MicrosoftGraphBookingWorkTimeSlot(msrest.serialization.Model):
     """bookingWorkTimeSlot.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -832,13 +832,13 @@ class microsoftgraphbookingworktimeslot(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphbookingworktimeslot, self).__init__(**kwargs)
+        super(MicrosoftGraphBookingWorkTimeSlot, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.end = kwargs.get('end', None)
         self.start = kwargs.get('start', None)
 
 
-class microsoftgraphdatetimezone(msrest.serialization.Model):
+class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
     """dateTimeTimeZone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -862,22 +862,22 @@ class microsoftgraphdatetimezone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphdatetimezone, self).__init__(**kwargs)
+        super(MicrosoftGraphDateTimeZone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.date_time = kwargs.get('date_time', None)
         self.time_zone = kwargs.get('time_zone', None)
 
 
-class microsoftgraphlocation(msrest.serialization.Model):
+class MicrosoftGraphLocation(msrest.serialization.Model):
     """location.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~bookings.models.microsoftgraphphysicaladdress
+    :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
     :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~bookings.models.microsoftgraphoutlookgeocoordinates
+    :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
     :param display_name: The name associated with the location.
     :type display_name: str
     :param location_email_address: Optional email address of the location.
@@ -885,20 +885,20 @@ class microsoftgraphlocation(msrest.serialization.Model):
     :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
      "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
      "postalAddress".
-    :type location_type: str or ~bookings.models.Microsoftgraphlocationtype
+    :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
     :param location_uri: Optional URI representing the location.
     :type location_uri: str
     :param unique_id: For internal use only.
     :type unique_id: str
     :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
      "private", "bing".
-    :type unique_id_type: str or ~bookings.models.Microsoftgraphlocationuniqueidtype
+    :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'coordinates': {'key': 'coordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'coordinates': {'key': 'coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'location_email_address': {'key': 'locationEmailAddress', 'type': 'str'},
         'location_type': {'key': 'locationType', 'type': 'str'},
@@ -911,7 +911,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphLocation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.coordinates = kwargs.get('coordinates', None)
@@ -923,7 +923,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self.unique_id_type = kwargs.get('unique_id_type', None)
 
 
-class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
     """outlookGeoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -955,7 +955,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphoutlookgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.accuracy = kwargs.get('accuracy', None)
         self.altitude = kwargs.get('altitude', None)
@@ -964,7 +964,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self.longitude = kwargs.get('longitude', None)
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -984,7 +984,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
     :param street: The street.
     :type street: str
     :param type:  Possible values include: "unknown", "home", "business", "other".
-    :type type: str or ~bookings.models.Microsoftgraphphysicaladdresstype
+    :type type: str or ~bookings.models.MicrosoftGraphPhysicalAddressType
     """
 
     _attribute_map = {
@@ -1002,7 +1002,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.city = kwargs.get('city', None)
         self.country_or_region = kwargs.get('country_or_region', None)
@@ -1013,8 +1013,8 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.type = kwargs.get('type', None)
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1022,7 +1022,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~bookings.models.odataerrormain
+    :type error: ~bookings.models.OdataErrorMain
     """
 
     _validation = {
@@ -1031,20 +1031,20 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1075,15 +1075,15 @@ class odataerrordetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1097,7 +1097,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~bookings.models.odataerrordetail]
+    :type details: list[~bookings.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1112,7 +1112,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1120,7 +1120,7 @@ class odataerrormain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
@@ -1129,8 +1129,8 @@ class odataerrormain(msrest.serialization.Model):
         self.innererror = kwargs.get('innererror', None)
 
 
-class paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema.
+class Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -1148,13 +1148,13 @@ class paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointme
         self,
         **kwargs
     ):
-        super(paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.cancellation_message = kwargs.get('cancellation_message', None)
 
 
-class paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema.
+class Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -1172,6 +1172,6 @@ class paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointme
         self,
         **kwargs
     ):
-        super(paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.cancellation_message = kwargs.get('cancellation_message', None)

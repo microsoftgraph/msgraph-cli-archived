@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations:
-    """usersOperations async operations.
+class UsersOperations:
+    """UsersOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,7 +48,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum230"]]] = None,
         expand: Optional[List[Union[str, "models.Enum231"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofsite2"]:
+    ) -> AsyncIterable["models.CollectionOfSite2"]:
         """Get followedSites from users.
 
         Get followedSites from users.
@@ -61,11 +62,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum231]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsite2 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionofsite2]
+        :return: An iterator like instance of either CollectionOfSite2 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfSite2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsite2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSite2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -111,7 +112,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsite2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSite2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -124,9 +125,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -140,7 +141,7 @@ class usersOperations:
         user_id: str,
         orderby: Optional[List[Union[str, "models.Enum232"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflinksofsite"]:
+    ) -> AsyncIterable["models.CollectionOfLinksOfSite"]:
         """Get ref of followedSites from users.
 
         Get ref of followedSites from users.
@@ -150,11 +151,11 @@ class usersOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~sites.models.Enum232]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofsite or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionoflinksofsite]
+        :return: An iterator like instance of either CollectionOfLinksOfSite or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfLinksOfSite]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -196,7 +197,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofsite', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfSite', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -209,9 +210,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -271,8 +272,8 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 

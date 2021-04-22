@@ -18,33 +18,33 @@ def cf_compliance_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_compliance(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliancecompliance
+def cf_compliance_compliance(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_compliance
 
 
 def cf_compliance(cli_ctx, *_):
     return cf_compliance_beta_cl(cli_ctx).compliance
 
 
-def cf_complianceediscovery(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscovery
+def cf_compliance_ediscovery(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery
 
 
-def cf_complianceediscoverycase(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscoverycases
+def cf_compliance_ediscovery_case(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases
 
 
-def cf_complianceediscoverycasescustodian(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscoverycasescustodians
+def cf_compliance_ediscovery_case_custodian(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians
 
 
-def cf_complianceediscoverycasescustodianssitesource(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscoverycasescustodianssitesources
+def cf_compliance_ediscovery_case_custodian_site_source(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_site_sources
 
 
-def cf_complianceediscoverycasescustodiansunifiedgroupsource(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscoverycasescustodiansunifiedgroupsources
+def cf_compliance_ediscovery_case_custodian_unified_group_source(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_unified_group_sources
 
 
-def cf_complianceediscoverycasesreviewset(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).complianceediscoverycasesreviewsets
+def cf_compliance_ediscovery_case_review_set(cli_ctx, *_):
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_review_sets

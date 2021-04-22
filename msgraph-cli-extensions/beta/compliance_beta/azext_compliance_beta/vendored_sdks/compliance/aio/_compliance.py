@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.core import AsyncPipelineClient
+from azure.mgmt.core import AsyncARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,36 +16,36 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import ComplianceConfiguration
-from .operations import compliancecomplianceOperations
-from .operations import complianceOperations
-from .operations import complianceediscoveryOperations
-from .operations import complianceediscoverycasesOperations
-from .operations import complianceediscoverycasescustodiansOperations
-from .operations import complianceediscoverycasescustodianssitesourcesOperations
-from .operations import complianceediscoverycasescustodiansunifiedgroupsourcesOperations
-from .operations import complianceediscoverycasesreviewsetsOperations
+from .operations import ComplianceComplianceOperations
+from .operations import ComplianceOperations
+from .operations import ComplianceEdiscoveryOperations
+from .operations import ComplianceEdiscoveryCasesOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+from .operations import ComplianceEdiscoveryCasesReviewSetsOperations
 from .. import models
 
 
 class Compliance(object):
     """Compliance.
 
-    :ivar compliancecompliance: compliancecomplianceOperations operations
-    :vartype compliancecompliance: compliance.aio.operations.compliancecomplianceOperations
-    :ivar compliance: complianceOperations operations
-    :vartype compliance: compliance.aio.operations.complianceOperations
-    :ivar complianceediscovery: complianceediscoveryOperations operations
-    :vartype complianceediscovery: compliance.aio.operations.complianceediscoveryOperations
-    :ivar complianceediscoverycases: complianceediscoverycasesOperations operations
-    :vartype complianceediscoverycases: compliance.aio.operations.complianceediscoverycasesOperations
-    :ivar complianceediscoverycasescustodians: complianceediscoverycasescustodiansOperations operations
-    :vartype complianceediscoverycasescustodians: compliance.aio.operations.complianceediscoverycasescustodiansOperations
-    :ivar complianceediscoverycasescustodianssitesources: complianceediscoverycasescustodianssitesourcesOperations operations
-    :vartype complianceediscoverycasescustodianssitesources: compliance.aio.operations.complianceediscoverycasescustodianssitesourcesOperations
-    :ivar complianceediscoverycasescustodiansunifiedgroupsources: complianceediscoverycasescustodiansunifiedgroupsourcesOperations operations
-    :vartype complianceediscoverycasescustodiansunifiedgroupsources: compliance.aio.operations.complianceediscoverycasescustodiansunifiedgroupsourcesOperations
-    :ivar complianceediscoverycasesreviewsets: complianceediscoverycasesreviewsetsOperations operations
-    :vartype complianceediscoverycasesreviewsets: compliance.aio.operations.complianceediscoverycasesreviewsetsOperations
+    :ivar compliance_compliance: ComplianceComplianceOperations operations
+    :vartype compliance_compliance: compliance.aio.operations.ComplianceComplianceOperations
+    :ivar compliance: ComplianceOperations operations
+    :vartype compliance: compliance.aio.operations.ComplianceOperations
+    :ivar compliance_ediscovery: ComplianceEdiscoveryOperations operations
+    :vartype compliance_ediscovery: compliance.aio.operations.ComplianceEdiscoveryOperations
+    :ivar compliance_ediscovery_cases: ComplianceEdiscoveryCasesOperations operations
+    :vartype compliance_ediscovery_cases: compliance.aio.operations.ComplianceEdiscoveryCasesOperations
+    :ivar compliance_ediscovery_cases_custodians: ComplianceEdiscoveryCasesCustodiansOperations operations
+    :vartype compliance_ediscovery_cases_custodians: compliance.aio.operations.ComplianceEdiscoveryCasesCustodiansOperations
+    :ivar compliance_ediscovery_cases_custodians_site_sources: ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations operations
+    :vartype compliance_ediscovery_cases_custodians_site_sources: compliance.aio.operations.ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+    :ivar compliance_ediscovery_cases_custodians_unified_group_sources: ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations operations
+    :vartype compliance_ediscovery_cases_custodians_unified_group_sources: compliance.aio.operations.ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+    :ivar compliance_ediscovery_cases_review_sets: ComplianceEdiscoveryCasesReviewSetsOperations operations
+    :vartype compliance_ediscovery_cases_review_sets: compliance.aio.operations.ComplianceEdiscoveryCasesReviewSetsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -75,28 +75,28 @@ class Compliance(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = ComplianceConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.compliancecompliance = compliancecomplianceOperations(
+        self.compliance_compliance = ComplianceComplianceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance = complianceOperations(
+        self.compliance = ComplianceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscovery = complianceediscoveryOperations(
+        self.compliance_ediscovery = ComplianceEdiscoveryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscoverycases = complianceediscoverycasesOperations(
+        self.compliance_ediscovery_cases = ComplianceEdiscoveryCasesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscoverycasescustodians = complianceediscoverycasescustodiansOperations(
+        self.compliance_ediscovery_cases_custodians = ComplianceEdiscoveryCasesCustodiansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscoverycasescustodianssitesources = complianceediscoverycasescustodianssitesourcesOperations(
+        self.compliance_ediscovery_cases_custodians_site_sources = ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscoverycasescustodiansunifiedgroupsources = complianceediscoverycasescustodiansunifiedgroupsourcesOperations(
+        self.compliance_ediscovery_cases_custodians_unified_group_sources = ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.complianceediscoverycasesreviewsets = complianceediscoverycasesreviewsetsOperations(
+        self.compliance_ediscovery_cases_review_sets = ComplianceEdiscoveryCasesReviewSetsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

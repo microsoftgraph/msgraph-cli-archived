@@ -14,824 +14,831 @@
 
 from msgraph.cli.core.commands import CliCommandType
 from azext_usersfunctions_beta.generated._client_factory import (
-    cf_usersactivity,
-    cf_userscalendarviewcalendar,
-    cf_userscalendarviewexceptionoccurrence,
-    cf_userscalendarviewinstance,
-    cf_userscalendarview,
-    cf_userscalendareventscalendar,
-    cf_userscalendareventsexceptionoccurrence,
-    cf_userscalendareventsinstance,
-    cf_userscalendarevent,
-    cf_userscalendar,
-    cf_userscalendargroupscalendarscalendarviewcalendar,
-    cf_userscalendargroupscalendarscalendarviewexceptionoccurrence,
-    cf_userscalendargroupscalendarscalendarviewinstance,
-    cf_userscalendargroupscalendarscalendarview,
-    cf_userscalendargroupscalendarseventscalendar,
-    cf_userscalendargroupscalendarseventsexceptionoccurrence,
-    cf_userscalendargroupscalendarseventsinstance,
-    cf_userscalendargroupscalendarsevent,
-    cf_userscalendargroupscalendar,
-    cf_userscalendarscalendarviewcalendar,
-    cf_userscalendarscalendarviewexceptionoccurrence,
-    cf_userscalendarscalendarviewinstance,
-    cf_userscalendarscalendarview,
-    cf_userscalendarseventscalendar,
-    cf_userscalendarseventsexceptionoccurrence,
-    cf_userscalendarseventsinstance,
-    cf_userscalendarsevent,
-    cf_userscalendar,
-    cf_userscalendarviewcalendarview,
-    cf_userscalendarviewcalendarevent,
-    cf_userscalendarviewcalendar,
-    cf_userscalendarviewexceptionoccurrence,
-    cf_userscalendarviewinstance,
-    cf_userscalendarview,
-    cf_userscontactfolderschildfolder,
-    cf_userscontactfolderscontact,
-    cf_userscontactfolder,
-    cf_userscontact,
-    cf_userseventscalendarview,
-    cf_userseventscalendarevent,
-    cf_userseventscalendar,
-    cf_userseventsexceptionoccurrence,
-    cf_userseventsinstance,
-    cf_usersevent,
-    cf_usersmailfolderschildfolder,
-    cf_usersmailfoldersmessage,
-    cf_usersmailfolder,
-    cf_usersmanagedappregistration,
-    cf_usersmanageddevice,
-    cf_usersmessage,
+    cf_user_activity,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_exception_occurrence,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_group_calendar_calendar_view_calendar,
+    cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_group_calendar_calendar_view_instance,
+    cf_user_calendar_group_calendar_calendar_view,
+    cf_user_calendar_group_calendar_event_calendar,
+    cf_user_calendar_group_calendar_event_exception_occurrence,
+    cf_user_calendar_group_calendar_event_instance,
+    cf_user_calendar_group_calendar_event,
+    cf_user_calendar_group_calendar,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_exception_occurrence,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_view_calendar_calendar_view,
+    cf_user_calendar_view_calendar_event,
+    cf_user_calendar_view_calendar,
+    cf_user_calendar_view_exception_occurrence,
+    cf_user_calendar_view_instance,
+    cf_user_calendar_view,
+    cf_user_contact_folder_child_folder,
+    cf_user_contact_folder_contact,
+    cf_user_contact_folder,
+    cf_user_contact,
+    cf_user_event_calendar_calendar_view,
+    cf_user_event_calendar_event,
+    cf_user_event_calendar,
+    cf_user_event_exception_occurrence,
+    cf_user_event_instance,
+    cf_user_event,
+    cf_user_mail_folder_child_folder,
+    cf_user_mail_folder_message,
+    cf_user_mail_folder,
+    cf_user_managed_app_registration,
+    cf_user_managed_device,
+    cf_user_message,
     cf_user,
-    cf_usersonenotenotebookssectiongroupssectionspage,
-    cf_usersonenotenotebookssectionspage,
-    cf_usersonenotenotebook,
-    cf_usersonenotepage,
-    cf_usersonenotepagesparentnotebooksectiongroupssectionspage,
-    cf_usersonenotepagesparentnotebooksectionspage,
-    cf_usersonenotepagesparentsectionpage,
-    cf_usersonenotesectiongroupsparentnotebooksectionspage,
-    cf_usersonenotesectiongroupssectionspage,
-    cf_usersonenotesectionspage,
-    cf_usersoutlook,
-    cf_usersplannerall,
-    cf_userstodoliststask,
-    cf_userstodolist,
+    cf_user_onenote_notebook_section_group_section_page,
+    cf_user_onenote_notebook_section_page,
+    cf_user_onenote_notebook,
+    cf_user_onenote_page,
+    cf_user_onenote_page_parent_notebook_section_group_section_page,
+    cf_user_onenote_page_parent_notebook_section_page,
+    cf_user_onenote_page_parent_section_page,
+    cf_user_onenote_section_group_parent_notebook_section_page,
+    cf_user_onenote_section_group_section_page,
+    cf_user_onenote_section_page,
+    cf_user_outlook,
+    cf_user_planner_all,
+    cf_user_todo_list_task,
+    cf_user_todo_list,
 )
 
 
-usersfunctions_beta_usersactivity = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersactivities_operations#usersactivitiesOperations.{}',
-    client_factory=cf_usersactivity,
+usersfunctions_beta_user_activity = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_activities_operations#UsersActivitiesOperations.{}',
+    client_factory=cf_user_activity,
 )
 
 
-usersfunctions_beta_userscalendarviewcalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarcalendarviewcalendar_operations#userscalendarcalendarviewcalendarOperations.{}',
-    client_factory=cf_userscalendarviewcalendar,
+usersfunctions_beta_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_calendar_operations#UsersCalendarCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
 )
 
 
-usersfunctions_beta_userscalendarviewexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarcalendarviewexceptionoccurrences_operations#userscalendarcalendarviewexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendarviewexceptionoccurrence,
+usersfunctions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_exception_occurrences_operations#UsersCalendarCalendarViewExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendarviewinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarcalendarviewinstances_operations#userscalendarcalendarviewinstancesOperations.{}',
-    client_factory=cf_userscalendarviewinstance,
+usersfunctions_beta_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_instances_operations#UsersCalendarCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
 )
 
 
-usersfunctions_beta_userscalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarcalendarview_operations#userscalendarcalendarviewOperations.{}',
-    client_factory=cf_userscalendarview,
+usersfunctions_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_operations#UsersCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
 )
 
 
-usersfunctions_beta_userscalendareventscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendareventscalendar_operations#userscalendareventscalendarOperations.{}',
-    client_factory=cf_userscalendareventscalendar,
+usersfunctions_beta_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_events_calendar_operations#UsersCalendarEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
 )
 
 
-usersfunctions_beta_userscalendareventsexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendareventsexceptionoccurrences_operations#userscalendareventsexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendareventsexceptionoccurrence,
+usersfunctions_beta_user_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_events_exception_occurrences_operations#UsersCalendarEventsExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_event_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendareventsinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendareventsinstances_operations#userscalendareventsinstancesOperations.{}',
-    client_factory=cf_userscalendareventsinstance,
+usersfunctions_beta_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_events_instances_operations#UsersCalendarEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
 )
 
 
-usersfunctions_beta_userscalendarevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarevents_operations#userscalendareventsOperations.{}',
-    client_factory=cf_userscalendarevent,
+usersfunctions_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_events_operations#UsersCalendarEventsOperations.{}',
+    client_factory=cf_user_calendar_event,
 )
 
 
-usersfunctions_beta_userscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendar_operations#userscalendarOperations.{}',
-    client_factory=cf_userscalendar,
+usersfunctions_beta_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_operations#UsersCalendarOperations.{}',
+    client_factory=cf_user_calendar,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarscalendarviewcalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarscalendarviewcalendar_operations#userscalendargroupscalendarscalendarviewcalendarOperations.{}',
-    client_factory=cf_userscalendargroupscalendarscalendarviewcalendar,
+usersfunctions_beta_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_calendar_operations#UsersCalendarGroupsCalendarsCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarscalendarviewexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarscalendarviewexceptionoccurrences_operations#userscalendargroupscalendarscalendarviewexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendargroupscalendarscalendarviewexceptionoccurrence,
+usersfunctions_beta_user_calendar_group_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_exception_occurrences_operations#UsersCalendarGroupsCalendarsCalendarViewExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarscalendarviewinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarscalendarviewinstances_operations#userscalendargroupscalendarscalendarviewinstancesOperations.{}',
-    client_factory=cf_userscalendargroupscalendarscalendarviewinstance,
+usersfunctions_beta_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_instances_operations#UsersCalendarGroupsCalendarsCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarscalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarscalendarview_operations#userscalendargroupscalendarscalendarviewOperations.{}',
-    client_factory=cf_userscalendargroupscalendarscalendarview,
+usersfunctions_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarseventscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarseventscalendar_operations#userscalendargroupscalendarseventscalendarOperations.{}',
-    client_factory=cf_userscalendargroupscalendarseventscalendar,
+usersfunctions_beta_user_calendar_group_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_calendar_operations#UsersCalendarGroupsCalendarsEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_calendar,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarseventsexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarseventsexceptionoccurrences_operations#userscalendargroupscalendarseventsexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendargroupscalendarseventsexceptionoccurrence,
+usersfunctions_beta_user_calendar_group_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_exception_occurrences_operations#UsersCalendarGroupsCalendarsEventsExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarseventsinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarseventsinstances_operations#userscalendargroupscalendarseventsinstancesOperations.{}',
-    client_factory=cf_userscalendargroupscalendarseventsinstance,
+usersfunctions_beta_user_calendar_group_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_instances_operations#UsersCalendarGroupsCalendarsEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_instance,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendarsevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendarsevents_operations#userscalendargroupscalendarseventsOperations.{}',
-    client_factory=cf_userscalendargroupscalendarsevent,
+usersfunctions_beta_user_calendar_group_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event,
 )
 
 
-usersfunctions_beta_userscalendargroupscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendargroupscalendars_operations#userscalendargroupscalendarsOperations.{}',
-    client_factory=cf_userscalendargroupscalendar,
+usersfunctions_beta_user_calendar_group_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_operations#UsersCalendarGroupsCalendarsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar,
 )
 
 
-usersfunctions_beta_userscalendarscalendarviewcalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarscalendarviewcalendar_operations#userscalendarscalendarviewcalendarOperations.{}',
-    client_factory=cf_userscalendarscalendarviewcalendar,
+usersfunctions_beta_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_calendar_operations#UsersCalendarsCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
 )
 
 
-usersfunctions_beta_userscalendarscalendarviewexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarscalendarviewexceptionoccurrences_operations#userscalendarscalendarviewexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendarscalendarviewexceptionoccurrence,
+usersfunctions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_exception_occurrences_operations#UsersCalendarsCalendarViewExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendarscalendarviewinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarscalendarviewinstances_operations#userscalendarscalendarviewinstancesOperations.{}',
-    client_factory=cf_userscalendarscalendarviewinstance,
+usersfunctions_beta_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_instances_operations#UsersCalendarsCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
 )
 
 
-usersfunctions_beta_userscalendarscalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarscalendarview_operations#userscalendarscalendarviewOperations.{}',
-    client_factory=cf_userscalendarscalendarview,
+usersfunctions_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_operations#UsersCalendarsCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
 )
 
 
-usersfunctions_beta_userscalendarseventscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarseventscalendar_operations#userscalendarseventscalendarOperations.{}',
-    client_factory=cf_userscalendarseventscalendar,
+usersfunctions_beta_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_events_calendar_operations#UsersCalendarsEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
 )
 
 
-usersfunctions_beta_userscalendarseventsexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarseventsexceptionoccurrences_operations#userscalendarseventsexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendarseventsexceptionoccurrence,
+usersfunctions_beta_user_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_events_exception_occurrences_operations#UsersCalendarsEventsExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_event_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendarseventsinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarseventsinstances_operations#userscalendarseventsinstancesOperations.{}',
-    client_factory=cf_userscalendarseventsinstance,
+usersfunctions_beta_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_events_instances_operations#UsersCalendarsEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
 )
 
 
-usersfunctions_beta_userscalendarsevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarsevents_operations#userscalendarseventsOperations.{}',
-    client_factory=cf_userscalendarsevent,
+usersfunctions_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_events_operations#UsersCalendarsEventsOperations.{}',
+    client_factory=cf_user_calendar_event,
 )
 
 
-usersfunctions_beta_userscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendars_operations#userscalendarsOperations.{}',
-    client_factory=cf_userscalendar,
+usersfunctions_beta_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendars_operations#UsersCalendarsOperations.{}',
+    client_factory=cf_user_calendar,
 )
 
 
-usersfunctions_beta_userscalendarviewcalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarviewcalendarcalendarview_operations#userscalendarviewcalendarcalendarviewOperations.{}',
-    client_factory=cf_userscalendarviewcalendarview,
+usersfunctions_beta_user_calendar_view_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_calendar_view_operations#UsersCalendarViewCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_calendar_view,
 )
 
 
-usersfunctions_beta_userscalendarviewcalendarevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarviewcalendarevents_operations#userscalendarviewcalendareventsOperations.{}',
-    client_factory=cf_userscalendarviewcalendarevent,
+usersfunctions_beta_user_calendar_view_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_events_operations#UsersCalendarViewCalendarEventsOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_event,
 )
 
 
-usersfunctions_beta_userscalendarviewcalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarviewcalendar_operations#userscalendarviewcalendarOperations.{}',
-    client_factory=cf_userscalendarviewcalendar,
+usersfunctions_beta_user_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_operations#UsersCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_view_calendar,
 )
 
 
-usersfunctions_beta_userscalendarviewexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarviewexceptionoccurrences_operations#userscalendarviewexceptionoccurrencesOperations.{}',
-    client_factory=cf_userscalendarviewexceptionoccurrence,
+usersfunctions_beta_user_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_exception_occurrences_operations#UsersCalendarViewExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_calendar_view_exception_occurrence,
 )
 
 
-usersfunctions_beta_userscalendarviewinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarviewinstances_operations#userscalendarviewinstancesOperations.{}',
-    client_factory=cf_userscalendarviewinstance,
+usersfunctions_beta_user_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_instances_operations#UsersCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_view_instance,
 )
 
 
-usersfunctions_beta_userscalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscalendarview_operations#userscalendarviewOperations.{}',
-    client_factory=cf_userscalendarview,
+usersfunctions_beta_user_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_calendar_view_operations#UsersCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view,
 )
 
 
-usersfunctions_beta_userscontactfolderschildfolder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscontactfolderschildfolders_operations#userscontactfolderschildfoldersOperations.{}',
-    client_factory=cf_userscontactfolderschildfolder,
+usersfunctions_beta_user_contact_folder_child_folder = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_contact_folders_child_folders_operations#UsersContactFoldersChildFoldersOperations.{}',
+    client_factory=cf_user_contact_folder_child_folder,
 )
 
 
-usersfunctions_beta_userscontactfolderscontact = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscontactfolderscontacts_operations#userscontactfolderscontactsOperations.{}',
-    client_factory=cf_userscontactfolderscontact,
+usersfunctions_beta_user_contact_folder_contact = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_contact_folders_contacts_operations#UsersContactFoldersContactsOperations.{}',
+    client_factory=cf_user_contact_folder_contact,
 )
 
 
-usersfunctions_beta_userscontactfolder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscontactfolders_operations#userscontactfoldersOperations.{}',
-    client_factory=cf_userscontactfolder,
+usersfunctions_beta_user_contact_folder = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_contact_folders_operations#UsersContactFoldersOperations.{}',
+    client_factory=cf_user_contact_folder,
 )
 
 
-usersfunctions_beta_userscontact = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userscontacts_operations#userscontactsOperations.{}',
-    client_factory=cf_userscontact,
+usersfunctions_beta_user_contact = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_contacts_operations#UsersContactsOperations.{}',
+    client_factory=cf_user_contact,
 )
 
 
-usersfunctions_beta_userseventscalendarview = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userseventscalendarcalendarview_operations#userseventscalendarcalendarviewOperations.{}',
-    client_factory=cf_userseventscalendarview,
+usersfunctions_beta_user_event_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_calendar_calendar_view_operations#UsersEventsCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_event_calendar_calendar_view,
 )
 
 
-usersfunctions_beta_userseventscalendarevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userseventscalendarevents_operations#userseventscalendareventsOperations.{}',
-    client_factory=cf_userseventscalendarevent,
+usersfunctions_beta_user_event_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_calendar_events_operations#UsersEventsCalendarEventsOperations.{}',
+    client_factory=cf_user_event_calendar_event,
 )
 
 
-usersfunctions_beta_userseventscalendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userseventscalendar_operations#userseventscalendarOperations.{}',
-    client_factory=cf_userseventscalendar,
+usersfunctions_beta_user_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_calendar_operations#UsersEventsCalendarOperations.{}',
+    client_factory=cf_user_event_calendar,
 )
 
 
-usersfunctions_beta_userseventsexceptionoccurrence = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userseventsexceptionoccurrences_operations#userseventsexceptionoccurrencesOperations.{}',
-    client_factory=cf_userseventsexceptionoccurrence,
+usersfunctions_beta_user_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_exception_occurrences_operations#UsersEventsExceptionOccurrencesOperations.{}',
+    client_factory=cf_user_event_exception_occurrence,
 )
 
 
-usersfunctions_beta_userseventsinstance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userseventsinstances_operations#userseventsinstancesOperations.{}',
-    client_factory=cf_userseventsinstance,
+usersfunctions_beta_user_event_instance = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_instances_operations#UsersEventsInstancesOperations.{}',
+    client_factory=cf_user_event_instance,
 )
 
 
-usersfunctions_beta_usersevent = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersevents_operations#userseventsOperations.{}',
-    client_factory=cf_usersevent,
+usersfunctions_beta_user_event = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_events_operations#UsersEventsOperations.{}',
+    client_factory=cf_user_event,
 )
 
 
-usersfunctions_beta_usersmailfolderschildfolder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmailfolderschildfolders_operations#usersmailfolderschildfoldersOperations.{}',
-    client_factory=cf_usersmailfolderschildfolder,
+usersfunctions_beta_user_mail_folder_child_folder = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_mail_folders_child_folders_operations#UsersMailFoldersChildFoldersOperations.{}',
+    client_factory=cf_user_mail_folder_child_folder,
 )
 
 
-usersfunctions_beta_usersmailfoldersmessage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmailfoldersmessages_operations#usersmailfoldersmessagesOperations.{}',
-    client_factory=cf_usersmailfoldersmessage,
+usersfunctions_beta_user_mail_folder_message = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_mail_folders_messages_operations#UsersMailFoldersMessagesOperations.{}',
+    client_factory=cf_user_mail_folder_message,
 )
 
 
-usersfunctions_beta_usersmailfolder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmailfolders_operations#usersmailfoldersOperations.{}',
-    client_factory=cf_usersmailfolder,
+usersfunctions_beta_user_mail_folder = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_mail_folders_operations#UsersMailFoldersOperations.{}',
+    client_factory=cf_user_mail_folder,
 )
 
 
-usersfunctions_beta_usersmanagedappregistration = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmanagedappregistrations_operations#usersmanagedappregistrationsOperations.{}',
-    client_factory=cf_usersmanagedappregistration,
+usersfunctions_beta_user_managed_app_registration = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_managed_app_registrations_operations#UsersManagedAppRegistrationsOperations.{}',
+    client_factory=cf_user_managed_app_registration,
 )
 
 
-usersfunctions_beta_usersmanageddevice = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmanageddevices_operations#usersmanageddevicesOperations.{}',
-    client_factory=cf_usersmanageddevice,
+usersfunctions_beta_user_managed_device = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_managed_devices_operations#UsersManagedDevicesOperations.{}',
+    client_factory=cf_user_managed_device,
 )
 
 
-usersfunctions_beta_usersmessage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersmessages_operations#usersmessagesOperations.{}',
-    client_factory=cf_usersmessage,
+usersfunctions_beta_user_message = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_messages_operations#UsersMessagesOperations.{}',
+    client_factory=cf_user_message,
 )
 
 
 usersfunctions_beta_user = CliCommandType(
     operations_tmpl=(
-        'azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_operations#usersOperations.{}'
+        'azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )
 
 
-usersfunctions_beta_usersonenotenotebookssectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotenotebookssectiongroupssectionspages_operations#usersonenotenotebookssectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
+usersfunctions_beta_user_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_section_groups_sections_pages_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page,
 )
 
 
-usersfunctions_beta_usersonenotenotebookssectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotenotebookssectionspages_operations#usersonenotenotebookssectionspagesOperations.{}',
-    client_factory=cf_usersonenotenotebookssectionspage,
+usersfunctions_beta_user_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_sections_pages_operations#UsersOnenoteNotebooksSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page,
 )
 
 
-usersfunctions_beta_usersonenotenotebook = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotenotebooks_operations#usersonenotenotebooksOperations.{}',
-    client_factory=cf_usersonenotenotebook,
+usersfunctions_beta_user_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_operations#UsersOnenoteNotebooksOperations.{}',
+    client_factory=cf_user_onenote_notebook,
 )
 
 
-usersfunctions_beta_usersonenotepage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotepages_operations#usersonenotepagesOperations.{}',
-    client_factory=cf_usersonenotepage,
+usersfunctions_beta_user_onenote_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_pages_operations#UsersOnenotePagesOperations.{}',
+    client_factory=cf_user_onenote_page,
 )
 
 
-usersfunctions_beta_usersonenotepagesparentnotebooksectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotepagesparentnotebooksectiongroupssectionspages_operations#usersonenotepagesparentnotebooksectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksectiongroupssectionspage,
+usersfunctions_beta_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_notebook_section_groups_sections_pages_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
 )
 
 
-usersfunctions_beta_usersonenotepagesparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotepagesparentnotebooksectionspages_operations#usersonenotepagesparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksectionspage,
+usersfunctions_beta_user_onenote_page_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_notebook_sections_pages_operations#UsersOnenotePagesParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_page,
 )
 
 
-usersfunctions_beta_usersonenotepagesparentsectionpage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotepagesparentsectionpages_operations#usersonenotepagesparentsectionpagesOperations.{}',
-    client_factory=cf_usersonenotepagesparentsectionpage,
+usersfunctions_beta_user_onenote_page_parent_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_section_pages_operations#UsersOnenotePagesParentSectionPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_page,
 )
 
 
-usersfunctions_beta_usersonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotesectiongroupsparentnotebooksectionspages_operations#usersonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+usersfunctions_beta_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_section_groups_parent_notebook_sections_pages_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
 )
 
 
-usersfunctions_beta_usersonenotesectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotesectiongroupssectionspages_operations#usersonenotesectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectiongroupssectionspage,
+usersfunctions_beta_user_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_section_groups_sections_pages_operations#UsersOnenoteSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page,
 )
 
 
-usersfunctions_beta_usersonenotesectionspage = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersonenotesectionspages_operations#usersonenotesectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectionspage,
+usersfunctions_beta_user_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_onenote_sections_pages_operations#UsersOnenoteSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_page,
 )
 
 
-usersfunctions_beta_usersoutlook = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersoutlook_operations#usersoutlookOperations.{}',
-    client_factory=cf_usersoutlook,
+usersfunctions_beta_user_outlook = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_outlook_operations#UsersOutlookOperations.{}',
+    client_factory=cf_user_outlook,
 )
 
 
-usersfunctions_beta_usersplannerall = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._usersplannerall_operations#usersplannerallOperations.{}',
-    client_factory=cf_usersplannerall,
+usersfunctions_beta_user_planner_all = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_planner_all_operations#UsersPlannerAllOperations.{}',
+    client_factory=cf_user_planner_all,
 )
 
 
-usersfunctions_beta_userstodoliststask = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userstodoliststasks_operations#userstodoliststasksOperations.{}',
-    client_factory=cf_userstodoliststask,
+usersfunctions_beta_user_todo_list_task = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_todo_lists_tasks_operations#UsersTodoListsTasksOperations.{}',
+    client_factory=cf_user_todo_list_task,
 )
 
 
-usersfunctions_beta_userstodolist = CliCommandType(
-    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._userstodolists_operations#userstodolistsOperations.{}',
-    client_factory=cf_userstodolist,
+usersfunctions_beta_user_todo_list = CliCommandType(
+    operations_tmpl='azext_usersfunctions_beta.vendored_sdks.usersfunctions.operations._users_todo_lists_operations#UsersTodoListsOperations.{}',
+    client_factory=cf_user_todo_list,
 )
 
 
 def load_command_table(self, _):
 
     with self.command_group(
-        'usersfunctions usersactivity', usersfunctions_beta_usersactivity, client_factory=cf_usersactivity
+        'usersfunctions user-activity', usersfunctions_beta_user_activity, client_factory=cf_user_activity
     ) as g:
-        g.custom_command('recent', 'usersfunctions_usersactivity_recent')
+        g.custom_command('recent', 'usersfunctions_user_activity_recent')
 
     with self.command_group(
-        'usersfunctions userscalendarviewcalendar',
-        usersfunctions_beta_userscalendarviewcalendar,
-        client_factory=cf_userscalendarviewcalendar,
-    ) as g:
-        g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userscalendarviewcalendar_allowed_calendar_sharing_role'
-        )
-
-    with self.command_group(
-        'usersfunctions userscalendarviewexceptionoccurrence',
-        usersfunctions_beta_userscalendarviewexceptionoccurrence,
-        client_factory=cf_userscalendarviewexceptionoccurrence,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewexceptionoccurrence_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarviewinstance',
-        usersfunctions_beta_userscalendarviewinstance,
-        client_factory=cf_userscalendarviewinstance,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewinstance_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarview', usersfunctions_beta_userscalendarview, client_factory=cf_userscalendarview
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarview_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendareventscalendar',
-        usersfunctions_beta_userscalendareventscalendar,
-        client_factory=cf_userscalendareventscalendar,
-    ) as g:
-        g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userscalendareventscalendar_allowed_calendar_sharing_role'
-        )
-
-    with self.command_group(
-        'usersfunctions userscalendareventsexceptionoccurrence',
-        usersfunctions_beta_userscalendareventsexceptionoccurrence,
-        client_factory=cf_userscalendareventsexceptionoccurrence,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendareventsexceptionoccurrence_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendareventsinstance',
-        usersfunctions_beta_userscalendareventsinstance,
-        client_factory=cf_userscalendareventsinstance,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendareventsinstance_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarevent',
-        usersfunctions_beta_userscalendarevent,
-        client_factory=cf_userscalendarevent,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarevent_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendar', usersfunctions_beta_userscalendar, client_factory=cf_userscalendar
-    ) as g:
-        g.custom_command('allowed-calendar-sharing-role', 'usersfunctions_userscalendar_allowed_calendar_sharing_role')
-
-    with self.command_group(
-        'usersfunctions userscalendargroupscalendarscalendarviewcalendar',
-        usersfunctions_beta_userscalendargroupscalendarscalendarviewcalendar,
-        client_factory=cf_userscalendargroupscalendarscalendarviewcalendar,
+        'usersfunctions user-calendar-calendar-view-calendar',
+        usersfunctions_beta_user_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_calendar_view_calendar,
     ) as g:
         g.custom_command(
             'allowed-calendar-sharing-role',
-            'usersfunctions_userscalendargroupscalendarscalendarviewcalendar_allowed_calendar_sharing_role',
+            'usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing_role',
         )
 
     with self.command_group(
-        'usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence',
-        usersfunctions_beta_userscalendargroupscalendarscalendarviewexceptionoccurrence,
-        client_factory=cf_userscalendargroupscalendarscalendarviewexceptionoccurrence,
+        'usersfunctions user-calendar-calendar-view-exception-occurrence',
+        usersfunctions_beta_user_calendar_calendar_view_exception_occurrence,
+        client_factory=cf_user_calendar_calendar_view_exception_occurrence,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarscalendarviewexceptionoccurrence_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_exception_occurrence_delta')
 
     with self.command_group(
-        'usersfunctions userscalendargroupscalendarscalendarviewinstance',
-        usersfunctions_beta_userscalendargroupscalendarscalendarviewinstance,
-        client_factory=cf_userscalendargroupscalendarscalendarviewinstance,
+        'usersfunctions user-calendar-calendar-view-instance',
+        usersfunctions_beta_user_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_calendar_view_instance,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarscalendarviewinstance_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_instance_delta')
 
     with self.command_group(
-        'usersfunctions userscalendargroupscalendarscalendarview',
-        usersfunctions_beta_userscalendargroupscalendarscalendarview,
-        client_factory=cf_userscalendargroupscalendarscalendarview,
+        'usersfunctions user-calendar-calendar-view',
+        usersfunctions_beta_user_calendar_calendar_view,
+        client_factory=cf_user_calendar_calendar_view,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarscalendarview_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_delta')
 
     with self.command_group(
-        'usersfunctions userscalendargroupscalendarseventscalendar',
-        usersfunctions_beta_userscalendargroupscalendarseventscalendar,
-        client_factory=cf_userscalendargroupscalendarseventscalendar,
+        'usersfunctions user-calendar-event-calendar',
+        usersfunctions_beta_user_calendar_event_calendar,
+        client_factory=cf_user_calendar_event_calendar,
+    ) as g:
+        g.custom_command(
+            'allowed-calendar-sharing-role', 'usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role'
+        )
+
+    with self.command_group(
+        'usersfunctions user-calendar-event-exception-occurrence',
+        usersfunctions_beta_user_calendar_event_exception_occurrence,
+        client_factory=cf_user_calendar_event_exception_occurrence,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_exception_occurrence_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-event-instance',
+        usersfunctions_beta_user_calendar_event_instance,
+        client_factory=cf_user_calendar_event_instance,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_instance_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-event',
+        usersfunctions_beta_user_calendar_event,
+        client_factory=cf_user_calendar_event,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar', usersfunctions_beta_user_calendar, client_factory=cf_user_calendar
+    ) as g:
+        g.custom_command('allowed-calendar-sharing-role', 'usersfunctions_user_calendar_allowed_calendar_sharing_role')
+
+    with self.command_group(
+        'usersfunctions user-calendar-group-calendar-calendar-view-calendar',
+        usersfunctions_beta_user_calendar_group_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
     ) as g:
         g.custom_command(
             'allowed-calendar-sharing-role',
-            'usersfunctions_userscalendargroupscalendarseventscalendar_allowed_calendar_sharing_role',
+            'usersfunctions_user_calendar_group_calendar_calendar_view_calendar_allowed_calendar_sharing_role',
         )
 
     with self.command_group(
-        'usersfunctions userscalendargroupscalendarseventsexceptionoccurrence',
-        usersfunctions_beta_userscalendargroupscalendarseventsexceptionoccurrence,
-        client_factory=cf_userscalendargroupscalendarseventsexceptionoccurrence,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarseventsexceptionoccurrence_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendargroupscalendarseventsinstance',
-        usersfunctions_beta_userscalendargroupscalendarseventsinstance,
-        client_factory=cf_userscalendargroupscalendarseventsinstance,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarseventsinstance_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendargroupscalendarsevent',
-        usersfunctions_beta_userscalendargroupscalendarsevent,
-        client_factory=cf_userscalendargroupscalendarsevent,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendargroupscalendarsevent_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendargroupscalendar',
-        usersfunctions_beta_userscalendargroupscalendar,
-        client_factory=cf_userscalendargroupscalendar,
+        'usersfunctions user-calendar-group-calendar-calendar-view-exception-occurrence',
+        usersfunctions_beta_user_calendar_group_calendar_calendar_view_exception_occurrence,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
     ) as g:
         g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userscalendargroupscalendar_allowed_calendar_sharing_role'
+            'delta', 'usersfunctions_user_calendar_group_calendar_calendar_view_exception_occurrence_delta'
         )
 
     with self.command_group(
-        'usersfunctions userscalendarscalendarviewcalendar',
-        usersfunctions_beta_userscalendarscalendarviewcalendar,
-        client_factory=cf_userscalendarscalendarviewcalendar,
+        'usersfunctions user-calendar-group-calendar-calendar-view-instance',
+        usersfunctions_beta_user_calendar_group_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_group_calendar_calendar_view_instance_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-group-calendar-calendar-view',
+        usersfunctions_beta_user_calendar_group_calendar_calendar_view,
+        client_factory=cf_user_calendar_group_calendar_calendar_view,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_group_calendar_calendar_view_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-group-calendar-event-calendar',
+        usersfunctions_beta_user_calendar_group_calendar_event_calendar,
+        client_factory=cf_user_calendar_group_calendar_event_calendar,
     ) as g:
         g.custom_command(
             'allowed-calendar-sharing-role',
-            'usersfunctions_userscalendarscalendarviewcalendar_allowed_calendar_sharing_role',
+            'usersfunctions_user_calendar_group_calendar_event_calendar_allowed_calendar_sharing_role',
         )
 
     with self.command_group(
-        'usersfunctions userscalendarscalendarviewexceptionoccurrence',
-        usersfunctions_beta_userscalendarscalendarviewexceptionoccurrence,
-        client_factory=cf_userscalendarscalendarviewexceptionoccurrence,
+        'usersfunctions user-calendar-group-calendar-event-exception-occurrence',
+        usersfunctions_beta_user_calendar_group_calendar_event_exception_occurrence,
+        client_factory=cf_user_calendar_group_calendar_event_exception_occurrence,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarscalendarviewexceptionoccurrence_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_group_calendar_event_exception_occurrence_delta')
 
     with self.command_group(
-        'usersfunctions userscalendarscalendarviewinstance',
-        usersfunctions_beta_userscalendarscalendarviewinstance,
-        client_factory=cf_userscalendarscalendarviewinstance,
+        'usersfunctions user-calendar-group-calendar-event-instance',
+        usersfunctions_beta_user_calendar_group_calendar_event_instance,
+        client_factory=cf_user_calendar_group_calendar_event_instance,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarscalendarviewinstance_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_group_calendar_event_instance_delta')
 
     with self.command_group(
-        'usersfunctions userscalendarscalendarview',
-        usersfunctions_beta_userscalendarscalendarview,
-        client_factory=cf_userscalendarscalendarview,
+        'usersfunctions user-calendar-group-calendar-event',
+        usersfunctions_beta_user_calendar_group_calendar_event,
+        client_factory=cf_user_calendar_group_calendar_event,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarscalendarview_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_group_calendar_event_delta')
 
     with self.command_group(
-        'usersfunctions userscalendarseventscalendar',
-        usersfunctions_beta_userscalendarseventscalendar,
-        client_factory=cf_userscalendarseventscalendar,
+        'usersfunctions user-calendar-group-calendar',
+        usersfunctions_beta_user_calendar_group_calendar,
+        client_factory=cf_user_calendar_group_calendar,
     ) as g:
         g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userscalendarseventscalendar_allowed_calendar_sharing_role'
+            'allowed-calendar-sharing-role', 'usersfunctions_user_calendar_group_calendar_allowed_calendar_sharing_role'
         )
 
     with self.command_group(
-        'usersfunctions userscalendarseventsexceptionoccurrence',
-        usersfunctions_beta_userscalendarseventsexceptionoccurrence,
-        client_factory=cf_userscalendarseventsexceptionoccurrence,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarseventsexceptionoccurrence_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarseventsinstance',
-        usersfunctions_beta_userscalendarseventsinstance,
-        client_factory=cf_userscalendarseventsinstance,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarseventsinstance_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarsevent',
-        usersfunctions_beta_userscalendarsevent,
-        client_factory=cf_userscalendarsevent,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarsevent_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendar', usersfunctions_beta_userscalendar, client_factory=cf_userscalendar
-    ) as g:
-        g.custom_command('allowed-calendar-sharing-role', 'usersfunctions_userscalendar_allowed_calendar_sharing_role')
-
-    with self.command_group(
-        'usersfunctions userscalendarviewcalendarview',
-        usersfunctions_beta_userscalendarviewcalendarview,
-        client_factory=cf_userscalendarviewcalendarview,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewcalendarview_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarviewcalendarevent',
-        usersfunctions_beta_userscalendarviewcalendarevent,
-        client_factory=cf_userscalendarviewcalendarevent,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewcalendarevent_delta')
-
-    with self.command_group(
-        'usersfunctions userscalendarviewcalendar',
-        usersfunctions_beta_userscalendarviewcalendar,
-        client_factory=cf_userscalendarviewcalendar,
+        'usersfunctions user-calendar-calendar-view-calendar',
+        usersfunctions_beta_user_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_calendar_view_calendar,
     ) as g:
         g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userscalendarviewcalendar_allowed_calendar_sharing_role'
+            'allowed-calendar-sharing-role',
+            'usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing_role',
         )
 
     with self.command_group(
-        'usersfunctions userscalendarviewexceptionoccurrence',
-        usersfunctions_beta_userscalendarviewexceptionoccurrence,
-        client_factory=cf_userscalendarviewexceptionoccurrence,
+        'usersfunctions user-calendar-calendar-view-exception-occurrence',
+        usersfunctions_beta_user_calendar_calendar_view_exception_occurrence,
+        client_factory=cf_user_calendar_calendar_view_exception_occurrence,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewexceptionoccurrence_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_exception_occurrence_delta')
 
     with self.command_group(
-        'usersfunctions userscalendarviewinstance',
-        usersfunctions_beta_userscalendarviewinstance,
-        client_factory=cf_userscalendarviewinstance,
+        'usersfunctions user-calendar-calendar-view-instance',
+        usersfunctions_beta_user_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_calendar_view_instance,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarviewinstance_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_instance_delta')
 
     with self.command_group(
-        'usersfunctions userscalendarview', usersfunctions_beta_userscalendarview, client_factory=cf_userscalendarview
+        'usersfunctions user-calendar-calendar-view',
+        usersfunctions_beta_user_calendar_calendar_view,
+        client_factory=cf_user_calendar_calendar_view,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userscalendarview_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_calendar_view_delta')
 
     with self.command_group(
-        'usersfunctions userscontactfolderschildfolder',
-        usersfunctions_beta_userscontactfolderschildfolder,
-        client_factory=cf_userscontactfolderschildfolder,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscontactfolderschildfolder_delta')
-
-    with self.command_group(
-        'usersfunctions userscontactfolderscontact',
-        usersfunctions_beta_userscontactfolderscontact,
-        client_factory=cf_userscontactfolderscontact,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscontactfolderscontact_delta')
-
-    with self.command_group(
-        'usersfunctions userscontactfolder',
-        usersfunctions_beta_userscontactfolder,
-        client_factory=cf_userscontactfolder,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscontactfolder_delta')
-
-    with self.command_group(
-        'usersfunctions userscontact', usersfunctions_beta_userscontact, client_factory=cf_userscontact
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userscontact_delta')
-
-    with self.command_group(
-        'usersfunctions userseventscalendarview',
-        usersfunctions_beta_userseventscalendarview,
-        client_factory=cf_userseventscalendarview,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userseventscalendarview_delta')
-
-    with self.command_group(
-        'usersfunctions userseventscalendarevent',
-        usersfunctions_beta_userseventscalendarevent,
-        client_factory=cf_userseventscalendarevent,
-    ) as g:
-        g.custom_command('delta', 'usersfunctions_userseventscalendarevent_delta')
-
-    with self.command_group(
-        'usersfunctions userseventscalendar',
-        usersfunctions_beta_userseventscalendar,
-        client_factory=cf_userseventscalendar,
+        'usersfunctions user-calendar-event-calendar',
+        usersfunctions_beta_user_calendar_event_calendar,
+        client_factory=cf_user_calendar_event_calendar,
     ) as g:
         g.custom_command(
-            'allowed-calendar-sharing-role', 'usersfunctions_userseventscalendar_allowed_calendar_sharing_role'
+            'allowed-calendar-sharing-role', 'usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role'
         )
 
     with self.command_group(
-        'usersfunctions userseventsexceptionoccurrence',
-        usersfunctions_beta_userseventsexceptionoccurrence,
-        client_factory=cf_userseventsexceptionoccurrence,
+        'usersfunctions user-calendar-event-exception-occurrence',
+        usersfunctions_beta_user_calendar_event_exception_occurrence,
+        client_factory=cf_user_calendar_event_exception_occurrence,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userseventsexceptionoccurrence_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_exception_occurrence_delta')
 
     with self.command_group(
-        'usersfunctions userseventsinstance',
-        usersfunctions_beta_userseventsinstance,
-        client_factory=cf_userseventsinstance,
+        'usersfunctions user-calendar-event-instance',
+        usersfunctions_beta_user_calendar_event_instance,
+        client_factory=cf_user_calendar_event_instance,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userseventsinstance_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_instance_delta')
 
     with self.command_group(
-        'usersfunctions usersevent', usersfunctions_beta_usersevent, client_factory=cf_usersevent
+        'usersfunctions user-calendar-event',
+        usersfunctions_beta_user_calendar_event,
+        client_factory=cf_user_calendar_event,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersevent_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_event_delta')
 
     with self.command_group(
-        'usersfunctions usersmailfolderschildfolder',
-        usersfunctions_beta_usersmailfolderschildfolder,
-        client_factory=cf_usersmailfolderschildfolder,
+        'usersfunctions user-calendar', usersfunctions_beta_user_calendar, client_factory=cf_user_calendar
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersmailfolderschildfolder_delta')
+        g.custom_command('allowed-calendar-sharing-role', 'usersfunctions_user_calendar_allowed_calendar_sharing_role')
 
     with self.command_group(
-        'usersfunctions usersmailfoldersmessage',
-        usersfunctions_beta_usersmailfoldersmessage,
-        client_factory=cf_usersmailfoldersmessage,
+        'usersfunctions user-calendar-view-calendar-calendar-view',
+        usersfunctions_beta_user_calendar_view_calendar_calendar_view,
+        client_factory=cf_user_calendar_view_calendar_calendar_view,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersmailfoldersmessage_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_view_calendar_calendar_view_delta')
 
     with self.command_group(
-        'usersfunctions usersmailfolder', usersfunctions_beta_usersmailfolder, client_factory=cf_usersmailfolder
+        'usersfunctions user-calendar-view-calendar-event',
+        usersfunctions_beta_user_calendar_view_calendar_event,
+        client_factory=cf_user_calendar_view_calendar_event,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersmailfolder_delta')
+        g.custom_command('delta', 'usersfunctions_user_calendar_view_calendar_event_delta')
 
     with self.command_group(
-        'usersfunctions usersmanagedappregistration',
-        usersfunctions_beta_usersmanagedappregistration,
-        client_factory=cf_usersmanagedappregistration,
+        'usersfunctions user-calendar-view-calendar',
+        usersfunctions_beta_user_calendar_view_calendar,
+        client_factory=cf_user_calendar_view_calendar,
+    ) as g:
+        g.custom_command(
+            'allowed-calendar-sharing-role', 'usersfunctions_user_calendar_view_calendar_allowed_calendar_sharing_role'
+        )
+
+    with self.command_group(
+        'usersfunctions user-calendar-view-exception-occurrence',
+        usersfunctions_beta_user_calendar_view_exception_occurrence,
+        client_factory=cf_user_calendar_view_exception_occurrence,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_view_exception_occurrence_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-view-instance',
+        usersfunctions_beta_user_calendar_view_instance,
+        client_factory=cf_user_calendar_view_instance,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_view_instance_delta')
+
+    with self.command_group(
+        'usersfunctions user-calendar-view',
+        usersfunctions_beta_user_calendar_view,
+        client_factory=cf_user_calendar_view,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_calendar_view_delta')
+
+    with self.command_group(
+        'usersfunctions user-contact-folder-child-folder',
+        usersfunctions_beta_user_contact_folder_child_folder,
+        client_factory=cf_user_contact_folder_child_folder,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_contact_folder_child_folder_delta')
+
+    with self.command_group(
+        'usersfunctions user-contact-folder-contact',
+        usersfunctions_beta_user_contact_folder_contact,
+        client_factory=cf_user_contact_folder_contact,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_contact_folder_contact_delta')
+
+    with self.command_group(
+        'usersfunctions user-contact-folder',
+        usersfunctions_beta_user_contact_folder,
+        client_factory=cf_user_contact_folder,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_contact_folder_delta')
+
+    with self.command_group(
+        'usersfunctions user-contact', usersfunctions_beta_user_contact, client_factory=cf_user_contact
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_contact_delta')
+
+    with self.command_group(
+        'usersfunctions user-event-calendar-calendar-view',
+        usersfunctions_beta_user_event_calendar_calendar_view,
+        client_factory=cf_user_event_calendar_calendar_view,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_event_calendar_calendar_view_delta')
+
+    with self.command_group(
+        'usersfunctions user-event-calendar-event',
+        usersfunctions_beta_user_event_calendar_event,
+        client_factory=cf_user_event_calendar_event,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_event_calendar_event_delta')
+
+    with self.command_group(
+        'usersfunctions user-event-calendar',
+        usersfunctions_beta_user_event_calendar,
+        client_factory=cf_user_event_calendar,
+    ) as g:
+        g.custom_command(
+            'allowed-calendar-sharing-role', 'usersfunctions_user_event_calendar_allowed_calendar_sharing_role'
+        )
+
+    with self.command_group(
+        'usersfunctions user-event-exception-occurrence',
+        usersfunctions_beta_user_event_exception_occurrence,
+        client_factory=cf_user_event_exception_occurrence,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_event_exception_occurrence_delta')
+
+    with self.command_group(
+        'usersfunctions user-event-instance',
+        usersfunctions_beta_user_event_instance,
+        client_factory=cf_user_event_instance,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_event_instance_delta')
+
+    with self.command_group(
+        'usersfunctions user-event', usersfunctions_beta_user_event, client_factory=cf_user_event
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_event_delta')
+
+    with self.command_group(
+        'usersfunctions user-mail-folder-child-folder',
+        usersfunctions_beta_user_mail_folder_child_folder,
+        client_factory=cf_user_mail_folder_child_folder,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_mail_folder_child_folder_delta')
+
+    with self.command_group(
+        'usersfunctions user-mail-folder-message',
+        usersfunctions_beta_user_mail_folder_message,
+        client_factory=cf_user_mail_folder_message,
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_mail_folder_message_delta')
+
+    with self.command_group(
+        'usersfunctions user-mail-folder', usersfunctions_beta_user_mail_folder, client_factory=cf_user_mail_folder
+    ) as g:
+        g.custom_command('delta', 'usersfunctions_user_mail_folder_delta')
+
+    with self.command_group(
+        'usersfunctions user-managed-app-registration',
+        usersfunctions_beta_user_managed_app_registration,
+        client_factory=cf_user_managed_app_registration,
     ) as g:
         g.custom_command(
             'show-user-id-with-flagged-app-registration',
-            'usersfunctions_usersmanagedappregistration_show_user_id_with_flagged_app_registration',
+            'usersfunctions_user_managed_app_registration_show_user_id_with_flagged_app_registration',
         )
 
     with self.command_group(
-        'usersfunctions usersmanageddevice',
-        usersfunctions_beta_usersmanageddevice,
-        client_factory=cf_usersmanageddevice,
+        'usersfunctions user-managed-device',
+        usersfunctions_beta_user_managed_device,
+        client_factory=cf_user_managed_device,
     ) as g:
-        g.custom_command('show-file-vault-key', 'usersfunctions_usersmanageddevice_show_file_vault_key')
-        g.custom_command('show-non-compliant-setting', 'usersfunctions_usersmanageddevice_show_non_compliant_setting')
+        g.custom_command('show-file-vault-key', 'usersfunctions_user_managed_device_show_file_vault_key')
+        g.custom_command('show-non-compliant-setting', 'usersfunctions_user_managed_device_show_non_compliant_setting')
 
     with self.command_group(
-        'usersfunctions usersmessage', usersfunctions_beta_usersmessage, client_factory=cf_usersmessage
+        'usersfunctions user-message', usersfunctions_beta_user_message, client_factory=cf_user_message
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersmessage_delta')
+        g.custom_command('delta', 'usersfunctions_user_message_delta')
 
     with self.command_group('usersfunctions user', usersfunctions_beta_user, client_factory=cf_user) as g:
         g.custom_command('delta', 'usersfunctions_user_delta')
@@ -867,96 +874,98 @@ def load_command_table(self, _):
         )
 
     with self.command_group(
-        'usersfunctions usersonenotenotebookssectiongroupssectionspage',
-        usersfunctions_beta_usersonenotenotebookssectiongroupssectionspage,
-        client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
+        'usersfunctions user-onenote-notebook-section-group-section-page',
+        usersfunctions_beta_user_onenote_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_notebook_section_group_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotenotebookssectiongroupssectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_notebook_section_group_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotenotebookssectionspage',
-        usersfunctions_beta_usersonenotenotebookssectionspage,
-        client_factory=cf_usersonenotenotebookssectionspage,
+        'usersfunctions user-onenote-notebook-section-page',
+        usersfunctions_beta_user_onenote_notebook_section_page,
+        client_factory=cf_user_onenote_notebook_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotenotebookssectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_notebook_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotenotebook',
-        usersfunctions_beta_usersonenotenotebook,
-        client_factory=cf_usersonenotenotebook,
+        'usersfunctions user-onenote-notebook',
+        usersfunctions_beta_user_onenote_notebook,
+        client_factory=cf_user_onenote_notebook,
     ) as g:
-        g.custom_command('show-recent-notebook', 'usersfunctions_usersonenotenotebook_show_recent_notebook')
+        g.custom_command('show-recent-notebook', 'usersfunctions_user_onenote_notebook_show_recent_notebook')
 
     with self.command_group(
-        'usersfunctions usersonenotepage', usersfunctions_beta_usersonenotepage, client_factory=cf_usersonenotepage
+        'usersfunctions user-onenote-page', usersfunctions_beta_user_onenote_page, client_factory=cf_user_onenote_page
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotepage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage',
-        usersfunctions_beta_usersonenotepagesparentnotebooksectiongroupssectionspage,
-        client_factory=cf_usersonenotepagesparentnotebooksectiongroupssectionspage,
+        'usersfunctions user-onenote-page-parent-notebook-section-group-section-page',
+        usersfunctions_beta_user_onenote_page_parent_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotepagesparentnotebooksectiongroupssectionspage_preview')
+        g.custom_command(
+            'preview', 'usersfunctions_user_onenote_page_parent_notebook_section_group_section_page_preview'
+        )
 
     with self.command_group(
-        'usersfunctions usersonenotepagesparentnotebooksectionspage',
-        usersfunctions_beta_usersonenotepagesparentnotebooksectionspage,
-        client_factory=cf_usersonenotepagesparentnotebooksectionspage,
+        'usersfunctions user-onenote-page-parent-notebook-section-page',
+        usersfunctions_beta_user_onenote_page_parent_notebook_section_page,
+        client_factory=cf_user_onenote_page_parent_notebook_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotepagesparentnotebooksectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_page_parent_notebook_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotepagesparentsectionpage',
-        usersfunctions_beta_usersonenotepagesparentsectionpage,
-        client_factory=cf_usersonenotepagesparentsectionpage,
+        'usersfunctions user-onenote-page-parent-section-page',
+        usersfunctions_beta_user_onenote_page_parent_section_page,
+        client_factory=cf_user_onenote_page_parent_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotepagesparentsectionpage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_page_parent_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotesectiongroupsparentnotebooksectionspage',
-        usersfunctions_beta_usersonenotesectiongroupsparentnotebooksectionspage,
-        client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+        'usersfunctions user-onenote-section-group-parent-notebook-section-page',
+        usersfunctions_beta_user_onenote_section_group_parent_notebook_section_page,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotesectiongroupsparentnotebooksectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_section_group_parent_notebook_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotesectiongroupssectionspage',
-        usersfunctions_beta_usersonenotesectiongroupssectionspage,
-        client_factory=cf_usersonenotesectiongroupssectionspage,
+        'usersfunctions user-onenote-section-group-section-page',
+        usersfunctions_beta_user_onenote_section_group_section_page,
+        client_factory=cf_user_onenote_section_group_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotesectiongroupssectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_section_group_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersonenotesectionspage',
-        usersfunctions_beta_usersonenotesectionspage,
-        client_factory=cf_usersonenotesectionspage,
+        'usersfunctions user-onenote-section-page',
+        usersfunctions_beta_user_onenote_section_page,
+        client_factory=cf_user_onenote_section_page,
     ) as g:
-        g.custom_command('preview', 'usersfunctions_usersonenotesectionspage_preview')
+        g.custom_command('preview', 'usersfunctions_user_onenote_section_page_preview')
 
     with self.command_group(
-        'usersfunctions usersoutlook', usersfunctions_beta_usersoutlook, client_factory=cf_usersoutlook
+        'usersfunctions user-outlook', usersfunctions_beta_user_outlook, client_factory=cf_user_outlook
     ) as g:
-        g.custom_command('supported-language', 'usersfunctions_usersoutlook_supported_language')
-        g.custom_command('supported-time-zone-ee48', 'usersfunctions_usersoutlook_supported_time_zone_ee48')
-        g.custom_command('supported-time-zones51-c6', 'usersfunctions_usersoutlook_supported_time_zones51_c6')
+        g.custom_command('supported-language', 'usersfunctions_user_outlook_supported_language')
+        g.custom_command('supported-time-zone-ee48', 'usersfunctions_user_outlook_supported_time_zone_ee48')
+        g.custom_command('supported-time-zones51-c6', 'usersfunctions_user_outlook_supported_time_zones51_c6')
 
     with self.command_group(
-        'usersfunctions usersplannerall', usersfunctions_beta_usersplannerall, client_factory=cf_usersplannerall
+        'usersfunctions user-planner-all', usersfunctions_beta_user_planner_all, client_factory=cf_user_planner_all
     ) as g:
-        g.custom_command('delta', 'usersfunctions_usersplannerall_delta')
+        g.custom_command('delta', 'usersfunctions_user_planner_all_delta')
 
     with self.command_group(
-        'usersfunctions userstodoliststask',
-        usersfunctions_beta_userstodoliststask,
-        client_factory=cf_userstodoliststask,
+        'usersfunctions user-todo-list-task',
+        usersfunctions_beta_user_todo_list_task,
+        client_factory=cf_user_todo_list_task,
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userstodoliststask_delta')
+        g.custom_command('delta', 'usersfunctions_user_todo_list_task_delta')
 
     with self.command_group(
-        'usersfunctions userstodolist', usersfunctions_beta_userstodolist, client_factory=cf_userstodolist
+        'usersfunctions user-todo-list', usersfunctions_beta_user_todo_list, client_factory=cf_user_todo_list
     ) as g:
-        g.custom_command('delta', 'usersfunctions_userstodolist_delta')
+        g.custom_command('delta', 'usersfunctions_user_todo_list_delta')
 
     with self.command_group('usersfunctions_beta', is_experimental=True):
         pass

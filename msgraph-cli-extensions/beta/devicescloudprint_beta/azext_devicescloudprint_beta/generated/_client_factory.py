@@ -18,49 +18,49 @@ def cf_devicescloudprint_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_print(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printprint
+def cf_print_print(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_print
 
 
 def cf_print(cli_ctx, *_):
     return cf_devicescloudprint_beta_cl(cli_ctx).print
 
 
-def cf_printprinter(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printprinters
+def cf_print_printer(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printers
 
 
-def cf_printprinterstasktrigger(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printprinterstasktriggers
+def cf_print_printer_task_trigger(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printers_task_triggers
 
 
-def cf_printprintershare(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printprintershares
+def cf_print_printer_share(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_shares
 
 
-def cf_printprintersharesprinter(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printprintersharesprinter
+def cf_print_printer_share_printer(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_shares_printer
 
 
-def cf_printreport(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printreports
+def cf_print_report(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_reports
 
 
-def cf_printservice(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printservices
+def cf_print_service(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_services
 
 
-def cf_printshare(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printshares
+def cf_print_share(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_shares
 
 
-def cf_printsharesprinter(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printsharesprinter
+def cf_print_share_printer(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_shares_printer
 
 
-def cf_printtaskdefinition(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printtaskdefinitions
+def cf_print_task_definition(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definitions
 
 
-def cf_printtaskdefinitionstask(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).printtaskdefinitionstasks
+def cf_print_task_definition_task(cli_ctx, *_):
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definitions_tasks

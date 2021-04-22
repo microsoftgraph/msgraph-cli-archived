@@ -233,7 +233,7 @@ def people_user_update_profile(client,
                                  body=body)
 
 
-def people_usersanalytic_create_activity_statistics(client,
+def people_user_analytic_create_activity_statistics(client,
                                                     user_id,
                                                     id_=None,
                                                     activity=None,
@@ -252,7 +252,7 @@ def people_usersanalytic_create_activity_statistics(client,
                                              body=body)
 
 
-def people_usersanalytic_delete_activity_statistics(client,
+def people_user_analytic_delete_activity_statistics(client,
                                                     user_id,
                                                     activity_statistics_id,
                                                     if_match=None):
@@ -261,7 +261,7 @@ def people_usersanalytic_delete_activity_statistics(client,
                                              if_match=if_match)
 
 
-def people_usersanalytic_list_activity_statistics(client,
+def people_user_analytic_list_activity_statistics(client,
                                                   user_id,
                                                   orderby=None,
                                                   select=None,
@@ -272,7 +272,7 @@ def people_usersanalytic_list_activity_statistics(client,
                                            expand=expand)
 
 
-def people_usersanalytic_show_activity_statistics(client,
+def people_user_analytic_show_activity_statistics(client,
                                                   user_id,
                                                   activity_statistics_id,
                                                   select=None,
@@ -283,7 +283,7 @@ def people_usersanalytic_show_activity_statistics(client,
                                           expand=expand)
 
 
-def people_usersanalytic_update_activity_statistics(client,
+def people_user_analytic_update_activity_statistics(client,
                                                     user_id,
                                                     activity_statistics_id,
                                                     id_=None,
@@ -304,7 +304,7 @@ def people_usersanalytic_update_activity_statistics(client,
                                              body=body)
 
 
-def people_usersprofile_create_account(client,
+def people_user_profile_create_account(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -345,7 +345,7 @@ def people_usersprofile_create_account(client,
                                  body=body)
 
 
-def people_usersprofile_create_address(client,
+def people_user_profile_create_address(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -384,7 +384,7 @@ def people_usersprofile_create_address(client,
                                    body=body)
 
 
-def people_usersprofile_create_anniversary(client,
+def people_user_profile_create_anniversary(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -421,7 +421,7 @@ def people_usersprofile_create_anniversary(client,
                                        body=body)
 
 
-def people_usersprofile_create_award(client,
+def people_user_profile_create_award(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -466,7 +466,7 @@ def people_usersprofile_create_award(client,
                                 body=body)
 
 
-def people_usersprofile_create_certification(client,
+def people_user_profile_create_certification(client,
                                              user_id,
                                              id_=None,
                                              allowed_audiences=None,
@@ -519,14 +519,57 @@ def people_usersprofile_create_certification(client,
                                         body=body)
 
 
-def people_usersprofile_create_educational_activity(client,
+def people_user_profile_create_educational_activity(client,
                                                     user_id,
-                                                    body):
+                                                    id_=None,
+                                                    allowed_audiences=None,
+                                                    created_date_time=None,
+                                                    inference=None,
+                                                    last_modified_date_time=None,
+                                                    source=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None,
+                                                    microsoft_graph_identity_application=None,
+                                                    microsoft_graph_identity_device=None,
+                                                    microsoft_graph_identity_user=None,
+                                                    completion_month_year=None,
+                                                    end_month_year=None,
+                                                    program=None,
+                                                    start_month_year=None,
+                                                    description=None,
+                                                    display_name=None,
+                                                    location=None,
+                                                    web_url=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['completion_month_year'] = completion_month_year
+    body['end_month_year'] = end_month_year
+    body['program'] = program
+    body['start_month_year'] = start_month_year
+    body['institution'] = {}
+    body['institution']['description'] = description
+    body['institution']['display_name'] = display_name
+    body['institution']['location'] = location
+    body['institution']['web_url'] = web_url
     return client.create_educational_activities(user_id=user_id,
                                                 body=body)
 
 
-def people_usersprofile_create_email(client,
+def people_user_profile_create_email(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -565,7 +608,7 @@ def people_usersprofile_create_email(client,
                                 body=body)
 
 
-def people_usersprofile_create_interest(client,
+def people_user_profile_create_interest(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -608,7 +651,7 @@ def people_usersprofile_create_interest(client,
                                    body=body)
 
 
-def people_usersprofile_create_language(client,
+def people_user_profile_create_language(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -653,7 +696,7 @@ def people_usersprofile_create_language(client,
                                    body=body)
 
 
-def people_usersprofile_create_name(client,
+def people_user_profile_create_name(client,
                                     user_id,
                                     id_=None,
                                     allowed_audiences=None,
@@ -708,7 +751,7 @@ def people_usersprofile_create_name(client,
                                body=body)
 
 
-def people_usersprofile_create_note(client,
+def people_user_profile_create_note(client,
                                     user_id,
                                     id_=None,
                                     allowed_audiences=None,
@@ -745,7 +788,7 @@ def people_usersprofile_create_note(client,
                                body=body)
 
 
-def people_usersprofile_create_patent(client,
+def people_user_profile_create_patent(client,
                                       user_id,
                                       id_=None,
                                       allowed_audiences=None,
@@ -792,7 +835,7 @@ def people_usersprofile_create_patent(client,
                                  body=body)
 
 
-def people_usersprofile_create_phone(client,
+def people_user_profile_create_phone(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -831,7 +874,7 @@ def people_usersprofile_create_phone(client,
                                 body=body)
 
 
-def people_usersprofile_create_position(client,
+def people_user_profile_create_position(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -887,7 +930,7 @@ def people_usersprofile_create_position(client,
                                    body=body)
 
 
-def people_usersprofile_create_project(client,
+def people_user_profile_create_project(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -958,7 +1001,7 @@ def people_usersprofile_create_project(client,
                                   body=body)
 
 
-def people_usersprofile_create_publication(client,
+def people_user_profile_create_publication(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -1003,7 +1046,7 @@ def people_usersprofile_create_publication(client,
                                       body=body)
 
 
-def people_usersprofile_create_skill(client,
+def people_user_profile_create_skill(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -1046,7 +1089,7 @@ def people_usersprofile_create_skill(client,
                                 body=body)
 
 
-def people_usersprofile_create_web_account(client,
+def people_user_profile_create_web_account(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -1089,7 +1132,7 @@ def people_usersprofile_create_web_account(client,
                                       body=body)
 
 
-def people_usersprofile_create_website(client,
+def people_user_profile_create_website(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -1130,7 +1173,7 @@ def people_usersprofile_create_website(client,
                                   body=body)
 
 
-def people_usersprofile_delete_account(client,
+def people_user_profile_delete_account(client,
                                        user_id,
                                        user_account_information_id,
                                        if_match=None):
@@ -1139,7 +1182,7 @@ def people_usersprofile_delete_account(client,
                                  if_match=if_match)
 
 
-def people_usersprofile_delete_address(client,
+def people_user_profile_delete_address(client,
                                        user_id,
                                        item_address_id,
                                        if_match=None):
@@ -1148,7 +1191,7 @@ def people_usersprofile_delete_address(client,
                                    if_match=if_match)
 
 
-def people_usersprofile_delete_anniversary(client,
+def people_user_profile_delete_anniversary(client,
                                            user_id,
                                            person_anniversary_id,
                                            if_match=None):
@@ -1157,7 +1200,7 @@ def people_usersprofile_delete_anniversary(client,
                                        if_match=if_match)
 
 
-def people_usersprofile_delete_award(client,
+def people_user_profile_delete_award(client,
                                      user_id,
                                      person_award_id,
                                      if_match=None):
@@ -1166,7 +1209,7 @@ def people_usersprofile_delete_award(client,
                                 if_match=if_match)
 
 
-def people_usersprofile_delete_certification(client,
+def people_user_profile_delete_certification(client,
                                              user_id,
                                              person_certification_id,
                                              if_match=None):
@@ -1175,7 +1218,7 @@ def people_usersprofile_delete_certification(client,
                                         if_match=if_match)
 
 
-def people_usersprofile_delete_educational_activity(client,
+def people_user_profile_delete_educational_activity(client,
                                                     user_id,
                                                     educational_activity_id,
                                                     if_match=None):
@@ -1184,7 +1227,7 @@ def people_usersprofile_delete_educational_activity(client,
                                                 if_match=if_match)
 
 
-def people_usersprofile_delete_email(client,
+def people_user_profile_delete_email(client,
                                      user_id,
                                      item_email_id,
                                      if_match=None):
@@ -1193,7 +1236,7 @@ def people_usersprofile_delete_email(client,
                                 if_match=if_match)
 
 
-def people_usersprofile_delete_interest(client,
+def people_user_profile_delete_interest(client,
                                         user_id,
                                         person_interest_id,
                                         if_match=None):
@@ -1202,7 +1245,7 @@ def people_usersprofile_delete_interest(client,
                                    if_match=if_match)
 
 
-def people_usersprofile_delete_language(client,
+def people_user_profile_delete_language(client,
                                         user_id,
                                         language_proficiency_id,
                                         if_match=None):
@@ -1211,7 +1254,7 @@ def people_usersprofile_delete_language(client,
                                    if_match=if_match)
 
 
-def people_usersprofile_delete_name(client,
+def people_user_profile_delete_name(client,
                                     user_id,
                                     person_name_id,
                                     if_match=None):
@@ -1220,7 +1263,7 @@ def people_usersprofile_delete_name(client,
                                if_match=if_match)
 
 
-def people_usersprofile_delete_note(client,
+def people_user_profile_delete_note(client,
                                     user_id,
                                     person_annotation_id,
                                     if_match=None):
@@ -1229,7 +1272,7 @@ def people_usersprofile_delete_note(client,
                                if_match=if_match)
 
 
-def people_usersprofile_delete_patent(client,
+def people_user_profile_delete_patent(client,
                                       user_id,
                                       item_patent_id,
                                       if_match=None):
@@ -1238,7 +1281,7 @@ def people_usersprofile_delete_patent(client,
                                  if_match=if_match)
 
 
-def people_usersprofile_delete_phone(client,
+def people_user_profile_delete_phone(client,
                                      user_id,
                                      item_phone_id,
                                      if_match=None):
@@ -1247,7 +1290,7 @@ def people_usersprofile_delete_phone(client,
                                 if_match=if_match)
 
 
-def people_usersprofile_delete_position(client,
+def people_user_profile_delete_position(client,
                                         user_id,
                                         work_position_id,
                                         if_match=None):
@@ -1256,7 +1299,7 @@ def people_usersprofile_delete_position(client,
                                    if_match=if_match)
 
 
-def people_usersprofile_delete_project(client,
+def people_user_profile_delete_project(client,
                                        user_id,
                                        project_participation_id,
                                        if_match=None):
@@ -1265,7 +1308,7 @@ def people_usersprofile_delete_project(client,
                                   if_match=if_match)
 
 
-def people_usersprofile_delete_publication(client,
+def people_user_profile_delete_publication(client,
                                            user_id,
                                            item_publication_id,
                                            if_match=None):
@@ -1274,7 +1317,7 @@ def people_usersprofile_delete_publication(client,
                                       if_match=if_match)
 
 
-def people_usersprofile_delete_skill(client,
+def people_user_profile_delete_skill(client,
                                      user_id,
                                      skill_proficiency_id,
                                      if_match=None):
@@ -1283,7 +1326,7 @@ def people_usersprofile_delete_skill(client,
                                 if_match=if_match)
 
 
-def people_usersprofile_delete_web_account(client,
+def people_user_profile_delete_web_account(client,
                                            user_id,
                                            web_account_id,
                                            if_match=None):
@@ -1292,7 +1335,7 @@ def people_usersprofile_delete_web_account(client,
                                       if_match=if_match)
 
 
-def people_usersprofile_delete_website(client,
+def people_user_profile_delete_website(client,
                                        user_id,
                                        person_website_id,
                                        if_match=None):
@@ -1301,7 +1344,7 @@ def people_usersprofile_delete_website(client,
                                   if_match=if_match)
 
 
-def people_usersprofile_list_account(client,
+def people_user_profile_list_account(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
@@ -1312,7 +1355,7 @@ def people_usersprofile_list_account(client,
                                expand=expand)
 
 
-def people_usersprofile_list_address(client,
+def people_user_profile_list_address(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
@@ -1323,7 +1366,7 @@ def people_usersprofile_list_address(client,
                                  expand=expand)
 
 
-def people_usersprofile_list_anniversary(client,
+def people_user_profile_list_anniversary(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
@@ -1334,7 +1377,7 @@ def people_usersprofile_list_anniversary(client,
                                      expand=expand)
 
 
-def people_usersprofile_list_award(client,
+def people_user_profile_list_award(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
@@ -1345,7 +1388,7 @@ def people_usersprofile_list_award(client,
                               expand=expand)
 
 
-def people_usersprofile_list_certification(client,
+def people_user_profile_list_certification(client,
                                            user_id,
                                            orderby=None,
                                            select=None,
@@ -1356,7 +1399,7 @@ def people_usersprofile_list_certification(client,
                                       expand=expand)
 
 
-def people_usersprofile_list_educational_activity(client,
+def people_user_profile_list_educational_activity(client,
                                                   user_id,
                                                   orderby=None,
                                                   select=None,
@@ -1367,7 +1410,7 @@ def people_usersprofile_list_educational_activity(client,
                                               expand=expand)
 
 
-def people_usersprofile_list_email(client,
+def people_user_profile_list_email(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
@@ -1378,7 +1421,7 @@ def people_usersprofile_list_email(client,
                               expand=expand)
 
 
-def people_usersprofile_list_interest(client,
+def people_user_profile_list_interest(client,
                                       user_id,
                                       orderby=None,
                                       select=None,
@@ -1389,7 +1432,7 @@ def people_usersprofile_list_interest(client,
                                  expand=expand)
 
 
-def people_usersprofile_list_language(client,
+def people_user_profile_list_language(client,
                                       user_id,
                                       orderby=None,
                                       select=None,
@@ -1400,7 +1443,7 @@ def people_usersprofile_list_language(client,
                                  expand=expand)
 
 
-def people_usersprofile_list_name(client,
+def people_user_profile_list_name(client,
                                   user_id,
                                   orderby=None,
                                   select=None,
@@ -1411,7 +1454,7 @@ def people_usersprofile_list_name(client,
                              expand=expand)
 
 
-def people_usersprofile_list_note(client,
+def people_user_profile_list_note(client,
                                   user_id,
                                   orderby=None,
                                   select=None,
@@ -1422,7 +1465,7 @@ def people_usersprofile_list_note(client,
                              expand=expand)
 
 
-def people_usersprofile_list_patent(client,
+def people_user_profile_list_patent(client,
                                     user_id,
                                     orderby=None,
                                     select=None,
@@ -1433,7 +1476,7 @@ def people_usersprofile_list_patent(client,
                                expand=expand)
 
 
-def people_usersprofile_list_phone(client,
+def people_user_profile_list_phone(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
@@ -1444,7 +1487,7 @@ def people_usersprofile_list_phone(client,
                               expand=expand)
 
 
-def people_usersprofile_list_position(client,
+def people_user_profile_list_position(client,
                                       user_id,
                                       orderby=None,
                                       select=None,
@@ -1455,7 +1498,7 @@ def people_usersprofile_list_position(client,
                                  expand=expand)
 
 
-def people_usersprofile_list_project(client,
+def people_user_profile_list_project(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
@@ -1466,7 +1509,7 @@ def people_usersprofile_list_project(client,
                                 expand=expand)
 
 
-def people_usersprofile_list_publication(client,
+def people_user_profile_list_publication(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
@@ -1477,7 +1520,7 @@ def people_usersprofile_list_publication(client,
                                     expand=expand)
 
 
-def people_usersprofile_list_skill(client,
+def people_user_profile_list_skill(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
@@ -1488,7 +1531,7 @@ def people_usersprofile_list_skill(client,
                               expand=expand)
 
 
-def people_usersprofile_list_web_account(client,
+def people_user_profile_list_web_account(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
@@ -1499,7 +1542,7 @@ def people_usersprofile_list_web_account(client,
                                     expand=expand)
 
 
-def people_usersprofile_list_website(client,
+def people_user_profile_list_website(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
@@ -1510,7 +1553,7 @@ def people_usersprofile_list_website(client,
                                 expand=expand)
 
 
-def people_usersprofile_show_account(client,
+def people_user_profile_show_account(client,
                                      user_id,
                                      user_account_information_id,
                                      select=None,
@@ -1521,7 +1564,7 @@ def people_usersprofile_show_account(client,
                               expand=expand)
 
 
-def people_usersprofile_show_address(client,
+def people_user_profile_show_address(client,
                                      user_id,
                                      item_address_id,
                                      select=None,
@@ -1532,7 +1575,7 @@ def people_usersprofile_show_address(client,
                                 expand=expand)
 
 
-def people_usersprofile_show_anniversary(client,
+def people_user_profile_show_anniversary(client,
                                          user_id,
                                          person_anniversary_id,
                                          select=None,
@@ -1543,7 +1586,7 @@ def people_usersprofile_show_anniversary(client,
                                     expand=expand)
 
 
-def people_usersprofile_show_award(client,
+def people_user_profile_show_award(client,
                                    user_id,
                                    person_award_id,
                                    select=None,
@@ -1554,7 +1597,7 @@ def people_usersprofile_show_award(client,
                              expand=expand)
 
 
-def people_usersprofile_show_certification(client,
+def people_user_profile_show_certification(client,
                                            user_id,
                                            person_certification_id,
                                            select=None,
@@ -1565,7 +1608,7 @@ def people_usersprofile_show_certification(client,
                                      expand=expand)
 
 
-def people_usersprofile_show_educational_activity(client,
+def people_user_profile_show_educational_activity(client,
                                                   user_id,
                                                   educational_activity_id,
                                                   select=None,
@@ -1576,7 +1619,7 @@ def people_usersprofile_show_educational_activity(client,
                                              expand=expand)
 
 
-def people_usersprofile_show_email(client,
+def people_user_profile_show_email(client,
                                    user_id,
                                    item_email_id,
                                    select=None,
@@ -1587,7 +1630,7 @@ def people_usersprofile_show_email(client,
                              expand=expand)
 
 
-def people_usersprofile_show_interest(client,
+def people_user_profile_show_interest(client,
                                       user_id,
                                       person_interest_id,
                                       select=None,
@@ -1598,7 +1641,7 @@ def people_usersprofile_show_interest(client,
                                 expand=expand)
 
 
-def people_usersprofile_show_language(client,
+def people_user_profile_show_language(client,
                                       user_id,
                                       language_proficiency_id,
                                       select=None,
@@ -1609,7 +1652,7 @@ def people_usersprofile_show_language(client,
                                 expand=expand)
 
 
-def people_usersprofile_show_name(client,
+def people_user_profile_show_name(client,
                                   user_id,
                                   person_name_id,
                                   select=None,
@@ -1620,7 +1663,7 @@ def people_usersprofile_show_name(client,
                             expand=expand)
 
 
-def people_usersprofile_show_note(client,
+def people_user_profile_show_note(client,
                                   user_id,
                                   person_annotation_id,
                                   select=None,
@@ -1631,7 +1674,7 @@ def people_usersprofile_show_note(client,
                             expand=expand)
 
 
-def people_usersprofile_show_patent(client,
+def people_user_profile_show_patent(client,
                                     user_id,
                                     item_patent_id,
                                     select=None,
@@ -1642,7 +1685,7 @@ def people_usersprofile_show_patent(client,
                               expand=expand)
 
 
-def people_usersprofile_show_phone(client,
+def people_user_profile_show_phone(client,
                                    user_id,
                                    item_phone_id,
                                    select=None,
@@ -1653,7 +1696,7 @@ def people_usersprofile_show_phone(client,
                              expand=expand)
 
 
-def people_usersprofile_show_position(client,
+def people_user_profile_show_position(client,
                                       user_id,
                                       work_position_id,
                                       select=None,
@@ -1664,7 +1707,7 @@ def people_usersprofile_show_position(client,
                                 expand=expand)
 
 
-def people_usersprofile_show_project(client,
+def people_user_profile_show_project(client,
                                      user_id,
                                      project_participation_id,
                                      select=None,
@@ -1675,7 +1718,7 @@ def people_usersprofile_show_project(client,
                                expand=expand)
 
 
-def people_usersprofile_show_publication(client,
+def people_user_profile_show_publication(client,
                                          user_id,
                                          item_publication_id,
                                          select=None,
@@ -1686,7 +1729,7 @@ def people_usersprofile_show_publication(client,
                                    expand=expand)
 
 
-def people_usersprofile_show_skill(client,
+def people_user_profile_show_skill(client,
                                    user_id,
                                    skill_proficiency_id,
                                    select=None,
@@ -1697,7 +1740,7 @@ def people_usersprofile_show_skill(client,
                              expand=expand)
 
 
-def people_usersprofile_show_web_account(client,
+def people_user_profile_show_web_account(client,
                                          user_id,
                                          web_account_id,
                                          select=None,
@@ -1708,7 +1751,7 @@ def people_usersprofile_show_web_account(client,
                                    expand=expand)
 
 
-def people_usersprofile_show_website(client,
+def people_user_profile_show_website(client,
                                      user_id,
                                      person_website_id,
                                      select=None,
@@ -1719,7 +1762,7 @@ def people_usersprofile_show_website(client,
                                expand=expand)
 
 
-def people_usersprofile_update_account(client,
+def people_user_profile_update_account(client,
                                        user_id,
                                        user_account_information_id,
                                        id_=None,
@@ -1762,7 +1805,7 @@ def people_usersprofile_update_account(client,
                                  body=body)
 
 
-def people_usersprofile_update_address(client,
+def people_user_profile_update_address(client,
                                        user_id,
                                        item_address_id,
                                        id_=None,
@@ -1803,7 +1846,7 @@ def people_usersprofile_update_address(client,
                                    body=body)
 
 
-def people_usersprofile_update_anniversary(client,
+def people_user_profile_update_anniversary(client,
                                            user_id,
                                            person_anniversary_id,
                                            id_=None,
@@ -1842,7 +1885,7 @@ def people_usersprofile_update_anniversary(client,
                                        body=body)
 
 
-def people_usersprofile_update_award(client,
+def people_user_profile_update_award(client,
                                      user_id,
                                      person_award_id,
                                      id_=None,
@@ -1889,7 +1932,7 @@ def people_usersprofile_update_award(client,
                                 body=body)
 
 
-def people_usersprofile_update_certification(client,
+def people_user_profile_update_certification(client,
                                              user_id,
                                              person_certification_id,
                                              id_=None,
@@ -1944,16 +1987,59 @@ def people_usersprofile_update_certification(client,
                                         body=body)
 
 
-def people_usersprofile_update_educational_activity(client,
+def people_user_profile_update_educational_activity(client,
                                                     user_id,
                                                     educational_activity_id,
-                                                    body):
+                                                    id_=None,
+                                                    allowed_audiences=None,
+                                                    created_date_time=None,
+                                                    inference=None,
+                                                    last_modified_date_time=None,
+                                                    source=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None,
+                                                    microsoft_graph_identity_application=None,
+                                                    microsoft_graph_identity_device=None,
+                                                    microsoft_graph_identity_user=None,
+                                                    completion_month_year=None,
+                                                    end_month_year=None,
+                                                    program=None,
+                                                    start_month_year=None,
+                                                    description=None,
+                                                    display_name=None,
+                                                    location=None,
+                                                    web_url=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['completion_month_year'] = completion_month_year
+    body['end_month_year'] = end_month_year
+    body['program'] = program
+    body['start_month_year'] = start_month_year
+    body['institution'] = {}
+    body['institution']['description'] = description
+    body['institution']['display_name'] = display_name
+    body['institution']['location'] = location
+    body['institution']['web_url'] = web_url
     return client.update_educational_activities(user_id=user_id,
                                                 educational_activity_id=educational_activity_id,
                                                 body=body)
 
 
-def people_usersprofile_update_email(client,
+def people_user_profile_update_email(client,
                                      user_id,
                                      item_email_id,
                                      id_=None,
@@ -1994,7 +2080,7 @@ def people_usersprofile_update_email(client,
                                 body=body)
 
 
-def people_usersprofile_update_interest(client,
+def people_user_profile_update_interest(client,
                                         user_id,
                                         person_interest_id,
                                         id_=None,
@@ -2039,7 +2125,7 @@ def people_usersprofile_update_interest(client,
                                    body=body)
 
 
-def people_usersprofile_update_language(client,
+def people_user_profile_update_language(client,
                                         user_id,
                                         language_proficiency_id,
                                         id_=None,
@@ -2086,7 +2172,7 @@ def people_usersprofile_update_language(client,
                                    body=body)
 
 
-def people_usersprofile_update_name(client,
+def people_user_profile_update_name(client,
                                     user_id,
                                     person_name_id,
                                     id_=None,
@@ -2143,7 +2229,7 @@ def people_usersprofile_update_name(client,
                                body=body)
 
 
-def people_usersprofile_update_note(client,
+def people_user_profile_update_note(client,
                                     user_id,
                                     person_annotation_id,
                                     id_=None,
@@ -2182,7 +2268,7 @@ def people_usersprofile_update_note(client,
                                body=body)
 
 
-def people_usersprofile_update_patent(client,
+def people_user_profile_update_patent(client,
                                       user_id,
                                       item_patent_id,
                                       id_=None,
@@ -2231,7 +2317,7 @@ def people_usersprofile_update_patent(client,
                                  body=body)
 
 
-def people_usersprofile_update_phone(client,
+def people_user_profile_update_phone(client,
                                      user_id,
                                      item_phone_id,
                                      id_=None,
@@ -2272,7 +2358,7 @@ def people_usersprofile_update_phone(client,
                                 body=body)
 
 
-def people_usersprofile_update_position(client,
+def people_user_profile_update_position(client,
                                         user_id,
                                         work_position_id,
                                         id_=None,
@@ -2330,7 +2416,7 @@ def people_usersprofile_update_position(client,
                                    body=body)
 
 
-def people_usersprofile_update_project(client,
+def people_user_profile_update_project(client,
                                        user_id,
                                        project_participation_id,
                                        id_=None,
@@ -2403,7 +2489,7 @@ def people_usersprofile_update_project(client,
                                   body=body)
 
 
-def people_usersprofile_update_publication(client,
+def people_user_profile_update_publication(client,
                                            user_id,
                                            item_publication_id,
                                            id_=None,
@@ -2450,7 +2536,7 @@ def people_usersprofile_update_publication(client,
                                       body=body)
 
 
-def people_usersprofile_update_skill(client,
+def people_user_profile_update_skill(client,
                                      user_id,
                                      skill_proficiency_id,
                                      id_=None,
@@ -2495,7 +2581,7 @@ def people_usersprofile_update_skill(client,
                                 body=body)
 
 
-def people_usersprofile_update_web_account(client,
+def people_user_profile_update_web_account(client,
                                            user_id,
                                            web_account_id,
                                            id_=None,
@@ -2540,7 +2626,7 @@ def people_usersprofile_update_web_account(client,
                                       body=body)
 
 
-def people_usersprofile_update_website(client,
+def people_user_profile_update_website(client,
                                        user_id,
                                        person_website_id,
                                        id_=None,

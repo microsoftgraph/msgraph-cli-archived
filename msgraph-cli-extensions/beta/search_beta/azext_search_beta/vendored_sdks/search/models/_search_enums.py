@@ -38,12 +38,12 @@ class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     OPERATIONS = "operations"
     SCHEMA = "schema"
 
-class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     CONNECTIONS = "connections"
 
-class Get2itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     GROUPS = "groups"
@@ -51,20 +51,20 @@ class Get2itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     OPERATIONS = "operations"
     SCHEMA = "schema"
 
-class Get5itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IDDESC = "id desc"
+    ID_DESC = "id desc"
     CONFIGURATION = "configuration"
-    CONFIGURATIONDESC = "configuration desc"
+    CONFIGURATION_DESC = "configuration desc"
     DESCRIPTION = "description"
-    DESCRIPTIONDESC = "description desc"
+    DESCRIPTION_DESC = "description desc"
     NAME = "name"
-    NAMEDESC = "name desc"
+    NAME_DESC = "name desc"
     STATE = "state"
-    STATEDESC = "state desc"
+    STATE_DESC = "state desc"
 
-class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CONFIGURATION = "configuration"
@@ -76,7 +76,7 @@ class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     OPERATIONS = "operations"
     SCHEMA = "schema"
 
-class Get7itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     GROUPS = "groups"
@@ -84,87 +84,87 @@ class Get7itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     OPERATIONS = "operations"
     SCHEMA = "schema"
 
-class Microsoftgraphaccesstype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphAccessType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     GRANT = "grant"
     DENY = "deny"
 
-class Microsoftgraphacltype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphAclType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     USER = "user"
     GROUP = "group"
     EVERYONE = "everyone"
-    EVERYONEEXCEPTGUESTS = "everyoneExceptGuests"
+    EVERYONE_EXCEPT_GUESTS = "everyoneExceptGuests"
 
-class Microsoftgraphbucketaggregationsortproperty(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphBucketAggregationSortProperty(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     COUNT = "count"
-    KEYASSTRING = "keyAsString"
-    KEYASNUMBER = "keyAsNumber"
+    KEY_AS_STRING = "keyAsString"
+    KEY_AS_NUMBER = "keyAsNumber"
 
-class Microsoftgraphconnectionoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphConnectionOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNSPECIFIED = "unspecified"
     INPROGRESS = "inprogress"
     COMPLETED = "completed"
     FAILED = "failed"
 
-class Microsoftgraphconnectionstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphConnectionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DRAFT = "draft"
     READY = "ready"
     OBSOLETE = "obsolete"
-    LIMITEXCEEDED = "limitExceeded"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    LIMIT_EXCEEDED = "limitExceeded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphentitytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphEntityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EVENT = "event"
     MESSAGE = "message"
-    DRIVEITEM = "driveItem"
-    EXTERNALITEM = "externalItem"
+    DRIVE_ITEM = "driveItem"
+    EXTERNAL_ITEM = "externalItem"
     SITE = "site"
     LIST = "list"
-    LISTITEM = "listItem"
+    LIST_ITEM = "listItem"
     DRIVE = "drive"
     UNKNOWNFUTUREVALUE = "unknownfuturevalue"
 
-class Microsoftgraphexternalgroupmembertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphExternalGroupMemberType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     USER = "user"
     GROUP = "group"
 
-class Microsoftgraphexternalitemcontenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphExternalItemContentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     TEXT = "text"
     HTML = "html"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphidentitysourcetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphIdentitySourceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    AZUREACTIVEDIRECTORY = "azureActiveDirectory"
+    AZURE_ACTIVE_DIRECTORY = "azureActiveDirectory"
     EXTERNAL = "external"
 
-class Microsoftgraphlabel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphLabel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     TITLE = "title"
     URL = "url"
-    CREATEDBY = "createdBy"
-    LASTMODIFIEDBY = "lastModifiedBy"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
     AUTHORS = "authors"
-    CREATEDDATETIME = "createdDateTime"
-    LASTMODIFIEDDATETIME = "lastModifiedDateTime"
-    FILENAME = "fileName"
-    FILEEXTENSION = "fileExtension"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    FILE_NAME = "fileName"
+    FILE_EXTENSION = "fileExtension"
 
-class Microsoftgraphpropertytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphPropertyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STRING = "String"
     INT64 = "Int64"
     DOUBLE = "Double"
-    DATETIME = "DateTime"
+    DATE_TIME = "DateTime"
     BOOLEAN = "Boolean"
-    STRINGCOLLECTION = "StringCollection"
-    INT64COLLECTION = "Int64Collection"
-    DOUBLECOLLECTION = "DoubleCollection"
-    DATETIMECOLLECTION = "DateTimeCollection"
+    STRING_COLLECTION = "StringCollection"
+    INT64_COLLECTION = "Int64Collection"
+    DOUBLE_COLLECTION = "DoubleCollection"
+    DATE_TIME_COLLECTION = "DateTimeCollection"

@@ -7,193 +7,193 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofapplication
-    from ._models_py3 import collectionofapproleassignment
-    from ._models_py3 import collectionofapproleassignment0
-    from ._models_py3 import collectionofapproleassignment1
-    from ._models_py3 import collectionofapproleassignment2
-    from ._models_py3 import collectionofclaimsmappingpolicy
-    from ._models_py3 import collectionofdirectoryobject
-    from ._models_py3 import collectionofdirectoryobject0
-    from ._models_py3 import collectionofdirectoryobject1
-    from ._models_py3 import collectionofdirectoryobject2
-    from ._models_py3 import collectionofdirectoryobject3
-    from ._models_py3 import collectionofdirectoryobject4
-    from ._models_py3 import collectionofendpoint
-    from ._models_py3 import collectionofextensionproperty
-    from ._models_py3 import collectionofhomerealmdiscoverypolicy
-    from ._models_py3 import collectionofhomerealmdiscoverypolicy0
-    from ._models_py3 import collectionoflinksofclaimsmappingpolicy
-    from ._models_py3 import collectionoflinksofdirectoryobject
-    from ._models_py3 import collectionoflinksofdirectoryobject0
-    from ._models_py3 import collectionoflinksofdirectoryobject1
-    from ._models_py3 import collectionoflinksofdirectoryobject2
-    from ._models_py3 import collectionoflinksofdirectoryobject3
-    from ._models_py3 import collectionoflinksofdirectoryobject4
-    from ._models_py3 import collectionoflinksofhomerealmdiscoverypolicy
-    from ._models_py3 import collectionoflinksofhomerealmdiscoverypolicy0
-    from ._models_py3 import collectionoflinksofoauth2permissiongrant
-    from ._models_py3 import collectionoflinksoftokenissuancepolicy
-    from ._models_py3 import collectionoflinksoftokenissuancepolicy0
-    from ._models_py3 import collectionoflinksoftokenlifetimepolicy
-    from ._models_py3 import collectionoflinksoftokenlifetimepolicy0
-    from ._models_py3 import collectionofoauth2permissiongrant
-    from ._models_py3 import collectionofserviceprincipal
-    from ._models_py3 import collectionoftokenissuancepolicy
-    from ._models_py3 import collectionoftokenissuancepolicy0
-    from ._models_py3 import collectionoftokenlifetimepolicy
-    from ._models_py3 import collectionoftokenlifetimepolicy0
-    from ._models_py3 import microsoftgraphaddin
-    from ._models_py3 import microsoftgraphapiapplication
-    from ._models_py3 import microsoftgraphapplication
-    from ._models_py3 import microsoftgraphapprole
-    from ._models_py3 import microsoftgraphapproleassignment
-    from ._models_py3 import microsoftgraphclaimsmappingpolicy
-    from ._models_py3 import microsoftgraphdirectoryobject
-    from ._models_py3 import microsoftgraphendpoint
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphextensionproperty
-    from ._models_py3 import microsoftgraphhomerealmdiscoverypolicy
-    from ._models_py3 import microsoftgraphimplicitgrantsettings
-    from ._models_py3 import microsoftgraphinformationalurl
-    from ._models_py3 import microsoftgraphkeycredential
-    from ._models_py3 import microsoftgraphkeyvalue
-    from ._models_py3 import microsoftgraphoauth2permissiongrant
-    from ._models_py3 import microsoftgraphoptionalclaim
-    from ._models_py3 import microsoftgraphoptionalclaims
-    from ._models_py3 import microsoftgraphparentalcontrolsettings
-    from ._models_py3 import microsoftgraphpasswordcredential
-    from ._models_py3 import microsoftgraphpermissionscope
-    from ._models_py3 import microsoftgraphpolicybase
-    from ._models_py3 import microsoftgraphpreauthorizedapplication
-    from ._models_py3 import microsoftgraphpublicclientapplication
-    from ._models_py3 import microsoftgraphrequiredresourceaccess
-    from ._models_py3 import microsoftgraphresourceaccess
-    from ._models_py3 import microsoftgraphsamlsinglesignonsettings
-    from ._models_py3 import microsoftgraphserviceprincipal
-    from ._models_py3 import microsoftgraphstspolicy
-    from ._models_py3 import microsoftgraphtokenissuancepolicy
-    from ._models_py3 import microsoftgraphtokenlifetimepolicy
-    from ._models_py3 import microsoftgraphwebapplication
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
-    from ._models_py3 import paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import CollectionOfAppRoleAssignment
+    from ._models_py3 import CollectionOfAppRoleAssignment0
+    from ._models_py3 import CollectionOfAppRoleAssignment1
+    from ._models_py3 import CollectionOfAppRoleAssignment2
+    from ._models_py3 import CollectionOfApplication
+    from ._models_py3 import CollectionOfClaimsMappingPolicy
+    from ._models_py3 import CollectionOfDirectoryObject
+    from ._models_py3 import CollectionOfDirectoryObject0
+    from ._models_py3 import CollectionOfDirectoryObject1
+    from ._models_py3 import CollectionOfDirectoryObject2
+    from ._models_py3 import CollectionOfDirectoryObject3
+    from ._models_py3 import CollectionOfDirectoryObject4
+    from ._models_py3 import CollectionOfEndpoint
+    from ._models_py3 import CollectionOfExtensionProperty
+    from ._models_py3 import CollectionOfHomeRealmDiscoveryPolicy
+    from ._models_py3 import CollectionOfHomeRealmDiscoveryPolicy0
+    from ._models_py3 import CollectionOfLinksOfClaimsMappingPolicy
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject0
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject1
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject2
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject3
+    from ._models_py3 import CollectionOfLinksOfDirectoryObject4
+    from ._models_py3 import CollectionOfLinksOfHomeRealmDiscoveryPolicy
+    from ._models_py3 import CollectionOfLinksOfHomeRealmDiscoveryPolicy0
+    from ._models_py3 import CollectionOfLinksOfOAuth2PermissionGrant
+    from ._models_py3 import CollectionOfLinksOfTokenIssuancePolicy
+    from ._models_py3 import CollectionOfLinksOfTokenIssuancePolicy0
+    from ._models_py3 import CollectionOfLinksOfTokenLifetimePolicy
+    from ._models_py3 import CollectionOfLinksOfTokenLifetimePolicy0
+    from ._models_py3 import CollectionOfOAuth2PermissionGrant
+    from ._models_py3 import CollectionOfServicePrincipal
+    from ._models_py3 import CollectionOfTokenIssuancePolicy
+    from ._models_py3 import CollectionOfTokenIssuancePolicy0
+    from ._models_py3 import CollectionOfTokenLifetimePolicy
+    from ._models_py3 import CollectionOfTokenLifetimePolicy0
+    from ._models_py3 import MicrosoftGraphAddIn
+    from ._models_py3 import MicrosoftGraphApiApplication
+    from ._models_py3 import MicrosoftGraphAppRole
+    from ._models_py3 import MicrosoftGraphAppRoleAssignment
+    from ._models_py3 import MicrosoftGraphApplication
+    from ._models_py3 import MicrosoftGraphClaimsMappingPolicy
+    from ._models_py3 import MicrosoftGraphDirectoryObject
+    from ._models_py3 import MicrosoftGraphEndpoint
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphExtensionProperty
+    from ._models_py3 import MicrosoftGraphHomeRealmDiscoveryPolicy
+    from ._models_py3 import MicrosoftGraphImplicitGrantSettings
+    from ._models_py3 import MicrosoftGraphInformationalUrl
+    from ._models_py3 import MicrosoftGraphKeyCredential
+    from ._models_py3 import MicrosoftGraphKeyValue
+    from ._models_py3 import MicrosoftGraphOAuth2PermissionGrant
+    from ._models_py3 import MicrosoftGraphOptionalClaim
+    from ._models_py3 import MicrosoftGraphOptionalClaims
+    from ._models_py3 import MicrosoftGraphParentalControlSettings
+    from ._models_py3 import MicrosoftGraphPasswordCredential
+    from ._models_py3 import MicrosoftGraphPermissionScope
+    from ._models_py3 import MicrosoftGraphPolicyBase
+    from ._models_py3 import MicrosoftGraphPreAuthorizedApplication
+    from ._models_py3 import MicrosoftGraphPublicClientApplication
+    from ._models_py3 import MicrosoftGraphRequiredResourceAccess
+    from ._models_py3 import MicrosoftGraphResourceAccess
+    from ._models_py3 import MicrosoftGraphSamlSingleSignOnSettings
+    from ._models_py3 import MicrosoftGraphServicePrincipal
+    from ._models_py3 import MicrosoftGraphStsPolicy
+    from ._models_py3 import MicrosoftGraphTokenIssuancePolicy
+    from ._models_py3 import MicrosoftGraphTokenLifetimePolicy
+    from ._models_py3 import MicrosoftGraphWebApplication
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
-    from ._models import collectionofapplication  # type: ignore
-    from ._models import collectionofapproleassignment  # type: ignore
-    from ._models import collectionofapproleassignment0  # type: ignore
-    from ._models import collectionofapproleassignment1  # type: ignore
-    from ._models import collectionofapproleassignment2  # type: ignore
-    from ._models import collectionofclaimsmappingpolicy  # type: ignore
-    from ._models import collectionofdirectoryobject  # type: ignore
-    from ._models import collectionofdirectoryobject0  # type: ignore
-    from ._models import collectionofdirectoryobject1  # type: ignore
-    from ._models import collectionofdirectoryobject2  # type: ignore
-    from ._models import collectionofdirectoryobject3  # type: ignore
-    from ._models import collectionofdirectoryobject4  # type: ignore
-    from ._models import collectionofendpoint  # type: ignore
-    from ._models import collectionofextensionproperty  # type: ignore
-    from ._models import collectionofhomerealmdiscoverypolicy  # type: ignore
-    from ._models import collectionofhomerealmdiscoverypolicy0  # type: ignore
-    from ._models import collectionoflinksofclaimsmappingpolicy  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject0  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject1  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject2  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject3  # type: ignore
-    from ._models import collectionoflinksofdirectoryobject4  # type: ignore
-    from ._models import collectionoflinksofhomerealmdiscoverypolicy  # type: ignore
-    from ._models import collectionoflinksofhomerealmdiscoverypolicy0  # type: ignore
-    from ._models import collectionoflinksofoauth2permissiongrant  # type: ignore
-    from ._models import collectionoflinksoftokenissuancepolicy  # type: ignore
-    from ._models import collectionoflinksoftokenissuancepolicy0  # type: ignore
-    from ._models import collectionoflinksoftokenlifetimepolicy  # type: ignore
-    from ._models import collectionoflinksoftokenlifetimepolicy0  # type: ignore
-    from ._models import collectionofoauth2permissiongrant  # type: ignore
-    from ._models import collectionofserviceprincipal  # type: ignore
-    from ._models import collectionoftokenissuancepolicy  # type: ignore
-    from ._models import collectionoftokenissuancepolicy0  # type: ignore
-    from ._models import collectionoftokenlifetimepolicy  # type: ignore
-    from ._models import collectionoftokenlifetimepolicy0  # type: ignore
-    from ._models import microsoftgraphaddin  # type: ignore
-    from ._models import microsoftgraphapiapplication  # type: ignore
-    from ._models import microsoftgraphapplication  # type: ignore
-    from ._models import microsoftgraphapprole  # type: ignore
-    from ._models import microsoftgraphapproleassignment  # type: ignore
-    from ._models import microsoftgraphclaimsmappingpolicy  # type: ignore
-    from ._models import microsoftgraphdirectoryobject  # type: ignore
-    from ._models import microsoftgraphendpoint  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphextensionproperty  # type: ignore
-    from ._models import microsoftgraphhomerealmdiscoverypolicy  # type: ignore
-    from ._models import microsoftgraphimplicitgrantsettings  # type: ignore
-    from ._models import microsoftgraphinformationalurl  # type: ignore
-    from ._models import microsoftgraphkeycredential  # type: ignore
-    from ._models import microsoftgraphkeyvalue  # type: ignore
-    from ._models import microsoftgraphoauth2permissiongrant  # type: ignore
-    from ._models import microsoftgraphoptionalclaim  # type: ignore
-    from ._models import microsoftgraphoptionalclaims  # type: ignore
-    from ._models import microsoftgraphparentalcontrolsettings  # type: ignore
-    from ._models import microsoftgraphpasswordcredential  # type: ignore
-    from ._models import microsoftgraphpermissionscope  # type: ignore
-    from ._models import microsoftgraphpolicybase  # type: ignore
-    from ._models import microsoftgraphpreauthorizedapplication  # type: ignore
-    from ._models import microsoftgraphpublicclientapplication  # type: ignore
-    from ._models import microsoftgraphrequiredresourceaccess  # type: ignore
-    from ._models import microsoftgraphresourceaccess  # type: ignore
-    from ._models import microsoftgraphsamlsinglesignonsettings  # type: ignore
-    from ._models import microsoftgraphserviceprincipal  # type: ignore
-    from ._models import microsoftgraphstspolicy  # type: ignore
-    from ._models import microsoftgraphtokenissuancepolicy  # type: ignore
-    from ._models import microsoftgraphtokenlifetimepolicy  # type: ignore
-    from ._models import microsoftgraphwebapplication  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
-    from ._models import paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import CollectionOfAppRoleAssignment  # type: ignore
+    from ._models import CollectionOfAppRoleAssignment0  # type: ignore
+    from ._models import CollectionOfAppRoleAssignment1  # type: ignore
+    from ._models import CollectionOfAppRoleAssignment2  # type: ignore
+    from ._models import CollectionOfApplication  # type: ignore
+    from ._models import CollectionOfClaimsMappingPolicy  # type: ignore
+    from ._models import CollectionOfDirectoryObject  # type: ignore
+    from ._models import CollectionOfDirectoryObject0  # type: ignore
+    from ._models import CollectionOfDirectoryObject1  # type: ignore
+    from ._models import CollectionOfDirectoryObject2  # type: ignore
+    from ._models import CollectionOfDirectoryObject3  # type: ignore
+    from ._models import CollectionOfDirectoryObject4  # type: ignore
+    from ._models import CollectionOfEndpoint  # type: ignore
+    from ._models import CollectionOfExtensionProperty  # type: ignore
+    from ._models import CollectionOfHomeRealmDiscoveryPolicy  # type: ignore
+    from ._models import CollectionOfHomeRealmDiscoveryPolicy0  # type: ignore
+    from ._models import CollectionOfLinksOfClaimsMappingPolicy  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject0  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject1  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject2  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject3  # type: ignore
+    from ._models import CollectionOfLinksOfDirectoryObject4  # type: ignore
+    from ._models import CollectionOfLinksOfHomeRealmDiscoveryPolicy  # type: ignore
+    from ._models import CollectionOfLinksOfHomeRealmDiscoveryPolicy0  # type: ignore
+    from ._models import CollectionOfLinksOfOAuth2PermissionGrant  # type: ignore
+    from ._models import CollectionOfLinksOfTokenIssuancePolicy  # type: ignore
+    from ._models import CollectionOfLinksOfTokenIssuancePolicy0  # type: ignore
+    from ._models import CollectionOfLinksOfTokenLifetimePolicy  # type: ignore
+    from ._models import CollectionOfLinksOfTokenLifetimePolicy0  # type: ignore
+    from ._models import CollectionOfOAuth2PermissionGrant  # type: ignore
+    from ._models import CollectionOfServicePrincipal  # type: ignore
+    from ._models import CollectionOfTokenIssuancePolicy  # type: ignore
+    from ._models import CollectionOfTokenIssuancePolicy0  # type: ignore
+    from ._models import CollectionOfTokenLifetimePolicy  # type: ignore
+    from ._models import CollectionOfTokenLifetimePolicy0  # type: ignore
+    from ._models import MicrosoftGraphAddIn  # type: ignore
+    from ._models import MicrosoftGraphApiApplication  # type: ignore
+    from ._models import MicrosoftGraphAppRole  # type: ignore
+    from ._models import MicrosoftGraphAppRoleAssignment  # type: ignore
+    from ._models import MicrosoftGraphApplication  # type: ignore
+    from ._models import MicrosoftGraphClaimsMappingPolicy  # type: ignore
+    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
+    from ._models import MicrosoftGraphEndpoint  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphExtensionProperty  # type: ignore
+    from ._models import MicrosoftGraphHomeRealmDiscoveryPolicy  # type: ignore
+    from ._models import MicrosoftGraphImplicitGrantSettings  # type: ignore
+    from ._models import MicrosoftGraphInformationalUrl  # type: ignore
+    from ._models import MicrosoftGraphKeyCredential  # type: ignore
+    from ._models import MicrosoftGraphKeyValue  # type: ignore
+    from ._models import MicrosoftGraphOAuth2PermissionGrant  # type: ignore
+    from ._models import MicrosoftGraphOptionalClaim  # type: ignore
+    from ._models import MicrosoftGraphOptionalClaims  # type: ignore
+    from ._models import MicrosoftGraphParentalControlSettings  # type: ignore
+    from ._models import MicrosoftGraphPasswordCredential  # type: ignore
+    from ._models import MicrosoftGraphPermissionScope  # type: ignore
+    from ._models import MicrosoftGraphPolicyBase  # type: ignore
+    from ._models import MicrosoftGraphPreAuthorizedApplication  # type: ignore
+    from ._models import MicrosoftGraphPublicClientApplication  # type: ignore
+    from ._models import MicrosoftGraphRequiredResourceAccess  # type: ignore
+    from ._models import MicrosoftGraphResourceAccess  # type: ignore
+    from ._models import MicrosoftGraphSamlSingleSignOnSettings  # type: ignore
+    from ._models import MicrosoftGraphServicePrincipal  # type: ignore
+    from ._models import MicrosoftGraphStsPolicy  # type: ignore
+    from ._models import MicrosoftGraphTokenIssuancePolicy  # type: ignore
+    from ._models import MicrosoftGraphTokenLifetimePolicy  # type: ignore
+    from ._models import MicrosoftGraphWebApplication  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._applications_enums import (
     Enum10,
@@ -269,107 +269,107 @@ from ._applications_enums import (
     Enum77,
     Enum8,
     Enum9,
-    Get1itemsitem,
-    Get2itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
+    Get1ItemsItem,
+    Get2ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
 )
 
 __all__ = [
-    'collectionofapplication',
-    'collectionofapproleassignment',
-    'collectionofapproleassignment0',
-    'collectionofapproleassignment1',
-    'collectionofapproleassignment2',
-    'collectionofclaimsmappingpolicy',
-    'collectionofdirectoryobject',
-    'collectionofdirectoryobject0',
-    'collectionofdirectoryobject1',
-    'collectionofdirectoryobject2',
-    'collectionofdirectoryobject3',
-    'collectionofdirectoryobject4',
-    'collectionofendpoint',
-    'collectionofextensionproperty',
-    'collectionofhomerealmdiscoverypolicy',
-    'collectionofhomerealmdiscoverypolicy0',
-    'collectionoflinksofclaimsmappingpolicy',
-    'collectionoflinksofdirectoryobject',
-    'collectionoflinksofdirectoryobject0',
-    'collectionoflinksofdirectoryobject1',
-    'collectionoflinksofdirectoryobject2',
-    'collectionoflinksofdirectoryobject3',
-    'collectionoflinksofdirectoryobject4',
-    'collectionoflinksofhomerealmdiscoverypolicy',
-    'collectionoflinksofhomerealmdiscoverypolicy0',
-    'collectionoflinksofoauth2permissiongrant',
-    'collectionoflinksoftokenissuancepolicy',
-    'collectionoflinksoftokenissuancepolicy0',
-    'collectionoflinksoftokenlifetimepolicy',
-    'collectionoflinksoftokenlifetimepolicy0',
-    'collectionofoauth2permissiongrant',
-    'collectionofserviceprincipal',
-    'collectionoftokenissuancepolicy',
-    'collectionoftokenissuancepolicy0',
-    'collectionoftokenlifetimepolicy',
-    'collectionoftokenlifetimepolicy0',
-    'microsoftgraphaddin',
-    'microsoftgraphapiapplication',
-    'microsoftgraphapplication',
-    'microsoftgraphapprole',
-    'microsoftgraphapproleassignment',
-    'microsoftgraphclaimsmappingpolicy',
-    'microsoftgraphdirectoryobject',
-    'microsoftgraphendpoint',
-    'microsoftgraphentity',
-    'microsoftgraphextensionproperty',
-    'microsoftgraphhomerealmdiscoverypolicy',
-    'microsoftgraphimplicitgrantsettings',
-    'microsoftgraphinformationalurl',
-    'microsoftgraphkeycredential',
-    'microsoftgraphkeyvalue',
-    'microsoftgraphoauth2permissiongrant',
-    'microsoftgraphoptionalclaim',
-    'microsoftgraphoptionalclaims',
-    'microsoftgraphparentalcontrolsettings',
-    'microsoftgraphpasswordcredential',
-    'microsoftgraphpermissionscope',
-    'microsoftgraphpolicybase',
-    'microsoftgraphpreauthorizedapplication',
-    'microsoftgraphpublicclientapplication',
-    'microsoftgraphrequiredresourceaccess',
-    'microsoftgraphresourceaccess',
-    'microsoftgraphsamlsinglesignonsettings',
-    'microsoftgraphserviceprincipal',
-    'microsoftgraphstspolicy',
-    'microsoftgraphtokenissuancepolicy',
-    'microsoftgraphtokenlifetimepolicy',
-    'microsoftgraphwebapplication',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
-    'paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema',
-    'paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
-    'paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema',
-    'paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
-    'paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema',
-    'paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
-    'paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema',
-    'pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
-    'pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema',
-    'pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema',
-    'pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema',
-    'pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema',
-    'pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
-    'pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
-    'pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'CollectionOfAppRoleAssignment',
+    'CollectionOfAppRoleAssignment0',
+    'CollectionOfAppRoleAssignment1',
+    'CollectionOfAppRoleAssignment2',
+    'CollectionOfApplication',
+    'CollectionOfClaimsMappingPolicy',
+    'CollectionOfDirectoryObject',
+    'CollectionOfDirectoryObject0',
+    'CollectionOfDirectoryObject1',
+    'CollectionOfDirectoryObject2',
+    'CollectionOfDirectoryObject3',
+    'CollectionOfDirectoryObject4',
+    'CollectionOfEndpoint',
+    'CollectionOfExtensionProperty',
+    'CollectionOfHomeRealmDiscoveryPolicy',
+    'CollectionOfHomeRealmDiscoveryPolicy0',
+    'CollectionOfLinksOfClaimsMappingPolicy',
+    'CollectionOfLinksOfDirectoryObject',
+    'CollectionOfLinksOfDirectoryObject0',
+    'CollectionOfLinksOfDirectoryObject1',
+    'CollectionOfLinksOfDirectoryObject2',
+    'CollectionOfLinksOfDirectoryObject3',
+    'CollectionOfLinksOfDirectoryObject4',
+    'CollectionOfLinksOfHomeRealmDiscoveryPolicy',
+    'CollectionOfLinksOfHomeRealmDiscoveryPolicy0',
+    'CollectionOfLinksOfOAuth2PermissionGrant',
+    'CollectionOfLinksOfTokenIssuancePolicy',
+    'CollectionOfLinksOfTokenIssuancePolicy0',
+    'CollectionOfLinksOfTokenLifetimePolicy',
+    'CollectionOfLinksOfTokenLifetimePolicy0',
+    'CollectionOfOAuth2PermissionGrant',
+    'CollectionOfServicePrincipal',
+    'CollectionOfTokenIssuancePolicy',
+    'CollectionOfTokenIssuancePolicy0',
+    'CollectionOfTokenLifetimePolicy',
+    'CollectionOfTokenLifetimePolicy0',
+    'MicrosoftGraphAddIn',
+    'MicrosoftGraphApiApplication',
+    'MicrosoftGraphAppRole',
+    'MicrosoftGraphAppRoleAssignment',
+    'MicrosoftGraphApplication',
+    'MicrosoftGraphClaimsMappingPolicy',
+    'MicrosoftGraphDirectoryObject',
+    'MicrosoftGraphEndpoint',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphExtensionProperty',
+    'MicrosoftGraphHomeRealmDiscoveryPolicy',
+    'MicrosoftGraphImplicitGrantSettings',
+    'MicrosoftGraphInformationalUrl',
+    'MicrosoftGraphKeyCredential',
+    'MicrosoftGraphKeyValue',
+    'MicrosoftGraphOAuth2PermissionGrant',
+    'MicrosoftGraphOptionalClaim',
+    'MicrosoftGraphOptionalClaims',
+    'MicrosoftGraphParentalControlSettings',
+    'MicrosoftGraphPasswordCredential',
+    'MicrosoftGraphPermissionScope',
+    'MicrosoftGraphPolicyBase',
+    'MicrosoftGraphPreAuthorizedApplication',
+    'MicrosoftGraphPublicClientApplication',
+    'MicrosoftGraphRequiredResourceAccess',
+    'MicrosoftGraphResourceAccess',
+    'MicrosoftGraphSamlSingleSignOnSettings',
+    'MicrosoftGraphServicePrincipal',
+    'MicrosoftGraphStsPolicy',
+    'MicrosoftGraphTokenIssuancePolicy',
+    'MicrosoftGraphTokenLifetimePolicy',
+    'MicrosoftGraphWebApplication',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
+    'Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema',
+    'Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
+    'Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema',
+    'Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
+    'Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema',
+    'PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
+    'PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema',
+    'PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema',
+    'PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema',
+    'PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema',
+    'PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
+    'PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
     'Enum10',
     'Enum11',
     'Enum12',
@@ -443,9 +443,9 @@ __all__ = [
     'Enum77',
     'Enum8',
     'Enum9',
-    'Get1itemsitem',
-    'Get2itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
 ]

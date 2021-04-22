@@ -20,12 +20,19 @@ from azext_education_beta.action import (
     AddTerm,
     AddAssignmentCategories,
     AddApplication,
-    AddAddress,
+    AddMailingAddress,
     AddMembers,
     AddExtensions,
     AddLicensesToAssign,
     AddErrors,
     AddProfileStatus,
+    AddRelatedContacts,
+    AddAssignedLicenses,
+    AddAssignedPlans,
+    AddPasswordProfile,
+    AddProvisionedPlans,
+    AddStudent,
+    AddTeacher,
     AddInstructions,
     AddCategories
 )
@@ -33,11 +40,11 @@ from azext_education_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('education educationroot show-education-root') as c:
+    with self.argument_context('education education-root show-education-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationroot update-education-root') as c:
+    with self.argument_context('education education-root update-education-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('synchronization_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
@@ -83,7 +90,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
         c.argument('external_source_detail', type=str, help='')
-        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -135,8 +142,79 @@ def load_arguments(self, _):
         c.argument('profile_status', action=AddProfileStatus, nargs='+', help='educationSynchronizationProfileStatus')
 
     with self.argument_context('education education create-user') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('related_contacts', action=AddRelatedContacts, nargs='+', help='Set of contacts related to the '
+                   'user.  This optional property must be specified in a $select clause and can only be retrieved for '
+                   'an individual user.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
+        c.argument('external_source_detail', type=str, help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue',
+                                                           'faculty']), help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('assignments', type=validate_file_or_dict, help='List of assignments for the user. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('rubrics', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('taught_classes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('immutable_id', type=str, help='', arg_group='On Premises Info')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
     with self.argument_context('education education delete-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
@@ -233,8 +311,79 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('education education update-me') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('related_contacts', action=AddRelatedContacts, nargs='+', help='Set of contacts related to the '
+                   'user.  This optional property must be specified in a $select clause and can only be retrieved for '
+                   'an individual user.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
+        c.argument('external_source_detail', type=str, help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue',
+                                                           'faculty']), help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('assignments', type=validate_file_or_dict, help='List of assignments for the user. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('rubrics', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('taught_classes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('immutable_id', type=str, help='', arg_group='On Premises Info')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
     with self.argument_context('education education update-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
@@ -243,7 +392,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
         c.argument('external_source_detail', type=str, help='')
-        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -298,10 +447,81 @@ def load_arguments(self, _):
 
     with self.argument_context('education education update-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('related_contacts', action=AddRelatedContacts, nargs='+', help='Set of contacts related to the '
+                   'user.  This optional property must be specified in a $select clause and can only be retrieved for '
+                   'an individual user.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
+        c.argument('external_source_detail', type=str, help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue',
+                                                           'faculty']), help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('assignments', type=validate_file_or_dict, help='List of assignments for the user. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('rubrics', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('taught_classes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('immutable_id', type=str, help='', arg_group='On Premises Info')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education educationclass create-assignment') as c:
+    with self.argument_context('education education-class create-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -354,108 +574,108 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationclass create-assignment-category') as c:
+    with self.argument_context('education education-class create-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationclass create-ref-member') as c:
+    with self.argument_context('education education-class create-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationclass create-ref-school') as c:
+    with self.argument_context('education education-class create-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationclass create-ref-teacher') as c:
+    with self.argument_context('education education-class create-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationclass delete-assignment') as c:
+    with self.argument_context('education education-class delete-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclass delete-assignment-category') as c:
+    with self.argument_context('education education-class delete-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclass delete-ref-group') as c:
+    with self.argument_context('education education-class delete-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclass list-assignment') as c:
+    with self.argument_context('education education-class list-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass list-assignment-category') as c:
+    with self.argument_context('education education-class list-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass list-member') as c:
+    with self.argument_context('education education-class list-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass list-ref-member') as c:
+    with self.argument_context('education education-class list-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationclass list-ref-school') as c:
+    with self.argument_context('education education-class list-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationclass list-ref-teacher') as c:
+    with self.argument_context('education education-class list-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationclass list-school') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('education educationclass list-teacher') as c:
+    with self.argument_context('education education-class list-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass set-ref-group') as c:
+    with self.argument_context('education education-class list-teacher') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education-class set-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationclass show-assignment') as c:
+    with self.argument_context('education education-class show-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass show-assignment-category') as c:
+    with self.argument_context('education education-class show-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass show-group') as c:
+    with self.argument_context('education education-class show-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclass show-ref-group') as c:
+    with self.argument_context('education education-class show-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education educationclass update-assignment') as c:
+    with self.argument_context('education education-class update-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -509,38 +729,32 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationclass update-assignment-category') as c:
+    with self.argument_context('education education-class update-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationclassesassignment create-category') as c:
+    with self.argument_context('education education-class-assignment create-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationclassesassignment create-resource') as c:
+    with self.argument_context('education education-class-assignment create-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesassignment create-submission') as c:
+    with self.argument_context('education education-class-assignment create-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -572,113 +786,107 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationclassesassignment delete-category') as c:
+    with self.argument_context('education education-class-assignment delete-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignment delete-resource') as c:
+    with self.argument_context('education education-class-assignment delete-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignment delete-rubric') as c:
+    with self.argument_context('education education-class-assignment delete-rubric') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignment delete-submission') as c:
+    with self.argument_context('education education-class-assignment delete-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignment list-category') as c:
+    with self.argument_context('education education-class-assignment list-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment list-resource') as c:
+    with self.argument_context('education education-class-assignment list-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment list-submission') as c:
+    with self.argument_context('education education-class-assignment list-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment publish') as c:
+    with self.argument_context('education education-class-assignment publish') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationclassesassignment show-category') as c:
+    with self.argument_context('education education-class-assignment show-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment show-resource') as c:
+    with self.argument_context('education education-class-assignment show-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment show-resource-folder-url') as c:
+    with self.argument_context('education education-class-assignment show-resource-folder-url') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationclassesassignment show-rubric') as c:
+    with self.argument_context('education education-class-assignment show-rubric') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment show-submission') as c:
+    with self.argument_context('education education-class-assignment show-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignment update-category') as c:
+    with self.argument_context('education education-class-assignment update-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationclassesassignment update-resource') as c:
+    with self.argument_context('education education-class-assignment update-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesassignment update-rubric') as c:
+    with self.argument_context('education education-class-assignment update-rubric') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -700,7 +908,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationclassesassignment update-submission') as c:
+    with self.argument_context('education education-class-assignment update-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -733,7 +941,7 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationclassesassignmentssubmission create-outcome') as c:
+    with self.argument_context('education education-class-assignment-submission create-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -743,68 +951,56 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationclassesassignmentssubmission create-resource') as c:
+    with self.argument_context('education education-class-assignment-submission create-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesassignmentssubmission create-submitted-resource') as c:
+    with self.argument_context('education education-class-assignment-submission create-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesassignmentssubmission delete-outcome') as c:
+    with self.argument_context('education education-class-assignment-submission delete-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignmentssubmission delete-resource') as c:
+    with self.argument_context('education education-class-assignment-submission delete-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignmentssubmission delete-submitted-resource') as c:
+    with self.argument_context('education education-class-assignment-submission delete-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationclassesassignmentssubmission list-outcome') as c:
+    with self.argument_context('education education-class-assignment-submission list-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -812,7 +1008,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission list-resource') as c:
+    with self.argument_context('education education-class-assignment-submission list-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -820,7 +1016,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission list-submitted-resource') as c:
+    with self.argument_context('education education-class-assignment-submission list-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -828,12 +1024,12 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission return') as c:
+    with self.argument_context('education education-class-assignment-submission return') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationclassesassignmentssubmission show-outcome') as c:
+    with self.argument_context('education education-class-assignment-submission show-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -841,7 +1037,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission show-resource') as c:
+    with self.argument_context('education education-class-assignment-submission show-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -849,7 +1045,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission show-submitted-resource') as c:
+    with self.argument_context('education education-class-assignment-submission show-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -857,17 +1053,17 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationclassesassignmentssubmission submit') as c:
+    with self.argument_context('education education-class-assignment-submission submit') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationclassesassignmentssubmission unsubmit') as c:
+    with self.argument_context('education education-class-assignment-submission unsubmit') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationclassesassignmentssubmission update-outcome') as c:
+    with self.argument_context('education education-class-assignment-submission update-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -878,58 +1074,46 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationclassesassignmentssubmission update-resource') as c:
+    with self.argument_context('education education-class-assignment-submission update-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesassignmentssubmission update-submitted-resource') as c:
+    with self.argument_context('education education-class-assignment-submission update-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationclassesmember delta') as c:
+    with self.argument_context('education education-class-member delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education educationclassesschool delta') as c:
+    with self.argument_context('education education-class-school delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education educationclassesteacher delta') as c:
+    with self.argument_context('education education-class-teacher delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education educationme create-assignment') as c:
+    with self.argument_context('education education-me create-assignment') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
         c.argument('allow_students_to_add_resources_to_submission', arg_type=get_three_state_flag(), help='')
@@ -981,19 +1165,19 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationme create-ref-class') as c:
+    with self.argument_context('education education-me create-ref-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationme create-ref-school') as c:
+    with self.argument_context('education education-me create-ref-school') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationme create-ref-taught-class') as c:
+    with self.argument_context('education education-me create-ref-taught-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationme create-rubric') as c:
+    with self.argument_context('education education-me create-rubric') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
@@ -1013,70 +1197,70 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationme delete-assignment') as c:
+    with self.argument_context('education education-me delete-assignment') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationme delete-ref-user') as c:
+    with self.argument_context('education education-me delete-ref-user') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationme delete-rubric') as c:
+    with self.argument_context('education education-me delete-rubric') as c:
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationme list-assignment') as c:
+    with self.argument_context('education education-me list-assignment') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme list-class') as c:
+    with self.argument_context('education education-me list-class') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme list-ref-class') as c:
+    with self.argument_context('education education-me list-ref-class') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationme list-ref-school') as c:
+    with self.argument_context('education education-me list-ref-school') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationme list-ref-taught-class') as c:
+    with self.argument_context('education education-me list-ref-taught-class') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationme list-rubric') as c:
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('education educationme list-school') as c:
+    with self.argument_context('education education-me list-rubric') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme list-taught-class') as c:
+    with self.argument_context('education education-me list-school') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme set-ref-user') as c:
+    with self.argument_context('education education-me list-taught-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education-me set-ref-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationme show-assignment') as c:
+    with self.argument_context('education education-me show-assignment') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme show-rubric') as c:
+    with self.argument_context('education education-me show-rubric') as c:
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme show-user') as c:
+    with self.argument_context('education education-me show-user') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationme update-assignment') as c:
+    with self.argument_context('education education-me update-assignment') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -1129,7 +1313,7 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationme update-rubric') as c:
+    with self.argument_context('education education-me update-rubric') as c:
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -1150,30 +1334,24 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationmeassignment create-category') as c:
+    with self.argument_context('education education-me-assignment create-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationmeassignment create-resource') as c:
+    with self.argument_context('education education-me-assignment create-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationmeassignment create-submission') as c:
+    with self.argument_context('education education-me-assignment create-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('recipient', type=validate_file_or_dict, help='educationSubmissionRecipient Expected value: '
@@ -1204,98 +1382,92 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationmeassignment delete-category') as c:
+    with self.argument_context('education education-me-assignment delete-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignment delete-resource') as c:
+    with self.argument_context('education education-me-assignment delete-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignment delete-rubric') as c:
+    with self.argument_context('education education-me-assignment delete-rubric') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignment delete-submission') as c:
+    with self.argument_context('education education-me-assignment delete-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignment list-category') as c:
+    with self.argument_context('education education-me-assignment list-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment list-resource') as c:
+    with self.argument_context('education education-me-assignment list-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment list-submission') as c:
+    with self.argument_context('education education-me-assignment list-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment publish') as c:
+    with self.argument_context('education education-me-assignment publish') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationmeassignment show-category') as c:
+    with self.argument_context('education education-me-assignment show-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment show-resource') as c:
+    with self.argument_context('education education-me-assignment show-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment show-resource-folder-url') as c:
+    with self.argument_context('education education-me-assignment show-resource-folder-url') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationmeassignment show-rubric') as c:
+    with self.argument_context('education education-me-assignment show-rubric') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment show-submission') as c:
+    with self.argument_context('education education-me-assignment show-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignment update-category') as c:
+    with self.argument_context('education education-me-assignment update-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationmeassignment update-resource') as c:
+    with self.argument_context('education education-me-assignment update-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationmeassignment update-rubric') as c:
+    with self.argument_context('education education-me-assignment update-rubric') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -1316,7 +1488,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationmeassignment update-submission') as c:
+    with self.argument_context('education education-me-assignment update-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1348,7 +1520,7 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationmeassignmentssubmission create-outcome') as c:
+    with self.argument_context('education education-me-assignment-submission create-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1357,117 +1529,105 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationmeassignmentssubmission create-resource') as c:
+    with self.argument_context('education education-me-assignment-submission create-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationmeassignmentssubmission create-submitted-resource') as c:
+    with self.argument_context('education education-me-assignment-submission create-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationmeassignmentssubmission delete-outcome') as c:
+    with self.argument_context('education education-me-assignment-submission delete-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignmentssubmission delete-resource') as c:
+    with self.argument_context('education education-me-assignment-submission delete-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignmentssubmission delete-submitted-resource') as c:
+    with self.argument_context('education education-me-assignment-submission delete-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationmeassignmentssubmission list-outcome') as c:
+    with self.argument_context('education education-me-assignment-submission list-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission list-resource') as c:
+    with self.argument_context('education education-me-assignment-submission list-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission list-submitted-resource') as c:
+    with self.argument_context('education education-me-assignment-submission list-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission return') as c:
+    with self.argument_context('education education-me-assignment-submission return') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationmeassignmentssubmission show-outcome') as c:
+    with self.argument_context('education education-me-assignment-submission show-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission show-resource') as c:
+    with self.argument_context('education education-me-assignment-submission show-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission show-submitted-resource') as c:
+    with self.argument_context('education education-me-assignment-submission show-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationmeassignmentssubmission submit') as c:
+    with self.argument_context('education education-me-assignment-submission submit') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationmeassignmentssubmission unsubmit') as c:
+    with self.argument_context('education education-me-assignment-submission unsubmit') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationmeassignmentssubmission update-outcome') as c:
+    with self.argument_context('education education-me-assignment-submission update-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
@@ -1477,100 +1637,88 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationmeassignmentssubmission update-resource') as c:
+    with self.argument_context('education education-me-assignment-submission update-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationmeassignmentssubmission update-submitted-resource') as c:
+    with self.argument_context('education education-me-assignment-submission update-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationschool create-ref-class') as c:
+    with self.argument_context('education education-school create-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationschool create-ref-user') as c:
+    with self.argument_context('education education-school create-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationschool delete-ref-administrative-unit') as c:
+    with self.argument_context('education education-school delete-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationschool list-class') as c:
+    with self.argument_context('education education-school list-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationschool list-ref-class') as c:
+    with self.argument_context('education education-school list-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationschool list-ref-user') as c:
+    with self.argument_context('education education-school list-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationschool list-user') as c:
+    with self.argument_context('education education-school list-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationschool set-ref-administrative-unit') as c:
+    with self.argument_context('education education-school set-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationschool show-administrative-unit') as c:
+    with self.argument_context('education education-school show-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationschool show-ref-administrative-unit') as c:
+    with self.argument_context('education education-school show-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education educationschoolsclass delta') as c:
+    with self.argument_context('education education-school-class delta') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education educationschoolsuser delta') as c:
+    with self.argument_context('education education-school-user delta') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education educationsynchronizationprofile create-error') as c:
+    with self.argument_context('education education-synchronization-profile create-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1581,54 +1729,54 @@ def load_arguments(self, _):
         c.argument('recorded_date_time', help='')
         c.argument('reportable_identifier', type=str, help='')
 
-    with self.argument_context('education educationsynchronizationprofile delete-error') as c:
+    with self.argument_context('education education-synchronization-profile delete-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationsynchronizationprofile delete-profile-status') as c:
+    with self.argument_context('education education-synchronization-profile delete-profile-status') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationsynchronizationprofile list-error') as c:
+    with self.argument_context('education education-synchronization-profile list-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationsynchronizationprofile pause') as c:
+    with self.argument_context('education education-synchronization-profile pause') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education educationsynchronizationprofile reset') as c:
+    with self.argument_context('education education-synchronization-profile reset') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education educationsynchronizationprofile resume') as c:
+    with self.argument_context('education education-synchronization-profile resume') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education educationsynchronizationprofile show-error') as c:
+    with self.argument_context('education education-synchronization-profile show-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationsynchronizationprofile show-profile-status') as c:
+    with self.argument_context('education education-synchronization-profile show-profile-status') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationsynchronizationprofile start') as c:
+    with self.argument_context('education education-synchronization-profile start') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education educationsynchronizationprofile update-error') as c:
+    with self.argument_context('education education-synchronization-profile update-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
@@ -1640,7 +1788,7 @@ def load_arguments(self, _):
         c.argument('recorded_date_time', help='')
         c.argument('reportable_identifier', type=str, help='')
 
-    with self.argument_context('education educationsynchronizationprofile update-profile-status') as c:
+    with self.argument_context('education education-synchronization-profile update-profile-status') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1648,11 +1796,11 @@ def load_arguments(self, _):
         c.argument('status', arg_type=get_enum_type(['paused', 'inProgress', 'success', 'error', 'validationError',
                                                      'quarantined', 'unknownFutureValue']), help='')
 
-    with self.argument_context('education educationsynchronizationprofile upload-url') as c:
+    with self.argument_context('education education-synchronization-profile upload-url') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education educationuser create-assignment') as c:
+    with self.argument_context('education education-user create-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -1705,22 +1853,22 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationuser create-ref-class') as c:
+    with self.argument_context('education education-user create-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationuser create-ref-school') as c:
+    with self.argument_context('education education-user create-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationuser create-ref-taught-class') as c:
+    with self.argument_context('education education-user create-ref-taught-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationuser create-rubric') as c:
+    with self.argument_context('education education-user create-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -1741,88 +1889,88 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationuser delete-assignment') as c:
+    with self.argument_context('education education-user delete-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationuser delete-ref-user') as c:
+    with self.argument_context('education education-user delete-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationuser delete-rubric') as c:
+    with self.argument_context('education education-user delete-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationuser list-assignment') as c:
+    with self.argument_context('education education-user list-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser list-class') as c:
+    with self.argument_context('education education-user list-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser list-ref-class') as c:
+    with self.argument_context('education education-user list-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationuser list-ref-school') as c:
+    with self.argument_context('education education-user list-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationuser list-ref-taught-class') as c:
+    with self.argument_context('education education-user list-ref-taught-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education educationuser list-rubric') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('education educationuser list-school') as c:
+    with self.argument_context('education education-user list-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser list-taught-class') as c:
+    with self.argument_context('education education-user list-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser set-ref-user') as c:
+    with self.argument_context('education education-user list-taught-class') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education-user set-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education educationuser show-assignment') as c:
+    with self.argument_context('education education-user show-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser show-ref-user') as c:
+    with self.argument_context('education education-user show-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
 
-    with self.argument_context('education educationuser show-rubric') as c:
+    with self.argument_context('education education-user show-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser show-user') as c:
+    with self.argument_context('education education-user show-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationuser update-assignment') as c:
+    with self.argument_context('education education-user update-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1876,7 +2024,7 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education educationuser update-rubric') as c:
+    with self.argument_context('education education-user update-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1898,32 +2046,26 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationusersassignment create-category') as c:
+    with self.argument_context('education education-user-assignment create-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationusersassignment create-resource') as c:
+    with self.argument_context('education education-user-assignment create-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersassignment create-submission') as c:
+    with self.argument_context('education education-user-assignment create-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1955,113 +2097,107 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationusersassignment delete-category') as c:
+    with self.argument_context('education education-user-assignment delete-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignment delete-resource') as c:
+    with self.argument_context('education education-user-assignment delete-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignment delete-rubric') as c:
+    with self.argument_context('education education-user-assignment delete-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignment delete-submission') as c:
+    with self.argument_context('education education-user-assignment delete-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignment list-category') as c:
+    with self.argument_context('education education-user-assignment list-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment list-resource') as c:
+    with self.argument_context('education education-user-assignment list-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment list-submission') as c:
+    with self.argument_context('education education-user-assignment list-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment publish') as c:
+    with self.argument_context('education education-user-assignment publish') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationusersassignment show-category') as c:
+    with self.argument_context('education education-user-assignment show-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment show-resource') as c:
+    with self.argument_context('education education-user-assignment show-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment show-resource-folder-url') as c:
+    with self.argument_context('education education-user-assignment show-resource-folder-url') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education educationusersassignment show-rubric') as c:
+    with self.argument_context('education education-user-assignment show-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment show-submission') as c:
+    with self.argument_context('education education-user-assignment show-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignment update-category') as c:
+    with self.argument_context('education education-user-assignment update-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education educationusersassignment update-resource') as c:
+    with self.argument_context('education education-user-assignment update-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersassignment update-rubric') as c:
+    with self.argument_context('education education-user-assignment update-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2083,7 +2219,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education educationusersassignment update-submission') as c:
+    with self.argument_context('education education-user-assignment update-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2116,7 +2252,7 @@ def load_arguments(self, _):
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education educationusersassignmentssubmission create-outcome') as c:
+    with self.argument_context('education education-user-assignment-submission create-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2126,68 +2262,56 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationusersassignmentssubmission create-resource') as c:
+    with self.argument_context('education education-user-assignment-submission create-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersassignmentssubmission create-submitted-resource') as c:
+    with self.argument_context('education education-user-assignment-submission create-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersassignmentssubmission delete-outcome') as c:
+    with self.argument_context('education education-user-assignment-submission delete-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignmentssubmission delete-resource') as c:
+    with self.argument_context('education education-user-assignment-submission delete-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignmentssubmission delete-submitted-resource') as c:
+    with self.argument_context('education education-user-assignment-submission delete-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education educationusersassignmentssubmission list-outcome') as c:
+    with self.argument_context('education education-user-assignment-submission list-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2195,7 +2319,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission list-resource') as c:
+    with self.argument_context('education education-user-assignment-submission list-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2203,7 +2327,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission list-submitted-resource') as c:
+    with self.argument_context('education education-user-assignment-submission list-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2211,12 +2335,12 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission return') as c:
+    with self.argument_context('education education-user-assignment-submission return') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationusersassignmentssubmission show-outcome') as c:
+    with self.argument_context('education education-user-assignment-submission show-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2224,7 +2348,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission show-resource') as c:
+    with self.argument_context('education education-user-assignment-submission show-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2232,7 +2356,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission show-submitted-resource') as c:
+    with self.argument_context('education education-user-assignment-submission show-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2240,17 +2364,17 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education educationusersassignmentssubmission submit') as c:
+    with self.argument_context('education education-user-assignment-submission submit') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationusersassignmentssubmission unsubmit') as c:
+    with self.argument_context('education education-user-assignment-submission unsubmit') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education educationusersassignmentssubmission update-outcome') as c:
+    with self.argument_context('education education-user-assignment-submission update-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2261,53 +2385,41 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education educationusersassignmentssubmission update-resource') as c:
+    with self.argument_context('education education-user-assignment-submission update-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersassignmentssubmission update-submitted-resource') as c:
+    with self.argument_context('education education-user-assignment-submission update-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Resource')
         c.argument('created_date_time', help='', arg_group='Resource')
         c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Resource')
         c.argument('last_modified_date_time', help='', arg_group='Resource')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
-                   'By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Resource Created By')
 
-    with self.argument_context('education educationusersclass delta') as c:
+    with self.argument_context('education education-user-class delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
 
-    with self.argument_context('education educationusersschool delta') as c:
+    with self.argument_context('education education-user-school delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
 
-    with self.argument_context('education educationuserstaughtclass delta') as c:
+    with self.argument_context('education education-user-taught-class delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')

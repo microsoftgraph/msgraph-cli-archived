@@ -9,23 +9,23 @@
 ### <a name="CommandGroups">Command groups in `az changenotifications_beta` extension </a>
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
-|az changenotifications subscriptionssubscription|subscriptions.subscription|[commands](#CommandsInsubscriptions.subscription)|
+|az changenotifications subscription-subscription|subscriptions.subscription|[commands](#CommandsInsubscriptions.subscription)|
 
 ## COMMANDS
-### <a name="CommandsInsubscriptions.subscription">Commands in `az changenotifications subscriptionssubscription` group</a>
+### <a name="CommandsInsubscriptions.subscription">Commands in `az changenotifications subscription-subscription` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az changenotifications subscriptionssubscription create-subscription](#subscriptions.subscriptionCreateSubscription)|CreateSubscription|[Parameters](#Parameterssubscriptions.subscriptionCreateSubscription)|Not Found|
-|[az changenotifications subscriptionssubscription delete-subscription](#subscriptions.subscriptionDeleteSubscription)|DeleteSubscription|[Parameters](#Parameterssubscriptions.subscriptionDeleteSubscription)|Not Found|
-|[az changenotifications subscriptionssubscription list-subscription](#subscriptions.subscriptionListSubscription)|ListSubscription|[Parameters](#Parameterssubscriptions.subscriptionListSubscription)|Not Found|
-|[az changenotifications subscriptionssubscription show-subscription](#subscriptions.subscriptionGetSubscription)|GetSubscription|[Parameters](#Parameterssubscriptions.subscriptionGetSubscription)|Not Found|
-|[az changenotifications subscriptionssubscription update-subscription](#subscriptions.subscriptionUpdateSubscription)|UpdateSubscription|[Parameters](#Parameterssubscriptions.subscriptionUpdateSubscription)|Not Found|
+|[az changenotifications subscription-subscription create-subscription](#subscriptions.subscriptionCreateSubscription)|CreateSubscription|[Parameters](#Parameterssubscriptions.subscriptionCreateSubscription)|Not Found|
+|[az changenotifications subscription-subscription delete-subscription](#subscriptions.subscriptionDeleteSubscription)|DeleteSubscription|[Parameters](#Parameterssubscriptions.subscriptionDeleteSubscription)|Not Found|
+|[az changenotifications subscription-subscription list-subscription](#subscriptions.subscriptionListSubscription)|ListSubscription|[Parameters](#Parameterssubscriptions.subscriptionListSubscription)|Not Found|
+|[az changenotifications subscription-subscription show-subscription](#subscriptions.subscriptionGetSubscription)|GetSubscription|[Parameters](#Parameterssubscriptions.subscriptionGetSubscription)|Not Found|
+|[az changenotifications subscription-subscription update-subscription](#subscriptions.subscriptionUpdateSubscription)|UpdateSubscription|[Parameters](#Parameterssubscriptions.subscriptionUpdateSubscription)|Not Found|
 
 
 ## COMMAND DETAILS
 
-### group `az changenotifications subscriptionssubscription`
-#### <a name="subscriptions.subscriptionCreateSubscription">Command `az changenotifications subscriptionssubscription create-subscription`</a>
+### group `az changenotifications subscription-subscription`
+#### <a name="subscriptions.subscriptionCreateSubscription">Command `az changenotifications subscription-subscription create-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionCreateSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -45,7 +45,7 @@
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
 
-#### <a name="subscriptions.subscriptionDeleteSubscription">Command `az changenotifications subscriptionssubscription delete-subscription`</a>
+#### <a name="subscriptions.subscriptionDeleteSubscription">Command `az changenotifications subscription-subscription delete-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionDeleteSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -53,7 +53,7 @@
 |**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="subscriptions.subscriptionListSubscription">Command `az changenotifications subscriptionssubscription list-subscription`</a>
+#### <a name="subscriptions.subscriptionListSubscription">Command `az changenotifications subscription-subscription list-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionListSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -62,7 +62,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="subscriptions.subscriptionGetSubscription">Command `az changenotifications subscriptionssubscription show-subscription`</a>
+#### <a name="subscriptions.subscriptionGetSubscription">Command `az changenotifications subscription-subscription show-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionGetSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -71,7 +71,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="subscriptions.subscriptionUpdateSubscription">Command `az changenotifications subscriptionssubscription update-subscription`</a>
+#### <a name="subscriptions.subscriptionUpdateSubscription">Command `az changenotifications subscription-subscription update-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionUpdateSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

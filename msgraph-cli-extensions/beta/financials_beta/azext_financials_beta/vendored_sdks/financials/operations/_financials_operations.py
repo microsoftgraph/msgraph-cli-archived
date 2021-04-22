@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class financialsOperations(object):
-    """financialsOperations operations.
+class FinancialsOperations(object):
+    """FinancialsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,28 +47,28 @@ class financialsOperations(object):
 
     def list_companies(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofcompany"]
+        # type: (...) -> Iterable["models.CollectionOfCompany"]
         """Get companies from financials.
 
         Get companies from financials.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~financials.models.Get5itemsitem]
+        :type orderby: list[str or ~financials.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~financials.models.Get6itemsitem]
+        :type select: list[str or ~financials.models.Get6ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~financials.models.Get7itemsitem]
+        :type expand: list[str or ~financials.models.Get7ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcompany or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~financials.models.collectionofcompany]
+        :return: An iterator like instance of either CollectionOfCompany or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~financials.models.CollectionOfCompany]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcompany"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCompany"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class financialsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcompany', pipeline_response)
+            deserialized = self._deserialize('CollectionOfCompany', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class financialsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class financialsOperations(object):
 
     def create_companies(
         self,
-        body,  # type: "models.microsoftgraphcompany"
+        body,  # type: "models.MicrosoftGraphCompany"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphcompany"
+        # type: (...) -> "models.MicrosoftGraphCompany"
         """Create new navigation property to companies for financials.
 
         Create new navigation property to companies for financials.
 
         :param body: New navigation property.
-        :type body: ~financials.models.microsoftgraphcompany
+        :type body: ~financials.models.MicrosoftGraphCompany
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcompany, or the result of cls(response)
-        :rtype: ~financials.models.microsoftgraphcompany
+        :return: MicrosoftGraphCompany, or the result of cls(response)
+        :rtype: ~financials.models.MicrosoftGraphCompany
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcompany"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompany"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class financialsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcompany')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCompany')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class financialsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcompany', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCompany', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -193,10 +194,10 @@ class financialsOperations(object):
         self,
         company_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum4"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphcompany"
+        # type: (...) -> "models.MicrosoftGraphCompany"
         """Get companies from financials.
 
         Get companies from financials.
@@ -206,13 +207,13 @@ class financialsOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~financials.models.Enum4]
         :param expand: Expand related entities.
-        :type expand: list[str or ~financials.models.Get2itemsitem]
+        :type expand: list[str or ~financials.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcompany, or the result of cls(response)
-        :rtype: ~financials.models.microsoftgraphcompany
+        :return: MicrosoftGraphCompany, or the result of cls(response)
+        :rtype: ~financials.models.MicrosoftGraphCompany
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcompany"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompany"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class financialsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcompany', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCompany', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class financialsOperations(object):
     def update_companies(
         self,
         company_id,  # type: str
-        body,  # type: "models.microsoftgraphcompany"
+        body,  # type: "models.MicrosoftGraphCompany"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class financialsOperations(object):
         :param company_id: key: id of company.
         :type company_id: str
         :param body: New navigation property values.
-        :type body: ~financials.models.microsoftgraphcompany
+        :type body: ~financials.models.MicrosoftGraphCompany
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class financialsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcompany')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCompany')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class financialsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class financialsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

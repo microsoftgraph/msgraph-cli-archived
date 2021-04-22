@@ -53,8 +53,6 @@ from azext_identitysignins_beta.action import (
     AddTokenLifetimePolicies,
     AddIdentitySecurityDefaultsEnforcementPolicy,
     AddApplyActions,
-    AddPattern,
-    AddRange,
     AddReviewers,
     AddAppliesTo,
     AddDefaultUserRolePermissions,
@@ -80,7 +78,7 @@ from azext_identitysignins_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('identitysignins datapolicyoperationsdatapolicyoperation create-data-policy-operation') as c:
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation create-data-policy-operation') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('completed_date_time', help='Represents when the request for this data policy operation was '
                    'completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would '
@@ -95,21 +93,21 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'')
         c.argument('user_id', type=str, help='The id for the user on whom the operation is performed.')
 
-    with self.argument_context('identitysignins datapolicyoperationsdatapolicyoperation delete-data-policy-operation') as c:
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation delete-data-policy-operation') as c:
         c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins datapolicyoperationsdatapolicyoperation list-data-policy-operation') as c:
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation list-data-policy-operation') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins datapolicyoperationsdatapolicyoperation show-data-policy-operation') as c:
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation show-data-policy-operation') as c:
         c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins datapolicyoperationsdatapolicyoperation update-data-policy-operation') as c:
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation update-data-policy-operation') as c:
         c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('completed_date_time', help='Represents when the request for this data policy operation was '
@@ -166,7 +164,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('user_flow_type_version', type=float, help='')
 
-    with self.argument_context('identitysignins identityconditionalaccess create-named-location') as c:
+    with self.argument_context('identitysignins identity-conditional-access create-named-location') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents creation date and time of the location '
                    'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
@@ -176,7 +174,7 @@ def load_arguments(self, _):
                    'location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 '
                    'would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
 
-    with self.argument_context('identitysignins identityconditionalaccess create-policy') as c:
+    with self.argument_context('identitysignins identity-conditional-access create-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
@@ -216,35 +214,35 @@ def load_arguments(self, _):
         c.argument('user_risk_levels', nargs='+', help='', arg_group='Conditions')
         c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
-    with self.argument_context('identitysignins identityconditionalaccess delete-named-location') as c:
+    with self.argument_context('identitysignins identity-conditional-access delete-named-location') as c:
         c.argument('named_location_id', type=str, help='key: id of namedLocation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins identityconditionalaccess delete-policy') as c:
+    with self.argument_context('identitysignins identity-conditional-access delete-policy') as c:
         c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins identityconditionalaccess list-named-location') as c:
+    with self.argument_context('identitysignins identity-conditional-access list-named-location') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityconditionalaccess list-policy') as c:
+    with self.argument_context('identitysignins identity-conditional-access list-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityconditionalaccess show-named-location') as c:
+    with self.argument_context('identitysignins identity-conditional-access show-named-location') as c:
         c.argument('named_location_id', type=str, help='key: id of namedLocation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityconditionalaccess show-policy') as c:
+    with self.argument_context('identitysignins identity-conditional-access show-policy') as c:
         c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityconditionalaccess update-named-location') as c:
+    with self.argument_context('identitysignins identity-conditional-access update-named-location') as c:
         c.argument('named_location_id', type=str, help='key: id of namedLocation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents creation date and time of the location '
@@ -255,7 +253,7 @@ def load_arguments(self, _):
                    'location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 '
                    'would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
 
-    with self.argument_context('identitysignins identityconditionalaccess update-policy') as c:
+    with self.argument_context('identitysignins identity-conditional-access update-policy') as c:
         c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -296,28 +294,28 @@ def load_arguments(self, _):
         c.argument('user_risk_levels', nargs='+', help='', arg_group='Conditions')
         c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
-    with self.argument_context('identitysignins identityprovidersidentityprovider create-identity-provider') as c:
+    with self.argument_context('identitysignins identity-provider-identity-provider create-identity-provider') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_id', type=str, help='')
         c.argument('client_secret', type=str, help='')
         c.argument('name', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
 
-    with self.argument_context('identitysignins identityprovidersidentityprovider delete-identity-provider') as c:
+    with self.argument_context('identitysignins identity-provider-identity-provider delete-identity-provider') as c:
         c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins identityprovidersidentityprovider list-identity-provider') as c:
+    with self.argument_context('identitysignins identity-provider-identity-provider list-identity-provider') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityprovidersidentityprovider show-identity-provider') as c:
+    with self.argument_context('identitysignins identity-provider-identity-provider show-identity-provider') as c:
         c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins identityprovidersidentityprovider update-identity-provider') as c:
+    with self.argument_context('identitysignins identity-provider-identity-provider update-identity-provider') as c:
         c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_id', type=str, help='')
@@ -325,11 +323,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
 
-    with self.argument_context('identitysignins informationprotection show-information-protection') as c:
+    with self.argument_context('identitysignins information-protection-information-protection show-information-protection') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection update-information-protection') as c:
+    with self.argument_context('identitysignins information-protection-information-protection update-information-protection') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('data_loss_prevention_policies', action=AddDataLossPreventionPolicies, nargs='+', help='')
         c.argument('sensitivity_labels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -341,11 +339,11 @@ def load_arguments(self, _):
         c.argument('labels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
                    arg_group='Policy')
 
-    with self.argument_context('identitysignins informationprotection create-data-loss-prevention-policy') as c:
+    with self.argument_context('identitysignins information-protection create-data-loss-prevention-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='')
 
-    with self.argument_context('identitysignins informationprotection create-sensitivity-label') as c:
+    with self.argument_context('identitysignins information-protection create-sensitivity-label') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applicable_to', arg_type=get_enum_type(['email', 'site', 'unifiedGroup', 'unknownFutureValue']),
                    help='')
@@ -362,7 +360,7 @@ def load_arguments(self, _):
         c.argument('tool_tip', type=str, help='')
         c.argument('sublabels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins informationprotection create-threat-assessment-request') as c:
+    with self.argument_context('identitysignins information-protection create-threat-assessment-request') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('category', arg_type=get_enum_type(['undefined', 'spam', 'phishing', 'malware',
                                                        'unknownFutureValue']), help='')
@@ -380,25 +378,25 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('identitysignins informationprotection delete-data-loss-prevention-policy') as c:
+    with self.argument_context('identitysignins information-protection delete-data-loss-prevention-policy') as c:
         c.argument('data_loss_prevention_policy_id', type=str, help='key: id of dataLossPreventionPolicy')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotection delete-policy') as c:
+    with self.argument_context('identitysignins information-protection delete-policy') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotection delete-sensitivity-label') as c:
+    with self.argument_context('identitysignins information-protection delete-sensitivity-label') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotection delete-sensitivity-policy-setting') as c:
+    with self.argument_context('identitysignins information-protection delete-sensitivity-policy-setting') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotection delete-threat-assessment-request') as c:
+    with self.argument_context('identitysignins information-protection delete-threat-assessment-request') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotection evaluate-label-and-policy') as c:
+    with self.argument_context('identitysignins information-protection evaluate-label-and-policy') as c:
         c.argument('classify_text', action=AddClassifyText, nargs='+', help='textClassificationRequest')
         c.argument('evaluation_input', type=validate_file_or_dict, help='dlpEvaluationInput Expected value: '
                    'json-string/@json-file.', arg_group='Evaluate Data Loss Prevention Policies')
@@ -410,54 +408,54 @@ def load_arguments(self, _):
         c.argument('discovered_sensitive_types', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.', arg_group='Evaluate Sensitivity Labels')
 
-    with self.argument_context('identitysignins informationprotection list-data-loss-prevention-policy') as c:
+    with self.argument_context('identitysignins information-protection list-data-loss-prevention-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection list-sensitivity-label') as c:
+    with self.argument_context('identitysignins information-protection list-sensitivity-label') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection list-threat-assessment-request') as c:
+    with self.argument_context('identitysignins information-protection list-threat-assessment-request') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection show-data-loss-prevention-policy') as c:
+    with self.argument_context('identitysignins information-protection show-data-loss-prevention-policy') as c:
         c.argument('data_loss_prevention_policy_id', type=str, help='key: id of dataLossPreventionPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection show-policy') as c:
+    with self.argument_context('identitysignins information-protection show-policy') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection show-sensitivity-label') as c:
+    with self.argument_context('identitysignins information-protection show-sensitivity-label') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection show-sensitivity-policy-setting') as c:
+    with self.argument_context('identitysignins information-protection show-sensitivity-policy-setting') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection show-threat-assessment-request') as c:
+    with self.argument_context('identitysignins information-protection show-threat-assessment-request') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotection update-data-loss-prevention-policy') as c:
+    with self.argument_context('identitysignins information-protection update-data-loss-prevention-policy') as c:
         c.argument('data_loss_prevention_policy_id', type=str, help='key: id of dataLossPreventionPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='')
 
-    with self.argument_context('identitysignins informationprotection update-policy') as c:
+    with self.argument_context('identitysignins information-protection update-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('labels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins informationprotection update-sensitivity-label') as c:
+    with self.argument_context('identitysignins information-protection update-sensitivity-label') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applicable_to', arg_type=get_enum_type(['email', 'site', 'unifiedGroup', 'unknownFutureValue']),
@@ -475,7 +473,7 @@ def load_arguments(self, _):
         c.argument('tool_tip', type=str, help='')
         c.argument('sublabels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins informationprotection update-sensitivity-policy-setting') as c:
+    with self.argument_context('identitysignins information-protection update-sensitivity-policy-setting') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applicable_to', arg_type=get_enum_type(['email', 'site', 'unifiedGroup', 'unknownFutureValue']),
                    help='')
@@ -483,7 +481,7 @@ def load_arguments(self, _):
         c.argument('help_web_url', type=str, help='')
         c.argument('is_mandatory', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('identitysignins informationprotection update-threat-assessment-request') as c:
+    with self.argument_context('identitysignins information-protection update-threat-assessment-request') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('category', arg_type=get_enum_type(['undefined', 'spam', 'phishing', 'malware',
@@ -502,7 +500,7 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('identitysignins informationprotectiondatalosspreventionpolicy evaluate') as c:
+    with self.argument_context('identitysignins information-protection-data-loss-prevention-policy evaluate') as c:
         c.argument('target', type=str, help='')
         c.argument('author', type=str, help='', arg_group='Notification Info')
         c.argument('access_scope', arg_type=get_enum_type(['inOrganization', 'notInOrganization']), help='',
@@ -512,7 +510,7 @@ def load_arguments(self, _):
         c.argument('discovered_sensitive_types', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.', arg_group='Evaluation Input')
 
-    with self.argument_context('identitysignins informationprotectionpolicy create-label') as c:
+    with self.argument_context('identitysignins information-protection-policy create-label') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('color', type=str, help='')
         c.argument('description', type=str, help='')
@@ -523,21 +521,21 @@ def load_arguments(self, _):
         c.argument('sensitivity', type=int, help='')
         c.argument('tooltip', type=str, help='')
 
-    with self.argument_context('identitysignins informationprotectionpolicy delete-label') as c:
+    with self.argument_context('identitysignins information-protection-policy delete-label') as c:
         c.argument('information_protection_label_id', type=str, help='key: id of informationProtectionLabel')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotectionpolicy list-label') as c:
+    with self.argument_context('identitysignins information-protection-policy list-label') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionpolicy show-label') as c:
+    with self.argument_context('identitysignins information-protection-policy show-label') as c:
         c.argument('information_protection_label_id', type=str, help='key: id of informationProtectionLabel')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionpolicy update-label') as c:
+    with self.argument_context('identitysignins information-protection-policy update-label') as c:
         c.argument('information_protection_label_id', type=str, help='key: id of informationProtectionLabel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('color', type=str, help='')
@@ -549,7 +547,7 @@ def load_arguments(self, _):
         c.argument('sensitivity', type=int, help='')
         c.argument('tooltip', type=str, help='')
 
-    with self.argument_context('identitysignins informationprotectionpolicylabel evaluate-application') as c:
+    with self.argument_context('identitysignins information-protection-policy-label evaluate-application') as c:
         c.argument('assignment_method', arg_type=get_enum_type(['standard', 'privileged', 'auto']), help='',
                    arg_group='Labeling Options')
         c.argument('downgrade_justification', action=AddDowngradeJustification, nargs='+',
@@ -563,7 +561,7 @@ def load_arguments(self, _):
         c.argument('metadata', action=AddMetadata, nargs='+', help='', arg_group='Content Info')
         c.argument('state', arg_type=get_enum_type(['rest', 'motion', 'use']), help='', arg_group='Content Info')
 
-    with self.argument_context('identitysignins informationprotectionpolicylabel evaluate-classification-result') as c:
+    with self.argument_context('identitysignins information-protection-policy-label evaluate-classification-result') as c:
         c.argument('classification_results', action=AddClassificationResults, nargs='+', help='')
         c.argument('format_', options_list=['--format'], arg_type=get_enum_type(['default', 'email']), help='',
                    arg_group='Content Info')
@@ -571,7 +569,7 @@ def load_arguments(self, _):
         c.argument('metadata', action=AddMetadata, nargs='+', help='', arg_group='Content Info')
         c.argument('state', arg_type=get_enum_type(['rest', 'motion', 'use']), help='', arg_group='Content Info')
 
-    with self.argument_context('identitysignins informationprotectionpolicylabel evaluate-removal') as c:
+    with self.argument_context('identitysignins information-protection-policy-label evaluate-removal') as c:
         c.argument('downgrade_justification', action=AddDowngradeJustification, nargs='+',
                    help='downgradeJustification')
         c.argument('format_', options_list=['--format'], arg_type=get_enum_type(['default', 'email']), help='',
@@ -580,14 +578,14 @@ def load_arguments(self, _):
         c.argument('metadata', action=AddMetadata, nargs='+', help='', arg_group='Content Info')
         c.argument('state', arg_type=get_enum_type(['rest', 'motion', 'use']), help='', arg_group='Content Info')
 
-    with self.argument_context('identitysignins informationprotectionpolicylabel extract-label') as c:
+    with self.argument_context('identitysignins information-protection-policy-label extract-label') as c:
         c.argument('format_', options_list=['--format'], arg_type=get_enum_type(['default', 'email']), help='',
                    arg_group='Content Info')
         c.argument('identifier', type=str, help='', arg_group='Content Info')
         c.argument('metadata', action=AddMetadata, nargs='+', help='', arg_group='Content Info')
         c.argument('state', arg_type=get_enum_type(['rest', 'motion', 'use']), help='', arg_group='Content Info')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel create-sublabel') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label create-sublabel') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applicable_to', arg_type=get_enum_type(['email', 'site', 'unifiedGroup', 'unknownFutureValue']),
@@ -605,29 +603,29 @@ def load_arguments(self, _):
         c.argument('tool_tip', type=str, help='')
         c.argument('sublabels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel delete-sublabel') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label delete-sublabel') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('sensitivity_label_id1', type=str, help='key: id of sensitivityLabel')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel evaluate') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label evaluate') as c:
         c.argument('discovered_sensitive_types', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('current_label', action=AddCurrentLabel, nargs='+', help='currentLabel')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel list-sublabel') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label list-sublabel') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel show-sublabel') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label show-sublabel') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('sensitivity_label_id1', type=str, help='key: id of sensitivityLabel')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabel update-sublabel') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label update-sublabel') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('sensitivity_label_id1', type=str, help='key: id of sensitivityLabel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -646,13 +644,13 @@ def load_arguments(self, _):
         c.argument('tool_tip', type=str, help='')
         c.argument('sublabels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins informationprotectionsensitivitylabelssublabel evaluate') as c:
+    with self.argument_context('identitysignins information-protection-sensitivity-label-sublabel evaluate') as c:
         c.argument('sensitivity_label_id', type=str, help='key: id of sensitivityLabel')
         c.argument('discovered_sensitive_types', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('current_label', action=AddCurrentLabel, nargs='+', help='currentLabel')
 
-    with self.argument_context('identitysignins informationprotectionthreatassessmentrequest create-result') as c:
+    with self.argument_context('identitysignins information-protection-threat-assessment-request create-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -661,24 +659,24 @@ def load_arguments(self, _):
         c.argument('message', type=str, help='The result message for each threat assessment.')
         c.argument('result_type', arg_type=get_enum_type(['checkPolicy', 'rescan', 'unknownFutureValue']), help='')
 
-    with self.argument_context('identitysignins informationprotectionthreatassessmentrequest delete-result') as c:
+    with self.argument_context('identitysignins information-protection-threat-assessment-request delete-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('threat_assessment_result_id', type=str, help='key: id of threatAssessmentResult')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins informationprotectionthreatassessmentrequest list-result') as c:
+    with self.argument_context('identitysignins information-protection-threat-assessment-request list-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionthreatassessmentrequest show-result') as c:
+    with self.argument_context('identitysignins information-protection-threat-assessment-request show-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('threat_assessment_result_id', type=str, help='key: id of threatAssessmentResult')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins informationprotectionthreatassessmentrequest update-result') as c:
+    with self.argument_context('identitysignins information-protection-threat-assessment-request update-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
         c.argument('threat_assessment_result_id', type=str, help='key: id of threatAssessmentResult')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -688,7 +686,7 @@ def load_arguments(self, _):
         c.argument('message', type=str, help='The result message for each threat assessment.')
         c.argument('result_type', arg_type=get_enum_type(['checkPolicy', 'rescan', 'unknownFutureValue']), help='')
 
-    with self.argument_context('identitysignins invitationsinvitation create-invitation') as c:
+    with self.argument_context('identitysignins invitation-invitation create-invitation') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('invited_user_display_name', type=str, help='The display name of the user being invited.')
         c.argument('invited_user_email_address', type=str, help='The email address of the user being invited. '
@@ -722,21 +720,21 @@ def load_arguments(self, _):
                    'customizedMessageBody. The language format should be in ISO 639. The default is en-US.',
                    arg_group='Invited User Message Info')
 
-    with self.argument_context('identitysignins invitationsinvitation delete-invitation') as c:
+    with self.argument_context('identitysignins invitation-invitation delete-invitation') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins invitationsinvitation list-invitation') as c:
+    with self.argument_context('identitysignins invitation-invitation list-invitation') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins invitationsinvitation show-invitation') as c:
+    with self.argument_context('identitysignins invitation-invitation show-invitation') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins invitationsinvitation update-invitation') as c:
+    with self.argument_context('identitysignins invitation-invitation update-invitation') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('invited_user_display_name', type=str, help='The display name of the user being invited.')
@@ -788,7 +786,7 @@ def load_arguments(self, _):
     with self.argument_context('identitysignins invitation show-ref-invited-user') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
 
-    with self.argument_context('identitysignins oauth2permissiongrantsoauth2permissiongrant create-o-auth2-permission-grant') as c:
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant create-o-auth2-permission-grant') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_id', type=str, help='The id of the client service principal for the application which is '
                    'authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter '
@@ -813,21 +811,21 @@ def load_arguments(self, _):
                    'resource service principal.')
         c.argument('start_time', help='')
 
-    with self.argument_context('identitysignins oauth2permissiongrantsoauth2permissiongrant delete-o-auth2-permission-grant') as c:
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant delete-o-auth2-permission-grant') as c:
         c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins oauth2permissiongrantsoauth2permissiongrant list-o-auth2-permission-grant') as c:
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins oauth2permissiongrantsoauth2permissiongrant show-o-auth2-permission-grant') as c:
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant show-o-auth2-permission-grant') as c:
         c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins oauth2permissiongrantsoauth2permissiongrant update-o-auth2-permission-grant') as c:
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant update-o-auth2-permission-grant') as c:
         c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_id', type=str, help='The id of the client service principal for the application which is '
@@ -868,11 +866,11 @@ def load_arguments(self, _):
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('identitysignins policiespolicyroot show-policy-root') as c:
+    with self.argument_context('identitysignins policy-policy-root show-policy-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins policiespolicyroot update-policy-root') as c:
+    with self.argument_context('identitysignins policy-policy-root update-policy-root') as c:
         c.argument('b2_c_authentication_methods_policy', action=AddB2CAuthenticationMethodsPolicy, nargs='+',
                    help='b2cAuthenticationMethodsPolicy')
         c.argument('activity_based_timeout_policies', action=AddActivityBasedTimeoutPolicies, nargs='+', help='')
@@ -907,12 +905,10 @@ def load_arguments(self, _):
                    'Access Review Policy Settings')
         c.argument('recommendations_enabled', arg_type=get_three_state_flag(), help='', arg_group='Directory Role '
                    'Access Review Policy Settings')
+        c.argument('recurrence', type=validate_file_or_dict, help='patternedRecurrence Expected value: '
+                   'json-string/@json-file.', arg_group='Directory Role Access Review Policy Settings')
         c.argument('reminder_notifications_enabled', arg_type=get_three_state_flag(), help='', arg_group='Directory '
                    'Role Access Review Policy Settings')
-        c.argument('pattern', action=AddPattern, nargs='+', help='recurrencePattern', arg_group='Directory Role Access '
-                   'Review Policy Settings Recurrence')
-        c.argument('range', action=AddRange, nargs='+', help='recurrenceRange', arg_group='Directory Role Access '
-                   'Review Policy Settings Recurrence')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Admin Consent Request Policy')
         c.argument('admin_consent_request_policy_is_enabled', arg_type=get_three_state_flag(), help='',
                    arg_group='Admin Consent Request Policy')
@@ -1358,9 +1354,9 @@ def load_arguments(self, _):
                    arg_group='Settings')
         c.argument('mail_notifications_enabled', arg_type=get_three_state_flag(), help='', arg_group='Settings')
         c.argument('recommendations_enabled', arg_type=get_three_state_flag(), help='', arg_group='Settings')
+        c.argument('recurrence', type=validate_file_or_dict, help='patternedRecurrence Expected value: '
+                   'json-string/@json-file.', arg_group='Settings')
         c.argument('reminder_notifications_enabled', arg_type=get_three_state_flag(), help='', arg_group='Settings')
-        c.argument('pattern', action=AddPattern, nargs='+', help='recurrencePattern', arg_group='Settings Recurrence')
-        c.argument('range', action=AddRange, nargs='+', help='recurrenceRange', arg_group='Settings Recurrence')
 
     with self.argument_context('identitysignins policy update-home-realm-discovery-policy') as c:
         c.argument('home_realm_discovery_policy_id', type=str, help='key: id of homeRealmDiscoveryPolicy')
@@ -1427,7 +1423,7 @@ def load_arguments(self, _):
                    'organization default. Optional, default value is false.')
         c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy create-exclude') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy create-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_application_ids', nargs='+', help='')
@@ -1440,7 +1436,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('resource_application', type=str, help='')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy create-include') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy create-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_application_ids', nargs='+', help='')
@@ -1453,41 +1449,41 @@ def load_arguments(self, _):
                    help='')
         c.argument('resource_application', type=str, help='')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy delete-exclude') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy delete-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy delete-include') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy delete-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy list-exclude') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy list-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy list-include') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy list-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy show-exclude') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy show-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy show-include') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy show-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy update-exclude') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy update-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1501,7 +1497,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('resource_application', type=str, help='')
 
-    with self.argument_context('identitysignins policiespermissiongrantpolicy update-include') as c:
+    with self.argument_context('identitysignins policy-permission-grant-policy update-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1515,7 +1511,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('resource_application', type=str, help='')
 
-    with self.argument_context('identitysignins riskdetectionsriskdetection create-risk-detection') as c:
+    with self.argument_context('identitysignins risk-detection-risk-detection create-risk-detection') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', arg_type=get_enum_type(['signin', 'user', 'unknownFutureValue']), help='')
         c.argument('activity_date_time', help='Date and time that the risky activity occurred.')
@@ -1574,21 +1570,21 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
 
-    with self.argument_context('identitysignins riskdetectionsriskdetection delete-risk-detection') as c:
+    with self.argument_context('identitysignins risk-detection-risk-detection delete-risk-detection') as c:
         c.argument('risk_detection_id', type=str, help='key: id of riskDetection')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins riskdetectionsriskdetection list-risk-detection') as c:
+    with self.argument_context('identitysignins risk-detection-risk-detection list-risk-detection') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskdetectionsriskdetection show-risk-detection') as c:
+    with self.argument_context('identitysignins risk-detection-risk-detection show-risk-detection') as c:
         c.argument('risk_detection_id', type=str, help='key: id of riskDetection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskdetectionsriskdetection update-risk-detection') as c:
+    with self.argument_context('identitysignins risk-detection-risk-detection update-risk-detection') as c:
         c.argument('risk_detection_id', type=str, help='key: id of riskDetection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', arg_type=get_enum_type(['signin', 'user', 'unknownFutureValue']), help='')
@@ -1648,7 +1644,7 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
 
-    with self.argument_context('identitysignins riskyusersriskyuser create-risky-user') as c:
+    with self.argument_context('identitysignins risky-user-risky-user create-risky-user') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_deleted', arg_type=get_three_state_flag(), help='Indicates whether the user is deleted. '
                    'Possible values are: true, false')
@@ -1673,21 +1669,21 @@ def load_arguments(self, _):
         c.argument('history', type=validate_file_or_dict, help='The activity related to user risk level change '
                    'Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins riskyusersriskyuser delete-risky-user') as c:
+    with self.argument_context('identitysignins risky-user-risky-user delete-risky-user') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins riskyusersriskyuser list-risky-user') as c:
+    with self.argument_context('identitysignins risky-user-risky-user list-risky-user') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskyusersriskyuser show-risky-user') as c:
+    with self.argument_context('identitysignins risky-user-risky-user show-risky-user') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskyusersriskyuser update-risky-user') as c:
+    with self.argument_context('identitysignins risky-user-risky-user update-risky-user') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_deleted', arg_type=get_three_state_flag(), help='Indicates whether the user is deleted. '
@@ -1713,10 +1709,10 @@ def load_arguments(self, _):
         c.argument('history', type=validate_file_or_dict, help='The activity related to user risk level change '
                    'Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitysignins riskyuser confirm-compromised') as c:
+    with self.argument_context('identitysignins risky-user confirm-compromised') as c:
         c.argument('user_ids', nargs='+', help='')
 
-    with self.argument_context('identitysignins riskyuser create-history') as c:
+    with self.argument_context('identitysignins risky-user create-history') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_deleted', arg_type=get_three_state_flag(), help='Indicates whether the user is deleted. '
@@ -1745,27 +1741,27 @@ def load_arguments(self, _):
         c.argument('initiated_by', type=str, help='The id of actor that does the operation.')
         c.argument('user_id', type=str, help='The id of the user.')
 
-    with self.argument_context('identitysignins riskyuser delete-history') as c:
+    with self.argument_context('identitysignins risky-user delete-history') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('risky_user_history_item_id', type=str, help='key: id of riskyUserHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins riskyuser dismiss') as c:
+    with self.argument_context('identitysignins risky-user dismiss') as c:
         c.argument('user_ids', nargs='+', help='')
 
-    with self.argument_context('identitysignins riskyuser list-history') as c:
+    with self.argument_context('identitysignins risky-user list-history') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskyuser show-history') as c:
+    with self.argument_context('identitysignins risky-user show-history') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('risky_user_history_item_id', type=str, help='key: id of riskyUserHistoryItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins riskyuser update-history') as c:
+    with self.argument_context('identitysignins risky-user update-history') as c:
         c.argument('risky_user_id', type=str, help='key: id of riskyUser')
         c.argument('risky_user_history_item_id', type=str, help='key: id of riskyUserHistoryItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1795,85 +1791,85 @@ def load_arguments(self, _):
         c.argument('initiated_by', type=str, help='The id of actor that does the operation.')
         c.argument('user_id', type=str, help='The id of the user.')
 
-    with self.argument_context('identitysignins trustframework show-trust-framework') as c:
+    with self.argument_context('identitysignins trust-framework-trust-framework show-trust-framework') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins trustframework update-trust-framework') as c:
+    with self.argument_context('identitysignins trust-framework-trust-framework update-trust-framework') as c:
         c.argument('key_sets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policies', action=AddPolicies, nargs='+', help='')
 
-    with self.argument_context('identitysignins trustframework create-key-set') as c:
+    with self.argument_context('identitysignins trust-framework create-key-set') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('keys', action=AddKeys, nargs='+', help='')
 
-    with self.argument_context('identitysignins trustframework create-policy') as c:
+    with self.argument_context('identitysignins trust-framework create-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins trustframework delete-key-set') as c:
+    with self.argument_context('identitysignins trust-framework delete-key-set') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins trustframework delete-policy') as c:
+    with self.argument_context('identitysignins trust-framework delete-policy') as c:
         c.argument('trust_framework_policy_id', type=str, help='key: id of trustFrameworkPolicy')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins trustframework list-key-set') as c:
+    with self.argument_context('identitysignins trust-framework list-key-set') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins trustframework list-policy') as c:
+    with self.argument_context('identitysignins trust-framework list-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins trustframework set-policy-content') as c:
+    with self.argument_context('identitysignins trust-framework set-policy-content') as c:
         c.argument('trust_framework_policy_id', type=str, help='key: id of trustFrameworkPolicy')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('identitysignins trustframework show-key-set') as c:
+    with self.argument_context('identitysignins trust-framework show-key-set') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins trustframework show-policy') as c:
+    with self.argument_context('identitysignins trust-framework show-policy') as c:
         c.argument('trust_framework_policy_id', type=str, help='key: id of trustFrameworkPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins trustframework show-policy-content') as c:
+    with self.argument_context('identitysignins trust-framework show-policy-content') as c:
         c.argument('trust_framework_policy_id', type=str, help='key: id of trustFrameworkPolicy')
 
-    with self.argument_context('identitysignins trustframework update-key-set') as c:
+    with self.argument_context('identitysignins trust-framework update-key-set') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('keys', action=AddKeys, nargs='+', help='')
 
-    with self.argument_context('identitysignins trustframework update-policy') as c:
+    with self.argument_context('identitysignins trust-framework update-policy') as c:
         c.argument('trust_framework_policy_id', type=str, help='key: id of trustFrameworkPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins trustframeworkkeyset generate-key') as c:
+    with self.argument_context('identitysignins trust-framework-key-set generate-key') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('use', type=str, help='')
         c.argument('kty', type=str, help='')
         c.argument('nbf', type=int, help='')
         c.argument('exp', type=int, help='')
 
-    with self.argument_context('identitysignins trustframeworkkeyset show-active-key') as c:
+    with self.argument_context('identitysignins trust-framework-key-set show-active-key') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
 
-    with self.argument_context('identitysignins trustframeworkkeyset upload-certificate') as c:
+    with self.argument_context('identitysignins trust-framework-key-set upload-certificate') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('key', type=str, help='')
 
-    with self.argument_context('identitysignins trustframeworkkeyset upload-pkcs12') as c:
+    with self.argument_context('identitysignins trust-framework-key-set upload-pkcs12') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('key', type=str, help='')
         c.argument('password', type=str, help='')
 
-    with self.argument_context('identitysignins trustframeworkkeyset upload-secret') as c:
+    with self.argument_context('identitysignins trust-framework-key-set upload-secret') as c:
         c.argument('trust_framework_key_set_id', type=str, help='key: id of trustFrameworkKeySet')
         c.argument('use', type=str, help='')
         c.argument('k', type=str, help='')
@@ -1927,27 +1923,27 @@ def load_arguments(self, _):
         c.argument('labels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
                    arg_group='Policy')
 
-    with self.argument_context('identitysignins usersauthentication create-email-method') as c:
+    with self.argument_context('identitysignins user-authentication create-email-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-fido2-method') as c:
+    with self.argument_context('identitysignins user-authentication create-fido2-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-method') as c:
+    with self.argument_context('identitysignins user-authentication create-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication create-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-oath-method') as c:
+    with self.argument_context('identitysignins user-authentication create-oath-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-operation') as c:
+    with self.argument_context('identitysignins user-authentication create-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
@@ -1956,17 +1952,17 @@ def load_arguments(self, _):
         c.argument('status', arg_type=get_enum_type(['notstarted', 'running', 'succeeded', 'failed']), help='')
         c.argument('status_detail', type=str, help='')
 
-    with self.argument_context('identitysignins usersauthentication create-password-method') as c:
+    with self.argument_context('identitysignins user-authentication create-password-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('creation_date_time', help='')
         c.argument('password', type=str, help='')
 
-    with self.argument_context('identitysignins usersauthentication create-passwordless-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication create-passwordless-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-phone-method') as c:
+    with self.argument_context('identitysignins user-authentication create-phone-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('phone_number', type=str, help='')
@@ -1976,239 +1972,239 @@ def load_arguments(self, _):
                                                                 'phoneNumberNotUnique', 'ready', 'notConfigured',
                                                                 'unknownFutureValue']), help='')
 
-    with self.argument_context('identitysignins usersauthentication create-security-question-method') as c:
+    with self.argument_context('identitysignins user-authentication create-security-question-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication create-temporary-access-pass-method') as c:
+    with self.argument_context('identitysignins user-authentication create-temporary-access-pass-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication delete-email-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-email-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('email_authentication_method_id', type=str, help='key: id of emailAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-fido2-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-fido2-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('fido2_authentication_method_id', type=str, help='key: id of fido2AuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('authentication_method_id', type=str, help='key: id of authenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'microsoftAuthenticatorAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-oath-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-oath-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('software_oath_authentication_method_id', type=str, help='key: id of softwareOathAuthenticationMetho'
                    'd')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-operation') as c:
+    with self.argument_context('identitysignins user-authentication delete-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('long_running_operation_id', type=str, help='key: id of longRunningOperation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-password-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-password-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('password_authentication_method_id', type=str, help='key: id of passwordAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-passwordless-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-passwordless-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('passwordless_microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'passwordlessMicrosoftAuthenticatorAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-phone-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-phone-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('phone_authentication_method_id', type=str, help='key: id of phoneAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-security-question-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-security-question-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('security_question_authentication_method_id', type=str, help='key: id of '
                    'securityQuestionAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication delete-temporary-access-pass-method') as c:
+    with self.argument_context('identitysignins user-authentication delete-temporary-access-pass-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('temporary_access_pass_authentication_method_id', type=str, help='key: id of '
                    'temporaryAccessPassAuthenticationMethod')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins usersauthentication list-email-method') as c:
+    with self.argument_context('identitysignins user-authentication list-email-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-fido2-method') as c:
+    with self.argument_context('identitysignins user-authentication list-fido2-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-method') as c:
+    with self.argument_context('identitysignins user-authentication list-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication list-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-oath-method') as c:
+    with self.argument_context('identitysignins user-authentication list-oath-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-operation') as c:
+    with self.argument_context('identitysignins user-authentication list-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-password-method') as c:
+    with self.argument_context('identitysignins user-authentication list-password-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-passwordless-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication list-passwordless-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-phone-method') as c:
+    with self.argument_context('identitysignins user-authentication list-phone-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-security-question-method') as c:
+    with self.argument_context('identitysignins user-authentication list-security-question-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication list-temporary-access-pass-method') as c:
+    with self.argument_context('identitysignins user-authentication list-temporary-access-pass-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-email-method') as c:
+    with self.argument_context('identitysignins user-authentication show-email-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('email_authentication_method_id', type=str, help='key: id of emailAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-fido2-method') as c:
+    with self.argument_context('identitysignins user-authentication show-fido2-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('fido2_authentication_method_id', type=str, help='key: id of fido2AuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-method') as c:
+    with self.argument_context('identitysignins user-authentication show-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('authentication_method_id', type=str, help='key: id of authenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication show-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'microsoftAuthenticatorAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-oath-method') as c:
+    with self.argument_context('identitysignins user-authentication show-oath-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('software_oath_authentication_method_id', type=str, help='key: id of softwareOathAuthenticationMetho'
                    'd')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-operation') as c:
+    with self.argument_context('identitysignins user-authentication show-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('long_running_operation_id', type=str, help='key: id of longRunningOperation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-password-method') as c:
+    with self.argument_context('identitysignins user-authentication show-password-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('password_authentication_method_id', type=str, help='key: id of passwordAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-passwordless-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication show-passwordless-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('passwordless_microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'passwordlessMicrosoftAuthenticatorAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-phone-method') as c:
+    with self.argument_context('identitysignins user-authentication show-phone-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('phone_authentication_method_id', type=str, help='key: id of phoneAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-security-question-method') as c:
+    with self.argument_context('identitysignins user-authentication show-security-question-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('security_question_authentication_method_id', type=str, help='key: id of '
                    'securityQuestionAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication show-temporary-access-pass-method') as c:
+    with self.argument_context('identitysignins user-authentication show-temporary-access-pass-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('temporary_access_pass_authentication_method_id', type=str, help='key: id of '
                    'temporaryAccessPassAuthenticationMethod')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('identitysignins usersauthentication update-email-method') as c:
+    with self.argument_context('identitysignins user-authentication update-email-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('email_authentication_method_id', type=str, help='key: id of emailAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-fido2-method') as c:
+    with self.argument_context('identitysignins user-authentication update-fido2-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('fido2_authentication_method_id', type=str, help='key: id of fido2AuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-method') as c:
+    with self.argument_context('identitysignins user-authentication update-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('authentication_method_id', type=str, help='key: id of authenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication update-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'microsoftAuthenticatorAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-oath-method') as c:
+    with self.argument_context('identitysignins user-authentication update-oath-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('software_oath_authentication_method_id', type=str, help='key: id of softwareOathAuthenticationMetho'
                    'd')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-operation') as c:
+    with self.argument_context('identitysignins user-authentication update-operation') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('long_running_operation_id', type=str, help='key: id of longRunningOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2218,20 +2214,20 @@ def load_arguments(self, _):
         c.argument('status', arg_type=get_enum_type(['notstarted', 'running', 'succeeded', 'failed']), help='')
         c.argument('status_detail', type=str, help='')
 
-    with self.argument_context('identitysignins usersauthentication update-password-method') as c:
+    with self.argument_context('identitysignins user-authentication update-password-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('password_authentication_method_id', type=str, help='key: id of passwordAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('creation_date_time', help='')
         c.argument('password', type=str, help='')
 
-    with self.argument_context('identitysignins usersauthentication update-passwordless-microsoft-authenticator-method') as c:
+    with self.argument_context('identitysignins user-authentication update-passwordless-microsoft-authenticator-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('passwordless_microsoft_authenticator_authentication_method_id', type=str, help='key: id of '
                    'passwordlessMicrosoftAuthenticatorAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-phone-method') as c:
+    with self.argument_context('identitysignins user-authentication update-phone-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('phone_authentication_method_id', type=str, help='key: id of phoneAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2242,13 +2238,13 @@ def load_arguments(self, _):
                                                                 'phoneNumberNotUnique', 'ready', 'notConfigured',
                                                                 'unknownFutureValue']), help='')
 
-    with self.argument_context('identitysignins usersauthentication update-security-question-method') as c:
+    with self.argument_context('identitysignins user-authentication update-security-question-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('security_question_authentication_method_id', type=str, help='key: id of '
                    'securityQuestionAuthenticationMethod')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('identitysignins usersauthentication update-temporary-access-pass-method') as c:
+    with self.argument_context('identitysignins user-authentication update-temporary-access-pass-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('temporary_access_pass_authentication_method_id', type=str, help='key: id of '
                    'temporaryAccessPassAuthenticationMethod')

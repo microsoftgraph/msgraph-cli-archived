@@ -11,33 +11,33 @@
 # pylint: disable=too-many-lines
 
 
-def devicescorpmgt_deviceappmanagementdeviceappmanagement_show_device_app_management(client,
-                                                                                     select=None,
-                                                                                     expand=None):
+def devicescorpmgt_device_app_management_device_app_management_show_device_app_management(client,
+                                                                                          select=None,
+                                                                                          expand=None):
     return client.get_device_app_management(select=select,
                                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementdeviceappmanagement_update_device_app_management(client,
-                                                                                       id_=None,
-                                                                                       is_enabled_for_microsoft_store_for_business=None,
-                                                                                       microsoft_store_for_business_language=None,
-                                                                                       microsoft_store_for_business_last_completed_application_sync_time=None,
-                                                                                       microsoft_store_for_business_last_successful_sync_date_time=None,
-                                                                                       managed_e_books=None,
-                                                                                       mobile_app_categories=None,
-                                                                                       mobile_app_configurations=None,
-                                                                                       mobile_apps=None,
-                                                                                       vpp_tokens=None,
-                                                                                       android_managed_app_protections=None,
-                                                                                       default_managed_app_protections=None,
-                                                                                       ios_managed_app_protections=None,
-                                                                                       managed_app_policies=None,
-                                                                                       managed_app_registrations=None,
-                                                                                       managed_app_statuses=None,
-                                                                                       mdm_windows_information_protection_policies=None,
-                                                                                       targeted_managed_app_configurations=None,
-                                                                                       windows_information_protection_policies=None):
+def devicescorpmgt_device_app_management_device_app_management_update_device_app_management(client,
+                                                                                            id_=None,
+                                                                                            is_enabled_for_microsoft_store_for_business=None,
+                                                                                            microsoft_store_for_business_language=None,
+                                                                                            microsoft_store_for_business_last_completed_application_sync_time=None,
+                                                                                            microsoft_store_for_business_last_successful_sync_date_time=None,
+                                                                                            managed_e_books=None,
+                                                                                            mobile_app_categories=None,
+                                                                                            mobile_app_configurations=None,
+                                                                                            mobile_apps=None,
+                                                                                            vpp_tokens=None,
+                                                                                            android_managed_app_protections=None,
+                                                                                            default_managed_app_protections=None,
+                                                                                            ios_managed_app_protections=None,
+                                                                                            managed_app_policies=None,
+                                                                                            managed_app_registrations=None,
+                                                                                            managed_app_statuses=None,
+                                                                                            mdm_windows_information_protection_policies=None,
+                                                                                            targeted_managed_app_configurations=None,
+                                                                                            windows_information_protection_policies=None):
     body = {}
     body['id'] = id_
     body['is_enabled_for_microsoft_store_for_business'] = is_enabled_for_microsoft_store_for_business
@@ -61,28 +61,325 @@ def devicescorpmgt_deviceappmanagementdeviceappmanagement_update_device_app_mana
     return client.update_device_app_management(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_android_managed_app_protection(client,
-                                                                             body):
+def devicescorpmgt_device_app_management_create_android_managed_app_protection(client,
+                                                                               id_=None,
+                                                                               created_date_time=None,
+                                                                               description=None,
+                                                                               display_name=None,
+                                                                               last_modified_date_time=None,
+                                                                               version=None,
+                                                                               allowed_data_storage_locations=None,
+                                                                               allowed_inbound_data_transfer_sources=None,
+                                                                               allowed_outbound_clipboard_sharing_level=None,
+                                                                               allowed_outbound_data_transfer_destinations=None,
+                                                                               contact_sync_blocked=None,
+                                                                               data_backup_blocked=None,
+                                                                               device_compliance_required=None,
+                                                                               disable_app_pin_if_device_pin_is_set=None,
+                                                                               fingerprint_blocked=None,
+                                                                               managed_browser=None,
+                                                                               managed_browser_to_open_links_required=None,
+                                                                               maximum_pin_retries=None,
+                                                                               minimum_pin_length=None,
+                                                                               minimum_required_app_version=None,
+                                                                               minimum_required_os_version=None,
+                                                                               minimum_warning_app_version=None,
+                                                                               minimum_warning_os_version=None,
+                                                                               organizational_credentials_required=None,
+                                                                               period_before_pin_reset=None,
+                                                                               period_offline_before_access_check=None,
+                                                                               period_offline_before_wipe_is_enforced=None,
+                                                                               period_online_before_access_check=None,
+                                                                               pin_character_set=None,
+                                                                               pin_required=None,
+                                                                               print_blocked=None,
+                                                                               save_as_blocked=None,
+                                                                               simple_pin_blocked=None,
+                                                                               is_assigned=None,
+                                                                               assignments=None,
+                                                                               custom_browser_display_name=None,
+                                                                               custom_browser_package_id=None,
+                                                                               deployed_app_count=None,
+                                                                               disable_app_encryption_if_device_encryption_is_enabled=None,
+                                                                               encrypt_app_data=None,
+                                                                               minimum_required_patch_version=None,
+                                                                               minimum_warning_patch_version=None,
+                                                                               screen_capture_blocked=None,
+                                                                               apps=None,
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['is_assigned'] = is_assigned
+    body['assignments'] = assignments
+    body['custom_browser_display_name'] = custom_browser_display_name
+    body['custom_browser_package_id'] = custom_browser_package_id
+    body['deployed_app_count'] = deployed_app_count
+    body['disable_app_encryption_if_device_encryption_is_enabled'] = disable_app_encryption_if_device_encryption_is_enabled
+    body['encrypt_app_data'] = encrypt_app_data
+    body['minimum_required_patch_version'] = minimum_required_patch_version
+    body['minimum_warning_patch_version'] = minimum_warning_patch_version
+    body['screen_capture_blocked'] = screen_capture_blocked
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.create_android_managed_app_protections(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_default_managed_app_protection(client,
-                                                                             body):
+def devicescorpmgt_device_app_management_create_default_managed_app_protection(client,
+                                                                               id_=None,
+                                                                               created_date_time=None,
+                                                                               description=None,
+                                                                               display_name=None,
+                                                                               last_modified_date_time=None,
+                                                                               version=None,
+                                                                               allowed_data_storage_locations=None,
+                                                                               allowed_inbound_data_transfer_sources=None,
+                                                                               allowed_outbound_clipboard_sharing_level=None,
+                                                                               allowed_outbound_data_transfer_destinations=None,
+                                                                               contact_sync_blocked=None,
+                                                                               data_backup_blocked=None,
+                                                                               device_compliance_required=None,
+                                                                               disable_app_pin_if_device_pin_is_set=None,
+                                                                               fingerprint_blocked=None,
+                                                                               managed_browser=None,
+                                                                               managed_browser_to_open_links_required=None,
+                                                                               maximum_pin_retries=None,
+                                                                               minimum_pin_length=None,
+                                                                               minimum_required_app_version=None,
+                                                                               minimum_required_os_version=None,
+                                                                               minimum_warning_app_version=None,
+                                                                               minimum_warning_os_version=None,
+                                                                               organizational_credentials_required=None,
+                                                                               period_before_pin_reset=None,
+                                                                               period_offline_before_access_check=None,
+                                                                               period_offline_before_wipe_is_enforced=None,
+                                                                               period_online_before_access_check=None,
+                                                                               pin_character_set=None,
+                                                                               pin_required=None,
+                                                                               print_blocked=None,
+                                                                               save_as_blocked=None,
+                                                                               simple_pin_blocked=None,
+                                                                               app_data_encryption_type=None,
+                                                                               custom_settings=None,
+                                                                               deployed_app_count=None,
+                                                                               disable_app_encryption_if_device_encryption_is_enabled=None,
+                                                                               encrypt_app_data=None,
+                                                                               face_id_blocked=None,
+                                                                               minimum_required_patch_version=None,
+                                                                               minimum_required_sdk_version=None,
+                                                                               minimum_warning_patch_version=None,
+                                                                               screen_capture_blocked=None,
+                                                                               apps=None,
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['app_data_encryption_type'] = app_data_encryption_type
+    body['custom_settings'] = custom_settings
+    body['deployed_app_count'] = deployed_app_count
+    body['disable_app_encryption_if_device_encryption_is_enabled'] = disable_app_encryption_if_device_encryption_is_enabled
+    body['encrypt_app_data'] = encrypt_app_data
+    body['face_id_blocked'] = face_id_blocked
+    body['minimum_required_patch_version'] = minimum_required_patch_version
+    body['minimum_required_sdk_version'] = minimum_required_sdk_version
+    body['minimum_warning_patch_version'] = minimum_warning_patch_version
+    body['screen_capture_blocked'] = screen_capture_blocked
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.create_default_managed_app_protections(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_io_managed_app_protection(client,
-                                                                        body):
+def devicescorpmgt_device_app_management_create_io_managed_app_protection(client,
+                                                                          id_=None,
+                                                                          created_date_time=None,
+                                                                          description=None,
+                                                                          display_name=None,
+                                                                          last_modified_date_time=None,
+                                                                          version=None,
+                                                                          allowed_data_storage_locations=None,
+                                                                          allowed_inbound_data_transfer_sources=None,
+                                                                          allowed_outbound_clipboard_sharing_level=None,
+                                                                          allowed_outbound_data_transfer_destinations=None,
+                                                                          contact_sync_blocked=None,
+                                                                          data_backup_blocked=None,
+                                                                          device_compliance_required=None,
+                                                                          disable_app_pin_if_device_pin_is_set=None,
+                                                                          fingerprint_blocked=None,
+                                                                          managed_browser=None,
+                                                                          managed_browser_to_open_links_required=None,
+                                                                          maximum_pin_retries=None,
+                                                                          minimum_pin_length=None,
+                                                                          minimum_required_app_version=None,
+                                                                          minimum_required_os_version=None,
+                                                                          minimum_warning_app_version=None,
+                                                                          minimum_warning_os_version=None,
+                                                                          organizational_credentials_required=None,
+                                                                          period_before_pin_reset=None,
+                                                                          period_offline_before_access_check=None,
+                                                                          period_offline_before_wipe_is_enforced=None,
+                                                                          period_online_before_access_check=None,
+                                                                          pin_character_set=None,
+                                                                          pin_required=None,
+                                                                          print_blocked=None,
+                                                                          save_as_blocked=None,
+                                                                          simple_pin_blocked=None,
+                                                                          is_assigned=None,
+                                                                          assignments=None,
+                                                                          app_data_encryption_type=None,
+                                                                          custom_browser_protocol=None,
+                                                                          deployed_app_count=None,
+                                                                          face_id_blocked=None,
+                                                                          minimum_required_sdk_version=None,
+                                                                          apps=None,
+                                                                          microsoft_graph_entity_id=None,
+                                                                          configuration_deployed_user_count=None,
+                                                                          configuration_deployment_summary_per_app=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                          last_refresh_time=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['is_assigned'] = is_assigned
+    body['assignments'] = assignments
+    body['app_data_encryption_type'] = app_data_encryption_type
+    body['custom_browser_protocol'] = custom_browser_protocol
+    body['deployed_app_count'] = deployed_app_count
+    body['face_id_blocked'] = face_id_blocked
+    body['minimum_required_sdk_version'] = minimum_required_sdk_version
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.create_ios_managed_app_protections(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_managed_app_policy(client,
-                                                                 id_=None,
-                                                                 created_date_time=None,
-                                                                 description=None,
-                                                                 display_name=None,
-                                                                 last_modified_date_time=None,
-                                                                 version=None):
+def devicescorpmgt_device_app_management_create_managed_app_policy(client,
+                                                                   id_=None,
+                                                                   created_date_time=None,
+                                                                   description=None,
+                                                                   display_name=None,
+                                                                   last_modified_date_time=None,
+                                                                   version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -93,23 +390,23 @@ def devicescorpmgt_deviceappmanagement_create_managed_app_policy(client,
     return client.create_managed_app_policies(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_managed_app_registration(client,
-                                                                       id_=None,
-                                                                       app_identifier=None,
-                                                                       application_version=None,
-                                                                       created_date_time=None,
-                                                                       device_name=None,
-                                                                       device_tag=None,
-                                                                       device_type=None,
-                                                                       flagged_reasons=None,
-                                                                       last_sync_date_time=None,
-                                                                       management_sdk_version=None,
-                                                                       platform_version=None,
-                                                                       user_id=None,
-                                                                       version=None,
-                                                                       applied_policies=None,
-                                                                       intended_policies=None,
-                                                                       operations=None):
+def devicescorpmgt_device_app_management_create_managed_app_registration(client,
+                                                                         id_=None,
+                                                                         app_identifier=None,
+                                                                         application_version=None,
+                                                                         created_date_time=None,
+                                                                         device_name=None,
+                                                                         device_tag=None,
+                                                                         device_type=None,
+                                                                         flagged_reasons=None,
+                                                                         last_sync_date_time=None,
+                                                                         management_sdk_version=None,
+                                                                         platform_version=None,
+                                                                         user_id=None,
+                                                                         version=None,
+                                                                         applied_policies=None,
+                                                                         intended_policies=None,
+                                                                         operations=None):
     body = {}
     body['id'] = id_
     body['app_identifier'] = app_identifier
@@ -130,10 +427,10 @@ def devicescorpmgt_deviceappmanagement_create_managed_app_registration(client,
     return client.create_managed_app_registrations(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_managed_app_statuses(client,
-                                                                   id_=None,
-                                                                   display_name=None,
-                                                                   version=None):
+def devicescorpmgt_device_app_management_create_managed_app_statuses(client,
+                                                                     id_=None,
+                                                                     display_name=None,
+                                                                     version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -141,21 +438,21 @@ def devicescorpmgt_deviceappmanagement_create_managed_app_statuses(client,
     return client.create_managed_app_statuses(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_managed_e_book(client,
-                                                             id_=None,
-                                                             created_date_time=None,
-                                                             description=None,
-                                                             display_name=None,
-                                                             information_url=None,
-                                                             large_cover=None,
-                                                             last_modified_date_time=None,
-                                                             privacy_information_url=None,
-                                                             published_date_time=None,
-                                                             publisher=None,
-                                                             assignments=None,
-                                                             device_states=None,
-                                                             install_summary=None,
-                                                             user_state_summary=None):
+def devicescorpmgt_device_app_management_create_managed_e_book(client,
+                                                               id_=None,
+                                                               created_date_time=None,
+                                                               description=None,
+                                                               display_name=None,
+                                                               information_url=None,
+                                                               large_cover=None,
+                                                               last_modified_date_time=None,
+                                                               privacy_information_url=None,
+                                                               published_date_time=None,
+                                                               publisher=None,
+                                                               assignments=None,
+                                                               device_states=None,
+                                                               install_summary=None,
+                                                               user_state_summary=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -174,38 +471,38 @@ def devicescorpmgt_deviceappmanagement_create_managed_e_book(client,
     return client.create_managed_e_books(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_mdm_window_information_protection_policy(client,
-                                                                                       id_=None,
-                                                                                       created_date_time=None,
-                                                                                       description=None,
-                                                                                       display_name=None,
-                                                                                       last_modified_date_time=None,
-                                                                                       version=None,
-                                                                                       azure_rights_management_services_allowed=None,
-                                                                                       data_recovery_certificate=None,
-                                                                                       enforcement_level=None,
-                                                                                       enterprise_domain=None,
-                                                                                       enterprise_internal_proxy_servers=None,
-                                                                                       enterprise_ip_ranges=None,
-                                                                                       enterprise_ip_ranges_are_authoritative=None,
-                                                                                       enterprise_network_domain_names=None,
-                                                                                       enterprise_protected_domain_names=None,
-                                                                                       enterprise_proxied_domains=None,
-                                                                                       enterprise_proxy_servers=None,
-                                                                                       enterprise_proxy_servers_are_authoritative=None,
-                                                                                       exempt_apps=None,
-                                                                                       icons_visible=None,
-                                                                                       indexing_encrypted_stores_or_items_blocked=None,
-                                                                                       is_assigned=None,
-                                                                                       neutral_domain_resources=None,
-                                                                                       protected_apps=None,
-                                                                                       protection_under_lock_config_required=None,
-                                                                                       revoke_on_unenroll_disabled=None,
-                                                                                       rights_management_services_template_id=None,
-                                                                                       smb_auto_encrypted_file_extensions=None,
-                                                                                       assignments=None,
-                                                                                       exempt_app_locker_files=None,
-                                                                                       protected_app_locker_files=None):
+def devicescorpmgt_device_app_management_create_mdm_window_information_protection_policy(client,
+                                                                                         id_=None,
+                                                                                         created_date_time=None,
+                                                                                         description=None,
+                                                                                         display_name=None,
+                                                                                         last_modified_date_time=None,
+                                                                                         version=None,
+                                                                                         azure_rights_management_services_allowed=None,
+                                                                                         data_recovery_certificate=None,
+                                                                                         enforcement_level=None,
+                                                                                         enterprise_domain=None,
+                                                                                         enterprise_internal_proxy_servers=None,
+                                                                                         enterprise_ip_ranges=None,
+                                                                                         enterprise_ip_ranges_are_authoritative=None,
+                                                                                         enterprise_network_domain_names=None,
+                                                                                         enterprise_protected_domain_names=None,
+                                                                                         enterprise_proxied_domains=None,
+                                                                                         enterprise_proxy_servers=None,
+                                                                                         enterprise_proxy_servers_are_authoritative=None,
+                                                                                         exempt_apps=None,
+                                                                                         icons_visible=None,
+                                                                                         indexing_encrypted_stores_or_items_blocked=None,
+                                                                                         is_assigned=None,
+                                                                                         neutral_domain_resources=None,
+                                                                                         protected_apps=None,
+                                                                                         protection_under_lock_config_required=None,
+                                                                                         revoke_on_unenroll_disabled=None,
+                                                                                         rights_management_services_template_id=None,
+                                                                                         smb_auto_encrypted_file_extensions=None,
+                                                                                         assignments=None,
+                                                                                         exempt_app_locker_files=None,
+                                                                                         protected_app_locker_files=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -241,23 +538,23 @@ def devicescorpmgt_deviceappmanagement_create_mdm_window_information_protection_
     return client.create_mdm_windows_information_protection_policies(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_mobile_app(client,
-                                                         id_=None,
-                                                         created_date_time=None,
-                                                         description=None,
-                                                         developer=None,
-                                                         display_name=None,
-                                                         information_url=None,
-                                                         is_featured=None,
-                                                         large_icon=None,
-                                                         last_modified_date_time=None,
-                                                         notes=None,
-                                                         owner=None,
-                                                         privacy_information_url=None,
-                                                         publisher=None,
-                                                         publishing_state=None,
-                                                         assignments=None,
-                                                         categories=None):
+def devicescorpmgt_device_app_management_create_mobile_app(client,
+                                                           id_=None,
+                                                           created_date_time=None,
+                                                           description=None,
+                                                           developer=None,
+                                                           display_name=None,
+                                                           information_url=None,
+                                                           is_featured=None,
+                                                           large_icon=None,
+                                                           last_modified_date_time=None,
+                                                           notes=None,
+                                                           owner=None,
+                                                           privacy_information_url=None,
+                                                           publisher=None,
+                                                           publishing_state=None,
+                                                           assignments=None,
+                                                           categories=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -278,10 +575,10 @@ def devicescorpmgt_deviceappmanagement_create_mobile_app(client,
     return client.create_mobile_apps(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_mobile_app_category(client,
-                                                                  id_=None,
-                                                                  display_name=None,
-                                                                  last_modified_date_time=None):
+def devicescorpmgt_device_app_management_create_mobile_app_category(client,
+                                                                    id_=None,
+                                                                    display_name=None,
+                                                                    last_modified_date_time=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -289,19 +586,19 @@ def devicescorpmgt_deviceappmanagement_create_mobile_app_category(client,
     return client.create_mobile_app_categories(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_mobile_app_configuration(client,
-                                                                       id_=None,
-                                                                       created_date_time=None,
-                                                                       description=None,
-                                                                       display_name=None,
-                                                                       last_modified_date_time=None,
-                                                                       targeted_mobile_apps=None,
-                                                                       version=None,
-                                                                       assignments=None,
-                                                                       device_statuses=None,
-                                                                       device_status_summary=None,
-                                                                       user_statuses=None,
-                                                                       user_status_summary=None):
+def devicescorpmgt_device_app_management_create_mobile_app_configuration(client,
+                                                                         id_=None,
+                                                                         created_date_time=None,
+                                                                         description=None,
+                                                                         display_name=None,
+                                                                         last_modified_date_time=None,
+                                                                         targeted_mobile_apps=None,
+                                                                         version=None,
+                                                                         assignments=None,
+                                                                         device_statuses=None,
+                                                                         device_status_summary=None,
+                                                                         user_statuses=None,
+                                                                         user_status_summary=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -318,24 +615,24 @@ def devicescorpmgt_deviceappmanagement_create_mobile_app_configuration(client,
     return client.create_mobile_app_configurations(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_targeted_managed_app_configuration(client,
-                                                                                 id_=None,
-                                                                                 created_date_time=None,
-                                                                                 description=None,
-                                                                                 display_name=None,
-                                                                                 last_modified_date_time=None,
-                                                                                 version=None,
-                                                                                 custom_settings=None,
-                                                                                 deployed_app_count=None,
-                                                                                 is_assigned=None,
-                                                                                 apps=None,
-                                                                                 assignments=None,
-                                                                                 microsoft_graph_entity_id=None,
-                                                                                 configuration_deployed_user_count=None,
-                                                                                 configuration_deployment_summary_per_app=None,
-                                                                                 microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
-                                                                                 last_refresh_time=None,
-                                                                                 microsoft_graph_managed_app_policy_deployment_summary_version=None):
+def devicescorpmgt_device_app_management_create_targeted_managed_app_configuration(client,
+                                                                                   id_=None,
+                                                                                   created_date_time=None,
+                                                                                   description=None,
+                                                                                   display_name=None,
+                                                                                   last_modified_date_time=None,
+                                                                                   version=None,
+                                                                                   custom_settings=None,
+                                                                                   deployed_app_count=None,
+                                                                                   is_assigned=None,
+                                                                                   apps=None,
+                                                                                   assignments=None,
+                                                                                   microsoft_graph_entity_id=None,
+                                                                                   configuration_deployed_user_count=None,
+                                                                                   configuration_deployment_summary_per_app=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                                   last_refresh_time=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -358,19 +655,19 @@ def devicescorpmgt_deviceappmanagement_create_targeted_managed_app_configuration
     return client.create_targeted_managed_app_configurations(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_vpp_token(client,
-                                                        id_=None,
-                                                        apple_id=None,
-                                                        automatically_update_apps=None,
-                                                        country_or_region=None,
-                                                        expiration_date_time=None,
-                                                        last_modified_date_time=None,
-                                                        last_sync_date_time=None,
-                                                        last_sync_status=None,
-                                                        organization_name=None,
-                                                        state=None,
-                                                        token=None,
-                                                        vpp_token_account_type=None):
+def devicescorpmgt_device_app_management_create_vpp_token(client,
+                                                          id_=None,
+                                                          apple_id=None,
+                                                          automatically_update_apps=None,
+                                                          country_or_region=None,
+                                                          expiration_date_time=None,
+                                                          last_modified_date_time=None,
+                                                          last_sync_date_time=None,
+                                                          last_sync_status=None,
+                                                          organization_name=None,
+                                                          state=None,
+                                                          token=None,
+                                                          vpp_token_account_type=None):
     body = {}
     body['id'] = id_
     body['apple_id'] = apple_id
@@ -387,50 +684,50 @@ def devicescorpmgt_deviceappmanagement_create_vpp_token(client,
     return client.create_vpp_tokens(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_create_window_information_protection_policy(client,
-                                                                                   id_=None,
-                                                                                   created_date_time=None,
-                                                                                   description=None,
-                                                                                   display_name=None,
-                                                                                   last_modified_date_time=None,
-                                                                                   version=None,
-                                                                                   azure_rights_management_services_allowed=None,
-                                                                                   data_recovery_certificate=None,
-                                                                                   enforcement_level=None,
-                                                                                   enterprise_domain=None,
-                                                                                   enterprise_internal_proxy_servers=None,
-                                                                                   enterprise_ip_ranges=None,
-                                                                                   enterprise_ip_ranges_are_authoritative=None,
-                                                                                   enterprise_network_domain_names=None,
-                                                                                   enterprise_protected_domain_names=None,
-                                                                                   enterprise_proxied_domains=None,
-                                                                                   enterprise_proxy_servers=None,
-                                                                                   enterprise_proxy_servers_are_authoritative=None,
-                                                                                   exempt_apps=None,
-                                                                                   icons_visible=None,
-                                                                                   indexing_encrypted_stores_or_items_blocked=None,
-                                                                                   is_assigned=None,
-                                                                                   neutral_domain_resources=None,
-                                                                                   protected_apps=None,
-                                                                                   protection_under_lock_config_required=None,
-                                                                                   revoke_on_unenroll_disabled=None,
-                                                                                   rights_management_services_template_id=None,
-                                                                                   smb_auto_encrypted_file_extensions=None,
-                                                                                   assignments=None,
-                                                                                   exempt_app_locker_files=None,
-                                                                                   protected_app_locker_files=None,
-                                                                                   days_without_contact_before_unenroll=None,
-                                                                                   mdm_enrollment_url=None,
-                                                                                   minutes_of_inactivity_before_device_lock=None,
-                                                                                   number_of_past_pins_remembered=None,
-                                                                                   password_maximum_attempt_count=None,
-                                                                                   pin_expiration_days=None,
-                                                                                   pin_lowercase_letters=None,
-                                                                                   pin_minimum_length=None,
-                                                                                   pin_special_characters=None,
-                                                                                   pin_uppercase_letters=None,
-                                                                                   revoke_on_mdm_handoff_disabled=None,
-                                                                                   windows_hello_for_business_blocked=None):
+def devicescorpmgt_device_app_management_create_window_information_protection_policy(client,
+                                                                                     id_=None,
+                                                                                     created_date_time=None,
+                                                                                     description=None,
+                                                                                     display_name=None,
+                                                                                     last_modified_date_time=None,
+                                                                                     version=None,
+                                                                                     azure_rights_management_services_allowed=None,
+                                                                                     data_recovery_certificate=None,
+                                                                                     enforcement_level=None,
+                                                                                     enterprise_domain=None,
+                                                                                     enterprise_internal_proxy_servers=None,
+                                                                                     enterprise_ip_ranges=None,
+                                                                                     enterprise_ip_ranges_are_authoritative=None,
+                                                                                     enterprise_network_domain_names=None,
+                                                                                     enterprise_protected_domain_names=None,
+                                                                                     enterprise_proxied_domains=None,
+                                                                                     enterprise_proxy_servers=None,
+                                                                                     enterprise_proxy_servers_are_authoritative=None,
+                                                                                     exempt_apps=None,
+                                                                                     icons_visible=None,
+                                                                                     indexing_encrypted_stores_or_items_blocked=None,
+                                                                                     is_assigned=None,
+                                                                                     neutral_domain_resources=None,
+                                                                                     protected_apps=None,
+                                                                                     protection_under_lock_config_required=None,
+                                                                                     revoke_on_unenroll_disabled=None,
+                                                                                     rights_management_services_template_id=None,
+                                                                                     smb_auto_encrypted_file_extensions=None,
+                                                                                     assignments=None,
+                                                                                     exempt_app_locker_files=None,
+                                                                                     protected_app_locker_files=None,
+                                                                                     days_without_contact_before_unenroll=None,
+                                                                                     mdm_enrollment_url=None,
+                                                                                     minutes_of_inactivity_before_device_lock=None,
+                                                                                     number_of_past_pins_remembered=None,
+                                                                                     password_maximum_attempt_count=None,
+                                                                                     pin_expiration_days=None,
+                                                                                     pin_lowercase_letters=None,
+                                                                                     pin_minimum_length=None,
+                                                                                     pin_special_characters=None,
+                                                                                     pin_uppercase_letters=None,
+                                                                                     revoke_on_mdm_handoff_disabled=None,
+                                                                                     windows_hello_for_business_blocked=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -478,389 +775,686 @@ def devicescorpmgt_deviceappmanagement_create_window_information_protection_poli
     return client.create_windows_information_protection_policies(body=body)
 
 
-def devicescorpmgt_deviceappmanagement_delete_android_managed_app_protection(client,
-                                                                             android_managed_app_protection_id,
-                                                                             if_match=None):
+def devicescorpmgt_device_app_management_delete_android_managed_app_protection(client,
+                                                                               android_managed_app_protection_id,
+                                                                               if_match=None):
     return client.delete_android_managed_app_protections(android_managed_app_protection_id=android_managed_app_protection_id,
                                                          if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_default_managed_app_protection(client,
-                                                                             default_managed_app_protection_id,
-                                                                             if_match=None):
+def devicescorpmgt_device_app_management_delete_default_managed_app_protection(client,
+                                                                               default_managed_app_protection_id,
+                                                                               if_match=None):
     return client.delete_default_managed_app_protections(default_managed_app_protection_id=default_managed_app_protection_id,
                                                          if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_io_managed_app_protection(client,
-                                                                        ios_managed_app_protection_id,
-                                                                        if_match=None):
+def devicescorpmgt_device_app_management_delete_io_managed_app_protection(client,
+                                                                          ios_managed_app_protection_id,
+                                                                          if_match=None):
     return client.delete_ios_managed_app_protections(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_managed_app_policy(client,
-                                                                 managed_app_policy_id,
-                                                                 if_match=None):
+def devicescorpmgt_device_app_management_delete_managed_app_policy(client,
+                                                                   managed_app_policy_id,
+                                                                   if_match=None):
     return client.delete_managed_app_policies(managed_app_policy_id=managed_app_policy_id,
                                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_managed_app_registration(client,
-                                                                       managed_app_registration_id,
-                                                                       if_match=None):
+def devicescorpmgt_device_app_management_delete_managed_app_registration(client,
+                                                                         managed_app_registration_id,
+                                                                         if_match=None):
     return client.delete_managed_app_registrations(managed_app_registration_id=managed_app_registration_id,
                                                    if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_managed_app_statuses(client,
-                                                                   managed_app_status_id,
-                                                                   if_match=None):
+def devicescorpmgt_device_app_management_delete_managed_app_statuses(client,
+                                                                     managed_app_status_id,
+                                                                     if_match=None):
     return client.delete_managed_app_statuses(managed_app_status_id=managed_app_status_id,
                                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_managed_e_book(client,
-                                                             managed_e_book_id,
-                                                             if_match=None):
+def devicescorpmgt_device_app_management_delete_managed_e_book(client,
+                                                               managed_e_book_id,
+                                                               if_match=None):
     return client.delete_managed_e_books(managed_e_book_id=managed_e_book_id,
                                          if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_mdm_window_information_protection_policy(client,
-                                                                                       mdm_windows_information_protection_policy_id,
-                                                                                       if_match=None):
+def devicescorpmgt_device_app_management_delete_mdm_window_information_protection_policy(client,
+                                                                                         mdm_windows_information_protection_policy_id,
+                                                                                         if_match=None):
     return client.delete_mdm_windows_information_protection_policies(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
                                                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_mobile_app(client,
-                                                         mobile_app_id,
-                                                         if_match=None):
+def devicescorpmgt_device_app_management_delete_mobile_app(client,
+                                                           mobile_app_id,
+                                                           if_match=None):
     return client.delete_mobile_apps(mobile_app_id=mobile_app_id,
                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_mobile_app_category(client,
-                                                                  mobile_app_category_id,
-                                                                  if_match=None):
+def devicescorpmgt_device_app_management_delete_mobile_app_category(client,
+                                                                    mobile_app_category_id,
+                                                                    if_match=None):
     return client.delete_mobile_app_categories(mobile_app_category_id=mobile_app_category_id,
                                                if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_mobile_app_configuration(client,
-                                                                       managed_device_mobile_app_configuration_id,
-                                                                       if_match=None):
+def devicescorpmgt_device_app_management_delete_mobile_app_configuration(client,
+                                                                         managed_device_mobile_app_configuration_id,
+                                                                         if_match=None):
     return client.delete_mobile_app_configurations(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                                    if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_targeted_managed_app_configuration(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 if_match=None):
+def devicescorpmgt_device_app_management_delete_targeted_managed_app_configuration(client,
+                                                                                   targeted_managed_app_configuration_id,
+                                                                                   if_match=None):
     return client.delete_targeted_managed_app_configurations(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                                              if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_vpp_token(client,
-                                                        vpp_token_id,
-                                                        if_match=None):
+def devicescorpmgt_device_app_management_delete_vpp_token(client,
+                                                          vpp_token_id,
+                                                          if_match=None):
     return client.delete_vpp_tokens(vpp_token_id=vpp_token_id,
                                     if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_delete_window_information_protection_policy(client,
-                                                                                   windows_information_protection_policy_id,
-                                                                                   if_match=None):
+def devicescorpmgt_device_app_management_delete_window_information_protection_policy(client,
+                                                                                     windows_information_protection_policy_id,
+                                                                                     if_match=None):
     return client.delete_windows_information_protection_policies(windows_information_protection_policy_id=windows_information_protection_policy_id,
                                                                  if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagement_list_android_managed_app_protection(client,
-                                                                           orderby=None,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_list_android_managed_app_protection(client,
+                                                                             orderby=None,
+                                                                             select=None,
+                                                                             expand=None):
     return client.list_android_managed_app_protections(orderby=orderby,
                                                        select=select,
                                                        expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_default_managed_app_protection(client,
-                                                                           orderby=None,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_list_default_managed_app_protection(client,
+                                                                             orderby=None,
+                                                                             select=None,
+                                                                             expand=None):
     return client.list_default_managed_app_protections(orderby=orderby,
                                                        select=select,
                                                        expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_io_managed_app_protection(client,
-                                                                      orderby=None,
-                                                                      select=None,
-                                                                      expand=None):
+def devicescorpmgt_device_app_management_list_io_managed_app_protection(client,
+                                                                        orderby=None,
+                                                                        select=None,
+                                                                        expand=None):
     return client.list_ios_managed_app_protections(orderby=orderby,
                                                    select=select,
                                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_managed_app_policy(client,
-                                                               orderby=None,
-                                                               select=None,
-                                                               expand=None):
+def devicescorpmgt_device_app_management_list_managed_app_policy(client,
+                                                                 orderby=None,
+                                                                 select=None,
+                                                                 expand=None):
     return client.list_managed_app_policies(orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_managed_app_registration(client,
-                                                                     orderby=None,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_list_managed_app_registration(client,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
     return client.list_managed_app_registrations(orderby=orderby,
                                                  select=select,
                                                  expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_managed_app_statuses(client,
-                                                                 orderby=None,
-                                                                 select=None,
-                                                                 expand=None):
+def devicescorpmgt_device_app_management_list_managed_app_statuses(client,
+                                                                   orderby=None,
+                                                                   select=None,
+                                                                   expand=None):
     return client.list_managed_app_statuses(orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_managed_e_book(client,
-                                                           orderby=None,
-                                                           select=None,
-                                                           expand=None):
+def devicescorpmgt_device_app_management_list_managed_e_book(client,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_managed_e_books(orderby=orderby,
                                        select=select,
                                        expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_mdm_window_information_protection_policy(client,
-                                                                                     orderby=None,
-                                                                                     select=None,
-                                                                                     expand=None):
+def devicescorpmgt_device_app_management_list_mdm_window_information_protection_policy(client,
+                                                                                       orderby=None,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.list_mdm_windows_information_protection_policies(orderby=orderby,
                                                                    select=select,
                                                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_mobile_app(client,
-                                                       orderby=None,
-                                                       select=None,
-                                                       expand=None):
+def devicescorpmgt_device_app_management_list_mobile_app(client,
+                                                         orderby=None,
+                                                         select=None,
+                                                         expand=None):
     return client.list_mobile_apps(orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_mobile_app_category(client,
-                                                                orderby=None,
-                                                                select=None,
-                                                                expand=None):
+def devicescorpmgt_device_app_management_list_mobile_app_category(client,
+                                                                  orderby=None,
+                                                                  select=None,
+                                                                  expand=None):
     return client.list_mobile_app_categories(orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_mobile_app_configuration(client,
-                                                                     orderby=None,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_list_mobile_app_configuration(client,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
     return client.list_mobile_app_configurations(orderby=orderby,
                                                  select=select,
                                                  expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_targeted_managed_app_configuration(client,
-                                                                               orderby=None,
-                                                                               select=None,
-                                                                               expand=None):
+def devicescorpmgt_device_app_management_list_targeted_managed_app_configuration(client,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_targeted_managed_app_configurations(orderby=orderby,
                                                            select=select,
                                                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_vpp_token(client,
-                                                      orderby=None,
-                                                      select=None,
-                                                      expand=None):
+def devicescorpmgt_device_app_management_list_vpp_token(client,
+                                                        orderby=None,
+                                                        select=None,
+                                                        expand=None):
     return client.list_vpp_tokens(orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_list_window_information_protection_policy(client,
-                                                                                 orderby=None,
-                                                                                 select=None,
-                                                                                 expand=None):
+def devicescorpmgt_device_app_management_list_window_information_protection_policy(client,
+                                                                                   orderby=None,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.list_windows_information_protection_policies(orderby=orderby,
                                                                select=select,
                                                                expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_android_managed_app_protection(client,
-                                                                           android_managed_app_protection_id,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_show_android_managed_app_protection(client,
+                                                                             android_managed_app_protection_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_android_managed_app_protections(android_managed_app_protection_id=android_managed_app_protection_id,
                                                       select=select,
                                                       expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_default_managed_app_protection(client,
-                                                                           default_managed_app_protection_id,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_show_default_managed_app_protection(client,
+                                                                             default_managed_app_protection_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_default_managed_app_protections(default_managed_app_protection_id=default_managed_app_protection_id,
                                                       select=select,
                                                       expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_io_managed_app_protection(client,
-                                                                      ios_managed_app_protection_id,
-                                                                      select=None,
-                                                                      expand=None):
+def devicescorpmgt_device_app_management_show_io_managed_app_protection(client,
+                                                                        ios_managed_app_protection_id,
+                                                                        select=None,
+                                                                        expand=None):
     return client.get_ios_managed_app_protections(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                                   select=select,
                                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_managed_app_policy(client,
-                                                               managed_app_policy_id,
-                                                               select=None,
-                                                               expand=None):
+def devicescorpmgt_device_app_management_show_managed_app_policy(client,
+                                                                 managed_app_policy_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_managed_app_policies(managed_app_policy_id=managed_app_policy_id,
                                            select=select,
                                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_managed_app_registration(client,
-                                                                     managed_app_registration_id,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_show_managed_app_registration(client,
+                                                                       managed_app_registration_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_managed_app_registrations(managed_app_registration_id=managed_app_registration_id,
                                                 select=select,
                                                 expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_managed_app_statuses(client,
-                                                                 managed_app_status_id,
-                                                                 select=None,
-                                                                 expand=None):
+def devicescorpmgt_device_app_management_show_managed_app_statuses(client,
+                                                                   managed_app_status_id,
+                                                                   select=None,
+                                                                   expand=None):
     return client.get_managed_app_statuses(managed_app_status_id=managed_app_status_id,
                                            select=select,
                                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_managed_e_book(client,
-                                                           managed_e_book_id,
-                                                           select=None,
-                                                           expand=None):
+def devicescorpmgt_device_app_management_show_managed_e_book(client,
+                                                             managed_e_book_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_managed_e_books(managed_e_book_id=managed_e_book_id,
                                       select=select,
                                       expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_mdm_window_information_protection_policy(client,
-                                                                                     mdm_windows_information_protection_policy_id,
-                                                                                     select=None,
-                                                                                     expand=None):
+def devicescorpmgt_device_app_management_show_mdm_window_information_protection_policy(client,
+                                                                                       mdm_windows_information_protection_policy_id,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.get_mdm_windows_information_protection_policies(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
                                                                   select=select,
                                                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_mobile_app(client,
-                                                       mobile_app_id,
-                                                       select=None,
-                                                       expand=None):
+def devicescorpmgt_device_app_management_show_mobile_app(client,
+                                                         mobile_app_id,
+                                                         select=None,
+                                                         expand=None):
     return client.get_mobile_apps(mobile_app_id=mobile_app_id,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_mobile_app_category(client,
-                                                                mobile_app_category_id,
-                                                                select=None,
-                                                                expand=None):
+def devicescorpmgt_device_app_management_show_mobile_app_category(client,
+                                                                  mobile_app_category_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_mobile_app_categories(mobile_app_category_id=mobile_app_category_id,
                                             select=select,
                                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_mobile_app_configuration(client,
-                                                                     managed_device_mobile_app_configuration_id,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_show_mobile_app_configuration(client,
+                                                                       managed_device_mobile_app_configuration_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_mobile_app_configurations(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                                 select=select,
                                                 expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_targeted_managed_app_configuration(client,
-                                                                               targeted_managed_app_configuration_id,
-                                                                               select=None,
-                                                                               expand=None):
+def devicescorpmgt_device_app_management_show_targeted_managed_app_configuration(client,
+                                                                                 targeted_managed_app_configuration_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_targeted_managed_app_configurations(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                                           select=select,
                                                           expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_vpp_token(client,
-                                                      vpp_token_id,
-                                                      select=None,
-                                                      expand=None):
+def devicescorpmgt_device_app_management_show_vpp_token(client,
+                                                        vpp_token_id,
+                                                        select=None,
+                                                        expand=None):
     return client.get_vpp_tokens(vpp_token_id=vpp_token_id,
                                  select=select,
                                  expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_show_window_information_protection_policy(client,
-                                                                                 windows_information_protection_policy_id,
-                                                                                 select=None,
-                                                                                 expand=None):
+def devicescorpmgt_device_app_management_show_window_information_protection_policy(client,
+                                                                                   windows_information_protection_policy_id,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.get_windows_information_protection_policies(windows_information_protection_policy_id=windows_information_protection_policy_id,
                                                               select=select,
                                                               expand=expand)
 
 
-def devicescorpmgt_deviceappmanagement_sync_microsoft_store_for_business_app(client):
+def devicescorpmgt_device_app_management_sync_microsoft_store_for_business_app(client):
     return client.sync_microsoft_store_for_business_apps()
 
 
-def devicescorpmgt_deviceappmanagement_update_android_managed_app_protection(client,
-                                                                             android_managed_app_protection_id,
-                                                                             body):
+def devicescorpmgt_device_app_management_update_android_managed_app_protection(client,
+                                                                               android_managed_app_protection_id,
+                                                                               id_=None,
+                                                                               created_date_time=None,
+                                                                               description=None,
+                                                                               display_name=None,
+                                                                               last_modified_date_time=None,
+                                                                               version=None,
+                                                                               allowed_data_storage_locations=None,
+                                                                               allowed_inbound_data_transfer_sources=None,
+                                                                               allowed_outbound_clipboard_sharing_level=None,
+                                                                               allowed_outbound_data_transfer_destinations=None,
+                                                                               contact_sync_blocked=None,
+                                                                               data_backup_blocked=None,
+                                                                               device_compliance_required=None,
+                                                                               disable_app_pin_if_device_pin_is_set=None,
+                                                                               fingerprint_blocked=None,
+                                                                               managed_browser=None,
+                                                                               managed_browser_to_open_links_required=None,
+                                                                               maximum_pin_retries=None,
+                                                                               minimum_pin_length=None,
+                                                                               minimum_required_app_version=None,
+                                                                               minimum_required_os_version=None,
+                                                                               minimum_warning_app_version=None,
+                                                                               minimum_warning_os_version=None,
+                                                                               organizational_credentials_required=None,
+                                                                               period_before_pin_reset=None,
+                                                                               period_offline_before_access_check=None,
+                                                                               period_offline_before_wipe_is_enforced=None,
+                                                                               period_online_before_access_check=None,
+                                                                               pin_character_set=None,
+                                                                               pin_required=None,
+                                                                               print_blocked=None,
+                                                                               save_as_blocked=None,
+                                                                               simple_pin_blocked=None,
+                                                                               is_assigned=None,
+                                                                               assignments=None,
+                                                                               custom_browser_display_name=None,
+                                                                               custom_browser_package_id=None,
+                                                                               deployed_app_count=None,
+                                                                               disable_app_encryption_if_device_encryption_is_enabled=None,
+                                                                               encrypt_app_data=None,
+                                                                               minimum_required_patch_version=None,
+                                                                               minimum_warning_patch_version=None,
+                                                                               screen_capture_blocked=None,
+                                                                               apps=None,
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['is_assigned'] = is_assigned
+    body['assignments'] = assignments
+    body['custom_browser_display_name'] = custom_browser_display_name
+    body['custom_browser_package_id'] = custom_browser_package_id
+    body['deployed_app_count'] = deployed_app_count
+    body['disable_app_encryption_if_device_encryption_is_enabled'] = disable_app_encryption_if_device_encryption_is_enabled
+    body['encrypt_app_data'] = encrypt_app_data
+    body['minimum_required_patch_version'] = minimum_required_patch_version
+    body['minimum_warning_patch_version'] = minimum_warning_patch_version
+    body['screen_capture_blocked'] = screen_capture_blocked
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.update_android_managed_app_protections(android_managed_app_protection_id=android_managed_app_protection_id,
                                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_default_managed_app_protection(client,
-                                                                             default_managed_app_protection_id,
-                                                                             body):
+def devicescorpmgt_device_app_management_update_default_managed_app_protection(client,
+                                                                               default_managed_app_protection_id,
+                                                                               id_=None,
+                                                                               created_date_time=None,
+                                                                               description=None,
+                                                                               display_name=None,
+                                                                               last_modified_date_time=None,
+                                                                               version=None,
+                                                                               allowed_data_storage_locations=None,
+                                                                               allowed_inbound_data_transfer_sources=None,
+                                                                               allowed_outbound_clipboard_sharing_level=None,
+                                                                               allowed_outbound_data_transfer_destinations=None,
+                                                                               contact_sync_blocked=None,
+                                                                               data_backup_blocked=None,
+                                                                               device_compliance_required=None,
+                                                                               disable_app_pin_if_device_pin_is_set=None,
+                                                                               fingerprint_blocked=None,
+                                                                               managed_browser=None,
+                                                                               managed_browser_to_open_links_required=None,
+                                                                               maximum_pin_retries=None,
+                                                                               minimum_pin_length=None,
+                                                                               minimum_required_app_version=None,
+                                                                               minimum_required_os_version=None,
+                                                                               minimum_warning_app_version=None,
+                                                                               minimum_warning_os_version=None,
+                                                                               organizational_credentials_required=None,
+                                                                               period_before_pin_reset=None,
+                                                                               period_offline_before_access_check=None,
+                                                                               period_offline_before_wipe_is_enforced=None,
+                                                                               period_online_before_access_check=None,
+                                                                               pin_character_set=None,
+                                                                               pin_required=None,
+                                                                               print_blocked=None,
+                                                                               save_as_blocked=None,
+                                                                               simple_pin_blocked=None,
+                                                                               app_data_encryption_type=None,
+                                                                               custom_settings=None,
+                                                                               deployed_app_count=None,
+                                                                               disable_app_encryption_if_device_encryption_is_enabled=None,
+                                                                               encrypt_app_data=None,
+                                                                               face_id_blocked=None,
+                                                                               minimum_required_patch_version=None,
+                                                                               minimum_required_sdk_version=None,
+                                                                               minimum_warning_patch_version=None,
+                                                                               screen_capture_blocked=None,
+                                                                               apps=None,
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['app_data_encryption_type'] = app_data_encryption_type
+    body['custom_settings'] = custom_settings
+    body['deployed_app_count'] = deployed_app_count
+    body['disable_app_encryption_if_device_encryption_is_enabled'] = disable_app_encryption_if_device_encryption_is_enabled
+    body['encrypt_app_data'] = encrypt_app_data
+    body['face_id_blocked'] = face_id_blocked
+    body['minimum_required_patch_version'] = minimum_required_patch_version
+    body['minimum_required_sdk_version'] = minimum_required_sdk_version
+    body['minimum_warning_patch_version'] = minimum_warning_patch_version
+    body['screen_capture_blocked'] = screen_capture_blocked
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.update_default_managed_app_protections(default_managed_app_protection_id=default_managed_app_protection_id,
                                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_io_managed_app_protection(client,
-                                                                        ios_managed_app_protection_id,
-                                                                        body):
+def devicescorpmgt_device_app_management_update_io_managed_app_protection(client,
+                                                                          ios_managed_app_protection_id,
+                                                                          id_=None,
+                                                                          created_date_time=None,
+                                                                          description=None,
+                                                                          display_name=None,
+                                                                          last_modified_date_time=None,
+                                                                          version=None,
+                                                                          allowed_data_storage_locations=None,
+                                                                          allowed_inbound_data_transfer_sources=None,
+                                                                          allowed_outbound_clipboard_sharing_level=None,
+                                                                          allowed_outbound_data_transfer_destinations=None,
+                                                                          contact_sync_blocked=None,
+                                                                          data_backup_blocked=None,
+                                                                          device_compliance_required=None,
+                                                                          disable_app_pin_if_device_pin_is_set=None,
+                                                                          fingerprint_blocked=None,
+                                                                          managed_browser=None,
+                                                                          managed_browser_to_open_links_required=None,
+                                                                          maximum_pin_retries=None,
+                                                                          minimum_pin_length=None,
+                                                                          minimum_required_app_version=None,
+                                                                          minimum_required_os_version=None,
+                                                                          minimum_warning_app_version=None,
+                                                                          minimum_warning_os_version=None,
+                                                                          organizational_credentials_required=None,
+                                                                          period_before_pin_reset=None,
+                                                                          period_offline_before_access_check=None,
+                                                                          period_offline_before_wipe_is_enforced=None,
+                                                                          period_online_before_access_check=None,
+                                                                          pin_character_set=None,
+                                                                          pin_required=None,
+                                                                          print_blocked=None,
+                                                                          save_as_blocked=None,
+                                                                          simple_pin_blocked=None,
+                                                                          is_assigned=None,
+                                                                          assignments=None,
+                                                                          app_data_encryption_type=None,
+                                                                          custom_browser_protocol=None,
+                                                                          deployed_app_count=None,
+                                                                          face_id_blocked=None,
+                                                                          minimum_required_sdk_version=None,
+                                                                          apps=None,
+                                                                          microsoft_graph_entity_id=None,
+                                                                          configuration_deployed_user_count=None,
+                                                                          configuration_deployment_summary_per_app=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                          last_refresh_time=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_version=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['version'] = version
+    body['allowed_data_storage_locations'] = allowed_data_storage_locations
+    body['allowed_inbound_data_transfer_sources'] = allowed_inbound_data_transfer_sources
+    body['allowed_outbound_clipboard_sharing_level'] = allowed_outbound_clipboard_sharing_level
+    body['allowed_outbound_data_transfer_destinations'] = allowed_outbound_data_transfer_destinations
+    body['contact_sync_blocked'] = contact_sync_blocked
+    body['data_backup_blocked'] = data_backup_blocked
+    body['device_compliance_required'] = device_compliance_required
+    body['disable_app_pin_if_device_pin_is_set'] = disable_app_pin_if_device_pin_is_set
+    body['fingerprint_blocked'] = fingerprint_blocked
+    body['managed_browser'] = managed_browser
+    body['managed_browser_to_open_links_required'] = managed_browser_to_open_links_required
+    body['maximum_pin_retries'] = maximum_pin_retries
+    body['minimum_pin_length'] = minimum_pin_length
+    body['minimum_required_app_version'] = minimum_required_app_version
+    body['minimum_required_os_version'] = minimum_required_os_version
+    body['minimum_warning_app_version'] = minimum_warning_app_version
+    body['minimum_warning_os_version'] = minimum_warning_os_version
+    body['organizational_credentials_required'] = organizational_credentials_required
+    body['period_before_pin_reset'] = period_before_pin_reset
+    body['period_offline_before_access_check'] = period_offline_before_access_check
+    body['period_offline_before_wipe_is_enforced'] = period_offline_before_wipe_is_enforced
+    body['period_online_before_access_check'] = period_online_before_access_check
+    body['pin_character_set'] = pin_character_set
+    body['pin_required'] = pin_required
+    body['print_blocked'] = print_blocked
+    body['save_as_blocked'] = save_as_blocked
+    body['simple_pin_blocked'] = simple_pin_blocked
+    body['is_assigned'] = is_assigned
+    body['assignments'] = assignments
+    body['app_data_encryption_type'] = app_data_encryption_type
+    body['custom_browser_protocol'] = custom_browser_protocol
+    body['deployed_app_count'] = deployed_app_count
+    body['face_id_blocked'] = face_id_blocked
+    body['minimum_required_sdk_version'] = minimum_required_sdk_version
+    body['apps'] = apps
+    body['deployment_summary'] = {}
+    body['deployment_summary']['id'] = microsoft_graph_entity_id
+    body['deployment_summary']['configuration_deployed_user_count'] = configuration_deployed_user_count
+    body['deployment_summary']['configuration_deployment_summary_per_app'] = configuration_deployment_summary_per_app
+    body['deployment_summary']['display_name'] = microsoft_graph_managed_app_policy_deployment_summary_display_name
+    body['deployment_summary']['last_refresh_time'] = last_refresh_time
+    body['deployment_summary']['version'] = microsoft_graph_managed_app_policy_deployment_summary_version
     return client.update_ios_managed_app_protections(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_managed_app_policy(client,
-                                                                 managed_app_policy_id,
-                                                                 id_=None,
-                                                                 created_date_time=None,
-                                                                 description=None,
-                                                                 display_name=None,
-                                                                 last_modified_date_time=None,
-                                                                 version=None):
+def devicescorpmgt_device_app_management_update_managed_app_policy(client,
+                                                                   managed_app_policy_id,
+                                                                   id_=None,
+                                                                   created_date_time=None,
+                                                                   description=None,
+                                                                   display_name=None,
+                                                                   last_modified_date_time=None,
+                                                                   version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -872,24 +1466,24 @@ def devicescorpmgt_deviceappmanagement_update_managed_app_policy(client,
                                               body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_managed_app_registration(client,
-                                                                       managed_app_registration_id,
-                                                                       id_=None,
-                                                                       app_identifier=None,
-                                                                       application_version=None,
-                                                                       created_date_time=None,
-                                                                       device_name=None,
-                                                                       device_tag=None,
-                                                                       device_type=None,
-                                                                       flagged_reasons=None,
-                                                                       last_sync_date_time=None,
-                                                                       management_sdk_version=None,
-                                                                       platform_version=None,
-                                                                       user_id=None,
-                                                                       version=None,
-                                                                       applied_policies=None,
-                                                                       intended_policies=None,
-                                                                       operations=None):
+def devicescorpmgt_device_app_management_update_managed_app_registration(client,
+                                                                         managed_app_registration_id,
+                                                                         id_=None,
+                                                                         app_identifier=None,
+                                                                         application_version=None,
+                                                                         created_date_time=None,
+                                                                         device_name=None,
+                                                                         device_tag=None,
+                                                                         device_type=None,
+                                                                         flagged_reasons=None,
+                                                                         last_sync_date_time=None,
+                                                                         management_sdk_version=None,
+                                                                         platform_version=None,
+                                                                         user_id=None,
+                                                                         version=None,
+                                                                         applied_policies=None,
+                                                                         intended_policies=None,
+                                                                         operations=None):
     body = {}
     body['id'] = id_
     body['app_identifier'] = app_identifier
@@ -911,11 +1505,11 @@ def devicescorpmgt_deviceappmanagement_update_managed_app_registration(client,
                                                    body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_managed_app_statuses(client,
-                                                                   managed_app_status_id,
-                                                                   id_=None,
-                                                                   display_name=None,
-                                                                   version=None):
+def devicescorpmgt_device_app_management_update_managed_app_statuses(client,
+                                                                     managed_app_status_id,
+                                                                     id_=None,
+                                                                     display_name=None,
+                                                                     version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -924,22 +1518,22 @@ def devicescorpmgt_deviceappmanagement_update_managed_app_statuses(client,
                                               body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_managed_e_book(client,
-                                                             managed_e_book_id,
-                                                             id_=None,
-                                                             created_date_time=None,
-                                                             description=None,
-                                                             display_name=None,
-                                                             information_url=None,
-                                                             large_cover=None,
-                                                             last_modified_date_time=None,
-                                                             privacy_information_url=None,
-                                                             published_date_time=None,
-                                                             publisher=None,
-                                                             assignments=None,
-                                                             device_states=None,
-                                                             install_summary=None,
-                                                             user_state_summary=None):
+def devicescorpmgt_device_app_management_update_managed_e_book(client,
+                                                               managed_e_book_id,
+                                                               id_=None,
+                                                               created_date_time=None,
+                                                               description=None,
+                                                               display_name=None,
+                                                               information_url=None,
+                                                               large_cover=None,
+                                                               last_modified_date_time=None,
+                                                               privacy_information_url=None,
+                                                               published_date_time=None,
+                                                               publisher=None,
+                                                               assignments=None,
+                                                               device_states=None,
+                                                               install_summary=None,
+                                                               user_state_summary=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -959,39 +1553,39 @@ def devicescorpmgt_deviceappmanagement_update_managed_e_book(client,
                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_mdm_window_information_protection_policy(client,
-                                                                                       mdm_windows_information_protection_policy_id,
-                                                                                       id_=None,
-                                                                                       created_date_time=None,
-                                                                                       description=None,
-                                                                                       display_name=None,
-                                                                                       last_modified_date_time=None,
-                                                                                       version=None,
-                                                                                       azure_rights_management_services_allowed=None,
-                                                                                       data_recovery_certificate=None,
-                                                                                       enforcement_level=None,
-                                                                                       enterprise_domain=None,
-                                                                                       enterprise_internal_proxy_servers=None,
-                                                                                       enterprise_ip_ranges=None,
-                                                                                       enterprise_ip_ranges_are_authoritative=None,
-                                                                                       enterprise_network_domain_names=None,
-                                                                                       enterprise_protected_domain_names=None,
-                                                                                       enterprise_proxied_domains=None,
-                                                                                       enterprise_proxy_servers=None,
-                                                                                       enterprise_proxy_servers_are_authoritative=None,
-                                                                                       exempt_apps=None,
-                                                                                       icons_visible=None,
-                                                                                       indexing_encrypted_stores_or_items_blocked=None,
-                                                                                       is_assigned=None,
-                                                                                       neutral_domain_resources=None,
-                                                                                       protected_apps=None,
-                                                                                       protection_under_lock_config_required=None,
-                                                                                       revoke_on_unenroll_disabled=None,
-                                                                                       rights_management_services_template_id=None,
-                                                                                       smb_auto_encrypted_file_extensions=None,
-                                                                                       assignments=None,
-                                                                                       exempt_app_locker_files=None,
-                                                                                       protected_app_locker_files=None):
+def devicescorpmgt_device_app_management_update_mdm_window_information_protection_policy(client,
+                                                                                         mdm_windows_information_protection_policy_id,
+                                                                                         id_=None,
+                                                                                         created_date_time=None,
+                                                                                         description=None,
+                                                                                         display_name=None,
+                                                                                         last_modified_date_time=None,
+                                                                                         version=None,
+                                                                                         azure_rights_management_services_allowed=None,
+                                                                                         data_recovery_certificate=None,
+                                                                                         enforcement_level=None,
+                                                                                         enterprise_domain=None,
+                                                                                         enterprise_internal_proxy_servers=None,
+                                                                                         enterprise_ip_ranges=None,
+                                                                                         enterprise_ip_ranges_are_authoritative=None,
+                                                                                         enterprise_network_domain_names=None,
+                                                                                         enterprise_protected_domain_names=None,
+                                                                                         enterprise_proxied_domains=None,
+                                                                                         enterprise_proxy_servers=None,
+                                                                                         enterprise_proxy_servers_are_authoritative=None,
+                                                                                         exempt_apps=None,
+                                                                                         icons_visible=None,
+                                                                                         indexing_encrypted_stores_or_items_blocked=None,
+                                                                                         is_assigned=None,
+                                                                                         neutral_domain_resources=None,
+                                                                                         protected_apps=None,
+                                                                                         protection_under_lock_config_required=None,
+                                                                                         revoke_on_unenroll_disabled=None,
+                                                                                         rights_management_services_template_id=None,
+                                                                                         smb_auto_encrypted_file_extensions=None,
+                                                                                         assignments=None,
+                                                                                         exempt_app_locker_files=None,
+                                                                                         protected_app_locker_files=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1028,24 +1622,24 @@ def devicescorpmgt_deviceappmanagement_update_mdm_window_information_protection_
                                                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_mobile_app(client,
-                                                         mobile_app_id,
-                                                         id_=None,
-                                                         created_date_time=None,
-                                                         description=None,
-                                                         developer=None,
-                                                         display_name=None,
-                                                         information_url=None,
-                                                         is_featured=None,
-                                                         large_icon=None,
-                                                         last_modified_date_time=None,
-                                                         notes=None,
-                                                         owner=None,
-                                                         privacy_information_url=None,
-                                                         publisher=None,
-                                                         publishing_state=None,
-                                                         assignments=None,
-                                                         categories=None):
+def devicescorpmgt_device_app_management_update_mobile_app(client,
+                                                           mobile_app_id,
+                                                           id_=None,
+                                                           created_date_time=None,
+                                                           description=None,
+                                                           developer=None,
+                                                           display_name=None,
+                                                           information_url=None,
+                                                           is_featured=None,
+                                                           large_icon=None,
+                                                           last_modified_date_time=None,
+                                                           notes=None,
+                                                           owner=None,
+                                                           privacy_information_url=None,
+                                                           publisher=None,
+                                                           publishing_state=None,
+                                                           assignments=None,
+                                                           categories=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1067,11 +1661,11 @@ def devicescorpmgt_deviceappmanagement_update_mobile_app(client,
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_mobile_app_category(client,
-                                                                  mobile_app_category_id,
-                                                                  id_=None,
-                                                                  display_name=None,
-                                                                  last_modified_date_time=None):
+def devicescorpmgt_device_app_management_update_mobile_app_category(client,
+                                                                    mobile_app_category_id,
+                                                                    id_=None,
+                                                                    display_name=None,
+                                                                    last_modified_date_time=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1080,20 +1674,20 @@ def devicescorpmgt_deviceappmanagement_update_mobile_app_category(client,
                                                body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_mobile_app_configuration(client,
-                                                                       managed_device_mobile_app_configuration_id,
-                                                                       id_=None,
-                                                                       created_date_time=None,
-                                                                       description=None,
-                                                                       display_name=None,
-                                                                       last_modified_date_time=None,
-                                                                       targeted_mobile_apps=None,
-                                                                       version=None,
-                                                                       assignments=None,
-                                                                       device_statuses=None,
-                                                                       device_status_summary=None,
-                                                                       user_statuses=None,
-                                                                       user_status_summary=None):
+def devicescorpmgt_device_app_management_update_mobile_app_configuration(client,
+                                                                         managed_device_mobile_app_configuration_id,
+                                                                         id_=None,
+                                                                         created_date_time=None,
+                                                                         description=None,
+                                                                         display_name=None,
+                                                                         last_modified_date_time=None,
+                                                                         targeted_mobile_apps=None,
+                                                                         version=None,
+                                                                         assignments=None,
+                                                                         device_statuses=None,
+                                                                         device_status_summary=None,
+                                                                         user_statuses=None,
+                                                                         user_status_summary=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1111,25 +1705,25 @@ def devicescorpmgt_deviceappmanagement_update_mobile_app_configuration(client,
                                                    body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_targeted_managed_app_configuration(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 id_=None,
-                                                                                 created_date_time=None,
-                                                                                 description=None,
-                                                                                 display_name=None,
-                                                                                 last_modified_date_time=None,
-                                                                                 version=None,
-                                                                                 custom_settings=None,
-                                                                                 deployed_app_count=None,
-                                                                                 is_assigned=None,
-                                                                                 apps=None,
-                                                                                 assignments=None,
-                                                                                 microsoft_graph_entity_id=None,
-                                                                                 configuration_deployed_user_count=None,
-                                                                                 configuration_deployment_summary_per_app=None,
-                                                                                 microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
-                                                                                 last_refresh_time=None,
-                                                                                 microsoft_graph_managed_app_policy_deployment_summary_version=None):
+def devicescorpmgt_device_app_management_update_targeted_managed_app_configuration(client,
+                                                                                   targeted_managed_app_configuration_id,
+                                                                                   id_=None,
+                                                                                   created_date_time=None,
+                                                                                   description=None,
+                                                                                   display_name=None,
+                                                                                   last_modified_date_time=None,
+                                                                                   version=None,
+                                                                                   custom_settings=None,
+                                                                                   deployed_app_count=None,
+                                                                                   is_assigned=None,
+                                                                                   apps=None,
+                                                                                   assignments=None,
+                                                                                   microsoft_graph_entity_id=None,
+                                                                                   configuration_deployed_user_count=None,
+                                                                                   configuration_deployment_summary_per_app=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                                   last_refresh_time=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1153,20 +1747,20 @@ def devicescorpmgt_deviceappmanagement_update_targeted_managed_app_configuration
                                                              body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_vpp_token(client,
-                                                        vpp_token_id,
-                                                        id_=None,
-                                                        apple_id=None,
-                                                        automatically_update_apps=None,
-                                                        country_or_region=None,
-                                                        expiration_date_time=None,
-                                                        last_modified_date_time=None,
-                                                        last_sync_date_time=None,
-                                                        last_sync_status=None,
-                                                        organization_name=None,
-                                                        state=None,
-                                                        token=None,
-                                                        vpp_token_account_type=None):
+def devicescorpmgt_device_app_management_update_vpp_token(client,
+                                                          vpp_token_id,
+                                                          id_=None,
+                                                          apple_id=None,
+                                                          automatically_update_apps=None,
+                                                          country_or_region=None,
+                                                          expiration_date_time=None,
+                                                          last_modified_date_time=None,
+                                                          last_sync_date_time=None,
+                                                          last_sync_status=None,
+                                                          organization_name=None,
+                                                          state=None,
+                                                          token=None,
+                                                          vpp_token_account_type=None):
     body = {}
     body['id'] = id_
     body['apple_id'] = apple_id
@@ -1184,51 +1778,51 @@ def devicescorpmgt_deviceappmanagement_update_vpp_token(client,
                                     body=body)
 
 
-def devicescorpmgt_deviceappmanagement_update_window_information_protection_policy(client,
-                                                                                   windows_information_protection_policy_id,
-                                                                                   id_=None,
-                                                                                   created_date_time=None,
-                                                                                   description=None,
-                                                                                   display_name=None,
-                                                                                   last_modified_date_time=None,
-                                                                                   version=None,
-                                                                                   azure_rights_management_services_allowed=None,
-                                                                                   data_recovery_certificate=None,
-                                                                                   enforcement_level=None,
-                                                                                   enterprise_domain=None,
-                                                                                   enterprise_internal_proxy_servers=None,
-                                                                                   enterprise_ip_ranges=None,
-                                                                                   enterprise_ip_ranges_are_authoritative=None,
-                                                                                   enterprise_network_domain_names=None,
-                                                                                   enterprise_protected_domain_names=None,
-                                                                                   enterprise_proxied_domains=None,
-                                                                                   enterprise_proxy_servers=None,
-                                                                                   enterprise_proxy_servers_are_authoritative=None,
-                                                                                   exempt_apps=None,
-                                                                                   icons_visible=None,
-                                                                                   indexing_encrypted_stores_or_items_blocked=None,
-                                                                                   is_assigned=None,
-                                                                                   neutral_domain_resources=None,
-                                                                                   protected_apps=None,
-                                                                                   protection_under_lock_config_required=None,
-                                                                                   revoke_on_unenroll_disabled=None,
-                                                                                   rights_management_services_template_id=None,
-                                                                                   smb_auto_encrypted_file_extensions=None,
-                                                                                   assignments=None,
-                                                                                   exempt_app_locker_files=None,
-                                                                                   protected_app_locker_files=None,
-                                                                                   days_without_contact_before_unenroll=None,
-                                                                                   mdm_enrollment_url=None,
-                                                                                   minutes_of_inactivity_before_device_lock=None,
-                                                                                   number_of_past_pins_remembered=None,
-                                                                                   password_maximum_attempt_count=None,
-                                                                                   pin_expiration_days=None,
-                                                                                   pin_lowercase_letters=None,
-                                                                                   pin_minimum_length=None,
-                                                                                   pin_special_characters=None,
-                                                                                   pin_uppercase_letters=None,
-                                                                                   revoke_on_mdm_handoff_disabled=None,
-                                                                                   windows_hello_for_business_blocked=None):
+def devicescorpmgt_device_app_management_update_window_information_protection_policy(client,
+                                                                                     windows_information_protection_policy_id,
+                                                                                     id_=None,
+                                                                                     created_date_time=None,
+                                                                                     description=None,
+                                                                                     display_name=None,
+                                                                                     last_modified_date_time=None,
+                                                                                     version=None,
+                                                                                     azure_rights_management_services_allowed=None,
+                                                                                     data_recovery_certificate=None,
+                                                                                     enforcement_level=None,
+                                                                                     enterprise_domain=None,
+                                                                                     enterprise_internal_proxy_servers=None,
+                                                                                     enterprise_ip_ranges=None,
+                                                                                     enterprise_ip_ranges_are_authoritative=None,
+                                                                                     enterprise_network_domain_names=None,
+                                                                                     enterprise_protected_domain_names=None,
+                                                                                     enterprise_proxied_domains=None,
+                                                                                     enterprise_proxy_servers=None,
+                                                                                     enterprise_proxy_servers_are_authoritative=None,
+                                                                                     exempt_apps=None,
+                                                                                     icons_visible=None,
+                                                                                     indexing_encrypted_stores_or_items_blocked=None,
+                                                                                     is_assigned=None,
+                                                                                     neutral_domain_resources=None,
+                                                                                     protected_apps=None,
+                                                                                     protection_under_lock_config_required=None,
+                                                                                     revoke_on_unenroll_disabled=None,
+                                                                                     rights_management_services_template_id=None,
+                                                                                     smb_auto_encrypted_file_extensions=None,
+                                                                                     assignments=None,
+                                                                                     exempt_app_locker_files=None,
+                                                                                     protected_app_locker_files=None,
+                                                                                     days_without_contact_before_unenroll=None,
+                                                                                     mdm_enrollment_url=None,
+                                                                                     minutes_of_inactivity_before_device_lock=None,
+                                                                                     number_of_past_pins_remembered=None,
+                                                                                     password_maximum_attempt_count=None,
+                                                                                     pin_expiration_days=None,
+                                                                                     pin_lowercase_letters=None,
+                                                                                     pin_minimum_length=None,
+                                                                                     pin_special_characters=None,
+                                                                                     pin_uppercase_letters=None,
+                                                                                     revoke_on_mdm_handoff_disabled=None,
+                                                                                     windows_hello_for_business_blocked=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1277,11 +1871,11 @@ def devicescorpmgt_deviceappmanagement_update_window_information_protection_poli
                                                                  body=body)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_create_app(client,
-                                                                             android_managed_app_protection_id,
-                                                                             id_=None,
-                                                                             mobile_app_identifier=None,
-                                                                             version=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_create_app(client,
+                                                                                   android_managed_app_protection_id,
+                                                                                   id_=None,
+                                                                                   mobile_app_identifier=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1290,59 +1884,59 @@ def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_create_app(cli
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_delete_app(client,
-                                                                             android_managed_app_protection_id,
-                                                                             managed_mobile_app_id,
-                                                                             if_match=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_delete_app(client,
+                                                                                   android_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   if_match=None):
     return client.delete_apps(android_managed_app_protection_id=android_managed_app_protection_id,
                               managed_mobile_app_id=managed_mobile_app_id,
                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_delete_deployment_summary(client,
-                                                                                            android_managed_app_protection_id,
-                                                                                            if_match=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_delete_deployment_summary(client,
+                                                                                                  android_managed_app_protection_id,
+                                                                                                  if_match=None):
     return client.delete_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
                                             if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_list_app(client,
-                                                                           android_managed_app_protection_id,
-                                                                           orderby=None,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_list_app(client,
+                                                                                 android_managed_app_protection_id,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_apps(android_managed_app_protection_id=android_managed_app_protection_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_show_app(client,
-                                                                           android_managed_app_protection_id,
-                                                                           managed_mobile_app_id,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_show_app(client,
+                                                                                 android_managed_app_protection_id,
+                                                                                 managed_mobile_app_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_apps(android_managed_app_protection_id=android_managed_app_protection_id,
                            managed_mobile_app_id=managed_mobile_app_id,
                            select=select,
                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_show_deployment_summary(client,
-                                                                                          android_managed_app_protection_id,
-                                                                                          select=None,
-                                                                                          expand=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_show_deployment_summary(client,
+                                                                                                android_managed_app_protection_id,
+                                                                                                select=None,
+                                                                                                expand=None):
     return client.get_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_app(client,
-                                                                             android_managed_app_protection_id,
-                                                                             managed_mobile_app_id,
-                                                                             id_=None,
-                                                                             mobile_app_identifier=None,
-                                                                             version=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_update_app(client,
+                                                                                   android_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   id_=None,
+                                                                                   mobile_app_identifier=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1352,14 +1946,14 @@ def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_app(cli
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_deployment_summary(client,
-                                                                                            android_managed_app_protection_id,
-                                                                                            id_=None,
-                                                                                            configuration_deployed_user_count=None,
-                                                                                            configuration_deployment_summary_per_app=None,
-                                                                                            display_name=None,
-                                                                                            last_refresh_time=None,
-                                                                                            version=None):
+def devicescorpmgt_device_app_management_android_managed_app_protection_update_deployment_summary(client,
+                                                                                                  android_managed_app_protection_id,
+                                                                                                  id_=None,
+                                                                                                  configuration_deployed_user_count=None,
+                                                                                                  configuration_deployment_summary_per_app=None,
+                                                                                                  display_name=None,
+                                                                                                  last_refresh_time=None,
+                                                                                                  version=None):
     body = {}
     body['id'] = id_
     body['configuration_deployed_user_count'] = configuration_deployed_user_count
@@ -1371,11 +1965,11 @@ def devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_deploym
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_create_app(client,
-                                                                             default_managed_app_protection_id,
-                                                                             id_=None,
-                                                                             mobile_app_identifier=None,
-                                                                             version=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_create_app(client,
+                                                                                   default_managed_app_protection_id,
+                                                                                   id_=None,
+                                                                                   mobile_app_identifier=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1384,59 +1978,59 @@ def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_create_app(cli
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_delete_app(client,
-                                                                             default_managed_app_protection_id,
-                                                                             managed_mobile_app_id,
-                                                                             if_match=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_delete_app(client,
+                                                                                   default_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   if_match=None):
     return client.delete_apps(default_managed_app_protection_id=default_managed_app_protection_id,
                               managed_mobile_app_id=managed_mobile_app_id,
                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_delete_deployment_summary(client,
-                                                                                            default_managed_app_protection_id,
-                                                                                            if_match=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_delete_deployment_summary(client,
+                                                                                                  default_managed_app_protection_id,
+                                                                                                  if_match=None):
     return client.delete_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
                                             if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_list_app(client,
-                                                                           default_managed_app_protection_id,
-                                                                           orderby=None,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_list_app(client,
+                                                                                 default_managed_app_protection_id,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_apps(default_managed_app_protection_id=default_managed_app_protection_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_show_app(client,
-                                                                           default_managed_app_protection_id,
-                                                                           managed_mobile_app_id,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_show_app(client,
+                                                                                 default_managed_app_protection_id,
+                                                                                 managed_mobile_app_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_apps(default_managed_app_protection_id=default_managed_app_protection_id,
                            managed_mobile_app_id=managed_mobile_app_id,
                            select=select,
                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_show_deployment_summary(client,
-                                                                                          default_managed_app_protection_id,
-                                                                                          select=None,
-                                                                                          expand=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_show_deployment_summary(client,
+                                                                                                default_managed_app_protection_id,
+                                                                                                select=None,
+                                                                                                expand=None):
     return client.get_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_app(client,
-                                                                             default_managed_app_protection_id,
-                                                                             managed_mobile_app_id,
-                                                                             id_=None,
-                                                                             mobile_app_identifier=None,
-                                                                             version=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_update_app(client,
+                                                                                   default_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   id_=None,
+                                                                                   mobile_app_identifier=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1446,14 +2040,14 @@ def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_app(cli
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_deployment_summary(client,
-                                                                                            default_managed_app_protection_id,
-                                                                                            id_=None,
-                                                                                            configuration_deployed_user_count=None,
-                                                                                            configuration_deployment_summary_per_app=None,
-                                                                                            display_name=None,
-                                                                                            last_refresh_time=None,
-                                                                                            version=None):
+def devicescorpmgt_device_app_management_default_managed_app_protection_update_deployment_summary(client,
+                                                                                                  default_managed_app_protection_id,
+                                                                                                  id_=None,
+                                                                                                  configuration_deployed_user_count=None,
+                                                                                                  configuration_deployment_summary_per_app=None,
+                                                                                                  display_name=None,
+                                                                                                  last_refresh_time=None,
+                                                                                                  version=None):
     body = {}
     body['id'] = id_
     body['configuration_deployed_user_count'] = configuration_deployed_user_count
@@ -1465,11 +2059,11 @@ def devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_deploym
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_create_app(client,
-                                                                         ios_managed_app_protection_id,
-                                                                         id_=None,
-                                                                         mobile_app_identifier=None,
-                                                                         version=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_create_app(client,
+                                                                              ios_managed_app_protection_id,
+                                                                              id_=None,
+                                                                              mobile_app_identifier=None,
+                                                                              version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1478,59 +2072,59 @@ def devicescorpmgt_deviceappmanagementiosmanagedappprotection_create_app(client,
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_delete_app(client,
-                                                                         ios_managed_app_protection_id,
-                                                                         managed_mobile_app_id,
-                                                                         if_match=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_delete_app(client,
+                                                                              ios_managed_app_protection_id,
+                                                                              managed_mobile_app_id,
+                                                                              if_match=None):
     return client.delete_apps(ios_managed_app_protection_id=ios_managed_app_protection_id,
                               managed_mobile_app_id=managed_mobile_app_id,
                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_delete_deployment_summary(client,
-                                                                                        ios_managed_app_protection_id,
-                                                                                        if_match=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_delete_deployment_summary(client,
+                                                                                             ios_managed_app_protection_id,
+                                                                                             if_match=None):
     return client.delete_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                             if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_list_app(client,
-                                                                       ios_managed_app_protection_id,
-                                                                       orderby=None,
-                                                                       select=None,
-                                                                       expand=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_list_app(client,
+                                                                            ios_managed_app_protection_id,
+                                                                            orderby=None,
+                                                                            select=None,
+                                                                            expand=None):
     return client.list_apps(ios_managed_app_protection_id=ios_managed_app_protection_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_show_app(client,
-                                                                       ios_managed_app_protection_id,
-                                                                       managed_mobile_app_id,
-                                                                       select=None,
-                                                                       expand=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_show_app(client,
+                                                                            ios_managed_app_protection_id,
+                                                                            managed_mobile_app_id,
+                                                                            select=None,
+                                                                            expand=None):
     return client.get_apps(ios_managed_app_protection_id=ios_managed_app_protection_id,
                            managed_mobile_app_id=managed_mobile_app_id,
                            select=select,
                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_show_deployment_summary(client,
-                                                                                      ios_managed_app_protection_id,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_show_deployment_summary(client,
+                                                                                           ios_managed_app_protection_id,
+                                                                                           select=None,
+                                                                                           expand=None):
     return client.get_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_app(client,
-                                                                         ios_managed_app_protection_id,
-                                                                         managed_mobile_app_id,
-                                                                         id_=None,
-                                                                         mobile_app_identifier=None,
-                                                                         version=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_update_app(client,
+                                                                              ios_managed_app_protection_id,
+                                                                              managed_mobile_app_id,
+                                                                              id_=None,
+                                                                              mobile_app_identifier=None,
+                                                                              version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -1540,14 +2134,14 @@ def devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_app(client,
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_deployment_summary(client,
-                                                                                        ios_managed_app_protection_id,
-                                                                                        id_=None,
-                                                                                        configuration_deployed_user_count=None,
-                                                                                        configuration_deployment_summary_per_app=None,
-                                                                                        display_name=None,
-                                                                                        last_refresh_time=None,
-                                                                                        version=None):
+def devicescorpmgt_device_app_management_io_managed_app_protection_update_deployment_summary(client,
+                                                                                             ios_managed_app_protection_id,
+                                                                                             id_=None,
+                                                                                             configuration_deployed_user_count=None,
+                                                                                             configuration_deployment_summary_per_app=None,
+                                                                                             display_name=None,
+                                                                                             last_refresh_time=None,
+                                                                                             version=None):
     body = {}
     body['id'] = id_
     body['configuration_deployed_user_count'] = configuration_deployed_user_count
@@ -1559,23 +2153,23 @@ def devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_deployment_
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedapppolicy_target_app(client,
-                                                                  managed_app_policy_id,
-                                                                  apps=None):
+def devicescorpmgt_device_app_management_managed_app_policy_target_app(client,
+                                                                       managed_app_policy_id,
+                                                                       apps=None):
     body = {}
     body['apps'] = apps
     return client.target_apps(managed_app_policy_id=managed_app_policy_id,
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_create_applied_policy(client,
-                                                                                   managed_app_registration_id,
-                                                                                   id_=None,
-                                                                                   created_date_time=None,
-                                                                                   description=None,
-                                                                                   display_name=None,
-                                                                                   last_modified_date_time=None,
-                                                                                   version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_create_applied_policy(client,
+                                                                                        managed_app_registration_id,
+                                                                                        id_=None,
+                                                                                        created_date_time=None,
+                                                                                        description=None,
+                                                                                        display_name=None,
+                                                                                        last_modified_date_time=None,
+                                                                                        version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1587,14 +2181,14 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_create_applied_poli
                                           body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_create_intended_policy(client,
-                                                                                    managed_app_registration_id,
-                                                                                    id_=None,
-                                                                                    created_date_time=None,
-                                                                                    description=None,
-                                                                                    display_name=None,
-                                                                                    last_modified_date_time=None,
-                                                                                    version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_create_intended_policy(client,
+                                                                                         managed_app_registration_id,
+                                                                                         id_=None,
+                                                                                         created_date_time=None,
+                                                                                         description=None,
+                                                                                         display_name=None,
+                                                                                         last_modified_date_time=None,
+                                                                                         version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1606,13 +2200,13 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_create_intended_pol
                                            body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_create_operation(client,
-                                                                              managed_app_registration_id,
-                                                                              id_=None,
-                                                                              display_name=None,
-                                                                              last_modified_date_time=None,
-                                                                              state=None,
-                                                                              version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_create_operation(client,
+                                                                                   managed_app_registration_id,
+                                                                                   id_=None,
+                                                                                   display_name=None,
+                                                                                   last_modified_date_time=None,
+                                                                                   state=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1623,112 +2217,112 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_create_operation(cl
                                     body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_delete_applied_policy(client,
-                                                                                   managed_app_registration_id,
-                                                                                   managed_app_policy_id,
-                                                                                   if_match=None):
+def devicescorpmgt_device_app_management_managed_app_registration_delete_applied_policy(client,
+                                                                                        managed_app_registration_id,
+                                                                                        managed_app_policy_id,
+                                                                                        if_match=None):
     return client.delete_applied_policies(managed_app_registration_id=managed_app_registration_id,
                                           managed_app_policy_id=managed_app_policy_id,
                                           if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_delete_intended_policy(client,
-                                                                                    managed_app_registration_id,
-                                                                                    managed_app_policy_id,
-                                                                                    if_match=None):
+def devicescorpmgt_device_app_management_managed_app_registration_delete_intended_policy(client,
+                                                                                         managed_app_registration_id,
+                                                                                         managed_app_policy_id,
+                                                                                         if_match=None):
     return client.delete_intended_policies(managed_app_registration_id=managed_app_registration_id,
                                            managed_app_policy_id=managed_app_policy_id,
                                            if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_delete_operation(client,
-                                                                              managed_app_registration_id,
-                                                                              managed_app_operation_id,
-                                                                              if_match=None):
+def devicescorpmgt_device_app_management_managed_app_registration_delete_operation(client,
+                                                                                   managed_app_registration_id,
+                                                                                   managed_app_operation_id,
+                                                                                   if_match=None):
     return client.delete_operations(managed_app_registration_id=managed_app_registration_id,
                                     managed_app_operation_id=managed_app_operation_id,
                                     if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_list_applied_policy(client,
-                                                                                 managed_app_registration_id,
-                                                                                 orderby=None,
-                                                                                 select=None,
-                                                                                 expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_list_applied_policy(client,
+                                                                                      managed_app_registration_id,
+                                                                                      orderby=None,
+                                                                                      select=None,
+                                                                                      expand=None):
     return client.list_applied_policies(managed_app_registration_id=managed_app_registration_id,
                                         orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_list_intended_policy(client,
-                                                                                  managed_app_registration_id,
-                                                                                  orderby=None,
-                                                                                  select=None,
-                                                                                  expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_list_intended_policy(client,
+                                                                                       managed_app_registration_id,
+                                                                                       orderby=None,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.list_intended_policies(managed_app_registration_id=managed_app_registration_id,
                                          orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_list_operation(client,
-                                                                            managed_app_registration_id,
-                                                                            orderby=None,
-                                                                            select=None,
-                                                                            expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_list_operation(client,
+                                                                                 managed_app_registration_id,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_operations(managed_app_registration_id=managed_app_registration_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_show_applied_policy(client,
-                                                                                 managed_app_registration_id,
-                                                                                 managed_app_policy_id,
-                                                                                 select=None,
-                                                                                 expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_show_applied_policy(client,
+                                                                                      managed_app_registration_id,
+                                                                                      managed_app_policy_id,
+                                                                                      select=None,
+                                                                                      expand=None):
     return client.get_applied_policies(managed_app_registration_id=managed_app_registration_id,
                                        managed_app_policy_id=managed_app_policy_id,
                                        select=select,
                                        expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_show_intended_policy(client,
-                                                                                  managed_app_registration_id,
-                                                                                  managed_app_policy_id,
-                                                                                  select=None,
-                                                                                  expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_show_intended_policy(client,
+                                                                                       managed_app_registration_id,
+                                                                                       managed_app_policy_id,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.get_intended_policies(managed_app_registration_id=managed_app_registration_id,
                                         managed_app_policy_id=managed_app_policy_id,
                                         select=select,
                                         expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_show_operation(client,
-                                                                            managed_app_registration_id,
-                                                                            managed_app_operation_id,
-                                                                            select=None,
-                                                                            expand=None):
+def devicescorpmgt_device_app_management_managed_app_registration_show_operation(client,
+                                                                                 managed_app_registration_id,
+                                                                                 managed_app_operation_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_operations(managed_app_registration_id=managed_app_registration_id,
                                  managed_app_operation_id=managed_app_operation_id,
                                  select=select,
                                  expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_show_user_id_with_flagged_app_registration(client):
+def devicescorpmgt_device_app_management_managed_app_registration_show_user_id_with_flagged_app_registration(client):
     return client.get_user_ids_with_flagged_app_registration()
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_update_applied_policy(client,
-                                                                                   managed_app_registration_id,
-                                                                                   managed_app_policy_id,
-                                                                                   id_=None,
-                                                                                   created_date_time=None,
-                                                                                   description=None,
-                                                                                   display_name=None,
-                                                                                   last_modified_date_time=None,
-                                                                                   version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_update_applied_policy(client,
+                                                                                        managed_app_registration_id,
+                                                                                        managed_app_policy_id,
+                                                                                        id_=None,
+                                                                                        created_date_time=None,
+                                                                                        description=None,
+                                                                                        display_name=None,
+                                                                                        last_modified_date_time=None,
+                                                                                        version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1741,15 +2335,15 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_update_applied_poli
                                           body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_update_intended_policy(client,
-                                                                                    managed_app_registration_id,
-                                                                                    managed_app_policy_id,
-                                                                                    id_=None,
-                                                                                    created_date_time=None,
-                                                                                    description=None,
-                                                                                    display_name=None,
-                                                                                    last_modified_date_time=None,
-                                                                                    version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_update_intended_policy(client,
+                                                                                         managed_app_registration_id,
+                                                                                         managed_app_policy_id,
+                                                                                         id_=None,
+                                                                                         created_date_time=None,
+                                                                                         description=None,
+                                                                                         display_name=None,
+                                                                                         last_modified_date_time=None,
+                                                                                         version=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -1762,14 +2356,14 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_update_intended_pol
                                            body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistration_update_operation(client,
-                                                                              managed_app_registration_id,
-                                                                              managed_app_operation_id,
-                                                                              id_=None,
-                                                                              display_name=None,
-                                                                              last_modified_date_time=None,
-                                                                              state=None,
-                                                                              version=None):
+def devicescorpmgt_device_app_management_managed_app_registration_update_operation(client,
+                                                                                   managed_app_registration_id,
+                                                                                   managed_app_operation_id,
+                                                                                   id_=None,
+                                                                                   display_name=None,
+                                                                                   last_modified_date_time=None,
+                                                                                   state=None,
+                                                                                   version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -1781,10 +2375,10 @@ def devicescorpmgt_deviceappmanagementmanagedappregistration_update_operation(cl
                                     body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistrationsappliedpolicy_target_app(client,
-                                                                                      managed_app_registration_id,
-                                                                                      managed_app_policy_id,
-                                                                                      apps=None):
+def devicescorpmgt_device_app_management_managed_app_registration_applied_policy_target_app(client,
+                                                                                            managed_app_registration_id,
+                                                                                            managed_app_policy_id,
+                                                                                            apps=None):
     body = {}
     body['apps'] = apps
     return client.target_apps(managed_app_registration_id=managed_app_registration_id,
@@ -1792,10 +2386,10 @@ def devicescorpmgt_deviceappmanagementmanagedappregistrationsappliedpolicy_targe
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedappregistrationsintendedpolicy_target_app(client,
-                                                                                       managed_app_registration_id,
-                                                                                       managed_app_policy_id,
-                                                                                       apps=None):
+def devicescorpmgt_device_app_management_managed_app_registration_intended_policy_target_app(client,
+                                                                                             managed_app_registration_id,
+                                                                                             managed_app_policy_id,
+                                                                                             apps=None):
     body = {}
     body['apps'] = apps
     return client.target_apps(managed_app_registration_id=managed_app_registration_id,
@@ -1803,20 +2397,20 @@ def devicescorpmgt_deviceappmanagementmanagedappregistrationsintendedpolicy_targ
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_assign(client,
-                                                          managed_e_book_id,
-                                                          managed_e_book_assignments=None):
+def devicescorpmgt_device_app_management_managed_e_book_assign(client,
+                                                               managed_e_book_id,
+                                                               managed_e_book_assignments=None):
     body = {}
     body['managed_e_book_assignments'] = managed_e_book_assignments
     return client.assign(managed_e_book_id=managed_e_book_id,
                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_create_assignment(client,
-                                                                     managed_e_book_id,
-                                                                     id_=None,
-                                                                     install_intent=None,
-                                                                     target=None):
+def devicescorpmgt_device_app_management_managed_e_book_create_assignment(client,
+                                                                          managed_e_book_id,
+                                                                          id_=None,
+                                                                          install_intent=None,
+                                                                          target=None):
     body = {}
     body['id'] = id_
     body['install_intent'] = install_intent
@@ -1825,17 +2419,17 @@ def devicescorpmgt_deviceappmanagementmanagedebook_create_assignment(client,
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_create_device_state(client,
-                                                                       managed_e_book_id,
-                                                                       id_=None,
-                                                                       device_id=None,
-                                                                       device_name=None,
-                                                                       error_code=None,
-                                                                       install_state=None,
-                                                                       last_sync_date_time=None,
-                                                                       os_description=None,
-                                                                       os_version=None,
-                                                                       user_name=None):
+def devicescorpmgt_device_app_management_managed_e_book_create_device_state(client,
+                                                                            managed_e_book_id,
+                                                                            id_=None,
+                                                                            device_id=None,
+                                                                            device_name=None,
+                                                                            error_code=None,
+                                                                            install_state=None,
+                                                                            last_sync_date_time=None,
+                                                                            os_description=None,
+                                                                            os_version=None,
+                                                                            user_name=None):
     body = {}
     body['id'] = id_
     body['device_id'] = device_id
@@ -1850,14 +2444,14 @@ def devicescorpmgt_deviceappmanagementmanagedebook_create_device_state(client,
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_create_user_state_summary(client,
-                                                                             managed_e_book_id,
-                                                                             id_=None,
-                                                                             failed_device_count=None,
-                                                                             installed_device_count=None,
-                                                                             not_installed_device_count=None,
-                                                                             user_name=None,
-                                                                             device_states=None):
+def devicescorpmgt_device_app_management_managed_e_book_create_user_state_summary(client,
+                                                                                  managed_e_book_id,
+                                                                                  id_=None,
+                                                                                  failed_device_count=None,
+                                                                                  installed_device_count=None,
+                                                                                  not_installed_device_count=None,
+                                                                                  user_name=None,
+                                                                                  device_states=None):
     body = {}
     body['id'] = id_
     body['failed_device_count'] = failed_device_count
@@ -1869,121 +2463,121 @@ def devicescorpmgt_deviceappmanagementmanagedebook_create_user_state_summary(cli
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_delete_assignment(client,
-                                                                     managed_e_book_id,
-                                                                     managed_e_book_assignment_id,
-                                                                     if_match=None):
+def devicescorpmgt_device_app_management_managed_e_book_delete_assignment(client,
+                                                                          managed_e_book_id,
+                                                                          managed_e_book_assignment_id,
+                                                                          if_match=None):
     return client.delete_assignments(managed_e_book_id=managed_e_book_id,
                                      managed_e_book_assignment_id=managed_e_book_assignment_id,
                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_delete_device_state(client,
-                                                                       managed_e_book_id,
-                                                                       device_install_state_id,
-                                                                       if_match=None):
+def devicescorpmgt_device_app_management_managed_e_book_delete_device_state(client,
+                                                                            managed_e_book_id,
+                                                                            device_install_state_id,
+                                                                            if_match=None):
     return client.delete_device_states(managed_e_book_id=managed_e_book_id,
                                        device_install_state_id=device_install_state_id,
                                        if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_delete_install_summary(client,
-                                                                          managed_e_book_id,
-                                                                          if_match=None):
+def devicescorpmgt_device_app_management_managed_e_book_delete_install_summary(client,
+                                                                               managed_e_book_id,
+                                                                               if_match=None):
     return client.delete_install_summary(managed_e_book_id=managed_e_book_id,
                                          if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_delete_user_state_summary(client,
-                                                                             managed_e_book_id,
-                                                                             user_install_state_summary_id,
-                                                                             if_match=None):
+def devicescorpmgt_device_app_management_managed_e_book_delete_user_state_summary(client,
+                                                                                  managed_e_book_id,
+                                                                                  user_install_state_summary_id,
+                                                                                  if_match=None):
     return client.delete_user_state_summary(managed_e_book_id=managed_e_book_id,
                                             user_install_state_summary_id=user_install_state_summary_id,
                                             if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_list_assignment(client,
-                                                                   managed_e_book_id,
-                                                                   orderby=None,
-                                                                   select=None,
-                                                                   expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_list_assignment(client,
+                                                                        managed_e_book_id,
+                                                                        orderby=None,
+                                                                        select=None,
+                                                                        expand=None):
     return client.list_assignments(managed_e_book_id=managed_e_book_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_list_device_state(client,
-                                                                     managed_e_book_id,
-                                                                     orderby=None,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_list_device_state(client,
+                                                                          managed_e_book_id,
+                                                                          orderby=None,
+                                                                          select=None,
+                                                                          expand=None):
     return client.list_device_states(managed_e_book_id=managed_e_book_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_list_user_state_summary(client,
-                                                                           managed_e_book_id,
-                                                                           orderby=None,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_list_user_state_summary(client,
+                                                                                managed_e_book_id,
+                                                                                orderby=None,
+                                                                                select=None,
+                                                                                expand=None):
     return client.list_user_state_summary(managed_e_book_id=managed_e_book_id,
                                           orderby=orderby,
                                           select=select,
                                           expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_show_assignment(client,
-                                                                   managed_e_book_id,
-                                                                   managed_e_book_assignment_id,
-                                                                   select=None,
-                                                                   expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_show_assignment(client,
+                                                                        managed_e_book_id,
+                                                                        managed_e_book_assignment_id,
+                                                                        select=None,
+                                                                        expand=None):
     return client.get_assignments(managed_e_book_id=managed_e_book_id,
                                   managed_e_book_assignment_id=managed_e_book_assignment_id,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_show_device_state(client,
-                                                                     managed_e_book_id,
-                                                                     device_install_state_id,
-                                                                     select=None,
-                                                                     expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_show_device_state(client,
+                                                                          managed_e_book_id,
+                                                                          device_install_state_id,
+                                                                          select=None,
+                                                                          expand=None):
     return client.get_device_states(managed_e_book_id=managed_e_book_id,
                                     device_install_state_id=device_install_state_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_show_install_summary(client,
-                                                                        managed_e_book_id,
-                                                                        select=None,
-                                                                        expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_show_install_summary(client,
+                                                                             managed_e_book_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_install_summary(managed_e_book_id=managed_e_book_id,
                                       select=select,
                                       expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_show_user_state_summary(client,
-                                                                           managed_e_book_id,
-                                                                           user_install_state_summary_id,
-                                                                           select=None,
-                                                                           expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_show_user_state_summary(client,
+                                                                                managed_e_book_id,
+                                                                                user_install_state_summary_id,
+                                                                                select=None,
+                                                                                expand=None):
     return client.get_user_state_summary(managed_e_book_id=managed_e_book_id,
                                          user_install_state_summary_id=user_install_state_summary_id,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_update_assignment(client,
-                                                                     managed_e_book_id,
-                                                                     managed_e_book_assignment_id,
-                                                                     id_=None,
-                                                                     install_intent=None,
-                                                                     target=None):
+def devicescorpmgt_device_app_management_managed_e_book_update_assignment(client,
+                                                                          managed_e_book_id,
+                                                                          managed_e_book_assignment_id,
+                                                                          id_=None,
+                                                                          install_intent=None,
+                                                                          target=None):
     body = {}
     body['id'] = id_
     body['install_intent'] = install_intent
@@ -1993,18 +2587,18 @@ def devicescorpmgt_deviceappmanagementmanagedebook_update_assignment(client,
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_update_device_state(client,
-                                                                       managed_e_book_id,
-                                                                       device_install_state_id,
-                                                                       id_=None,
-                                                                       device_id=None,
-                                                                       device_name=None,
-                                                                       error_code=None,
-                                                                       install_state=None,
-                                                                       last_sync_date_time=None,
-                                                                       os_description=None,
-                                                                       os_version=None,
-                                                                       user_name=None):
+def devicescorpmgt_device_app_management_managed_e_book_update_device_state(client,
+                                                                            managed_e_book_id,
+                                                                            device_install_state_id,
+                                                                            id_=None,
+                                                                            device_id=None,
+                                                                            device_name=None,
+                                                                            error_code=None,
+                                                                            install_state=None,
+                                                                            last_sync_date_time=None,
+                                                                            os_description=None,
+                                                                            os_version=None,
+                                                                            user_name=None):
     body = {}
     body['id'] = id_
     body['device_id'] = device_id
@@ -2020,15 +2614,15 @@ def devicescorpmgt_deviceappmanagementmanagedebook_update_device_state(client,
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_update_install_summary(client,
-                                                                          managed_e_book_id,
-                                                                          id_=None,
-                                                                          failed_device_count=None,
-                                                                          failed_user_count=None,
-                                                                          installed_device_count=None,
-                                                                          installed_user_count=None,
-                                                                          not_installed_device_count=None,
-                                                                          not_installed_user_count=None):
+def devicescorpmgt_device_app_management_managed_e_book_update_install_summary(client,
+                                                                               managed_e_book_id,
+                                                                               id_=None,
+                                                                               failed_device_count=None,
+                                                                               failed_user_count=None,
+                                                                               installed_device_count=None,
+                                                                               installed_user_count=None,
+                                                                               not_installed_device_count=None,
+                                                                               not_installed_user_count=None):
     body = {}
     body['id'] = id_
     body['failed_device_count'] = failed_device_count
@@ -2041,15 +2635,15 @@ def devicescorpmgt_deviceappmanagementmanagedebook_update_install_summary(client
                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebook_update_user_state_summary(client,
-                                                                             managed_e_book_id,
-                                                                             user_install_state_summary_id,
-                                                                             id_=None,
-                                                                             failed_device_count=None,
-                                                                             installed_device_count=None,
-                                                                             not_installed_device_count=None,
-                                                                             user_name=None,
-                                                                             device_states=None):
+def devicescorpmgt_device_app_management_managed_e_book_update_user_state_summary(client,
+                                                                                  managed_e_book_id,
+                                                                                  user_install_state_summary_id,
+                                                                                  id_=None,
+                                                                                  failed_device_count=None,
+                                                                                  installed_device_count=None,
+                                                                                  not_installed_device_count=None,
+                                                                                  user_name=None,
+                                                                                  device_states=None):
     body = {}
     body['id'] = id_
     body['failed_device_count'] = failed_device_count
@@ -2062,18 +2656,18 @@ def devicescorpmgt_deviceappmanagementmanagedebook_update_user_state_summary(cli
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_create_device_state(client,
-                                                                                        managed_e_book_id,
-                                                                                        user_install_state_summary_id,
-                                                                                        id_=None,
-                                                                                        device_id=None,
-                                                                                        device_name=None,
-                                                                                        error_code=None,
-                                                                                        install_state=None,
-                                                                                        last_sync_date_time=None,
-                                                                                        os_description=None,
-                                                                                        os_version=None,
-                                                                                        user_name=None):
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_create_device_state(client,
+                                                                                               managed_e_book_id,
+                                                                                               user_install_state_summary_id,
+                                                                                               id_=None,
+                                                                                               device_id=None,
+                                                                                               device_name=None,
+                                                                                               error_code=None,
+                                                                                               install_state=None,
+                                                                                               last_sync_date_time=None,
+                                                                                               os_description=None,
+                                                                                               os_version=None,
+                                                                                               user_name=None):
     body = {}
     body['id'] = id_
     body['device_id'] = device_id
@@ -2089,23 +2683,23 @@ def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_create_devic
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_delete_device_state(client,
-                                                                                        managed_e_book_id,
-                                                                                        user_install_state_summary_id,
-                                                                                        device_install_state_id,
-                                                                                        if_match=None):
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_delete_device_state(client,
+                                                                                               managed_e_book_id,
+                                                                                               user_install_state_summary_id,
+                                                                                               device_install_state_id,
+                                                                                               if_match=None):
     return client.delete_device_states(managed_e_book_id=managed_e_book_id,
                                        user_install_state_summary_id=user_install_state_summary_id,
                                        device_install_state_id=device_install_state_id,
                                        if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_list_device_state(client,
-                                                                                      managed_e_book_id,
-                                                                                      user_install_state_summary_id,
-                                                                                      orderby=None,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_list_device_state(client,
+                                                                                             managed_e_book_id,
+                                                                                             user_install_state_summary_id,
+                                                                                             orderby=None,
+                                                                                             select=None,
+                                                                                             expand=None):
     return client.list_device_states(managed_e_book_id=managed_e_book_id,
                                      user_install_state_summary_id=user_install_state_summary_id,
                                      orderby=orderby,
@@ -2113,12 +2707,12 @@ def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_list_device_
                                      expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_show_device_state(client,
-                                                                                      managed_e_book_id,
-                                                                                      user_install_state_summary_id,
-                                                                                      device_install_state_id,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_show_device_state(client,
+                                                                                             managed_e_book_id,
+                                                                                             user_install_state_summary_id,
+                                                                                             device_install_state_id,
+                                                                                             select=None,
+                                                                                             expand=None):
     return client.get_device_states(managed_e_book_id=managed_e_book_id,
                                     user_install_state_summary_id=user_install_state_summary_id,
                                     device_install_state_id=device_install_state_id,
@@ -2126,19 +2720,19 @@ def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_show_device_
                                     expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_update_device_state(client,
-                                                                                        managed_e_book_id,
-                                                                                        user_install_state_summary_id,
-                                                                                        device_install_state_id,
-                                                                                        id_=None,
-                                                                                        device_id=None,
-                                                                                        device_name=None,
-                                                                                        error_code=None,
-                                                                                        install_state=None,
-                                                                                        last_sync_date_time=None,
-                                                                                        os_description=None,
-                                                                                        os_version=None,
-                                                                                        user_name=None):
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_update_device_state(client,
+                                                                                               managed_e_book_id,
+                                                                                               user_install_state_summary_id,
+                                                                                               device_install_state_id,
+                                                                                               id_=None,
+                                                                                               device_id=None,
+                                                                                               device_name=None,
+                                                                                               error_code=None,
+                                                                                               install_state=None,
+                                                                                               last_sync_date_time=None,
+                                                                                               os_description=None,
+                                                                                               os_version=None,
+                                                                                               user_name=None):
     body = {}
     body['id'] = id_
     body['device_id'] = device_id
@@ -2155,19 +2749,19 @@ def devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_update_devic
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_assign(client,
-                                                                    managed_device_mobile_app_configuration_id,
-                                                                    assignments=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_assign(client,
+                                                                         managed_device_mobile_app_configuration_id,
+                                                                         assignments=None):
     body = {}
     body['assignments'] = assignments
     return client.assign(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_assignment(client,
-                                                                               managed_device_mobile_app_configuration_id,
-                                                                               id_=None,
-                                                                               target=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_create_assignment(client,
+                                                                                    managed_device_mobile_app_configuration_id,
+                                                                                    id_=None,
+                                                                                    target=None):
     body = {}
     body['id'] = id_
     body['target'] = target
@@ -2175,16 +2769,16 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_assignment(c
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_device_statuses(client,
-                                                                                    managed_device_mobile_app_configuration_id,
-                                                                                    id_=None,
-                                                                                    compliance_grace_period_expiration_date_time=None,
-                                                                                    device_display_name=None,
-                                                                                    device_model=None,
-                                                                                    last_reported_date_time=None,
-                                                                                    status=None,
-                                                                                    user_name=None,
-                                                                                    user_principal_name=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_create_device_statuses(client,
+                                                                                         managed_device_mobile_app_configuration_id,
+                                                                                         id_=None,
+                                                                                         compliance_grace_period_expiration_date_time=None,
+                                                                                         device_display_name=None,
+                                                                                         device_model=None,
+                                                                                         last_reported_date_time=None,
+                                                                                         status=None,
+                                                                                         user_name=None,
+                                                                                         user_principal_name=None):
     body = {}
     body['id'] = id_
     body['compliance_grace_period_expiration_date_time'] = compliance_grace_period_expiration_date_time
@@ -2198,14 +2792,14 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_device_statu
                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_user_statuses(client,
-                                                                                  managed_device_mobile_app_configuration_id,
-                                                                                  id_=None,
-                                                                                  devices_count=None,
-                                                                                  last_reported_date_time=None,
-                                                                                  status=None,
-                                                                                  user_display_name=None,
-                                                                                  user_principal_name=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_create_user_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       id_=None,
+                                                                                       devices_count=None,
+                                                                                       last_reported_date_time=None,
+                                                                                       status=None,
+                                                                                       user_display_name=None,
+                                                                                       user_principal_name=None):
     body = {}
     body['id'] = id_
     body['devices_count'] = devices_count
@@ -2217,136 +2811,136 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_create_user_statuse
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_assignment(client,
-                                                                               managed_device_mobile_app_configuration_id,
-                                                                               managed_device_mobile_app_configuration_assignment_id,
-                                                                               if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_assignment(client,
+                                                                                    managed_device_mobile_app_configuration_id,
+                                                                                    managed_device_mobile_app_configuration_assignment_id,
+                                                                                    if_match=None):
     return client.delete_assignments(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                      managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_device_status_summary(client,
-                                                                                          managed_device_mobile_app_configuration_id,
-                                                                                          if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_status_summary(client,
+                                                                                               managed_device_mobile_app_configuration_id,
+                                                                                               if_match=None):
     return client.delete_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                                if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_device_statuses(client,
-                                                                                    managed_device_mobile_app_configuration_id,
-                                                                                    managed_device_mobile_app_configuration_device_status_id,
-                                                                                    if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_statuses(client,
+                                                                                         managed_device_mobile_app_configuration_id,
+                                                                                         managed_device_mobile_app_configuration_device_status_id,
+                                                                                         if_match=None):
     return client.delete_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                          managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
                                          if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_user_status_summary(client,
-                                                                                        managed_device_mobile_app_configuration_id,
-                                                                                        if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_status_summary(client,
+                                                                                             managed_device_mobile_app_configuration_id,
+                                                                                             if_match=None):
     return client.delete_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                              if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_user_statuses(client,
-                                                                                  managed_device_mobile_app_configuration_id,
-                                                                                  managed_device_mobile_app_configuration_user_status_id,
-                                                                                  if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       managed_device_mobile_app_configuration_user_status_id,
+                                                                                       if_match=None):
     return client.delete_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                        managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
                                        if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_list_assignment(client,
-                                                                             managed_device_mobile_app_configuration_id,
-                                                                             orderby=None,
-                                                                             select=None,
-                                                                             expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_list_assignment(client,
+                                                                                  managed_device_mobile_app_configuration_id,
+                                                                                  orderby=None,
+                                                                                  select=None,
+                                                                                  expand=None):
     return client.list_assignments(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_list_device_statuses(client,
-                                                                                  managed_device_mobile_app_configuration_id,
-                                                                                  orderby=None,
-                                                                                  select=None,
-                                                                                  expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_list_device_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       orderby=None,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.list_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                        orderby=orderby,
                                        select=select,
                                        expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_list_user_statuses(client,
-                                                                                managed_device_mobile_app_configuration_id,
-                                                                                orderby=None,
-                                                                                select=None,
-                                                                                expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_list_user_statuses(client,
+                                                                                     managed_device_mobile_app_configuration_id,
+                                                                                     orderby=None,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.list_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_show_assignment(client,
-                                                                             managed_device_mobile_app_configuration_id,
-                                                                             managed_device_mobile_app_configuration_assignment_id,
-                                                                             select=None,
-                                                                             expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_assignment(client,
+                                                                                  managed_device_mobile_app_configuration_id,
+                                                                                  managed_device_mobile_app_configuration_assignment_id,
+                                                                                  select=None,
+                                                                                  expand=None):
     return client.get_assignments(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                   managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_show_device_status_summary(client,
-                                                                                        managed_device_mobile_app_configuration_id,
-                                                                                        select=None,
-                                                                                        expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_device_status_summary(client,
+                                                                                             managed_device_mobile_app_configuration_id,
+                                                                                             select=None,
+                                                                                             expand=None):
     return client.get_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                             select=select,
                                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_show_device_statuses(client,
-                                                                                  managed_device_mobile_app_configuration_id,
-                                                                                  managed_device_mobile_app_configuration_device_status_id,
-                                                                                  select=None,
-                                                                                  expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_device_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       managed_device_mobile_app_configuration_device_status_id,
+                                                                                       select=None,
+                                                                                       expand=None):
     return client.get_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                       managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
                                       select=select,
                                       expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_show_user_status_summary(client,
-                                                                                      managed_device_mobile_app_configuration_id,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_user_status_summary(client,
+                                                                                           managed_device_mobile_app_configuration_id,
+                                                                                           select=None,
+                                                                                           expand=None):
     return client.get_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                           select=select,
                                           expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_show_user_statuses(client,
-                                                                                managed_device_mobile_app_configuration_id,
-                                                                                managed_device_mobile_app_configuration_user_status_id,
-                                                                                select=None,
-                                                                                expand=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_user_statuses(client,
+                                                                                     managed_device_mobile_app_configuration_id,
+                                                                                     managed_device_mobile_app_configuration_user_status_id,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.get_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
                                     managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
                                     select=select,
                                     expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_assignment(client,
-                                                                               managed_device_mobile_app_configuration_id,
-                                                                               managed_device_mobile_app_configuration_assignment_id,
-                                                                               id_=None,
-                                                                               target=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_update_assignment(client,
+                                                                                    managed_device_mobile_app_configuration_id,
+                                                                                    managed_device_mobile_app_configuration_assignment_id,
+                                                                                    id_=None,
+                                                                                    target=None):
     body = {}
     body['id'] = id_
     body['target'] = target
@@ -2355,16 +2949,16 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_assignment(c
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_status_summary(client,
-                                                                                          managed_device_mobile_app_configuration_id,
-                                                                                          id_=None,
-                                                                                          configuration_version=None,
-                                                                                          error_count=None,
-                                                                                          failed_count=None,
-                                                                                          last_update_date_time=None,
-                                                                                          not_applicable_count=None,
-                                                                                          pending_count=None,
-                                                                                          success_count=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_update_device_status_summary(client,
+                                                                                               managed_device_mobile_app_configuration_id,
+                                                                                               id_=None,
+                                                                                               configuration_version=None,
+                                                                                               error_count=None,
+                                                                                               failed_count=None,
+                                                                                               last_update_date_time=None,
+                                                                                               not_applicable_count=None,
+                                                                                               pending_count=None,
+                                                                                               success_count=None):
     body = {}
     body['id'] = id_
     body['configuration_version'] = configuration_version
@@ -2378,17 +2972,17 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_statu
                                                body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_statuses(client,
-                                                                                    managed_device_mobile_app_configuration_id,
-                                                                                    managed_device_mobile_app_configuration_device_status_id,
-                                                                                    id_=None,
-                                                                                    compliance_grace_period_expiration_date_time=None,
-                                                                                    device_display_name=None,
-                                                                                    device_model=None,
-                                                                                    last_reported_date_time=None,
-                                                                                    status=None,
-                                                                                    user_name=None,
-                                                                                    user_principal_name=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_update_device_statuses(client,
+                                                                                         managed_device_mobile_app_configuration_id,
+                                                                                         managed_device_mobile_app_configuration_device_status_id,
+                                                                                         id_=None,
+                                                                                         compliance_grace_period_expiration_date_time=None,
+                                                                                         device_display_name=None,
+                                                                                         device_model=None,
+                                                                                         last_reported_date_time=None,
+                                                                                         status=None,
+                                                                                         user_name=None,
+                                                                                         user_principal_name=None):
     body = {}
     body['id'] = id_
     body['compliance_grace_period_expiration_date_time'] = compliance_grace_period_expiration_date_time
@@ -2403,16 +2997,16 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_statu
                                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_status_summary(client,
-                                                                                        managed_device_mobile_app_configuration_id,
-                                                                                        id_=None,
-                                                                                        configuration_version=None,
-                                                                                        error_count=None,
-                                                                                        failed_count=None,
-                                                                                        last_update_date_time=None,
-                                                                                        not_applicable_count=None,
-                                                                                        pending_count=None,
-                                                                                        success_count=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_update_user_status_summary(client,
+                                                                                             managed_device_mobile_app_configuration_id,
+                                                                                             id_=None,
+                                                                                             configuration_version=None,
+                                                                                             error_count=None,
+                                                                                             failed_count=None,
+                                                                                             last_update_date_time=None,
+                                                                                             not_applicable_count=None,
+                                                                                             pending_count=None,
+                                                                                             success_count=None):
     body = {}
     body['id'] = id_
     body['configuration_version'] = configuration_version
@@ -2426,15 +3020,15 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_status_
                                              body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_statuses(client,
-                                                                                  managed_device_mobile_app_configuration_id,
-                                                                                  managed_device_mobile_app_configuration_user_status_id,
-                                                                                  id_=None,
-                                                                                  devices_count=None,
-                                                                                  last_reported_date_time=None,
-                                                                                  status=None,
-                                                                                  user_display_name=None,
-                                                                                  user_principal_name=None):
+def devicescorpmgt_device_app_management_mobile_app_configuration_update_user_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       managed_device_mobile_app_configuration_user_status_id,
+                                                                                       id_=None,
+                                                                                       devices_count=None,
+                                                                                       last_reported_date_time=None,
+                                                                                       status=None,
+                                                                                       user_display_name=None,
+                                                                                       user_principal_name=None):
     body = {}
     body['id'] = id_
     body['devices_count'] = devices_count
@@ -2447,21 +3041,21 @@ def devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_statuse
                                        body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_assign(client,
-                                                       mobile_app_id,
-                                                       mobile_app_assignments=None):
+def devicescorpmgt_device_app_management_mobile_app_assign(client,
+                                                           mobile_app_id,
+                                                           mobile_app_assignments=None):
     body = {}
     body['mobile_app_assignments'] = mobile_app_assignments
     return client.assign(mobile_app_id=mobile_app_id,
                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_create_assignment(client,
-                                                                  mobile_app_id,
-                                                                  id_=None,
-                                                                  intent=None,
-                                                                  settings=None,
-                                                                  target=None):
+def devicescorpmgt_device_app_management_mobile_app_create_assignment(client,
+                                                                      mobile_app_id,
+                                                                      id_=None,
+                                                                      intent=None,
+                                                                      settings=None,
+                                                                      target=None):
     body = {}
     body['id'] = id_
     body['intent'] = intent
@@ -2471,69 +3065,69 @@ def devicescorpmgt_deviceappmanagementmobileapp_create_assignment(client,
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_create_ref_category(client,
-                                                                    mobile_app_id,
-                                                                    body):
+def devicescorpmgt_device_app_management_mobile_app_create_ref_category(client,
+                                                                        mobile_app_id,
+                                                                        body):
     return client.create_ref_categories(mobile_app_id=mobile_app_id,
                                         body=body)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_delete_assignment(client,
-                                                                  mobile_app_id,
-                                                                  mobile_app_assignment_id,
-                                                                  if_match=None):
+def devicescorpmgt_device_app_management_mobile_app_delete_assignment(client,
+                                                                      mobile_app_id,
+                                                                      mobile_app_assignment_id,
+                                                                      if_match=None):
     return client.delete_assignments(mobile_app_id=mobile_app_id,
                                      mobile_app_assignment_id=mobile_app_assignment_id,
                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_list_assignment(client,
-                                                                mobile_app_id,
-                                                                orderby=None,
-                                                                select=None,
-                                                                expand=None):
+def devicescorpmgt_device_app_management_mobile_app_list_assignment(client,
+                                                                    mobile_app_id,
+                                                                    orderby=None,
+                                                                    select=None,
+                                                                    expand=None):
     return client.list_assignments(mobile_app_id=mobile_app_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_list_category(client,
-                                                              mobile_app_id,
-                                                              orderby=None,
-                                                              select=None,
-                                                              expand=None):
+def devicescorpmgt_device_app_management_mobile_app_list_category(client,
+                                                                  mobile_app_id,
+                                                                  orderby=None,
+                                                                  select=None,
+                                                                  expand=None):
     return client.list_categories(mobile_app_id=mobile_app_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_list_ref_category(client,
-                                                                  mobile_app_id,
-                                                                  orderby=None):
+def devicescorpmgt_device_app_management_mobile_app_list_ref_category(client,
+                                                                      mobile_app_id,
+                                                                      orderby=None):
     return client.list_ref_categories(mobile_app_id=mobile_app_id,
                                       orderby=orderby)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_show_assignment(client,
-                                                                mobile_app_id,
-                                                                mobile_app_assignment_id,
-                                                                select=None,
-                                                                expand=None):
+def devicescorpmgt_device_app_management_mobile_app_show_assignment(client,
+                                                                    mobile_app_id,
+                                                                    mobile_app_assignment_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_assignments(mobile_app_id=mobile_app_id,
                                   mobile_app_assignment_id=mobile_app_assignment_id,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementmobileapp_update_assignment(client,
-                                                                  mobile_app_id,
-                                                                  mobile_app_assignment_id,
-                                                                  id_=None,
-                                                                  intent=None,
-                                                                  settings=None,
-                                                                  target=None):
+def devicescorpmgt_device_app_management_mobile_app_update_assignment(client,
+                                                                      mobile_app_id,
+                                                                      mobile_app_assignment_id,
+                                                                      id_=None,
+                                                                      intent=None,
+                                                                      settings=None,
+                                                                      target=None):
     body = {}
     body['id'] = id_
     body['intent'] = intent
@@ -2544,20 +3138,20 @@ def devicescorpmgt_deviceappmanagementmobileapp_update_assignment(client,
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_assign(client,
-                                                                             targeted_managed_app_configuration_id,
-                                                                             assignments=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_assign(client,
+                                                                                   targeted_managed_app_configuration_id,
+                                                                                   assignments=None):
     body = {}
     body['assignments'] = assignments
     return client.assign(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                          body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_app(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 id_=None,
-                                                                                 mobile_app_identifier=None,
-                                                                                 version=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_create_app(client,
+                                                                                       targeted_managed_app_configuration_id,
+                                                                                       id_=None,
+                                                                                       mobile_app_identifier=None,
+                                                                                       version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -2566,10 +3160,10 @@ def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_app
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_assignment(client,
-                                                                                        targeted_managed_app_configuration_id,
-                                                                                        id_=None,
-                                                                                        target=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_create_assignment(client,
+                                                                                              targeted_managed_app_configuration_id,
+                                                                                              id_=None,
+                                                                                              target=None):
     body = {}
     body['id'] = id_
     body['target'] = target
@@ -2577,99 +3171,99 @@ def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_ass
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_app(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 managed_mobile_app_id,
-                                                                                 if_match=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_app(client,
+                                                                                       targeted_managed_app_configuration_id,
+                                                                                       managed_mobile_app_id,
+                                                                                       if_match=None):
     return client.delete_apps(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                               managed_mobile_app_id=managed_mobile_app_id,
                               if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_assignment(client,
-                                                                                        targeted_managed_app_configuration_id,
-                                                                                        targeted_managed_app_policy_assignment_id,
-                                                                                        if_match=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_assignment(client,
+                                                                                              targeted_managed_app_configuration_id,
+                                                                                              targeted_managed_app_policy_assignment_id,
+                                                                                              if_match=None):
     return client.delete_assignments(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                      targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
                                      if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_deployment_summary(client,
-                                                                                                targeted_managed_app_configuration_id,
-                                                                                                if_match=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_deployment_summary(client,
+                                                                                                      targeted_managed_app_configuration_id,
+                                                                                                      if_match=None):
     return client.delete_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                             if_match=if_match)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_list_app(client,
-                                                                               targeted_managed_app_configuration_id,
-                                                                               orderby=None,
-                                                                               select=None,
-                                                                               expand=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_list_app(client,
+                                                                                     targeted_managed_app_configuration_id,
+                                                                                     orderby=None,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.list_apps(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                             orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_list_assignment(client,
-                                                                                      targeted_managed_app_configuration_id,
-                                                                                      orderby=None,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_list_assignment(client,
+                                                                                            targeted_managed_app_configuration_id,
+                                                                                            orderby=None,
+                                                                                            select=None,
+                                                                                            expand=None):
     return client.list_assignments(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                    orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_app(client,
-                                                                               targeted_managed_app_configuration_id,
-                                                                               managed_mobile_app_id,
-                                                                               select=None,
-                                                                               expand=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_app(client,
+                                                                                     targeted_managed_app_configuration_id,
+                                                                                     managed_mobile_app_id,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.get_apps(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                            managed_mobile_app_id=managed_mobile_app_id,
                            select=select,
                            expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_assignment(client,
-                                                                                      targeted_managed_app_configuration_id,
-                                                                                      targeted_managed_app_policy_assignment_id,
-                                                                                      select=None,
-                                                                                      expand=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_assignment(client,
+                                                                                            targeted_managed_app_configuration_id,
+                                                                                            targeted_managed_app_policy_assignment_id,
+                                                                                            select=None,
+                                                                                            expand=None):
     return client.get_assignments(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                   targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
                                   select=select,
                                   expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_deployment_summary(client,
-                                                                                              targeted_managed_app_configuration_id,
-                                                                                              select=None,
-                                                                                              expand=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_deployment_summary(client,
+                                                                                                    targeted_managed_app_configuration_id,
+                                                                                                    select=None,
+                                                                                                    expand=None):
     return client.get_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                          select=select,
                                          expand=expand)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_target_app(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 apps=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_target_app(client,
+                                                                                       targeted_managed_app_configuration_id,
+                                                                                       apps=None):
     body = {}
     body['apps'] = apps
     return client.target_apps(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_app(client,
-                                                                                 targeted_managed_app_configuration_id,
-                                                                                 managed_mobile_app_id,
-                                                                                 id_=None,
-                                                                                 mobile_app_identifier=None,
-                                                                                 version=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_update_app(client,
+                                                                                       targeted_managed_app_configuration_id,
+                                                                                       managed_mobile_app_id,
+                                                                                       id_=None,
+                                                                                       mobile_app_identifier=None,
+                                                                                       version=None):
     body = {}
     body['id'] = id_
     body['mobile_app_identifier'] = mobile_app_identifier
@@ -2679,11 +3273,11 @@ def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_app
                               body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_assignment(client,
-                                                                                        targeted_managed_app_configuration_id,
-                                                                                        targeted_managed_app_policy_assignment_id,
-                                                                                        id_=None,
-                                                                                        target=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_update_assignment(client,
+                                                                                              targeted_managed_app_configuration_id,
+                                                                                              targeted_managed_app_policy_assignment_id,
+                                                                                              id_=None,
+                                                                                              target=None):
     body = {}
     body['id'] = id_
     body['target'] = target
@@ -2692,14 +3286,14 @@ def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_ass
                                      body=body)
 
 
-def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_deployment_summary(client,
-                                                                                                targeted_managed_app_configuration_id,
-                                                                                                id_=None,
-                                                                                                configuration_deployed_user_count=None,
-                                                                                                configuration_deployment_summary_per_app=None,
-                                                                                                display_name=None,
-                                                                                                last_refresh_time=None,
-                                                                                                version=None):
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_update_deployment_summary(client,
+                                                                                                      targeted_managed_app_configuration_id,
+                                                                                                      id_=None,
+                                                                                                      configuration_deployed_user_count=None,
+                                                                                                      configuration_deployment_summary_per_app=None,
+                                                                                                      display_name=None,
+                                                                                                      last_refresh_time=None,
+                                                                                                      version=None):
     body = {}
     body['id'] = id_
     body['configuration_deployed_user_count'] = configuration_deployed_user_count
@@ -2711,8 +3305,8 @@ def devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_dep
                                             body=body)
 
 
-def devicescorpmgt_deviceappmanagementvpptoken_sync_license(client,
-                                                            vpp_token_id):
+def devicescorpmgt_device_app_management_vpp_token_sync_license(client,
+                                                                vpp_token_id):
     return client.sync_licenses(vpp_token_id=vpp_token_id)
 
 
@@ -2731,7 +3325,107 @@ def devicescorpmgt_user_create_device_management_troubleshooting_event(client,
 
 def devicescorpmgt_user_create_managed_device(client,
                                               user_id,
-                                              body):
+                                              id_=None,
+                                              activation_lock_bypass_code=None,
+                                              android_security_patch_level=None,
+                                              azure_ad_device_id=None,
+                                              azure_ad_registered=None,
+                                              compliance_grace_period_expiration_date_time=None,
+                                              compliance_state=None,
+                                              configuration_manager_client_enabled_features=None,
+                                              device_action_results=None,
+                                              device_category_display_name=None,
+                                              device_enrollment_type=None,
+                                              device_health_attestation_state=None,
+                                              device_name=None,
+                                              device_registration_state=None,
+                                              eas_activated=None,
+                                              eas_activation_date_time=None,
+                                              eas_device_id=None,
+                                              email_address=None,
+                                              enrolled_date_time=None,
+                                              exchange_access_state=None,
+                                              exchange_access_state_reason=None,
+                                              exchange_last_successful_sync_date_time=None,
+                                              free_storage_space_in_bytes=None,
+                                              imei=None,
+                                              is_encrypted=None,
+                                              is_supervised=None,
+                                              jail_broken=None,
+                                              last_sync_date_time=None,
+                                              managed_device_name=None,
+                                              managed_device_owner_type=None,
+                                              management_agent=None,
+                                              manufacturer=None,
+                                              meid=None,
+                                              model=None,
+                                              operating_system=None,
+                                              os_version=None,
+                                              partner_reported_threat_state=None,
+                                              phone_number=None,
+                                              remote_assistance_session_error_details=None,
+                                              remote_assistance_session_url=None,
+                                              serial_number=None,
+                                              subscriber_carrier=None,
+                                              total_storage_space_in_bytes=None,
+                                              user_display_name=None,
+                                              microsoft_graph_managed_device_user_id=None,
+                                              user_principal_name=None,
+                                              wi_fi_mac_address=None,
+                                              device_compliance_policy_states=None,
+                                              device_configuration_states=None,
+                                              device_category=None):
+    body = {}
+    body['id'] = id_
+    body['activation_lock_bypass_code'] = activation_lock_bypass_code
+    body['android_security_patch_level'] = android_security_patch_level
+    body['azure_ad_device_id'] = azure_ad_device_id
+    body['azure_ad_registered'] = azure_ad_registered
+    body['compliance_grace_period_expiration_date_time'] = compliance_grace_period_expiration_date_time
+    body['compliance_state'] = compliance_state
+    body['configuration_manager_client_enabled_features'] = configuration_manager_client_enabled_features
+    body['device_action_results'] = device_action_results
+    body['device_category_display_name'] = device_category_display_name
+    body['device_enrollment_type'] = device_enrollment_type
+    body['device_health_attestation_state'] = device_health_attestation_state
+    body['device_name'] = device_name
+    body['device_registration_state'] = device_registration_state
+    body['eas_activated'] = eas_activated
+    body['eas_activation_date_time'] = eas_activation_date_time
+    body['eas_device_id'] = eas_device_id
+    body['email_address'] = email_address
+    body['enrolled_date_time'] = enrolled_date_time
+    body['exchange_access_state'] = exchange_access_state
+    body['exchange_access_state_reason'] = exchange_access_state_reason
+    body['exchange_last_successful_sync_date_time'] = exchange_last_successful_sync_date_time
+    body['free_storage_space_in_bytes'] = free_storage_space_in_bytes
+    body['imei'] = imei
+    body['is_encrypted'] = is_encrypted
+    body['is_supervised'] = is_supervised
+    body['jail_broken'] = jail_broken
+    body['last_sync_date_time'] = last_sync_date_time
+    body['managed_device_name'] = managed_device_name
+    body['managed_device_owner_type'] = managed_device_owner_type
+    body['management_agent'] = management_agent
+    body['manufacturer'] = manufacturer
+    body['meid'] = meid
+    body['model'] = model
+    body['operating_system'] = operating_system
+    body['os_version'] = os_version
+    body['partner_reported_threat_state'] = partner_reported_threat_state
+    body['phone_number'] = phone_number
+    body['remote_assistance_session_error_details'] = remote_assistance_session_error_details
+    body['remote_assistance_session_url'] = remote_assistance_session_url
+    body['serial_number'] = serial_number
+    body['subscriber_carrier'] = subscriber_carrier
+    body['total_storage_space_in_bytes'] = total_storage_space_in_bytes
+    body['user_display_name'] = user_display_name
+    body['user_id'] = microsoft_graph_managed_device_user_id
+    body['user_principal_name'] = user_principal_name
+    body['wi_fi_mac_address'] = wi_fi_mac_address
+    body['device_compliance_policy_states'] = device_compliance_policy_states
+    body['device_configuration_states'] = device_configuration_states
+    body['device_category'] = device_category
     return client.create_managed_devices(user_id=user_id,
                                          body=body)
 
@@ -2841,22 +3535,122 @@ def devicescorpmgt_user_update_device_management_troubleshooting_event(client,
 def devicescorpmgt_user_update_managed_device(client,
                                               user_id,
                                               managed_device_id,
-                                              body):
+                                              id_=None,
+                                              activation_lock_bypass_code=None,
+                                              android_security_patch_level=None,
+                                              azure_ad_device_id=None,
+                                              azure_ad_registered=None,
+                                              compliance_grace_period_expiration_date_time=None,
+                                              compliance_state=None,
+                                              configuration_manager_client_enabled_features=None,
+                                              device_action_results=None,
+                                              device_category_display_name=None,
+                                              device_enrollment_type=None,
+                                              device_health_attestation_state=None,
+                                              device_name=None,
+                                              device_registration_state=None,
+                                              eas_activated=None,
+                                              eas_activation_date_time=None,
+                                              eas_device_id=None,
+                                              email_address=None,
+                                              enrolled_date_time=None,
+                                              exchange_access_state=None,
+                                              exchange_access_state_reason=None,
+                                              exchange_last_successful_sync_date_time=None,
+                                              free_storage_space_in_bytes=None,
+                                              imei=None,
+                                              is_encrypted=None,
+                                              is_supervised=None,
+                                              jail_broken=None,
+                                              last_sync_date_time=None,
+                                              managed_device_name=None,
+                                              managed_device_owner_type=None,
+                                              management_agent=None,
+                                              manufacturer=None,
+                                              meid=None,
+                                              model=None,
+                                              operating_system=None,
+                                              os_version=None,
+                                              partner_reported_threat_state=None,
+                                              phone_number=None,
+                                              remote_assistance_session_error_details=None,
+                                              remote_assistance_session_url=None,
+                                              serial_number=None,
+                                              subscriber_carrier=None,
+                                              total_storage_space_in_bytes=None,
+                                              user_display_name=None,
+                                              microsoft_graph_managed_device_user_id=None,
+                                              user_principal_name=None,
+                                              wi_fi_mac_address=None,
+                                              device_compliance_policy_states=None,
+                                              device_configuration_states=None,
+                                              device_category=None):
+    body = {}
+    body['id'] = id_
+    body['activation_lock_bypass_code'] = activation_lock_bypass_code
+    body['android_security_patch_level'] = android_security_patch_level
+    body['azure_ad_device_id'] = azure_ad_device_id
+    body['azure_ad_registered'] = azure_ad_registered
+    body['compliance_grace_period_expiration_date_time'] = compliance_grace_period_expiration_date_time
+    body['compliance_state'] = compliance_state
+    body['configuration_manager_client_enabled_features'] = configuration_manager_client_enabled_features
+    body['device_action_results'] = device_action_results
+    body['device_category_display_name'] = device_category_display_name
+    body['device_enrollment_type'] = device_enrollment_type
+    body['device_health_attestation_state'] = device_health_attestation_state
+    body['device_name'] = device_name
+    body['device_registration_state'] = device_registration_state
+    body['eas_activated'] = eas_activated
+    body['eas_activation_date_time'] = eas_activation_date_time
+    body['eas_device_id'] = eas_device_id
+    body['email_address'] = email_address
+    body['enrolled_date_time'] = enrolled_date_time
+    body['exchange_access_state'] = exchange_access_state
+    body['exchange_access_state_reason'] = exchange_access_state_reason
+    body['exchange_last_successful_sync_date_time'] = exchange_last_successful_sync_date_time
+    body['free_storage_space_in_bytes'] = free_storage_space_in_bytes
+    body['imei'] = imei
+    body['is_encrypted'] = is_encrypted
+    body['is_supervised'] = is_supervised
+    body['jail_broken'] = jail_broken
+    body['last_sync_date_time'] = last_sync_date_time
+    body['managed_device_name'] = managed_device_name
+    body['managed_device_owner_type'] = managed_device_owner_type
+    body['management_agent'] = management_agent
+    body['manufacturer'] = manufacturer
+    body['meid'] = meid
+    body['model'] = model
+    body['operating_system'] = operating_system
+    body['os_version'] = os_version
+    body['partner_reported_threat_state'] = partner_reported_threat_state
+    body['phone_number'] = phone_number
+    body['remote_assistance_session_error_details'] = remote_assistance_session_error_details
+    body['remote_assistance_session_url'] = remote_assistance_session_url
+    body['serial_number'] = serial_number
+    body['subscriber_carrier'] = subscriber_carrier
+    body['total_storage_space_in_bytes'] = total_storage_space_in_bytes
+    body['user_display_name'] = user_display_name
+    body['user_id'] = microsoft_graph_managed_device_user_id
+    body['user_principal_name'] = user_principal_name
+    body['wi_fi_mac_address'] = wi_fi_mac_address
+    body['device_compliance_policy_states'] = device_compliance_policy_states
+    body['device_configuration_states'] = device_configuration_states
+    body['device_category'] = device_category
     return client.update_managed_devices(user_id=user_id,
                                          managed_device_id=managed_device_id,
                                          body=body)
 
 
-def devicescorpmgt_usersmanageddevice_create_device_compliance_policy_state(client,
-                                                                            user_id,
-                                                                            managed_device_id,
-                                                                            id_=None,
-                                                                            display_name=None,
-                                                                            platform_type=None,
-                                                                            setting_count=None,
-                                                                            setting_states=None,
-                                                                            state=None,
-                                                                            version=None):
+def devicescorpmgt_user_managed_device_create_device_compliance_policy_state(client,
+                                                                             user_id,
+                                                                             managed_device_id,
+                                                                             id_=None,
+                                                                             display_name=None,
+                                                                             platform_type=None,
+                                                                             setting_count=None,
+                                                                             setting_states=None,
+                                                                             state=None,
+                                                                             version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -2870,16 +3664,16 @@ def devicescorpmgt_usersmanageddevice_create_device_compliance_policy_state(clie
                                                          body=body)
 
 
-def devicescorpmgt_usersmanageddevice_create_device_configuration_state(client,
-                                                                        user_id,
-                                                                        managed_device_id,
-                                                                        id_=None,
-                                                                        display_name=None,
-                                                                        platform_type=None,
-                                                                        setting_count=None,
-                                                                        setting_states=None,
-                                                                        state=None,
-                                                                        version=None):
+def devicescorpmgt_user_managed_device_create_device_configuration_state(client,
+                                                                         user_id,
+                                                                         managed_device_id,
+                                                                         id_=None,
+                                                                         display_name=None,
+                                                                         platform_type=None,
+                                                                         setting_count=None,
+                                                                         setting_states=None,
+                                                                         state=None,
+                                                                         version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -2893,43 +3687,43 @@ def devicescorpmgt_usersmanageddevice_create_device_configuration_state(client,
                                                      body=body)
 
 
-def devicescorpmgt_usersmanageddevice_delete_device_category(client,
-                                                             user_id,
-                                                             managed_device_id,
-                                                             if_match=None):
+def devicescorpmgt_user_managed_device_delete_device_category(client,
+                                                              user_id,
+                                                              managed_device_id,
+                                                              if_match=None):
     return client.delete_device_category(user_id=user_id,
                                          managed_device_id=managed_device_id,
                                          if_match=if_match)
 
 
-def devicescorpmgt_usersmanageddevice_delete_device_compliance_policy_state(client,
-                                                                            user_id,
-                                                                            managed_device_id,
-                                                                            device_compliance_policy_state_id,
-                                                                            if_match=None):
+def devicescorpmgt_user_managed_device_delete_device_compliance_policy_state(client,
+                                                                             user_id,
+                                                                             managed_device_id,
+                                                                             device_compliance_policy_state_id,
+                                                                             if_match=None):
     return client.delete_device_compliance_policy_states(user_id=user_id,
                                                          managed_device_id=managed_device_id,
                                                          device_compliance_policy_state_id=device_compliance_policy_state_id,
                                                          if_match=if_match)
 
 
-def devicescorpmgt_usersmanageddevice_delete_device_configuration_state(client,
-                                                                        user_id,
-                                                                        managed_device_id,
-                                                                        device_configuration_state_id,
-                                                                        if_match=None):
+def devicescorpmgt_user_managed_device_delete_device_configuration_state(client,
+                                                                         user_id,
+                                                                         managed_device_id,
+                                                                         device_configuration_state_id,
+                                                                         if_match=None):
     return client.delete_device_configuration_states(user_id=user_id,
                                                      managed_device_id=managed_device_id,
                                                      device_configuration_state_id=device_configuration_state_id,
                                                      if_match=if_match)
 
 
-def devicescorpmgt_usersmanageddevice_list_device_compliance_policy_state(client,
-                                                                          user_id,
-                                                                          managed_device_id,
-                                                                          orderby=None,
-                                                                          select=None,
-                                                                          expand=None):
+def devicescorpmgt_user_managed_device_list_device_compliance_policy_state(client,
+                                                                           user_id,
+                                                                           managed_device_id,
+                                                                           orderby=None,
+                                                                           select=None,
+                                                                           expand=None):
     return client.list_device_compliance_policy_states(user_id=user_id,
                                                        managed_device_id=managed_device_id,
                                                        orderby=orderby,
@@ -2937,12 +3731,12 @@ def devicescorpmgt_usersmanageddevice_list_device_compliance_policy_state(client
                                                        expand=expand)
 
 
-def devicescorpmgt_usersmanageddevice_list_device_configuration_state(client,
-                                                                      user_id,
-                                                                      managed_device_id,
-                                                                      orderby=None,
-                                                                      select=None,
-                                                                      expand=None):
+def devicescorpmgt_user_managed_device_list_device_configuration_state(client,
+                                                                       user_id,
+                                                                       managed_device_id,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
     return client.list_device_configuration_states(user_id=user_id,
                                                    managed_device_id=managed_device_id,
                                                    orderby=orderby,
@@ -2950,23 +3744,23 @@ def devicescorpmgt_usersmanageddevice_list_device_configuration_state(client,
                                                    expand=expand)
 
 
-def devicescorpmgt_usersmanageddevice_show_device_category(client,
-                                                           user_id,
-                                                           managed_device_id,
-                                                           select=None,
-                                                           expand=None):
+def devicescorpmgt_user_managed_device_show_device_category(client,
+                                                            user_id,
+                                                            managed_device_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_device_category(user_id=user_id,
                                       managed_device_id=managed_device_id,
                                       select=select,
                                       expand=expand)
 
 
-def devicescorpmgt_usersmanageddevice_show_device_compliance_policy_state(client,
-                                                                          user_id,
-                                                                          managed_device_id,
-                                                                          device_compliance_policy_state_id,
-                                                                          select=None,
-                                                                          expand=None):
+def devicescorpmgt_user_managed_device_show_device_compliance_policy_state(client,
+                                                                           user_id,
+                                                                           managed_device_id,
+                                                                           device_compliance_policy_state_id,
+                                                                           select=None,
+                                                                           expand=None):
     return client.get_device_compliance_policy_states(user_id=user_id,
                                                       managed_device_id=managed_device_id,
                                                       device_compliance_policy_state_id=device_compliance_policy_state_id,
@@ -2974,12 +3768,12 @@ def devicescorpmgt_usersmanageddevice_show_device_compliance_policy_state(client
                                                       expand=expand)
 
 
-def devicescorpmgt_usersmanageddevice_show_device_configuration_state(client,
-                                                                      user_id,
-                                                                      managed_device_id,
-                                                                      device_configuration_state_id,
-                                                                      select=None,
-                                                                      expand=None):
+def devicescorpmgt_user_managed_device_show_device_configuration_state(client,
+                                                                       user_id,
+                                                                       managed_device_id,
+                                                                       device_configuration_state_id,
+                                                                       select=None,
+                                                                       expand=None):
     return client.get_device_configuration_states(user_id=user_id,
                                                   managed_device_id=managed_device_id,
                                                   device_configuration_state_id=device_configuration_state_id,
@@ -2987,12 +3781,12 @@ def devicescorpmgt_usersmanageddevice_show_device_configuration_state(client,
                                                   expand=expand)
 
 
-def devicescorpmgt_usersmanageddevice_update_device_category(client,
-                                                             user_id,
-                                                             managed_device_id,
-                                                             id_=None,
-                                                             description=None,
-                                                             display_name=None):
+def devicescorpmgt_user_managed_device_update_device_category(client,
+                                                              user_id,
+                                                              managed_device_id,
+                                                              id_=None,
+                                                              description=None,
+                                                              display_name=None):
     body = {}
     body['id'] = id_
     body['description'] = description
@@ -3002,17 +3796,17 @@ def devicescorpmgt_usersmanageddevice_update_device_category(client,
                                          body=body)
 
 
-def devicescorpmgt_usersmanageddevice_update_device_compliance_policy_state(client,
-                                                                            user_id,
-                                                                            managed_device_id,
-                                                                            device_compliance_policy_state_id,
-                                                                            id_=None,
-                                                                            display_name=None,
-                                                                            platform_type=None,
-                                                                            setting_count=None,
-                                                                            setting_states=None,
-                                                                            state=None,
-                                                                            version=None):
+def devicescorpmgt_user_managed_device_update_device_compliance_policy_state(client,
+                                                                             user_id,
+                                                                             managed_device_id,
+                                                                             device_compliance_policy_state_id,
+                                                                             id_=None,
+                                                                             display_name=None,
+                                                                             platform_type=None,
+                                                                             setting_count=None,
+                                                                             setting_states=None,
+                                                                             state=None,
+                                                                             version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name
@@ -3027,17 +3821,17 @@ def devicescorpmgt_usersmanageddevice_update_device_compliance_policy_state(clie
                                                          body=body)
 
 
-def devicescorpmgt_usersmanageddevice_update_device_configuration_state(client,
-                                                                        user_id,
-                                                                        managed_device_id,
-                                                                        device_configuration_state_id,
-                                                                        id_=None,
-                                                                        display_name=None,
-                                                                        platform_type=None,
-                                                                        setting_count=None,
-                                                                        setting_states=None,
-                                                                        state=None,
-                                                                        version=None):
+def devicescorpmgt_user_managed_device_update_device_configuration_state(client,
+                                                                         user_id,
+                                                                         managed_device_id,
+                                                                         device_configuration_state_id,
+                                                                         id_=None,
+                                                                         display_name=None,
+                                                                         platform_type=None,
+                                                                         setting_count=None,
+                                                                         setting_states=None,
+                                                                         state=None,
+                                                                         version=None):
     body = {}
     body['id'] = id_
     body['display_name'] = display_name

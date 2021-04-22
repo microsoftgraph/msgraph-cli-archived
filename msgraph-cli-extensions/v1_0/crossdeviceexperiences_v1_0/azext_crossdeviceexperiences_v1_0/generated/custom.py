@@ -135,7 +135,7 @@ def crossdeviceexperiences_user_update_activity(client,
                                     body=body)
 
 
-def crossdeviceexperiences_usersactivity_create_history_item(client,
+def crossdeviceexperiences_user_activity_create_history_item(client,
                                                              user_id,
                                                              user_activity_id,
                                                              id_=None,
@@ -164,7 +164,7 @@ def crossdeviceexperiences_usersactivity_create_history_item(client,
                                        body=body)
 
 
-def crossdeviceexperiences_usersactivity_delete_history_item(client,
+def crossdeviceexperiences_user_activity_delete_history_item(client,
                                                              user_id,
                                                              user_activity_id,
                                                              activity_history_item_id,
@@ -175,7 +175,7 @@ def crossdeviceexperiences_usersactivity_delete_history_item(client,
                                        if_match=if_match)
 
 
-def crossdeviceexperiences_usersactivity_list_history_item(client,
+def crossdeviceexperiences_user_activity_list_history_item(client,
                                                            user_id,
                                                            user_activity_id,
                                                            orderby=None,
@@ -188,7 +188,7 @@ def crossdeviceexperiences_usersactivity_list_history_item(client,
                                      expand=expand)
 
 
-def crossdeviceexperiences_usersactivity_show_history_item(client,
+def crossdeviceexperiences_user_activity_show_history_item(client,
                                                            user_id,
                                                            user_activity_id,
                                                            activity_history_item_id,
@@ -201,7 +201,7 @@ def crossdeviceexperiences_usersactivity_show_history_item(client,
                                     expand=expand)
 
 
-def crossdeviceexperiences_usersactivity_update_history_item(client,
+def crossdeviceexperiences_user_activity_update_history_item(client,
                                                              user_id,
                                                              user_activity_id,
                                                              activity_history_item_id,
@@ -232,7 +232,7 @@ def crossdeviceexperiences_usersactivity_update_history_item(client,
                                        body=body)
 
 
-def crossdeviceexperiences_usersactivitieshistoryitem_delete_ref_activity(client,
+def crossdeviceexperiences_user_activity_history_item_delete_ref_activity(client,
                                                                           user_id,
                                                                           user_activity_id,
                                                                           activity_history_item_id,
@@ -243,7 +243,7 @@ def crossdeviceexperiences_usersactivitieshistoryitem_delete_ref_activity(client
                                       if_match=if_match)
 
 
-def crossdeviceexperiences_usersactivitieshistoryitem_set_ref_activity(client,
+def crossdeviceexperiences_user_activity_history_item_set_ref_activity(client,
                                                                        user_id,
                                                                        user_activity_id,
                                                                        activity_history_item_id,
@@ -254,7 +254,7 @@ def crossdeviceexperiences_usersactivitieshistoryitem_set_ref_activity(client,
                                    body=body)
 
 
-def crossdeviceexperiences_usersactivitieshistoryitem_show_activity(client,
+def crossdeviceexperiences_user_activity_history_item_show_activity(client,
                                                                     user_id,
                                                                     user_activity_id,
                                                                     activity_history_item_id,
@@ -267,7 +267,7 @@ def crossdeviceexperiences_usersactivitieshistoryitem_show_activity(client,
                                expand=expand)
 
 
-def crossdeviceexperiences_usersactivitieshistoryitem_show_ref_activity(client,
+def crossdeviceexperiences_user_activity_history_item_show_ref_activity(client,
                                                                         user_id,
                                                                         user_activity_id,
                                                                         activity_history_item_id):

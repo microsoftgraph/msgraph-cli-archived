@@ -17,17 +17,17 @@ helps['education_v1_0'] = '''
     short-summary: Manage Education
 '''
 
-helps['education educationroot'] = """
+helps['education education-root'] = """
     type: group
-    short-summary: Manage educationroot with education_v1_0
+    short-summary: Manage education education root with education_v1_0
 """
 
-helps['education educationroot show-education-root'] = """
+helps['education education-root show-education-root'] = """
     type: command
     short-summary: "Get education."
 """
 
-helps['education educationroot update-education-root'] = """
+helps['education education-root update-education-root'] = """
     type: command
     short-summary: "Update education."
 """
@@ -125,6 +125,119 @@ associated with the user won't show up as having changed when using delta.
 helps['education education create-user'] = """
     type: command
     short-summary: "Create new navigation property to users for education."
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education delete-class'] = """
@@ -227,6 +340,119 @@ associated with the user won't show up as having changed when using delta.
 helps['education education update-me'] = """
     type: command
     short-summary: "Update the navigation property me in education."
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education update-school'] = """
@@ -275,219 +501,332 @@ associated with the user won't show up as having changed when using delta.
 helps['education education update-user'] = """
     type: command
     short-summary: "Update the navigation property users in education."
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education educationclass'] = """
+helps['education education-class'] = """
     type: group
-    short-summary: Manage educationclass with education_v1_0
+    short-summary: Manage education class with education_v1_0
 """
 
-helps['education educationclass create-ref-member'] = """
+helps['education education-class create-ref-member'] = """
     type: command
     short-summary: "Create new navigation property ref to members for education."
 """
 
-helps['education educationclass create-ref-school'] = """
+helps['education education-class create-ref-school'] = """
     type: command
     short-summary: "Create new navigation property ref to schools for education."
 """
 
-helps['education educationclass create-ref-teacher'] = """
+helps['education education-class create-ref-teacher'] = """
     type: command
     short-summary: "Create new navigation property ref to teachers for education."
 """
 
-helps['education educationclass delete-ref-group'] = """
+helps['education education-class delete-ref-group'] = """
     type: command
     short-summary: "Delete ref of navigation property group for education."
 """
 
-helps['education educationclass list-member'] = """
+helps['education education-class list-member'] = """
     type: command
     short-summary: "Get members from education."
 """
 
-helps['education educationclass list-ref-member'] = """
+helps['education education-class list-ref-member'] = """
     type: command
     short-summary: "Get ref of members from education."
 """
 
-helps['education educationclass list-ref-school'] = """
+helps['education education-class list-ref-school'] = """
     type: command
     short-summary: "Get ref of schools from education."
 """
 
-helps['education educationclass list-ref-teacher'] = """
+helps['education education-class list-ref-teacher'] = """
     type: command
     short-summary: "Get ref of teachers from education."
 """
 
-helps['education educationclass list-school'] = """
+helps['education education-class list-school'] = """
     type: command
     short-summary: "Get schools from education."
 """
 
-helps['education educationclass list-teacher'] = """
+helps['education education-class list-teacher'] = """
     type: command
     short-summary: "Get teachers from education."
 """
 
-helps['education educationclass set-ref-group'] = """
+helps['education education-class set-ref-group'] = """
     type: command
     short-summary: "Update the ref of navigation property group in education."
 """
 
-helps['education educationclass show-group'] = """
+helps['education education-class show-group'] = """
     type: command
     short-summary: "Get group from education."
 """
 
-helps['education educationclass show-ref-group'] = """
+helps['education education-class show-ref-group'] = """
     type: command
     short-summary: "Get ref of group from education."
 """
 
-helps['education educationme'] = """
+helps['education education-me'] = """
     type: group
-    short-summary: Manage educationme with education_v1_0
+    short-summary: Manage education me with education_v1_0
 """
 
-helps['education educationme create-ref-class'] = """
+helps['education education-me create-ref-class'] = """
     type: command
     short-summary: "Create new navigation property ref to classes for education."
 """
 
-helps['education educationme create-ref-school'] = """
+helps['education education-me create-ref-school'] = """
     type: command
     short-summary: "Create new navigation property ref to schools for education."
 """
 
-helps['education educationme delete-ref-user'] = """
+helps['education education-me delete-ref-user'] = """
     type: command
     short-summary: "Delete ref of navigation property user for education."
 """
 
-helps['education educationme list-class'] = """
+helps['education education-me list-class'] = """
     type: command
     short-summary: "Get classes from education."
 """
 
-helps['education educationme list-ref-class'] = """
+helps['education education-me list-ref-class'] = """
     type: command
     short-summary: "Get ref of classes from education."
 """
 
-helps['education educationme list-ref-school'] = """
+helps['education education-me list-ref-school'] = """
     type: command
     short-summary: "Get ref of schools from education."
 """
 
-helps['education educationme list-school'] = """
+helps['education education-me list-school'] = """
     type: command
     short-summary: "Get schools from education."
 """
 
-helps['education educationme set-ref-user'] = """
+helps['education education-me set-ref-user'] = """
     type: command
     short-summary: "Update the ref of navigation property user in education."
 """
 
-helps['education educationme show-ref-user'] = """
+helps['education education-me show-ref-user'] = """
     type: command
     short-summary: "Get ref of user from education."
 """
 
-helps['education educationme show-user'] = """
+helps['education education-me show-user'] = """
     type: command
     short-summary: "Get user from education."
 """
 
-helps['education educationschool'] = """
+helps['education education-school'] = """
     type: group
-    short-summary: Manage educationschool with education_v1_0
+    short-summary: Manage education school with education_v1_0
 """
 
-helps['education educationschool create-ref-class'] = """
+helps['education education-school create-ref-class'] = """
     type: command
     short-summary: "Create new navigation property ref to classes for education."
 """
 
-helps['education educationschool create-ref-user'] = """
+helps['education education-school create-ref-user'] = """
     type: command
     short-summary: "Create new navigation property ref to users for education."
 """
 
-helps['education educationschool list-class'] = """
+helps['education education-school list-class'] = """
     type: command
     short-summary: "Get classes from education."
 """
 
-helps['education educationschool list-ref-class'] = """
+helps['education education-school list-ref-class'] = """
     type: command
     short-summary: "Get ref of classes from education."
 """
 
-helps['education educationschool list-ref-user'] = """
+helps['education education-school list-ref-user'] = """
     type: command
     short-summary: "Get ref of users from education."
 """
 
-helps['education educationschool list-user'] = """
+helps['education education-school list-user'] = """
     type: command
     short-summary: "Get users from education."
 """
 
-helps['education educationuser'] = """
+helps['education education-user'] = """
     type: group
-    short-summary: Manage educationuser with education_v1_0
+    short-summary: Manage education user with education_v1_0
 """
 
-helps['education educationuser create-ref-class'] = """
+helps['education education-user create-ref-class'] = """
     type: command
     short-summary: "Create new navigation property ref to classes for education."
 """
 
-helps['education educationuser create-ref-school'] = """
+helps['education education-user create-ref-school'] = """
     type: command
     short-summary: "Create new navigation property ref to schools for education."
 """
 
-helps['education educationuser delete-ref-user'] = """
+helps['education education-user delete-ref-user'] = """
     type: command
     short-summary: "Delete ref of navigation property user for education."
 """
 
-helps['education educationuser list-class'] = """
+helps['education education-user list-class'] = """
     type: command
     short-summary: "Get classes from education."
 """
 
-helps['education educationuser list-ref-class'] = """
+helps['education education-user list-ref-class'] = """
     type: command
     short-summary: "Get ref of classes from education."
 """
 
-helps['education educationuser list-ref-school'] = """
+helps['education education-user list-ref-school'] = """
     type: command
     short-summary: "Get ref of schools from education."
 """
 
-helps['education educationuser list-school'] = """
+helps['education education-user list-school'] = """
     type: command
     short-summary: "Get schools from education."
 """
 
-helps['education educationuser set-ref-user'] = """
+helps['education education-user set-ref-user'] = """
     type: command
     short-summary: "Update the ref of navigation property user in education."
 """
 
-helps['education educationuser show-ref-user'] = """
+helps['education education-user show-ref-user'] = """
     type: command
     short-summary: "Get ref of user from education."
 """
 
-helps['education educationuser show-user'] = """
+helps['education education-user show-user'] = """
     type: command
     short-summary: "Get user from education."
 """

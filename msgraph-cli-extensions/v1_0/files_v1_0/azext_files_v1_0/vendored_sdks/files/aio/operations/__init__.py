@@ -6,40 +6,40 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._drivesdrive_operations import drivesdriveOperations
-from ._drives_operations import drivesOperations
-from ._driveslist_operations import driveslistOperations
-from ._driveslistcontenttypes_operations import driveslistcontenttypesOperations
-from ._driveslistitems_operations import driveslistitemsOperations
-from ._driveslistitemsversions_operations import driveslistitemsversionsOperations
-from ._groups_operations import groupsOperations
-from ._sharesshareddriveitem_operations import sharesshareddriveitemOperations
-from ._shares_operations import sharesOperations
-from ._shareslist_operations import shareslistOperations
-from ._shareslistcontenttypes_operations import shareslistcontenttypesOperations
-from ._shareslistitems_operations import shareslistitemsOperations
-from ._shareslistitemsversions_operations import shareslistitemsversionsOperations
-from ._shareslistitem_operations import shareslistitemOperations
-from ._shareslistitemversions_operations import shareslistitemversionsOperations
-from ._sharespermission_operations import sharespermissionOperations
-from ._users_operations import usersOperations
+from ._drives_drive_operations import DrivesDriveOperations
+from ._drives_operations import DrivesOperations
+from ._drives_list_operations import DrivesListOperations
+from ._drives_list_content_types_operations import DrivesListContentTypesOperations
+from ._drives_list_items_operations import DrivesListItemsOperations
+from ._drives_list_items_versions_operations import DrivesListItemsVersionsOperations
+from ._groups_operations import GroupsOperations
+from ._shares_shared_drive_item_operations import SharesSharedDriveItemOperations
+from ._shares_operations import SharesOperations
+from ._shares_list_operations import SharesListOperations
+from ._shares_list_content_types_operations import SharesListContentTypesOperations
+from ._shares_list_items_operations import SharesListItemsOperations
+from ._shares_list_items_versions_operations import SharesListItemsVersionsOperations
+from ._shares_list_item_operations import SharesListItemOperations
+from ._shares_list_item_versions_operations import SharesListItemVersionsOperations
+from ._shares_permission_operations import SharesPermissionOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'drivesdriveOperations',
-    'drivesOperations',
-    'driveslistOperations',
-    'driveslistcontenttypesOperations',
-    'driveslistitemsOperations',
-    'driveslistitemsversionsOperations',
-    'groupsOperations',
-    'sharesshareddriveitemOperations',
-    'sharesOperations',
-    'shareslistOperations',
-    'shareslistcontenttypesOperations',
-    'shareslistitemsOperations',
-    'shareslistitemsversionsOperations',
-    'shareslistitemOperations',
-    'shareslistitemversionsOperations',
-    'sharespermissionOperations',
-    'usersOperations',
+    'DrivesDriveOperations',
+    'DrivesOperations',
+    'DrivesListOperations',
+    'DrivesListContentTypesOperations',
+    'DrivesListItemsOperations',
+    'DrivesListItemsVersionsOperations',
+    'GroupsOperations',
+    'SharesSharedDriveItemOperations',
+    'SharesOperations',
+    'SharesListOperations',
+    'SharesListContentTypesOperations',
+    'SharesListItemsOperations',
+    'SharesListItemsVersionsOperations',
+    'SharesListItemOperations',
+    'SharesListItemVersionsOperations',
+    'SharesPermissionOperations',
+    'UsersOperations',
 ]

@@ -15,171 +15,171 @@
 from msgraph.cli.core.commands import CliCommandType
 from azext_planner_beta.generated._client_factory import (
     cf_group,
-    cf_groupsplanner,
-    cf_groupsplannerplan,
-    cf_groupsplannerplansbucket,
-    cf_groupsplannerplansbucketstask,
-    cf_groupsplannerplanstask,
+    cf_group_planner,
+    cf_group_planner_plan,
+    cf_group_planner_plan_bucket,
+    cf_group_planner_plan_bucket_task,
+    cf_group_planner_plan_task,
+    cf_planner_planner,
     cf_planner,
-    cf_planner,
-    cf_plannerbucket,
-    cf_plannerbucketstask,
-    cf_plannerplan,
-    cf_plannerplansbucket,
-    cf_plannerplansbucketstask,
-    cf_plannerplanstask,
-    cf_plannertask,
+    cf_planner_bucket,
+    cf_planner_bucket_task,
+    cf_planner_plan,
+    cf_planner_plan_bucket,
+    cf_planner_plan_bucket_task,
+    cf_planner_plan_task,
+    cf_planner_task,
     cf_user,
-    cf_usersplanner,
-    cf_usersplannerplan,
-    cf_usersplannerplansbucket,
-    cf_usersplannerplansbucketstask,
-    cf_usersplannerplanstask,
-    cf_usersplannertask,
+    cf_user_planner,
+    cf_user_planner_plan,
+    cf_user_planner_plan_bucket,
+    cf_user_planner_plan_bucket_task,
+    cf_user_planner_plan_task,
+    cf_user_planner_task,
 )
 
 
 planner_beta_group = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_operations#groupsOperations.{}',
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
-planner_beta_groupsplanner = CliCommandType(
+planner_beta_group_planner = CliCommandType(
     operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._groupsplanner_operations#groupsplannerOperations.{}'
+        'azext_planner_beta.vendored_sdks.planner.operations._groups_planner_operations#GroupsPlannerOperations.{}'
     ),
-    client_factory=cf_groupsplanner,
+    client_factory=cf_group_planner,
 )
 
 
-planner_beta_groupsplannerplan = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groupsplannerplans_operations#groupsplannerplansOperations.{}',
-    client_factory=cf_groupsplannerplan,
+planner_beta_group_planner_plan = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_planner_plans_operations#GroupsPlannerPlansOperations.{}',
+    client_factory=cf_group_planner_plan,
 )
 
 
-planner_beta_groupsplannerplansbucket = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groupsplannerplansbuckets_operations#groupsplannerplansbucketsOperations.{}',
-    client_factory=cf_groupsplannerplansbucket,
+planner_beta_group_planner_plan_bucket = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_planner_plans_buckets_operations#GroupsPlannerPlansBucketsOperations.{}',
+    client_factory=cf_group_planner_plan_bucket,
 )
 
 
-planner_beta_groupsplannerplansbucketstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groupsplannerplansbucketstasks_operations#groupsplannerplansbucketstasksOperations.{}',
-    client_factory=cf_groupsplannerplansbucketstask,
+planner_beta_group_planner_plan_bucket_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_planner_plans_buckets_tasks_operations#GroupsPlannerPlansBucketsTasksOperations.{}',
+    client_factory=cf_group_planner_plan_bucket_task,
 )
 
 
-planner_beta_groupsplannerplanstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groupsplannerplanstasks_operations#groupsplannerplanstasksOperations.{}',
-    client_factory=cf_groupsplannerplanstask,
+planner_beta_group_planner_plan_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._groups_planner_plans_tasks_operations#GroupsPlannerPlansTasksOperations.{}',
+    client_factory=cf_group_planner_plan_task,
+)
+
+
+planner_beta_planner_planner = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_beta.vendored_sdks.planner.operations._planner_planner_operations#PlannerPlannerOperations.{}'
+    ),
+    client_factory=cf_planner_planner,
 )
 
 
 planner_beta_planner = CliCommandType(
-    operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._plannerplanner_operations#plannerplannerOperations.{}'
-    ),
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_operations#PlannerOperations.{}',
     client_factory=cf_planner,
 )
 
 
-planner_beta_planner = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_operations#plannerOperations.{}',
-    client_factory=cf_planner,
-)
-
-
-planner_beta_plannerbucket = CliCommandType(
+planner_beta_planner_bucket = CliCommandType(
     operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._plannerbuckets_operations#plannerbucketsOperations.{}'
+        'azext_planner_beta.vendored_sdks.planner.operations._planner_buckets_operations#PlannerBucketsOperations.{}'
     ),
-    client_factory=cf_plannerbucket,
+    client_factory=cf_planner_bucket,
 )
 
 
-planner_beta_plannerbucketstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._plannerbucketstasks_operations#plannerbucketstasksOperations.{}',
-    client_factory=cf_plannerbucketstask,
+planner_beta_planner_bucket_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_buckets_tasks_operations#PlannerBucketsTasksOperations.{}',
+    client_factory=cf_planner_bucket_task,
 )
 
 
-planner_beta_plannerplan = CliCommandType(
+planner_beta_planner_plan = CliCommandType(
     operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._plannerplans_operations#plannerplansOperations.{}'
+        'azext_planner_beta.vendored_sdks.planner.operations._planner_plans_operations#PlannerPlansOperations.{}'
     ),
-    client_factory=cf_plannerplan,
+    client_factory=cf_planner_plan,
 )
 
 
-planner_beta_plannerplansbucket = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._plannerplansbuckets_operations#plannerplansbucketsOperations.{}',
-    client_factory=cf_plannerplansbucket,
+planner_beta_planner_plan_bucket = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_plans_buckets_operations#PlannerPlansBucketsOperations.{}',
+    client_factory=cf_planner_plan_bucket,
 )
 
 
-planner_beta_plannerplansbucketstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._plannerplansbucketstasks_operations#plannerplansbucketstasksOperations.{}',
-    client_factory=cf_plannerplansbucketstask,
+planner_beta_planner_plan_bucket_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_plans_buckets_tasks_operations#PlannerPlansBucketsTasksOperations.{}',
+    client_factory=cf_planner_plan_bucket_task,
 )
 
 
-planner_beta_plannerplanstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._plannerplanstasks_operations#plannerplanstasksOperations.{}',
-    client_factory=cf_plannerplanstask,
+planner_beta_planner_plan_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._planner_plans_tasks_operations#PlannerPlansTasksOperations.{}',
+    client_factory=cf_planner_plan_task,
 )
 
 
-planner_beta_plannertask = CliCommandType(
+planner_beta_planner_task = CliCommandType(
     operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._plannertasks_operations#plannertasksOperations.{}'
+        'azext_planner_beta.vendored_sdks.planner.operations._planner_tasks_operations#PlannerTasksOperations.{}'
     ),
-    client_factory=cf_plannertask,
+    client_factory=cf_planner_task,
 )
 
 
 planner_beta_user = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-planner_beta_usersplanner = CliCommandType(
+planner_beta_user_planner = CliCommandType(
     operations_tmpl=(
-        'azext_planner_beta.vendored_sdks.planner.operations._usersplanner_operations#usersplannerOperations.{}'
+        'azext_planner_beta.vendored_sdks.planner.operations._users_planner_operations#UsersPlannerOperations.{}'
     ),
-    client_factory=cf_usersplanner,
+    client_factory=cf_user_planner,
 )
 
 
-planner_beta_usersplannerplan = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._usersplannerplans_operations#usersplannerplansOperations.{}',
-    client_factory=cf_usersplannerplan,
+planner_beta_user_planner_plan = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_planner_plans_operations#UsersPlannerPlansOperations.{}',
+    client_factory=cf_user_planner_plan,
 )
 
 
-planner_beta_usersplannerplansbucket = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._usersplannerplansbuckets_operations#usersplannerplansbucketsOperations.{}',
-    client_factory=cf_usersplannerplansbucket,
+planner_beta_user_planner_plan_bucket = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_planner_plans_buckets_operations#UsersPlannerPlansBucketsOperations.{}',
+    client_factory=cf_user_planner_plan_bucket,
 )
 
 
-planner_beta_usersplannerplansbucketstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._usersplannerplansbucketstasks_operations#usersplannerplansbucketstasksOperations.{}',
-    client_factory=cf_usersplannerplansbucketstask,
+planner_beta_user_planner_plan_bucket_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_planner_plans_buckets_tasks_operations#UsersPlannerPlansBucketsTasksOperations.{}',
+    client_factory=cf_user_planner_plan_bucket_task,
 )
 
 
-planner_beta_usersplannerplanstask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._usersplannerplanstasks_operations#usersplannerplanstasksOperations.{}',
-    client_factory=cf_usersplannerplanstask,
+planner_beta_user_planner_plan_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_planner_plans_tasks_operations#UsersPlannerPlansTasksOperations.{}',
+    client_factory=cf_user_planner_plan_task,
 )
 
 
-planner_beta_usersplannertask = CliCommandType(
-    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._usersplannertasks_operations#usersplannertasksOperations.{}',
-    client_factory=cf_usersplannertask,
+planner_beta_user_planner_task = CliCommandType(
+    operations_tmpl='azext_planner_beta.vendored_sdks.planner.operations._users_planner_tasks_operations#UsersPlannerTasksOperations.{}',
+    client_factory=cf_user_planner_task,
 )
 
 
@@ -190,121 +190,123 @@ def load_command_table(self, _):
         g.custom_command('show-planner', 'planner_group_show_planner')
         g.custom_command('update-planner', 'planner_group_update_planner')
 
-    with self.command_group('planner groupsplanner', planner_beta_groupsplanner, client_factory=cf_groupsplanner) as g:
-        g.custom_command('create-plan', 'planner_groupsplanner_create_plan')
-        g.custom_command('delete-plan', 'planner_groupsplanner_delete_plan')
-        g.custom_command('list-plan', 'planner_groupsplanner_list_plan')
-        g.custom_command('show-plan', 'planner_groupsplanner_show_plan')
-        g.custom_command('update-plan', 'planner_groupsplanner_update_plan')
+    with self.command_group('planner group-planner', planner_beta_group_planner, client_factory=cf_group_planner) as g:
+        g.custom_command('create-plan', 'planner_group_planner_create_plan')
+        g.custom_command('delete-plan', 'planner_group_planner_delete_plan')
+        g.custom_command('list-plan', 'planner_group_planner_list_plan')
+        g.custom_command('show-plan', 'planner_group_planner_show_plan')
+        g.custom_command('update-plan', 'planner_group_planner_update_plan')
 
     with self.command_group(
-        'planner groupsplannerplan', planner_beta_groupsplannerplan, client_factory=cf_groupsplannerplan
+        'planner group-planner-plan', planner_beta_group_planner_plan, client_factory=cf_group_planner_plan
     ) as g:
-        g.custom_command('create-bucket', 'planner_groupsplannerplan_create_bucket')
-        g.custom_command('create-task', 'planner_groupsplannerplan_create_task')
-        g.custom_command('delete-bucket', 'planner_groupsplannerplan_delete_bucket')
-        g.custom_command('delete-detail', 'planner_groupsplannerplan_delete_detail')
-        g.custom_command('delete-task', 'planner_groupsplannerplan_delete_task')
-        g.custom_command('list-bucket', 'planner_groupsplannerplan_list_bucket')
-        g.custom_command('list-task', 'planner_groupsplannerplan_list_task')
-        g.custom_command('show-bucket', 'planner_groupsplannerplan_show_bucket')
-        g.custom_command('show-detail', 'planner_groupsplannerplan_show_detail')
-        g.custom_command('show-task', 'planner_groupsplannerplan_show_task')
-        g.custom_command('update-bucket', 'planner_groupsplannerplan_update_bucket')
-        g.custom_command('update-detail', 'planner_groupsplannerplan_update_detail')
-        g.custom_command('update-task', 'planner_groupsplannerplan_update_task')
+        g.custom_command('create-bucket', 'planner_group_planner_plan_create_bucket')
+        g.custom_command('create-task', 'planner_group_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_group_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_group_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_group_planner_plan_delete_task')
+        g.custom_command('list-bucket', 'planner_group_planner_plan_list_bucket')
+        g.custom_command('list-task', 'planner_group_planner_plan_list_task')
+        g.custom_command('show-bucket', 'planner_group_planner_plan_show_bucket')
+        g.custom_command('show-detail', 'planner_group_planner_plan_show_detail')
+        g.custom_command('show-task', 'planner_group_planner_plan_show_task')
+        g.custom_command('update-bucket', 'planner_group_planner_plan_update_bucket')
+        g.custom_command('update-detail', 'planner_group_planner_plan_update_detail')
+        g.custom_command('update-task', 'planner_group_planner_plan_update_task')
 
     with self.command_group(
-        'planner groupsplannerplansbucket',
-        planner_beta_groupsplannerplansbucket,
-        client_factory=cf_groupsplannerplansbucket,
+        'planner group-planner-plan-bucket',
+        planner_beta_group_planner_plan_bucket,
+        client_factory=cf_group_planner_plan_bucket,
     ) as g:
-        g.custom_command('create-task', 'planner_groupsplannerplansbucket_create_task')
-        g.custom_command('delete-task', 'planner_groupsplannerplansbucket_delete_task')
-        g.custom_command('list-task', 'planner_groupsplannerplansbucket_list_task')
-        g.custom_command('show-task', 'planner_groupsplannerplansbucket_show_task')
-        g.custom_command('update-task', 'planner_groupsplannerplansbucket_update_task')
+        g.custom_command('create-task', 'planner_group_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_group_planner_plan_bucket_delete_task')
+        g.custom_command('list-task', 'planner_group_planner_plan_bucket_list_task')
+        g.custom_command('show-task', 'planner_group_planner_plan_bucket_show_task')
+        g.custom_command('update-task', 'planner_group_planner_plan_bucket_update_task')
 
     with self.command_group(
-        'planner groupsplannerplansbucketstask',
-        planner_beta_groupsplannerplansbucketstask,
-        client_factory=cf_groupsplannerplansbucketstask,
+        'planner group-planner-plan-bucket-task',
+        planner_beta_group_planner_plan_bucket_task,
+        client_factory=cf_group_planner_plan_bucket_task,
     ) as g:
         g.custom_command(
             'delete-assigned-to-task-board-format',
-            'planner_groupsplannerplansbucketstask_delete_assigned_to_task_board_format',
+            'planner_group_planner_plan_bucket_task_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_groupsplannerplansbucketstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_group_planner_plan_bucket_task_delete_detail')
         g.custom_command(
             'delete-progress-task-board-format',
-            'planner_groupsplannerplansbucketstask_delete_progress_task_board_format',
+            'planner_group_planner_plan_bucket_task_delete_progress_task_board_format',
         )
         g.custom_command(
             'show-assigned-to-task-board-format',
-            'planner_groupsplannerplansbucketstask_show_assigned_to_task_board_format',
+            'planner_group_planner_plan_bucket_task_show_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_show_bucket_task_board_format'
+            'show-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_show_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_groupsplannerplansbucketstask_show_detail')
+        g.custom_command('show-detail', 'planner_group_planner_plan_bucket_task_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_groupsplannerplansbucketstask_show_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_group_planner_plan_bucket_task_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_groupsplannerplansbucketstask_update_assigned_to_task_board_format',
+            'planner_group_planner_plan_bucket_task_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_groupsplannerplansbucketstask_update_detail')
+        g.custom_command('update-detail', 'planner_group_planner_plan_bucket_task_update_detail')
         g.custom_command(
             'update-progress-task-board-format',
-            'planner_groupsplannerplansbucketstask_update_progress_task_board_format',
+            'planner_group_planner_plan_bucket_task_update_progress_task_board_format',
         )
 
     with self.command_group(
-        'planner groupsplannerplanstask', planner_beta_groupsplannerplanstask, client_factory=cf_groupsplannerplanstask
+        'planner group-planner-plan-task',
+        planner_beta_group_planner_plan_task,
+        client_factory=cf_group_planner_plan_task,
     ) as g:
         g.custom_command(
             'delete-assigned-to-task-board-format',
-            'planner_groupsplannerplanstask_delete_assigned_to_task_board_format',
+            'planner_group_planner_plan_task_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_groupsplannerplanstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_group_planner_plan_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_groupsplannerplanstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_group_planner_plan_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_groupsplannerplanstask_delete_progress_task_board_format'
-        )
-        g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_groupsplannerplanstask_show_assigned_to_task_board_format'
+            'delete-progress-task-board-format', 'planner_group_planner_plan_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_groupsplannerplanstask_show_bucket_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_group_planner_plan_task_show_assigned_to_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_groupsplannerplanstask_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_groupsplannerplanstask_show_progress_task_board_format'
+            'show-bucket-task-board-format', 'planner_group_planner_plan_task_show_bucket_task_board_format'
+        )
+        g.custom_command('show-detail', 'planner_group_planner_plan_task_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_group_planner_plan_task_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_groupsplannerplanstask_update_assigned_to_task_board_format',
+            'planner_group_planner_plan_task_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_groupsplannerplanstask_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_group_planner_plan_task_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_groupsplannerplanstask_update_detail')
+        g.custom_command('update-detail', 'planner_group_planner_plan_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_groupsplannerplanstask_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_group_planner_plan_task_update_progress_task_board_format'
         )
 
-    with self.command_group('planner planner', planner_beta_planner, client_factory=cf_planner) as g:
+    with self.command_group('planner planner', planner_beta_planner_planner, client_factory=cf_planner_planner) as g:
+        g.custom_command('create', 'planner_planner_create')
         g.custom_command('show-planner', 'planner_planner_show_planner')
-        g.custom_command('update-planner', 'planner_planner_update_planner')
 
     with self.command_group('planner planner', planner_beta_planner, client_factory=cf_planner) as g:
         g.custom_command('create-bucket', 'planner_planner_create_bucket')
@@ -323,304 +325,312 @@ def load_command_table(self, _):
         g.custom_command('update-plan', 'planner_planner_update_plan')
         g.custom_command('update-task', 'planner_planner_update_task')
 
-    with self.command_group('planner plannerbucket', planner_beta_plannerbucket, client_factory=cf_plannerbucket) as g:
-        g.custom_command('create-task', 'planner_plannerbucket_create_task')
-        g.custom_command('delete-task', 'planner_plannerbucket_delete_task')
-        g.custom_command('list-task', 'planner_plannerbucket_list_task')
-        g.custom_command('show-task', 'planner_plannerbucket_show_task')
-        g.custom_command('update-task', 'planner_plannerbucket_update_task')
+    with self.command_group(
+        'planner planner-bucket', planner_beta_planner_bucket, client_factory=cf_planner_bucket
+    ) as g:
+        g.custom_command('create-task', 'planner_planner_bucket_create_task')
+        g.custom_command('delete-task', 'planner_planner_bucket_delete_task')
+        g.custom_command('list-task', 'planner_planner_bucket_list_task')
+        g.custom_command('show-task', 'planner_planner_bucket_show_task')
+        g.custom_command('update-task', 'planner_planner_bucket_update_task')
 
     with self.command_group(
-        'planner plannerbucketstask', planner_beta_plannerbucketstask, client_factory=cf_plannerbucketstask
+        'planner planner-bucket-task', planner_beta_planner_bucket_task, client_factory=cf_planner_bucket_task
     ) as g:
         g.custom_command(
-            'delete-assigned-to-task-board-format', 'planner_plannerbucketstask_delete_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_planner_bucket_task_delete_assigned_to_task_board_format'
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_plannerbucketstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_planner_bucket_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_plannerbucketstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_planner_bucket_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_plannerbucketstask_delete_progress_task_board_format'
-        )
-        g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_plannerbucketstask_show_assigned_to_task_board_format'
-        )
-        g.custom_command('show-bucket-task-board-format', 'planner_plannerbucketstask_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_plannerbucketstask_show_detail')
-        g.custom_command(
-            'show-progress-task-board-format', 'planner_plannerbucketstask_show_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_planner_bucket_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_plannerbucketstask_update_assigned_to_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_planner_bucket_task_show_assigned_to_task_board_format'
+        )
+        g.custom_command('show-bucket-task-board-format', 'planner_planner_bucket_task_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_planner_bucket_task_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_planner_bucket_task_show_progress_task_board_format'
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_plannerbucketstask_update_bucket_task_board_format'
+            'update-assigned-to-task-board-format', 'planner_planner_bucket_task_update_assigned_to_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_plannerbucketstask_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_plannerbucketstask_update_progress_task_board_format'
+            'update-bucket-task-board-format', 'planner_planner_bucket_task_update_bucket_task_board_format'
+        )
+        g.custom_command('update-detail', 'planner_planner_bucket_task_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_planner_bucket_task_update_progress_task_board_format'
         )
 
-    with self.command_group('planner plannerplan', planner_beta_plannerplan, client_factory=cf_plannerplan) as g:
-        g.custom_command('create-bucket', 'planner_plannerplan_create_bucket')
-        g.custom_command('create-task', 'planner_plannerplan_create_task')
-        g.custom_command('delete-bucket', 'planner_plannerplan_delete_bucket')
-        g.custom_command('delete-detail', 'planner_plannerplan_delete_detail')
-        g.custom_command('delete-task', 'planner_plannerplan_delete_task')
-        g.custom_command('list-bucket', 'planner_plannerplan_list_bucket')
-        g.custom_command('list-task', 'planner_plannerplan_list_task')
-        g.custom_command('show-bucket', 'planner_plannerplan_show_bucket')
-        g.custom_command('show-detail', 'planner_plannerplan_show_detail')
-        g.custom_command('show-task', 'planner_plannerplan_show_task')
-        g.custom_command('update-bucket', 'planner_plannerplan_update_bucket')
-        g.custom_command('update-detail', 'planner_plannerplan_update_detail')
-        g.custom_command('update-task', 'planner_plannerplan_update_task')
+    with self.command_group('planner planner-plan', planner_beta_planner_plan, client_factory=cf_planner_plan) as g:
+        g.custom_command('create-bucket', 'planner_planner_plan_create_bucket')
+        g.custom_command('create-task', 'planner_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_planner_plan_delete_task')
+        g.custom_command('list-bucket', 'planner_planner_plan_list_bucket')
+        g.custom_command('list-task', 'planner_planner_plan_list_task')
+        g.custom_command('show-bucket', 'planner_planner_plan_show_bucket')
+        g.custom_command('show-detail', 'planner_planner_plan_show_detail')
+        g.custom_command('show-task', 'planner_planner_plan_show_task')
+        g.custom_command('update-bucket', 'planner_planner_plan_update_bucket')
+        g.custom_command('update-detail', 'planner_planner_plan_update_detail')
+        g.custom_command('update-task', 'planner_planner_plan_update_task')
 
     with self.command_group(
-        'planner plannerplansbucket', planner_beta_plannerplansbucket, client_factory=cf_plannerplansbucket
+        'planner planner-plan-bucket', planner_beta_planner_plan_bucket, client_factory=cf_planner_plan_bucket
     ) as g:
-        g.custom_command('create-task', 'planner_plannerplansbucket_create_task')
-        g.custom_command('delete-task', 'planner_plannerplansbucket_delete_task')
-        g.custom_command('list-task', 'planner_plannerplansbucket_list_task')
-        g.custom_command('show-task', 'planner_plannerplansbucket_show_task')
-        g.custom_command('update-task', 'planner_plannerplansbucket_update_task')
+        g.custom_command('create-task', 'planner_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_planner_plan_bucket_delete_task')
+        g.custom_command('list-task', 'planner_planner_plan_bucket_list_task')
+        g.custom_command('show-task', 'planner_planner_plan_bucket_show_task')
+        g.custom_command('update-task', 'planner_planner_plan_bucket_update_task')
 
     with self.command_group(
-        'planner plannerplansbucketstask',
-        planner_beta_plannerplansbucketstask,
-        client_factory=cf_plannerplansbucketstask,
+        'planner planner-plan-bucket-task',
+        planner_beta_planner_plan_bucket_task,
+        client_factory=cf_planner_plan_bucket_task,
     ) as g:
         g.custom_command(
             'delete-assigned-to-task-board-format',
-            'planner_plannerplansbucketstask_delete_assigned_to_task_board_format',
+            'planner_planner_plan_bucket_task_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_plannerplansbucketstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_planner_plan_bucket_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_plannerplansbucketstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_planner_plan_bucket_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_plannerplansbucketstask_delete_progress_task_board_format'
-        )
-        g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_plannerplansbucketstask_show_assigned_to_task_board_format'
+            'delete-progress-task-board-format', 'planner_planner_plan_bucket_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_plannerplansbucketstask_show_bucket_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_planner_plan_bucket_task_show_assigned_to_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_plannerplansbucketstask_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_plannerplansbucketstask_show_progress_task_board_format'
+            'show-bucket-task-board-format', 'planner_planner_plan_bucket_task_show_bucket_task_board_format'
+        )
+        g.custom_command('show-detail', 'planner_planner_plan_bucket_task_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_planner_plan_bucket_task_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_plannerplansbucketstask_update_assigned_to_task_board_format',
+            'planner_planner_plan_bucket_task_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_plannerplansbucketstask_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_planner_plan_bucket_task_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_plannerplansbucketstask_update_detail')
+        g.custom_command('update-detail', 'planner_planner_plan_bucket_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_plannerplansbucketstask_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_planner_plan_bucket_task_update_progress_task_board_format'
         )
 
     with self.command_group(
-        'planner plannerplanstask', planner_beta_plannerplanstask, client_factory=cf_plannerplanstask
+        'planner planner-plan-task', planner_beta_planner_plan_task, client_factory=cf_planner_plan_task
     ) as g:
         g.custom_command(
-            'delete-assigned-to-task-board-format', 'planner_plannerplanstask_delete_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_planner_plan_task_delete_assigned_to_task_board_format'
         )
-        g.custom_command('delete-bucket-task-board-format', 'planner_plannerplanstask_delete_bucket_task_board_format')
-        g.custom_command('delete-detail', 'planner_plannerplanstask_delete_detail')
+        g.custom_command('delete-bucket-task-board-format', 'planner_planner_plan_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_planner_plan_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_plannerplanstask_delete_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_planner_plan_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_plannerplanstask_show_assigned_to_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_planner_plan_task_show_assigned_to_task_board_format'
         )
-        g.custom_command('show-bucket-task-board-format', 'planner_plannerplanstask_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_plannerplanstask_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_plannerplanstask_show_progress_task_board_format')
+        g.custom_command('show-bucket-task-board-format', 'planner_planner_plan_task_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_planner_plan_task_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_planner_plan_task_show_progress_task_board_format')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_plannerplanstask_update_assigned_to_task_board_format'
+            'update-assigned-to-task-board-format', 'planner_planner_plan_task_update_assigned_to_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_plannerplanstask_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_plannerplanstask_update_detail')
+        g.custom_command('update-bucket-task-board-format', 'planner_planner_plan_task_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_planner_plan_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_plannerplanstask_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_planner_plan_task_update_progress_task_board_format'
         )
 
-    with self.command_group('planner plannertask', planner_beta_plannertask, client_factory=cf_plannertask) as g:
+    with self.command_group('planner planner-task', planner_beta_planner_task, client_factory=cf_planner_task) as g:
         g.custom_command(
-            'delete-assigned-to-task-board-format', 'planner_plannertask_delete_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_planner_task_delete_assigned_to_task_board_format'
         )
-        g.custom_command('delete-bucket-task-board-format', 'planner_plannertask_delete_bucket_task_board_format')
-        g.custom_command('delete-detail', 'planner_plannertask_delete_detail')
-        g.custom_command('delete-progress-task-board-format', 'planner_plannertask_delete_progress_task_board_format')
-        g.custom_command('show-assigned-to-task-board-format', 'planner_plannertask_show_assigned_to_task_board_format')
-        g.custom_command('show-bucket-task-board-format', 'planner_plannertask_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_plannertask_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_plannertask_show_progress_task_board_format')
+        g.custom_command('delete-bucket-task-board-format', 'planner_planner_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_planner_task_delete_detail')
+        g.custom_command('delete-progress-task-board-format', 'planner_planner_task_delete_progress_task_board_format')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_plannertask_update_assigned_to_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_planner_task_show_assigned_to_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_plannertask_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_plannertask_update_detail')
-        g.custom_command('update-progress-task-board-format', 'planner_plannertask_update_progress_task_board_format')
+        g.custom_command('show-bucket-task-board-format', 'planner_planner_task_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_planner_task_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_planner_task_show_progress_task_board_format')
+        g.custom_command(
+            'update-assigned-to-task-board-format', 'planner_planner_task_update_assigned_to_task_board_format'
+        )
+        g.custom_command('update-bucket-task-board-format', 'planner_planner_task_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_planner_task_update_detail')
+        g.custom_command('update-progress-task-board-format', 'planner_planner_task_update_progress_task_board_format')
 
     with self.command_group('planner user', planner_beta_user, client_factory=cf_user) as g:
         g.custom_command('delete-planner', 'planner_user_delete_planner')
         g.custom_command('show-planner', 'planner_user_show_planner')
         g.custom_command('update-planner', 'planner_user_update_planner')
 
-    with self.command_group('planner usersplanner', planner_beta_usersplanner, client_factory=cf_usersplanner) as g:
-        g.custom_command('create-all', 'planner_usersplanner_create_all')
-        g.custom_command('create-plan', 'planner_usersplanner_create_plan')
-        g.custom_command('create-ref-favorite-plan', 'planner_usersplanner_create_ref_favorite_plan')
-        g.custom_command('create-ref-recent-plan', 'planner_usersplanner_create_ref_recent_plan')
-        g.custom_command('create-task', 'planner_usersplanner_create_task')
-        g.custom_command('delete-all', 'planner_usersplanner_delete_all')
-        g.custom_command('delete-plan', 'planner_usersplanner_delete_plan')
-        g.custom_command('delete-task', 'planner_usersplanner_delete_task')
-        g.custom_command('list-all', 'planner_usersplanner_list_all')
-        g.custom_command('list-favorite-plan', 'planner_usersplanner_list_favorite_plan')
-        g.custom_command('list-plan', 'planner_usersplanner_list_plan')
-        g.custom_command('list-recent-plan', 'planner_usersplanner_list_recent_plan')
-        g.custom_command('list-ref-favorite-plan', 'planner_usersplanner_list_ref_favorite_plan')
-        g.custom_command('list-ref-recent-plan', 'planner_usersplanner_list_ref_recent_plan')
-        g.custom_command('list-task', 'planner_usersplanner_list_task')
-        g.custom_command('show-all', 'planner_usersplanner_show_all')
-        g.custom_command('show-plan', 'planner_usersplanner_show_plan')
-        g.custom_command('show-task', 'planner_usersplanner_show_task')
-        g.custom_command('update-all', 'planner_usersplanner_update_all')
-        g.custom_command('update-plan', 'planner_usersplanner_update_plan')
-        g.custom_command('update-task', 'planner_usersplanner_update_task')
+    with self.command_group('planner user-planner', planner_beta_user_planner, client_factory=cf_user_planner) as g:
+        g.custom_command('create-all', 'planner_user_planner_create_all')
+        g.custom_command('create-plan', 'planner_user_planner_create_plan')
+        g.custom_command('create-ref-favorite-plan', 'planner_user_planner_create_ref_favorite_plan')
+        g.custom_command('create-ref-recent-plan', 'planner_user_planner_create_ref_recent_plan')
+        g.custom_command('create-task', 'planner_user_planner_create_task')
+        g.custom_command('delete-all', 'planner_user_planner_delete_all')
+        g.custom_command('delete-plan', 'planner_user_planner_delete_plan')
+        g.custom_command('delete-task', 'planner_user_planner_delete_task')
+        g.custom_command('list-all', 'planner_user_planner_list_all')
+        g.custom_command('list-favorite-plan', 'planner_user_planner_list_favorite_plan')
+        g.custom_command('list-plan', 'planner_user_planner_list_plan')
+        g.custom_command('list-recent-plan', 'planner_user_planner_list_recent_plan')
+        g.custom_command('list-ref-favorite-plan', 'planner_user_planner_list_ref_favorite_plan')
+        g.custom_command('list-ref-recent-plan', 'planner_user_planner_list_ref_recent_plan')
+        g.custom_command('list-task', 'planner_user_planner_list_task')
+        g.custom_command('show-all', 'planner_user_planner_show_all')
+        g.custom_command('show-plan', 'planner_user_planner_show_plan')
+        g.custom_command('show-task', 'planner_user_planner_show_task')
+        g.custom_command('update-all', 'planner_user_planner_update_all')
+        g.custom_command('update-plan', 'planner_user_planner_update_plan')
+        g.custom_command('update-task', 'planner_user_planner_update_task')
 
     with self.command_group(
-        'planner usersplannerplan', planner_beta_usersplannerplan, client_factory=cf_usersplannerplan
+        'planner user-planner-plan', planner_beta_user_planner_plan, client_factory=cf_user_planner_plan
     ) as g:
-        g.custom_command('create-bucket', 'planner_usersplannerplan_create_bucket')
-        g.custom_command('create-task', 'planner_usersplannerplan_create_task')
-        g.custom_command('delete-bucket', 'planner_usersplannerplan_delete_bucket')
-        g.custom_command('delete-detail', 'planner_usersplannerplan_delete_detail')
-        g.custom_command('delete-task', 'planner_usersplannerplan_delete_task')
-        g.custom_command('list-bucket', 'planner_usersplannerplan_list_bucket')
-        g.custom_command('list-task', 'planner_usersplannerplan_list_task')
-        g.custom_command('show-bucket', 'planner_usersplannerplan_show_bucket')
-        g.custom_command('show-detail', 'planner_usersplannerplan_show_detail')
-        g.custom_command('show-task', 'planner_usersplannerplan_show_task')
-        g.custom_command('update-bucket', 'planner_usersplannerplan_update_bucket')
-        g.custom_command('update-detail', 'planner_usersplannerplan_update_detail')
-        g.custom_command('update-task', 'planner_usersplannerplan_update_task')
+        g.custom_command('create-bucket', 'planner_user_planner_plan_create_bucket')
+        g.custom_command('create-task', 'planner_user_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_user_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_user_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_user_planner_plan_delete_task')
+        g.custom_command('list-bucket', 'planner_user_planner_plan_list_bucket')
+        g.custom_command('list-task', 'planner_user_planner_plan_list_task')
+        g.custom_command('show-bucket', 'planner_user_planner_plan_show_bucket')
+        g.custom_command('show-detail', 'planner_user_planner_plan_show_detail')
+        g.custom_command('show-task', 'planner_user_planner_plan_show_task')
+        g.custom_command('update-bucket', 'planner_user_planner_plan_update_bucket')
+        g.custom_command('update-detail', 'planner_user_planner_plan_update_detail')
+        g.custom_command('update-task', 'planner_user_planner_plan_update_task')
 
     with self.command_group(
-        'planner usersplannerplansbucket',
-        planner_beta_usersplannerplansbucket,
-        client_factory=cf_usersplannerplansbucket,
+        'planner user-planner-plan-bucket',
+        planner_beta_user_planner_plan_bucket,
+        client_factory=cf_user_planner_plan_bucket,
     ) as g:
-        g.custom_command('create-task', 'planner_usersplannerplansbucket_create_task')
-        g.custom_command('delete-task', 'planner_usersplannerplansbucket_delete_task')
-        g.custom_command('list-task', 'planner_usersplannerplansbucket_list_task')
-        g.custom_command('show-task', 'planner_usersplannerplansbucket_show_task')
-        g.custom_command('update-task', 'planner_usersplannerplansbucket_update_task')
+        g.custom_command('create-task', 'planner_user_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_user_planner_plan_bucket_delete_task')
+        g.custom_command('list-task', 'planner_user_planner_plan_bucket_list_task')
+        g.custom_command('show-task', 'planner_user_planner_plan_bucket_show_task')
+        g.custom_command('update-task', 'planner_user_planner_plan_bucket_update_task')
 
     with self.command_group(
-        'planner usersplannerplansbucketstask',
-        planner_beta_usersplannerplansbucketstask,
-        client_factory=cf_usersplannerplansbucketstask,
+        'planner user-planner-plan-bucket-task',
+        planner_beta_user_planner_plan_bucket_task,
+        client_factory=cf_user_planner_plan_bucket_task,
     ) as g:
         g.custom_command(
             'delete-assigned-to-task-board-format',
-            'planner_usersplannerplansbucketstask_delete_assigned_to_task_board_format',
+            'planner_user_planner_plan_bucket_task_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_usersplannerplansbucketstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_usersplannerplansbucketstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_user_planner_plan_bucket_task_delete_detail')
         g.custom_command(
             'delete-progress-task-board-format',
-            'planner_usersplannerplansbucketstask_delete_progress_task_board_format',
+            'planner_user_planner_plan_bucket_task_delete_progress_task_board_format',
         )
         g.custom_command(
             'show-assigned-to-task-board-format',
-            'planner_usersplannerplansbucketstask_show_assigned_to_task_board_format',
+            'planner_user_planner_plan_bucket_task_show_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_usersplannerplansbucketstask_show_bucket_task_board_format'
+            'show-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_show_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_usersplannerplansbucketstask_show_detail')
+        g.custom_command('show-detail', 'planner_user_planner_plan_bucket_task_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_usersplannerplansbucketstask_show_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_user_planner_plan_bucket_task_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_usersplannerplansbucketstask_update_assigned_to_task_board_format',
+            'planner_user_planner_plan_bucket_task_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_usersplannerplansbucketstask_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_usersplannerplansbucketstask_update_detail')
+        g.custom_command('update-detail', 'planner_user_planner_plan_bucket_task_update_detail')
         g.custom_command(
             'update-progress-task-board-format',
-            'planner_usersplannerplansbucketstask_update_progress_task_board_format',
+            'planner_user_planner_plan_bucket_task_update_progress_task_board_format',
         )
 
     with self.command_group(
-        'planner usersplannerplanstask', planner_beta_usersplannerplanstask, client_factory=cf_usersplannerplanstask
+        'planner user-planner-plan-task', planner_beta_user_planner_plan_task, client_factory=cf_user_planner_plan_task
     ) as g:
         g.custom_command(
-            'delete-assigned-to-task-board-format', 'planner_usersplannerplanstask_delete_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format',
+            'planner_user_planner_plan_task_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'delete-bucket-task-board-format', 'planner_usersplannerplanstask_delete_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_user_planner_plan_task_delete_bucket_task_board_format'
         )
-        g.custom_command('delete-detail', 'planner_usersplannerplanstask_delete_detail')
+        g.custom_command('delete-detail', 'planner_user_planner_plan_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_usersplannerplanstask_delete_progress_task_board_format'
-        )
-        g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_usersplannerplanstask_show_assigned_to_task_board_format'
-        )
-        g.custom_command('show-bucket-task-board-format', 'planner_usersplannerplanstask_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_usersplannerplanstask_show_detail')
-        g.custom_command(
-            'show-progress-task-board-format', 'planner_usersplannerplanstask_show_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_user_planner_plan_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_usersplannerplanstask_update_assigned_to_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_user_planner_plan_task_show_assigned_to_task_board_format'
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_usersplannerplanstask_update_bucket_task_board_format'
+            'show-bucket-task-board-format', 'planner_user_planner_plan_task_show_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_usersplannerplanstask_update_detail')
+        g.custom_command('show-detail', 'planner_user_planner_plan_task_show_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_usersplannerplanstask_update_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_user_planner_plan_task_show_progress_task_board_format'
+        )
+        g.custom_command(
+            'update-assigned-to-task-board-format',
+            'planner_user_planner_plan_task_update_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'update-bucket-task-board-format', 'planner_user_planner_plan_task_update_bucket_task_board_format'
+        )
+        g.custom_command('update-detail', 'planner_user_planner_plan_task_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_user_planner_plan_task_update_progress_task_board_format'
         )
 
     with self.command_group(
-        'planner usersplannertask', planner_beta_usersplannertask, client_factory=cf_usersplannertask
+        'planner user-planner-task', planner_beta_user_planner_task, client_factory=cf_user_planner_task
     ) as g:
         g.custom_command(
-            'delete-assigned-to-task-board-format', 'planner_usersplannertask_delete_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_user_planner_task_delete_assigned_to_task_board_format'
         )
-        g.custom_command('delete-bucket-task-board-format', 'planner_usersplannertask_delete_bucket_task_board_format')
-        g.custom_command('delete-detail', 'planner_usersplannertask_delete_detail')
+        g.custom_command('delete-bucket-task-board-format', 'planner_user_planner_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_user_planner_task_delete_detail')
         g.custom_command(
-            'delete-progress-task-board-format', 'planner_usersplannertask_delete_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_user_planner_task_delete_progress_task_board_format'
         )
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_usersplannertask_show_assigned_to_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_user_planner_task_show_assigned_to_task_board_format'
         )
-        g.custom_command('show-bucket-task-board-format', 'planner_usersplannertask_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_usersplannertask_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_usersplannertask_show_progress_task_board_format')
+        g.custom_command('show-bucket-task-board-format', 'planner_user_planner_task_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_user_planner_task_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_user_planner_task_show_progress_task_board_format')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_usersplannertask_update_assigned_to_task_board_format'
+            'update-assigned-to-task-board-format', 'planner_user_planner_task_update_assigned_to_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_usersplannertask_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_usersplannertask_update_detail')
+        g.custom_command('update-bucket-task-board-format', 'planner_user_planner_task_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_user_planner_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_usersplannertask_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_user_planner_task_update_progress_task_board_format'
         )
 
     with self.command_group('planner_beta', is_experimental=True):

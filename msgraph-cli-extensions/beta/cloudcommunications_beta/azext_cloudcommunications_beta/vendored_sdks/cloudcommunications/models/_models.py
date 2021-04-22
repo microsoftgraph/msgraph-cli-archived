@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofaudioroutinggroup(msrest.serialization.Model):
+class CollectionOfAudioRoutingGroup(msrest.serialization.Model):
     """Collection of audioRoutingGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphaudioroutinggroup]
+    :type value: list[~cloud_communications.models.MicrosoftGraphAudioRoutingGroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphaudioroutinggroup]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAudioRoutingGroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class collectionofaudioroutinggroup(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofaudioroutinggroup, self).__init__(**kwargs)
+        super(CollectionOfAudioRoutingGroup, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcall(msrest.serialization.Model):
+class CollectionOfCall(msrest.serialization.Model):
     """Collection of call.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphcall]
+    :type value: list[~cloud_communications.models.MicrosoftGraphCall]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcall]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCall]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class collectionofcall(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcall, self).__init__(**kwargs)
+        super(CollectionOfCall, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcallrecord(msrest.serialization.Model):
+class CollectionOfCallRecord(msrest.serialization.Model):
     """Collection of callRecord.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphcallrecordscallrecord]
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcallrecordscallrecord]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsCallRecord]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class collectionofcallrecord(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcallrecord, self).__init__(**kwargs)
+        super(CollectionOfCallRecord, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcommsoperation(msrest.serialization.Model):
+class CollectionOfCommsOperation(msrest.serialization.Model):
     """Collection of commsOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphcommsoperation]
+    :type value: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcommsoperation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCommsOperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class collectionofcommsoperation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcommsoperation, self).__init__(**kwargs)
+        super(CollectionOfCommsOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofonlinemeeting(msrest.serialization.Model):
+class CollectionOfOnlineMeeting(msrest.serialization.Model):
     """Collection of onlineMeeting.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphonlinemeeting]
+    :type value: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphonlinemeeting]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class collectionofonlinemeeting(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofonlinemeeting, self).__init__(**kwargs)
+        super(CollectionOfOnlineMeeting, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofonlinemeeting0(msrest.serialization.Model):
+class CollectionOfOnlineMeeting0(msrest.serialization.Model):
     """Collection of onlineMeeting.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphonlinemeeting]
+    :type value: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphonlinemeeting]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class collectionofonlinemeeting0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofonlinemeeting0, self).__init__(**kwargs)
+        super(CollectionOfOnlineMeeting0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofparticipant(msrest.serialization.Model):
+class CollectionOfParticipant(msrest.serialization.Model):
     """Collection of participant.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphparticipant]
+    :type value: list[~cloud_communications.models.MicrosoftGraphParticipant]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphparticipant]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphParticipant]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class collectionofparticipant(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofparticipant, self).__init__(**kwargs)
+        super(CollectionOfParticipant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofpresence(msrest.serialization.Model):
+class CollectionOfPresence(msrest.serialization.Model):
     """Collection of presence.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphpresence]
+    :type value: list[~cloud_communications.models.MicrosoftGraphPresence]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpresence]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPresence]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class collectionofpresence(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofpresence, self).__init__(**kwargs)
+        super(CollectionOfPresence, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofsegment(msrest.serialization.Model):
+class CollectionOfSegment(msrest.serialization.Model):
     """Collection of segment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphcallrecordssegment]
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcallrecordssegment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsSegment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class collectionofsegment(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofsegment, self).__init__(**kwargs)
+        super(CollectionOfSegment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofsession(msrest.serialization.Model):
+class CollectionOfSession(msrest.serialization.Model):
     """Collection of session.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cloud_communications.models.microsoftgraphcallrecordssession]
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcallrecordssession]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsSession]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,13 +284,13 @@ class collectionofsession(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofsession, self).__init__(**kwargs)
+        super(CollectionOfSession, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class microsoftgraphaudioconferencing(msrest.serialization.Model):
+class MicrosoftGraphAudioConferencing(msrest.serialization.Model):
     """audioConferencing.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -319,7 +319,7 @@ class microsoftgraphaudioconferencing(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphaudioconferencing, self).__init__(**kwargs)
+        super(MicrosoftGraphAudioConferencing, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.conference_id = kwargs.get('conference_id', None)
         self.dialin_url = kwargs.get('dialin_url', None)
@@ -327,7 +327,7 @@ class microsoftgraphaudioconferencing(msrest.serialization.Model):
         self.toll_number = kwargs.get('toll_number', None)
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -346,12 +346,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphaudioroutinggroup(microsoftgraphentity):
+class MicrosoftGraphAudioRoutingGroup(MicrosoftGraphEntity):
     """audioRoutingGroup.
 
     :param id: Read-only.
@@ -362,7 +362,7 @@ class microsoftgraphaudioroutinggroup(microsoftgraphentity):
     :param receivers:
     :type receivers: list[str]
     :param routing_mode:  Possible values include: "oneToOne", "multicast".
-    :type routing_mode: str or ~cloud_communications.models.Microsoftgraphroutingmode
+    :type routing_mode: str or ~cloud_communications.models.MicrosoftGraphRoutingMode
     :param sources:
     :type sources: list[str]
     """
@@ -379,14 +379,14 @@ class microsoftgraphaudioroutinggroup(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphaudioroutinggroup, self).__init__(**kwargs)
+        super(MicrosoftGraphAudioRoutingGroup, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.receivers = kwargs.get('receivers', None)
         self.routing_mode = kwargs.get('routing_mode', None)
         self.sources = kwargs.get('sources', None)
 
 
-class microsoftgraphcall(microsoftgraphentity):
+class MicrosoftGraphCall(MicrosoftGraphEntity):
     """call.
 
     :param id: Read-only.
@@ -395,9 +395,9 @@ class microsoftgraphcall(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param active_modalities:
-    :type active_modalities: list[str or ~cloud_communications.models.Microsoftgraphmodality]
+    :type active_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
     :param answered_by: participantInfo.
-    :type answered_by: ~cloud_communications.models.microsoftgraphparticipantinfo
+    :type answered_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
     :type callback_uri: str
     :param call_chain_id: A unique identifier for all the participant calls in a conference or a
@@ -407,55 +407,55 @@ class microsoftgraphcall(microsoftgraphentity):
     :param call_options: callOptions.
     :type call_options: dict[str, object]
     :param call_routes: The routing information on how the call was retargeted. Read-only.
-    :type call_routes: list[~cloud_communications.models.microsoftgraphcallroute]
+    :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
     :param chat_info: chatInfo.
-    :type chat_info: ~cloud_communications.models.microsoftgraphchatinfo
+    :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
     :param direction:  Possible values include: "incoming", "outgoing".
-    :type direction: str or ~cloud_communications.models.Microsoftgraphcalldirection
+    :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
     :param incoming_context: incomingContext.
-    :type incoming_context: ~cloud_communications.models.microsoftgraphincomingcontext
+    :type incoming_context: ~cloud_communications.models.MicrosoftGraphIncomingContext
     :param media_config: mediaConfig.
-    :type media_config: ~cloud_communications.models.microsoftgraphmediaconfig
+    :type media_config: ~cloud_communications.models.MicrosoftGraphMediaConfig
     :param media_state: callMediaState.
-    :type media_state: ~cloud_communications.models.microsoftgraphcallmediastate
+    :type media_state: ~cloud_communications.models.MicrosoftGraphCallMediaState
     :param meeting_capability: meetingCapability.
-    :type meeting_capability: ~cloud_communications.models.microsoftgraphmeetingcapability
+    :type meeting_capability: ~cloud_communications.models.MicrosoftGraphMeetingCapability
     :param meeting_info: meetingInfo.
-    :type meeting_info: ~cloud_communications.models.microsoftgraphmeetinginfo
+    :type meeting_info: ~cloud_communications.models.MicrosoftGraphMeetingInfo
     :param my_participant_id:
     :type my_participant_id: str
     :param requested_modalities:
-    :type requested_modalities: list[str or ~cloud_communications.models.Microsoftgraphmodality]
+    :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param ringing_timeout_in_seconds:
     :type ringing_timeout_in_seconds: int
     :param routing_policies:
-    :type routing_policies: list[str or ~cloud_communications.models.Microsoftgraphroutingpolicy]
+    :type routing_policies: list[str or ~cloud_communications.models.MicrosoftGraphRoutingPolicy]
     :param source: participantInfo.
-    :type source: ~cloud_communications.models.microsoftgraphparticipantinfo
+    :type source: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param state:  Possible values include: "incoming", "establishing", "ringing", "established",
      "hold", "transferring", "transferAccepted", "redirecting", "terminating", "terminated",
      "unknownFutureValue".
-    :type state: str or ~cloud_communications.models.Microsoftgraphcallstate
+    :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
     :param subject:
     :type subject: str
     :param targets:
-    :type targets: list[~cloud_communications.models.microsoftgraphinvitationparticipantinfo]
+    :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
     :param tenant_id:
     :type tenant_id: str
     :param termination_reason:
     :type termination_reason: str
     :param tone_info: toneInfo.
-    :type tone_info: ~cloud_communications.models.microsoftgraphtoneinfo
+    :type tone_info: ~cloud_communications.models.MicrosoftGraphToneInfo
     :param transcription: callTranscriptionInfo.
-    :type transcription: ~cloud_communications.models.microsoftgraphcalltranscriptioninfo
+    :type transcription: ~cloud_communications.models.MicrosoftGraphCallTranscriptionInfo
     :param audio_routing_groups:
-    :type audio_routing_groups: list[~cloud_communications.models.microsoftgraphaudioroutinggroup]
+    :type audio_routing_groups: list[~cloud_communications.models.MicrosoftGraphAudioRoutingGroup]
     :param operations: Read-only. Nullable.
-    :type operations: list[~cloud_communications.models.microsoftgraphcommsoperation]
+    :type operations: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
     :param participants: Read-only. Nullable.
-    :type participants: list[~cloud_communications.models.microsoftgraphparticipant]
+    :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
     """
 
     _validation = {
@@ -466,41 +466,41 @@ class microsoftgraphcall(microsoftgraphentity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_modalities': {'key': 'activeModalities', 'type': '[str]'},
-        'answered_by': {'key': 'answeredBy', 'type': 'microsoftgraphparticipantinfo'},
+        'answered_by': {'key': 'answeredBy', 'type': 'MicrosoftGraphParticipantInfo'},
         'callback_uri': {'key': 'callbackUri', 'type': 'str'},
         'call_chain_id': {'key': 'callChainId', 'type': 'str'},
         'call_options': {'key': 'callOptions', 'type': '{object}'},
-        'call_routes': {'key': 'callRoutes', 'type': '[microsoftgraphcallroute]'},
-        'chat_info': {'key': 'chatInfo', 'type': 'microsoftgraphchatinfo'},
+        'call_routes': {'key': 'callRoutes', 'type': '[MicrosoftGraphCallRoute]'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'direction': {'key': 'direction', 'type': 'str'},
-        'incoming_context': {'key': 'incomingContext', 'type': 'microsoftgraphincomingcontext'},
-        'media_config': {'key': 'mediaConfig', 'type': 'microsoftgraphmediaconfig'},
-        'media_state': {'key': 'mediaState', 'type': 'microsoftgraphcallmediastate'},
-        'meeting_capability': {'key': 'meetingCapability', 'type': 'microsoftgraphmeetingcapability'},
-        'meeting_info': {'key': 'meetingInfo', 'type': 'microsoftgraphmeetinginfo'},
+        'incoming_context': {'key': 'incomingContext', 'type': 'MicrosoftGraphIncomingContext'},
+        'media_config': {'key': 'mediaConfig', 'type': 'MicrosoftGraphMediaConfig'},
+        'media_state': {'key': 'mediaState', 'type': 'MicrosoftGraphCallMediaState'},
+        'meeting_capability': {'key': 'meetingCapability', 'type': 'MicrosoftGraphMeetingCapability'},
+        'meeting_info': {'key': 'meetingInfo', 'type': 'MicrosoftGraphMeetingInfo'},
         'my_participant_id': {'key': 'myParticipantId', 'type': 'str'},
         'requested_modalities': {'key': 'requestedModalities', 'type': '[str]'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'ringing_timeout_in_seconds': {'key': 'ringingTimeoutInSeconds', 'type': 'int'},
         'routing_policies': {'key': 'routingPolicies', 'type': '[str]'},
-        'source': {'key': 'source', 'type': 'microsoftgraphparticipantinfo'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphParticipantInfo'},
         'state': {'key': 'state', 'type': 'str'},
         'subject': {'key': 'subject', 'type': 'str'},
-        'targets': {'key': 'targets', 'type': '[microsoftgraphinvitationparticipantinfo]'},
+        'targets': {'key': 'targets', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
         'tenant_id': {'key': 'tenantId', 'type': 'str'},
         'termination_reason': {'key': 'terminationReason', 'type': 'str'},
-        'tone_info': {'key': 'toneInfo', 'type': 'microsoftgraphtoneinfo'},
-        'transcription': {'key': 'transcription', 'type': 'microsoftgraphcalltranscriptioninfo'},
-        'audio_routing_groups': {'key': 'audioRoutingGroups', 'type': '[microsoftgraphaudioroutinggroup]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphcommsoperation]'},
-        'participants': {'key': 'participants', 'type': '[microsoftgraphparticipant]'},
+        'tone_info': {'key': 'toneInfo', 'type': 'MicrosoftGraphToneInfo'},
+        'transcription': {'key': 'transcription', 'type': 'MicrosoftGraphCallTranscriptionInfo'},
+        'audio_routing_groups': {'key': 'audioRoutingGroups', 'type': '[MicrosoftGraphAudioRoutingGroup]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphCommsOperation]'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphParticipant]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcall, self).__init__(**kwargs)
+        super(MicrosoftGraphCall, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.active_modalities = kwargs.get('active_modalities', None)
         self.answered_by = kwargs.get('answered_by', None)
@@ -533,14 +533,14 @@ class microsoftgraphcall(microsoftgraphentity):
         self.participants = kwargs.get('participants', None)
 
 
-class microsoftgraphcallmediastate(msrest.serialization.Model):
+class MicrosoftGraphCallMediaState(msrest.serialization.Model):
     """callMediaState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param audio:  Possible values include: "active", "inactive", "unknownFutureValue".
-    :type audio: str or ~cloud_communications.models.Microsoftgraphmediastate
+    :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
     """
 
     _attribute_map = {
@@ -552,12 +552,12 @@ class microsoftgraphcallmediastate(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallmediastate, self).__init__(**kwargs)
+        super(MicrosoftGraphCallMediaState, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.audio = kwargs.get('audio', None)
 
 
-class microsoftgraphcallrecordscallrecord(microsoftgraphentity):
+class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
     """callRecord.
 
     :param id: Read-only.
@@ -578,25 +578,25 @@ class microsoftgraphcallrecordscallrecord(microsoftgraphentity):
     :type last_modified_date_time: ~datetime.datetime
     :param modalities: List of all the modalities used in the call. Possible values are: unknown,
      audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-    :type modalities: list[str or ~cloud_communications.models.Microsoftgraphcallrecordsmodality]
+    :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
     :param organizer: identitySet.
-    :type organizer: ~cloud_communications.models.microsoftgraphidentityset
+    :type organizer: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param participants: List of distinct identities involved in the call.
-    :type participants: list[~cloud_communications.models.microsoftgraphidentityset]
+    :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
     :param start_date_time: UTC time when the first user joined the call. The DatetimeOffset type
      represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type start_date_time: ~datetime.datetime
     :param type:  Possible values include: "unknown", "groupCall", "peerToPeer",
      "unknownFutureValue".
-    :type type: str or ~cloud_communications.models.Microsoftgraphcallrecordscalltype
+    :type type: str or ~cloud_communications.models.MicrosoftGraphCallRecordsCallType
     :param version: Monotonically increasing version of the call record. Higher version call
      records with the same id includes additional data compared to the lower version.
     :type version: long
     :param sessions: List of sessions involved in the call. Peer-to-peer calls typically only have
      one session, whereas group calls typically have at least one session per participant. Read-
      only. Nullable.
-    :type sessions: list[~cloud_communications.models.microsoftgraphcallrecordssession]
+    :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
     """
 
     _attribute_map = {
@@ -606,19 +606,19 @@ class microsoftgraphcallrecordscallrecord(microsoftgraphentity):
         'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'modalities': {'key': 'modalities', 'type': '[str]'},
-        'organizer': {'key': 'organizer', 'type': 'microsoftgraphidentityset'},
-        'participants': {'key': 'participants', 'type': '[microsoftgraphidentityset]'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphIdentitySet'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphIdentitySet]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'type': {'key': 'type', 'type': 'str'},
         'version': {'key': 'version', 'type': 'long'},
-        'sessions': {'key': 'sessions', 'type': '[microsoftgraphcallrecordssession]'},
+        'sessions': {'key': 'sessions', 'type': '[MicrosoftGraphCallRecordsSession]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordscallrecord, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsCallRecord, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.join_web_url = kwargs.get('join_web_url', None)
@@ -632,7 +632,7 @@ class microsoftgraphcallrecordscallrecord(microsoftgraphentity):
         self.sessions = kwargs.get('sessions', None)
 
 
-class microsoftgraphcallrecordsdeviceinfo(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsDeviceInfo(msrest.serialization.Model):
     """deviceInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -737,7 +737,7 @@ class microsoftgraphcallrecordsdeviceinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsdeviceinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsDeviceInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.capture_device_driver = kwargs.get('capture_device_driver', None)
         self.capture_device_name = kwargs.get('capture_device_name', None)
@@ -762,31 +762,31 @@ class microsoftgraphcallrecordsdeviceinfo(msrest.serialization.Model):
         self.speaker_glitch_rate = kwargs.get('speaker_glitch_rate', None)
 
 
-class microsoftgraphcallrecordsendpoint(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsEndpoint(msrest.serialization.Model):
     """endpoint.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param user_agent: userAgent.
-    :type user_agent: ~cloud_communications.models.microsoftgraphcallrecordsuseragent
+    :type user_agent: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'user_agent': {'key': 'userAgent', 'type': 'microsoftgraphcallrecordsuseragent'},
+        'user_agent': {'key': 'userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsendpoint, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsEndpoint, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.user_agent = kwargs.get('user_agent', None)
 
 
-class microsoftgraphcallrecordsfailureinfo(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsFailureInfo(msrest.serialization.Model):
     """failureInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -796,7 +796,7 @@ class microsoftgraphcallrecordsfailureinfo(msrest.serialization.Model):
     :type reason: str
     :param stage:  Possible values include: "unknown", "callSetup", "midcall",
      "unknownFutureValue".
-    :type stage: str or ~cloud_communications.models.Microsoftgraphcallrecordsfailurestage
+    :type stage: str or ~cloud_communications.models.MicrosoftGraphCallRecordsFailureStage
     """
 
     _attribute_map = {
@@ -809,47 +809,47 @@ class microsoftgraphcallrecordsfailureinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsfailureinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsFailureInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.reason = kwargs.get('reason', None)
         self.stage = kwargs.get('stage', None)
 
 
-class microsoftgraphcallrecordsmedia(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsMedia(msrest.serialization.Model):
     """media.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param callee_device: deviceInfo.
-    :type callee_device: ~cloud_communications.models.microsoftgraphcallrecordsdeviceinfo
+    :type callee_device: ~cloud_communications.models.MicrosoftGraphCallRecordsDeviceInfo
     :param callee_network: networkInfo.
-    :type callee_network: ~cloud_communications.models.microsoftgraphcallrecordsnetworkinfo
+    :type callee_network: ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkInfo
     :param caller_device: deviceInfo.
-    :type caller_device: ~cloud_communications.models.microsoftgraphcallrecordsdeviceinfo
+    :type caller_device: ~cloud_communications.models.MicrosoftGraphCallRecordsDeviceInfo
     :param caller_network: networkInfo.
-    :type caller_network: ~cloud_communications.models.microsoftgraphcallrecordsnetworkinfo
+    :type caller_network: ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkInfo
     :param label: How the media was identified during media negotiation stage.
     :type label: str
     :param streams: Network streams associated with this media.
-    :type streams: list[~cloud_communications.models.microsoftgraphcallrecordsmediastream]
+    :type streams: list[~cloud_communications.models.MicrosoftGraphCallRecordsMediaStream]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'callee_device': {'key': 'calleeDevice', 'type': 'microsoftgraphcallrecordsdeviceinfo'},
-        'callee_network': {'key': 'calleeNetwork', 'type': 'microsoftgraphcallrecordsnetworkinfo'},
-        'caller_device': {'key': 'callerDevice', 'type': 'microsoftgraphcallrecordsdeviceinfo'},
-        'caller_network': {'key': 'callerNetwork', 'type': 'microsoftgraphcallrecordsnetworkinfo'},
+        'callee_device': {'key': 'calleeDevice', 'type': 'MicrosoftGraphCallRecordsDeviceInfo'},
+        'callee_network': {'key': 'calleeNetwork', 'type': 'MicrosoftGraphCallRecordsNetworkInfo'},
+        'caller_device': {'key': 'callerDevice', 'type': 'MicrosoftGraphCallRecordsDeviceInfo'},
+        'caller_network': {'key': 'callerNetwork', 'type': 'MicrosoftGraphCallRecordsNetworkInfo'},
         'label': {'key': 'label', 'type': 'str'},
-        'streams': {'key': 'streams', 'type': '[microsoftgraphcallrecordsmediastream]'},
+        'streams': {'key': 'streams', 'type': '[MicrosoftGraphCallRecordsMediaStream]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsmedia, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsMedia, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.callee_device = kwargs.get('callee_device', None)
         self.callee_network = kwargs.get('callee_network', None)
@@ -859,7 +859,7 @@ class microsoftgraphcallrecordsmedia(msrest.serialization.Model):
         self.streams = kwargs.get('streams', None)
 
 
-class microsoftgraphcallrecordsmediastream(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsMediaStream(msrest.serialization.Model):
     """mediaStream.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -940,7 +940,7 @@ class microsoftgraphcallrecordsmediastream(msrest.serialization.Model):
     :type start_date_time: ~datetime.datetime
     :param stream_direction:  Possible values include: "callerToCallee", "calleeToCaller".
     :type stream_direction: str or
-     ~cloud_communications.models.Microsoftgraphcallrecordsmediastreamdirection
+     ~cloud_communications.models.MicrosoftGraphCallRecordsMediaStreamDirection
     :param stream_id: Unique identifier for the stream.
     :type stream_id: str
     :param was_media_bypassed: True if the media stream bypassed the Mediation Server and went
@@ -981,7 +981,7 @@ class microsoftgraphcallrecordsmediastream(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsmediastream, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsMediaStream, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.average_audio_degradation = kwargs.get('average_audio_degradation', None)
         self.average_audio_network_jitter = kwargs.get('average_audio_network_jitter', None)
@@ -1010,7 +1010,7 @@ class microsoftgraphcallrecordsmediastream(msrest.serialization.Model):
         self.was_media_bypassed = kwargs.get('was_media_bypassed', None)
 
 
-class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsNetworkInfo(msrest.serialization.Model):
     """networkInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1025,7 +1025,7 @@ class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
     :param connection_type:  Possible values include: "unknown", "wired", "wifi", "mobile",
      "tunnel", "unknownFutureValue".
     :type connection_type: str or
-     ~cloud_communications.models.Microsoftgraphcallrecordsnetworkconnectiontype
+     ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkConnectionType
     :param delay_event_ratio: Fraction of the call that the media endpoint detected the network
      delay was significant enough to impact the ability to have real-time two-way communication.
     :type delay_event_ratio: float
@@ -1059,7 +1059,7 @@ class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
     :type subnet: str
     :param wifi_band:  Possible values include: "unknown", "frequency24GHz", "frequency50GHz",
      "frequency60GHz", "unknownFutureValue".
-    :type wifi_band: str or ~cloud_communications.models.Microsoftgraphcallrecordswifiband
+    :type wifi_band: str or ~cloud_communications.models.MicrosoftGraphCallRecordsWifiBand
     :param wifi_battery_charge: Estimated remaining battery charge in percentage reported by the
      media endpoint.
     :type wifi_battery_charge: int
@@ -1074,7 +1074,7 @@ class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
     :param wifi_radio_type:  Possible values include: "unknown", "wifi80211a", "wifi80211b",
      "wifi80211g", "wifi80211n", "wifi80211ac", "wifi80211ax", "unknownFutureValue".
     :type wifi_radio_type: str or
-     ~cloud_communications.models.Microsoftgraphcallrecordswifiradiotype
+     ~cloud_communications.models.MicrosoftGraphCallRecordsWifiRadioType
     :param wifi_signal_strength: WiFi signal strength in percentage reported by the media endpoint.
     :type wifi_signal_strength: int
     :param wifi_vendor_driver: Name of the WiFi driver used by the media endpoint. Value may be
@@ -1124,7 +1124,7 @@ class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsnetworkinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsNetworkInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.bandwidth_low_event_ratio = kwargs.get('bandwidth_low_event_ratio', None)
         self.basic_service_set_identifier = kwargs.get('basic_service_set_identifier', None)
@@ -1152,7 +1152,7 @@ class microsoftgraphcallrecordsnetworkinfo(msrest.serialization.Model):
         self.wifi_vendor_driver_version = kwargs.get('wifi_vendor_driver_version', None)
 
 
-class microsoftgraphcallrecordssegment(microsoftgraphentity):
+class MicrosoftGraphCallRecordsSegment(MicrosoftGraphEntity):
     """segment.
 
     :param id: Read-only.
@@ -1161,17 +1161,17 @@ class microsoftgraphcallrecordssegment(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param callee: endpoint.
-    :type callee: ~cloud_communications.models.microsoftgraphcallrecordsendpoint
+    :type callee: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param caller: endpoint.
-    :type caller: ~cloud_communications.models.microsoftgraphcallrecordsendpoint
+    :type caller: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param end_date_time: UTC time when the segment ended. The DateTimeOffset type represents date
      and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
      on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type end_date_time: ~datetime.datetime
     :param failure_info: failureInfo.
-    :type failure_info: ~cloud_communications.models.microsoftgraphcallrecordsfailureinfo
+    :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
     :param media: Media associated with this segment.
-    :type media: list[~cloud_communications.models.microsoftgraphcallrecordsmedia]
+    :type media: list[~cloud_communications.models.MicrosoftGraphCallRecordsMedia]
     :param start_date_time: UTC time when the segment started. The DateTimeOffset type represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1181,11 +1181,11 @@ class microsoftgraphcallrecordssegment(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'callee': {'key': 'callee', 'type': 'microsoftgraphcallrecordsendpoint'},
-        'caller': {'key': 'caller', 'type': 'microsoftgraphcallrecordsendpoint'},
+        'callee': {'key': 'callee', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
+        'caller': {'key': 'caller', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
-        'failure_info': {'key': 'failureInfo', 'type': 'microsoftgraphcallrecordsfailureinfo'},
-        'media': {'key': 'media', 'type': '[microsoftgraphcallrecordsmedia]'},
+        'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
+        'media': {'key': 'media', 'type': '[MicrosoftGraphCallRecordsMedia]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
     }
 
@@ -1193,7 +1193,7 @@ class microsoftgraphcallrecordssegment(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordssegment, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsSegment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.callee = kwargs.get('callee', None)
         self.caller = kwargs.get('caller', None)
@@ -1203,7 +1203,7 @@ class microsoftgraphcallrecordssegment(microsoftgraphentity):
         self.start_date_time = kwargs.get('start_date_time', None)
 
 
-class microsoftgraphcallrecordssession(microsoftgraphentity):
+class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
     """session.
 
     :param id: Read-only.
@@ -1212,43 +1212,43 @@ class microsoftgraphcallrecordssession(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param callee: endpoint.
-    :type callee: ~cloud_communications.models.microsoftgraphcallrecordsendpoint
+    :type callee: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param caller: endpoint.
-    :type caller: ~cloud_communications.models.microsoftgraphcallrecordsendpoint
+    :type caller: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param end_date_time: UTC time when the last user left the session. The DateTimeOffset type
      represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type end_date_time: ~datetime.datetime
     :param failure_info: failureInfo.
-    :type failure_info: ~cloud_communications.models.microsoftgraphcallrecordsfailureinfo
+    :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
     :param modalities: List of modalities present in the session. Possible values are: unknown,
      audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-    :type modalities: list[str or ~cloud_communications.models.Microsoftgraphcallrecordsmodality]
+    :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
     :param start_date_time: UTC fime when the first user joined the session. The DateTimeOffset
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type start_date_time: ~datetime.datetime
     :param segments: The list of segments involved in the session. Read-only. Nullable.
-    :type segments: list[~cloud_communications.models.microsoftgraphcallrecordssegment]
+    :type segments: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'callee': {'key': 'callee', 'type': 'microsoftgraphcallrecordsendpoint'},
-        'caller': {'key': 'caller', 'type': 'microsoftgraphcallrecordsendpoint'},
+        'callee': {'key': 'callee', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
+        'caller': {'key': 'caller', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
-        'failure_info': {'key': 'failureInfo', 'type': 'microsoftgraphcallrecordsfailureinfo'},
+        'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
         'modalities': {'key': 'modalities', 'type': '[str]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
-        'segments': {'key': 'segments', 'type': '[microsoftgraphcallrecordssegment]'},
+        'segments': {'key': 'segments', 'type': '[MicrosoftGraphCallRecordsSegment]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordssession, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsSession, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.callee = kwargs.get('callee', None)
         self.caller = kwargs.get('caller', None)
@@ -1259,7 +1259,7 @@ class microsoftgraphcallrecordssession(microsoftgraphentity):
         self.segments = kwargs.get('segments', None)
 
 
-class microsoftgraphcallrecordsuseragent(msrest.serialization.Model):
+class MicrosoftGraphCallRecordsUserAgent(msrest.serialization.Model):
     """userAgent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1282,31 +1282,31 @@ class microsoftgraphcallrecordsuseragent(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallrecordsuseragent, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRecordsUserAgent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application_version = kwargs.get('application_version', None)
         self.header_value = kwargs.get('header_value', None)
 
 
-class microsoftgraphcallroute(msrest.serialization.Model):
+class MicrosoftGraphCallRoute(msrest.serialization.Model):
     """callRoute.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param final: identitySet.
-    :type final: ~cloud_communications.models.microsoftgraphidentityset
+    :type final: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param original: identitySet.
-    :type original: ~cloud_communications.models.microsoftgraphidentityset
+    :type original: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param routing_type:  Possible values include: "forwarded", "lookup", "selfFork",
      "unknownFutureValue".
-    :type routing_type: str or ~cloud_communications.models.Microsoftgraphroutingtype
+    :type routing_type: str or ~cloud_communications.models.MicrosoftGraphRoutingType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'final': {'key': 'final', 'type': 'microsoftgraphidentityset'},
-        'original': {'key': 'original', 'type': 'microsoftgraphidentityset'},
+        'final': {'key': 'final', 'type': 'MicrosoftGraphIdentitySet'},
+        'original': {'key': 'original', 'type': 'MicrosoftGraphIdentitySet'},
         'routing_type': {'key': 'routingType', 'type': 'str'},
     }
 
@@ -1314,14 +1314,14 @@ class microsoftgraphcallroute(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcallroute, self).__init__(**kwargs)
+        super(MicrosoftGraphCallRoute, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.final = kwargs.get('final', None)
         self.original = kwargs.get('original', None)
         self.routing_type = kwargs.get('routing_type', None)
 
 
-class microsoftgraphcalltranscriptioninfo(msrest.serialization.Model):
+class MicrosoftGraphCallTranscriptionInfo(msrest.serialization.Model):
     """callTranscriptionInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1331,7 +1331,7 @@ class microsoftgraphcalltranscriptioninfo(msrest.serialization.Model):
     :type last_modified_date_time: ~datetime.datetime
     :param state:  Possible values include: "notStarted", "active", "inactive",
      "unknownFutureValue".
-    :type state: str or ~cloud_communications.models.Microsoftgraphcalltranscriptionstate
+    :type state: str or ~cloud_communications.models.MicrosoftGraphCallTranscriptionState
     """
 
     _attribute_map = {
@@ -1344,13 +1344,13 @@ class microsoftgraphcalltranscriptioninfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphcalltranscriptioninfo, self).__init__(**kwargs)
+        super(MicrosoftGraphCallTranscriptionInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.state = kwargs.get('state', None)
 
 
-class microsoftgraphcommsoperation(microsoftgraphentity):
+class MicrosoftGraphCommsOperation(MicrosoftGraphEntity):
     """commsOperation.
 
     :param id: Read-only.
@@ -1361,16 +1361,16 @@ class microsoftgraphcommsoperation(microsoftgraphentity):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
     }
 
@@ -1378,14 +1378,14 @@ class microsoftgraphcommsoperation(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphcommsoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphCommsOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
         self.result_info = kwargs.get('result_info', None)
         self.status = kwargs.get('status', None)
 
 
-class microsoftgraphcancelmediaprocessingoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphCancelMediaProcessingOperation(MicrosoftGraphCommsOperation):
     """cancelMediaProcessingOperation.
 
     :param id: Read-only.
@@ -1393,9 +1393,9 @@ class microsoftgraphcancelmediaprocessingoperation(microsoftgraphcommsoperation)
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1404,7 +1404,7 @@ class microsoftgraphcancelmediaprocessingoperation(microsoftgraphcommsoperation)
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -1413,11 +1413,11 @@ class microsoftgraphcancelmediaprocessingoperation(microsoftgraphcommsoperation)
         self,
         **kwargs
     ):
-        super(microsoftgraphcancelmediaprocessingoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphCancelMediaProcessingOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphchatinfo(msrest.serialization.Model):
+class MicrosoftGraphChatInfo(msrest.serialization.Model):
     """chatInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1442,14 +1442,14 @@ class microsoftgraphchatinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphchatinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphChatInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.message_id = kwargs.get('message_id', None)
         self.reply_chain_message_id = kwargs.get('reply_chain_message_id', None)
         self.thread_id = kwargs.get('thread_id', None)
 
 
-class microsoftgraphcloudcommunications(microsoftgraphentity):
+class MicrosoftGraphCloudCommunications(MicrosoftGraphEntity):
     """cloudCommunications.
 
     :param id: Read-only.
@@ -1458,29 +1458,29 @@ class microsoftgraphcloudcommunications(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param calls:
-    :type calls: list[~cloud_communications.models.microsoftgraphcall]
+    :type calls: list[~cloud_communications.models.MicrosoftGraphCall]
     :param call_records:
-    :type call_records: list[~cloud_communications.models.microsoftgraphcallrecordscallrecord]
+    :type call_records: list[~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord]
     :param online_meetings:
-    :type online_meetings: list[~cloud_communications.models.microsoftgraphonlinemeeting]
+    :type online_meetings: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
     :param presences:
-    :type presences: list[~cloud_communications.models.microsoftgraphpresence]
+    :type presences: list[~cloud_communications.models.MicrosoftGraphPresence]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'calls': {'key': 'calls', 'type': '[microsoftgraphcall]'},
-        'call_records': {'key': 'callRecords', 'type': '[microsoftgraphcallrecordscallrecord]'},
-        'online_meetings': {'key': 'onlineMeetings', 'type': '[microsoftgraphonlinemeeting]'},
-        'presences': {'key': 'presences', 'type': '[microsoftgraphpresence]'},
+        'calls': {'key': 'calls', 'type': '[MicrosoftGraphCall]'},
+        'call_records': {'key': 'callRecords', 'type': '[MicrosoftGraphCallRecordsCallRecord]'},
+        'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
+        'presences': {'key': 'presences', 'type': '[MicrosoftGraphPresence]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcloudcommunications, self).__init__(**kwargs)
+        super(MicrosoftGraphCloudCommunications, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.calls = kwargs.get('calls', None)
         self.call_records = kwargs.get('call_records', None)
@@ -1488,7 +1488,7 @@ class microsoftgraphcloudcommunications(microsoftgraphentity):
         self.presences = kwargs.get('presences', None)
 
 
-class microsoftgraphidentity(msrest.serialization.Model):
+class MicrosoftGraphIdentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1513,45 +1513,45 @@ class microsoftgraphidentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphidentityset(msrest.serialization.Model):
+class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     """identitySet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~cloud_communications.models.microsoftgraphidentity
+    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
     :param device: identity.
-    :type device: ~cloud_communications.models.microsoftgraphidentity
+    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
     :param user: identity.
-    :type user: ~cloud_communications.models.microsoftgraphidentity
+    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
-        'device': {'key': 'device', 'type': 'microsoftgraphidentity'},
-        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphidentityset, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application = kwargs.get('application', None)
         self.device = kwargs.get('device', None)
         self.user = kwargs.get('user', None)
 
 
-class microsoftgraphincomingcontext(msrest.serialization.Model):
+class MicrosoftGraphIncomingContext(msrest.serialization.Model):
     """incomingContext.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1560,27 +1560,27 @@ class microsoftgraphincomingcontext(msrest.serialization.Model):
     :param observed_participant_id: The ID of the participant that is under observation. Read-only.
     :type observed_participant_id: str
     :param on_behalf_of: identitySet.
-    :type on_behalf_of: ~cloud_communications.models.microsoftgraphidentityset
+    :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
      only.
     :type source_participant_id: str
     :param transferor: identitySet.
-    :type transferor: ~cloud_communications.models.microsoftgraphidentityset
+    :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'observed_participant_id': {'key': 'observedParticipantId', 'type': 'str'},
-        'on_behalf_of': {'key': 'onBehalfOf', 'type': 'microsoftgraphidentityset'},
+        'on_behalf_of': {'key': 'onBehalfOf', 'type': 'MicrosoftGraphIdentitySet'},
         'source_participant_id': {'key': 'sourceParticipantId', 'type': 'str'},
-        'transferor': {'key': 'transferor', 'type': 'microsoftgraphidentityset'},
+        'transferor': {'key': 'transferor', 'type': 'MicrosoftGraphIdentitySet'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphincomingcontext, self).__init__(**kwargs)
+        super(MicrosoftGraphIncomingContext, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.observed_participant_id = kwargs.get('observed_participant_id', None)
         self.on_behalf_of = kwargs.get('on_behalf_of', None)
@@ -1588,7 +1588,7 @@ class microsoftgraphincomingcontext(msrest.serialization.Model):
         self.transferor = kwargs.get('transferor', None)
 
 
-class microsoftgraphinvitationparticipantinfo(msrest.serialization.Model):
+class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
     """invitationParticipantInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1596,9 +1596,9 @@ class microsoftgraphinvitationparticipantinfo(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
      "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type: str or ~cloud_communications.models.Microsoftgraphendpointtype
+    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
     :param identity: identitySet.
-    :type identity: ~cloud_communications.models.microsoftgraphidentityset
+    :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param replaces_call_id: Optional. The call which the target identity is currently a part of.
      This call will be dropped once the participant is added.
     :type replaces_call_id: str
@@ -1607,7 +1607,7 @@ class microsoftgraphinvitationparticipantinfo(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'endpoint_type': {'key': 'endpointType', 'type': 'str'},
-        'identity': {'key': 'identity', 'type': 'microsoftgraphidentityset'},
+        'identity': {'key': 'identity', 'type': 'MicrosoftGraphIdentitySet'},
         'replaces_call_id': {'key': 'replacesCallId', 'type': 'str'},
     }
 
@@ -1615,14 +1615,14 @@ class microsoftgraphinvitationparticipantinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphinvitationparticipantinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphInvitationParticipantInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.endpoint_type = kwargs.get('endpoint_type', None)
         self.identity = kwargs.get('identity', None)
         self.replaces_call_id = kwargs.get('replaces_call_id', None)
 
 
-class microsoftgraphinviteparticipantsoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
     """inviteParticipantsOperation.
 
     :param id: Read-only.
@@ -1630,35 +1630,35 @@ class microsoftgraphinviteparticipantsoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param participants: The participants to invite.
-    :type participants: list[~cloud_communications.models.microsoftgraphinvitationparticipantinfo]
+    :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'participants': {'key': 'participants', 'type': '[microsoftgraphinvitationparticipantinfo]'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphinviteparticipantsoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphInviteParticipantsOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
 
 
-class microsoftgraphitembody(msrest.serialization.Model):
+class MicrosoftGraphItemBody(msrest.serialization.Model):
     """itemBody.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1667,7 +1667,7 @@ class microsoftgraphitembody(msrest.serialization.Model):
     :param content: The content of the item.
     :type content: str
     :param content_type:  Possible values include: "text", "html".
-    :type content_type: str or ~cloud_communications.models.Microsoftgraphbodytype
+    :type content_type: str or ~cloud_communications.models.MicrosoftGraphBodyType
     """
 
     _attribute_map = {
@@ -1680,13 +1680,13 @@ class microsoftgraphitembody(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphitembody, self).__init__(**kwargs)
+        super(MicrosoftGraphItemBody, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_type = kwargs.get('content_type', None)
 
 
-class microsoftgraphlobbybypasssettings(msrest.serialization.Model):
+class MicrosoftGraphLobbyBypassSettings(msrest.serialization.Model):
     """lobbyBypassSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1696,7 +1696,7 @@ class microsoftgraphlobbybypasssettings(msrest.serialization.Model):
     :type is_dial_in_bypass_enabled: bool
     :param scope:  Possible values include: "organizer", "organization",
      "organizationAndFederated", "everyone", "unknownFutureValue".
-    :type scope: str or ~cloud_communications.models.Microsoftgraphlobbybypassscope
+    :type scope: str or ~cloud_communications.models.MicrosoftGraphLobbyBypassScope
     """
 
     _attribute_map = {
@@ -1709,13 +1709,13 @@ class microsoftgraphlobbybypasssettings(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphlobbybypasssettings, self).__init__(**kwargs)
+        super(MicrosoftGraphLobbyBypassSettings, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_dial_in_bypass_enabled = kwargs.get('is_dial_in_bypass_enabled', None)
         self.scope = kwargs.get('scope', None)
 
 
-class microsoftgraphmediaconfig(msrest.serialization.Model):
+class MicrosoftGraphMediaConfig(msrest.serialization.Model):
     """mediaConfig.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1734,12 +1734,12 @@ class microsoftgraphmediaconfig(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphmediaconfig, self).__init__(**kwargs)
+        super(MicrosoftGraphMediaConfig, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.remove_from_default_audio_group = kwargs.get('remove_from_default_audio_group', None)
 
 
-class microsoftgraphmediastream(msrest.serialization.Model):
+class MicrosoftGraphMediaStream(msrest.serialization.Model):
     """mediaStream.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1747,12 +1747,12 @@ class microsoftgraphmediastream(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param direction:  Possible values include: "inactive", "sendOnly", "receiveOnly",
      "sendReceive".
-    :type direction: str or ~cloud_communications.models.Microsoftgraphmediadirection
+    :type direction: str or ~cloud_communications.models.MicrosoftGraphMediaDirection
     :param label: The media stream label.
     :type label: str
     :param media_type:  Possible values include: "unknown", "audio", "video",
      "videoBasedScreenSharing", "data", "unknownFutureValue".
-    :type media_type: str or ~cloud_communications.models.Microsoftgraphmodality
+    :type media_type: str or ~cloud_communications.models.MicrosoftGraphModality
     :param server_muted: If the media is muted by the server.
     :type server_muted: bool
     :param source_id: The source ID.
@@ -1772,7 +1772,7 @@ class microsoftgraphmediastream(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphmediastream, self).__init__(**kwargs)
+        super(MicrosoftGraphMediaStream, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.direction = kwargs.get('direction', None)
         self.label = kwargs.get('label', None)
@@ -1781,7 +1781,7 @@ class microsoftgraphmediastream(msrest.serialization.Model):
         self.source_id = kwargs.get('source_id', None)
 
 
-class microsoftgraphmeetingcapability(msrest.serialization.Model):
+class MicrosoftGraphMeetingCapability(msrest.serialization.Model):
     """meetingCapability.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1793,7 +1793,7 @@ class microsoftgraphmeetingcapability(msrest.serialization.Model):
     :type allow_anonymous_users_to_start_meeting: bool
     :param auto_admitted_users:  Possible values include: "everyoneInCompany", "everyone".
     :type auto_admitted_users: str or
-     ~cloud_communications.models.Microsoftgraphautoadmitteduserstype
+     ~cloud_communications.models.MicrosoftGraphAutoAdmittedUsersType
     """
 
     _attribute_map = {
@@ -1807,14 +1807,14 @@ class microsoftgraphmeetingcapability(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphmeetingcapability, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingCapability, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_anonymous_users_to_dial_out = kwargs.get('allow_anonymous_users_to_dial_out', None)
         self.allow_anonymous_users_to_start_meeting = kwargs.get('allow_anonymous_users_to_start_meeting', None)
         self.auto_admitted_users = kwargs.get('auto_admitted_users', None)
 
 
-class microsoftgraphmeetinginfo(msrest.serialization.Model):
+class MicrosoftGraphMeetingInfo(msrest.serialization.Model):
     """meetingInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1833,28 +1833,28 @@ class microsoftgraphmeetinginfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphmeetinginfo, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_conversation_without_host = kwargs.get('allow_conversation_without_host', None)
 
 
-class microsoftgraphmeetingparticipantinfo(msrest.serialization.Model):
+class MicrosoftGraphMeetingParticipantInfo(msrest.serialization.Model):
     """meetingParticipantInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param identity: identitySet.
-    :type identity: ~cloud_communications.models.microsoftgraphidentityset
+    :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param role:  Possible values include: "attendee", "presenter", "unknownFutureValue".
-    :type role: str or ~cloud_communications.models.Microsoftgraphonlinemeetingrole
+    :type role: str or ~cloud_communications.models.MicrosoftGraphOnlineMeetingRole
     :param upn: User principal name of the participant.
     :type upn: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'identity': {'key': 'identity', 'type': 'microsoftgraphidentityset'},
+        'identity': {'key': 'identity', 'type': 'MicrosoftGraphIdentitySet'},
         'role': {'key': 'role', 'type': 'str'},
         'upn': {'key': 'upn', 'type': 'str'},
     }
@@ -1863,42 +1863,42 @@ class microsoftgraphmeetingparticipantinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphmeetingparticipantinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingParticipantInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.identity = kwargs.get('identity', None)
         self.role = kwargs.get('role', None)
         self.upn = kwargs.get('upn', None)
 
 
-class microsoftgraphmeetingparticipants(msrest.serialization.Model):
+class MicrosoftGraphMeetingParticipants(msrest.serialization.Model):
     """meetingParticipants.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param attendees:
-    :type attendees: list[~cloud_communications.models.microsoftgraphmeetingparticipantinfo]
+    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
     :param contributors:
-    :type contributors: list[~cloud_communications.models.microsoftgraphmeetingparticipantinfo]
+    :type contributors: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
     :param organizer: meetingParticipantInfo.
-    :type organizer: ~cloud_communications.models.microsoftgraphmeetingparticipantinfo
+    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
     :param producers:
-    :type producers: list[~cloud_communications.models.microsoftgraphmeetingparticipantinfo]
+    :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attendees': {'key': 'attendees', 'type': '[microsoftgraphmeetingparticipantinfo]'},
-        'contributors': {'key': 'contributors', 'type': '[microsoftgraphmeetingparticipantinfo]'},
-        'organizer': {'key': 'organizer', 'type': 'microsoftgraphmeetingparticipantinfo'},
-        'producers': {'key': 'producers', 'type': '[microsoftgraphmeetingparticipantinfo]'},
+        'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
+        'contributors': {'key': 'contributors', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
+        'producers': {'key': 'producers', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphmeetingparticipants, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingParticipants, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.attendees = kwargs.get('attendees', None)
         self.contributors = kwargs.get('contributors', None)
@@ -1906,7 +1906,7 @@ class microsoftgraphmeetingparticipants(msrest.serialization.Model):
         self.producers = kwargs.get('producers', None)
 
 
-class microsoftgraphmuteparticipantoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphMuteParticipantOperation(MicrosoftGraphCommsOperation):
     """muteParticipantOperation.
 
     :param id: Read-only.
@@ -1914,9 +1914,9 @@ class microsoftgraphmuteparticipantoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1925,7 +1925,7 @@ class microsoftgraphmuteparticipantoperation(microsoftgraphcommsoperation):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -1934,11 +1934,11 @@ class microsoftgraphmuteparticipantoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphmuteparticipantoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphMuteParticipantOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphmuteparticipantsoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphMuteParticipantsOperation(MicrosoftGraphCommsOperation):
     """muteParticipantsOperation.
 
     :param id: Read-only.
@@ -1946,9 +1946,9 @@ class microsoftgraphmuteparticipantsoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1959,7 +1959,7 @@ class microsoftgraphmuteparticipantsoperation(microsoftgraphcommsoperation):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'participants': {'key': 'participants', 'type': '[str]'},
@@ -1969,12 +1969,12 @@ class microsoftgraphmuteparticipantsoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphmuteparticipantsoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphMuteParticipantsOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
 
 
-class microsoftgraphonlinemeeting(microsoftgraphentity):
+class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
     """onlineMeeting.
 
     :param id: Read-only.
@@ -1984,19 +1984,19 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param access_level:  Possible values include: "everyone", "invited", "locked",
      "sameEnterprise", "sameEnterpriseAndFederated".
-    :type access_level: str or ~cloud_communications.models.Microsoftgraphaccesslevel
+    :type access_level: str or ~cloud_communications.models.MicrosoftGraphAccessLevel
     :param allowed_presenters:  Possible values include: "everyone", "organization",
      "roleIsPresenter", "organizer", "unknownFutureValue".
     :type allowed_presenters: str or
-     ~cloud_communications.models.Microsoftgraphonlinemeetingpresenters
+     ~cloud_communications.models.MicrosoftGraphOnlineMeetingPresenters
     :param audio_conferencing: audioConferencing.
-    :type audio_conferencing: ~cloud_communications.models.microsoftgraphaudioconferencing
+    :type audio_conferencing: ~cloud_communications.models.MicrosoftGraphAudioConferencing
     :param canceled_date_time:
     :type canceled_date_time: ~datetime.datetime
     :param capabilities:
-    :type capabilities: list[str or ~cloud_communications.models.Microsoftgraphmeetingcapabilities]
+    :type capabilities: list[str or ~cloud_communications.models.MicrosoftGraphMeetingCapabilities]
     :param chat_info: chatInfo.
-    :type chat_info: ~cloud_communications.models.microsoftgraphchatinfo
+    :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
     :param creation_date_time: The meeting creation time in UTC. Read-only.
     :type creation_date_time: ~datetime.datetime
     :param end_date_time: The meeting end time in UTC.
@@ -2014,13 +2014,13 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
     :param is_entry_exit_announced:
     :type is_entry_exit_announced: bool
     :param join_information: itemBody.
-    :type join_information: ~cloud_communications.models.microsoftgraphitembody
+    :type join_information: ~cloud_communications.models.MicrosoftGraphItemBody
     :param join_url:
     :type join_url: str
     :param lobby_bypass_settings: lobbyBypassSettings.
-    :type lobby_bypass_settings: ~cloud_communications.models.microsoftgraphlobbybypasssettings
+    :type lobby_bypass_settings: ~cloud_communications.models.MicrosoftGraphLobbyBypassSettings
     :param participants: meetingParticipants.
-    :type participants: ~cloud_communications.models.microsoftgraphmeetingparticipants
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time: The meeting start time in UTC.
     :type start_date_time: ~datetime.datetime
     :param subject: The subject of the online meeting.
@@ -2034,10 +2034,10 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'access_level': {'key': 'accessLevel', 'type': 'str'},
         'allowed_presenters': {'key': 'allowedPresenters', 'type': 'str'},
-        'audio_conferencing': {'key': 'audioConferencing', 'type': 'microsoftgraphaudioconferencing'},
+        'audio_conferencing': {'key': 'audioConferencing', 'type': 'MicrosoftGraphAudioConferencing'},
         'canceled_date_time': {'key': 'canceledDateTime', 'type': 'iso-8601'},
         'capabilities': {'key': 'capabilities', 'type': '[str]'},
-        'chat_info': {'key': 'chatInfo', 'type': 'microsoftgraphchatinfo'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'creation_date_time': {'key': 'creationDateTime', 'type': 'iso-8601'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'entry_exit_announcement': {'key': 'entryExitAnnouncement', 'type': 'bool'},
@@ -2046,10 +2046,10 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         'is_broadcast': {'key': 'isBroadcast', 'type': 'bool'},
         'is_cancelled': {'key': 'isCancelled', 'type': 'bool'},
         'is_entry_exit_announced': {'key': 'isEntryExitAnnounced', 'type': 'bool'},
-        'join_information': {'key': 'joinInformation', 'type': 'microsoftgraphitembody'},
+        'join_information': {'key': 'joinInformation', 'type': 'MicrosoftGraphItemBody'},
         'join_url': {'key': 'joinUrl', 'type': 'str'},
-        'lobby_bypass_settings': {'key': 'lobbyBypassSettings', 'type': 'microsoftgraphlobbybypasssettings'},
-        'participants': {'key': 'participants', 'type': 'microsoftgraphmeetingparticipants'},
+        'lobby_bypass_settings': {'key': 'lobbyBypassSettings', 'type': 'MicrosoftGraphLobbyBypassSettings'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'video_teleconference_id': {'key': 'videoTeleconferenceId', 'type': 'str'},
@@ -2059,7 +2059,7 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphonlinemeeting, self).__init__(**kwargs)
+        super(MicrosoftGraphOnlineMeeting, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.access_level = kwargs.get('access_level', None)
         self.allowed_presenters = kwargs.get('allowed_presenters', None)
@@ -2084,7 +2084,7 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         self.video_teleconference_id = kwargs.get('video_teleconference_id', None)
 
 
-class microsoftgraphparticipant(microsoftgraphentity):
+class MicrosoftGraphParticipant(MicrosoftGraphEntity):
     """participant.
 
     :param id: Read-only.
@@ -2093,35 +2093,35 @@ class microsoftgraphparticipant(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param info: participantInfo.
-    :type info: ~cloud_communications.models.microsoftgraphparticipantinfo
+    :type info: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param is_in_lobby: true if the participant is in lobby.
     :type is_in_lobby: bool
     :param is_muted: true if the participant is muted (client or server muted).
     :type is_muted: bool
     :param media_streams: The list of media streams.
-    :type media_streams: list[~cloud_communications.models.microsoftgraphmediastream]
+    :type media_streams: list[~cloud_communications.models.MicrosoftGraphMediaStream]
     :param metadata:
     :type metadata: str
     :param recording_info: recordingInfo.
-    :type recording_info: ~cloud_communications.models.microsoftgraphrecordinginfo
+    :type recording_info: ~cloud_communications.models.MicrosoftGraphRecordingInfo
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'info': {'key': 'info', 'type': 'microsoftgraphparticipantinfo'},
+        'info': {'key': 'info', 'type': 'MicrosoftGraphParticipantInfo'},
         'is_in_lobby': {'key': 'isInLobby', 'type': 'bool'},
         'is_muted': {'key': 'isMuted', 'type': 'bool'},
-        'media_streams': {'key': 'mediaStreams', 'type': '[microsoftgraphmediastream]'},
+        'media_streams': {'key': 'mediaStreams', 'type': '[MicrosoftGraphMediaStream]'},
         'metadata': {'key': 'metadata', 'type': 'str'},
-        'recording_info': {'key': 'recordingInfo', 'type': 'microsoftgraphrecordinginfo'},
+        'recording_info': {'key': 'recordingInfo', 'type': 'MicrosoftGraphRecordingInfo'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphparticipant, self).__init__(**kwargs)
+        super(MicrosoftGraphParticipant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.info = kwargs.get('info', None)
         self.is_in_lobby = kwargs.get('is_in_lobby', None)
@@ -2131,7 +2131,7 @@ class microsoftgraphparticipant(microsoftgraphentity):
         self.recording_info = kwargs.get('recording_info', None)
 
 
-class microsoftgraphparticipantinfo(msrest.serialization.Model):
+class MicrosoftGraphParticipantInfo(msrest.serialization.Model):
     """participantInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2142,9 +2142,9 @@ class microsoftgraphparticipantinfo(msrest.serialization.Model):
     :type country_code: str
     :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
      "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type: str or ~cloud_communications.models.Microsoftgraphendpointtype
+    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
     :param identity: identitySet.
-    :type identity: ~cloud_communications.models.microsoftgraphidentityset
+    :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param language_id: The language culture string. Read-only.
     :type language_id: str
     :param region: The home region of the participant. This can be a country, a continent, or a
@@ -2157,7 +2157,7 @@ class microsoftgraphparticipantinfo(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'country_code': {'key': 'countryCode', 'type': 'str'},
         'endpoint_type': {'key': 'endpointType', 'type': 'str'},
-        'identity': {'key': 'identity', 'type': 'microsoftgraphidentityset'},
+        'identity': {'key': 'identity', 'type': 'MicrosoftGraphIdentitySet'},
         'language_id': {'key': 'languageId', 'type': 'str'},
         'region': {'key': 'region', 'type': 'str'},
     }
@@ -2166,7 +2166,7 @@ class microsoftgraphparticipantinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphparticipantinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphParticipantInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.country_code = kwargs.get('country_code', None)
         self.endpoint_type = kwargs.get('endpoint_type', None)
@@ -2175,7 +2175,7 @@ class microsoftgraphparticipantinfo(msrest.serialization.Model):
         self.region = kwargs.get('region', None)
 
 
-class microsoftgraphplaypromptoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphPlayPromptOperation(MicrosoftGraphCommsOperation):
     """playPromptOperation.
 
     :param id: Read-only.
@@ -2183,22 +2183,22 @@ class microsoftgraphplaypromptoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param completion_reason:  Possible values include: "unknown", "completedSuccessfully",
      "mediaOperationCanceled", "unknownFutureValue".
     :type completion_reason: str or
-     ~cloud_communications.models.Microsoftgraphplaypromptcompletionreason
+     ~cloud_communications.models.MicrosoftGraphPlayPromptCompletionReason
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_reason': {'key': 'completionReason', 'type': 'str'},
@@ -2208,12 +2208,12 @@ class microsoftgraphplaypromptoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphplaypromptoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphPlayPromptOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_reason = kwargs.get('completion_reason', None)
 
 
-class microsoftgraphpresence(microsoftgraphentity):
+class MicrosoftGraphPresence(MicrosoftGraphEntity):
     """presence.
 
     :param id: Read-only.
@@ -2238,31 +2238,31 @@ class microsoftgraphpresence(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphpresence, self).__init__(**kwargs)
+        super(MicrosoftGraphPresence, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.activity = kwargs.get('activity', None)
         self.availability = kwargs.get('availability', None)
 
 
-class microsoftgraphrecordinginfo(msrest.serialization.Model):
+class MicrosoftGraphRecordingInfo(msrest.serialization.Model):
     """recordingInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param initiated_by: participantInfo.
-    :type initiated_by: ~cloud_communications.models.microsoftgraphparticipantinfo
+    :type initiated_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param initiator: identitySet.
-    :type initiator: ~cloud_communications.models.microsoftgraphidentityset
+    :type initiator: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param recording_status:  Possible values include: "unknown", "notRecording", "recording",
      "failed", "unknownFutureValue".
-    :type recording_status: str or ~cloud_communications.models.Microsoftgraphrecordingstatus
+    :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'initiated_by': {'key': 'initiatedBy', 'type': 'microsoftgraphparticipantinfo'},
-        'initiator': {'key': 'initiator', 'type': 'microsoftgraphidentityset'},
+        'initiated_by': {'key': 'initiatedBy', 'type': 'MicrosoftGraphParticipantInfo'},
+        'initiator': {'key': 'initiator', 'type': 'MicrosoftGraphIdentitySet'},
         'recording_status': {'key': 'recordingStatus', 'type': 'str'},
     }
 
@@ -2270,14 +2270,14 @@ class microsoftgraphrecordinginfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphrecordinginfo, self).__init__(**kwargs)
+        super(MicrosoftGraphRecordingInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.initiated_by = kwargs.get('initiated_by', None)
         self.initiator = kwargs.get('initiator', None)
         self.recording_status = kwargs.get('recording_status', None)
 
 
-class microsoftgraphrecordoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphRecordOperation(MicrosoftGraphCommsOperation):
     """recordOperation.
 
     :param id: Read-only.
@@ -2285,9 +2285,9 @@ class microsoftgraphrecordoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2295,7 +2295,7 @@ class microsoftgraphrecordoperation(microsoftgraphcommsoperation):
      "maxRecordDurationReached", "initialSilenceTimeout", "maxSilenceTimeout", "playPromptFailed",
      "playBeepFailed", "mediaReceiveTimeout", "unspecifiedError".
     :type completion_reason: str or
-     ~cloud_communications.models.Microsoftgraphrecordcompletionreason
+     ~cloud_communications.models.MicrosoftGraphRecordCompletionReason
     :param recording_access_token: The access token required to retrieve the recording.
     :type recording_access_token: str
     :param recording_location: The location where the recording is located.
@@ -2305,7 +2305,7 @@ class microsoftgraphrecordoperation(microsoftgraphcommsoperation):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_reason': {'key': 'completionReason', 'type': 'str'},
@@ -2317,14 +2317,14 @@ class microsoftgraphrecordoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphrecordoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphRecordOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_reason = kwargs.get('completion_reason', None)
         self.recording_access_token = kwargs.get('recording_access_token', None)
         self.recording_location = kwargs.get('recording_location', None)
 
 
-class microsoftgraphresultinfo(msrest.serialization.Model):
+class MicrosoftGraphResultInfo(msrest.serialization.Model):
     """ResultInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2354,14 +2354,14 @@ class microsoftgraphresultinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphresultinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphResultInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs.get('code', None)
         self.message = kwargs.get('message', None)
         self.subcode = kwargs.get('subcode', None)
 
 
-class microsoftgraphsubscribetotoneoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphSubscribeToToneOperation(MicrosoftGraphCommsOperation):
     """subscribeToToneOperation.
 
     :param id: Read-only.
@@ -2369,9 +2369,9 @@ class microsoftgraphsubscribetotoneoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2380,7 +2380,7 @@ class microsoftgraphsubscribetotoneoperation(microsoftgraphcommsoperation):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -2389,11 +2389,11 @@ class microsoftgraphsubscribetotoneoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphsubscribetotoneoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphSubscribeToToneOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphteleconferencedevicemediaquality(msrest.serialization.Model):
+class MicrosoftGraphTeleconferenceDeviceMediaQuality(msrest.serialization.Model):
     """teleconferenceDeviceMediaQuality.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2484,7 +2484,7 @@ class microsoftgraphteleconferencedevicemediaquality(msrest.serialization.Model)
         self,
         **kwargs
     ):
-        super(microsoftgraphteleconferencedevicemediaquality, self).__init__(**kwargs)
+        super(MicrosoftGraphTeleconferenceDeviceMediaQuality, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.average_inbound_jitter = kwargs.get('average_inbound_jitter', None)
         self.average_inbound_packet_loss_rate_in_percentage = kwargs.get('average_inbound_packet_loss_rate_in_percentage', None)
@@ -2509,7 +2509,7 @@ class microsoftgraphteleconferencedevicemediaquality(msrest.serialization.Model)
         self.remote_port = kwargs.get('remote_port', None)
 
 
-class microsoftgraphteleconferencedevicequality(msrest.serialization.Model):
+class MicrosoftGraphTeleconferenceDeviceQuality(msrest.serialization.Model):
     """teleconferenceDeviceQuality.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2540,7 +2540,7 @@ class microsoftgraphteleconferencedevicequality(msrest.serialization.Model):
     :param media_quality_list: The list of media qualities in a media session (call), such as audio
      quality, video quality, and/or screen sharing quality.
     :type media_quality_list:
-     list[~cloud_communications.models.microsoftgraphteleconferencedevicemediaquality]
+     list[~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceMediaQuality]
     :param participant_id: A unique identifier for a specific participant in a conference. The CVI
      partner needs to copy over Call.MyParticipantId to this property.
     :type participant_id: str
@@ -2556,7 +2556,7 @@ class microsoftgraphteleconferencedevicequality(msrest.serialization.Model):
         'device_description': {'key': 'deviceDescription', 'type': 'str'},
         'device_name': {'key': 'deviceName', 'type': 'str'},
         'media_leg_id': {'key': 'mediaLegId', 'type': 'str'},
-        'media_quality_list': {'key': 'mediaQualityList', 'type': '[microsoftgraphteleconferencedevicemediaquality]'},
+        'media_quality_list': {'key': 'mediaQualityList', 'type': '[MicrosoftGraphTeleconferenceDeviceMediaQuality]'},
         'participant_id': {'key': 'participantId', 'type': 'str'},
     }
 
@@ -2564,7 +2564,7 @@ class microsoftgraphteleconferencedevicequality(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphteleconferencedevicequality, self).__init__(**kwargs)
+        super(MicrosoftGraphTeleconferenceDeviceQuality, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.call_chain_id = kwargs.get('call_chain_id', None)
         self.cloud_service_deployment_environment = kwargs.get('cloud_service_deployment_environment', None)
@@ -2578,7 +2578,7 @@ class microsoftgraphteleconferencedevicequality(msrest.serialization.Model):
         self.participant_id = kwargs.get('participant_id', None)
 
 
-class microsoftgraphtoneinfo(msrest.serialization.Model):
+class MicrosoftGraphToneInfo(msrest.serialization.Model):
     """toneInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2588,7 +2588,7 @@ class microsoftgraphtoneinfo(msrest.serialization.Model):
     :type sequence_id: long
     :param tone:  Possible values include: "tone0", "tone1", "tone2", "tone3", "tone4", "tone5",
      "tone6", "tone7", "tone8", "tone9", "star", "pound", "a", "b", "c", "d", "flash".
-    :type tone: str or ~cloud_communications.models.Microsoftgraphtone
+    :type tone: str or ~cloud_communications.models.MicrosoftGraphTone
     """
 
     _attribute_map = {
@@ -2601,13 +2601,13 @@ class microsoftgraphtoneinfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphtoneinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphToneInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.sequence_id = kwargs.get('sequence_id', None)
         self.tone = kwargs.get('tone', None)
 
 
-class microsoftgraphunmuteparticipantoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphUnmuteParticipantOperation(MicrosoftGraphCommsOperation):
     """unmuteParticipantOperation.
 
     :param id: Read-only.
@@ -2615,9 +2615,9 @@ class microsoftgraphunmuteparticipantoperation(microsoftgraphcommsoperation):
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2626,7 +2626,7 @@ class microsoftgraphunmuteparticipantoperation(microsoftgraphcommsoperation):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -2635,11 +2635,11 @@ class microsoftgraphunmuteparticipantoperation(microsoftgraphcommsoperation):
         self,
         **kwargs
     ):
-        super(microsoftgraphunmuteparticipantoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphUnmuteParticipantOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphupdaterecordingstatusoperation(microsoftgraphcommsoperation):
+class MicrosoftGraphUpdateRecordingStatusOperation(MicrosoftGraphCommsOperation):
     """updateRecordingStatusOperation.
 
     :param id: Read-only.
@@ -2647,9 +2647,9 @@ class microsoftgraphupdaterecordingstatusoperation(microsoftgraphcommsoperation)
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
     :param result_info: ResultInfo.
-    :type result_info: ~cloud_communications.models.microsoftgraphresultinfo
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~cloud_communications.models.Microsoftgraphoperationstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2658,7 +2658,7 @@ class microsoftgraphupdaterecordingstatusoperation(microsoftgraphcommsoperation)
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
-        'result_info': {'key': 'resultInfo', 'type': 'microsoftgraphresultinfo'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -2667,12 +2667,12 @@ class microsoftgraphupdaterecordingstatusoperation(microsoftgraphcommsoperation)
         self,
         **kwargs
     ):
-        super(microsoftgraphupdaterecordingstatusoperation, self).__init__(**kwargs)
+        super(MicrosoftGraphUpdateRecordingStatusOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2680,7 +2680,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~cloud_communications.models.odataerrormain
+    :type error: ~cloud_communications.models.OdataErrorMain
     """
 
     _validation = {
@@ -2689,20 +2689,20 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2733,15 +2733,15 @@ class odataerrordetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2755,7 +2755,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~cloud_communications.models.odataerrordetail]
+    :type details: list[~cloud_communications.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -2770,7 +2770,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -2778,7 +2778,7 @@ class odataerrormain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
@@ -2787,8 +2787,8 @@ class odataerrormain(msrest.serialization.Model):
         self.innererror = kwargs.get('innererror', None)
 
 
-class paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema.
+class Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2806,13 +2806,13 @@ class paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbod
         self,
         **kwargs
     ):
-        super(paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.ids = kwargs.get('ids', None)
 
 
-class paths13zt223communicationscallscallidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths13zt223communicationscallscallidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema.
+class Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2830,13 +2830,13 @@ class paths13zt223communicationscallscallidmicrosoftgraphmutepostrequestbodycont
         self,
         **kwargs
     ):
-        super(paths13zt223communicationscallscallidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths14wb7kqcommunicationscallscallidmicrosoftgraphrecordresponsepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths14wb7kqcommunicationscallscallidmicrosoftgraphrecordresponsepostrequestbodycontentapplicationjsonschema.
+class Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2884,7 +2884,7 @@ class paths14wb7kqcommunicationscallscallidmicrosoftgraphrecordresponsepostreque
         self,
         **kwargs
     ):
-        super(paths14wb7kqcommunicationscallscallidmicrosoftgraphrecordresponsepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.prompts = kwargs.get('prompts', None)
         self.barge_in_allowed = kwargs.get('barge_in_allowed', False)
@@ -2897,16 +2897,16 @@ class paths14wb7kqcommunicationscallscallidmicrosoftgraphrecordresponsepostreque
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbodycontentapplicationjsonschema.
+class Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param targets:
-    :type targets: list[~cloud_communications.models.microsoftgraphinvitationparticipantinfo]
+    :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
     :param target_disposition:  Possible values include: "default", "simultaneousRing", "forward".
-    :type target_disposition: str or ~cloud_communications.models.Microsoftgraphcalldisposition
+    :type target_disposition: str or ~cloud_communications.models.MicrosoftGraphCallDisposition
     :param timeout:
     :type timeout: int
     :param mask_callee:
@@ -2923,7 +2923,7 @@ class paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbody
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'targets': {'key': 'targets', 'type': '[microsoftgraphinvitationparticipantinfo]'},
+        'targets': {'key': 'targets', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
         'target_disposition': {'key': 'targetDisposition', 'type': 'str'},
         'timeout': {'key': 'timeout', 'type': 'int'},
         'mask_callee': {'key': 'maskCallee', 'type': 'bool'},
@@ -2935,7 +2935,7 @@ class paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbody
         self,
         **kwargs
     ):
-        super(paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.targets = kwargs.get('targets', None)
         self.target_disposition = kwargs.get('target_disposition', None)
@@ -2945,21 +2945,21 @@ class paths183gi8ucommunicationscallscallidmicrosoftgraphredirectpostrequestbody
         self.callback_uri = kwargs.get('callback_uri', None)
 
 
-class paths1bh76wacommunicationscallscallidparticipantsmicrosoftgraphinvitepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1bh76wacommunicationscallscallidparticipantsmicrosoftgraphinvitepostrequestbodycontentapplicationjsonschema.
+class Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param participants:
-    :type participants: list[~cloud_communications.models.microsoftgraphinvitationparticipantinfo]
+    :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
     :param client_context:
     :type client_context: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'participants': {'key': 'participants', 'type': '[microsoftgraphinvitationparticipantinfo]'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
     }
 
@@ -2967,14 +2967,14 @@ class paths1bh76wacommunicationscallscallidparticipantsmicrosoftgraphinvitepostr
         self,
         **kwargs
     ):
-        super(paths1bh76wacommunicationscallscallidparticipantsmicrosoftgraphinvitepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths1gzqcv2communicationscallscallidmicrosoftgraphplaypromptpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1gzqcv2communicationscallscallidmicrosoftgraphplaypromptpostrequestbodycontentapplicationjsonschema.
+class Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2998,39 +2998,39 @@ class paths1gzqcv2communicationscallscallidmicrosoftgraphplaypromptpostrequestbo
         self,
         **kwargs
     ):
-        super(paths1gzqcv2communicationscallscallidmicrosoftgraphplaypromptpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.prompts = kwargs.get('prompts', None)
         self.loop = kwargs.get('loop', False)
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths1jbdsmacommunicationscallsmicrosoftgraphlogteleconferencedevicequalitypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1jbdsmacommunicationscallsmicrosoftgraphlogteleconferencedevicequalitypostrequestbodycontentapplicationjsonschema.
+class Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param quality: teleconferenceDeviceQuality.
-    :type quality: ~cloud_communications.models.microsoftgraphteleconferencedevicequality
+    :type quality: ~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceQuality
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'quality': {'key': 'quality', 'type': 'microsoftgraphteleconferencedevicequality'},
+        'quality': {'key': 'quality', 'type': 'MicrosoftGraphTeleconferenceDeviceQuality'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(paths1jbdsmacommunicationscallsmicrosoftgraphlogteleconferencedevicequalitypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.quality = kwargs.get('quality', None)
 
 
-class paths1mdqe66communicationscallscallidmicrosoftgraphrecordpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1mdqe66communicationscallscallidmicrosoftgraphrecordpostrequestbodycontentapplicationjsonschema.
+class Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3078,7 +3078,7 @@ class paths1mdqe66communicationscallscallidmicrosoftgraphrecordpostrequestbodyco
         self,
         **kwargs
     ):
-        super(paths1mdqe66communicationscallscallidmicrosoftgraphrecordpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.prompts = kwargs.get('prompts', None)
         self.barge_in_allowed = kwargs.get('barge_in_allowed', False)
@@ -3091,20 +3091,20 @@ class paths1mdqe66communicationscallscallidmicrosoftgraphrecordpostrequestbodyco
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema.
+class Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param chat_info: chatInfo.
-    :type chat_info: ~cloud_communications.models.microsoftgraphchatinfo
+    :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
     :param end_date_time:
     :type end_date_time: ~datetime.datetime
     :param external_id:
     :type external_id: str
     :param participants: meetingParticipants.
-    :type participants: ~cloud_communications.models.microsoftgraphmeetingparticipants
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time:
     :type start_date_time: ~datetime.datetime
     :param subject:
@@ -3113,10 +3113,10 @@ class paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostreque
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'chat_info': {'key': 'chatInfo', 'type': 'microsoftgraphchatinfo'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'external_id': {'key': 'externalId', 'type': 'str'},
-        'participants': {'key': 'participants', 'type': 'microsoftgraphmeetingparticipants'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
     }
@@ -3125,7 +3125,7 @@ class paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostreque
         self,
         **kwargs
     ):
-        super(paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.chat_info = kwargs.get('chat_info', None)
         self.end_date_time = kwargs.get('end_date_time', None)
@@ -3135,8 +3135,8 @@ class paths1pc6sxrcommunicationsonlinemeetingsmicrosoftgraphcreateorgetpostreque
         self.subject = kwargs.get('subject', None)
 
 
-class paths1x7bvttcommunicationscallscallidmicrosoftgraphunmutepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1x7bvttcommunicationscallscallidmicrosoftgraphunmutepostrequestbodycontentapplicationjsonschema.
+class Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3154,19 +3154,19 @@ class paths1x7bvttcommunicationscallscallidmicrosoftgraphunmutepostrequestbodyco
         self,
         **kwargs
     ):
-        super(paths1x7bvttcommunicationscallscallidmicrosoftgraphunmutepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class paths4qrghdcommunicationscallscallidmicrosoftgraphrejectpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths4qrghdcommunicationscallscallidmicrosoftgraphrejectpostrequestbodycontentapplicationjsonschema.
+class Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param reason:  Possible values include: "none", "busy", "forbidden", "unknownFutureValue".
-    :type reason: str or ~cloud_communications.models.Microsoftgraphrejectreason
+    :type reason: str or ~cloud_communications.models.MicrosoftGraphRejectReason
     :param callback_uri:
     :type callback_uri: str
     """
@@ -3181,45 +3181,45 @@ class paths4qrghdcommunicationscallscallidmicrosoftgraphrejectpostrequestbodycon
         self,
         **kwargs
     ):
-        super(paths4qrghdcommunicationscallscallidmicrosoftgraphrejectpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.reason = kwargs.get('reason', None)
         self.callback_uri = kwargs.get('callback_uri', None)
 
 
-class paths4zbm7lcommunicationscallscallidmicrosoftgraphtransferpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths4zbm7lcommunicationscallscallidmicrosoftgraphtransferpostrequestbodycontentapplicationjsonschema.
+class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param transfer_target: invitationParticipantInfo.
-    :type transfer_target: ~cloud_communications.models.microsoftgraphinvitationparticipantinfo
+    :type transfer_target: ~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'transfer_target': {'key': 'transferTarget', 'type': 'microsoftgraphinvitationparticipantinfo'},
+        'transfer_target': {'key': 'transferTarget', 'type': 'MicrosoftGraphInvitationParticipantInfo'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(paths4zbm7lcommunicationscallscallidmicrosoftgraphtransferpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.transfer_target = kwargs.get('transfer_target', None)
 
 
-class pathseipedycommunicationscallscallidmicrosoftgraphupdaterecordingstatuspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathseipedycommunicationscallscallidmicrosoftgraphupdaterecordingstatuspostrequestbodycontentapplicationjsonschema.
+class PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param status:  Possible values include: "unknown", "notRecording", "recording", "failed",
      "unknownFutureValue".
-    :type status: str or ~cloud_communications.models.Microsoftgraphrecordingstatus
+    :type status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
     :param client_context:
     :type client_context: str
     """
@@ -3234,14 +3234,14 @@ class pathseipedycommunicationscallscallidmicrosoftgraphupdaterecordingstatuspos
         self,
         **kwargs
     ):
-        super(pathseipedycommunicationscallscallidmicrosoftgraphupdaterecordingstatuspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.status = kwargs.get('status', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class pathskpvac3communicationscallscallidparticipantsmicrosoftgraphmuteallpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathskpvac3communicationscallscallidparticipantsmicrosoftgraphmuteallpostrequestbodycontentapplicationjsonschema.
+class PathsKpvac3CommunicationsCallsCallIdParticipantsMicrosoftGraphMuteallPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsKpvac3CommunicationsCallsCallIdParticipantsMicrosoftGraphMuteallPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3262,20 +3262,20 @@ class pathskpvac3communicationscallscallidparticipantsmicrosoftgraphmuteallpostr
         self,
         **kwargs
     ):
-        super(pathskpvac3communicationscallscallidparticipantsmicrosoftgraphmuteallpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsKpvac3CommunicationsCallsCallIdParticipantsMicrosoftGraphMuteallPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class pathsoj95zpcommunicationscallscallidmicrosoftgraphchangescreensharingrolepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsoj95zpcommunicationscallscallidmicrosoftgraphchangescreensharingrolepostrequestbodycontentapplicationjsonschema.
+class PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param role:  Possible values include: "viewer", "sharer".
-    :type role: str or ~cloud_communications.models.Microsoftgraphscreensharingrole
+    :type role: str or ~cloud_communications.models.MicrosoftGraphScreenSharingRole
     """
 
     _attribute_map = {
@@ -3287,13 +3287,13 @@ class pathsoj95zpcommunicationscallscallidmicrosoftgraphchangescreensharingrolep
         self,
         **kwargs
     ):
-        super(pathsoj95zpcommunicationscallscallidmicrosoftgraphchangescreensharingrolepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.role = kwargs.get('role', None)
 
 
-class pathsqvpqn4communicationscallscallidmicrosoftgraphanswerpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsqvpqn4communicationscallscallidmicrosoftgraphanswerpostrequestbodycontentapplicationjsonschema.
+class PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3301,15 +3301,15 @@ class pathsqvpqn4communicationscallscallidmicrosoftgraphanswerpostrequestbodycon
     :param callback_uri:
     :type callback_uri: str
     :param media_config: mediaConfig.
-    :type media_config: ~cloud_communications.models.microsoftgraphmediaconfig
+    :type media_config: ~cloud_communications.models.MicrosoftGraphMediaConfig
     :param accepted_modalities:
-    :type accepted_modalities: list[str or ~cloud_communications.models.Microsoftgraphmodality]
+    :type accepted_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'callback_uri': {'key': 'callbackUri', 'type': 'str'},
-        'media_config': {'key': 'mediaConfig', 'type': 'microsoftgraphmediaconfig'},
+        'media_config': {'key': 'mediaConfig', 'type': 'MicrosoftGraphMediaConfig'},
         'accepted_modalities': {'key': 'acceptedModalities', 'type': '[str]'},
     }
 
@@ -3317,15 +3317,15 @@ class pathsqvpqn4communicationscallscallidmicrosoftgraphanswerpostrequestbodycon
         self,
         **kwargs
     ):
-        super(pathsqvpqn4communicationscallscallidmicrosoftgraphanswerpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.callback_uri = kwargs.get('callback_uri', None)
         self.media_config = kwargs.get('media_config', None)
         self.accepted_modalities = kwargs.get('accepted_modalities', None)
 
 
-class pathstobgxocommunicationscallscallidparticipantsparticipantidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathstobgxocommunicationscallscallidparticipantsparticipantidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema.
+class PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3343,13 +3343,13 @@ class pathstobgxocommunicationscallscallidparticipantsparticipantidmicrosoftgrap
         self,
         **kwargs
     ):
-        super(pathstobgxocommunicationscallscallidparticipantsparticipantidmicrosoftgraphmutepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class pathsxyl6wicommunicationscallscallidmicrosoftgraphsubscribetotonepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsxyl6wicommunicationscallscallidmicrosoftgraphsubscribetotonepostrequestbodycontentapplicationjsonschema.
+class PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3367,13 +3367,13 @@ class pathsxyl6wicommunicationscallscallidmicrosoftgraphsubscribetotonepostreque
         self,
         **kwargs
     ):
-        super(pathsxyl6wicommunicationscallscallidmicrosoftgraphsubscribetotonepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
 
 
-class pathsyp37fjcommunicationscallscallidmicrosoftgraphcancelmediaprocessingpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsyp37fjcommunicationscallscallidmicrosoftgraphcancelmediaprocessingpostrequestbodycontentapplicationjsonschema.
+class PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3391,6 +3391,6 @@ class pathsyp37fjcommunicationscallscallidmicrosoftgraphcancelmediaprocessingpos
         self,
         **kwargs
     ):
-        super(pathsyp37fjcommunicationscallscallidmicrosoftgraphcancelmediaprocessingpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)

@@ -12,6 +12,7 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class reportsOperations(object):
-    """reportsOperations operations.
+class ReportsOperations(object):
+    """ReportsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -48,17 +49,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function deviceConfigurationDeviceActivity.
 
         Invoke function deviceConfigurationDeviceActivity.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -81,10 +82,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -96,17 +97,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function deviceConfigurationUserActivity.
 
         Invoke function deviceConfigurationUserActivity.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -129,10 +130,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -145,7 +146,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityCounts.
 
         Invoke function getEmailActivityCounts.
@@ -153,11 +154,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,10 +185,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -200,7 +201,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserCounts.
 
         Invoke function getEmailActivityUserCounts.
@@ -208,11 +209,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -239,10 +240,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -255,7 +256,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserDetail.
 
         Invoke function getEmailActivityUserDetail.
@@ -263,11 +264,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -294,10 +295,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -310,7 +311,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserDetail.
 
         Invoke function getEmailActivityUserDetail.
@@ -318,11 +319,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -349,10 +350,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -365,7 +366,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageAppsUserCounts.
 
         Invoke function getEmailAppUsageAppsUserCounts.
@@ -373,11 +374,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -404,10 +405,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -420,7 +421,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserCounts.
 
         Invoke function getEmailAppUsageUserCounts.
@@ -428,11 +429,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -459,10 +460,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -475,7 +476,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserDetail.
 
         Invoke function getEmailAppUsageUserDetail.
@@ -483,11 +484,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -514,10 +515,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -530,7 +531,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserDetail.
 
         Invoke function getEmailAppUsageUserDetail.
@@ -538,11 +539,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -569,10 +570,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -585,7 +586,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageVersionsUserCounts.
 
         Invoke function getEmailAppUsageVersionsUserCounts.
@@ -593,11 +594,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -624,10 +625,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -640,7 +641,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageDetail.
 
         Invoke function getMailboxUsageDetail.
@@ -648,11 +649,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -679,10 +680,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -695,7 +696,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageMailboxCounts.
 
         Invoke function getMailboxUsageMailboxCounts.
@@ -703,11 +704,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -734,10 +735,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -750,7 +751,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageQuotaStatusMailboxCounts.
 
         Invoke function getMailboxUsageQuotaStatusMailboxCounts.
@@ -758,11 +759,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -789,10 +790,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -805,7 +806,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageStorage.
 
         Invoke function getMailboxUsageStorage.
@@ -813,11 +814,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -844,10 +845,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -859,17 +860,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationCounts.
 
         Invoke function getOffice365ActivationCounts.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -892,10 +893,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -907,17 +908,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationsUserCounts.
 
         Invoke function getOffice365ActivationsUserCounts.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -940,10 +941,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -955,17 +956,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationsUserDetail.
 
         Invoke function getOffice365ActivationsUserDetail.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -988,10 +989,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1004,7 +1005,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserCounts.
 
         Invoke function getOffice365ActiveUserCounts.
@@ -1012,11 +1013,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1043,10 +1044,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1059,7 +1060,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserDetail.
 
         Invoke function getOffice365ActiveUserDetail.
@@ -1067,11 +1068,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1098,10 +1099,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1114,7 +1115,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserDetail.
 
         Invoke function getOffice365ActiveUserDetail.
@@ -1122,11 +1123,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1153,10 +1154,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1169,7 +1170,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityCounts.
 
         Invoke function getOffice365GroupsActivityCounts.
@@ -1177,11 +1178,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1208,10 +1209,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1224,7 +1225,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityDetail.
 
         Invoke function getOffice365GroupsActivityDetail.
@@ -1232,11 +1233,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1263,10 +1264,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1279,7 +1280,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityDetail.
 
         Invoke function getOffice365GroupsActivityDetail.
@@ -1287,11 +1288,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1318,10 +1319,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1334,7 +1335,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityFileCounts.
 
         Invoke function getOffice365GroupsActivityFileCounts.
@@ -1342,11 +1343,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1373,10 +1374,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1389,7 +1390,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityGroupCounts.
 
         Invoke function getOffice365GroupsActivityGroupCounts.
@@ -1397,11 +1398,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1428,10 +1429,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1444,7 +1445,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityStorage.
 
         Invoke function getOffice365GroupsActivityStorage.
@@ -1452,11 +1453,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1483,10 +1484,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1499,7 +1500,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ServicesUserCounts.
 
         Invoke function getOffice365ServicesUserCounts.
@@ -1507,11 +1508,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1538,10 +1539,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1554,7 +1555,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityFileCounts.
 
         Invoke function getOneDriveActivityFileCounts.
@@ -1562,11 +1563,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1593,10 +1594,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1609,7 +1610,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserCounts.
 
         Invoke function getOneDriveActivityUserCounts.
@@ -1617,11 +1618,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1648,10 +1649,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1664,7 +1665,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserDetail.
 
         Invoke function getOneDriveActivityUserDetail.
@@ -1672,11 +1673,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1703,10 +1704,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1719,7 +1720,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserDetail.
 
         Invoke function getOneDriveActivityUserDetail.
@@ -1727,11 +1728,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1758,10 +1759,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1774,7 +1775,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountCounts.
 
         Invoke function getOneDriveUsageAccountCounts.
@@ -1782,11 +1783,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1813,10 +1814,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1829,7 +1830,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountDetail.
 
         Invoke function getOneDriveUsageAccountDetail.
@@ -1837,11 +1838,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1868,10 +1869,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1884,7 +1885,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountDetail.
 
         Invoke function getOneDriveUsageAccountDetail.
@@ -1892,11 +1893,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1923,10 +1924,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1939,7 +1940,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageFileCounts.
 
         Invoke function getOneDriveUsageFileCounts.
@@ -1947,11 +1948,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1978,10 +1979,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1994,7 +1995,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageStorage.
 
         Invoke function getOneDriveUsageStorage.
@@ -2002,11 +2003,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2033,10 +2034,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2049,7 +2050,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityFileCounts.
 
         Invoke function getSharePointActivityFileCounts.
@@ -2057,11 +2058,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2088,10 +2089,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2104,7 +2105,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityPages.
 
         Invoke function getSharePointActivityPages.
@@ -2112,11 +2113,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2143,10 +2144,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2159,7 +2160,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserCounts.
 
         Invoke function getSharePointActivityUserCounts.
@@ -2167,11 +2168,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2198,10 +2199,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2214,7 +2215,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserDetail.
 
         Invoke function getSharePointActivityUserDetail.
@@ -2222,11 +2223,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2253,10 +2254,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2269,7 +2270,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserDetail.
 
         Invoke function getSharePointActivityUserDetail.
@@ -2277,11 +2278,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2308,10 +2309,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2324,7 +2325,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageDetail.
 
         Invoke function getSharePointSiteUsageDetail.
@@ -2332,11 +2333,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2363,10 +2364,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2379,7 +2380,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageDetail.
 
         Invoke function getSharePointSiteUsageDetail.
@@ -2387,11 +2388,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2418,10 +2419,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2434,7 +2435,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageFileCounts.
 
         Invoke function getSharePointSiteUsageFileCounts.
@@ -2442,11 +2443,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2473,10 +2474,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2489,7 +2490,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsagePages.
 
         Invoke function getSharePointSiteUsagePages.
@@ -2497,11 +2498,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2528,10 +2529,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2544,7 +2545,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageSiteCounts.
 
         Invoke function getSharePointSiteUsageSiteCounts.
@@ -2552,11 +2553,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2583,10 +2584,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2599,7 +2600,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageStorage.
 
         Invoke function getSharePointSiteUsageStorage.
@@ -2607,11 +2608,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2638,10 +2639,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2654,7 +2655,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityCounts.
 
         Invoke function getSkypeForBusinessActivityCounts.
@@ -2662,11 +2663,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2693,10 +2694,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2709,7 +2710,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserCounts.
 
         Invoke function getSkypeForBusinessActivityUserCounts.
@@ -2717,11 +2718,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2748,10 +2749,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2764,7 +2765,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserDetail.
 
         Invoke function getSkypeForBusinessActivityUserDetail.
@@ -2772,11 +2773,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2803,10 +2804,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2819,7 +2820,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserDetail.
 
         Invoke function getSkypeForBusinessActivityUserDetail.
@@ -2827,11 +2828,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2858,10 +2859,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2874,7 +2875,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts.
 
         Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts.
@@ -2882,11 +2883,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2913,10 +2914,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2929,7 +2930,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserCounts.
 
         Invoke function getSkypeForBusinessDeviceUsageUserCounts.
@@ -2937,11 +2938,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2968,10 +2969,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2984,7 +2985,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserDetail.
 
         Invoke function getSkypeForBusinessDeviceUsageUserDetail.
@@ -2992,11 +2993,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3023,10 +3024,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3039,7 +3040,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserDetail.
 
         Invoke function getSkypeForBusinessDeviceUsageUserDetail.
@@ -3047,11 +3048,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3078,10 +3079,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3094,7 +3095,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityCounts.
@@ -3102,11 +3103,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3133,10 +3134,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3149,7 +3150,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts.
@@ -3157,11 +3158,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3188,10 +3189,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3204,7 +3205,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityUserCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityUserCounts.
@@ -3212,11 +3213,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3243,10 +3244,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3259,7 +3260,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityCounts.
@@ -3267,11 +3268,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3298,10 +3299,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3314,7 +3315,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityMinuteCounts.
@@ -3322,11 +3323,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3353,10 +3354,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3369,7 +3370,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityUserCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityUserCounts.
@@ -3377,11 +3378,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3408,10 +3409,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3424,7 +3425,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityCounts.
@@ -3432,11 +3433,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3463,10 +3464,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3479,7 +3480,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts.
@@ -3487,11 +3488,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3518,10 +3519,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3534,7 +3535,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts.
@@ -3542,11 +3543,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3573,10 +3574,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3589,7 +3590,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageDistributionUserCounts.
 
         Invoke function getTeamsDeviceUsageDistributionUserCounts.
@@ -3597,11 +3598,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3628,10 +3629,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3644,7 +3645,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserCounts.
 
         Invoke function getTeamsDeviceUsageUserCounts.
@@ -3652,11 +3653,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3683,10 +3684,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3699,7 +3700,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserDetail.
 
         Invoke function getTeamsDeviceUsageUserDetail.
@@ -3707,11 +3708,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3738,10 +3739,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3754,7 +3755,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserDetail.
 
         Invoke function getTeamsDeviceUsageUserDetail.
@@ -3762,11 +3763,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3793,10 +3794,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3809,7 +3810,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityCounts.
 
         Invoke function getTeamsUserActivityCounts.
@@ -3817,11 +3818,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3848,10 +3849,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3864,7 +3865,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserCounts.
 
         Invoke function getTeamsUserActivityUserCounts.
@@ -3872,11 +3873,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3903,10 +3904,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3919,7 +3920,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserDetail.
 
         Invoke function getTeamsUserActivityUserDetail.
@@ -3927,11 +3928,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3958,10 +3959,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3974,7 +3975,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserDetail.
 
         Invoke function getTeamsUserActivityUserDetail.
@@ -3982,11 +3983,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4013,10 +4014,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4029,7 +4030,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityCounts.
 
         Invoke function getYammerActivityCounts.
@@ -4037,11 +4038,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4068,10 +4069,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4084,7 +4085,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserCounts.
 
         Invoke function getYammerActivityUserCounts.
@@ -4092,11 +4093,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4123,10 +4124,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4139,7 +4140,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserDetail.
 
         Invoke function getYammerActivityUserDetail.
@@ -4147,11 +4148,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4178,10 +4179,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4194,7 +4195,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserDetail.
 
         Invoke function getYammerActivityUserDetail.
@@ -4202,11 +4203,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4233,10 +4234,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4249,7 +4250,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageDistributionUserCounts.
 
         Invoke function getYammerDeviceUsageDistributionUserCounts.
@@ -4257,11 +4258,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4288,10 +4289,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4304,7 +4305,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserCounts.
 
         Invoke function getYammerDeviceUsageUserCounts.
@@ -4312,11 +4313,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4343,10 +4344,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4359,7 +4360,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserDetail.
 
         Invoke function getYammerDeviceUsageUserDetail.
@@ -4367,11 +4368,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4398,10 +4399,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4414,7 +4415,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserDetail.
 
         Invoke function getYammerDeviceUsageUserDetail.
@@ -4422,11 +4423,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4453,10 +4454,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4469,7 +4470,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityCounts.
 
         Invoke function getYammerGroupsActivityCounts.
@@ -4477,11 +4478,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4508,10 +4509,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4524,7 +4525,7 @@ class reportsOperations(object):
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityDetail.
 
         Invoke function getYammerGroupsActivityDetail.
@@ -4532,11 +4533,11 @@ class reportsOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4563,10 +4564,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4579,7 +4580,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityDetail.
 
         Invoke function getYammerGroupsActivityDetail.
@@ -4587,11 +4588,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4618,10 +4619,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4634,7 +4635,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityGroupCounts.
 
         Invoke function getYammerGroupsActivityGroupCounts.
@@ -4642,11 +4643,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4673,10 +4674,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4688,17 +4689,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function managedDeviceEnrollmentFailureDetails.
 
         Invoke function managedDeviceEnrollmentFailureDetails.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4721,10 +4722,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4740,7 +4741,7 @@ class reportsOperations(object):
         skip_token,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function managedDeviceEnrollmentFailureDetails.
 
         Invoke function managedDeviceEnrollmentFailureDetails.
@@ -4754,11 +4755,11 @@ class reportsOperations(object):
         :param skip_token:
         :type skip_token: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4788,10 +4789,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4803,17 +4804,17 @@ class reportsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function managedDeviceEnrollmentTopFailures.
 
         Invoke function managedDeviceEnrollmentTopFailures.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4836,10 +4837,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4852,7 +4853,7 @@ class reportsOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreport"
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function managedDeviceEnrollmentTopFailures.
 
         Invoke function managedDeviceEnrollmentTopFailures.
@@ -4860,11 +4861,11 @@ class reportsOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreport, or the result of cls(response)
-        :rtype: ~reports.models.microsoftgraphreport
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreport"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -4891,10 +4892,10 @@ class reportsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreport', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})

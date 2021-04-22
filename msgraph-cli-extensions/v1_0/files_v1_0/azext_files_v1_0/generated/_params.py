@@ -10,14 +10,33 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_three_state_flag
+from msgraph.cli.core.commands.parameters import (
+    get_three_state_flag,
+    get_location_type
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_files_v1_0.action import (
     AddSharepointIds,
     AddApplication,
     AddList,
-    AddSubscriptions,
+    AddDrivesDriveSubscriptions,
     AddStoragePlanInformation,
+    AddAudio,
+    AddFileSystemInfo,
+    AddImage,
+    AddPhoto,
+    AddPublication,
+    AddVideo,
+    AddDrivesSubscriptions,
+    AddDrivesVersions,
+    AddContentType,
+    AddDrivesListVersions,
+    AddMicrosoftGraphWorkbookApplication,
+    AddFunctions,
+    AddPackage,
+    AddSpecialFolder,
+    AddView,
+    AddHashes,
     AddCalculated,
     AddChoice,
     AddDateTime,
@@ -28,9 +47,6 @@ from azext_files_v1_0.action import (
     AddText,
     AddOrder,
     AddColumnLinks,
-    AddContentType,
-    AddVersions,
-    AddPublication,
     AddResources,
     AddDetails,
     AddInnerError,
@@ -40,7 +56,7 @@ from azext_files_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('files drivesdrive create-drive') as c:
+    with self.argument_context('files drive-drive create-drive') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
         c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
@@ -140,8 +156,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -156,21 +172,21 @@ def load_arguments(self, _):
         c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
         c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('files drivesdrive delete-drive') as c:
+    with self.argument_context('files drive-drive delete-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files drivesdrive list-drive') as c:
+    with self.argument_context('files drive-drive list-drive') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files drivesdrive show-drive') as c:
+    with self.argument_context('files drive-drive show-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files drivesdrive update-drive') as c:
+    with self.argument_context('files drive-drive update-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
@@ -271,8 +287,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -289,18 +305,585 @@ def load_arguments(self, _):
 
     with self.argument_context('files drive create-following') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive create-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive create-special') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive delete-following') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -384,14 +967,392 @@ def load_arguments(self, _):
     with self.argument_context('files drive update-following') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('drive_item_id', type=str, help='key: id of driveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive update-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('drive_item_id', type=str, help='key: id of driveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive update-list') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
@@ -441,20 +1402,399 @@ def load_arguments(self, _):
         c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
         c.argument('items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
                    'json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.')
 
     with self.argument_context('files drive update-root') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files drive update-special') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('drive_item_id', type=str, help='key: id of driveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
-    with self.argument_context('files driveslist create-column') as c:
+    with self.argument_context('files drive-list create-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('boolean', type=validate_file_or_dict,
@@ -488,7 +1828,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('files driveslist create-content-type') as c:
+    with self.argument_context('files drive-list create-content-type') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='The descriptive text for the item.')
@@ -522,7 +1862,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('files driveslist create-item') as c:
+    with self.argument_context('files drive-list create-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
@@ -564,10 +1904,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files driveslist create-subscription') as c:
+    with self.argument_context('files drive-list create-subscription') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_id', type=str, help='Identifier of the application used to create the subscription. '
@@ -606,84 +1947,84 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('files driveslist delete-column') as c:
+    with self.argument_context('files drive-list delete-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslist delete-content-type') as c:
+    with self.argument_context('files drive-list delete-content-type') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslist delete-drive') as c:
+    with self.argument_context('files drive-list delete-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslist delete-item') as c:
+    with self.argument_context('files drive-list delete-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslist delete-subscription') as c:
+    with self.argument_context('files drive-list delete-subscription') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslist list-column') as c:
+    with self.argument_context('files drive-list list-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist list-content-type') as c:
+    with self.argument_context('files drive-list list-content-type') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist list-item') as c:
+    with self.argument_context('files drive-list list-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist list-subscription') as c:
+    with self.argument_context('files drive-list list-subscription') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist show-column') as c:
+    with self.argument_context('files drive-list show-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist show-content-type') as c:
+    with self.argument_context('files drive-list show-content-type') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist show-drive') as c:
+    with self.argument_context('files drive-list show-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist show-item') as c:
+    with self.argument_context('files drive-list show-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist show-subscription') as c:
+    with self.argument_context('files drive-list show-subscription') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslist update-column') as c:
+    with self.argument_context('files drive-list update-column') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -718,7 +2059,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('files driveslist update-content-type') as c:
+    with self.argument_context('files drive-list update-content-type') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -753,7 +2094,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('files driveslist update-drive') as c:
+    with self.argument_context('files drive-list update-drive') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
@@ -854,8 +2195,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -870,7 +2211,7 @@ def load_arguments(self, _):
         c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
         c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('files driveslist update-item') as c:
+    with self.argument_context('files drive-list update-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -913,10 +2254,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files driveslist update-subscription') as c:
+    with self.argument_context('files drive-list update-subscription') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -956,40 +2298,40 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('files driveslistcontenttype create-column-link') as c:
+    with self.argument_context('files drive-list-content-type create-column-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('files driveslistcontenttype delete-column-link') as c:
+    with self.argument_context('files drive-list-content-type delete-column-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistcontenttype list-column-link') as c:
+    with self.argument_context('files drive-list-content-type list-column-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistcontenttype show-column-link') as c:
+    with self.argument_context('files drive-list-content-type show-column-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistcontenttype update-column-link') as c:
+    with self.argument_context('files drive-list-content-type update-column-link') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('files driveslistitem create-version') as c:
+    with self.argument_context('files drive-list-item create-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1000,88 +2342,277 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files driveslistitem delete-drive-item') as c:
+    with self.argument_context('files drive-list-item delete-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistitem delete-field') as c:
+    with self.argument_context('files drive-list-item delete-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistitem delete-ref-analytic') as c:
+    with self.argument_context('files drive-list-item delete-ref-analytic') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistitem delete-version') as c:
+    with self.argument_context('files drive-list-item delete-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistitem list-version') as c:
+    with self.argument_context('files drive-list-item list-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitem set-ref-analytic') as c:
+    with self.argument_context('files drive-list-item set-ref-analytic') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('files driveslistitem show-activity') as c:
+    with self.argument_context('files drive-list-item show-activity') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
         c.argument('interval', type=str, help='')
 
-    with self.argument_context('files driveslistitem show-analytic') as c:
+    with self.argument_context('files drive-list-item show-analytic') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitem show-drive-item') as c:
+    with self.argument_context('files drive-list-item show-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitem show-field') as c:
+    with self.argument_context('files drive-list-item show-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitem show-ref-analytic') as c:
+    with self.argument_context('files drive-list-item show-ref-analytic') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
 
-    with self.argument_context('files driveslistitem show-version') as c:
+    with self.argument_context('files drive-list-item show-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitem update-drive-item') as c:
+    with self.argument_context('files drive-list-item update-drive-item') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
-    with self.argument_context('files driveslistitem update-field') as c:
+    with self.argument_context('files drive-list-item update-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('files driveslistitem update-version') as c:
+    with self.argument_context('files drive-list-item update-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
@@ -1093,25 +2624,25 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files driveslistitemsversion delete-field') as c:
+    with self.argument_context('files drive-list-item-version delete-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files driveslistitemsversion restore-version') as c:
+    with self.argument_context('files drive-list-item-version restore-version') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
 
-    with self.argument_context('files driveslistitemsversion show-field') as c:
+    with self.argument_context('files drive-list-item-version show-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files driveslistitemsversion update-field') as c:
+    with self.argument_context('files drive-list-item-version update-field') as c:
         c.argument('drive_id', type=str, help='key: id of drive')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
@@ -1218,8 +2749,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -1353,8 +2884,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -1369,32 +2900,614 @@ def load_arguments(self, _):
         c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
         c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('files sharesshareddriveitem create-shared-drive-item') as c:
-        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+    with self.argument_context('files share-shared-drive-item create-shared-drive-item') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('items', type=validate_file_or_dict, help='All driveItems contained in the sharing root. This '
+                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
+        c.argument('root', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Permission')
+        c.argument('expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the '
+                   'expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this '
+                   'permission. Optional.', arg_group='Permission')
+        c.argument('granted_to_identities', type=validate_file_or_dict, help='For link type permissions, the details '
+                   'of the users to whom permission was granted. Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Permission')
+        c.argument('has_password', arg_type=get_three_state_flag(), help='This indicates whether password is set for '
+                   'this permission, it\'s only showing in response. Optional and Read-only and for OneDrive Personal '
+                   'only.', arg_group='Permission')
+        c.argument('roles', nargs='+', help='The type of permission, e.g. read. See below for the full list of roles. '
+                   'Read-only.', arg_group='Permission')
+        c.argument('microsoft_graph_permission_share_id', type=str, help='A unique token that can be used to access '
+                   'this shared item via the **shares** API. Read-only.', arg_group='Permission')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Link')
+        c.argument('prevents_download', arg_type=get_three_state_flag(), help='If true then the user can only use this '
+                   'link to view the item on the web, and cannot use it to download the contents of the item. Only for '
+                   'OneDrive for Business and SharePoint.', arg_group='Permission Link')
+        c.argument('scope', type=str, help='The scope of the link represented by this permission. Value anonymous '
+                   'indicates the link is usable by anyone, organization indicates the link is only usable for users '
+                   'signed into the same tenant.', arg_group='Permission Link')
+        c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.',
+                   arg_group='Permission Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Permission Link')
+        c.argument('microsoft_graph_sharing_link_web_url', type=str, help='A URL that opens the item in the browser on '
+                   'the OneDrive website.', arg_group='Permission Link')
+        c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '
+                   'Read-only.', arg_group='Permission Invitation')
+        c.argument('invited_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Permission Invitation')
+        c.argument('redeemed_by', type=str, help='', arg_group='Permission Invitation')
+        c.argument('sign_in_required', arg_type=get_three_state_flag(), help='If true the recipient of the invitation '
+                   'needs to sign in in order to access the shared item. Read-only.',
+                   arg_group='Permission Invitation')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='Permission Inherited From')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.',
+                   arg_group='Permission Inherited From')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='Permission '
+                   'Inherited From')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Permission Inherited From')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Permission Granted To')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Granted To')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Granted To')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('drive_type1', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='List Item Parent Reference')
+        c.argument('id3', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name2', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('path1', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='List Item Parent Reference')
+        c.argument('share_id1', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('site_id1', type=str, help='', arg_group='List Item Parent Reference')
+        c.argument('application3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application4', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.', arg_group='List Item')
+        c.argument('id4', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id5', type=str, help='Read-only.', arg_group='List')
+        c.argument('created_date_time1', help='Date and time of item creation. Read-only.', arg_group='List')
+        c.argument('description1', type=str, help='Provides a user-visible description of the item. Optional.',
+                   arg_group='List')
+        c.argument('e_tag1', type=str, help='ETag for the item. Read-only.', arg_group='List')
+        c.argument('last_modified_date_time1', help='Date and time the item was last modified. Read-only.',
+                   arg_group='List')
+        c.argument('name3', type=str, help='The name of the item. Read-write.', arg_group='List')
+        c.argument('web_url1', type=str, help='URL that displays the resource in the browser. Read-only.',
+                   arg_group='List')
+        c.argument('created_by_user1', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('last_modified_by_user1', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('drive_id2', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Parent Reference')
+        c.argument('drive_type2', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='List Parent Reference')
+        c.argument('id6', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Parent Reference')
+        c.argument('name4', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Parent '
+                   'Reference')
+        c.argument('path2', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='List Parent Reference')
+        c.argument('share_id2', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='List Parent Reference')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Parent '
+                   'Reference')
+        c.argument('site_id2', type=str, help='', arg_group='List Parent Reference')
+        c.argument('application5', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Last Modified By')
+        c.argument('device4', action=AddApplication, nargs='+', help='identity', arg_group='List Last Modified By')
+        c.argument('user4', action=AddApplication, nargs='+', help='identity', arg_group='List Last Modified By')
+        c.argument('application6', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('device5', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('user5', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('display_name', type=str, help='The displayable title of the list.', arg_group='List')
+        c.argument('list', action=AddList, nargs='+', help='listInfo', arg_group='List')
+        c.argument('sharepoint_ids4', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List')
+        c.argument('system', type=validate_file_or_dict, help='systemFacet Expected value: json-string/@json-file.',
+                   arg_group='List')
+        c.argument('columns', type=validate_file_or_dict, help='The collection of field definitions for this list. '
+                   'Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('content_types', type=validate_file_or_dict, help='The collection of content types present in this '
+                   'list. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.',
+                   arg_group='List')
+        c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
+                   'Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
+        c.argument('application7', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
+        c.argument('device6', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
+        c.argument('user6', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('files sharesshareddriveitem delete-shared-drive-item') as c:
+    with self.argument_context('files share-shared-drive-item delete-shared-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files sharesshareddriveitem list-shared-drive-item') as c:
+    with self.argument_context('files share-shared-drive-item list-shared-drive-item') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files sharesshareddriveitem show-shared-drive-item') as c:
+    with self.argument_context('files share-shared-drive-item show-shared-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files sharesshareddriveitem update-shared-drive-item') as c:
+    with self.argument_context('files share-shared-drive-item update-shared-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('items', type=validate_file_or_dict, help='All driveItems contained in the sharing root. This '
+                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
+        c.argument('root', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
+        c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Permission')
+        c.argument('expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the '
+                   'expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this '
+                   'permission. Optional.', arg_group='Permission')
+        c.argument('granted_to_identities', type=validate_file_or_dict, help='For link type permissions, the details '
+                   'of the users to whom permission was granted. Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Permission')
+        c.argument('has_password', arg_type=get_three_state_flag(), help='This indicates whether password is set for '
+                   'this permission, it\'s only showing in response. Optional and Read-only and for OneDrive Personal '
+                   'only.', arg_group='Permission')
+        c.argument('roles', nargs='+', help='The type of permission, e.g. read. See below for the full list of roles. '
+                   'Read-only.', arg_group='Permission')
+        c.argument('microsoft_graph_permission_share_id', type=str, help='A unique token that can be used to access '
+                   'this shared item via the **shares** API. Read-only.', arg_group='Permission')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Link')
+        c.argument('prevents_download', arg_type=get_three_state_flag(), help='If true then the user can only use this '
+                   'link to view the item on the web, and cannot use it to download the contents of the item. Only for '
+                   'OneDrive for Business and SharePoint.', arg_group='Permission Link')
+        c.argument('scope', type=str, help='The scope of the link represented by this permission. Value anonymous '
+                   'indicates the link is usable by anyone, organization indicates the link is only usable for users '
+                   'signed into the same tenant.', arg_group='Permission Link')
+        c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.',
+                   arg_group='Permission Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Permission Link')
+        c.argument('microsoft_graph_sharing_link_web_url', type=str, help='A URL that opens the item in the browser on '
+                   'the OneDrive website.', arg_group='Permission Link')
+        c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '
+                   'Read-only.', arg_group='Permission Invitation')
+        c.argument('invited_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Permission Invitation')
+        c.argument('redeemed_by', type=str, help='', arg_group='Permission Invitation')
+        c.argument('sign_in_required', arg_type=get_three_state_flag(), help='If true the recipient of the invitation '
+                   'needs to sign in in order to access the shared item. Read-only.',
+                   arg_group='Permission Invitation')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='Permission Inherited From')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.',
+                   arg_group='Permission Inherited From')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='Permission '
+                   'Inherited From')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Permission Inherited From')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Permission Inherited From')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Permission Granted To')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Granted To')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Permission Granted To')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_id1', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Item Parent Reference')
+        c.argument('drive_type1', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='List Item Parent Reference')
+        c.argument('id3', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name2', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('path1', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='List Item Parent Reference')
+        c.argument('share_id1', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('site_id1', type=str, help='', arg_group='List Item Parent Reference')
+        c.argument('application3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application4', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.', arg_group='List Item')
+        c.argument('id4', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id5', type=str, help='Read-only.', arg_group='List')
+        c.argument('created_date_time1', help='Date and time of item creation. Read-only.', arg_group='List')
+        c.argument('description1', type=str, help='Provides a user-visible description of the item. Optional.',
+                   arg_group='List')
+        c.argument('e_tag1', type=str, help='ETag for the item. Read-only.', arg_group='List')
+        c.argument('last_modified_date_time1', help='Date and time the item was last modified. Read-only.',
+                   arg_group='List')
+        c.argument('name3', type=str, help='The name of the item. Read-write.', arg_group='List')
+        c.argument('web_url1', type=str, help='URL that displays the resource in the browser. Read-only.',
+                   arg_group='List')
+        c.argument('created_by_user1', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('last_modified_by_user1', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('drive_id2', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='List Parent Reference')
+        c.argument('drive_type2', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='List Parent Reference')
+        c.argument('id6', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Parent Reference')
+        c.argument('name4', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Parent '
+                   'Reference')
+        c.argument('path2', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='List Parent Reference')
+        c.argument('share_id2', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='List Parent Reference')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Parent '
+                   'Reference')
+        c.argument('site_id2', type=str, help='', arg_group='List Parent Reference')
+        c.argument('application5', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Last Modified By')
+        c.argument('device4', action=AddApplication, nargs='+', help='identity', arg_group='List Last Modified By')
+        c.argument('user4', action=AddApplication, nargs='+', help='identity', arg_group='List Last Modified By')
+        c.argument('application6', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('device5', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('user5', action=AddApplication, nargs='+', help='identity', arg_group='List Created By')
+        c.argument('display_name', type=str, help='The displayable title of the list.', arg_group='List')
+        c.argument('list', action=AddList, nargs='+', help='listInfo', arg_group='List')
+        c.argument('sharepoint_ids4', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List')
+        c.argument('system', type=validate_file_or_dict, help='systemFacet Expected value: json-string/@json-file.',
+                   arg_group='List')
+        c.argument('columns', type=validate_file_or_dict, help='The collection of field definitions for this list. '
+                   'Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('content_types', type=validate_file_or_dict, help='The collection of content types present in this '
+                   'list. Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.',
+                   arg_group='List')
+        c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
+                   'Expected value: json-string/@json-file.', arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
+        c.argument('application7', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
+        c.argument('device6', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
+        c.argument('user6', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
     with self.argument_context('files share create-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files share delete-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -1469,14 +3582,392 @@ def load_arguments(self, _):
 
     with self.argument_context('files share update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files share update-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('drive_item_id', type=str, help='key: id of driveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files share update-list') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -1526,7 +4017,8 @@ def load_arguments(self, _):
         c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
         c.argument('items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
                    'json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.')
 
     with self.argument_context('files share update-list-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -1570,18 +4062,257 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
     with self.argument_context('files share update-permission') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('expiration_date_time', help='A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the '
+                   'expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this '
+                   'permission. Optional.')
+        c.argument('granted_to_identities', type=validate_file_or_dict, help='For link type permissions, the details '
+                   'of the users to whom permission was granted. Read-only. Expected value: json-string/@json-file.')
+        c.argument('has_password', arg_type=get_three_state_flag(), help='This indicates whether password is set for '
+                   'this permission, it\'s only showing in response. Optional and Read-only and for OneDrive Personal '
+                   'only.')
+        c.argument('roles', nargs='+', help='The type of permission, e.g. read. See below for the full list of roles. '
+                   'Read-only.')
+        c.argument('share_id', type=str, help='A unique token that can be used to access this shared item via the '
+                   '**shares** API. Read-only.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Link')
+        c.argument('prevents_download', arg_type=get_three_state_flag(), help='If true then the user can only use this '
+                   'link to view the item on the web, and cannot use it to download the contents of the item. Only for '
+                   'OneDrive for Business and SharePoint.', arg_group='Link')
+        c.argument('scope', type=str, help='The scope of the link represented by this permission. Value anonymous '
+                   'indicates the link is usable by anyone, organization indicates the link is only usable for users '
+                   'signed into the same tenant.', arg_group='Link')
+        c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.', arg_group='Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Link')
+        c.argument('web_url', type=str, help='A URL that opens the item in the browser on the OneDrive website.',
+                   arg_group='Link')
+        c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '
+                   'Read-only.', arg_group='Invitation')
+        c.argument('invited_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Invitation')
+        c.argument('redeemed_by', type=str, help='', arg_group='Invitation')
+        c.argument('sign_in_required', arg_type=get_three_state_flag(), help='If true the recipient of the invitation '
+                   'needs to sign in in order to access the shared item. Read-only.', arg_group='Invitation')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Inherited From')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Inherited From')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Inherited From')
+        c.argument('name', type=str, help='The name of the item being referenced. Read-only.', arg_group='Inherited '
+                   'From')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Inherited From')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='Inherited From')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Inherited '
+                   'From')
+        c.argument('site_id', type=str, help='', arg_group='Inherited From')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Granted To')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Granted To')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Granted To')
 
     with self.argument_context('files share update-root') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
     with self.argument_context('files share update-site') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
@@ -1670,7 +4401,7 @@ def load_arguments(self, _):
         c.argument('message', type=str, help='', arg_group='Error')
         c.argument('target', type=str, help='', arg_group='Error')
 
-    with self.argument_context('files shareslist create-column') as c:
+    with self.argument_context('files share-list create-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('boolean', type=validate_file_or_dict,
@@ -1704,7 +4435,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('files shareslist create-content-type') as c:
+    with self.argument_context('files share-list create-content-type') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='The descriptive text for the item.')
@@ -1738,7 +4469,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('files shareslist create-item') as c:
+    with self.argument_context('files share-list create-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
@@ -1780,10 +4511,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslist create-subscription') as c:
+    with self.argument_context('files share-list create-subscription') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_id', type=str, help='Identifier of the application used to create the subscription. '
@@ -1822,84 +4554,84 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('files shareslist delete-column') as c:
+    with self.argument_context('files share-list delete-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslist delete-content-type') as c:
+    with self.argument_context('files share-list delete-content-type') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslist delete-drive') as c:
+    with self.argument_context('files share-list delete-drive') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslist delete-item') as c:
+    with self.argument_context('files share-list delete-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslist delete-subscription') as c:
+    with self.argument_context('files share-list delete-subscription') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslist list-column') as c:
+    with self.argument_context('files share-list list-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist list-content-type') as c:
+    with self.argument_context('files share-list list-content-type') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist list-item') as c:
+    with self.argument_context('files share-list list-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist list-subscription') as c:
+    with self.argument_context('files share-list list-subscription') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist show-column') as c:
+    with self.argument_context('files share-list show-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist show-content-type') as c:
+    with self.argument_context('files share-list show-content-type') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist show-drive') as c:
+    with self.argument_context('files share-list show-drive') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist show-item') as c:
+    with self.argument_context('files share-list show-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist show-subscription') as c:
+    with self.argument_context('files share-list show-subscription') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslist update-column') as c:
+    with self.argument_context('files share-list update-column') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1934,7 +4666,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('files shareslist update-content-type') as c:
+    with self.argument_context('files share-list update-content-type') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1969,7 +4701,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('files shareslist update-drive') as c:
+    with self.argument_context('files share-list update-drive') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')
@@ -2070,8 +4802,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -2086,7 +4818,7 @@ def load_arguments(self, _):
         c.argument('device3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
         c.argument('user3', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('files shareslist update-item') as c:
+    with self.argument_context('files share-list update-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2129,10 +4861,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddDrivesListVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslist update-subscription') as c:
+    with self.argument_context('files share-list update-subscription') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2172,40 +4905,40 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('files shareslistcontenttype create-column-link') as c:
+    with self.argument_context('files share-list-content-type create-column-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('files shareslistcontenttype delete-column-link') as c:
+    with self.argument_context('files share-list-content-type delete-column-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistcontenttype list-column-link') as c:
+    with self.argument_context('files share-list-content-type list-column-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistcontenttype show-column-link') as c:
+    with self.argument_context('files share-list-content-type show-column-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistcontenttype update-column-link') as c:
+    with self.argument_context('files share-list-content-type update-column-link') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('files shareslistitem create-version') as c:
+    with self.argument_context('files share-list-item create-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2216,88 +4949,277 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslistitem delete-drive-item') as c:
+    with self.argument_context('files share-list-item delete-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-field') as c:
+    with self.argument_context('files share-list-item delete-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-ref-analytic') as c:
+    with self.argument_context('files share-list-item delete-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-version') as c:
+    with self.argument_context('files share-list-item delete-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem list-version') as c:
+    with self.argument_context('files share-list-item list-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem set-ref-analytic') as c:
+    with self.argument_context('files share-list-item set-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('files shareslistitem show-activity') as c:
+    with self.argument_context('files share-list-item show-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
         c.argument('interval', type=str, help='')
 
-    with self.argument_context('files shareslistitem show-analytic') as c:
+    with self.argument_context('files share-list-item show-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-drive-item') as c:
+    with self.argument_context('files share-list-item show-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-field') as c:
+    with self.argument_context('files share-list-item show-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-ref-analytic') as c:
+    with self.argument_context('files share-list-item show-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
 
-    with self.argument_context('files shareslistitem show-version') as c:
+    with self.argument_context('files share-list-item show-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem update-drive-item') as c:
+    with self.argument_context('files share-list-item update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
-    with self.argument_context('files shareslistitem update-field') as c:
+    with self.argument_context('files share-list-item update-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('files shareslistitem update-version') as c:
+    with self.argument_context('files share-list-item update-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
@@ -2309,31 +5231,31 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslistitemsversion delete-field') as c:
+    with self.argument_context('files share-list-item-version delete-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitemsversion restore-version') as c:
+    with self.argument_context('files share-list-item-version restore-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
 
-    with self.argument_context('files shareslistitemsversion show-field') as c:
+    with self.argument_context('files share-list-item-version show-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitemsversion update-field') as c:
+    with self.argument_context('files share-list-item-version update-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('files shareslistitem create-version') as c:
+    with self.argument_context('files share-list-item create-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='Date and time the version was last modified. Read-only.')
@@ -2343,74 +5265,263 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslistitem delete-drive-item') as c:
+    with self.argument_context('files share-list-item delete-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-field') as c:
+    with self.argument_context('files share-list-item delete-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-ref-analytic') as c:
+    with self.argument_context('files share-list-item delete-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem delete-version') as c:
+    with self.argument_context('files share-list-item delete-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitem list-version') as c:
+    with self.argument_context('files share-list-item list-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem set-ref-analytic') as c:
+    with self.argument_context('files share-list-item set-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('files shareslistitem show-activity') as c:
+    with self.argument_context('files share-list-item show-activity') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
         c.argument('interval', type=str, help='')
 
-    with self.argument_context('files shareslistitem show-analytic') as c:
+    with self.argument_context('files share-list-item show-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-drive-item') as c:
+    with self.argument_context('files share-list-item show-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-field') as c:
+    with self.argument_context('files share-list-item show-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem show-ref-analytic') as c:
+    with self.argument_context('files share-list-item show-ref-analytic') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
 
-    with self.argument_context('files shareslistitem show-version') as c:
+    with self.argument_context('files share-list-item show-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitem update-drive-item') as c:
+    with self.argument_context('files share-list-item update-drive-item') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddDrivesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddDrivesVersions, nargs='+', help='The list of previous versions of the item. '
+                   'For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='',
+                   arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddDrivesListVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
-    with self.argument_context('files shareslistitem update-field') as c:
+    with self.argument_context('files share-list-item update-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('files shareslistitem update-version') as c:
+    with self.argument_context('files share-list-item update-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2421,27 +5532,27 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('files shareslistitemversion delete-field') as c:
+    with self.argument_context('files share-list-item-version delete-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('files shareslistitemversion restore-version') as c:
+    with self.argument_context('files share-list-item-version restore-version') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
 
-    with self.argument_context('files shareslistitemversion show-field') as c:
+    with self.argument_context('files share-list-item-version show-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('files shareslistitemversion update-field') as c:
+    with self.argument_context('files share-list-item-version update-field') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('files sharespermission grant') as c:
+    with self.argument_context('files share-permission grant') as c:
         c.argument('shared_drive_item_id', type=str, help='key: id of sharedDriveItem')
         c.argument('roles', nargs='+', help='')
         c.argument('recipients', action=AddRecipients, nargs='+', help='')
@@ -2547,8 +5658,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '
@@ -2682,8 +5793,8 @@ def load_arguments(self, _):
                    arg_group='List')
         c.argument('microsoft_graph_list_items', type=validate_file_or_dict, help='All items contained in the list. '
                    'Expected value: json-string/@json-file.', arg_group='List')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.',
-                   arg_group='List')
+        c.argument('subscriptions', action=AddDrivesDriveSubscriptions, nargs='+', help='The set of subscriptions on '
+                   'the list.', arg_group='List')
         c.argument('deleted', type=int, help='Total space consumed by files in the recycle bin, in bytes. Read-only.',
                    arg_group='Quota')
         c.argument('remaining', type=int, help='Total space remaining before reaching the quota limit, in bytes. '

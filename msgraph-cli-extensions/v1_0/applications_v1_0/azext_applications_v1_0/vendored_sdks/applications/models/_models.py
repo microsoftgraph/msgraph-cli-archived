@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofapplication(msrest.serialization.Model):
+class CollectionOfApplication(msrest.serialization.Model):
     """Collection of application.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphapplication]
+    :type value: list[~applications.models.MicrosoftGraphApplication]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphapplication]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphApplication]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class collectionofapplication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofapplication, self).__init__(**kwargs)
+        super(CollectionOfApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofapproleassignment(msrest.serialization.Model):
+class CollectionOfAppRoleAssignment(msrest.serialization.Model):
     """Collection of appRoleAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphapproleassignment]
+    :type value: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphapproleassignment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class collectionofapproleassignment(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofapproleassignment, self).__init__(**kwargs)
+        super(CollectionOfAppRoleAssignment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofapproleassignment0(msrest.serialization.Model):
+class CollectionOfAppRoleAssignment0(msrest.serialization.Model):
     """Collection of appRoleAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphapproleassignment]
+    :type value: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphapproleassignment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class collectionofapproleassignment0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofapproleassignment0, self).__init__(**kwargs)
+        super(CollectionOfAppRoleAssignment0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofapproleassignment1(msrest.serialization.Model):
+class CollectionOfAppRoleAssignment1(msrest.serialization.Model):
     """Collection of appRoleAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphapproleassignment]
+    :type value: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphapproleassignment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class collectionofapproleassignment1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofapproleassignment1, self).__init__(**kwargs)
+        super(CollectionOfAppRoleAssignment1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofapproleassignment2(msrest.serialization.Model):
+class CollectionOfAppRoleAssignment2(msrest.serialization.Model):
     """Collection of appRoleAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphapproleassignment]
+    :type value: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphapproleassignment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class collectionofapproleassignment2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofapproleassignment2, self).__init__(**kwargs)
+        super(CollectionOfAppRoleAssignment2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofclaimsmappingpolicy(msrest.serialization.Model):
+class CollectionOfClaimsMappingPolicy(msrest.serialization.Model):
     """Collection of claimsMappingPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphclaimsmappingpolicy]
+    :type value: list[~applications.models.MicrosoftGraphClaimsMappingPolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphclaimsmappingpolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphClaimsMappingPolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class collectionofclaimsmappingpolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofclaimsmappingpolicy, self).__init__(**kwargs)
+        super(CollectionOfClaimsMappingPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject(msrest.serialization.Model):
+class CollectionOfDirectoryObject(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class collectionofdirectoryobject(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject0(msrest.serialization.Model):
+class CollectionOfDirectoryObject0(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class collectionofdirectoryobject0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject0, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject1(msrest.serialization.Model):
+class CollectionOfDirectoryObject1(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class collectionofdirectoryobject1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject1, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject2(msrest.serialization.Model):
+class CollectionOfDirectoryObject2(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,27 +284,27 @@ class collectionofdirectoryobject2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject2, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject3(msrest.serialization.Model):
+class CollectionOfDirectoryObject3(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -312,27 +312,27 @@ class collectionofdirectoryobject3(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject3, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject3, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofdirectoryobject4(msrest.serialization.Model):
+class CollectionOfDirectoryObject4(msrest.serialization.Model):
     """Collection of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphdirectoryobject]
+    :type value: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryobject]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryObject]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -340,27 +340,27 @@ class collectionofdirectoryobject4(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofdirectoryobject4, self).__init__(**kwargs)
+        super(CollectionOfDirectoryObject4, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofendpoint(msrest.serialization.Model):
+class CollectionOfEndpoint(msrest.serialization.Model):
     """Collection of endpoint.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphendpoint]
+    :type value: list[~applications.models.MicrosoftGraphEndpoint]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphendpoint]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEndpoint]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -368,27 +368,27 @@ class collectionofendpoint(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofendpoint, self).__init__(**kwargs)
+        super(CollectionOfEndpoint, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofextensionproperty(msrest.serialization.Model):
+class CollectionOfExtensionProperty(msrest.serialization.Model):
     """Collection of extensionProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphextensionproperty]
+    :type value: list[~applications.models.MicrosoftGraphExtensionProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextensionproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtensionProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -396,27 +396,27 @@ class collectionofextensionproperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofextensionproperty, self).__init__(**kwargs)
+        super(CollectionOfExtensionProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofhomerealmdiscoverypolicy(msrest.serialization.Model):
+class CollectionOfHomeRealmDiscoveryPolicy(msrest.serialization.Model):
     """Collection of homeRealmDiscoveryPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphhomerealmdiscoverypolicy]
+    :type value: list[~applications.models.MicrosoftGraphHomeRealmDiscoveryPolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphhomerealmdiscoverypolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -424,27 +424,27 @@ class collectionofhomerealmdiscoverypolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofhomerealmdiscoverypolicy, self).__init__(**kwargs)
+        super(CollectionOfHomeRealmDiscoveryPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofhomerealmdiscoverypolicy0(msrest.serialization.Model):
+class CollectionOfHomeRealmDiscoveryPolicy0(msrest.serialization.Model):
     """Collection of homeRealmDiscoveryPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphhomerealmdiscoverypolicy]
+    :type value: list[~applications.models.MicrosoftGraphHomeRealmDiscoveryPolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphhomerealmdiscoverypolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -452,13 +452,13 @@ class collectionofhomerealmdiscoverypolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofhomerealmdiscoverypolicy0, self).__init__(**kwargs)
+        super(CollectionOfHomeRealmDiscoveryPolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofclaimsmappingpolicy(msrest.serialization.Model):
+class CollectionOfLinksOfClaimsMappingPolicy(msrest.serialization.Model):
     """Collection of links of claimsMappingPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -480,13 +480,13 @@ class collectionoflinksofclaimsmappingpolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofclaimsmappingpolicy, self).__init__(**kwargs)
+        super(CollectionOfLinksOfClaimsMappingPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -508,13 +508,13 @@ class collectionoflinksofdirectoryobject(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject0(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject0(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -536,13 +536,13 @@ class collectionoflinksofdirectoryobject0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject0, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject1(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject1(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -564,13 +564,13 @@ class collectionoflinksofdirectoryobject1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject1, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject2(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject2(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -592,13 +592,13 @@ class collectionoflinksofdirectoryobject2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject2, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject3(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject3(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -620,13 +620,13 @@ class collectionoflinksofdirectoryobject3(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject3, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject3, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofdirectoryobject4(msrest.serialization.Model):
+class CollectionOfLinksOfDirectoryObject4(msrest.serialization.Model):
     """Collection of links of directoryObject.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -648,13 +648,13 @@ class collectionoflinksofdirectoryobject4(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofdirectoryobject4, self).__init__(**kwargs)
+        super(CollectionOfLinksOfDirectoryObject4, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofhomerealmdiscoverypolicy(msrest.serialization.Model):
+class CollectionOfLinksOfHomeRealmDiscoveryPolicy(msrest.serialization.Model):
     """Collection of links of homeRealmDiscoveryPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -676,13 +676,13 @@ class collectionoflinksofhomerealmdiscoverypolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofhomerealmdiscoverypolicy, self).__init__(**kwargs)
+        super(CollectionOfLinksOfHomeRealmDiscoveryPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofhomerealmdiscoverypolicy0(msrest.serialization.Model):
+class CollectionOfLinksOfHomeRealmDiscoveryPolicy0(msrest.serialization.Model):
     """Collection of links of homeRealmDiscoveryPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -704,13 +704,13 @@ class collectionoflinksofhomerealmdiscoverypolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofhomerealmdiscoverypolicy0, self).__init__(**kwargs)
+        super(CollectionOfLinksOfHomeRealmDiscoveryPolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksofoauth2permissiongrant(msrest.serialization.Model):
+class CollectionOfLinksOfOAuth2PermissionGrant(msrest.serialization.Model):
     """Collection of links of oAuth2PermissionGrant.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -732,13 +732,13 @@ class collectionoflinksofoauth2permissiongrant(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksofoauth2permissiongrant, self).__init__(**kwargs)
+        super(CollectionOfLinksOfOAuth2PermissionGrant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksoftokenissuancepolicy(msrest.serialization.Model):
+class CollectionOfLinksOfTokenIssuancePolicy(msrest.serialization.Model):
     """Collection of links of tokenIssuancePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -760,13 +760,13 @@ class collectionoflinksoftokenissuancepolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksoftokenissuancepolicy, self).__init__(**kwargs)
+        super(CollectionOfLinksOfTokenIssuancePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksoftokenissuancepolicy0(msrest.serialization.Model):
+class CollectionOfLinksOfTokenIssuancePolicy0(msrest.serialization.Model):
     """Collection of links of tokenIssuancePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -788,13 +788,13 @@ class collectionoflinksoftokenissuancepolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksoftokenissuancepolicy0, self).__init__(**kwargs)
+        super(CollectionOfLinksOfTokenIssuancePolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksoftokenlifetimepolicy(msrest.serialization.Model):
+class CollectionOfLinksOfTokenLifetimePolicy(msrest.serialization.Model):
     """Collection of links of tokenLifetimePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -816,13 +816,13 @@ class collectionoflinksoftokenlifetimepolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksoftokenlifetimepolicy, self).__init__(**kwargs)
+        super(CollectionOfLinksOfTokenLifetimePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoflinksoftokenlifetimepolicy0(msrest.serialization.Model):
+class CollectionOfLinksOfTokenLifetimePolicy0(msrest.serialization.Model):
     """Collection of links of tokenLifetimePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -844,27 +844,27 @@ class collectionoflinksoftokenlifetimepolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoflinksoftokenlifetimepolicy0, self).__init__(**kwargs)
+        super(CollectionOfLinksOfTokenLifetimePolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofoauth2permissiongrant(msrest.serialization.Model):
+class CollectionOfOAuth2PermissionGrant(msrest.serialization.Model):
     """Collection of oAuth2PermissionGrant.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphoauth2permissiongrant]
+    :type value: list[~applications.models.MicrosoftGraphOAuth2PermissionGrant]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphoauth2permissiongrant]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOAuth2PermissionGrant]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -872,27 +872,27 @@ class collectionofoauth2permissiongrant(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofoauth2permissiongrant, self).__init__(**kwargs)
+        super(CollectionOfOAuth2PermissionGrant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofserviceprincipal(msrest.serialization.Model):
+class CollectionOfServicePrincipal(msrest.serialization.Model):
     """Collection of servicePrincipal.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphserviceprincipal]
+    :type value: list[~applications.models.MicrosoftGraphServicePrincipal]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphserviceprincipal]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphServicePrincipal]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -900,27 +900,27 @@ class collectionofserviceprincipal(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofserviceprincipal, self).__init__(**kwargs)
+        super(CollectionOfServicePrincipal, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoftokenissuancepolicy(msrest.serialization.Model):
+class CollectionOfTokenIssuancePolicy(msrest.serialization.Model):
     """Collection of tokenIssuancePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphtokenissuancepolicy]
+    :type value: list[~applications.models.MicrosoftGraphTokenIssuancePolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtokenissuancepolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -928,27 +928,27 @@ class collectionoftokenissuancepolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoftokenissuancepolicy, self).__init__(**kwargs)
+        super(CollectionOfTokenIssuancePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoftokenissuancepolicy0(msrest.serialization.Model):
+class CollectionOfTokenIssuancePolicy0(msrest.serialization.Model):
     """Collection of tokenIssuancePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphtokenissuancepolicy]
+    :type value: list[~applications.models.MicrosoftGraphTokenIssuancePolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtokenissuancepolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -956,27 +956,27 @@ class collectionoftokenissuancepolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoftokenissuancepolicy0, self).__init__(**kwargs)
+        super(CollectionOfTokenIssuancePolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoftokenlifetimepolicy(msrest.serialization.Model):
+class CollectionOfTokenLifetimePolicy(msrest.serialization.Model):
     """Collection of tokenLifetimePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphtokenlifetimepolicy]
+    :type value: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtokenlifetimepolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -984,27 +984,27 @@ class collectionoftokenlifetimepolicy(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoftokenlifetimepolicy, self).__init__(**kwargs)
+        super(CollectionOfTokenLifetimePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionoftokenlifetimepolicy0(msrest.serialization.Model):
+class CollectionOfTokenLifetimePolicy0(msrest.serialization.Model):
     """Collection of tokenLifetimePolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~applications.models.microsoftgraphtokenlifetimepolicy]
+    :type value: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtokenlifetimepolicy]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1012,13 +1012,13 @@ class collectionoftokenlifetimepolicy0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionoftokenlifetimepolicy0, self).__init__(**kwargs)
+        super(CollectionOfTokenLifetimePolicy0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class microsoftgraphaddin(msrest.serialization.Model):
+class MicrosoftGraphAddIn(msrest.serialization.Model):
     """addIn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1027,7 +1027,7 @@ class microsoftgraphaddin(msrest.serialization.Model):
     :param id:
     :type id: str
     :param properties:
-    :type properties: list[~applications.models.microsoftgraphkeyvalue]
+    :type properties: list[~applications.models.MicrosoftGraphKeyValue]
     :param type:
     :type type: str
     """
@@ -1035,7 +1035,7 @@ class microsoftgraphaddin(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
-        'properties': {'key': 'properties', 'type': '[microsoftgraphkeyvalue]'},
+        'properties': {'key': 'properties', 'type': '[MicrosoftGraphKeyValue]'},
         'type': {'key': 'type', 'type': 'str'},
     }
 
@@ -1043,14 +1043,14 @@ class microsoftgraphaddin(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphaddin, self).__init__(**kwargs)
+        super(MicrosoftGraphAddIn, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
         self.properties = kwargs.get('properties', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphapiapplication(msrest.serialization.Model):
+class MicrosoftGraphApiApplication(msrest.serialization.Model):
     """apiApplication.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1070,14 +1070,14 @@ class microsoftgraphapiapplication(msrest.serialization.Model):
      API represented by this application registration. These delegated permissions may be requested
      by a client application, and may be granted by users or administrators during consent.
      Delegated permissions are sometimes referred to as OAuth 2.0 scopes.
-    :type oauth2_permission_scopes: list[~applications.models.microsoftgraphpermissionscope]
+    :type oauth2_permission_scopes: list[~applications.models.MicrosoftGraphPermissionScope]
     :param pre_authorized_applications: Lists the client applications that are pre-authorized with
      the specified delegated permissions to access this application's APIs. Users are not required
      to consent to any pre-authorized application (for the permissions specified). However, any
      additional permissions not listed in preAuthorizedApplications (requested through incremental
      consent for example) will require user consent.
     :type pre_authorized_applications:
-     list[~applications.models.microsoftgraphpreauthorizedapplication]
+     list[~applications.models.MicrosoftGraphPreAuthorizedApplication]
     :param requested_access_token_version: Specifies the access token version expected by this
      resource. This changes the version and format of the JWT produced independent of the endpoint
      or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the
@@ -1097,8 +1097,8 @@ class microsoftgraphapiapplication(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'accept_mapped_claims': {'key': 'acceptMappedClaims', 'type': 'bool'},
         'known_client_applications': {'key': 'knownClientApplications', 'type': '[str]'},
-        'oauth2_permission_scopes': {'key': 'oauth2PermissionScopes', 'type': '[microsoftgraphpermissionscope]'},
-        'pre_authorized_applications': {'key': 'preAuthorizedApplications', 'type': '[microsoftgraphpreauthorizedapplication]'},
+        'oauth2_permission_scopes': {'key': 'oauth2PermissionScopes', 'type': '[MicrosoftGraphPermissionScope]'},
+        'pre_authorized_applications': {'key': 'preAuthorizedApplications', 'type': '[MicrosoftGraphPreAuthorizedApplication]'},
         'requested_access_token_version': {'key': 'requestedAccessTokenVersion', 'type': 'int'},
     }
 
@@ -1106,7 +1106,7 @@ class microsoftgraphapiapplication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphapiapplication, self).__init__(**kwargs)
+        super(MicrosoftGraphApiApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.accept_mapped_claims = kwargs.get('accept_mapped_claims', None)
         self.known_client_applications = kwargs.get('known_client_applications', None)
@@ -1115,7 +1115,7 @@ class microsoftgraphapiapplication(msrest.serialization.Model):
         self.requested_access_token_version = kwargs.get('requested_access_token_version', None)
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1134,12 +1134,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphdirectoryobject(microsoftgraphentity):
+class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1161,12 +1161,12 @@ class microsoftgraphdirectoryobject(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphdirectoryobject, self).__init__(**kwargs)
+        super(MicrosoftGraphDirectoryObject, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.deleted_date_time = kwargs.get('deleted_date_time', None)
 
 
-class microsoftgraphapplication(microsoftgraphdirectoryobject):
+class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1180,9 +1180,9 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
      specific contexts. For example, applications that can render file streams may set the addIns
      property for its 'FileHandler' functionality. This will let services like Microsoft 365 call
      the application in the context of a document the user is working on.
-    :type add_ins: list[~applications.models.microsoftgraphaddin]
+    :type add_ins: list[~applications.models.MicrosoftGraphAddIn]
     :param api: apiApplication.
-    :type api: ~applications.models.microsoftgraphapiapplication
+    :type api: ~applications.models.MicrosoftGraphApiApplication
     :param app_id: The unique identifier for the application that is assigned to an application by
      Azure AD. Not nullable. Read-only.
     :type app_id: str
@@ -1191,7 +1191,7 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
     :param app_roles: The collection of roles the application declares. With app role assignments,
      these roles can be assigned to users, groups, or other applications' service principals. Not
      nullable.
-    :type app_roles: list[~applications.models.microsoftgraphapprole]
+    :type app_roles: list[~applications.models.MicrosoftGraphAppRole]
     :param created_date_time: The date and time the application was registered. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description:
@@ -1210,7 +1210,7 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
      expressions on multi-valued properties. Not nullable.
     :type identifier_uris: list[str]
     :param info: informationalUrl.
-    :type info: ~applications.models.microsoftgraphinformationalurl
+    :type info: ~applications.models.MicrosoftGraphInformationalUrl
     :param is_device_only_auth_supported:
     :type is_device_only_auth_supported: bool
     :param is_fallback_public_client: Specifies the fallback application type as public client,
@@ -1222,7 +1222,7 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
     :type is_fallback_public_client: bool
     :param key_credentials: The collection of key credentials associated with the application Not
      nullable.
-    :type key_credentials: list[~applications.models.microsoftgraphkeycredential]
+    :type key_credentials: list[~applications.models.MicrosoftGraphKeyCredential]
     :param logo: The main logo for the application. Not nullable.
     :type logo: bytes
     :param notes:
@@ -1230,21 +1230,21 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
     :param oauth2_require_post_response:
     :type oauth2_require_post_response: bool
     :param optional_claims: optionalClaims.
-    :type optional_claims: ~applications.models.microsoftgraphoptionalclaims
+    :type optional_claims: ~applications.models.MicrosoftGraphOptionalClaims
     :param parental_control_settings: parentalControlSettings.
-    :type parental_control_settings: ~applications.models.microsoftgraphparentalcontrolsettings
+    :type parental_control_settings: ~applications.models.MicrosoftGraphParentalControlSettings
     :param password_credentials: The collection of password credentials associated with the
      application. Not nullable.
-    :type password_credentials: list[~applications.models.microsoftgraphpasswordcredential]
+    :type password_credentials: list[~applications.models.MicrosoftGraphPasswordCredential]
     :param public_client: publicClientApplication.
-    :type public_client: ~applications.models.microsoftgraphpublicclientapplication
+    :type public_client: ~applications.models.MicrosoftGraphPublicClientApplication
     :param publisher_domain: The verified publisher domain for the application. Read-only.
     :type publisher_domain: str
     :param required_resource_access: Specifies resources that this application requires access to
      and the set of OAuth permission scopes and application roles that it needs under each of those
      resources. This pre-configuration of required resource access drives the consent experience.
      Not nullable.
-    :type required_resource_access: list[~applications.models.microsoftgraphrequiredresourceaccess]
+    :type required_resource_access: list[~applications.models.MicrosoftGraphRequiredResourceAccess]
     :param sign_in_audience: Specifies the Microsoft accounts that are supported for the current
      application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account
      in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a Microsoft
@@ -1261,69 +1261,69 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
      matching private key to decrypt the token before it can be used for the signed-in user.
     :type token_encryption_key_id: str
     :param web: webApplication.
-    :type web: ~applications.models.microsoftgraphwebapplication
+    :type web: ~applications.models.MicrosoftGraphWebApplication
     :param created_on_behalf_of: Represents an Azure Active Directory object. The directoryObject
      type is the base type for many other directory entity types.
-    :type created_on_behalf_of: ~applications.models.microsoftgraphdirectoryobject
+    :type created_on_behalf_of: ~applications.models.MicrosoftGraphDirectoryObject
     :param extension_properties: Read-only. Nullable.
-    :type extension_properties: list[~applications.models.microsoftgraphextensionproperty]
+    :type extension_properties: list[~applications.models.MicrosoftGraphExtensionProperty]
     :param home_realm_discovery_policies:
     :type home_realm_discovery_policies:
-     list[~applications.models.microsoftgraphhomerealmdiscoverypolicy]
+     list[~applications.models.MicrosoftGraphHomeRealmDiscoveryPolicy]
     :param owners: Directory objects that are owners of the application. The owners are a set of
      non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer.
      Read-only. Nullable.
-    :type owners: list[~applications.models.microsoftgraphdirectoryobject]
+    :type owners: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param token_issuance_policies:
-    :type token_issuance_policies: list[~applications.models.microsoftgraphtokenissuancepolicy]
+    :type token_issuance_policies: list[~applications.models.MicrosoftGraphTokenIssuancePolicy]
     :param token_lifetime_policies:
-    :type token_lifetime_policies: list[~applications.models.microsoftgraphtokenlifetimepolicy]
+    :type token_lifetime_policies: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'add_ins': {'key': 'addIns', 'type': '[microsoftgraphaddin]'},
-        'api': {'key': 'api', 'type': 'microsoftgraphapiapplication'},
+        'add_ins': {'key': 'addIns', 'type': '[MicrosoftGraphAddIn]'},
+        'api': {'key': 'api', 'type': 'MicrosoftGraphApiApplication'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'application_template_id': {'key': 'applicationTemplateId', 'type': 'str'},
-        'app_roles': {'key': 'appRoles', 'type': '[microsoftgraphapprole]'},
+        'app_roles': {'key': 'appRoles', 'type': '[MicrosoftGraphAppRole]'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'group_membership_claims': {'key': 'groupMembershipClaims', 'type': 'str'},
         'identifier_uris': {'key': 'identifierUris', 'type': '[str]'},
-        'info': {'key': 'info', 'type': 'microsoftgraphinformationalurl'},
+        'info': {'key': 'info', 'type': 'MicrosoftGraphInformationalUrl'},
         'is_device_only_auth_supported': {'key': 'isDeviceOnlyAuthSupported', 'type': 'bool'},
         'is_fallback_public_client': {'key': 'isFallbackPublicClient', 'type': 'bool'},
-        'key_credentials': {'key': 'keyCredentials', 'type': '[microsoftgraphkeycredential]'},
+        'key_credentials': {'key': 'keyCredentials', 'type': '[MicrosoftGraphKeyCredential]'},
         'logo': {'key': 'logo', 'type': 'base64'},
         'notes': {'key': 'notes', 'type': 'str'},
         'oauth2_require_post_response': {'key': 'oauth2RequirePostResponse', 'type': 'bool'},
-        'optional_claims': {'key': 'optionalClaims', 'type': 'microsoftgraphoptionalclaims'},
-        'parental_control_settings': {'key': 'parentalControlSettings', 'type': 'microsoftgraphparentalcontrolsettings'},
-        'password_credentials': {'key': 'passwordCredentials', 'type': '[microsoftgraphpasswordcredential]'},
-        'public_client': {'key': 'publicClient', 'type': 'microsoftgraphpublicclientapplication'},
+        'optional_claims': {'key': 'optionalClaims', 'type': 'MicrosoftGraphOptionalClaims'},
+        'parental_control_settings': {'key': 'parentalControlSettings', 'type': 'MicrosoftGraphParentalControlSettings'},
+        'password_credentials': {'key': 'passwordCredentials', 'type': '[MicrosoftGraphPasswordCredential]'},
+        'public_client': {'key': 'publicClient', 'type': 'MicrosoftGraphPublicClientApplication'},
         'publisher_domain': {'key': 'publisherDomain', 'type': 'str'},
-        'required_resource_access': {'key': 'requiredResourceAccess', 'type': '[microsoftgraphrequiredresourceaccess]'},
+        'required_resource_access': {'key': 'requiredResourceAccess', 'type': '[MicrosoftGraphRequiredResourceAccess]'},
         'sign_in_audience': {'key': 'signInAudience', 'type': 'str'},
         'tags': {'key': 'tags', 'type': '[str]'},
         'token_encryption_key_id': {'key': 'tokenEncryptionKeyId', 'type': 'str'},
-        'web': {'key': 'web', 'type': 'microsoftgraphwebapplication'},
-        'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'microsoftgraphdirectoryobject'},
-        'extension_properties': {'key': 'extensionProperties', 'type': '[microsoftgraphextensionproperty]'},
-        'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[microsoftgraphhomerealmdiscoverypolicy]'},
-        'owners': {'key': 'owners', 'type': '[microsoftgraphdirectoryobject]'},
-        'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[microsoftgraphtokenissuancepolicy]'},
-        'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[microsoftgraphtokenlifetimepolicy]'},
+        'web': {'key': 'web', 'type': 'MicrosoftGraphWebApplication'},
+        'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'MicrosoftGraphDirectoryObject'},
+        'extension_properties': {'key': 'extensionProperties', 'type': '[MicrosoftGraphExtensionProperty]'},
+        'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
+        'owners': {'key': 'owners', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
+        'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphapplication, self).__init__(**kwargs)
+        super(MicrosoftGraphApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.add_ins = kwargs.get('add_ins', None)
         self.api = kwargs.get('api', None)
@@ -1360,7 +1360,7 @@ class microsoftgraphapplication(microsoftgraphdirectoryobject):
         self.token_lifetime_policies = kwargs.get('token_lifetime_policies', None)
 
 
-class microsoftgraphapprole(msrest.serialization.Model):
+class MicrosoftGraphAppRole(msrest.serialization.Model):
     """appRole.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1411,7 +1411,7 @@ class microsoftgraphapprole(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphapprole, self).__init__(**kwargs)
+        super(MicrosoftGraphAppRole, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allowed_member_types = kwargs.get('allowed_member_types', None)
         self.description = kwargs.get('description', None)
@@ -1422,7 +1422,7 @@ class microsoftgraphapprole(msrest.serialization.Model):
         self.value = kwargs.get('value', None)
 
 
-class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
+class MicrosoftGraphAppRoleAssignment(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1475,7 +1475,7 @@ class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
         self,
         **kwargs
     ):
-        super(microsoftgraphapproleassignment, self).__init__(**kwargs)
+        super(MicrosoftGraphAppRoleAssignment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_role_id = kwargs.get('app_role_id', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -1486,7 +1486,7 @@ class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
         self.resource_id = kwargs.get('resource_id', None)
 
 
-class microsoftgraphpolicybase(microsoftgraphdirectoryobject):
+class MicrosoftGraphPolicyBase(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1514,13 +1514,13 @@ class microsoftgraphpolicybase(microsoftgraphdirectoryobject):
         self,
         **kwargs
     ):
-        super(microsoftgraphpolicybase, self).__init__(**kwargs)
+        super(MicrosoftGraphPolicyBase, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
 
 
-class microsoftgraphstspolicy(microsoftgraphpolicybase):
+class MicrosoftGraphStsPolicy(MicrosoftGraphPolicyBase):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1543,7 +1543,7 @@ class microsoftgraphstspolicy(microsoftgraphpolicybase):
      Optional, default value is false.
     :type is_organization_default: bool
     :param applies_to:
-    :type applies_to: list[~applications.models.microsoftgraphdirectoryobject]
+    :type applies_to: list[~applications.models.MicrosoftGraphDirectoryObject]
     """
 
     _attribute_map = {
@@ -1554,21 +1554,21 @@ class microsoftgraphstspolicy(microsoftgraphpolicybase):
         'additional_properties': {'key': '', 'type': '{object}'},
         'definition': {'key': 'definition', 'type': '[str]'},
         'is_organization_default': {'key': 'isOrganizationDefault', 'type': 'bool'},
-        'applies_to': {'key': 'appliesTo', 'type': '[microsoftgraphdirectoryobject]'},
+        'applies_to': {'key': 'appliesTo', 'type': '[MicrosoftGraphDirectoryObject]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphstspolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphStsPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.definition = kwargs.get('definition', None)
         self.is_organization_default = kwargs.get('is_organization_default', None)
         self.applies_to = kwargs.get('applies_to', None)
 
 
-class microsoftgraphclaimsmappingpolicy(microsoftgraphstspolicy):
+class MicrosoftGraphClaimsMappingPolicy(MicrosoftGraphStsPolicy):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1588,7 +1588,7 @@ class microsoftgraphclaimsmappingpolicy(microsoftgraphstspolicy):
      Optional, default value is false.
     :type is_organization_default: bool
     :param applies_to:
-    :type applies_to: list[~applications.models.microsoftgraphdirectoryobject]
+    :type applies_to: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1601,7 +1601,7 @@ class microsoftgraphclaimsmappingpolicy(microsoftgraphstspolicy):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'definition': {'key': 'definition', 'type': '[str]'},
         'is_organization_default': {'key': 'isOrganizationDefault', 'type': 'bool'},
-        'applies_to': {'key': 'appliesTo', 'type': '[microsoftgraphdirectoryobject]'},
+        'applies_to': {'key': 'appliesTo', 'type': '[MicrosoftGraphDirectoryObject]'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -1609,11 +1609,11 @@ class microsoftgraphclaimsmappingpolicy(microsoftgraphstspolicy):
         self,
         **kwargs
     ):
-        super(microsoftgraphclaimsmappingpolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphClaimsMappingPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphendpoint(microsoftgraphdirectoryobject):
+class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1653,7 +1653,7 @@ class microsoftgraphendpoint(microsoftgraphdirectoryobject):
         self,
         **kwargs
     ):
-        super(microsoftgraphendpoint, self).__init__(**kwargs)
+        super(MicrosoftGraphEndpoint, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.capability = kwargs.get('capability', None)
         self.provider_id = kwargs.get('provider_id', None)
@@ -1662,7 +1662,7 @@ class microsoftgraphendpoint(microsoftgraphdirectoryobject):
         self.uri = kwargs.get('uri', None)
 
 
-class microsoftgraphextensionproperty(microsoftgraphdirectoryobject):
+class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1705,7 +1705,7 @@ class microsoftgraphextensionproperty(microsoftgraphdirectoryobject):
         self,
         **kwargs
     ):
-        super(microsoftgraphextensionproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphExtensionProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_display_name = kwargs.get('app_display_name', None)
         self.data_type = kwargs.get('data_type', None)
@@ -1714,7 +1714,7 @@ class microsoftgraphextensionproperty(microsoftgraphdirectoryobject):
         self.target_objects = kwargs.get('target_objects', None)
 
 
-class microsoftgraphhomerealmdiscoverypolicy(microsoftgraphstspolicy):
+class MicrosoftGraphHomeRealmDiscoveryPolicy(MicrosoftGraphStsPolicy):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1734,7 +1734,7 @@ class microsoftgraphhomerealmdiscoverypolicy(microsoftgraphstspolicy):
      Optional, default value is false.
     :type is_organization_default: bool
     :param applies_to:
-    :type applies_to: list[~applications.models.microsoftgraphdirectoryobject]
+    :type applies_to: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1747,7 +1747,7 @@ class microsoftgraphhomerealmdiscoverypolicy(microsoftgraphstspolicy):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'definition': {'key': 'definition', 'type': '[str]'},
         'is_organization_default': {'key': 'isOrganizationDefault', 'type': 'bool'},
-        'applies_to': {'key': 'appliesTo', 'type': '[microsoftgraphdirectoryobject]'},
+        'applies_to': {'key': 'appliesTo', 'type': '[MicrosoftGraphDirectoryObject]'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -1755,11 +1755,11 @@ class microsoftgraphhomerealmdiscoverypolicy(microsoftgraphstspolicy):
         self,
         **kwargs
     ):
-        super(microsoftgraphhomerealmdiscoverypolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphHomeRealmDiscoveryPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphimplicitgrantsettings(msrest.serialization.Model):
+class MicrosoftGraphImplicitGrantSettings(msrest.serialization.Model):
     """implicitGrantSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1783,13 +1783,13 @@ class microsoftgraphimplicitgrantsettings(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphimplicitgrantsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphImplicitGrantSettings, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.enable_access_token_issuance = kwargs.get('enable_access_token_issuance', None)
         self.enable_id_token_issuance = kwargs.get('enable_id_token_issuance', None)
 
 
-class microsoftgraphinformationalurl(msrest.serialization.Model):
+class MicrosoftGraphInformationalUrl(msrest.serialization.Model):
     """informationalUrl.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1824,7 +1824,7 @@ class microsoftgraphinformationalurl(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphinformationalurl, self).__init__(**kwargs)
+        super(MicrosoftGraphInformationalUrl, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.logo_url = kwargs.get('logo_url', None)
         self.marketing_url = kwargs.get('marketing_url', None)
@@ -1833,7 +1833,7 @@ class microsoftgraphinformationalurl(msrest.serialization.Model):
         self.terms_of_service_url = kwargs.get('terms_of_service_url', None)
 
 
-class microsoftgraphkeycredential(msrest.serialization.Model):
+class MicrosoftGraphKeyCredential(msrest.serialization.Model):
     """keyCredential.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1878,7 +1878,7 @@ class microsoftgraphkeycredential(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphkeycredential, self).__init__(**kwargs)
+        super(MicrosoftGraphKeyCredential, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.custom_key_identifier = kwargs.get('custom_key_identifier', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1890,7 +1890,7 @@ class microsoftgraphkeycredential(msrest.serialization.Model):
         self.usage = kwargs.get('usage', None)
 
 
-class microsoftgraphkeyvalue(msrest.serialization.Model):
+class MicrosoftGraphKeyValue(msrest.serialization.Model):
     """keyValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1912,13 +1912,13 @@ class microsoftgraphkeyvalue(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphkeyvalue, self).__init__(**kwargs)
+        super(MicrosoftGraphKeyValue, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key = kwargs.get('key', None)
         self.value = kwargs.get('value', None)
 
 
-class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
+class MicrosoftGraphOAuth2PermissionGrant(MicrosoftGraphEntity):
     """oAuth2PermissionGrant.
 
     :param id: Read-only.
@@ -1967,7 +1967,7 @@ class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphoauth2permissiongrant, self).__init__(**kwargs)
+        super(MicrosoftGraphOAuth2PermissionGrant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_id = kwargs.get('client_id', None)
         self.consent_type = kwargs.get('consent_type', None)
@@ -1976,7 +1976,7 @@ class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
         self.scope = kwargs.get('scope', None)
 
 
-class microsoftgraphoptionalclaim(msrest.serialization.Model):
+class MicrosoftGraphOptionalClaim(msrest.serialization.Model):
     """optionalClaim.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2010,7 +2010,7 @@ class microsoftgraphoptionalclaim(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphoptionalclaim, self).__init__(**kwargs)
+        super(MicrosoftGraphOptionalClaim, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties1 = kwargs.get('additional_properties1', None)
         self.essential = kwargs.get('essential', None)
@@ -2018,39 +2018,39 @@ class microsoftgraphoptionalclaim(msrest.serialization.Model):
         self.source = kwargs.get('source', None)
 
 
-class microsoftgraphoptionalclaims(msrest.serialization.Model):
+class MicrosoftGraphOptionalClaims(msrest.serialization.Model):
     """optionalClaims.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param access_token: The optional claims returned in the JWT access token.
-    :type access_token: list[~applications.models.microsoftgraphoptionalclaim]
+    :type access_token: list[~applications.models.MicrosoftGraphOptionalClaim]
     :param id_token: The optional claims returned in the JWT ID token.
-    :type id_token: list[~applications.models.microsoftgraphoptionalclaim]
+    :type id_token: list[~applications.models.MicrosoftGraphOptionalClaim]
     :param saml2_token: The optional claims returned in the SAML token.
-    :type saml2_token: list[~applications.models.microsoftgraphoptionalclaim]
+    :type saml2_token: list[~applications.models.MicrosoftGraphOptionalClaim]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'access_token': {'key': 'accessToken', 'type': '[microsoftgraphoptionalclaim]'},
-        'id_token': {'key': 'idToken', 'type': '[microsoftgraphoptionalclaim]'},
-        'saml2_token': {'key': 'saml2Token', 'type': '[microsoftgraphoptionalclaim]'},
+        'access_token': {'key': 'accessToken', 'type': '[MicrosoftGraphOptionalClaim]'},
+        'id_token': {'key': 'idToken', 'type': '[MicrosoftGraphOptionalClaim]'},
+        'saml2_token': {'key': 'saml2Token', 'type': '[MicrosoftGraphOptionalClaim]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphoptionalclaims, self).__init__(**kwargs)
+        super(MicrosoftGraphOptionalClaims, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.access_token = kwargs.get('access_token', None)
         self.id_token = kwargs.get('id_token', None)
         self.saml2_token = kwargs.get('saml2_token', None)
 
 
-class microsoftgraphparentalcontrolsettings(msrest.serialization.Model):
+class MicrosoftGraphParentalControlSettings(msrest.serialization.Model):
     """parentalControlSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2079,13 +2079,13 @@ class microsoftgraphparentalcontrolsettings(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphparentalcontrolsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphParentalControlSettings, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.countries_blocked_for_minors = kwargs.get('countries_blocked_for_minors', None)
         self.legal_age_group_rule = kwargs.get('legal_age_group_rule', None)
 
 
-class microsoftgraphpasswordcredential(msrest.serialization.Model):
+class MicrosoftGraphPasswordCredential(msrest.serialization.Model):
     """passwordCredential.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2128,7 +2128,7 @@ class microsoftgraphpasswordcredential(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpasswordcredential, self).__init__(**kwargs)
+        super(MicrosoftGraphPasswordCredential, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.custom_key_identifier = kwargs.get('custom_key_identifier', None)
         self.display_name = kwargs.get('display_name', None)
@@ -2139,7 +2139,7 @@ class microsoftgraphpasswordcredential(msrest.serialization.Model):
         self.start_date_time = kwargs.get('start_date_time', None)
 
 
-class microsoftgraphpermissionscope(msrest.serialization.Model):
+class MicrosoftGraphPermissionScope(msrest.serialization.Model):
     """permissionScope.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2199,7 +2199,7 @@ class microsoftgraphpermissionscope(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpermissionscope, self).__init__(**kwargs)
+        super(MicrosoftGraphPermissionScope, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.admin_consent_description = kwargs.get('admin_consent_description', None)
         self.admin_consent_display_name = kwargs.get('admin_consent_display_name', None)
@@ -2212,7 +2212,7 @@ class microsoftgraphpermissionscope(msrest.serialization.Model):
         self.value = kwargs.get('value', None)
 
 
-class microsoftgraphpreauthorizedapplication(msrest.serialization.Model):
+class MicrosoftGraphPreAuthorizedApplication(msrest.serialization.Model):
     """preAuthorizedApplication.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2235,13 +2235,13 @@ class microsoftgraphpreauthorizedapplication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpreauthorizedapplication, self).__init__(**kwargs)
+        super(MicrosoftGraphPreAuthorizedApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_id = kwargs.get('app_id', None)
         self.delegated_permission_ids = kwargs.get('delegated_permission_ids', None)
 
 
-class microsoftgraphpublicclientapplication(msrest.serialization.Model):
+class MicrosoftGraphPublicClientApplication(msrest.serialization.Model):
     """publicClientApplication.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2261,12 +2261,12 @@ class microsoftgraphpublicclientapplication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphpublicclientapplication, self).__init__(**kwargs)
+        super(MicrosoftGraphPublicClientApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.redirect_uris = kwargs.get('redirect_uris', None)
 
 
-class microsoftgraphrequiredresourceaccess(msrest.serialization.Model):
+class MicrosoftGraphRequiredResourceAccess(msrest.serialization.Model):
     """requiredResourceAccess.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2274,7 +2274,7 @@ class microsoftgraphrequiredresourceaccess(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param resource_access: The list of OAuth2.0 permission scopes and app roles that the
      application requires from the specified resource.
-    :type resource_access: list[~applications.models.microsoftgraphresourceaccess]
+    :type resource_access: list[~applications.models.MicrosoftGraphResourceAccess]
     :param resource_app_id: The unique identifier for the resource that the application requires
      access to.  This should be equal to the appId declared on the target resource application.
     :type resource_app_id: str
@@ -2282,7 +2282,7 @@ class microsoftgraphrequiredresourceaccess(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'resource_access': {'key': 'resourceAccess', 'type': '[microsoftgraphresourceaccess]'},
+        'resource_access': {'key': 'resourceAccess', 'type': '[MicrosoftGraphResourceAccess]'},
         'resource_app_id': {'key': 'resourceAppId', 'type': 'str'},
     }
 
@@ -2290,13 +2290,13 @@ class microsoftgraphrequiredresourceaccess(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphrequiredresourceaccess, self).__init__(**kwargs)
+        super(MicrosoftGraphRequiredResourceAccess, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.resource_access = kwargs.get('resource_access', None)
         self.resource_app_id = kwargs.get('resource_app_id', None)
 
 
-class microsoftgraphresourceaccess(msrest.serialization.Model):
+class MicrosoftGraphResourceAccess(msrest.serialization.Model):
     """resourceAccess.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2320,13 +2320,13 @@ class microsoftgraphresourceaccess(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphresourceaccess, self).__init__(**kwargs)
+        super(MicrosoftGraphResourceAccess, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphsamlsinglesignonsettings(msrest.serialization.Model):
+class MicrosoftGraphSamlSingleSignOnSettings(msrest.serialization.Model):
     """samlSingleSignOnSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2346,12 +2346,12 @@ class microsoftgraphsamlsinglesignonsettings(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphsamlsinglesignonsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphSamlSingleSignOnSettings, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.relay_state = kwargs.get('relay_state', None)
 
 
-class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
+class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -2367,7 +2367,7 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
      specific contexts. For example, applications that can render file streams may set the addIns
      property for its 'FileHandler' functionality. This will let services like Microsoft 365 call
      the application in the context of a document the user is working on.
-    :type add_ins: list[~applications.models.microsoftgraphaddin]
+    :type add_ins: list[~applications.models.MicrosoftGraphAddIn]
     :param alternative_names: Used to retrieve service principals by subscription, identify
      resource group and full resource ids for managed identities.
     :type alternative_names: list[str]
@@ -2390,7 +2390,7 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
     :param app_roles: The roles exposed by the application which this service principal represents.
      For more information see the appRoles property definition on the application entity. Not
      nullable.
-    :type app_roles: list[~applications.models.microsoftgraphapprole]
+    :type app_roles: list[~applications.models.MicrosoftGraphAppRole]
     :param description:
     :type description: str
     :param display_name: The display name for the service principal.
@@ -2398,10 +2398,10 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
     :param homepage: Home page or landing page of the application.
     :type homepage: str
     :param info: informationalUrl.
-    :type info: ~applications.models.microsoftgraphinformationalurl
+    :type info: ~applications.models.MicrosoftGraphInformationalUrl
     :param key_credentials: The collection of key credentials associated with the service
      principal. Not nullable.
-    :type key_credentials: list[~applications.models.microsoftgraphkeycredential]
+    :type key_credentials: list[~applications.models.MicrosoftGraphKeyCredential]
     :param login_url: Specifies the URL where the service provider redirects the user to Azure AD
      to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the
      Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications
@@ -2420,10 +2420,10 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
     :param oauth2_permission_scopes: The delegated permissions exposed by the application. For more
      information see the oauth2PermissionScopes property on the application entity's api property.
      Not nullable.
-    :type oauth2_permission_scopes: list[~applications.models.microsoftgraphpermissionscope]
+    :type oauth2_permission_scopes: list[~applications.models.MicrosoftGraphPermissionScope]
     :param password_credentials: The collection of password credentials associated with the service
      principal. Not nullable.
-    :type password_credentials: list[~applications.models.microsoftgraphpasswordcredential]
+    :type password_credentials: list[~applications.models.MicrosoftGraphPasswordCredential]
     :param preferred_single_sign_on_mode: Specifies the single sign-on mode configured for this
      application. Azure AD uses the preferred single sign-on mode to launch the application from
      Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, external, and
@@ -2436,7 +2436,7 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
      to for the associated application. Not nullable.
     :type reply_urls: list[str]
     :param saml_single_sign_on_settings: samlSingleSignOnSettings.
-    :type saml_single_sign_on_settings: ~applications.models.microsoftgraphsamlsinglesignonsettings
+    :type saml_single_sign_on_settings: ~applications.models.MicrosoftGraphSamlSingleSignOnSettings
     :param service_principal_names: Contains the list of identifiersUris, copied over from the
      associated application. Additional values can be added to hybrid applications. These values can
      be used to identify the permissions exposed by this app within Azure AD. For example,Client
@@ -2459,42 +2459,42 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
     :type token_encryption_key_id: str
     :param app_role_assigned_to: Principals (users, groups, and service principals) that are
      assigned to this service principal. Read-only.
-    :type app_role_assigned_to: list[~applications.models.microsoftgraphapproleassignment]
+    :type app_role_assigned_to: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param app_role_assignments: Applications that this service principal is assigned to. Read-
      only. Nullable.
-    :type app_role_assignments: list[~applications.models.microsoftgraphapproleassignment]
+    :type app_role_assignments: list[~applications.models.MicrosoftGraphAppRoleAssignment]
     :param claims_mapping_policies: The claimsMappingPolicies assigned to this service principal.
-    :type claims_mapping_policies: list[~applications.models.microsoftgraphclaimsmappingpolicy]
+    :type claims_mapping_policies: list[~applications.models.MicrosoftGraphClaimsMappingPolicy]
     :param created_objects: Directory objects created by this service principal. Read-only.
      Nullable.
-    :type created_objects: list[~applications.models.microsoftgraphdirectoryobject]
+    :type created_objects: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param endpoints: Endpoints available for discovery. Services like Sharepoint populate this
      property with a tenant specific SharePoint endpoints that other applications can discover and
      use in their experiences.
-    :type endpoints: list[~applications.models.microsoftgraphendpoint]
+    :type endpoints: list[~applications.models.MicrosoftGraphEndpoint]
     :param home_realm_discovery_policies: The homeRealmDiscoveryPolicies assigned to this service
      principal.
     :type home_realm_discovery_policies:
-     list[~applications.models.microsoftgraphhomerealmdiscoverypolicy]
+     list[~applications.models.MicrosoftGraphHomeRealmDiscoveryPolicy]
     :param member_of: Roles that this service principal is a member of. HTTP Methods: GET Read-
      only. Nullable.
-    :type member_of: list[~applications.models.microsoftgraphdirectoryobject]
+    :type member_of: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param oauth2_permission_grants: Delegated permission grants authorizing this service principal
      to access an API on behalf of a signed-in user. Read-only. Nullable.
-    :type oauth2_permission_grants: list[~applications.models.microsoftgraphoauth2permissiongrant]
+    :type oauth2_permission_grants: list[~applications.models.MicrosoftGraphOAuth2PermissionGrant]
     :param owned_objects: Directory objects that are owned by this service principal. Read-only.
      Nullable.
-    :type owned_objects: list[~applications.models.microsoftgraphdirectoryobject]
+    :type owned_objects: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param owners: Directory objects that are owners of this servicePrincipal. The owners are a set
      of non-admin users or servicePrincipals who are allowed to modify this object. Read-only.
      Nullable.
-    :type owners: list[~applications.models.microsoftgraphdirectoryobject]
+    :type owners: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param token_issuance_policies: The tokenIssuancePolicies assigned to this service principal.
-    :type token_issuance_policies: list[~applications.models.microsoftgraphtokenissuancepolicy]
+    :type token_issuance_policies: list[~applications.models.MicrosoftGraphTokenIssuancePolicy]
     :param token_lifetime_policies: The tokenLifetimePolicies assigned to this service principal.
-    :type token_lifetime_policies: list[~applications.models.microsoftgraphtokenlifetimepolicy]
+    :type token_lifetime_policies: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
     :param transitive_member_of:
-    :type transitive_member_of: list[~applications.models.microsoftgraphdirectoryobject]
+    :type transitive_member_of: list[~applications.models.MicrosoftGraphDirectoryObject]
     """
 
     _attribute_map = {
@@ -2502,7 +2502,7 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'account_enabled': {'key': 'accountEnabled', 'type': 'bool'},
-        'add_ins': {'key': 'addIns', 'type': '[microsoftgraphaddin]'},
+        'add_ins': {'key': 'addIns', 'type': '[MicrosoftGraphAddIn]'},
         'alternative_names': {'key': 'alternativeNames', 'type': '[str]'},
         'app_description': {'key': 'appDescription', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
@@ -2510,46 +2510,46 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
         'application_template_id': {'key': 'applicationTemplateId', 'type': 'str'},
         'app_owner_organization_id': {'key': 'appOwnerOrganizationId', 'type': 'str'},
         'app_role_assignment_required': {'key': 'appRoleAssignmentRequired', 'type': 'bool'},
-        'app_roles': {'key': 'appRoles', 'type': '[microsoftgraphapprole]'},
+        'app_roles': {'key': 'appRoles', 'type': '[MicrosoftGraphAppRole]'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'homepage': {'key': 'homepage', 'type': 'str'},
-        'info': {'key': 'info', 'type': 'microsoftgraphinformationalurl'},
-        'key_credentials': {'key': 'keyCredentials', 'type': '[microsoftgraphkeycredential]'},
+        'info': {'key': 'info', 'type': 'MicrosoftGraphInformationalUrl'},
+        'key_credentials': {'key': 'keyCredentials', 'type': '[MicrosoftGraphKeyCredential]'},
         'login_url': {'key': 'loginUrl', 'type': 'str'},
         'logout_url': {'key': 'logoutUrl', 'type': 'str'},
         'notes': {'key': 'notes', 'type': 'str'},
         'notification_email_addresses': {'key': 'notificationEmailAddresses', 'type': '[str]'},
-        'oauth2_permission_scopes': {'key': 'oauth2PermissionScopes', 'type': '[microsoftgraphpermissionscope]'},
-        'password_credentials': {'key': 'passwordCredentials', 'type': '[microsoftgraphpasswordcredential]'},
+        'oauth2_permission_scopes': {'key': 'oauth2PermissionScopes', 'type': '[MicrosoftGraphPermissionScope]'},
+        'password_credentials': {'key': 'passwordCredentials', 'type': '[MicrosoftGraphPasswordCredential]'},
         'preferred_single_sign_on_mode': {'key': 'preferredSingleSignOnMode', 'type': 'str'},
         'preferred_token_signing_key_thumbprint': {'key': 'preferredTokenSigningKeyThumbprint', 'type': 'str'},
         'reply_urls': {'key': 'replyUrls', 'type': '[str]'},
-        'saml_single_sign_on_settings': {'key': 'samlSingleSignOnSettings', 'type': 'microsoftgraphsamlsinglesignonsettings'},
+        'saml_single_sign_on_settings': {'key': 'samlSingleSignOnSettings', 'type': 'MicrosoftGraphSamlSingleSignOnSettings'},
         'service_principal_names': {'key': 'servicePrincipalNames', 'type': '[str]'},
         'service_principal_type': {'key': 'servicePrincipalType', 'type': 'str'},
         'tags': {'key': 'tags', 'type': '[str]'},
         'token_encryption_key_id': {'key': 'tokenEncryptionKeyId', 'type': 'str'},
-        'app_role_assigned_to': {'key': 'appRoleAssignedTo', 'type': '[microsoftgraphapproleassignment]'},
-        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[microsoftgraphapproleassignment]'},
-        'claims_mapping_policies': {'key': 'claimsMappingPolicies', 'type': '[microsoftgraphclaimsmappingpolicy]'},
-        'created_objects': {'key': 'createdObjects', 'type': '[microsoftgraphdirectoryobject]'},
-        'endpoints': {'key': 'endpoints', 'type': '[microsoftgraphendpoint]'},
-        'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[microsoftgraphhomerealmdiscoverypolicy]'},
-        'member_of': {'key': 'memberOf', 'type': '[microsoftgraphdirectoryobject]'},
-        'oauth2_permission_grants': {'key': 'oauth2PermissionGrants', 'type': '[microsoftgraphoauth2permissiongrant]'},
-        'owned_objects': {'key': 'ownedObjects', 'type': '[microsoftgraphdirectoryobject]'},
-        'owners': {'key': 'owners', 'type': '[microsoftgraphdirectoryobject]'},
-        'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[microsoftgraphtokenissuancepolicy]'},
-        'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[microsoftgraphtokenlifetimepolicy]'},
-        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[microsoftgraphdirectoryobject]'},
+        'app_role_assigned_to': {'key': 'appRoleAssignedTo', 'type': '[MicrosoftGraphAppRoleAssignment]'},
+        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
+        'claims_mapping_policies': {'key': 'claimsMappingPolicies', 'type': '[MicrosoftGraphClaimsMappingPolicy]'},
+        'created_objects': {'key': 'createdObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'endpoints': {'key': 'endpoints', 'type': '[MicrosoftGraphEndpoint]'},
+        'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
+        'member_of': {'key': 'memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'oauth2_permission_grants': {'key': 'oauth2PermissionGrants', 'type': '[MicrosoftGraphOAuth2PermissionGrant]'},
+        'owned_objects': {'key': 'ownedObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'owners': {'key': 'owners', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
+        'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
+        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphserviceprincipal, self).__init__(**kwargs)
+        super(MicrosoftGraphServicePrincipal, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.add_ins = kwargs.get('add_ins', None)
@@ -2595,7 +2595,7 @@ class microsoftgraphserviceprincipal(microsoftgraphdirectoryobject):
         self.transitive_member_of = kwargs.get('transitive_member_of', None)
 
 
-class microsoftgraphtokenissuancepolicy(microsoftgraphstspolicy):
+class MicrosoftGraphTokenIssuancePolicy(MicrosoftGraphStsPolicy):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -2615,7 +2615,7 @@ class microsoftgraphtokenissuancepolicy(microsoftgraphstspolicy):
      Optional, default value is false.
     :type is_organization_default: bool
     :param applies_to:
-    :type applies_to: list[~applications.models.microsoftgraphdirectoryobject]
+    :type applies_to: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2628,7 +2628,7 @@ class microsoftgraphtokenissuancepolicy(microsoftgraphstspolicy):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'definition': {'key': 'definition', 'type': '[str]'},
         'is_organization_default': {'key': 'isOrganizationDefault', 'type': 'bool'},
-        'applies_to': {'key': 'appliesTo', 'type': '[microsoftgraphdirectoryobject]'},
+        'applies_to': {'key': 'appliesTo', 'type': '[MicrosoftGraphDirectoryObject]'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -2636,11 +2636,11 @@ class microsoftgraphtokenissuancepolicy(microsoftgraphstspolicy):
         self,
         **kwargs
     ):
-        super(microsoftgraphtokenissuancepolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphTokenIssuancePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphtokenlifetimepolicy(microsoftgraphstspolicy):
+class MicrosoftGraphTokenLifetimePolicy(MicrosoftGraphStsPolicy):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -2660,7 +2660,7 @@ class microsoftgraphtokenlifetimepolicy(microsoftgraphstspolicy):
      Optional, default value is false.
     :type is_organization_default: bool
     :param applies_to:
-    :type applies_to: list[~applications.models.microsoftgraphdirectoryobject]
+    :type applies_to: list[~applications.models.MicrosoftGraphDirectoryObject]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2673,7 +2673,7 @@ class microsoftgraphtokenlifetimepolicy(microsoftgraphstspolicy):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'definition': {'key': 'definition', 'type': '[str]'},
         'is_organization_default': {'key': 'isOrganizationDefault', 'type': 'bool'},
-        'applies_to': {'key': 'appliesTo', 'type': '[microsoftgraphdirectoryobject]'},
+        'applies_to': {'key': 'appliesTo', 'type': '[MicrosoftGraphDirectoryObject]'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -2681,11 +2681,11 @@ class microsoftgraphtokenlifetimepolicy(microsoftgraphstspolicy):
         self,
         **kwargs
     ):
-        super(microsoftgraphtokenlifetimepolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphTokenLifetimePolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphwebapplication(msrest.serialization.Model):
+class MicrosoftGraphWebApplication(msrest.serialization.Model):
     """webApplication.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2694,7 +2694,7 @@ class microsoftgraphwebapplication(msrest.serialization.Model):
     :param home_page_url: Home page or landing page of the application.
     :type home_page_url: str
     :param implicit_grant_settings: implicitGrantSettings.
-    :type implicit_grant_settings: ~applications.models.microsoftgraphimplicitgrantsettings
+    :type implicit_grant_settings: ~applications.models.MicrosoftGraphImplicitGrantSettings
     :param logout_url: Specifies the URL that will be used by Microsoft's authorization service to
      logout an user using front-channel, back-channel or SAML logout protocols.
     :type logout_url: str
@@ -2706,7 +2706,7 @@ class microsoftgraphwebapplication(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'home_page_url': {'key': 'homePageUrl', 'type': 'str'},
-        'implicit_grant_settings': {'key': 'implicitGrantSettings', 'type': 'microsoftgraphimplicitgrantsettings'},
+        'implicit_grant_settings': {'key': 'implicitGrantSettings', 'type': 'MicrosoftGraphImplicitGrantSettings'},
         'logout_url': {'key': 'logoutUrl', 'type': 'str'},
         'redirect_uris': {'key': 'redirectUris', 'type': '[str]'},
     }
@@ -2715,7 +2715,7 @@ class microsoftgraphwebapplication(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphwebapplication, self).__init__(**kwargs)
+        super(MicrosoftGraphWebApplication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.home_page_url = kwargs.get('home_page_url', None)
         self.implicit_grant_settings = kwargs.get('implicit_grant_settings', None)
@@ -2723,8 +2723,8 @@ class microsoftgraphwebapplication(msrest.serialization.Model):
         self.redirect_uris = kwargs.get('redirect_uris', None)
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2732,7 +2732,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~applications.models.odataerrormain
+    :type error: ~applications.models.OdataErrorMain
     """
 
     _validation = {
@@ -2741,20 +2741,20 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2785,15 +2785,15 @@ class odataerrordetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -2807,7 +2807,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~applications.models.odataerrordetail]
+    :type details: list[~applications.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -2822,7 +2822,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -2830,7 +2830,7 @@ class odataerrormain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
@@ -2839,32 +2839,32 @@ class odataerrormain(msrest.serialization.Model):
         self.innererror = kwargs.get('innererror', None)
 
 
-class paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema.
+class Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param password_credential: passwordCredential.
-    :type password_credential: ~applications.models.microsoftgraphpasswordcredential
+    :type password_credential: ~applications.models.MicrosoftGraphPasswordCredential
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'password_credential': {'key': 'passwordCredential', 'type': 'microsoftgraphpasswordcredential'},
+        'password_credential': {'key': 'passwordCredential', 'type': 'MicrosoftGraphPasswordCredential'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.password_credential = kwargs.get('password_credential', None)
 
 
-class paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema.
+class Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2885,30 +2885,30 @@ class paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontenta
         self,
         **kwargs
     ):
-        super(paths15ykyvsserviceprincipalsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths15YkyvsServiceprincipalsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.ids = kwargs.get('ids', None)
         self.types = kwargs.get('types', None)
 
 
-class paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema.
+class Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param key_credential: keyCredential.
-    :type key_credential: ~applications.models.microsoftgraphkeycredential
+    :type key_credential: ~applications.models.MicrosoftGraphKeyCredential
     :param password_credential: passwordCredential.
-    :type password_credential: ~applications.models.microsoftgraphpasswordcredential
+    :type password_credential: ~applications.models.MicrosoftGraphPasswordCredential
     :param proof:
     :type proof: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'key_credential': {'key': 'keyCredential', 'type': 'microsoftgraphkeycredential'},
-        'password_credential': {'key': 'passwordCredential', 'type': 'microsoftgraphpasswordcredential'},
+        'key_credential': {'key': 'keyCredential', 'type': 'MicrosoftGraphKeyCredential'},
+        'password_credential': {'key': 'passwordCredential', 'type': 'MicrosoftGraphPasswordCredential'},
         'proof': {'key': 'proof', 'type': 'str'},
     }
 
@@ -2916,15 +2916,15 @@ class paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodyco
         self,
         **kwargs
     ):
-        super(paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_credential = kwargs.get('key_credential', None)
         self.password_credential = kwargs.get('password_credential', None)
         self.proof = kwargs.get('proof', None)
 
 
-class paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema.
+class Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2942,13 +2942,13 @@ class paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergrou
         self,
         **kwargs
     ):
-        super(paths1850388serviceprincipalsserviceprincipalidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1850388ServiceprincipalsServiceprincipalIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.security_enabled_only = kwargs.get('security_enabled_only', False)
 
 
-class paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema.
+class Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2966,13 +2966,13 @@ class paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequ
         self,
         **kwargs
     ):
-        super(paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.security_enabled_only = kwargs.get('security_enabled_only', False)
 
 
-class paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema.
+class Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -2990,13 +2990,13 @@ class paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberob
         self,
         **kwargs
     ):
-        super(paths1ffhl47serviceprincipalsserviceprincipalidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Ffhl47ServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.ids = kwargs.get('ids', None)
 
 
-class paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema.
+class Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3017,14 +3017,14 @@ class paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplic
         self,
         **kwargs
     ):
-        super(paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.ids = kwargs.get('ids', None)
         self.types = kwargs.get('types', None)
 
 
-class paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema.
+class Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3042,13 +3042,13 @@ class paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostre
         self,
         **kwargs
     ):
-        super(paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.group_ids = kwargs.get('group_ids', None)
 
 
-class paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema.
+class Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3066,13 +3066,13 @@ class paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswor
         self,
         **kwargs
     ):
-        super(paths1idoj4gserviceprincipalsserviceprincipalidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Idoj4GServiceprincipalsServiceprincipalIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_id = kwargs.get('key_id', None)
 
 
-class paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema.
+class Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3090,13 +3090,13 @@ class paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostr
         self,
         **kwargs
     ):
-        super(paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.ids = kwargs.get('ids', None)
 
 
-class paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema.
+class Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3114,13 +3114,13 @@ class paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobje
         self,
         **kwargs
     ):
-        super(paths1md6pmhserviceprincipalsserviceprincipalidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Md6PmhServiceprincipalsServiceprincipalIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.security_enabled_only = kwargs.get('security_enabled_only', False)
 
 
-class paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema.
+class Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3138,13 +3138,13 @@ class paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostr
         self,
         **kwargs
     ):
-        super(paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_synced_from_on_premises = kwargs.get('is_synced_from_on_premises', False)
 
 
-class paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema.
+class Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3165,14 +3165,14 @@ class paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypost
         self,
         **kwargs
     ):
-        super(paths1uhuhlbserviceprincipalsserviceprincipalidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1UhuhlbServiceprincipalsServiceprincipalIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_id = kwargs.get('key_id', None)
         self.proof = kwargs.get('proof', None)
 
 
-class pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema.
+class PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3190,13 +3190,13 @@ class pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiesp
         self,
         **kwargs
     ):
-        super(pathsgo2t4hserviceprincipalsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsGo2T4HServiceprincipalsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_synced_from_on_premises = kwargs.get('is_synced_from_on_premises', False)
 
 
-class pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema.
+class PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3214,13 +3214,13 @@ class pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostreques
         self,
         **kwargs
     ):
-        super(pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_id = kwargs.get('key_id', None)
 
 
-class pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema.
+class PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3241,38 +3241,38 @@ class pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbody
         self,
         **kwargs
     ):
-        super(pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_id = kwargs.get('key_id', None)
         self.proof = kwargs.get('proof', None)
 
 
-class pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema.
+class PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param password_credential: passwordCredential.
-    :type password_credential: ~applications.models.microsoftgraphpasswordcredential
+    :type password_credential: ~applications.models.MicrosoftGraphPasswordCredential
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'password_credential': {'key': 'passwordCredential', 'type': 'microsoftgraphpasswordcredential'},
+        'password_credential': {'key': 'passwordCredential', 'type': 'MicrosoftGraphPasswordCredential'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(pathsieboplserviceprincipalsserviceprincipalidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsIeboplServiceprincipalsServiceprincipalIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.password_credential = kwargs.get('password_credential', None)
 
 
-class pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema.
+class PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3290,29 +3290,29 @@ class pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequ
         self,
         **kwargs
     ):
-        super(pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.security_enabled_only = kwargs.get('security_enabled_only', False)
 
 
-class pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema.
+class PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param key_credential: keyCredential.
-    :type key_credential: ~applications.models.microsoftgraphkeycredential
+    :type key_credential: ~applications.models.MicrosoftGraphKeyCredential
     :param password_credential: passwordCredential.
-    :type password_credential: ~applications.models.microsoftgraphpasswordcredential
+    :type password_credential: ~applications.models.MicrosoftGraphPasswordCredential
     :param proof:
     :type proof: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'key_credential': {'key': 'keyCredential', 'type': 'microsoftgraphkeycredential'},
-        'password_credential': {'key': 'passwordCredential', 'type': 'microsoftgraphpasswordcredential'},
+        'key_credential': {'key': 'keyCredential', 'type': 'MicrosoftGraphKeyCredential'},
+        'password_credential': {'key': 'passwordCredential', 'type': 'MicrosoftGraphPasswordCredential'},
         'proof': {'key': 'proof', 'type': 'str'},
     }
 
@@ -3320,15 +3320,15 @@ class pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequ
         self,
         **kwargs
     ):
-        super(pathsn3fx9gserviceprincipalsserviceprincipalidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsN3Fx9GServiceprincipalsServiceprincipalIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.key_credential = kwargs.get('key_credential', None)
         self.password_credential = kwargs.get('password_credential', None)
         self.proof = kwargs.get('proof', None)
 
 
-class pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema.
+class PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3346,13 +3346,13 @@ class pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergro
         self,
         **kwargs
     ):
-        super(pathso5kx2yserviceprincipalsserviceprincipalidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsO5Kx2YServiceprincipalsServiceprincipalIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.group_ids = kwargs.get('group_ids', None)
 
 
-class pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema.
+class PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3379,7 +3379,7 @@ class pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycont
         self,
         **kwargs
     ):
-        super(pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.entity_type = kwargs.get('entity_type', None)
         self.display_name = kwargs.get('display_name', None)
@@ -3387,8 +3387,8 @@ class pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycont
         self.on_behalf_of_user_id = kwargs.get('on_behalf_of_user_id', None)
 
 
-class pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema.
+class PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -3415,7 +3415,7 @@ class pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbod
         self,
         **kwargs
     ):
-        super(pathsyq15m4serviceprincipalsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsYq15M4ServiceprincipalsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.entity_type = kwargs.get('entity_type', None)
         self.display_name = kwargs.get('display_name', None)

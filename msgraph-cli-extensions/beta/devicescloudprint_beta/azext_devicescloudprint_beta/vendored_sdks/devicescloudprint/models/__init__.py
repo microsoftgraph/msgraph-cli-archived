@@ -7,151 +7,151 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionoflinksofprintconnector
-    from ._models_py3 import collectionoflinksofprintershare
-    from ._models_py3 import collectionofprintconnector
-    from ._models_py3 import collectionofprintconnector0
-    from ._models_py3 import collectionofprinter
-    from ._models_py3 import collectionofprintershare
-    from ._models_py3 import collectionofprintershare0
-    from ._models_py3 import collectionofprintershare1
-    from ._models_py3 import collectionofprintidentity
-    from ._models_py3 import collectionofprintidentity0
-    from ._models_py3 import collectionofprintidentity1
-    from ._models_py3 import collectionofprintoperation
-    from ._models_py3 import collectionofprintservice
-    from ._models_py3 import collectionofprintserviceendpoint
-    from ._models_py3 import collectionofprinttask
-    from ._models_py3 import collectionofprinttaskdefinition
-    from ._models_py3 import collectionofprinttasktrigger
-    from ._models_py3 import collectionofprintuseridentity
-    from ._models_py3 import collectionofprintuseridentity0
-    from ._models_py3 import collectionofprintuseridentity1
-    from ._models_py3 import collectionofreportroot
-    from ._models_py3 import microsoftgraphappidentity
-    from ._models_py3 import microsoftgraphapplicationsignindetailedsummary
-    from ._models_py3 import microsoftgrapharchivedprintjob
-    from ._models_py3 import microsoftgraphcredentialuserregistrationdetails
-    from ._models_py3 import microsoftgraphdevicehealth
-    from ._models_py3 import microsoftgraphdirectoryobject
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphgroupprintusagesummary
-    from ._models_py3 import microsoftgraphidentity
-    from ._models_py3 import microsoftgraphintegerrange
-    from ._models_py3 import microsoftgraphoverallprintusagesummary
-    from ._models_py3 import microsoftgraphprint
-    from ._models_py3 import microsoftgraphprintcertificatesigningrequest
-    from ._models_py3 import microsoftgraphprintconnector
-    from ._models_py3 import microsoftgraphprintdocument
-    from ._models_py3 import microsoftgraphprinter
-    from ._models_py3 import microsoftgraphprinterbase
-    from ._models_py3 import microsoftgraphprintercapabilities
-    from ._models_py3 import microsoftgraphprinterdefaults
-    from ._models_py3 import microsoftgraphprinterdocumentconfiguration
-    from ._models_py3 import microsoftgraphprinterlocation
-    from ._models_py3 import microsoftgraphprintershare
-    from ._models_py3 import microsoftgraphprinterstatus
-    from ._models_py3 import microsoftgraphprinterusagesummary
-    from ._models_py3 import microsoftgraphprintidentity
-    from ._models_py3 import microsoftgraphprintjob
-    from ._models_py3 import microsoftgraphprintjobconfiguration
-    from ._models_py3 import microsoftgraphprintjobstatus
-    from ._models_py3 import microsoftgraphprintmargin
-    from ._models_py3 import microsoftgraphprintoperation
-    from ._models_py3 import microsoftgraphprintoperationstatus
-    from ._models_py3 import microsoftgraphprintservice
-    from ._models_py3 import microsoftgraphprintserviceendpoint
-    from ._models_py3 import microsoftgraphprintsettings
-    from ._models_py3 import microsoftgraphprinttask
-    from ._models_py3 import microsoftgraphprinttaskdefinition
-    from ._models_py3 import microsoftgraphprinttaskstatus
-    from ._models_py3 import microsoftgraphprinttasktrigger
-    from ._models_py3 import microsoftgraphprintusagesummary
-    from ._models_py3 import microsoftgraphprintusagesummarybyprinter
-    from ._models_py3 import microsoftgraphprintusagesummarybyuser
-    from ._models_py3 import microsoftgraphprintuseridentity
-    from ._models_py3 import microsoftgraphreportroot
-    from ._models_py3 import microsoftgraphsigninstatus
-    from ._models_py3 import microsoftgraphusercredentialusagedetails
-    from ._models_py3 import microsoftgraphuseridentity
-    from ._models_py3 import microsoftgraphuserprintusagesummary
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
-    from ._models_py3 import paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import CollectionOfLinksOfPrintConnector
+    from ._models_py3 import CollectionOfLinksOfPrinterShare
+    from ._models_py3 import CollectionOfPrintConnector
+    from ._models_py3 import CollectionOfPrintConnector0
+    from ._models_py3 import CollectionOfPrintIdentity
+    from ._models_py3 import CollectionOfPrintIdentity0
+    from ._models_py3 import CollectionOfPrintIdentity1
+    from ._models_py3 import CollectionOfPrintOperation
+    from ._models_py3 import CollectionOfPrintService
+    from ._models_py3 import CollectionOfPrintServiceEndpoint
+    from ._models_py3 import CollectionOfPrintTask
+    from ._models_py3 import CollectionOfPrintTaskDefinition
+    from ._models_py3 import CollectionOfPrintTaskTrigger
+    from ._models_py3 import CollectionOfPrintUserIdentity
+    from ._models_py3 import CollectionOfPrintUserIdentity0
+    from ._models_py3 import CollectionOfPrintUserIdentity1
+    from ._models_py3 import CollectionOfPrinter
+    from ._models_py3 import CollectionOfPrinterShare
+    from ._models_py3 import CollectionOfPrinterShare0
+    from ._models_py3 import CollectionOfPrinterShare1
+    from ._models_py3 import CollectionOfReportRoot
+    from ._models_py3 import MicrosoftGraphAppIdentity
+    from ._models_py3 import MicrosoftGraphApplicationSignInDetailedSummary
+    from ._models_py3 import MicrosoftGraphArchivedPrintJob
+    from ._models_py3 import MicrosoftGraphCredentialUserRegistrationDetails
+    from ._models_py3 import MicrosoftGraphDeviceHealth
+    from ._models_py3 import MicrosoftGraphDirectoryObject
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphGroupPrintUsageSummary
+    from ._models_py3 import MicrosoftGraphIdentity
+    from ._models_py3 import MicrosoftGraphIntegerRange
+    from ._models_py3 import MicrosoftGraphOverallPrintUsageSummary
+    from ._models_py3 import MicrosoftGraphPrint
+    from ._models_py3 import MicrosoftGraphPrintCertificateSigningRequest
+    from ._models_py3 import MicrosoftGraphPrintConnector
+    from ._models_py3 import MicrosoftGraphPrintDocument
+    from ._models_py3 import MicrosoftGraphPrintIdentity
+    from ._models_py3 import MicrosoftGraphPrintJob
+    from ._models_py3 import MicrosoftGraphPrintJobConfiguration
+    from ._models_py3 import MicrosoftGraphPrintJobStatus
+    from ._models_py3 import MicrosoftGraphPrintMargin
+    from ._models_py3 import MicrosoftGraphPrintOperation
+    from ._models_py3 import MicrosoftGraphPrintOperationStatus
+    from ._models_py3 import MicrosoftGraphPrintService
+    from ._models_py3 import MicrosoftGraphPrintServiceEndpoint
+    from ._models_py3 import MicrosoftGraphPrintSettings
+    from ._models_py3 import MicrosoftGraphPrintTask
+    from ._models_py3 import MicrosoftGraphPrintTaskDefinition
+    from ._models_py3 import MicrosoftGraphPrintTaskStatus
+    from ._models_py3 import MicrosoftGraphPrintTaskTrigger
+    from ._models_py3 import MicrosoftGraphPrintUsageSummary
+    from ._models_py3 import MicrosoftGraphPrintUsageSummaryByPrinter
+    from ._models_py3 import MicrosoftGraphPrintUsageSummaryByUser
+    from ._models_py3 import MicrosoftGraphPrintUserIdentity
+    from ._models_py3 import MicrosoftGraphPrinter
+    from ._models_py3 import MicrosoftGraphPrinterBase
+    from ._models_py3 import MicrosoftGraphPrinterCapabilities
+    from ._models_py3 import MicrosoftGraphPrinterDefaults
+    from ._models_py3 import MicrosoftGraphPrinterDocumentConfiguration
+    from ._models_py3 import MicrosoftGraphPrinterLocation
+    from ._models_py3 import MicrosoftGraphPrinterShare
+    from ._models_py3 import MicrosoftGraphPrinterStatus
+    from ._models_py3 import MicrosoftGraphPrinterUsageSummary
+    from ._models_py3 import MicrosoftGraphReportRoot
+    from ._models_py3 import MicrosoftGraphSignInStatus
+    from ._models_py3 import MicrosoftGraphUserCredentialUsageDetails
+    from ._models_py3 import MicrosoftGraphUserIdentity
+    from ._models_py3 import MicrosoftGraphUserPrintUsageSummary
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
-    from ._models import collectionoflinksofprintconnector  # type: ignore
-    from ._models import collectionoflinksofprintershare  # type: ignore
-    from ._models import collectionofprintconnector  # type: ignore
-    from ._models import collectionofprintconnector0  # type: ignore
-    from ._models import collectionofprinter  # type: ignore
-    from ._models import collectionofprintershare  # type: ignore
-    from ._models import collectionofprintershare0  # type: ignore
-    from ._models import collectionofprintershare1  # type: ignore
-    from ._models import collectionofprintidentity  # type: ignore
-    from ._models import collectionofprintidentity0  # type: ignore
-    from ._models import collectionofprintidentity1  # type: ignore
-    from ._models import collectionofprintoperation  # type: ignore
-    from ._models import collectionofprintservice  # type: ignore
-    from ._models import collectionofprintserviceendpoint  # type: ignore
-    from ._models import collectionofprinttask  # type: ignore
-    from ._models import collectionofprinttaskdefinition  # type: ignore
-    from ._models import collectionofprinttasktrigger  # type: ignore
-    from ._models import collectionofprintuseridentity  # type: ignore
-    from ._models import collectionofprintuseridentity0  # type: ignore
-    from ._models import collectionofprintuseridentity1  # type: ignore
-    from ._models import collectionofreportroot  # type: ignore
-    from ._models import microsoftgraphappidentity  # type: ignore
-    from ._models import microsoftgraphapplicationsignindetailedsummary  # type: ignore
-    from ._models import microsoftgrapharchivedprintjob  # type: ignore
-    from ._models import microsoftgraphcredentialuserregistrationdetails  # type: ignore
-    from ._models import microsoftgraphdevicehealth  # type: ignore
-    from ._models import microsoftgraphdirectoryobject  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphgroupprintusagesummary  # type: ignore
-    from ._models import microsoftgraphidentity  # type: ignore
-    from ._models import microsoftgraphintegerrange  # type: ignore
-    from ._models import microsoftgraphoverallprintusagesummary  # type: ignore
-    from ._models import microsoftgraphprint  # type: ignore
-    from ._models import microsoftgraphprintcertificatesigningrequest  # type: ignore
-    from ._models import microsoftgraphprintconnector  # type: ignore
-    from ._models import microsoftgraphprintdocument  # type: ignore
-    from ._models import microsoftgraphprinter  # type: ignore
-    from ._models import microsoftgraphprinterbase  # type: ignore
-    from ._models import microsoftgraphprintercapabilities  # type: ignore
-    from ._models import microsoftgraphprinterdefaults  # type: ignore
-    from ._models import microsoftgraphprinterdocumentconfiguration  # type: ignore
-    from ._models import microsoftgraphprinterlocation  # type: ignore
-    from ._models import microsoftgraphprintershare  # type: ignore
-    from ._models import microsoftgraphprinterstatus  # type: ignore
-    from ._models import microsoftgraphprinterusagesummary  # type: ignore
-    from ._models import microsoftgraphprintidentity  # type: ignore
-    from ._models import microsoftgraphprintjob  # type: ignore
-    from ._models import microsoftgraphprintjobconfiguration  # type: ignore
-    from ._models import microsoftgraphprintjobstatus  # type: ignore
-    from ._models import microsoftgraphprintmargin  # type: ignore
-    from ._models import microsoftgraphprintoperation  # type: ignore
-    from ._models import microsoftgraphprintoperationstatus  # type: ignore
-    from ._models import microsoftgraphprintservice  # type: ignore
-    from ._models import microsoftgraphprintserviceendpoint  # type: ignore
-    from ._models import microsoftgraphprintsettings  # type: ignore
-    from ._models import microsoftgraphprinttask  # type: ignore
-    from ._models import microsoftgraphprinttaskdefinition  # type: ignore
-    from ._models import microsoftgraphprinttaskstatus  # type: ignore
-    from ._models import microsoftgraphprinttasktrigger  # type: ignore
-    from ._models import microsoftgraphprintusagesummary  # type: ignore
-    from ._models import microsoftgraphprintusagesummarybyprinter  # type: ignore
-    from ._models import microsoftgraphprintusagesummarybyuser  # type: ignore
-    from ._models import microsoftgraphprintuseridentity  # type: ignore
-    from ._models import microsoftgraphreportroot  # type: ignore
-    from ._models import microsoftgraphsigninstatus  # type: ignore
-    from ._models import microsoftgraphusercredentialusagedetails  # type: ignore
-    from ._models import microsoftgraphuseridentity  # type: ignore
-    from ._models import microsoftgraphuserprintusagesummary  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
-    from ._models import paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import CollectionOfLinksOfPrintConnector  # type: ignore
+    from ._models import CollectionOfLinksOfPrinterShare  # type: ignore
+    from ._models import CollectionOfPrintConnector  # type: ignore
+    from ._models import CollectionOfPrintConnector0  # type: ignore
+    from ._models import CollectionOfPrintIdentity  # type: ignore
+    from ._models import CollectionOfPrintIdentity0  # type: ignore
+    from ._models import CollectionOfPrintIdentity1  # type: ignore
+    from ._models import CollectionOfPrintOperation  # type: ignore
+    from ._models import CollectionOfPrintService  # type: ignore
+    from ._models import CollectionOfPrintServiceEndpoint  # type: ignore
+    from ._models import CollectionOfPrintTask  # type: ignore
+    from ._models import CollectionOfPrintTaskDefinition  # type: ignore
+    from ._models import CollectionOfPrintTaskTrigger  # type: ignore
+    from ._models import CollectionOfPrintUserIdentity  # type: ignore
+    from ._models import CollectionOfPrintUserIdentity0  # type: ignore
+    from ._models import CollectionOfPrintUserIdentity1  # type: ignore
+    from ._models import CollectionOfPrinter  # type: ignore
+    from ._models import CollectionOfPrinterShare  # type: ignore
+    from ._models import CollectionOfPrinterShare0  # type: ignore
+    from ._models import CollectionOfPrinterShare1  # type: ignore
+    from ._models import CollectionOfReportRoot  # type: ignore
+    from ._models import MicrosoftGraphAppIdentity  # type: ignore
+    from ._models import MicrosoftGraphApplicationSignInDetailedSummary  # type: ignore
+    from ._models import MicrosoftGraphArchivedPrintJob  # type: ignore
+    from ._models import MicrosoftGraphCredentialUserRegistrationDetails  # type: ignore
+    from ._models import MicrosoftGraphDeviceHealth  # type: ignore
+    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphGroupPrintUsageSummary  # type: ignore
+    from ._models import MicrosoftGraphIdentity  # type: ignore
+    from ._models import MicrosoftGraphIntegerRange  # type: ignore
+    from ._models import MicrosoftGraphOverallPrintUsageSummary  # type: ignore
+    from ._models import MicrosoftGraphPrint  # type: ignore
+    from ._models import MicrosoftGraphPrintCertificateSigningRequest  # type: ignore
+    from ._models import MicrosoftGraphPrintConnector  # type: ignore
+    from ._models import MicrosoftGraphPrintDocument  # type: ignore
+    from ._models import MicrosoftGraphPrintIdentity  # type: ignore
+    from ._models import MicrosoftGraphPrintJob  # type: ignore
+    from ._models import MicrosoftGraphPrintJobConfiguration  # type: ignore
+    from ._models import MicrosoftGraphPrintJobStatus  # type: ignore
+    from ._models import MicrosoftGraphPrintMargin  # type: ignore
+    from ._models import MicrosoftGraphPrintOperation  # type: ignore
+    from ._models import MicrosoftGraphPrintOperationStatus  # type: ignore
+    from ._models import MicrosoftGraphPrintService  # type: ignore
+    from ._models import MicrosoftGraphPrintServiceEndpoint  # type: ignore
+    from ._models import MicrosoftGraphPrintSettings  # type: ignore
+    from ._models import MicrosoftGraphPrintTask  # type: ignore
+    from ._models import MicrosoftGraphPrintTaskDefinition  # type: ignore
+    from ._models import MicrosoftGraphPrintTaskStatus  # type: ignore
+    from ._models import MicrosoftGraphPrintTaskTrigger  # type: ignore
+    from ._models import MicrosoftGraphPrintUsageSummary  # type: ignore
+    from ._models import MicrosoftGraphPrintUsageSummaryByPrinter  # type: ignore
+    from ._models import MicrosoftGraphPrintUsageSummaryByUser  # type: ignore
+    from ._models import MicrosoftGraphPrintUserIdentity  # type: ignore
+    from ._models import MicrosoftGraphPrinter  # type: ignore
+    from ._models import MicrosoftGraphPrinterBase  # type: ignore
+    from ._models import MicrosoftGraphPrinterCapabilities  # type: ignore
+    from ._models import MicrosoftGraphPrinterDefaults  # type: ignore
+    from ._models import MicrosoftGraphPrinterDocumentConfiguration  # type: ignore
+    from ._models import MicrosoftGraphPrinterLocation  # type: ignore
+    from ._models import MicrosoftGraphPrinterShare  # type: ignore
+    from ._models import MicrosoftGraphPrinterStatus  # type: ignore
+    from ._models import MicrosoftGraphPrinterUsageSummary  # type: ignore
+    from ._models import MicrosoftGraphReportRoot  # type: ignore
+    from ._models import MicrosoftGraphSignInStatus  # type: ignore
+    from ._models import MicrosoftGraphUserCredentialUsageDetails  # type: ignore
+    from ._models import MicrosoftGraphUserIdentity  # type: ignore
+    from ._models import MicrosoftGraphUserPrintUsageSummary  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._devices_cloud_print_enums import (
     Enum100,
@@ -238,109 +238,109 @@ from ._devices_cloud_print_enums import (
     Enum97,
     Enum98,
     Enum99,
-    Get0itemsitem,
-    Get1itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Microsoftgraphfeaturetype,
-    Microsoftgraphprintcolorconfiguration,
-    Microsoftgraphprintcolormode,
-    Microsoftgraphprintduplexconfiguration,
-    Microsoftgraphprintduplexmode,
-    Microsoftgraphprinterfeeddirection,
-    Microsoftgraphprinterfeedorientation,
-    Microsoftgraphprinterprocessingstate,
-    Microsoftgraphprinterprocessingstatedetail,
-    Microsoftgraphprinterprocessingstatereason,
-    Microsoftgraphprintevent,
-    Microsoftgraphprintfinishing,
-    Microsoftgraphprintjobprocessingstate,
-    Microsoftgraphprintjobstatedetail,
-    Microsoftgraphprintmediatype,
-    Microsoftgraphprintmultipagelayout,
-    Microsoftgraphprintoperationprocessingstate,
-    Microsoftgraphprintorientation,
-    Microsoftgraphprintpresentationdirection,
-    Microsoftgraphprintquality,
-    Microsoftgraphprintscaling,
-    Microsoftgraphprinttaskprocessingstate,
-    Microsoftgraphregistrationauthmethod,
-    Microsoftgraphusageauthmethod,
+    Get0ItemsItem,
+    Get1ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    MicrosoftGraphFeatureType,
+    MicrosoftGraphPrintColorConfiguration,
+    MicrosoftGraphPrintColorMode,
+    MicrosoftGraphPrintDuplexConfiguration,
+    MicrosoftGraphPrintDuplexMode,
+    MicrosoftGraphPrintEvent,
+    MicrosoftGraphPrintFinishing,
+    MicrosoftGraphPrintJobProcessingState,
+    MicrosoftGraphPrintJobStateDetail,
+    MicrosoftGraphPrintMediaType,
+    MicrosoftGraphPrintMultipageLayout,
+    MicrosoftGraphPrintOperationProcessingState,
+    MicrosoftGraphPrintOrientation,
+    MicrosoftGraphPrintPresentationDirection,
+    MicrosoftGraphPrintQuality,
+    MicrosoftGraphPrintScaling,
+    MicrosoftGraphPrintTaskProcessingState,
+    MicrosoftGraphPrinterFeedDirection,
+    MicrosoftGraphPrinterFeedOrientation,
+    MicrosoftGraphPrinterProcessingState,
+    MicrosoftGraphPrinterProcessingStateDetail,
+    MicrosoftGraphPrinterProcessingStateReason,
+    MicrosoftGraphRegistrationAuthMethod,
+    MicrosoftGraphUsageAuthMethod,
 )
 
 __all__ = [
-    'collectionoflinksofprintconnector',
-    'collectionoflinksofprintershare',
-    'collectionofprintconnector',
-    'collectionofprintconnector0',
-    'collectionofprinter',
-    'collectionofprintershare',
-    'collectionofprintershare0',
-    'collectionofprintershare1',
-    'collectionofprintidentity',
-    'collectionofprintidentity0',
-    'collectionofprintidentity1',
-    'collectionofprintoperation',
-    'collectionofprintservice',
-    'collectionofprintserviceendpoint',
-    'collectionofprinttask',
-    'collectionofprinttaskdefinition',
-    'collectionofprinttasktrigger',
-    'collectionofprintuseridentity',
-    'collectionofprintuseridentity0',
-    'collectionofprintuseridentity1',
-    'collectionofreportroot',
-    'microsoftgraphappidentity',
-    'microsoftgraphapplicationsignindetailedsummary',
-    'microsoftgrapharchivedprintjob',
-    'microsoftgraphcredentialuserregistrationdetails',
-    'microsoftgraphdevicehealth',
-    'microsoftgraphdirectoryobject',
-    'microsoftgraphentity',
-    'microsoftgraphgroupprintusagesummary',
-    'microsoftgraphidentity',
-    'microsoftgraphintegerrange',
-    'microsoftgraphoverallprintusagesummary',
-    'microsoftgraphprint',
-    'microsoftgraphprintcertificatesigningrequest',
-    'microsoftgraphprintconnector',
-    'microsoftgraphprintdocument',
-    'microsoftgraphprinter',
-    'microsoftgraphprinterbase',
-    'microsoftgraphprintercapabilities',
-    'microsoftgraphprinterdefaults',
-    'microsoftgraphprinterdocumentconfiguration',
-    'microsoftgraphprinterlocation',
-    'microsoftgraphprintershare',
-    'microsoftgraphprinterstatus',
-    'microsoftgraphprinterusagesummary',
-    'microsoftgraphprintidentity',
-    'microsoftgraphprintjob',
-    'microsoftgraphprintjobconfiguration',
-    'microsoftgraphprintjobstatus',
-    'microsoftgraphprintmargin',
-    'microsoftgraphprintoperation',
-    'microsoftgraphprintoperationstatus',
-    'microsoftgraphprintservice',
-    'microsoftgraphprintserviceendpoint',
-    'microsoftgraphprintsettings',
-    'microsoftgraphprinttask',
-    'microsoftgraphprinttaskdefinition',
-    'microsoftgraphprinttaskstatus',
-    'microsoftgraphprinttasktrigger',
-    'microsoftgraphprintusagesummary',
-    'microsoftgraphprintusagesummarybyprinter',
-    'microsoftgraphprintusagesummarybyuser',
-    'microsoftgraphprintuseridentity',
-    'microsoftgraphreportroot',
-    'microsoftgraphsigninstatus',
-    'microsoftgraphusercredentialusagedetails',
-    'microsoftgraphuseridentity',
-    'microsoftgraphuserprintusagesummary',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
-    'paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema',
+    'CollectionOfLinksOfPrintConnector',
+    'CollectionOfLinksOfPrinterShare',
+    'CollectionOfPrintConnector',
+    'CollectionOfPrintConnector0',
+    'CollectionOfPrintIdentity',
+    'CollectionOfPrintIdentity0',
+    'CollectionOfPrintIdentity1',
+    'CollectionOfPrintOperation',
+    'CollectionOfPrintService',
+    'CollectionOfPrintServiceEndpoint',
+    'CollectionOfPrintTask',
+    'CollectionOfPrintTaskDefinition',
+    'CollectionOfPrintTaskTrigger',
+    'CollectionOfPrintUserIdentity',
+    'CollectionOfPrintUserIdentity0',
+    'CollectionOfPrintUserIdentity1',
+    'CollectionOfPrinter',
+    'CollectionOfPrinterShare',
+    'CollectionOfPrinterShare0',
+    'CollectionOfPrinterShare1',
+    'CollectionOfReportRoot',
+    'MicrosoftGraphAppIdentity',
+    'MicrosoftGraphApplicationSignInDetailedSummary',
+    'MicrosoftGraphArchivedPrintJob',
+    'MicrosoftGraphCredentialUserRegistrationDetails',
+    'MicrosoftGraphDeviceHealth',
+    'MicrosoftGraphDirectoryObject',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphGroupPrintUsageSummary',
+    'MicrosoftGraphIdentity',
+    'MicrosoftGraphIntegerRange',
+    'MicrosoftGraphOverallPrintUsageSummary',
+    'MicrosoftGraphPrint',
+    'MicrosoftGraphPrintCertificateSigningRequest',
+    'MicrosoftGraphPrintConnector',
+    'MicrosoftGraphPrintDocument',
+    'MicrosoftGraphPrintIdentity',
+    'MicrosoftGraphPrintJob',
+    'MicrosoftGraphPrintJobConfiguration',
+    'MicrosoftGraphPrintJobStatus',
+    'MicrosoftGraphPrintMargin',
+    'MicrosoftGraphPrintOperation',
+    'MicrosoftGraphPrintOperationStatus',
+    'MicrosoftGraphPrintService',
+    'MicrosoftGraphPrintServiceEndpoint',
+    'MicrosoftGraphPrintSettings',
+    'MicrosoftGraphPrintTask',
+    'MicrosoftGraphPrintTaskDefinition',
+    'MicrosoftGraphPrintTaskStatus',
+    'MicrosoftGraphPrintTaskTrigger',
+    'MicrosoftGraphPrintUsageSummary',
+    'MicrosoftGraphPrintUsageSummaryByPrinter',
+    'MicrosoftGraphPrintUsageSummaryByUser',
+    'MicrosoftGraphPrintUserIdentity',
+    'MicrosoftGraphPrinter',
+    'MicrosoftGraphPrinterBase',
+    'MicrosoftGraphPrinterCapabilities',
+    'MicrosoftGraphPrinterDefaults',
+    'MicrosoftGraphPrinterDocumentConfiguration',
+    'MicrosoftGraphPrinterLocation',
+    'MicrosoftGraphPrinterShare',
+    'MicrosoftGraphPrinterStatus',
+    'MicrosoftGraphPrinterUsageSummary',
+    'MicrosoftGraphReportRoot',
+    'MicrosoftGraphSignInStatus',
+    'MicrosoftGraphUserCredentialUsageDetails',
+    'MicrosoftGraphUserIdentity',
+    'MicrosoftGraphUserPrintUsageSummary',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
+    'Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema',
     'Enum100',
     'Enum101',
     'Enum102',
@@ -425,32 +425,32 @@ __all__ = [
     'Enum97',
     'Enum98',
     'Enum99',
-    'Get0itemsitem',
-    'Get1itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Microsoftgraphfeaturetype',
-    'Microsoftgraphprintcolorconfiguration',
-    'Microsoftgraphprintcolormode',
-    'Microsoftgraphprintduplexconfiguration',
-    'Microsoftgraphprintduplexmode',
-    'Microsoftgraphprinterfeeddirection',
-    'Microsoftgraphprinterfeedorientation',
-    'Microsoftgraphprinterprocessingstate',
-    'Microsoftgraphprinterprocessingstatedetail',
-    'Microsoftgraphprinterprocessingstatereason',
-    'Microsoftgraphprintevent',
-    'Microsoftgraphprintfinishing',
-    'Microsoftgraphprintjobprocessingstate',
-    'Microsoftgraphprintjobstatedetail',
-    'Microsoftgraphprintmediatype',
-    'Microsoftgraphprintmultipagelayout',
-    'Microsoftgraphprintoperationprocessingstate',
-    'Microsoftgraphprintorientation',
-    'Microsoftgraphprintpresentationdirection',
-    'Microsoftgraphprintquality',
-    'Microsoftgraphprintscaling',
-    'Microsoftgraphprinttaskprocessingstate',
-    'Microsoftgraphregistrationauthmethod',
-    'Microsoftgraphusageauthmethod',
+    'Get0ItemsItem',
+    'Get1ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'MicrosoftGraphFeatureType',
+    'MicrosoftGraphPrintColorConfiguration',
+    'MicrosoftGraphPrintColorMode',
+    'MicrosoftGraphPrintDuplexConfiguration',
+    'MicrosoftGraphPrintDuplexMode',
+    'MicrosoftGraphPrintEvent',
+    'MicrosoftGraphPrintFinishing',
+    'MicrosoftGraphPrintJobProcessingState',
+    'MicrosoftGraphPrintJobStateDetail',
+    'MicrosoftGraphPrintMediaType',
+    'MicrosoftGraphPrintMultipageLayout',
+    'MicrosoftGraphPrintOperationProcessingState',
+    'MicrosoftGraphPrintOrientation',
+    'MicrosoftGraphPrintPresentationDirection',
+    'MicrosoftGraphPrintQuality',
+    'MicrosoftGraphPrintScaling',
+    'MicrosoftGraphPrintTaskProcessingState',
+    'MicrosoftGraphPrinterFeedDirection',
+    'MicrosoftGraphPrinterFeedOrientation',
+    'MicrosoftGraphPrinterProcessingState',
+    'MicrosoftGraphPrinterProcessingStateDetail',
+    'MicrosoftGraphPrinterProcessingStateReason',
+    'MicrosoftGraphRegistrationAuthMethod',
+    'MicrosoftGraphUsageAuthMethod',
 ]

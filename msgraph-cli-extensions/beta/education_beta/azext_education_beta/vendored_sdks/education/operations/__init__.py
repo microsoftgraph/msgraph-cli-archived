@@ -6,54 +6,54 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._educationeducationroot_operations import educationeducationrootOperations
-from ._education_operations import educationOperations
-from ._educationclasses_operations import educationclassesOperations
-from ._educationclassesassignments_operations import educationclassesassignmentsOperations
-from ._educationclassesassignmentssubmissions_operations import educationclassesassignmentssubmissionsOperations
-from ._educationclassesmembers_operations import educationclassesmembersOperations
-from ._educationclassesschools_operations import educationclassesschoolsOperations
-from ._educationclassesteachers_operations import educationclassesteachersOperations
-from ._educationme_operations import educationmeOperations
-from ._educationmeassignments_operations import educationmeassignmentsOperations
-from ._educationmeassignmentssubmissions_operations import educationmeassignmentssubmissionsOperations
-from ._educationmeclasses_operations import educationmeclassesOperations
-from ._educationmeschools_operations import educationmeschoolsOperations
-from ._educationmetaughtclasses_operations import educationmetaughtclassesOperations
-from ._educationschools_operations import educationschoolsOperations
-from ._educationschoolsclasses_operations import educationschoolsclassesOperations
-from ._educationschoolsusers_operations import educationschoolsusersOperations
-from ._educationsynchronizationprofiles_operations import educationsynchronizationprofilesOperations
-from ._educationusers_operations import educationusersOperations
-from ._educationusersassignments_operations import educationusersassignmentsOperations
-from ._educationusersassignmentssubmissions_operations import educationusersassignmentssubmissionsOperations
-from ._educationusersclasses_operations import educationusersclassesOperations
-from ._educationusersschools_operations import educationusersschoolsOperations
-from ._educationuserstaughtclasses_operations import educationuserstaughtclassesOperations
+from ._education_education_root_operations import EducationEducationRootOperations
+from ._education_operations import EducationOperations
+from ._education_classes_operations import EducationClassesOperations
+from ._education_classes_assignments_operations import EducationClassesAssignmentsOperations
+from ._education_classes_assignments_submissions_operations import EducationClassesAssignmentsSubmissionsOperations
+from ._education_classes_members_operations import EducationClassesMembersOperations
+from ._education_classes_schools_operations import EducationClassesSchoolsOperations
+from ._education_classes_teachers_operations import EducationClassesTeachersOperations
+from ._education_me_operations import EducationMeOperations
+from ._education_me_assignments_operations import EducationMeAssignmentsOperations
+from ._education_me_assignments_submissions_operations import EducationMeAssignmentsSubmissionsOperations
+from ._education_me_classes_operations import EducationMeClassesOperations
+from ._education_me_schools_operations import EducationMeSchoolsOperations
+from ._education_me_taught_classes_operations import EducationMeTaughtClassesOperations
+from ._education_schools_operations import EducationSchoolsOperations
+from ._education_schools_classes_operations import EducationSchoolsClassesOperations
+from ._education_schools_users_operations import EducationSchoolsUsersOperations
+from ._education_synchronization_profiles_operations import EducationSynchronizationProfilesOperations
+from ._education_users_operations import EducationUsersOperations
+from ._education_users_assignments_operations import EducationUsersAssignmentsOperations
+from ._education_users_assignments_submissions_operations import EducationUsersAssignmentsSubmissionsOperations
+from ._education_users_classes_operations import EducationUsersClassesOperations
+from ._education_users_schools_operations import EducationUsersSchoolsOperations
+from ._education_users_taught_classes_operations import EducationUsersTaughtClassesOperations
 
 __all__ = [
-    'educationeducationrootOperations',
-    'educationOperations',
-    'educationclassesOperations',
-    'educationclassesassignmentsOperations',
-    'educationclassesassignmentssubmissionsOperations',
-    'educationclassesmembersOperations',
-    'educationclassesschoolsOperations',
-    'educationclassesteachersOperations',
-    'educationmeOperations',
-    'educationmeassignmentsOperations',
-    'educationmeassignmentssubmissionsOperations',
-    'educationmeclassesOperations',
-    'educationmeschoolsOperations',
-    'educationmetaughtclassesOperations',
-    'educationschoolsOperations',
-    'educationschoolsclassesOperations',
-    'educationschoolsusersOperations',
-    'educationsynchronizationprofilesOperations',
-    'educationusersOperations',
-    'educationusersassignmentsOperations',
-    'educationusersassignmentssubmissionsOperations',
-    'educationusersclassesOperations',
-    'educationusersschoolsOperations',
-    'educationuserstaughtclassesOperations',
+    'EducationEducationRootOperations',
+    'EducationOperations',
+    'EducationClassesOperations',
+    'EducationClassesAssignmentsOperations',
+    'EducationClassesAssignmentsSubmissionsOperations',
+    'EducationClassesMembersOperations',
+    'EducationClassesSchoolsOperations',
+    'EducationClassesTeachersOperations',
+    'EducationMeOperations',
+    'EducationMeAssignmentsOperations',
+    'EducationMeAssignmentsSubmissionsOperations',
+    'EducationMeClassesOperations',
+    'EducationMeSchoolsOperations',
+    'EducationMeTaughtClassesOperations',
+    'EducationSchoolsOperations',
+    'EducationSchoolsClassesOperations',
+    'EducationSchoolsUsersOperations',
+    'EducationSynchronizationProfilesOperations',
+    'EducationUsersOperations',
+    'EducationUsersAssignmentsOperations',
+    'EducationUsersAssignmentsSubmissionsOperations',
+    'EducationUsersClassesOperations',
+    'EducationUsersSchoolsOperations',
+    'EducationUsersTaughtClassesOperations',
 ]

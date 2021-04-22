@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -52,7 +53,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofscopedrolemembership1"]
+        # type: (...) -> Iterable["models.CollectionOfScopedRoleMembership1"]
         """Get scopedRoleMemberOf from users.
 
         Get scopedRoleMemberOf from users.
@@ -66,11 +67,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofscopedrolemembership1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.collectionofscopedrolemembership1]
+        :return: An iterator like instance of either CollectionOfScopedRoleMembership1 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfScopedRoleMembership1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofscopedrolemembership1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfScopedRoleMembership1"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofscopedrolemembership1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfScopedRoleMembership1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -143,10 +144,10 @@ class usersOperations(object):
     def create_scoped_role_member_of(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphscopedrolemembership"
+        body,  # type: "models.MicrosoftGraphScopedRoleMembership"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphscopedrolemembership"
+        # type: (...) -> "models.MicrosoftGraphScopedRoleMembership"
         """Create new navigation property to scopedRoleMemberOf for users.
 
         Create new navigation property to scopedRoleMemberOf for users.
@@ -154,13 +155,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphscopedrolemembership
+        :type body: ~identity_directory_management.models.MicrosoftGraphScopedRoleMembership
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphscopedrolemembership, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphscopedrolemembership
+        :return: MicrosoftGraphScopedRoleMembership, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphScopedRoleMembership
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphscopedrolemembership"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphScopedRoleMembership"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,7 +185,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphscopedrolemembership')
+        body_content = self._serialize.body(body, 'MicrosoftGraphScopedRoleMembership')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -192,10 +193,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphscopedrolemembership', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphScopedRoleMembership', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -211,7 +212,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphscopedrolemembership"
+        # type: (...) -> "models.MicrosoftGraphScopedRoleMembership"
         """Get scopedRoleMemberOf from users.
 
         Get scopedRoleMemberOf from users.
@@ -225,11 +226,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphscopedrolemembership, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphscopedrolemembership
+        :return: MicrosoftGraphScopedRoleMembership, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphScopedRoleMembership
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphscopedrolemembership"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphScopedRoleMembership"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -261,10 +262,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphscopedrolemembership', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphScopedRoleMembership', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -276,7 +277,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         scoped_role_membership_id,  # type: str
-        body,  # type: "models.microsoftgraphscopedrolemembership"
+        body,  # type: "models.MicrosoftGraphScopedRoleMembership"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -289,7 +290,7 @@ class usersOperations(object):
         :param scoped_role_membership_id: key: id of scopedRoleMembership.
         :type scoped_role_membership_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphscopedrolemembership
+        :type body: ~identity_directory_management.models.MicrosoftGraphScopedRoleMembership
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -320,7 +321,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphscopedrolemembership')
+        body_content = self._serialize.body(body, 'MicrosoftGraphScopedRoleMembership')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -328,8 +329,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -389,8 +390,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -22,13 +22,13 @@ def cf_user(cli_ctx, *_):
     return cf_personalcontacts_v1_0_cl(cli_ctx).users
 
 
-def cf_userscontactfolder(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).userscontactfolders
+def cf_user_contact_folder(cli_ctx, *_):
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contact_folders
 
 
-def cf_userscontactfolderscontact(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).userscontactfolderscontacts
+def cf_user_contact_folder_contact(cli_ctx, *_):
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contact_folders_contacts
 
 
-def cf_userscontact(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).userscontacts
+def cf_user_contact(cli_ctx, *_):
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contacts

@@ -17,19 +17,19 @@ helps['financials_beta'] = '''
     short-summary: Manage Financials
 '''
 
-helps['financials financialsfinancial'] = """
+helps['financials financial'] = """
     type: group
-    short-summary: Manage financialsfinancial with financials_beta
+    short-summary: Manage financial financial with financials_beta
 """
 
-helps['financials financialsfinancial show-financial'] = """
-    type: command
-    short-summary: "Get financials."
-"""
-
-helps['financials financialsfinancial update-financial'] = """
+helps['financials financial create'] = """
     type: command
     short-summary: "Update financials."
+"""
+
+helps['financials financial show-financial'] = """
+    type: command
+    short-summary: "Get financials."
 """
 
 helps['financials financial'] = """
@@ -40,6 +40,111 @@ helps['financials financial'] = """
 helps['financials financial create-company'] = """
     type: command
     short-summary: "Create new navigation property to companies for financials."
+    parameters:
+      - name: --accounts
+        long-summary: |
+            Usage: --accounts blocked=XX category=XX display-name=XX last-modified-date-time=XX number=XX \
+sub-category=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --accounts argument.
+      - name: --aged-accounts-payable
+        long-summary: |
+            Usage: --aged-accounts-payable aged-as-of-date=XX balance-due=XX currency-code=XX current-amount=XX \
+name=XX period1-amount=XX period2-amount=XX period3-amount=XX period-length-filter=XX vendor-number=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --aged-accounts-payable argument.
+      - name: --aged-accounts-receivable
+        long-summary: |
+            Usage: --aged-accounts-receivable aged-as-of-date=XX balance-due=XX currency-code=XX current-amount=XX \
+customer-number=XX name=XX period1-amount=XX period2-amount=XX period3-amount=XX period-length-filter=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --aged-accounts-receivable argument.
+      - name: --countries-regions
+        long-summary: |
+            Usage: --countries-regions address-format=XX code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --countries-regions argument.
+      - name: --currencies
+        long-summary: |
+            Usage: --currencies amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --currencies argument.
+      - name: --dimension-values
+        long-summary: |
+            Usage: --dimension-values code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --dimension-values argument.
+      - name: --item-categories
+        long-summary: |
+            Usage: --item-categories code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --item-categories argument.
+      - name: --payment-methods
+        long-summary: |
+            Usage: --payment-methods code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --payment-methods argument.
+      - name: --payment-terms
+        long-summary: |
+            Usage: --payment-terms calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --payment-terms argument.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-methods
+        long-summary: |
+            Usage: --shipment-methods code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --shipment-methods argument.
+      - name: --tax-areas
+        long-summary: |
+            Usage: --tax-areas code=XX display-name=XX last-modified-date-time=XX tax-type=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --tax-areas argument.
+      - name: --tax-groups
+        long-summary: |
+            Usage: --tax-groups code=XX display-name=XX last-modified-date-time=XX tax-type=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --tax-groups argument.
+      - name: --units-of-measure
+        long-summary: |
+            Usage: --units-of-measure code=XX display-name=XX international-standard-code=XX \
+last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --units-of-measure argument.
 """
 
 helps['financials financial delete-company'] = """
@@ -60,29 +165,134 @@ helps['financials financial show-company'] = """
 helps['financials financial update-company'] = """
     type: command
     short-summary: "Update the navigation property companies in financials."
+    parameters:
+      - name: --accounts
+        long-summary: |
+            Usage: --accounts blocked=XX category=XX display-name=XX last-modified-date-time=XX number=XX \
+sub-category=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --accounts argument.
+      - name: --aged-accounts-payable
+        long-summary: |
+            Usage: --aged-accounts-payable aged-as-of-date=XX balance-due=XX currency-code=XX current-amount=XX \
+name=XX period1-amount=XX period2-amount=XX period3-amount=XX period-length-filter=XX vendor-number=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --aged-accounts-payable argument.
+      - name: --aged-accounts-receivable
+        long-summary: |
+            Usage: --aged-accounts-receivable aged-as-of-date=XX balance-due=XX currency-code=XX current-amount=XX \
+customer-number=XX name=XX period1-amount=XX period2-amount=XX period3-amount=XX period-length-filter=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --aged-accounts-receivable argument.
+      - name: --countries-regions
+        long-summary: |
+            Usage: --countries-regions address-format=XX code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --countries-regions argument.
+      - name: --currencies
+        long-summary: |
+            Usage: --currencies amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --currencies argument.
+      - name: --dimension-values
+        long-summary: |
+            Usage: --dimension-values code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --dimension-values argument.
+      - name: --item-categories
+        long-summary: |
+            Usage: --item-categories code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --item-categories argument.
+      - name: --payment-methods
+        long-summary: |
+            Usage: --payment-methods code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --payment-methods argument.
+      - name: --payment-terms
+        long-summary: |
+            Usage: --payment-terms calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --payment-terms argument.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-methods
+        long-summary: |
+            Usage: --shipment-methods code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --shipment-methods argument.
+      - name: --tax-areas
+        long-summary: |
+            Usage: --tax-areas code=XX display-name=XX last-modified-date-time=XX tax-type=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --tax-areas argument.
+      - name: --tax-groups
+        long-summary: |
+            Usage: --tax-groups code=XX display-name=XX last-modified-date-time=XX tax-type=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --tax-groups argument.
+      - name: --units-of-measure
+        long-summary: |
+            Usage: --units-of-measure code=XX display-name=XX international-standard-code=XX \
+last-modified-date-time=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --units-of-measure argument.
 """
 
-helps['financials financialscompany'] = """
+helps['financials financial-company'] = """
     type: group
-    short-summary: Manage financialscompany with financials_beta
+    short-summary: Manage financial company with financials_beta
 """
 
-helps['financials financialscompany create-account'] = """
+helps['financials financial-company create-account'] = """
     type: command
     short-summary: "Create new navigation property to accounts for financials."
 """
 
-helps['financials financialscompany create-aged-account-payable'] = """
+helps['financials financial-company create-aged-account-payable'] = """
     type: command
     short-summary: "Create new navigation property to agedAccountsPayable for financials."
 """
 
-helps['financials financialscompany create-aged-account-receivable'] = """
+helps['financials financial-company create-aged-account-receivable'] = """
     type: command
     short-summary: "Create new navigation property to agedAccountsReceivable for financials."
 """
 
-helps['financials financialscompany create-company-information'] = """
+helps['financials financial-company create-company-information'] = """
     type: command
     short-summary: "Create new navigation property to companyInformation for financials."
     parameters:
@@ -93,17 +303,17 @@ helps['financials financialscompany create-company-information'] = """
 
 """
 
-helps['financials financialscompany create-country-region'] = """
+helps['financials financial-company create-country-region'] = """
     type: command
     short-summary: "Create new navigation property to countriesRegions for financials."
 """
 
-helps['financials financialscompany create-currency'] = """
+helps['financials financial-company create-currency'] = """
     type: command
     short-summary: "Create new navigation property to currencies for financials."
 """
 
-helps['financials financialscompany create-customer'] = """
+helps['financials financial-company create-customer'] = """
     type: command
     short-summary: "Create new navigation property to customers for financials."
     parameters:
@@ -147,7 +357,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompany create-customer-payment'] = """
+helps['financials financial-company create-customer-payment'] = """
     type: command
     short-summary: "Create new navigation property to customerPayments for financials."
     parameters:
@@ -191,7 +401,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompany create-customer-payment-journal'] = """
+helps['financials financial-company create-customer-payment-journal'] = """
     type: command
     short-summary: "Create new navigation property to customerPaymentJournals for financials."
     parameters:
@@ -204,7 +414,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany create-dimension'] = """
+helps['financials financial-company create-dimension'] = """
     type: command
     short-summary: "Create new navigation property to dimensions for financials."
     parameters:
@@ -217,12 +427,12 @@ helps['financials financialscompany create-dimension'] = """
             Multiple actions can be specified by using more than one --dimension-values argument.
 """
 
-helps['financials financialscompany create-dimension-value'] = """
+helps['financials financial-company create-dimension-value'] = """
     type: command
     short-summary: "Create new navigation property to dimensionValues for financials."
 """
 
-helps['financials financialscompany create-employee'] = """
+helps['financials financial-company create-employee'] = """
     type: command
     short-summary: "Create new navigation property to employees for financials."
     parameters:
@@ -240,7 +450,7 @@ helps['financials financialscompany create-employee'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-general-ledger-entry'] = """
+helps['financials financial-company create-general-ledger-entry'] = """
     type: command
     short-summary: "Create new navigation property to generalLedgerEntries for financials."
     parameters:
@@ -253,7 +463,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany create-item'] = """
+helps['financials financial-company create-item'] = """
     type: command
     short-summary: "Create new navigation property to items for financials."
     parameters:
@@ -272,12 +482,12 @@ helps['financials financialscompany create-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-item-category'] = """
+helps['financials financial-company create-item-category'] = """
     type: command
     short-summary: "Create new navigation property to itemCategories for financials."
 """
 
-helps['financials financialscompany create-journal'] = """
+helps['financials financial-company create-journal'] = """
     type: command
     short-summary: "Create new navigation property to journals for financials."
     parameters:
@@ -290,7 +500,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany create-journal-line'] = """
+helps['financials financial-company create-journal-line'] = """
     type: command
     short-summary: "Create new navigation property to journalLines for financials."
     parameters:
@@ -303,22 +513,22 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany create-payment-method'] = """
+helps['financials financial-company create-payment-method'] = """
     type: command
     short-summary: "Create new navigation property to paymentMethods for financials."
 """
 
-helps['financials financialscompany create-payment-term'] = """
+helps['financials financial-company create-payment-term'] = """
     type: command
     short-summary: "Create new navigation property to paymentTerms for financials."
 """
 
-helps['financials financialscompany create-picture'] = """
+helps['financials financial-company create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompany create-purchase-invoice'] = """
+helps['financials financial-company create-purchase-invoice'] = """
     type: command
     short-summary: "Create new navigation property to purchaseInvoices for financials."
     parameters:
@@ -378,7 +588,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-purchase-invoice-line'] = """
+helps['financials financial-company create-purchase-invoice-line'] = """
     type: command
     short-summary: "Create new navigation property to purchaseInvoiceLines for financials."
     parameters:
@@ -404,12 +614,76 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-sale-credit-memo'] = """
+helps['financials financial-company create-sale-credit-memo'] = """
     type: command
     short-summary: "Create new navigation property to salesCreditMemos for financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany create-sale-credit-memo-line'] = """
+helps['financials financial-company create-sale-credit-memo-line'] = """
     type: command
     short-summary: "Create new navigation property to salesCreditMemoLines for financials."
     parameters:
@@ -435,12 +709,87 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-sale-invoice'] = """
+helps['financials financial-company create-sale-invoice'] = """
     type: command
     short-summary: "Create new navigation property to salesInvoices for financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --microsoft-graph-shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --microsoft-graph-shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany create-sale-invoice-line'] = """
+helps['financials financial-company create-sale-invoice-line'] = """
     type: command
     short-summary: "Create new navigation property to salesInvoiceLines for financials."
     parameters:
@@ -466,12 +815,81 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-sale-order'] = """
+helps['financials financial-company create-sale-order'] = """
     type: command
     short-summary: "Create new navigation property to salesOrders for financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany create-sale-order-line'] = """
+helps['financials financial-company create-sale-order-line'] = """
     type: command
     short-summary: "Create new navigation property to salesOrderLines for financials."
     parameters:
@@ -497,12 +915,87 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-sale-quote'] = """
+helps['financials financial-company create-sale-quote'] = """
     type: command
     short-summary: "Create new navigation property to salesQuotes for financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --microsoft-graph-shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --microsoft-graph-shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany create-sale-quote-line'] = """
+helps['financials financial-company create-sale-quote-line'] = """
     type: command
     short-summary: "Create new navigation property to salesQuoteLines for financials."
     parameters:
@@ -528,27 +1021,27 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany create-shipment-method'] = """
+helps['financials financial-company create-shipment-method'] = """
     type: command
     short-summary: "Create new navigation property to shipmentMethods for financials."
 """
 
-helps['financials financialscompany create-tax-area'] = """
+helps['financials financial-company create-tax-area'] = """
     type: command
     short-summary: "Create new navigation property to taxAreas for financials."
 """
 
-helps['financials financialscompany create-tax-group'] = """
+helps['financials financial-company create-tax-group'] = """
     type: command
     short-summary: "Create new navigation property to taxGroups for financials."
 """
 
-helps['financials financialscompany create-unit-of-measure'] = """
+helps['financials financial-company create-unit-of-measure'] = """
     type: command
     short-summary: "Create new navigation property to unitsOfMeasure for financials."
 """
 
-helps['financials financialscompany create-vendor'] = """
+helps['financials financial-company create-vendor'] = """
     type: command
     short-summary: "Create new navigation property to vendors for financials."
     parameters:
@@ -586,567 +1079,567 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany delete-account'] = """
+helps['financials financial-company delete-account'] = """
     type: command
     short-summary: "Delete navigation property accounts for financials."
 """
 
-helps['financials financialscompany delete-aged-account-payable'] = """
+helps['financials financial-company delete-aged-account-payable'] = """
     type: command
     short-summary: "Delete navigation property agedAccountsPayable for financials."
 """
 
-helps['financials financialscompany delete-aged-account-receivable'] = """
+helps['financials financial-company delete-aged-account-receivable'] = """
     type: command
     short-summary: "Delete navigation property agedAccountsReceivable for financials."
 """
 
-helps['financials financialscompany delete-company-information'] = """
+helps['financials financial-company delete-company-information'] = """
     type: command
     short-summary: "Delete navigation property companyInformation for financials."
 """
 
-helps['financials financialscompany delete-country-region'] = """
+helps['financials financial-company delete-country-region'] = """
     type: command
     short-summary: "Delete navigation property countriesRegions for financials."
 """
 
-helps['financials financialscompany delete-currency'] = """
+helps['financials financial-company delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currencies for financials."
 """
 
-helps['financials financialscompany delete-customer'] = """
+helps['financials financial-company delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customers for financials."
 """
 
-helps['financials financialscompany delete-customer-payment'] = """
+helps['financials financial-company delete-customer-payment'] = """
     type: command
     short-summary: "Delete navigation property customerPayments for financials."
 """
 
-helps['financials financialscompany delete-customer-payment-journal'] = """
+helps['financials financial-company delete-customer-payment-journal'] = """
     type: command
     short-summary: "Delete navigation property customerPaymentJournals for financials."
 """
 
-helps['financials financialscompany delete-dimension'] = """
+helps['financials financial-company delete-dimension'] = """
     type: command
     short-summary: "Delete navigation property dimensions for financials."
 """
 
-helps['financials financialscompany delete-dimension-value'] = """
+helps['financials financial-company delete-dimension-value'] = """
     type: command
     short-summary: "Delete navigation property dimensionValues for financials."
 """
 
-helps['financials financialscompany delete-employee'] = """
+helps['financials financial-company delete-employee'] = """
     type: command
     short-summary: "Delete navigation property employees for financials."
 """
 
-helps['financials financialscompany delete-general-ledger-entry'] = """
+helps['financials financial-company delete-general-ledger-entry'] = """
     type: command
     short-summary: "Delete navigation property generalLedgerEntries for financials."
 """
 
-helps['financials financialscompany delete-item'] = """
+helps['financials financial-company delete-item'] = """
     type: command
     short-summary: "Delete navigation property items for financials."
 """
 
-helps['financials financialscompany delete-item-category'] = """
+helps['financials financial-company delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategories for financials."
 """
 
-helps['financials financialscompany delete-journal'] = """
+helps['financials financial-company delete-journal'] = """
     type: command
     short-summary: "Delete navigation property journals for financials."
 """
 
-helps['financials financialscompany delete-journal-line'] = """
+helps['financials financial-company delete-journal-line'] = """
     type: command
     short-summary: "Delete navigation property journalLines for financials."
 """
 
-helps['financials financialscompany delete-payment-method'] = """
+helps['financials financial-company delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethods for financials."
 """
 
-helps['financials financialscompany delete-payment-term'] = """
+helps['financials financial-company delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerms for financials."
 """
 
-helps['financials financialscompany delete-picture'] = """
+helps['financials financial-company delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompany delete-purchase-invoice'] = """
+helps['financials financial-company delete-purchase-invoice'] = """
     type: command
     short-summary: "Delete navigation property purchaseInvoices for financials."
 """
 
-helps['financials financialscompany delete-purchase-invoice-line'] = """
+helps['financials financial-company delete-purchase-invoice-line'] = """
     type: command
     short-summary: "Delete navigation property purchaseInvoiceLines for financials."
 """
 
-helps['financials financialscompany delete-sale-credit-memo'] = """
+helps['financials financial-company delete-sale-credit-memo'] = """
     type: command
     short-summary: "Delete navigation property salesCreditMemos for financials."
 """
 
-helps['financials financialscompany delete-sale-credit-memo-line'] = """
+helps['financials financial-company delete-sale-credit-memo-line'] = """
     type: command
     short-summary: "Delete navigation property salesCreditMemoLines for financials."
 """
 
-helps['financials financialscompany delete-sale-invoice'] = """
+helps['financials financial-company delete-sale-invoice'] = """
     type: command
     short-summary: "Delete navigation property salesInvoices for financials."
 """
 
-helps['financials financialscompany delete-sale-invoice-line'] = """
+helps['financials financial-company delete-sale-invoice-line'] = """
     type: command
     short-summary: "Delete navigation property salesInvoiceLines for financials."
 """
 
-helps['financials financialscompany delete-sale-order'] = """
+helps['financials financial-company delete-sale-order'] = """
     type: command
     short-summary: "Delete navigation property salesOrders for financials."
 """
 
-helps['financials financialscompany delete-sale-order-line'] = """
+helps['financials financial-company delete-sale-order-line'] = """
     type: command
     short-summary: "Delete navigation property salesOrderLines for financials."
 """
 
-helps['financials financialscompany delete-sale-quote'] = """
+helps['financials financial-company delete-sale-quote'] = """
     type: command
     short-summary: "Delete navigation property salesQuotes for financials."
 """
 
-helps['financials financialscompany delete-sale-quote-line'] = """
+helps['financials financial-company delete-sale-quote-line'] = """
     type: command
     short-summary: "Delete navigation property salesQuoteLines for financials."
 """
 
-helps['financials financialscompany delete-shipment-method'] = """
+helps['financials financial-company delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethods for financials."
 """
 
-helps['financials financialscompany delete-tax-area'] = """
+helps['financials financial-company delete-tax-area'] = """
     type: command
     short-summary: "Delete navigation property taxAreas for financials."
 """
 
-helps['financials financialscompany delete-tax-group'] = """
+helps['financials financial-company delete-tax-group'] = """
     type: command
     short-summary: "Delete navigation property taxGroups for financials."
 """
 
-helps['financials financialscompany delete-unit-of-measure'] = """
+helps['financials financial-company delete-unit-of-measure'] = """
     type: command
     short-summary: "Delete navigation property unitsOfMeasure for financials."
 """
 
-helps['financials financialscompany delete-vendor'] = """
+helps['financials financial-company delete-vendor'] = """
     type: command
     short-summary: "Delete navigation property vendors for financials."
 """
 
-helps['financials financialscompany list-account'] = """
+helps['financials financial-company list-account'] = """
     type: command
     short-summary: "Get accounts from financials."
 """
 
-helps['financials financialscompany list-aged-account-payable'] = """
+helps['financials financial-company list-aged-account-payable'] = """
     type: command
     short-summary: "Get agedAccountsPayable from financials."
 """
 
-helps['financials financialscompany list-aged-account-receivable'] = """
+helps['financials financial-company list-aged-account-receivable'] = """
     type: command
     short-summary: "Get agedAccountsReceivable from financials."
 """
 
-helps['financials financialscompany list-company-information'] = """
+helps['financials financial-company list-company-information'] = """
     type: command
     short-summary: "Get companyInformation from financials."
 """
 
-helps['financials financialscompany list-country-region'] = """
+helps['financials financial-company list-country-region'] = """
     type: command
     short-summary: "Get countriesRegions from financials."
 """
 
-helps['financials financialscompany list-currency'] = """
+helps['financials financial-company list-currency'] = """
     type: command
     short-summary: "Get currencies from financials."
 """
 
-helps['financials financialscompany list-customer'] = """
+helps['financials financial-company list-customer'] = """
     type: command
     short-summary: "Get customers from financials."
 """
 
-helps['financials financialscompany list-customer-payment'] = """
+helps['financials financial-company list-customer-payment'] = """
     type: command
     short-summary: "Get customerPayments from financials."
 """
 
-helps['financials financialscompany list-customer-payment-journal'] = """
+helps['financials financial-company list-customer-payment-journal'] = """
     type: command
     short-summary: "Get customerPaymentJournals from financials."
 """
 
-helps['financials financialscompany list-dimension'] = """
+helps['financials financial-company list-dimension'] = """
     type: command
     short-summary: "Get dimensions from financials."
 """
 
-helps['financials financialscompany list-dimension-value'] = """
+helps['financials financial-company list-dimension-value'] = """
     type: command
     short-summary: "Get dimensionValues from financials."
 """
 
-helps['financials financialscompany list-employee'] = """
+helps['financials financial-company list-employee'] = """
     type: command
     short-summary: "Get employees from financials."
 """
 
-helps['financials financialscompany list-general-ledger-entry'] = """
+helps['financials financial-company list-general-ledger-entry'] = """
     type: command
     short-summary: "Get generalLedgerEntries from financials."
 """
 
-helps['financials financialscompany list-item'] = """
+helps['financials financial-company list-item'] = """
     type: command
     short-summary: "Get items from financials."
 """
 
-helps['financials financialscompany list-item-category'] = """
+helps['financials financial-company list-item-category'] = """
     type: command
     short-summary: "Get itemCategories from financials."
 """
 
-helps['financials financialscompany list-journal'] = """
+helps['financials financial-company list-journal'] = """
     type: command
     short-summary: "Get journals from financials."
 """
 
-helps['financials financialscompany list-journal-line'] = """
+helps['financials financial-company list-journal-line'] = """
     type: command
     short-summary: "Get journalLines from financials."
 """
 
-helps['financials financialscompany list-payment-method'] = """
+helps['financials financial-company list-payment-method'] = """
     type: command
     short-summary: "Get paymentMethods from financials."
 """
 
-helps['financials financialscompany list-payment-term'] = """
+helps['financials financial-company list-payment-term'] = """
     type: command
     short-summary: "Get paymentTerms from financials."
 """
 
-helps['financials financialscompany list-picture'] = """
+helps['financials financial-company list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompany list-purchase-invoice'] = """
+helps['financials financial-company list-purchase-invoice'] = """
     type: command
     short-summary: "Get purchaseInvoices from financials."
 """
 
-helps['financials financialscompany list-purchase-invoice-line'] = """
+helps['financials financial-company list-purchase-invoice-line'] = """
     type: command
     short-summary: "Get purchaseInvoiceLines from financials."
 """
 
-helps['financials financialscompany list-sale-credit-memo'] = """
+helps['financials financial-company list-sale-credit-memo'] = """
     type: command
     short-summary: "Get salesCreditMemos from financials."
 """
 
-helps['financials financialscompany list-sale-credit-memo-line'] = """
+helps['financials financial-company list-sale-credit-memo-line'] = """
     type: command
     short-summary: "Get salesCreditMemoLines from financials."
 """
 
-helps['financials financialscompany list-sale-invoice'] = """
+helps['financials financial-company list-sale-invoice'] = """
     type: command
     short-summary: "Get salesInvoices from financials."
 """
 
-helps['financials financialscompany list-sale-invoice-line'] = """
+helps['financials financial-company list-sale-invoice-line'] = """
     type: command
     short-summary: "Get salesInvoiceLines from financials."
 """
 
-helps['financials financialscompany list-sale-order'] = """
+helps['financials financial-company list-sale-order'] = """
     type: command
     short-summary: "Get salesOrders from financials."
 """
 
-helps['financials financialscompany list-sale-order-line'] = """
+helps['financials financial-company list-sale-order-line'] = """
     type: command
     short-summary: "Get salesOrderLines from financials."
 """
 
-helps['financials financialscompany list-sale-quote'] = """
+helps['financials financial-company list-sale-quote'] = """
     type: command
     short-summary: "Get salesQuotes from financials."
 """
 
-helps['financials financialscompany list-sale-quote-line'] = """
+helps['financials financial-company list-sale-quote-line'] = """
     type: command
     short-summary: "Get salesQuoteLines from financials."
 """
 
-helps['financials financialscompany list-shipment-method'] = """
+helps['financials financial-company list-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethods from financials."
 """
 
-helps['financials financialscompany list-tax-area'] = """
+helps['financials financial-company list-tax-area'] = """
     type: command
     short-summary: "Get taxAreas from financials."
 """
 
-helps['financials financialscompany list-tax-group'] = """
+helps['financials financial-company list-tax-group'] = """
     type: command
     short-summary: "Get taxGroups from financials."
 """
 
-helps['financials financialscompany list-unit-of-measure'] = """
+helps['financials financial-company list-unit-of-measure'] = """
     type: command
     short-summary: "Get unitsOfMeasure from financials."
 """
 
-helps['financials financialscompany list-vendor'] = """
+helps['financials financial-company list-vendor'] = """
     type: command
     short-summary: "Get vendors from financials."
 """
 
-helps['financials financialscompany set-company-information-picture'] = """
+helps['financials financial-company set-company-information-picture'] = """
     type: command
     short-summary: "Update media content for the navigation property companyInformation in financials."
 """
 
-helps['financials financialscompany set-picture-content'] = """
+helps['financials financial-company set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompany show-account'] = """
+helps['financials financial-company show-account'] = """
     type: command
     short-summary: "Get accounts from financials."
 """
 
-helps['financials financialscompany show-aged-account-payable'] = """
+helps['financials financial-company show-aged-account-payable'] = """
     type: command
     short-summary: "Get agedAccountsPayable from financials."
 """
 
-helps['financials financialscompany show-aged-account-receivable'] = """
+helps['financials financial-company show-aged-account-receivable'] = """
     type: command
     short-summary: "Get agedAccountsReceivable from financials."
 """
 
-helps['financials financialscompany show-company-information'] = """
+helps['financials financial-company show-company-information'] = """
     type: command
     short-summary: "Get companyInformation from financials."
 """
 
-helps['financials financialscompany show-company-information-picture'] = """
+helps['financials financial-company show-company-information-picture'] = """
     type: command
     short-summary: "Get media content for the navigation property companyInformation from financials."
 """
 
-helps['financials financialscompany show-country-region'] = """
+helps['financials financial-company show-country-region'] = """
     type: command
     short-summary: "Get countriesRegions from financials."
 """
 
-helps['financials financialscompany show-currency'] = """
+helps['financials financial-company show-currency'] = """
     type: command
     short-summary: "Get currencies from financials."
 """
 
-helps['financials financialscompany show-customer'] = """
+helps['financials financial-company show-customer'] = """
     type: command
     short-summary: "Get customers from financials."
 """
 
-helps['financials financialscompany show-customer-payment'] = """
+helps['financials financial-company show-customer-payment'] = """
     type: command
     short-summary: "Get customerPayments from financials."
 """
 
-helps['financials financialscompany show-customer-payment-journal'] = """
+helps['financials financial-company show-customer-payment-journal'] = """
     type: command
     short-summary: "Get customerPaymentJournals from financials."
 """
 
-helps['financials financialscompany show-dimension'] = """
+helps['financials financial-company show-dimension'] = """
     type: command
     short-summary: "Get dimensions from financials."
 """
 
-helps['financials financialscompany show-dimension-value'] = """
+helps['financials financial-company show-dimension-value'] = """
     type: command
     short-summary: "Get dimensionValues from financials."
 """
 
-helps['financials financialscompany show-employee'] = """
+helps['financials financial-company show-employee'] = """
     type: command
     short-summary: "Get employees from financials."
 """
 
-helps['financials financialscompany show-general-ledger-entry'] = """
+helps['financials financial-company show-general-ledger-entry'] = """
     type: command
     short-summary: "Get generalLedgerEntries from financials."
 """
 
-helps['financials financialscompany show-item'] = """
+helps['financials financial-company show-item'] = """
     type: command
     short-summary: "Get items from financials."
 """
 
-helps['financials financialscompany show-item-category'] = """
+helps['financials financial-company show-item-category'] = """
     type: command
     short-summary: "Get itemCategories from financials."
 """
 
-helps['financials financialscompany show-journal'] = """
+helps['financials financial-company show-journal'] = """
     type: command
     short-summary: "Get journals from financials."
 """
 
-helps['financials financialscompany show-journal-line'] = """
+helps['financials financial-company show-journal-line'] = """
     type: command
     short-summary: "Get journalLines from financials."
 """
 
-helps['financials financialscompany show-payment-method'] = """
+helps['financials financial-company show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethods from financials."
 """
 
-helps['financials financialscompany show-payment-term'] = """
+helps['financials financial-company show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerms from financials."
 """
 
-helps['financials financialscompany show-picture'] = """
+helps['financials financial-company show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompany show-picture-content'] = """
+helps['financials financial-company show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompany show-purchase-invoice'] = """
+helps['financials financial-company show-purchase-invoice'] = """
     type: command
     short-summary: "Get purchaseInvoices from financials."
 """
 
-helps['financials financialscompany show-purchase-invoice-line'] = """
+helps['financials financial-company show-purchase-invoice-line'] = """
     type: command
     short-summary: "Get purchaseInvoiceLines from financials."
 """
 
-helps['financials financialscompany show-sale-credit-memo'] = """
+helps['financials financial-company show-sale-credit-memo'] = """
     type: command
     short-summary: "Get salesCreditMemos from financials."
 """
 
-helps['financials financialscompany show-sale-credit-memo-line'] = """
+helps['financials financial-company show-sale-credit-memo-line'] = """
     type: command
     short-summary: "Get salesCreditMemoLines from financials."
 """
 
-helps['financials financialscompany show-sale-invoice'] = """
+helps['financials financial-company show-sale-invoice'] = """
     type: command
     short-summary: "Get salesInvoices from financials."
 """
 
-helps['financials financialscompany show-sale-invoice-line'] = """
+helps['financials financial-company show-sale-invoice-line'] = """
     type: command
     short-summary: "Get salesInvoiceLines from financials."
 """
 
-helps['financials financialscompany show-sale-order'] = """
+helps['financials financial-company show-sale-order'] = """
     type: command
     short-summary: "Get salesOrders from financials."
 """
 
-helps['financials financialscompany show-sale-order-line'] = """
+helps['financials financial-company show-sale-order-line'] = """
     type: command
     short-summary: "Get salesOrderLines from financials."
 """
 
-helps['financials financialscompany show-sale-quote'] = """
+helps['financials financial-company show-sale-quote'] = """
     type: command
     short-summary: "Get salesQuotes from financials."
 """
 
-helps['financials financialscompany show-sale-quote-line'] = """
+helps['financials financial-company show-sale-quote-line'] = """
     type: command
     short-summary: "Get salesQuoteLines from financials."
 """
 
-helps['financials financialscompany show-shipment-method'] = """
+helps['financials financial-company show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethods from financials."
 """
 
-helps['financials financialscompany show-tax-area'] = """
+helps['financials financial-company show-tax-area'] = """
     type: command
     short-summary: "Get taxAreas from financials."
 """
 
-helps['financials financialscompany show-tax-group'] = """
+helps['financials financial-company show-tax-group'] = """
     type: command
     short-summary: "Get taxGroups from financials."
 """
 
-helps['financials financialscompany show-unit-of-measure'] = """
+helps['financials financial-company show-unit-of-measure'] = """
     type: command
     short-summary: "Get unitsOfMeasure from financials."
 """
 
-helps['financials financialscompany show-vendor'] = """
+helps['financials financial-company show-vendor'] = """
     type: command
     short-summary: "Get vendors from financials."
 """
 
-helps['financials financialscompany update-account'] = """
+helps['financials financial-company update-account'] = """
     type: command
     short-summary: "Update the navigation property accounts in financials."
 """
 
-helps['financials financialscompany update-aged-account-payable'] = """
+helps['financials financial-company update-aged-account-payable'] = """
     type: command
     short-summary: "Update the navigation property agedAccountsPayable in financials."
 """
 
-helps['financials financialscompany update-aged-account-receivable'] = """
+helps['financials financial-company update-aged-account-receivable'] = """
     type: command
     short-summary: "Update the navigation property agedAccountsReceivable in financials."
 """
 
-helps['financials financialscompany update-company-information'] = """
+helps['financials financial-company update-company-information'] = """
     type: command
     short-summary: "Update the navigation property companyInformation in financials."
     parameters:
@@ -1157,17 +1650,17 @@ helps['financials financialscompany update-company-information'] = """
 
 """
 
-helps['financials financialscompany update-country-region'] = """
+helps['financials financial-company update-country-region'] = """
     type: command
     short-summary: "Update the navigation property countriesRegions in financials."
 """
 
-helps['financials financialscompany update-currency'] = """
+helps['financials financial-company update-currency'] = """
     type: command
     short-summary: "Update the navigation property currencies in financials."
 """
 
-helps['financials financialscompany update-customer'] = """
+helps['financials financial-company update-customer'] = """
     type: command
     short-summary: "Update the navigation property customers in financials."
     parameters:
@@ -1211,7 +1704,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompany update-customer-payment'] = """
+helps['financials financial-company update-customer-payment'] = """
     type: command
     short-summary: "Update the navigation property customerPayments in financials."
     parameters:
@@ -1255,7 +1748,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompany update-customer-payment-journal'] = """
+helps['financials financial-company update-customer-payment-journal'] = """
     type: command
     short-summary: "Update the navigation property customerPaymentJournals in financials."
     parameters:
@@ -1268,7 +1761,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany update-dimension'] = """
+helps['financials financial-company update-dimension'] = """
     type: command
     short-summary: "Update the navigation property dimensions in financials."
     parameters:
@@ -1281,12 +1774,12 @@ helps['financials financialscompany update-dimension'] = """
             Multiple actions can be specified by using more than one --dimension-values argument.
 """
 
-helps['financials financialscompany update-dimension-value'] = """
+helps['financials financial-company update-dimension-value'] = """
     type: command
     short-summary: "Update the navigation property dimensionValues in financials."
 """
 
-helps['financials financialscompany update-employee'] = """
+helps['financials financial-company update-employee'] = """
     type: command
     short-summary: "Update the navigation property employees in financials."
     parameters:
@@ -1304,7 +1797,7 @@ helps['financials financialscompany update-employee'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-general-ledger-entry'] = """
+helps['financials financial-company update-general-ledger-entry'] = """
     type: command
     short-summary: "Update the navigation property generalLedgerEntries in financials."
     parameters:
@@ -1317,7 +1810,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany update-item'] = """
+helps['financials financial-company update-item'] = """
     type: command
     short-summary: "Update the navigation property items in financials."
     parameters:
@@ -1336,12 +1829,12 @@ helps['financials financialscompany update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-item-category'] = """
+helps['financials financial-company update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategories in financials."
 """
 
-helps['financials financialscompany update-journal'] = """
+helps['financials financial-company update-journal'] = """
     type: command
     short-summary: "Update the navigation property journals in financials."
     parameters:
@@ -1354,7 +1847,7 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany update-journal-line'] = """
+helps['financials financial-company update-journal-line'] = """
     type: command
     short-summary: "Update the navigation property journalLines in financials."
     parameters:
@@ -1367,22 +1860,22 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompany update-payment-method'] = """
+helps['financials financial-company update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethods in financials."
 """
 
-helps['financials financialscompany update-payment-term'] = """
+helps['financials financial-company update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerms in financials."
 """
 
-helps['financials financialscompany update-picture'] = """
+helps['financials financial-company update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompany update-purchase-invoice'] = """
+helps['financials financial-company update-purchase-invoice'] = """
     type: command
     short-summary: "Update the navigation property purchaseInvoices in financials."
     parameters:
@@ -1442,7 +1935,7 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-purchase-invoice-line'] = """
+helps['financials financial-company update-purchase-invoice-line'] = """
     type: command
     short-summary: "Update the navigation property purchaseInvoiceLines in financials."
     parameters:
@@ -1468,12 +1961,76 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-sale-credit-memo'] = """
+helps['financials financial-company update-sale-credit-memo'] = """
     type: command
     short-summary: "Update the navigation property salesCreditMemos in financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany update-sale-credit-memo-line'] = """
+helps['financials financial-company update-sale-credit-memo-line'] = """
     type: command
     short-summary: "Update the navigation property salesCreditMemoLines in financials."
     parameters:
@@ -1499,12 +2056,87 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-sale-invoice'] = """
+helps['financials financial-company update-sale-invoice'] = """
     type: command
     short-summary: "Update the navigation property salesInvoices in financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --microsoft-graph-shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --microsoft-graph-shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany update-sale-invoice-line'] = """
+helps['financials financial-company update-sale-invoice-line'] = """
     type: command
     short-summary: "Update the navigation property salesInvoiceLines in financials."
     parameters:
@@ -1530,12 +2162,81 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-sale-order'] = """
+helps['financials financial-company update-sale-order'] = """
     type: command
     short-summary: "Update the navigation property salesOrders in financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany update-sale-order-line'] = """
+helps['financials financial-company update-sale-order-line'] = """
     type: command
     short-summary: "Update the navigation property salesOrderLines in financials."
     parameters:
@@ -1561,12 +2262,87 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-sale-quote'] = """
+helps['financials financial-company update-sale-quote'] = """
     type: command
     short-summary: "Update the navigation property salesQuotes in financials."
+    parameters:
+      - name: --billing-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --billing-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --selling-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --selling-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --shipping-postal-address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --shipping-postal-address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --currency amount-decimal-places=XX amount-rounding-precision=XX code=XX display-name=XX \
+last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --payment-term calculate-discount-on-credit-memos=XX code=XX discount-date-calculation=XX \
+discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --address
+        short-summary: "postalAddressType"
+        long-summary: |
+            Usage: --address city=XX country-letter-code=XX postal-code=XX state=XX street=XX
+
+      - name: --microsoft-graph-currency
+        short-summary: "currency"
+        long-summary: |
+            Usage: --microsoft-graph-currency amount-decimal-places=XX amount-rounding-precision=XX code=XX \
+display-name=XX last-modified-date-time=XX symbol=XX id=XX
+
+            id: Read-only.
+      - name: --payment-method
+        short-summary: "paymentMethod"
+        long-summary: |
+            Usage: --payment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-payment-term
+        short-summary: "paymentTerm"
+        long-summary: |
+            Usage: --microsoft-graph-payment-term calculate-discount-on-credit-memos=XX code=XX \
+discount-date-calculation=XX discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-time=XX \
+id=XX
+
+            id: Read-only.
+      - name: --picture
+        long-summary: |
+            Usage: --picture content=XX content-type=XX height=XX width=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --picture argument.
+      - name: --microsoft-graph-shipment-method
+        short-summary: "shipmentMethod"
+        long-summary: |
+            Usage: --microsoft-graph-shipment-method code=XX display-name=XX last-modified-date-time=XX id=XX
+
+            id: Read-only.
 """
 
-helps['financials financialscompany update-sale-quote-line'] = """
+helps['financials financial-company update-sale-quote-line'] = """
     type: command
     short-summary: "Update the navigation property salesQuoteLines in financials."
     parameters:
@@ -1592,27 +2368,27 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompany update-shipment-method'] = """
+helps['financials financial-company update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethods in financials."
 """
 
-helps['financials financialscompany update-tax-area'] = """
+helps['financials financial-company update-tax-area'] = """
     type: command
     short-summary: "Update the navigation property taxAreas in financials."
 """
 
-helps['financials financialscompany update-tax-group'] = """
+helps['financials financial-company update-tax-group'] = """
     type: command
     short-summary: "Update the navigation property taxGroups in financials."
 """
 
-helps['financials financialscompany update-unit-of-measure'] = """
+helps['financials financial-company update-unit-of-measure'] = """
     type: command
     short-summary: "Update the navigation property unitsOfMeasure in financials."
 """
 
-helps['financials financialscompany update-vendor'] = """
+helps['financials financial-company update-vendor'] = """
     type: command
     short-summary: "Update the navigation property vendors in financials."
     parameters:
@@ -1650,12 +2426,12 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniescustomerpaymentjournal'] = """
+helps['financials financial-company-customer-payment-journal'] = """
     type: group
-    short-summary: Manage financialscompaniescustomerpaymentjournal with financials_beta
+    short-summary: Manage financial company customer payment journal with financials_beta
 """
 
-helps['financials financialscompaniescustomerpaymentjournal create-customer-payment'] = """
+helps['financials financial-company-customer-payment-journal create-customer-payment'] = """
     type: command
     short-summary: "Create new navigation property to customerPayments for financials."
     parameters:
@@ -1699,37 +2475,37 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniescustomerpaymentjournal delete-account'] = """
+helps['financials financial-company-customer-payment-journal delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal delete-customer-payment'] = """
+helps['financials financial-company-customer-payment-journal delete-customer-payment'] = """
     type: command
     short-summary: "Delete navigation property customerPayments for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal list-customer-payment'] = """
+helps['financials financial-company-customer-payment-journal list-customer-payment'] = """
     type: command
     short-summary: "Get customerPayments from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal show-account'] = """
+helps['financials financial-company-customer-payment-journal show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal show-customer-payment'] = """
+helps['financials financial-company-customer-payment-journal show-customer-payment'] = """
     type: command
     short-summary: "Get customerPayments from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal update-account'] = """
+helps['financials financial-company-customer-payment-journal update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournal update-customer-payment'] = """
+helps['financials financial-company-customer-payment-journal update-customer-payment'] = """
     type: command
     short-summary: "Update the navigation property customerPayments in financials."
     parameters:
@@ -1773,22 +2549,22 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpayment'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment'] = """
     type: group
-    short-summary: Manage financialscompaniescustomerpaymentjournalscustomerpayment with financials_beta
+    short-summary: Manage financial company customer payment journal customer payment with financials_beta
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpayment delete-customer'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpayment show-customer'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpayment update-customer'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -1832,122 +2608,122 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer'] = """
     type: group
-    short-summary: Manage financialscompaniescustomerpaymentjournalscustomerpaymentscustomer with financials_beta
+    short-summary: Manage financial company customer payment journal customer payment customer with financials_beta
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer create-picture'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer delete-currency'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer delete-payment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer delete-payment-term'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer delete-picture'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer delete-shipment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer list-picture'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer set-picture-content'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-currency'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-payment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-payment-term'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-picture'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-picture-content'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer show-shipment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer update-currency'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer update-payment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer update-payment-term'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer update-picture'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer update-shipment-method'] = """
+helps['financials financial-company-customer-payment-journal-customer-payment-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniescustomerpayment'] = """
+helps['financials financial-company-customer-payment'] = """
     type: group
-    short-summary: Manage financialscompaniescustomerpayment with financials_beta
+    short-summary: Manage financial company customer payment with financials_beta
 """
 
-helps['financials financialscompaniescustomerpayment delete-customer'] = """
+helps['financials financial-company-customer-payment delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniescustomerpayment show-customer'] = """
+helps['financials financial-company-customer-payment show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniescustomerpayment update-customer'] = """
+helps['financials financial-company-customer-payment update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -1991,377 +2767,377 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer'] = """
+helps['financials financial-company-customer-payment-customer'] = """
     type: group
-    short-summary: Manage financialscompaniescustomerpaymentscustomer with financials_beta
+    short-summary: Manage financial company customer payment customer with financials_beta
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer create-picture'] = """
+helps['financials financial-company-customer-payment-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer delete-currency'] = """
+helps['financials financial-company-customer-payment-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer delete-payment-method'] = """
+helps['financials financial-company-customer-payment-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer delete-payment-term'] = """
+helps['financials financial-company-customer-payment-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer delete-picture'] = """
+helps['financials financial-company-customer-payment-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer delete-shipment-method'] = """
+helps['financials financial-company-customer-payment-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer list-picture'] = """
+helps['financials financial-company-customer-payment-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer set-picture-content'] = """
+helps['financials financial-company-customer-payment-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-currency'] = """
+helps['financials financial-company-customer-payment-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-payment-method'] = """
+helps['financials financial-company-customer-payment-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-payment-term'] = """
+helps['financials financial-company-customer-payment-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-picture'] = """
+helps['financials financial-company-customer-payment-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-picture-content'] = """
+helps['financials financial-company-customer-payment-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer show-shipment-method'] = """
+helps['financials financial-company-customer-payment-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer update-currency'] = """
+helps['financials financial-company-customer-payment-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer update-payment-method'] = """
+helps['financials financial-company-customer-payment-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer update-payment-term'] = """
+helps['financials financial-company-customer-payment-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer update-picture'] = """
+helps['financials financial-company-customer-payment-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomerpaymentscustomer update-shipment-method'] = """
+helps['financials financial-company-customer-payment-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniescustomer'] = """
+helps['financials financial-company-customer'] = """
     type: group
-    short-summary: Manage financialscompaniescustomer with financials_beta
+    short-summary: Manage financial company customer with financials_beta
 """
 
-helps['financials financialscompaniescustomer create-picture'] = """
+helps['financials financial-company-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniescustomer delete-currency'] = """
+helps['financials financial-company-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniescustomer delete-payment-method'] = """
+helps['financials financial-company-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniescustomer delete-payment-term'] = """
+helps['financials financial-company-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniescustomer delete-picture'] = """
+helps['financials financial-company-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniescustomer delete-shipment-method'] = """
+helps['financials financial-company-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniescustomer list-picture'] = """
+helps['financials financial-company-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomer set-picture-content'] = """
+helps['financials financial-company-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomer show-currency'] = """
+helps['financials financial-company-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniescustomer show-payment-method'] = """
+helps['financials financial-company-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniescustomer show-payment-term'] = """
+helps['financials financial-company-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniescustomer show-picture'] = """
+helps['financials financial-company-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniescustomer show-picture-content'] = """
+helps['financials financial-company-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniescustomer show-shipment-method'] = """
+helps['financials financial-company-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniescustomer update-currency'] = """
+helps['financials financial-company-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniescustomer update-payment-method'] = """
+helps['financials financial-company-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniescustomer update-payment-term'] = """
+helps['financials financial-company-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniescustomer update-picture'] = """
+helps['financials financial-company-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniescustomer update-shipment-method'] = """
+helps['financials financial-company-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniesdimension'] = """
+helps['financials financial-company-dimension'] = """
     type: group
-    short-summary: Manage financialscompaniesdimension with financials_beta
+    short-summary: Manage financial company dimension with financials_beta
 """
 
-helps['financials financialscompaniesdimension create-dimension-value'] = """
+helps['financials financial-company-dimension create-dimension-value'] = """
     type: command
     short-summary: "Create new navigation property to dimensionValues for financials."
 """
 
-helps['financials financialscompaniesdimension delete-dimension-value'] = """
+helps['financials financial-company-dimension delete-dimension-value'] = """
     type: command
     short-summary: "Delete navigation property dimensionValues for financials."
 """
 
-helps['financials financialscompaniesdimension list-dimension-value'] = """
+helps['financials financial-company-dimension list-dimension-value'] = """
     type: command
     short-summary: "Get dimensionValues from financials."
 """
 
-helps['financials financialscompaniesdimension show-dimension-value'] = """
+helps['financials financial-company-dimension show-dimension-value'] = """
     type: command
     short-summary: "Get dimensionValues from financials."
 """
 
-helps['financials financialscompaniesdimension update-dimension-value'] = """
+helps['financials financial-company-dimension update-dimension-value'] = """
     type: command
     short-summary: "Update the navigation property dimensionValues in financials."
 """
 
-helps['financials financialscompaniesemployee'] = """
+helps['financials financial-company-employee'] = """
     type: group
-    short-summary: Manage financialscompaniesemployee with financials_beta
+    short-summary: Manage financial company employee with financials_beta
 """
 
-helps['financials financialscompaniesemployee create-picture'] = """
+helps['financials financial-company-employee create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniesemployee delete-picture'] = """
+helps['financials financial-company-employee delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniesemployee list-picture'] = """
+helps['financials financial-company-employee list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesemployee set-picture-content'] = """
+helps['financials financial-company-employee set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesemployee show-picture'] = """
+helps['financials financial-company-employee show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesemployee show-picture-content'] = """
+helps['financials financial-company-employee show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniesemployee update-picture'] = """
+helps['financials financial-company-employee update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesgeneralledgerentry'] = """
+helps['financials financial-company-general-ledger-entry'] = """
     type: group
-    short-summary: Manage financialscompaniesgeneralledgerentry with financials_beta
+    short-summary: Manage financial company general ledger entry with financials_beta
 """
 
-helps['financials financialscompaniesgeneralledgerentry delete-account'] = """
+helps['financials financial-company-general-ledger-entry delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniesgeneralledgerentry show-account'] = """
+helps['financials financial-company-general-ledger-entry show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniesgeneralledgerentry update-account'] = """
+helps['financials financial-company-general-ledger-entry update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniesitem'] = """
+helps['financials financial-company-item'] = """
     type: group
-    short-summary: Manage financialscompaniesitem with financials_beta
+    short-summary: Manage financial company item with financials_beta
 """
 
-helps['financials financialscompaniesitem create-picture'] = """
+helps['financials financial-company-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniesitem delete-item-category'] = """
+helps['financials financial-company-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniesitem delete-picture'] = """
+helps['financials financial-company-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniesitem list-picture'] = """
+helps['financials financial-company-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesitem set-picture-content'] = """
+helps['financials financial-company-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesitem show-item-category'] = """
+helps['financials financial-company-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniesitem show-picture'] = """
+helps['financials financial-company-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesitem show-picture-content'] = """
+helps['financials financial-company-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniesitem update-item-category'] = """
+helps['financials financial-company-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniesitem update-picture'] = """
+helps['financials financial-company-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesjournalline'] = """
+helps['financials financial-company-journal-line'] = """
     type: group
-    short-summary: Manage financialscompaniesjournalline with financials_beta
+    short-summary: Manage financial company journal line with financials_beta
 """
 
-helps['financials financialscompaniesjournalline delete-account'] = """
+helps['financials financial-company-journal-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniesjournalline show-account'] = """
+helps['financials financial-company-journal-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniesjournalline update-account'] = """
+helps['financials financial-company-journal-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniesjournal'] = """
+helps['financials financial-company-journal'] = """
     type: group
-    short-summary: Manage financialscompaniesjournal with financials_beta
+    short-summary: Manage financial company journal with financials_beta
 """
 
-helps['financials financialscompaniesjournal create-journal-line'] = """
+helps['financials financial-company-journal create-journal-line'] = """
     type: command
     short-summary: "Create new navigation property to journalLines for financials."
     parameters:
@@ -2374,42 +3150,42 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompaniesjournal delete-account'] = """
+helps['financials financial-company-journal delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniesjournal delete-journal-line'] = """
+helps['financials financial-company-journal delete-journal-line'] = """
     type: command
     short-summary: "Delete navigation property journalLines for financials."
 """
 
-helps['financials financialscompaniesjournal list-journal-line'] = """
+helps['financials financial-company-journal list-journal-line'] = """
     type: command
     short-summary: "Get journalLines from financials."
 """
 
-helps['financials financialscompaniesjournal post'] = """
+helps['financials financial-company-journal post'] = """
     type: command
     short-summary: "Invoke action post."
 """
 
-helps['financials financialscompaniesjournal show-account'] = """
+helps['financials financial-company-journal show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniesjournal show-journal-line'] = """
+helps['financials financial-company-journal show-journal-line'] = """
     type: command
     short-summary: "Get journalLines from financials."
 """
 
-helps['financials financialscompaniesjournal update-account'] = """
+helps['financials financial-company-journal update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniesjournal update-journal-line'] = """
+helps['financials financial-company-journal update-journal-line'] = """
     type: command
     short-summary: "Update the navigation property journalLines in financials."
     parameters:
@@ -2422,57 +3198,57 @@ sub-category=XX id=XX
             id: Read-only.
 """
 
-helps['financials financialscompaniesjournalsjournalline'] = """
+helps['financials financial-company-journal-journal-line'] = """
     type: group
-    short-summary: Manage financialscompaniesjournalsjournalline with financials_beta
+    short-summary: Manage financial company journal journal line with financials_beta
 """
 
-helps['financials financialscompaniesjournalsjournalline delete-account'] = """
+helps['financials financial-company-journal-journal-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniesjournalsjournalline show-account'] = """
+helps['financials financial-company-journal-journal-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniesjournalsjournalline update-account'] = """
+helps['financials financial-company-journal-journal-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline'] = """
+helps['financials financial-company-purchase-invoice-line'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoiceline with financials_beta
+    short-summary: Manage financial company purchase invoice line with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoiceline delete-account'] = """
+helps['financials financial-company-purchase-invoice-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline delete-item'] = """
+helps['financials financial-company-purchase-invoice-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline show-account'] = """
+helps['financials financial-company-purchase-invoice-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline show-item'] = """
+helps['financials financial-company-purchase-invoice-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline update-account'] = """
+helps['financials financial-company-purchase-invoice-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoiceline update-item'] = """
+helps['financials financial-company-purchase-invoice-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -2491,67 +3267,67 @@ helps['financials financialscompaniespurchaseinvoiceline update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem'] = """
+helps['financials financial-company-purchase-invoice-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoicelinesitem with financials_beta
+    short-summary: Manage financial company purchase invoice line item with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem create-picture'] = """
+helps['financials financial-company-purchase-invoice-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem delete-item-category'] = """
+helps['financials financial-company-purchase-invoice-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem delete-picture'] = """
+helps['financials financial-company-purchase-invoice-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem list-picture'] = """
+helps['financials financial-company-purchase-invoice-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem set-picture-content'] = """
+helps['financials financial-company-purchase-invoice-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem show-item-category'] = """
+helps['financials financial-company-purchase-invoice-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem show-picture'] = """
+helps['financials financial-company-purchase-invoice-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem show-picture-content'] = """
+helps['financials financial-company-purchase-invoice-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem update-item-category'] = """
+helps['financials financial-company-purchase-invoice-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicelinesitem update-picture'] = """
+helps['financials financial-company-purchase-invoice-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice'] = """
+helps['financials financial-company-purchase-invoice'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoice with financials_beta
+    short-summary: Manage financial company purchase invoice with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoice create-purchase-invoice-line'] = """
+helps['financials financial-company-purchase-invoice create-purchase-invoice-line'] = """
     type: command
     short-summary: "Create new navigation property to purchaseInvoiceLines for financials."
     parameters:
@@ -2577,52 +3353,52 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniespurchaseinvoice delete-currency'] = """
+helps['financials financial-company-purchase-invoice delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice delete-purchase-invoice-line'] = """
+helps['financials financial-company-purchase-invoice delete-purchase-invoice-line'] = """
     type: command
     short-summary: "Delete navigation property purchaseInvoiceLines for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice delete-vendor'] = """
+helps['financials financial-company-purchase-invoice delete-vendor'] = """
     type: command
     short-summary: "Delete navigation property vendor for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice list-purchase-invoice-line'] = """
+helps['financials financial-company-purchase-invoice list-purchase-invoice-line'] = """
     type: command
     short-summary: "Get purchaseInvoiceLines from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice post'] = """
+helps['financials financial-company-purchase-invoice post'] = """
     type: command
     short-summary: "Invoke action post."
 """
 
-helps['financials financialscompaniespurchaseinvoice show-currency'] = """
+helps['financials financial-company-purchase-invoice show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice show-purchase-invoice-line'] = """
+helps['financials financial-company-purchase-invoice show-purchase-invoice-line'] = """
     type: command
     short-summary: "Get purchaseInvoiceLines from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice show-vendor'] = """
+helps['financials financial-company-purchase-invoice show-vendor'] = """
     type: command
     short-summary: "Get vendor from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice update-currency'] = """
+helps['financials financial-company-purchase-invoice update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoice update-purchase-invoice-line'] = """
+helps['financials financial-company-purchase-invoice update-purchase-invoice-line'] = """
     type: command
     short-summary: "Update the navigation property purchaseInvoiceLines in financials."
     parameters:
@@ -2648,7 +3424,7 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniespurchaseinvoice update-vendor'] = """
+helps['financials financial-company-purchase-invoice update-vendor'] = """
     type: command
     short-summary: "Update the navigation property vendor in financials."
     parameters:
@@ -2686,37 +3462,37 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoicespurchaseinvoiceline with financials_beta
+    short-summary: Manage financial company purchase invoice purchase invoice line with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline delete-account'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline delete-item'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline show-account'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline show-item'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline update-account'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline update-item'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -2735,177 +3511,177 @@ helps['financials financialscompaniespurchaseinvoicespurchaseinvoiceline update-
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoicespurchaseinvoicelinesitem with financials_beta
+    short-summary: Manage financial company purchase invoice purchase invoice line item with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem create-picture'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem delete-item-category'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem delete-picture'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem list-picture'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem set-picture-content'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem show-item-category'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem show-picture'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem show-picture-content'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem update-item-category'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem update-picture'] = """
+helps['financials financial-company-purchase-invoice-purchase-invoice-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor'] = """
+helps['financials financial-company-purchase-invoice-vendor'] = """
     type: group
-    short-summary: Manage financialscompaniespurchaseinvoicesvendor with financials_beta
+    short-summary: Manage financial company purchase invoice vendor with financials_beta
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor create-picture'] = """
+helps['financials financial-company-purchase-invoice-vendor create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor delete-currency'] = """
+helps['financials financial-company-purchase-invoice-vendor delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor delete-payment-method'] = """
+helps['financials financial-company-purchase-invoice-vendor delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor delete-payment-term'] = """
+helps['financials financial-company-purchase-invoice-vendor delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor delete-picture'] = """
+helps['financials financial-company-purchase-invoice-vendor delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor list-picture'] = """
+helps['financials financial-company-purchase-invoice-vendor list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor set-picture-content'] = """
+helps['financials financial-company-purchase-invoice-vendor set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor show-currency'] = """
+helps['financials financial-company-purchase-invoice-vendor show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor show-payment-method'] = """
+helps['financials financial-company-purchase-invoice-vendor show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor show-payment-term'] = """
+helps['financials financial-company-purchase-invoice-vendor show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor show-picture'] = """
+helps['financials financial-company-purchase-invoice-vendor show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor show-picture-content'] = """
+helps['financials financial-company-purchase-invoice-vendor show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor update-currency'] = """
+helps['financials financial-company-purchase-invoice-vendor update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor update-payment-method'] = """
+helps['financials financial-company-purchase-invoice-vendor update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor update-payment-term'] = """
+helps['financials financial-company-purchase-invoice-vendor update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniespurchaseinvoicesvendor update-picture'] = """
+helps['financials financial-company-purchase-invoice-vendor update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline'] = """
+helps['financials financial-company-sale-credit-memo-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemoline with financials_beta
+    short-summary: Manage financial company sale credit memo line with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemoline delete-account'] = """
+helps['financials financial-company-sale-credit-memo-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline delete-item'] = """
+helps['financials financial-company-sale-credit-memo-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline show-account'] = """
+helps['financials financial-company-sale-credit-memo-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline show-item'] = """
+helps['financials financial-company-sale-credit-memo-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline update-account'] = """
+helps['financials financial-company-sale-credit-memo-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoline update-item'] = """
+helps['financials financial-company-sale-credit-memo-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -2924,67 +3700,67 @@ helps['financials financialscompaniessalescreditmemoline update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem'] = """
+helps['financials financial-company-sale-credit-memo-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemolinesitem with financials_beta
+    short-summary: Manage financial company sale credit memo line item with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem create-picture'] = """
+helps['financials financial-company-sale-credit-memo-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem delete-item-category'] = """
+helps['financials financial-company-sale-credit-memo-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem delete-picture'] = """
+helps['financials financial-company-sale-credit-memo-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem list-picture'] = """
+helps['financials financial-company-sale-credit-memo-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem set-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem show-item-category'] = """
+helps['financials financial-company-sale-credit-memo-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem show-picture'] = """
+helps['financials financial-company-sale-credit-memo-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem show-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem update-item-category'] = """
+helps['financials financial-company-sale-credit-memo-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalescreditmemolinesitem update-picture'] = """
+helps['financials financial-company-sale-credit-memo-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemo'] = """
+helps['financials financial-company-sale-credit-memo'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemo with financials_beta
+    short-summary: Manage financial company sale credit memo with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemo create-sale-credit-memo-line'] = """
+helps['financials financial-company-sale-credit-memo create-sale-credit-memo-line'] = """
     type: command
     short-summary: "Create new navigation property to salesCreditMemoLines for financials."
     parameters:
@@ -3010,57 +3786,57 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalescreditmemo delete-currency'] = """
+helps['financials financial-company-sale-credit-memo delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalescreditmemo delete-customer'] = """
+helps['financials financial-company-sale-credit-memo delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniessalescreditmemo delete-payment-term'] = """
+helps['financials financial-company-sale-credit-memo delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalescreditmemo delete-sale-credit-memo-line'] = """
+helps['financials financial-company-sale-credit-memo delete-sale-credit-memo-line'] = """
     type: command
     short-summary: "Delete navigation property salesCreditMemoLines for financials."
 """
 
-helps['financials financialscompaniessalescreditmemo list-sale-credit-memo-line'] = """
+helps['financials financial-company-sale-credit-memo list-sale-credit-memo-line'] = """
     type: command
     short-summary: "Get salesCreditMemoLines from financials."
 """
 
-helps['financials financialscompaniessalescreditmemo show-currency'] = """
+helps['financials financial-company-sale-credit-memo show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalescreditmemo show-customer'] = """
+helps['financials financial-company-sale-credit-memo show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniessalescreditmemo show-payment-term'] = """
+helps['financials financial-company-sale-credit-memo show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalescreditmemo show-sale-credit-memo-line'] = """
+helps['financials financial-company-sale-credit-memo show-sale-credit-memo-line'] = """
     type: command
     short-summary: "Get salesCreditMemoLines from financials."
 """
 
-helps['financials financialscompaniessalescreditmemo update-currency'] = """
+helps['financials financial-company-sale-credit-memo update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalescreditmemo update-customer'] = """
+helps['financials financial-company-sale-credit-memo update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -3104,12 +3880,12 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniessalescreditmemo update-payment-term'] = """
+helps['financials financial-company-sale-credit-memo update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalescreditmemo update-sale-credit-memo-line'] = """
+helps['financials financial-company-sale-credit-memo update-sale-credit-memo-line'] = """
     type: command
     short-summary: "Update the navigation property salesCreditMemoLines in financials."
     parameters:
@@ -3135,137 +3911,137 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer'] = """
+helps['financials financial-company-sale-credit-memo-customer'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemoscustomer with financials_beta
+    short-summary: Manage financial company sale credit memo customer with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer create-picture'] = """
+helps['financials financial-company-sale-credit-memo-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer delete-currency'] = """
+helps['financials financial-company-sale-credit-memo-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer delete-payment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer delete-payment-term'] = """
+helps['financials financial-company-sale-credit-memo-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer delete-picture'] = """
+helps['financials financial-company-sale-credit-memo-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer delete-shipment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer list-picture'] = """
+helps['financials financial-company-sale-credit-memo-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer set-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-currency'] = """
+helps['financials financial-company-sale-credit-memo-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-payment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-payment-term'] = """
+helps['financials financial-company-sale-credit-memo-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-picture'] = """
+helps['financials financial-company-sale-credit-memo-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer show-shipment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer update-currency'] = """
+helps['financials financial-company-sale-credit-memo-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer update-payment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer update-payment-term'] = """
+helps['financials financial-company-sale-credit-memo-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer update-picture'] = """
+helps['financials financial-company-sale-credit-memo-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemoscustomer update-shipment-method'] = """
+helps['financials financial-company-sale-credit-memo-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemossalescreditmemoline with financials_beta
+    short-summary: Manage financial company sale credit memo sale credit memo line with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline delete-account'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline delete-item'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline show-account'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline show-item'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline update-account'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemoline update-item'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -3284,92 +4060,92 @@ helps['financials financialscompaniessalescreditmemossalescreditmemoline update-
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalescreditmemossalescreditmemolinesitem with financials_beta
+    short-summary: Manage financial company sale credit memo sale credit memo line item with financials_beta
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem create-picture'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem delete-item-category'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem delete-picture'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem list-picture'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem set-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem show-item-category'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem show-picture'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem show-picture-content'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem update-item-category'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalescreditmemossalescreditmemolinesitem update-picture'] = """
+helps['financials financial-company-sale-credit-memo-sale-credit-memo-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline'] = """
+helps['financials financial-company-sale-invoice-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoiceline with financials_beta
+    short-summary: Manage financial company sale invoice line with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoiceline delete-account'] = """
+helps['financials financial-company-sale-invoice-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline delete-item'] = """
+helps['financials financial-company-sale-invoice-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline show-account'] = """
+helps['financials financial-company-sale-invoice-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline show-item'] = """
+helps['financials financial-company-sale-invoice-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline update-account'] = """
+helps['financials financial-company-sale-invoice-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesinvoiceline update-item'] = """
+helps['financials financial-company-sale-invoice-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -3388,77 +4164,77 @@ helps['financials financialscompaniessalesinvoiceline update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem'] = """
+helps['financials financial-company-sale-invoice-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoicelinesitem with financials_beta
+    short-summary: Manage financial company sale invoice line item with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem create-picture'] = """
+helps['financials financial-company-sale-invoice-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem delete-item-category'] = """
+helps['financials financial-company-sale-invoice-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem delete-picture'] = """
+helps['financials financial-company-sale-invoice-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem list-picture'] = """
+helps['financials financial-company-sale-invoice-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem set-picture-content'] = """
+helps['financials financial-company-sale-invoice-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem show-item-category'] = """
+helps['financials financial-company-sale-invoice-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem show-picture'] = """
+helps['financials financial-company-sale-invoice-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem show-picture-content'] = """
+helps['financials financial-company-sale-invoice-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem update-item-category'] = """
+helps['financials financial-company-sale-invoice-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesinvoicelinesitem update-picture'] = """
+helps['financials financial-company-sale-invoice-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoice'] = """
+helps['financials financial-company-sale-invoice'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoice with financials_beta
+    short-summary: Manage financial company sale invoice with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoice cancel'] = """
+helps['financials financial-company-sale-invoice cancel'] = """
     type: command
     short-summary: "Invoke action cancel."
 """
 
-helps['financials financialscompaniessalesinvoice cancel-and-send'] = """
+helps['financials financial-company-sale-invoice cancel-and-send'] = """
     type: command
     short-summary: "Invoke action cancelAndSend."
 """
 
-helps['financials financialscompaniessalesinvoice create-sale-invoice-line'] = """
+helps['financials financial-company-sale-invoice create-sale-invoice-line'] = """
     type: command
     short-summary: "Create new navigation property to salesInvoiceLines for financials."
     parameters:
@@ -3484,82 +4260,82 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesinvoice delete-currency'] = """
+helps['financials financial-company-sale-invoice delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesinvoice delete-customer'] = """
+helps['financials financial-company-sale-invoice delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniessalesinvoice delete-payment-term'] = """
+helps['financials financial-company-sale-invoice delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesinvoice delete-sale-invoice-line'] = """
+helps['financials financial-company-sale-invoice delete-sale-invoice-line'] = """
     type: command
     short-summary: "Delete navigation property salesInvoiceLines for financials."
 """
 
-helps['financials financialscompaniessalesinvoice delete-shipment-method'] = """
+helps['financials financial-company-sale-invoice delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalesinvoice list-sale-invoice-line'] = """
+helps['financials financial-company-sale-invoice list-sale-invoice-line'] = """
     type: command
     short-summary: "Get salesInvoiceLines from financials."
 """
 
-helps['financials financialscompaniessalesinvoice post'] = """
+helps['financials financial-company-sale-invoice post'] = """
     type: command
     short-summary: "Invoke action post."
 """
 
-helps['financials financialscompaniessalesinvoice post-and-send'] = """
+helps['financials financial-company-sale-invoice post-and-send'] = """
     type: command
     short-summary: "Invoke action postAndSend."
 """
 
-helps['financials financialscompaniessalesinvoice send'] = """
+helps['financials financial-company-sale-invoice send'] = """
     type: command
     short-summary: "Invoke action send."
 """
 
-helps['financials financialscompaniessalesinvoice show-currency'] = """
+helps['financials financial-company-sale-invoice show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesinvoice show-customer'] = """
+helps['financials financial-company-sale-invoice show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniessalesinvoice show-payment-term'] = """
+helps['financials financial-company-sale-invoice show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesinvoice show-sale-invoice-line'] = """
+helps['financials financial-company-sale-invoice show-sale-invoice-line'] = """
     type: command
     short-summary: "Get salesInvoiceLines from financials."
 """
 
-helps['financials financialscompaniessalesinvoice show-shipment-method'] = """
+helps['financials financial-company-sale-invoice show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalesinvoice update-currency'] = """
+helps['financials financial-company-sale-invoice update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesinvoice update-customer'] = """
+helps['financials financial-company-sale-invoice update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -3603,12 +4379,12 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniessalesinvoice update-payment-term'] = """
+helps['financials financial-company-sale-invoice update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesinvoice update-sale-invoice-line'] = """
+helps['financials financial-company-sale-invoice update-sale-invoice-line'] = """
     type: command
     short-summary: "Update the navigation property salesInvoiceLines in financials."
     parameters:
@@ -3634,142 +4410,142 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesinvoice update-shipment-method'] = """
+helps['financials financial-company-sale-invoice update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer'] = """
+helps['financials financial-company-sale-invoice-customer'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoicescustomer with financials_beta
+    short-summary: Manage financial company sale invoice customer with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoicescustomer create-picture'] = """
+helps['financials financial-company-sale-invoice-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer delete-currency'] = """
+helps['financials financial-company-sale-invoice-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer delete-payment-method'] = """
+helps['financials financial-company-sale-invoice-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer delete-payment-term'] = """
+helps['financials financial-company-sale-invoice-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer delete-picture'] = """
+helps['financials financial-company-sale-invoice-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer delete-shipment-method'] = """
+helps['financials financial-company-sale-invoice-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer list-picture'] = """
+helps['financials financial-company-sale-invoice-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer set-picture-content'] = """
+helps['financials financial-company-sale-invoice-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-currency'] = """
+helps['financials financial-company-sale-invoice-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-payment-method'] = """
+helps['financials financial-company-sale-invoice-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-payment-term'] = """
+helps['financials financial-company-sale-invoice-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-picture'] = """
+helps['financials financial-company-sale-invoice-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-picture-content'] = """
+helps['financials financial-company-sale-invoice-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer show-shipment-method'] = """
+helps['financials financial-company-sale-invoice-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer update-currency'] = """
+helps['financials financial-company-sale-invoice-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer update-payment-method'] = """
+helps['financials financial-company-sale-invoice-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer update-payment-term'] = """
+helps['financials financial-company-sale-invoice-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer update-picture'] = """
+helps['financials financial-company-sale-invoice-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoicescustomer update-shipment-method'] = """
+helps['financials financial-company-sale-invoice-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoicessalesinvoiceline with financials_beta
+    short-summary: Manage financial company sale invoice sale invoice line with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline delete-account'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline delete-item'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline show-account'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline show-item'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline update-account'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoiceline update-item'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -3788,92 +4564,92 @@ helps['financials financialscompaniessalesinvoicessalesinvoiceline update-item']
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesinvoicessalesinvoicelinesitem with financials_beta
+    short-summary: Manage financial company sale invoice sale invoice line item with financials_beta
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem create-picture'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem delete-item-category'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem delete-picture'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem list-picture'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem set-picture-content'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem show-item-category'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem show-picture'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem show-picture-content'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem update-item-category'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesinvoicessalesinvoicelinesitem update-picture'] = """
+helps['financials financial-company-sale-invoice-sale-invoice-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorderline'] = """
+helps['financials financial-company-sale-order-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorderline with financials_beta
+    short-summary: Manage financial company sale order line with financials_beta
 """
 
-helps['financials financialscompaniessalesorderline delete-account'] = """
+helps['financials financial-company-sale-order-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesorderline delete-item'] = """
+helps['financials financial-company-sale-order-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesorderline show-account'] = """
+helps['financials financial-company-sale-order-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesorderline show-item'] = """
+helps['financials financial-company-sale-order-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesorderline update-account'] = """
+helps['financials financial-company-sale-order-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesorderline update-item'] = """
+helps['financials financial-company-sale-order-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -3892,67 +4668,67 @@ helps['financials financialscompaniessalesorderline update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesorderlinesitem'] = """
+helps['financials financial-company-sale-order-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorderlinesitem with financials_beta
+    short-summary: Manage financial company sale order line item with financials_beta
 """
 
-helps['financials financialscompaniessalesorderlinesitem create-picture'] = """
+helps['financials financial-company-sale-order-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem delete-item-category'] = """
+helps['financials financial-company-sale-order-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem delete-picture'] = """
+helps['financials financial-company-sale-order-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem list-picture'] = """
+helps['financials financial-company-sale-order-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem set-picture-content'] = """
+helps['financials financial-company-sale-order-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem show-item-category'] = """
+helps['financials financial-company-sale-order-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem show-picture'] = """
+helps['financials financial-company-sale-order-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem show-picture-content'] = """
+helps['financials financial-company-sale-order-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem update-item-category'] = """
+helps['financials financial-company-sale-order-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesorderlinesitem update-picture'] = """
+helps['financials financial-company-sale-order-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorder'] = """
+helps['financials financial-company-sale-order'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorder with financials_beta
+    short-summary: Manage financial company sale order with financials_beta
 """
 
-helps['financials financialscompaniessalesorder create-sale-order-line'] = """
+helps['financials financial-company-sale-order create-sale-order-line'] = """
     type: command
     short-summary: "Create new navigation property to salesOrderLines for financials."
     parameters:
@@ -3978,57 +4754,57 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesorder delete-currency'] = """
+helps['financials financial-company-sale-order delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesorder delete-customer'] = """
+helps['financials financial-company-sale-order delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniessalesorder delete-payment-term'] = """
+helps['financials financial-company-sale-order delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesorder delete-sale-order-line'] = """
+helps['financials financial-company-sale-order delete-sale-order-line'] = """
     type: command
     short-summary: "Delete navigation property salesOrderLines for financials."
 """
 
-helps['financials financialscompaniessalesorder list-sale-order-line'] = """
+helps['financials financial-company-sale-order list-sale-order-line'] = """
     type: command
     short-summary: "Get salesOrderLines from financials."
 """
 
-helps['financials financialscompaniessalesorder show-currency'] = """
+helps['financials financial-company-sale-order show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesorder show-customer'] = """
+helps['financials financial-company-sale-order show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniessalesorder show-payment-term'] = """
+helps['financials financial-company-sale-order show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesorder show-sale-order-line'] = """
+helps['financials financial-company-sale-order show-sale-order-line'] = """
     type: command
     short-summary: "Get salesOrderLines from financials."
 """
 
-helps['financials financialscompaniessalesorder update-currency'] = """
+helps['financials financial-company-sale-order update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesorder update-customer'] = """
+helps['financials financial-company-sale-order update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -4072,12 +4848,12 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniessalesorder update-payment-term'] = """
+helps['financials financial-company-sale-order update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesorder update-sale-order-line'] = """
+helps['financials financial-company-sale-order update-sale-order-line'] = """
     type: command
     short-summary: "Update the navigation property salesOrderLines in financials."
     parameters:
@@ -4103,137 +4879,137 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesorderscustomer'] = """
+helps['financials financial-company-sale-order-customer'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorderscustomer with financials_beta
+    short-summary: Manage financial company sale order customer with financials_beta
 """
 
-helps['financials financialscompaniessalesorderscustomer create-picture'] = """
+helps['financials financial-company-sale-order-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer delete-currency'] = """
+helps['financials financial-company-sale-order-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer delete-payment-method'] = """
+helps['financials financial-company-sale-order-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer delete-payment-term'] = """
+helps['financials financial-company-sale-order-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer delete-picture'] = """
+helps['financials financial-company-sale-order-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer delete-shipment-method'] = """
+helps['financials financial-company-sale-order-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer list-picture'] = """
+helps['financials financial-company-sale-order-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer set-picture-content'] = """
+helps['financials financial-company-sale-order-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-currency'] = """
+helps['financials financial-company-sale-order-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-payment-method'] = """
+helps['financials financial-company-sale-order-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-payment-term'] = """
+helps['financials financial-company-sale-order-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-picture'] = """
+helps['financials financial-company-sale-order-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-picture-content'] = """
+helps['financials financial-company-sale-order-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer show-shipment-method'] = """
+helps['financials financial-company-sale-order-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer update-currency'] = """
+helps['financials financial-company-sale-order-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer update-payment-method'] = """
+helps['financials financial-company-sale-order-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer update-payment-term'] = """
+helps['financials financial-company-sale-order-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer update-picture'] = """
+helps['financials financial-company-sale-order-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorderscustomer update-shipment-method'] = """
+helps['financials financial-company-sale-order-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline'] = """
+helps['financials financial-company-sale-order-sale-order-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorderssalesorderline with financials_beta
+    short-summary: Manage financial company sale order sale order line with financials_beta
 """
 
-helps['financials financialscompaniessalesorderssalesorderline delete-account'] = """
+helps['financials financial-company-sale-order-sale-order-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline delete-item'] = """
+helps['financials financial-company-sale-order-sale-order-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline show-account'] = """
+helps['financials financial-company-sale-order-sale-order-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline show-item'] = """
+helps['financials financial-company-sale-order-sale-order-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline update-account'] = """
+helps['financials financial-company-sale-order-sale-order-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderline update-item'] = """
+helps['financials financial-company-sale-order-sale-order-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -4252,92 +5028,92 @@ helps['financials financialscompaniessalesorderssalesorderline update-item'] = "
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem'] = """
+helps['financials financial-company-sale-order-sale-order-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesorderssalesorderlinesitem with financials_beta
+    short-summary: Manage financial company sale order sale order line item with financials_beta
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem create-picture'] = """
+helps['financials financial-company-sale-order-sale-order-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem delete-item-category'] = """
+helps['financials financial-company-sale-order-sale-order-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem delete-picture'] = """
+helps['financials financial-company-sale-order-sale-order-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem list-picture'] = """
+helps['financials financial-company-sale-order-sale-order-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem set-picture-content'] = """
+helps['financials financial-company-sale-order-sale-order-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem show-item-category'] = """
+helps['financials financial-company-sale-order-sale-order-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem show-picture'] = """
+helps['financials financial-company-sale-order-sale-order-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem show-picture-content'] = """
+helps['financials financial-company-sale-order-sale-order-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem update-item-category'] = """
+helps['financials financial-company-sale-order-sale-order-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesorderssalesorderlinesitem update-picture'] = """
+helps['financials financial-company-sale-order-sale-order-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquoteline'] = """
+helps['financials financial-company-sale-quote-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquoteline with financials_beta
+    short-summary: Manage financial company sale quote line with financials_beta
 """
 
-helps['financials financialscompaniessalesquoteline delete-account'] = """
+helps['financials financial-company-sale-quote-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesquoteline delete-item'] = """
+helps['financials financial-company-sale-quote-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesquoteline show-account'] = """
+helps['financials financial-company-sale-quote-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesquoteline show-item'] = """
+helps['financials financial-company-sale-quote-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesquoteline update-account'] = """
+helps['financials financial-company-sale-quote-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesquoteline update-item'] = """
+helps['financials financial-company-sale-quote-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -4356,67 +5132,67 @@ helps['financials financialscompaniessalesquoteline update-item'] = """
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesquotelinesitem'] = """
+helps['financials financial-company-sale-quote-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquotelinesitem with financials_beta
+    short-summary: Manage financial company sale quote line item with financials_beta
 """
 
-helps['financials financialscompaniessalesquotelinesitem create-picture'] = """
+helps['financials financial-company-sale-quote-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem delete-item-category'] = """
+helps['financials financial-company-sale-quote-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem delete-picture'] = """
+helps['financials financial-company-sale-quote-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem list-picture'] = """
+helps['financials financial-company-sale-quote-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem set-picture-content'] = """
+helps['financials financial-company-sale-quote-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem show-item-category'] = """
+helps['financials financial-company-sale-quote-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem show-picture'] = """
+helps['financials financial-company-sale-quote-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem show-picture-content'] = """
+helps['financials financial-company-sale-quote-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem update-item-category'] = """
+helps['financials financial-company-sale-quote-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesquotelinesitem update-picture'] = """
+helps['financials financial-company-sale-quote-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquote'] = """
+helps['financials financial-company-sale-quote'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquote with financials_beta
+    short-summary: Manage financial company sale quote with financials_beta
 """
 
-helps['financials financialscompaniessalesquote create-sale-quote-line'] = """
+helps['financials financial-company-sale-quote create-sale-quote-line'] = """
     type: command
     short-summary: "Create new navigation property to salesQuoteLines for financials."
     parameters:
@@ -4442,77 +5218,77 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesquote delete-currency'] = """
+helps['financials financial-company-sale-quote delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesquote delete-customer'] = """
+helps['financials financial-company-sale-quote delete-customer'] = """
     type: command
     short-summary: "Delete navigation property customer for financials."
 """
 
-helps['financials financialscompaniessalesquote delete-payment-term'] = """
+helps['financials financial-company-sale-quote delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesquote delete-sale-quote-line'] = """
+helps['financials financial-company-sale-quote delete-sale-quote-line'] = """
     type: command
     short-summary: "Delete navigation property salesQuoteLines for financials."
 """
 
-helps['financials financialscompaniessalesquote delete-shipment-method'] = """
+helps['financials financial-company-sale-quote delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalesquote list-sale-quote-line'] = """
+helps['financials financial-company-sale-quote list-sale-quote-line'] = """
     type: command
     short-summary: "Get salesQuoteLines from financials."
 """
 
-helps['financials financialscompaniessalesquote make-invoice'] = """
+helps['financials financial-company-sale-quote make-invoice'] = """
     type: command
     short-summary: "Invoke action makeInvoice."
 """
 
-helps['financials financialscompaniessalesquote send'] = """
+helps['financials financial-company-sale-quote send'] = """
     type: command
     short-summary: "Invoke action send."
 """
 
-helps['financials financialscompaniessalesquote show-currency'] = """
+helps['financials financial-company-sale-quote show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesquote show-customer'] = """
+helps['financials financial-company-sale-quote show-customer'] = """
     type: command
     short-summary: "Get customer from financials."
 """
 
-helps['financials financialscompaniessalesquote show-payment-term'] = """
+helps['financials financial-company-sale-quote show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesquote show-sale-quote-line'] = """
+helps['financials financial-company-sale-quote show-sale-quote-line'] = """
     type: command
     short-summary: "Get salesQuoteLines from financials."
 """
 
-helps['financials financialscompaniessalesquote show-shipment-method'] = """
+helps['financials financial-company-sale-quote show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalesquote update-currency'] = """
+helps['financials financial-company-sale-quote update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesquote update-customer'] = """
+helps['financials financial-company-sale-quote update-customer'] = """
     type: command
     short-summary: "Update the navigation property customer in financials."
     parameters:
@@ -4556,12 +5332,12 @@ discount-percent=XX display-name=XX due-date-calculation=XX last-modified-date-t
             id: Read-only.
 """
 
-helps['financials financialscompaniessalesquote update-payment-term'] = """
+helps['financials financial-company-sale-quote update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesquote update-sale-quote-line'] = """
+helps['financials financial-company-sale-quote update-sale-quote-line'] = """
     type: command
     short-summary: "Update the navigation property salesQuoteLines in financials."
     parameters:
@@ -4587,142 +5363,142 @@ sub-category=XX id=XX
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesquote update-shipment-method'] = """
+helps['financials financial-company-sale-quote update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer'] = """
+helps['financials financial-company-sale-quote-customer'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquotescustomer with financials_beta
+    short-summary: Manage financial company sale quote customer with financials_beta
 """
 
-helps['financials financialscompaniessalesquotescustomer create-picture'] = """
+helps['financials financial-company-sale-quote-customer create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer delete-currency'] = """
+helps['financials financial-company-sale-quote-customer delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer delete-payment-method'] = """
+helps['financials financial-company-sale-quote-customer delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer delete-payment-term'] = """
+helps['financials financial-company-sale-quote-customer delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer delete-picture'] = """
+helps['financials financial-company-sale-quote-customer delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer delete-shipment-method'] = """
+helps['financials financial-company-sale-quote-customer delete-shipment-method'] = """
     type: command
     short-summary: "Delete navigation property shipmentMethod for financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer list-picture'] = """
+helps['financials financial-company-sale-quote-customer list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer set-picture-content'] = """
+helps['financials financial-company-sale-quote-customer set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-currency'] = """
+helps['financials financial-company-sale-quote-customer show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-payment-method'] = """
+helps['financials financial-company-sale-quote-customer show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-payment-term'] = """
+helps['financials financial-company-sale-quote-customer show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-picture'] = """
+helps['financials financial-company-sale-quote-customer show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-picture-content'] = """
+helps['financials financial-company-sale-quote-customer show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer show-shipment-method'] = """
+helps['financials financial-company-sale-quote-customer show-shipment-method'] = """
     type: command
     short-summary: "Get shipmentMethod from financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer update-currency'] = """
+helps['financials financial-company-sale-quote-customer update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer update-payment-method'] = """
+helps['financials financial-company-sale-quote-customer update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer update-payment-term'] = """
+helps['financials financial-company-sale-quote-customer update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer update-picture'] = """
+helps['financials financial-company-sale-quote-customer update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquotescustomer update-shipment-method'] = """
+helps['financials financial-company-sale-quote-customer update-shipment-method'] = """
     type: command
     short-summary: "Update the navigation property shipmentMethod in financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline'] = """
+helps['financials financial-company-sale-quote-sale-quote-line'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquotessalesquoteline with financials_beta
+    short-summary: Manage financial company sale quote sale quote line with financials_beta
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline delete-account'] = """
+helps['financials financial-company-sale-quote-sale-quote-line delete-account'] = """
     type: command
     short-summary: "Delete navigation property account for financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline delete-item'] = """
+helps['financials financial-company-sale-quote-sale-quote-line delete-item'] = """
     type: command
     short-summary: "Delete navigation property item for financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline show-account'] = """
+helps['financials financial-company-sale-quote-sale-quote-line show-account'] = """
     type: command
     short-summary: "Get account from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline show-item'] = """
+helps['financials financial-company-sale-quote-sale-quote-line show-item'] = """
     type: command
     short-summary: "Get item from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline update-account'] = """
+helps['financials financial-company-sale-quote-sale-quote-line update-account'] = """
     type: command
     short-summary: "Update the navigation property account in financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquoteline update-item'] = """
+helps['financials financial-company-sale-quote-sale-quote-line update-item'] = """
     type: command
     short-summary: "Update the navigation property item in financials."
     parameters:
@@ -4741,142 +5517,142 @@ helps['financials financialscompaniessalesquotessalesquoteline update-item'] = "
             Multiple actions can be specified by using more than one --picture argument.
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item'] = """
     type: group
-    short-summary: Manage financialscompaniessalesquotessalesquotelinesitem with financials_beta
+    short-summary: Manage financial company sale quote sale quote line item with financials_beta
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem create-picture'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem delete-item-category'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item delete-item-category'] = """
     type: command
     short-summary: "Delete navigation property itemCategory for financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem delete-picture'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem list-picture'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem set-picture-content'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem show-item-category'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item show-item-category'] = """
     type: command
     short-summary: "Get itemCategory from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem show-picture'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem show-picture-content'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem update-item-category'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item update-item-category'] = """
     type: command
     short-summary: "Update the navigation property itemCategory in financials."
 """
 
-helps['financials financialscompaniessalesquotessalesquotelinesitem update-picture'] = """
+helps['financials financial-company-sale-quote-sale-quote-line-item update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesvendor'] = """
+helps['financials financial-company-vendor'] = """
     type: group
-    short-summary: Manage financialscompaniesvendor with financials_beta
+    short-summary: Manage financial company vendor with financials_beta
 """
 
-helps['financials financialscompaniesvendor create-picture'] = """
+helps['financials financial-company-vendor create-picture'] = """
     type: command
     short-summary: "Create new navigation property to picture for financials."
 """
 
-helps['financials financialscompaniesvendor delete-currency'] = """
+helps['financials financial-company-vendor delete-currency'] = """
     type: command
     short-summary: "Delete navigation property currency for financials."
 """
 
-helps['financials financialscompaniesvendor delete-payment-method'] = """
+helps['financials financial-company-vendor delete-payment-method'] = """
     type: command
     short-summary: "Delete navigation property paymentMethod for financials."
 """
 
-helps['financials financialscompaniesvendor delete-payment-term'] = """
+helps['financials financial-company-vendor delete-payment-term'] = """
     type: command
     short-summary: "Delete navigation property paymentTerm for financials."
 """
 
-helps['financials financialscompaniesvendor delete-picture'] = """
+helps['financials financial-company-vendor delete-picture'] = """
     type: command
     short-summary: "Delete navigation property picture for financials."
 """
 
-helps['financials financialscompaniesvendor list-picture'] = """
+helps['financials financial-company-vendor list-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesvendor set-picture-content'] = """
+helps['financials financial-company-vendor set-picture-content'] = """
     type: command
     short-summary: "Update media content for the navigation property picture in financials."
 """
 
-helps['financials financialscompaniesvendor show-currency'] = """
+helps['financials financial-company-vendor show-currency'] = """
     type: command
     short-summary: "Get currency from financials."
 """
 
-helps['financials financialscompaniesvendor show-payment-method'] = """
+helps['financials financial-company-vendor show-payment-method'] = """
     type: command
     short-summary: "Get paymentMethod from financials."
 """
 
-helps['financials financialscompaniesvendor show-payment-term'] = """
+helps['financials financial-company-vendor show-payment-term'] = """
     type: command
     short-summary: "Get paymentTerm from financials."
 """
 
-helps['financials financialscompaniesvendor show-picture'] = """
+helps['financials financial-company-vendor show-picture'] = """
     type: command
     short-summary: "Get picture from financials."
 """
 
-helps['financials financialscompaniesvendor show-picture-content'] = """
+helps['financials financial-company-vendor show-picture-content'] = """
     type: command
     short-summary: "Get media content for the navigation property picture from financials."
 """
 
-helps['financials financialscompaniesvendor update-currency'] = """
+helps['financials financial-company-vendor update-currency'] = """
     type: command
     short-summary: "Update the navigation property currency in financials."
 """
 
-helps['financials financialscompaniesvendor update-payment-method'] = """
+helps['financials financial-company-vendor update-payment-method'] = """
     type: command
     short-summary: "Update the navigation property paymentMethod in financials."
 """
 
-helps['financials financialscompaniesvendor update-payment-term'] = """
+helps['financials financial-company-vendor update-payment-term'] = """
     type: command
     short-summary: "Update the navigation property paymentTerm in financials."
 """
 
-helps['financials financialscompaniesvendor update-picture'] = """
+helps['financials financial-company-vendor update-picture'] = """
     type: command
     short-summary: "Update the navigation property picture in financials."
 """

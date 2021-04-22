@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations:
-    """usersOperations async operations.
+class UsersOperations:
+    """UsersOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,7 +48,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum291"]]] = None,
         expand: Optional[List[Union[str, "models.Enum292"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofchat0"]:
+    ) -> AsyncIterable["models.CollectionOfChat0"]:
         """Get chats from users.
 
         Get chats from users.
@@ -61,11 +62,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum292]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofchat0 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.collectionofchat0]
+        :return: An iterator like instance of either CollectionOfChat0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.CollectionOfChat0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofchat0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfChat0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -111,7 +112,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofchat0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfChat0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -124,9 +125,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -138,9 +139,9 @@ class usersOperations:
     async def create_chats(
         self,
         user_id: str,
-        body: "models.microsoftgraphchat",
+        body: "models.MicrosoftGraphChat",
         **kwargs
-    ) -> "models.microsoftgraphchat":
+    ) -> "models.MicrosoftGraphChat":
         """Create new navigation property to chats for users.
 
         Create new navigation property to chats for users.
@@ -148,13 +149,13 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~teams.models.microsoftgraphchat
+        :type body: ~teams.models.MicrosoftGraphChat
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphchat, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphchat
+        :return: MicrosoftGraphChat, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphChat
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphchat"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphChat"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -178,7 +179,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphchat')
+        body_content = self._serialize.body(body, 'MicrosoftGraphChat')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -186,10 +187,10 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphchat', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphChat', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -204,7 +205,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum293"]]] = None,
         expand: Optional[List[Union[str, "models.Enum294"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphchat":
+    ) -> "models.MicrosoftGraphChat":
         """Get chats from users.
 
         Get chats from users.
@@ -218,11 +219,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum294]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphchat, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphchat
+        :return: MicrosoftGraphChat, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphChat
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphchat"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphChat"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -254,10 +255,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphchat', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphChat', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -269,7 +270,7 @@ class usersOperations:
         self,
         user_id: str,
         chat_id: str,
-        body: "models.microsoftgraphchat",
+        body: "models.MicrosoftGraphChat",
         **kwargs
     ) -> None:
         """Update the navigation property chats in users.
@@ -281,7 +282,7 @@ class usersOperations:
         :param chat_id: key: id of chat.
         :type chat_id: str
         :param body: New navigation property values.
-        :type body: ~teams.models.microsoftgraphchat
+        :type body: ~teams.models.MicrosoftGraphChat
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -312,7 +313,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphchat')
+        body_content = self._serialize.body(body, 'MicrosoftGraphChat')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -320,8 +321,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -380,8 +381,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -395,7 +396,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum296"]]] = None,
         expand: Optional[List[Union[str, "models.Enum297"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofteam0"]:
+    ) -> AsyncIterable["models.CollectionOfTeam0"]:
         """Get joinedTeams from users.
 
         Get joinedTeams from users.
@@ -409,11 +410,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum297]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofteam0 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.collectionofteam0]
+        :return: An iterator like instance of either CollectionOfTeam0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.CollectionOfTeam0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofteam0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTeam0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -459,7 +460,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofteam0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTeam0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -472,9 +473,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -486,9 +487,9 @@ class usersOperations:
     async def create_joined_teams(
         self,
         user_id: str,
-        body: "models.microsoftgraphteam",
+        body: "models.MicrosoftGraphTeam",
         **kwargs
-    ) -> "models.microsoftgraphteam":
+    ) -> "models.MicrosoftGraphTeam":
         """Create new navigation property to joinedTeams for users.
 
         Create new navigation property to joinedTeams for users.
@@ -496,13 +497,13 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~teams.models.microsoftgraphteam
+        :type body: ~teams.models.MicrosoftGraphTeam
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphteam, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphteam
+        :return: MicrosoftGraphTeam, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphTeam
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphteam"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTeam"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -526,7 +527,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphteam')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTeam')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -534,10 +535,10 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphteam', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTeam', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -552,7 +553,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum298"]]] = None,
         expand: Optional[List[Union[str, "models.Enum299"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphteam":
+    ) -> "models.MicrosoftGraphTeam":
         """Get joinedTeams from users.
 
         Get joinedTeams from users.
@@ -566,11 +567,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum299]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphteam, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphteam
+        :return: MicrosoftGraphTeam, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphTeam
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphteam"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTeam"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -602,10 +603,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphteam', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTeam', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -617,7 +618,7 @@ class usersOperations:
         self,
         user_id: str,
         team_id: str,
-        body: "models.microsoftgraphteam",
+        body: "models.MicrosoftGraphTeam",
         **kwargs
     ) -> None:
         """Update the navigation property joinedTeams in users.
@@ -629,7 +630,7 @@ class usersOperations:
         :param team_id: key: id of team.
         :type team_id: str
         :param body: New navigation property values.
-        :type body: ~teams.models.microsoftgraphteam
+        :type body: ~teams.models.MicrosoftGraphTeam
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -660,7 +661,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphteam')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTeam')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -668,8 +669,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -728,8 +729,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -742,7 +743,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum300"]]] = None,
         expand: Optional[List[Union[str, "models.Enum301"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphuserteamwork":
+    ) -> "models.MicrosoftGraphUserTeamwork":
         """Get teamwork from users.
 
         Get teamwork from users.
@@ -754,11 +755,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum301]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphuserteamwork, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphuserteamwork
+        :return: MicrosoftGraphUserTeamwork, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphUserTeamwork
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphuserteamwork"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserTeamwork"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -789,10 +790,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphuserteamwork', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphUserTeamwork', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -803,7 +804,7 @@ class usersOperations:
     async def update_teamwork(
         self,
         user_id: str,
-        body: "models.microsoftgraphuserteamwork",
+        body: "models.MicrosoftGraphUserTeamwork",
         **kwargs
     ) -> None:
         """Update the navigation property teamwork in users.
@@ -813,7 +814,7 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property values.
-        :type body: ~teams.models.microsoftgraphuserteamwork
+        :type body: ~teams.models.MicrosoftGraphUserTeamwork
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -843,7 +844,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphuserteamwork')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserTeamwork')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -851,8 +852,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -907,8 +908,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

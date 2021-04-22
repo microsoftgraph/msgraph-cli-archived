@@ -26,7 +26,7 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
             raise AttributeError(name)
 
 
-class Microsoftgraphactionstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     PENDING = "pending"
@@ -34,64 +34,64 @@ class Microsoftgraphactionstate(with_metaclass(_CaseInsensitiveEnumMeta, str, En
     ACTIVE = "active"
     DONE = "done"
     FAILED = "failed"
-    NOTSUPPORTED = "notSupported"
+    NOT_SUPPORTED = "notSupported"
 
-class Microsoftgraphactivitydomain(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphActivityDomain(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     WORK = "work"
     PERSONAL = "personal"
     UNRESTRICTED = "unrestricted"
 
-class Microsoftgraphattachmenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphAttachmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FILE = "file"
     ITEM = "item"
     REFERENCE = "reference"
 
-class Microsoftgraphattendeetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphAttendeeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     REQUIRED = "required"
     OPTIONAL = "optional"
     RESOURCE = "resource"
 
-class Microsoftgraphautomaticrepliesstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphAutomaticRepliesStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DISABLED = "disabled"
-    ALWAYSENABLED = "alwaysEnabled"
+    ALWAYS_ENABLED = "alwaysEnabled"
     SCHEDULED = "scheduled"
 
-class Microsoftgraphbodytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     TEXT = "text"
     HTML = "html"
 
-class Microsoftgraphcalendarcolor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphCalendarColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    LIGHTBLUE = "lightBlue"
-    LIGHTGREEN = "lightGreen"
+    LIGHT_BLUE = "lightBlue"
+    LIGHT_GREEN = "lightGreen"
     AUTO = "auto"
-    LIGHTORANGE = "lightOrange"
-    LIGHTGRAY = "lightGray"
-    LIGHTYELLOW = "lightYellow"
-    LIGHTTEAL = "lightTeal"
-    LIGHTPINK = "lightPink"
-    LIGHTBROWN = "lightBrown"
-    LIGHTRED = "lightRed"
-    MAXCOLOR = "maxColor"
+    LIGHT_ORANGE = "lightOrange"
+    LIGHT_GRAY = "lightGray"
+    LIGHT_YELLOW = "lightYellow"
+    LIGHT_TEAL = "lightTeal"
+    LIGHT_PINK = "lightPink"
+    LIGHT_BROWN = "lightBrown"
+    LIGHT_RED = "lightRed"
+    MAX_COLOR = "maxColor"
 
-class Microsoftgraphcalendarroletype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphCalendarRoleType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    FREEBUSYREAD = "freeBusyRead"
-    LIMITEDREAD = "limitedRead"
+    FREE_BUSY_READ = "freeBusyRead"
+    LIMITED_READ = "limitedRead"
     READ = "read"
     WRITE = "write"
-    DELEGATEWITHOUTPRIVATEEVENTACCESS = "delegateWithoutPrivateEventAccess"
-    DELEGATEWITHPRIVATEEVENTACCESS = "delegateWithPrivateEventAccess"
+    DELEGATE_WITHOUT_PRIVATE_EVENT_ACCESS = "delegateWithoutPrivateEventAccess"
+    DELEGATE_WITH_PRIVATE_EVENT_ACCESS = "delegateWithPrivateEventAccess"
     CUSTOM = "custom"
 
-class Microsoftgraphcategorycolor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PRESET0 = "preset0"
     PRESET1 = "preset1"
@@ -120,68 +120,68 @@ class Microsoftgraphcategorycolor(with_metaclass(_CaseInsensitiveEnumMeta, str, 
     PRESET23 = "preset23"
     PRESET24 = "preset24"
 
-class Microsoftgraphchannelmembershiptype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChannelMembershipType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STANDARD = "standard"
     PRIVATE = "private"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphchatmessageimportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NORMAL = "normal"
     HIGH = "high"
     URGENT = "urgent"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphchatmessagepolicyviolationdlpactiontypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    NOTIFYSENDER = "notifySender"
-    BLOCKACCESS = "blockAccess"
-    BLOCKACCESSEXTERNAL = "blockAccessExternal"
+    NOTIFY_SENDER = "notifySender"
+    BLOCK_ACCESS = "blockAccess"
+    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
 
-class Microsoftgraphchatmessagepolicyviolationuseractiontypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     OVERRIDE = "override"
-    REPORTFALSEPOSITIVE = "reportFalsePositive"
+    REPORT_FALSE_POSITIVE = "reportFalsePositive"
 
-class Microsoftgraphchatmessagepolicyviolationverdictdetailstypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ALLOWFALSEPOSITIVEOVERRIDE = "allowFalsePositiveOverride"
-    ALLOWOVERRIDEWITHOUTJUSTIFICATION = "allowOverrideWithoutJustification"
-    ALLOWOVERRIDEWITHJUSTIFICATION = "allowOverrideWithJustification"
+    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
+    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
 
-class Microsoftgraphchatmessagetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MESSAGE = "message"
-    CHATEVENT = "chatEvent"
+    CHAT_EVENT = "chatEvent"
     TYPING = "typing"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphcompliancestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     COMPLIANT = "compliant"
     NONCOMPLIANT = "noncompliant"
     CONFLICT = "conflict"
     ERROR = "error"
-    INGRACEPERIOD = "inGracePeriod"
-    CONFIGMANAGER = "configManager"
+    IN_GRACE_PERIOD = "inGracePeriod"
+    CONFIG_MANAGER = "configManager"
 
-class Microsoftgraphcompliancestatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphComplianceStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    NOTAPPLICABLE = "notApplicable"
+    NOT_APPLICABLE = "notApplicable"
     COMPLIANT = "compliant"
     REMEDIATED = "remediated"
-    NONCOMPLIANT = "nonCompliant"
+    NON_COMPLIANT = "nonCompliant"
     ERROR = "error"
     CONFLICT = "conflict"
-    NOTASSIGNED = "notAssigned"
+    NOT_ASSIGNED = "notAssigned"
 
-class Microsoftgraphdayofweek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SUNDAY = "sunday"
     MONDAY = "monday"
@@ -191,26 +191,26 @@ class Microsoftgraphdayofweek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     FRIDAY = "friday"
     SATURDAY = "saturday"
 
-class Microsoftgraphdelegatemeetingmessagedeliveryoptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    SENDTODELEGATEANDINFORMATIONTOPRINCIPAL = "sendToDelegateAndInformationToPrincipal"
-    SENDTODELEGATEANDPRINCIPAL = "sendToDelegateAndPrincipal"
-    SENDTODELEGATEONLY = "sendToDelegateOnly"
+    SEND_TO_DELEGATE_AND_INFORMATION_TO_PRINCIPAL = "sendToDelegateAndInformationToPrincipal"
+    SEND_TO_DELEGATE_AND_PRINCIPAL = "sendToDelegateAndPrincipal"
+    SEND_TO_DELEGATE_ONLY = "sendToDelegateOnly"
 
-class Microsoftgraphdeviceenrollmenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDeviceEnrollmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    USERENROLLMENT = "userEnrollment"
-    DEVICEENROLLMENTMANAGER = "deviceEnrollmentManager"
-    APPLEBULKWITHUSER = "appleBulkWithUser"
-    APPLEBULKWITHOUTUSER = "appleBulkWithoutUser"
-    WINDOWSAZUREADJOIN = "windowsAzureADJoin"
-    WINDOWSBULKUSERLESS = "windowsBulkUserless"
-    WINDOWSAUTOENROLLMENT = "windowsAutoEnrollment"
-    WINDOWSBULKAZUREDOMAINJOIN = "windowsBulkAzureDomainJoin"
-    WINDOWSCOMANAGEMENT = "windowsCoManagement"
+    USER_ENROLLMENT = "userEnrollment"
+    DEVICE_ENROLLMENT_MANAGER = "deviceEnrollmentManager"
+    APPLE_BULK_WITH_USER = "appleBulkWithUser"
+    APPLE_BULK_WITHOUT_USER = "appleBulkWithoutUser"
+    WINDOWS_AZURE_AD_JOIN = "windowsAzureADJoin"
+    WINDOWS_BULK_USERLESS = "windowsBulkUserless"
+    WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment"
+    WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin"
+    WINDOWS_CO_MANAGEMENT = "windowsCoManagement"
 
-class Microsoftgraphdevicemanagementexchangeaccessstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     UNKNOWN = "unknown"
@@ -218,176 +218,176 @@ class Microsoftgraphdevicemanagementexchangeaccessstate(with_metaclass(_CaseInse
     BLOCKED = "blocked"
     QUARANTINED = "quarantined"
 
-class Microsoftgraphdevicemanagementexchangeaccessstatereason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDeviceManagementExchangeAccessStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     UNKNOWN = "unknown"
-    EXCHANGEGLOBALRULE = "exchangeGlobalRule"
-    EXCHANGEINDIVIDUALRULE = "exchangeIndividualRule"
-    EXCHANGEDEVICERULE = "exchangeDeviceRule"
-    EXCHANGEUPGRADE = "exchangeUpgrade"
-    EXCHANGEMAILBOXPOLICY = "exchangeMailboxPolicy"
+    EXCHANGE_GLOBAL_RULE = "exchangeGlobalRule"
+    EXCHANGE_INDIVIDUAL_RULE = "exchangeIndividualRule"
+    EXCHANGE_DEVICE_RULE = "exchangeDeviceRule"
+    EXCHANGE_UPGRADE = "exchangeUpgrade"
+    EXCHANGE_MAILBOX_POLICY = "exchangeMailboxPolicy"
     OTHER = "other"
     COMPLIANT = "compliant"
-    NOTCOMPLIANT = "notCompliant"
-    NOTENROLLED = "notEnrolled"
-    UNKNOWNLOCATION = "unknownLocation"
-    MFAREQUIRED = "mfaRequired"
-    AZUREADBLOCKDUETOACCESSPOLICY = "azureADBlockDueToAccessPolicy"
-    COMPROMISEDPASSWORD = "compromisedPassword"
-    DEVICENOTKNOWNWITHMANAGEDAPP = "deviceNotKnownWithManagedApp"
+    NOT_COMPLIANT = "notCompliant"
+    NOT_ENROLLED = "notEnrolled"
+    UNKNOWN_LOCATION = "unknownLocation"
+    MFA_REQUIRED = "mfaRequired"
+    AZURE_AD_BLOCK_DUE_TO_ACCESS_POLICY = "azureADBlockDueToAccessPolicy"
+    COMPROMISED_PASSWORD = "compromisedPassword"
+    DEVICE_NOT_KNOWN_WITH_MANAGED_APP = "deviceNotKnownWithManagedApp"
 
-class Microsoftgraphdeviceregistrationstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphDeviceRegistrationState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTREGISTERED = "notRegistered"
+    NOT_REGISTERED = "notRegistered"
     REGISTERED = "registered"
     REVOKED = "revoked"
-    KEYCONFLICT = "keyConflict"
-    APPROVALPENDING = "approvalPending"
-    CERTIFICATERESET = "certificateReset"
-    NOTREGISTEREDPENDINGENROLLMENT = "notRegisteredPendingEnrollment"
+    KEY_CONFLICT = "keyConflict"
+    APPROVAL_PENDING = "approvalPending"
+    CERTIFICATE_RESET = "certificateReset"
+    NOT_REGISTERED_PENDING_ENROLLMENT = "notRegisteredPendingEnrollment"
     UNKNOWN = "unknown"
 
-class Microsoftgrapheventtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    SINGLEINSTANCE = "singleInstance"
+    SINGLE_INSTANCE = "singleInstance"
     OCCURRENCE = "occurrence"
     EXCEPTION = "exception"
-    SERIESMASTER = "seriesMaster"
+    SERIES_MASTER = "seriesMaster"
 
-class Microsoftgraphexchangeidformat(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphExchangeIdFormat(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ENTRYID = "entryId"
-    EWSID = "ewsId"
-    IMMUTABLEENTRYID = "immutableEntryId"
-    RESTID = "restId"
-    RESTIMMUTABLEENTRYID = "restImmutableEntryId"
+    ENTRY_ID = "entryId"
+    EWS_ID = "ewsId"
+    IMMUTABLE_ENTRY_ID = "immutableEntryId"
+    REST_ID = "restId"
+    REST_IMMUTABLE_ENTRY_ID = "restImmutableEntryId"
 
-class Microsoftgraphexternalaudiencescope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphExternalAudienceScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    CONTACTSONLY = "contactsOnly"
+    CONTACTS_ONLY = "contactsOnly"
     ALL = "all"
 
-class Microsoftgraphfollowupflagstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTFLAGGED = "notFlagged"
+    NOT_FLAGGED = "notFlagged"
     COMPLETE = "complete"
     FLAGGED = "flagged"
 
-class Microsoftgraphfreebusystatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphFreeBusyStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FREE = "free"
     TENTATIVE = "tentative"
     UNKNOWN = "unknown"
     BUSY = "busy"
     OOF = "oof"
-    WORKINGELSEWHERE = "workingElsewhere"
+    WORKING_ELSEWHERE = "workingElsewhere"
 
-class Microsoftgraphgiphyratingtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphGiphyRatingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STRICT = "strict"
     MODERATE = "moderate"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphimportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     LOW = "low"
     NORMAL = "normal"
     HIGH = "high"
 
-class Microsoftgraphinferenceclassificationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FOCUSED = "focused"
     OTHER = "other"
 
-class Microsoftgraphlocationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DEFAULT = "default"
-    CONFERENCEROOM = "conferenceRoom"
-    HOMEADDRESS = "homeAddress"
-    BUSINESSADDRESS = "businessAddress"
-    GEOCOORDINATES = "geoCoordinates"
-    STREETADDRESS = "streetAddress"
+    CONFERENCE_ROOM = "conferenceRoom"
+    HOME_ADDRESS = "homeAddress"
+    BUSINESS_ADDRESS = "businessAddress"
+    GEO_COORDINATES = "geoCoordinates"
+    STREET_ADDRESS = "streetAddress"
     HOTEL = "hotel"
     RESTAURANT = "restaurant"
-    LOCALBUSINESS = "localBusiness"
-    POSTALADDRESS = "postalAddress"
+    LOCAL_BUSINESS = "localBusiness"
+    POSTAL_ADDRESS = "postalAddress"
 
-class Microsoftgraphlocationuniqueidtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    LOCATIONSTORE = "locationStore"
+    LOCATION_STORE = "locationStore"
     DIRECTORY = "directory"
     PRIVATE = "private"
     BING = "bing"
 
-class Microsoftgraphmailtipstype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphMailTipsType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    AUTOMATICREPLIES = "automaticReplies"
-    MAILBOXFULLSTATUS = "mailboxFullStatus"
-    CUSTOMMAILTIP = "customMailTip"
-    EXTERNALMEMBERCOUNT = "externalMemberCount"
-    TOTALMEMBERCOUNT = "totalMemberCount"
-    MAXMESSAGESIZE = "maxMessageSize"
-    DELIVERYRESTRICTION = "deliveryRestriction"
-    MODERATIONSTATUS = "moderationStatus"
-    RECIPIENTSCOPE = "recipientScope"
-    RECIPIENTSUGGESTIONS = "recipientSuggestions"
+    AUTOMATIC_REPLIES = "automaticReplies"
+    MAILBOX_FULL_STATUS = "mailboxFullStatus"
+    CUSTOM_MAIL_TIP = "customMailTip"
+    EXTERNAL_MEMBER_COUNT = "externalMemberCount"
+    TOTAL_MEMBER_COUNT = "totalMemberCount"
+    MAX_MESSAGE_SIZE = "maxMessageSize"
+    DELIVERY_RESTRICTION = "deliveryRestriction"
+    MODERATION_STATUS = "moderationStatus"
+    RECIPIENT_SCOPE = "recipientScope"
+    RECIPIENT_SUGGESTIONS = "recipientSuggestions"
 
-class Microsoftgraphmanagedappflaggedreason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphManagedAppFlaggedReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ROOTEDDEVICE = "rootedDevice"
+    ROOTED_DEVICE = "rootedDevice"
 
-class Microsoftgraphmanageddeviceownertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphManagedDeviceOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     COMPANY = "company"
     PERSONAL = "personal"
 
-class Microsoftgraphmanageddevicepartnerreportedhealthstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphManagedDevicePartnerReportedHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     ACTIVATED = "activated"
     DEACTIVATED = "deactivated"
     SECURED = "secured"
-    LOWSEVERITY = "lowSeverity"
-    MEDIUMSEVERITY = "mediumSeverity"
-    HIGHSEVERITY = "highSeverity"
+    LOW_SEVERITY = "lowSeverity"
+    MEDIUM_SEVERITY = "mediumSeverity"
+    HIGH_SEVERITY = "highSeverity"
     UNRESPONSIVE = "unresponsive"
     COMPROMISED = "compromised"
     MISCONFIGURED = "misconfigured"
 
-class Microsoftgraphmanagementagenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphManagementAgentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EAS = "eas"
     MDM = "mdm"
-    EASMDM = "easMdm"
-    INTUNECLIENT = "intuneClient"
-    EASINTUNECLIENT = "easIntuneClient"
-    CONFIGURATIONMANAGERCLIENT = "configurationManagerClient"
-    CONFIGURATIONMANAGERCLIENTMDM = "configurationManagerClientMdm"
-    CONFIGURATIONMANAGERCLIENTMDMEAS = "configurationManagerClientMdmEas"
+    EAS_MDM = "easMdm"
+    INTUNE_CLIENT = "intuneClient"
+    EAS_INTUNE_CLIENT = "easIntuneClient"
+    CONFIGURATION_MANAGER_CLIENT = "configurationManagerClient"
+    CONFIGURATION_MANAGER_CLIENT_MDM = "configurationManagerClientMdm"
+    CONFIGURATION_MANAGER_CLIENT_MDM_EAS = "configurationManagerClientMdmEas"
     UNKNOWN = "unknown"
     JAMF = "jamf"
-    GOOGLECLOUDDEVICEPOLICYCONTROLLER = "googleCloudDevicePolicyController"
+    GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController"
 
-class Microsoftgraphmessageactionflag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ANY = "any"
     CALL = "call"
-    DONOTFORWARD = "doNotForward"
-    FOLLOWUP = "followUp"
+    DO_NOT_FORWARD = "doNotForward"
+    FOLLOW_UP = "followUp"
     FYI = "fyi"
     FORWARD = "forward"
-    NORESPONSENECESSARY = "noResponseNecessary"
+    NO_RESPONSE_NECESSARY = "noResponseNecessary"
     READ = "read"
     REPLY = "reply"
-    REPLYTOALL = "replyToAll"
+    REPLY_TO_ALL = "replyToAll"
     REVIEW = "review"
 
-class Microsoftgraphonenotepatchactiontype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphOnenotePatchActionType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     REPLACE = "Replace"
     APPEND = "Append"
@@ -395,112 +395,112 @@ class Microsoftgraphonenotepatchactiontype(with_metaclass(_CaseInsensitiveEnumMe
     INSERT = "Insert"
     PREPEND = "Prepend"
 
-class Microsoftgraphonenotepatchinsertposition(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphOnenotePatchInsertPosition(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AFTER = "After"
     BEFORE = "Before"
 
-class Microsoftgraphonenoteuserrole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     OWNER = "Owner"
     CONTRIBUTOR = "Contributor"
     NONE = "None"
     READER = "Reader"
 
-class Microsoftgraphonlinemeetingprovidertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphOnlineMeetingProviderType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    SKYPEFORBUSINESS = "skypeForBusiness"
-    SKYPEFORCONSUMER = "skypeForConsumer"
-    TEAMSFORBUSINESS = "teamsForBusiness"
+    SKYPE_FOR_BUSINESS = "skypeForBusiness"
+    SKYPE_FOR_CONSUMER = "skypeForConsumer"
+    TEAMS_FOR_BUSINESS = "teamsForBusiness"
 
-class Microsoftgraphoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTSTARTED = "NotStarted"
+    NOT_STARTED = "NotStarted"
     RUNNING = "Running"
     COMPLETED = "Completed"
     FAILED = "Failed"
 
-class Microsoftgraphphonetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     HOME = "home"
     BUSINESS = "business"
     MOBILE = "mobile"
     OTHER = "other"
     ASSISTANT = "assistant"
-    HOMEFAX = "homeFax"
-    BUSINESSFAX = "businessFax"
-    OTHERFAX = "otherFax"
+    HOME_FAX = "homeFax"
+    BUSINESS_FAX = "businessFax"
+    OTHER_FAX = "otherFax"
     PAGER = "pager"
     RADIO = "radio"
 
-class Microsoftgraphplannerpreviewtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AUTOMATIC = "automatic"
-    NOPREVIEW = "noPreview"
+    NO_PREVIEW = "noPreview"
     CHECKLIST = "checklist"
     DESCRIPTION = "description"
     REFERENCE = "reference"
 
-class Microsoftgraphpolicyplatformtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphPolicyPlatformType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ANDROID = "android"
-    IOS = "iOS"
-    MACOS = "macOS"
-    WINDOWSPHONE81 = "windowsPhone81"
-    WINDOWS81ANDLATER = "windows81AndLater"
-    WINDOWS10ANDLATER = "windows10AndLater"
-    ANDROIDWORKPROFILE = "androidWorkProfile"
+    I_OS = "iOS"
+    MAC_OS = "macOS"
+    WINDOWS_PHONE81 = "windowsPhone81"
+    WINDOWS81_AND_LATER = "windows81AndLater"
+    WINDOWS10_AND_LATER = "windows10AndLater"
+    ANDROID_WORK_PROFILE = "androidWorkProfile"
     ALL = "all"
 
-class Microsoftgraphrecipientscopetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphRecipientScopeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     INTERNAL = "internal"
     EXTERNAL = "external"
-    EXTERNALPARTNER = "externalPartner"
-    EXTERNALNONPARTNER = "externalNonPartner"
+    EXTERNAL_PARTNER = "externalPartner"
+    EXTERNAL_NON_PARTNER = "externalNonPartner"
 
-class Microsoftgraphrecurrencepatterntype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphRecurrencePatternType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DAILY = "daily"
     WEEKLY = "weekly"
-    ABSOLUTEMONTHLY = "absoluteMonthly"
-    RELATIVEMONTHLY = "relativeMonthly"
-    ABSOLUTEYEARLY = "absoluteYearly"
-    RELATIVEYEARLY = "relativeYearly"
+    ABSOLUTE_MONTHLY = "absoluteMonthly"
+    RELATIVE_MONTHLY = "relativeMonthly"
+    ABSOLUTE_YEARLY = "absoluteYearly"
+    RELATIVE_YEARLY = "relativeYearly"
 
-class Microsoftgraphrecurrencerangetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphRecurrenceRangeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ENDDATE = "endDate"
-    NOEND = "noEnd"
+    END_DATE = "endDate"
+    NO_END = "noEnd"
     NUMBERED = "numbered"
 
-class Microsoftgraphresponsetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphResponseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     ORGANIZER = "organizer"
-    TENTATIVELYACCEPTED = "tentativelyAccepted"
+    TENTATIVELY_ACCEPTED = "tentativelyAccepted"
     ACCEPTED = "accepted"
     DECLINED = "declined"
-    NOTRESPONDED = "notResponded"
+    NOT_RESPONDED = "notResponded"
 
-class Microsoftgraphschedulechangerequestactor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphScheduleChangeRequestActor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SENDER = "sender"
     RECIPIENT = "recipient"
     MANAGER = "manager"
     SYSTEM = "system"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphschedulechangestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphScheduleChangeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PENDING = "pending"
     APPROVED = "approved"
     DECLINED = "declined"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphscheduleentitytheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     WHITE = "white"
     BLUE = "blue"
@@ -509,102 +509,102 @@ class Microsoftgraphscheduleentitytheme(with_metaclass(_CaseInsensitiveEnumMeta,
     PINK = "pink"
     YELLOW = "yellow"
     GRAY = "gray"
-    DARKBLUE = "darkBlue"
-    DARKGREEN = "darkGreen"
-    DARKPURPLE = "darkPurple"
-    DARKPINK = "darkPink"
-    DARKYELLOW = "darkYellow"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    DARK_BLUE = "darkBlue"
+    DARK_GREEN = "darkGreen"
+    DARK_PURPLE = "darkPurple"
+    DARK_PINK = "darkPink"
+    DARK_YELLOW = "darkYellow"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphselectionlikelihoodinfo(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphSelectionLikelihoodInfo(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTSPECIFIED = "notSpecified"
+    NOT_SPECIFIED = "notSpecified"
     HIGH = "high"
 
-class Microsoftgraphsensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NORMAL = "normal"
     PERSONAL = "personal"
     PRIVATE = "private"
     CONFIDENTIAL = "confidential"
 
-class Microsoftgraphstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ACTIVE = "active"
     UPDATED = "updated"
     DELETED = "deleted"
     IGNORED = "ignored"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphteamsappdistributionmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
     ORGANIZATION = "organization"
     SIDELOADED = "sideloaded"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphteamsasyncoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTeamsAsyncOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INVALID = "invalid"
-    NOTSTARTED = "notStarted"
-    INPROGRESS = "inProgress"
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
     SUCCEEDED = "succeeded"
     FAILED = "failed"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphteamsasyncoperationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTeamsAsyncOperationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INVALID = "invalid"
-    CLONETEAM = "cloneTeam"
-    ARCHIVETEAM = "archiveTeam"
-    UNARCHIVETEAM = "unarchiveTeam"
-    CREATETEAM = "createTeam"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    CLONE_TEAM = "cloneTeam"
+    ARCHIVE_TEAM = "archiveTeam"
+    UNARCHIVE_TEAM = "unarchiveTeam"
+    CREATE_TEAM = "createTeam"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphteamspecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTeamSpecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    EDUCATIONSTANDARD = "educationStandard"
-    EDUCATIONCLASS = "educationClass"
-    EDUCATIONPROFESSIONALLEARNINGCOMMUNITY = "educationProfessionalLearningCommunity"
-    EDUCATIONSTAFF = "educationStaff"
-    HEALTHCARESTANDARD = "healthcareStandard"
-    HEALTHCARECARECOORDINATION = "healthcareCareCoordination"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    EDUCATION_STANDARD = "educationStandard"
+    EDUCATION_CLASS = "educationClass"
+    EDUCATION_PROFESSIONAL_LEARNING_COMMUNITY = "educationProfessionalLearningCommunity"
+    EDUCATION_STAFF = "educationStaff"
+    HEALTHCARE_STANDARD = "healthcareStandard"
+    HEALTHCARE_CARE_COORDINATION = "healthcareCareCoordination"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphteamvisibilitytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTeamVisibilityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PRIVATE = "private"
     PUBLIC = "public"
-    HIDDENMEMBERSHIP = "hiddenMembership"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    HIDDEN_MEMBERSHIP = "hiddenMembership"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphtimeoffreasonicontype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTimeOffReasonIconType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     CAR = "car"
     CALENDAR = "calendar"
     RUNNING = "running"
     PLANE = "plane"
-    FIRSTAID = "firstAid"
+    FIRST_AID = "firstAid"
     DOCTOR = "doctor"
-    NOTWORKING = "notWorking"
+    NOT_WORKING = "notWorking"
     CLOCK = "clock"
-    JURYDUTY = "juryDuty"
+    JURY_DUTY = "juryDuty"
     GLOBE = "globe"
     CUP = "cup"
     PHONE = "phone"
     WEATHER = "weather"
     UMBRELLA = "umbrella"
-    PIGGYBANK = "piggyBank"
+    PIGGY_BANK = "piggyBank"
     DOG = "dog"
     CAKE = "cake"
-    TRAFFICCONE = "trafficCone"
+    TRAFFIC_CONE = "trafficCone"
     PIN = "pin"
     SUNNY = "sunny"
-    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class Microsoftgraphwebsitetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     OTHER = "other"
     HOME = "home"
@@ -612,7 +612,7 @@ class Microsoftgraphwebsitetype(with_metaclass(_CaseInsensitiveEnumMeta, str, En
     BLOG = "blog"
     PROFILE = "profile"
 
-class Microsoftgraphweekindex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FIRST = "first"
     SECOND = "second"
@@ -620,9 +620,9 @@ class Microsoftgraphweekindex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     FOURTH = "fourth"
     LAST = "last"
 
-class Microsoftgraphworkbookoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTSTARTED = "notStarted"
+    NOT_STARTED = "notStarted"
     RUNNING = "running"
     SUCCEEDED = "succeeded"
     FAILED = "failed"

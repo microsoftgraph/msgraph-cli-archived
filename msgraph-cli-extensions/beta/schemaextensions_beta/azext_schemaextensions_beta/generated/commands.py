@@ -13,36 +13,36 @@
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
-from azext_schemaextensions_beta.generated._client_factory import cf_schemaextensionsschemaextension
+from azext_schemaextensions_beta.generated._client_factory import cf_schema_extension_schema_extension
 
 
-schemaextensions_beta_schemaextensionsschemaextension = CliCommandType(
-    operations_tmpl='azext_schemaextensions_beta.vendored_sdks.schemaextensions.operations._schemaextensionsschemaextension_operations#schemaextensionsschemaextensionOperations.{}',
-    client_factory=cf_schemaextensionsschemaextension,
+schemaextensions_beta_schema_extension_schema_extension = CliCommandType(
+    operations_tmpl='azext_schemaextensions_beta.vendored_sdks.schemaextensions.operations._schema_extensions_schema_extension_operations#SchemaExtensionsSchemaExtensionOperations.{}',
+    client_factory=cf_schema_extension_schema_extension,
 )
 
 
 def load_command_table(self, _):
 
     with self.command_group(
-        'schemaextensions schemaextensionsschemaextension',
-        schemaextensions_beta_schemaextensionsschemaextension,
-        client_factory=cf_schemaextensionsschemaextension,
+        'schemaextensions schema-extension-schema-extension',
+        schemaextensions_beta_schema_extension_schema_extension,
+        client_factory=cf_schema_extension_schema_extension,
     ) as g:
         g.custom_command(
-            'create-schema-extension', 'schemaextensions_schemaextensionsschemaextension_create_schema_extension'
+            'create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_extension'
         )
         g.custom_command(
-            'delete-schema-extension', 'schemaextensions_schemaextensionsschemaextension_delete_schema_extension'
+            'delete-schema-extension', 'schemaextensions_schema_extension_schema_extension_delete_schema_extension'
         )
         g.custom_command(
-            'list-schema-extension', 'schemaextensions_schemaextensionsschemaextension_list_schema_extension'
+            'list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_extension'
         )
         g.custom_command(
-            'show-schema-extension', 'schemaextensions_schemaextensionsschemaextension_show_schema_extension'
+            'show-schema-extension', 'schemaextensions_schema_extension_schema_extension_show_schema_extension'
         )
         g.custom_command(
-            'update-schema-extension', 'schemaextensions_schemaextensionsschemaextension_update_schema_extension'
+            'update-schema-extension', 'schemaextensions_schema_extension_schema_extension_update_schema_extension'
         )
 
     with self.command_group('schemaextensions_beta', is_experimental=True):

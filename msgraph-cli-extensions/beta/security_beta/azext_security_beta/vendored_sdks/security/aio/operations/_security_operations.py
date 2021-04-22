@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class securityOperations:
-    """securityOperations async operations.
+class SecurityOperations:
+    """SecurityOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -42,27 +43,27 @@ class securityOperations:
 
     def list_alerts(
         self,
-        orderby: Optional[List[Union[str, "models.Get5itemsitem"]]] = None,
-        select: Optional[List[Union[str, "models.Get6itemsitem"]]] = None,
+        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofalert"]:
+    ) -> AsyncIterable["models.CollectionOfAlert"]:
         """Get alerts from Security.
 
         Get alerts from Security.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~security.models.Get5itemsitem]
+        :type orderby: list[str or ~security.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~security.models.Get6itemsitem]
+        :type select: list[str or ~security.models.Get6ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofalert or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofalert]
+        :return: An iterator like instance of either CollectionOfAlert or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfAlert]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofalert"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAlert"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -104,7 +105,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofalert', pipeline_response)
+            deserialized = self._deserialize('CollectionOfAlert', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -117,9 +118,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -130,21 +131,21 @@ class securityOperations:
 
     async def create_alerts(
         self,
-        body: "models.microsoftgraphalert",
+        body: "models.MicrosoftGraphAlert",
         **kwargs
-    ) -> "models.microsoftgraphalert":
+    ) -> "models.MicrosoftGraphAlert":
         """Create new navigation property to alerts for Security.
 
         Create new navigation property to alerts for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphalert
+        :type body: ~security.models.MicrosoftGraphAlert
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphalert, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphalert
+        :return: MicrosoftGraphAlert, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphAlert
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphalert"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAlert"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -164,7 +165,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphalert')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAlert')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -172,10 +173,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphalert', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAlert', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -189,7 +190,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum25"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphalert":
+    ) -> "models.MicrosoftGraphAlert":
         """Get alerts from Security.
 
         Get alerts from Security.
@@ -201,11 +202,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphalert, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphalert
+        :return: MicrosoftGraphAlert, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphAlert
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphalert"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAlert"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -236,10 +237,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphalert', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAlert', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -250,7 +251,7 @@ class securityOperations:
     async def update_alerts(
         self,
         alert_id: str,
-        body: "models.microsoftgraphalert",
+        body: "models.MicrosoftGraphAlert",
         **kwargs
     ) -> None:
         """Update the navigation property alerts in Security.
@@ -260,7 +261,7 @@ class securityOperations:
         :param alert_id: key: id of alert.
         :type alert_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphalert
+        :type body: ~security.models.MicrosoftGraphAlert
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -290,7 +291,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphalert')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAlert')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -298,8 +299,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -354,8 +355,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -368,7 +369,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum27"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcloudappsecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfCloudAppSecurityProfile"]:
         """Get cloudAppSecurityProfiles from Security.
 
         Get cloudAppSecurityProfiles from Security.
@@ -380,11 +381,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcloudappsecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofcloudappsecurityprofile]
+        :return: An iterator like instance of either CollectionOfCloudAppSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfCloudAppSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcloudappsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCloudAppSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -426,7 +427,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcloudappsecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfCloudAppSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -439,9 +440,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -452,21 +453,21 @@ class securityOperations:
 
     async def create_cloud_app_security_profiles(
         self,
-        body: "models.microsoftgraphcloudappsecurityprofile",
+        body: "models.MicrosoftGraphCloudAppSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphcloudappsecurityprofile":
+    ) -> "models.MicrosoftGraphCloudAppSecurityProfile":
         """Create new navigation property to cloudAppSecurityProfiles for Security.
 
         Create new navigation property to cloudAppSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphcloudappsecurityprofile
+        :type body: ~security.models.MicrosoftGraphCloudAppSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcloudappsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphcloudappsecurityprofile
+        :return: MicrosoftGraphCloudAppSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphCloudAppSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcloudappsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCloudAppSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -486,7 +487,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcloudappsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCloudAppSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -494,10 +495,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcloudappsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCloudAppSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -511,7 +512,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum28"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcloudappsecurityprofile":
+    ) -> "models.MicrosoftGraphCloudAppSecurityProfile":
         """Get cloudAppSecurityProfiles from Security.
 
         Get cloudAppSecurityProfiles from Security.
@@ -523,11 +524,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcloudappsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphcloudappsecurityprofile
+        :return: MicrosoftGraphCloudAppSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphCloudAppSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcloudappsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCloudAppSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -558,10 +559,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcloudappsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCloudAppSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -572,7 +573,7 @@ class securityOperations:
     async def update_cloud_app_security_profiles(
         self,
         cloud_app_security_profile_id: str,
-        body: "models.microsoftgraphcloudappsecurityprofile",
+        body: "models.MicrosoftGraphCloudAppSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property cloudAppSecurityProfiles in Security.
@@ -582,7 +583,7 @@ class securityOperations:
         :param cloud_app_security_profile_id: key: id of cloudAppSecurityProfile.
         :type cloud_app_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphcloudappsecurityprofile
+        :type body: ~security.models.MicrosoftGraphCloudAppSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -612,7 +613,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcloudappsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCloudAppSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -620,8 +621,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -676,8 +677,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -690,7 +691,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum30"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdomainsecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfDomainSecurityProfile"]:
         """Get domainSecurityProfiles from Security.
 
         Get domainSecurityProfiles from Security.
@@ -702,11 +703,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdomainsecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofdomainsecurityprofile]
+        :return: An iterator like instance of either CollectionOfDomainSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfDomainSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdomainsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDomainSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -748,7 +749,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdomainsecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDomainSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -761,9 +762,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -774,21 +775,21 @@ class securityOperations:
 
     async def create_domain_security_profiles(
         self,
-        body: "models.microsoftgraphdomainsecurityprofile",
+        body: "models.MicrosoftGraphDomainSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphdomainsecurityprofile":
+    ) -> "models.MicrosoftGraphDomainSecurityProfile":
         """Create new navigation property to domainSecurityProfiles for Security.
 
         Create new navigation property to domainSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphdomainsecurityprofile
+        :type body: ~security.models.MicrosoftGraphDomainSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomainsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphdomainsecurityprofile
+        :return: MicrosoftGraphDomainSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphDomainSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomainsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -808,7 +809,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomainsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -816,10 +817,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomainsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -833,7 +834,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum31"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdomainsecurityprofile":
+    ) -> "models.MicrosoftGraphDomainSecurityProfile":
         """Get domainSecurityProfiles from Security.
 
         Get domainSecurityProfiles from Security.
@@ -845,11 +846,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomainsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphdomainsecurityprofile
+        :return: MicrosoftGraphDomainSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphDomainSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomainsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -880,10 +881,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomainsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -894,7 +895,7 @@ class securityOperations:
     async def update_domain_security_profiles(
         self,
         domain_security_profile_id: str,
-        body: "models.microsoftgraphdomainsecurityprofile",
+        body: "models.MicrosoftGraphDomainSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property domainSecurityProfiles in Security.
@@ -904,7 +905,7 @@ class securityOperations:
         :param domain_security_profile_id: key: id of domainSecurityProfile.
         :type domain_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphdomainsecurityprofile
+        :type body: ~security.models.MicrosoftGraphDomainSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -934,7 +935,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomainsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -942,8 +943,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -998,8 +999,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1012,7 +1013,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum33"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoffilesecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfFileSecurityProfile"]:
         """Get fileSecurityProfiles from Security.
 
         Get fileSecurityProfiles from Security.
@@ -1024,11 +1025,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoffilesecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionoffilesecurityprofile]
+        :return: An iterator like instance of either CollectionOfFileSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfFileSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoffilesecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfFileSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1070,7 +1071,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoffilesecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfFileSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1083,9 +1084,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1096,21 +1097,21 @@ class securityOperations:
 
     async def create_file_security_profiles(
         self,
-        body: "models.microsoftgraphfilesecurityprofile",
+        body: "models.MicrosoftGraphFileSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphfilesecurityprofile":
+    ) -> "models.MicrosoftGraphFileSecurityProfile":
         """Create new navigation property to fileSecurityProfiles for Security.
 
         Create new navigation property to fileSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphfilesecurityprofile
+        :type body: ~security.models.MicrosoftGraphFileSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphfilesecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphfilesecurityprofile
+        :return: MicrosoftGraphFileSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphFileSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphfilesecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphFileSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1130,7 +1131,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphfilesecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphFileSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1138,10 +1139,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphfilesecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphFileSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1155,7 +1156,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum34"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphfilesecurityprofile":
+    ) -> "models.MicrosoftGraphFileSecurityProfile":
         """Get fileSecurityProfiles from Security.
 
         Get fileSecurityProfiles from Security.
@@ -1167,11 +1168,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphfilesecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphfilesecurityprofile
+        :return: MicrosoftGraphFileSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphFileSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphfilesecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphFileSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1202,10 +1203,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphfilesecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphFileSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1216,7 +1217,7 @@ class securityOperations:
     async def update_file_security_profiles(
         self,
         file_security_profile_id: str,
-        body: "models.microsoftgraphfilesecurityprofile",
+        body: "models.MicrosoftGraphFileSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property fileSecurityProfiles in Security.
@@ -1226,7 +1227,7 @@ class securityOperations:
         :param file_security_profile_id: key: id of fileSecurityProfile.
         :type file_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphfilesecurityprofile
+        :type body: ~security.models.MicrosoftGraphFileSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1256,7 +1257,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphfilesecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphFileSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1264,8 +1265,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1320,8 +1321,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1334,7 +1335,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum36"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofhostsecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfHostSecurityProfile"]:
         """Get hostSecurityProfiles from Security.
 
         Get hostSecurityProfiles from Security.
@@ -1346,11 +1347,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofhostsecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofhostsecurityprofile]
+        :return: An iterator like instance of either CollectionOfHostSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfHostSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofhostsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfHostSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1392,7 +1393,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofhostsecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfHostSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1405,9 +1406,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1418,21 +1419,21 @@ class securityOperations:
 
     async def create_host_security_profiles(
         self,
-        body: "models.microsoftgraphhostsecurityprofile",
+        body: "models.MicrosoftGraphHostSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphhostsecurityprofile":
+    ) -> "models.MicrosoftGraphHostSecurityProfile":
         """Create new navigation property to hostSecurityProfiles for Security.
 
         Create new navigation property to hostSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphhostsecurityprofile
+        :type body: ~security.models.MicrosoftGraphHostSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphhostsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphhostsecurityprofile
+        :return: MicrosoftGraphHostSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphHostSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphhostsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphHostSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1452,7 +1453,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphhostsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphHostSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1460,10 +1461,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphhostsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphHostSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1477,7 +1478,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum37"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphhostsecurityprofile":
+    ) -> "models.MicrosoftGraphHostSecurityProfile":
         """Get hostSecurityProfiles from Security.
 
         Get hostSecurityProfiles from Security.
@@ -1489,11 +1490,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphhostsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphhostsecurityprofile
+        :return: MicrosoftGraphHostSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphHostSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphhostsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphHostSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1524,10 +1525,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphhostsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphHostSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1538,7 +1539,7 @@ class securityOperations:
     async def update_host_security_profiles(
         self,
         host_security_profile_id: str,
-        body: "models.microsoftgraphhostsecurityprofile",
+        body: "models.MicrosoftGraphHostSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property hostSecurityProfiles in Security.
@@ -1548,7 +1549,7 @@ class securityOperations:
         :param host_security_profile_id: key: id of hostSecurityProfile.
         :type host_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphhostsecurityprofile
+        :type body: ~security.models.MicrosoftGraphHostSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1578,7 +1579,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphhostsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphHostSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1586,8 +1587,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1642,8 +1643,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1656,7 +1657,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum39"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofipsecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfIpSecurityProfile"]:
         """Get ipSecurityProfiles from Security.
 
         Get ipSecurityProfiles from Security.
@@ -1668,11 +1669,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofipsecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofipsecurityprofile]
+        :return: An iterator like instance of either CollectionOfIpSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfIpSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofipsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfIpSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1714,7 +1715,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofipsecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfIpSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1727,9 +1728,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1740,21 +1741,21 @@ class securityOperations:
 
     async def create_ip_security_profiles(
         self,
-        body: "models.microsoftgraphipsecurityprofile",
+        body: "models.MicrosoftGraphIpSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphipsecurityprofile":
+    ) -> "models.MicrosoftGraphIpSecurityProfile":
         """Create new navigation property to ipSecurityProfiles for Security.
 
         Create new navigation property to ipSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphipsecurityprofile
+        :type body: ~security.models.MicrosoftGraphIpSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphipsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphipsecurityprofile
+        :return: MicrosoftGraphIpSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphIpSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphipsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIpSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1774,7 +1775,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphipsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIpSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1782,10 +1783,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphipsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphIpSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1799,7 +1800,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum40"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphipsecurityprofile":
+    ) -> "models.MicrosoftGraphIpSecurityProfile":
         """Get ipSecurityProfiles from Security.
 
         Get ipSecurityProfiles from Security.
@@ -1811,11 +1812,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphipsecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphipsecurityprofile
+        :return: MicrosoftGraphIpSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphIpSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphipsecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIpSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1846,10 +1847,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphipsecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphIpSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1860,7 +1861,7 @@ class securityOperations:
     async def update_ip_security_profiles(
         self,
         ip_security_profile_id: str,
-        body: "models.microsoftgraphipsecurityprofile",
+        body: "models.MicrosoftGraphIpSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property ipSecurityProfiles in Security.
@@ -1870,7 +1871,7 @@ class securityOperations:
         :param ip_security_profile_id: key: id of ipSecurityProfile.
         :type ip_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphipsecurityprofile
+        :type body: ~security.models.MicrosoftGraphIpSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1900,7 +1901,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphipsecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIpSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1908,8 +1909,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1964,8 +1965,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1978,7 +1979,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum42"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofprovidertenantsetting"]:
+    ) -> AsyncIterable["models.CollectionOfProviderTenantSetting"]:
         """Get providerTenantSettings from Security.
 
         Get providerTenantSettings from Security.
@@ -1990,11 +1991,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprovidertenantsetting or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofprovidertenantsetting]
+        :return: An iterator like instance of either CollectionOfProviderTenantSetting or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfProviderTenantSetting]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprovidertenantsetting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfProviderTenantSetting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2036,7 +2037,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprovidertenantsetting', pipeline_response)
+            deserialized = self._deserialize('CollectionOfProviderTenantSetting', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2049,9 +2050,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2062,21 +2063,21 @@ class securityOperations:
 
     async def create_provider_tenant_settings(
         self,
-        body: "models.microsoftgraphprovidertenantsetting",
+        body: "models.MicrosoftGraphProviderTenantSetting",
         **kwargs
-    ) -> "models.microsoftgraphprovidertenantsetting":
+    ) -> "models.MicrosoftGraphProviderTenantSetting":
         """Create new navigation property to providerTenantSettings for Security.
 
         Create new navigation property to providerTenantSettings for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphprovidertenantsetting
+        :type body: ~security.models.MicrosoftGraphProviderTenantSetting
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprovidertenantsetting, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphprovidertenantsetting
+        :return: MicrosoftGraphProviderTenantSetting, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphProviderTenantSetting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprovidertenantsetting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphProviderTenantSetting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2096,7 +2097,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprovidertenantsetting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphProviderTenantSetting')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2104,10 +2105,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprovidertenantsetting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphProviderTenantSetting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2121,7 +2122,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum43"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphprovidertenantsetting":
+    ) -> "models.MicrosoftGraphProviderTenantSetting":
         """Get providerTenantSettings from Security.
 
         Get providerTenantSettings from Security.
@@ -2133,11 +2134,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprovidertenantsetting, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphprovidertenantsetting
+        :return: MicrosoftGraphProviderTenantSetting, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphProviderTenantSetting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprovidertenantsetting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphProviderTenantSetting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2168,10 +2169,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprovidertenantsetting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphProviderTenantSetting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2182,7 +2183,7 @@ class securityOperations:
     async def update_provider_tenant_settings(
         self,
         provider_tenant_setting_id: str,
-        body: "models.microsoftgraphprovidertenantsetting",
+        body: "models.MicrosoftGraphProviderTenantSetting",
         **kwargs
     ) -> None:
         """Update the navigation property providerTenantSettings in Security.
@@ -2192,7 +2193,7 @@ class securityOperations:
         :param provider_tenant_setting_id: key: id of providerTenantSetting.
         :type provider_tenant_setting_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphprovidertenantsetting
+        :type body: ~security.models.MicrosoftGraphProviderTenantSetting
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2222,7 +2223,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprovidertenantsetting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphProviderTenantSetting')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2230,8 +2231,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2286,8 +2287,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2300,7 +2301,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum45"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofsecurescorecontrolprofile"]:
+    ) -> AsyncIterable["models.CollectionOfSecureScoreControlProfile"]:
         """Get secureScoreControlProfiles from Security.
 
         Get secureScoreControlProfiles from Security.
@@ -2312,11 +2313,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsecurescorecontrolprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofsecurescorecontrolprofile]
+        :return: An iterator like instance of either CollectionOfSecureScoreControlProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfSecureScoreControlProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsecurescorecontrolprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSecureScoreControlProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2358,7 +2359,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsecurescorecontrolprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSecureScoreControlProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2371,9 +2372,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2384,21 +2385,21 @@ class securityOperations:
 
     async def create_secure_score_control_profiles(
         self,
-        body: "models.microsoftgraphsecurescorecontrolprofile",
+        body: "models.MicrosoftGraphSecureScoreControlProfile",
         **kwargs
-    ) -> "models.microsoftgraphsecurescorecontrolprofile":
+    ) -> "models.MicrosoftGraphSecureScoreControlProfile":
         """Create new navigation property to secureScoreControlProfiles for Security.
 
         Create new navigation property to secureScoreControlProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphsecurescorecontrolprofile
+        :type body: ~security.models.MicrosoftGraphSecureScoreControlProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurescorecontrolprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurescorecontrolprofile
+        :return: MicrosoftGraphSecureScoreControlProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecureScoreControlProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurescorecontrolprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScoreControlProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2418,7 +2419,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurescorecontrolprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScoreControlProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2426,10 +2427,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurescorecontrolprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecureScoreControlProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2443,7 +2444,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum46"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphsecurescorecontrolprofile":
+    ) -> "models.MicrosoftGraphSecureScoreControlProfile":
         """Get secureScoreControlProfiles from Security.
 
         Get secureScoreControlProfiles from Security.
@@ -2455,11 +2456,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurescorecontrolprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurescorecontrolprofile
+        :return: MicrosoftGraphSecureScoreControlProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecureScoreControlProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurescorecontrolprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScoreControlProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2490,10 +2491,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurescorecontrolprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecureScoreControlProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2504,7 +2505,7 @@ class securityOperations:
     async def update_secure_score_control_profiles(
         self,
         secure_score_control_profile_id: str,
-        body: "models.microsoftgraphsecurescorecontrolprofile",
+        body: "models.MicrosoftGraphSecureScoreControlProfile",
         **kwargs
     ) -> None:
         """Update the navigation property secureScoreControlProfiles in Security.
@@ -2514,7 +2515,7 @@ class securityOperations:
         :param secure_score_control_profile_id: key: id of secureScoreControlProfile.
         :type secure_score_control_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphsecurescorecontrolprofile
+        :type body: ~security.models.MicrosoftGraphSecureScoreControlProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2544,7 +2545,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurescorecontrolprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScoreControlProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2552,8 +2553,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2608,8 +2609,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2622,7 +2623,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum48"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofsecurescore"]:
+    ) -> AsyncIterable["models.CollectionOfSecureScore"]:
         """Get secureScores from Security.
 
         Get secureScores from Security.
@@ -2634,11 +2635,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsecurescore or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofsecurescore]
+        :return: An iterator like instance of either CollectionOfSecureScore or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfSecureScore]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsecurescore"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSecureScore"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2680,7 +2681,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsecurescore', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSecureScore', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2693,9 +2694,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2706,21 +2707,21 @@ class securityOperations:
 
     async def create_secure_scores(
         self,
-        body: "models.microsoftgraphsecurescore",
+        body: "models.MicrosoftGraphSecureScore",
         **kwargs
-    ) -> "models.microsoftgraphsecurescore":
+    ) -> "models.MicrosoftGraphSecureScore":
         """Create new navigation property to secureScores for Security.
 
         Create new navigation property to secureScores for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphsecurescore
+        :type body: ~security.models.MicrosoftGraphSecureScore
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurescore, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurescore
+        :return: MicrosoftGraphSecureScore, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecureScore
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurescore"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScore"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2740,7 +2741,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurescore')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScore')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2748,10 +2749,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurescore', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecureScore', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2765,7 +2766,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum49"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphsecurescore":
+    ) -> "models.MicrosoftGraphSecureScore":
         """Get secureScores from Security.
 
         Get secureScores from Security.
@@ -2777,11 +2778,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurescore, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurescore
+        :return: MicrosoftGraphSecureScore, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecureScore
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurescore"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScore"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2812,10 +2813,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurescore', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecureScore', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2826,7 +2827,7 @@ class securityOperations:
     async def update_secure_scores(
         self,
         secure_score_id: str,
-        body: "models.microsoftgraphsecurescore",
+        body: "models.MicrosoftGraphSecureScore",
         **kwargs
     ) -> None:
         """Update the navigation property secureScores in Security.
@@ -2836,7 +2837,7 @@ class securityOperations:
         :param secure_score_id: key: id of secureScore.
         :type secure_score_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphsecurescore
+        :type body: ~security.models.MicrosoftGraphSecureScore
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2866,7 +2867,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurescore')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScore')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2874,8 +2875,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2930,8 +2931,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2944,7 +2945,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum51"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofsecurityaction"]:
+    ) -> AsyncIterable["models.CollectionOfSecurityAction"]:
         """Get securityActions from Security.
 
         Get securityActions from Security.
@@ -2956,11 +2957,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsecurityaction or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofsecurityaction]
+        :return: An iterator like instance of either CollectionOfSecurityAction or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfSecurityAction]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsecurityaction"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSecurityAction"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3002,7 +3003,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsecurityaction', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSecurityAction', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -3015,9 +3016,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3028,21 +3029,21 @@ class securityOperations:
 
     async def create_security_actions(
         self,
-        body: "models.microsoftgraphsecurityaction",
+        body: "models.MicrosoftGraphSecurityAction",
         **kwargs
-    ) -> "models.microsoftgraphsecurityaction":
+    ) -> "models.MicrosoftGraphSecurityAction":
         """Create new navigation property to securityActions for Security.
 
         Create new navigation property to securityActions for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphsecurityaction
+        :type body: ~security.models.MicrosoftGraphSecurityAction
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurityaction, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurityaction
+        :return: MicrosoftGraphSecurityAction, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecurityAction
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurityaction"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecurityAction"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3062,7 +3063,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurityaction')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecurityAction')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3070,10 +3071,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurityaction', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecurityAction', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3087,7 +3088,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum52"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphsecurityaction":
+    ) -> "models.MicrosoftGraphSecurityAction":
         """Get securityActions from Security.
 
         Get securityActions from Security.
@@ -3099,11 +3100,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsecurityaction, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphsecurityaction
+        :return: MicrosoftGraphSecurityAction, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphSecurityAction
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsecurityaction"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecurityAction"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3134,10 +3135,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsecurityaction', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSecurityAction', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3148,7 +3149,7 @@ class securityOperations:
     async def update_security_actions(
         self,
         security_action_id: str,
-        body: "models.microsoftgraphsecurityaction",
+        body: "models.MicrosoftGraphSecurityAction",
         **kwargs
     ) -> None:
         """Update the navigation property securityActions in Security.
@@ -3158,7 +3159,7 @@ class securityOperations:
         :param security_action_id: key: id of securityAction.
         :type security_action_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphsecurityaction
+        :type body: ~security.models.MicrosoftGraphSecurityAction
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3188,7 +3189,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsecurityaction')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecurityAction')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3196,8 +3197,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3252,8 +3253,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3266,7 +3267,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum54"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoftiindicator"]:
+    ) -> AsyncIterable["models.CollectionOfTiIndicator"]:
         """Get tiIndicators from Security.
 
         Get tiIndicators from Security.
@@ -3278,11 +3279,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoftiindicator or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionoftiindicator]
+        :return: An iterator like instance of either CollectionOfTiIndicator or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfTiIndicator]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoftiindicator"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTiIndicator"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3324,7 +3325,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoftiindicator', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTiIndicator', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -3337,9 +3338,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3350,21 +3351,21 @@ class securityOperations:
 
     async def create_ti_indicators(
         self,
-        body: "models.microsoftgraphtiindicator",
+        body: "models.MicrosoftGraphTiIndicator",
         **kwargs
-    ) -> "models.microsoftgraphtiindicator":
+    ) -> "models.MicrosoftGraphTiIndicator":
         """Create new navigation property to tiIndicators for Security.
 
         Create new navigation property to tiIndicators for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphtiindicator
+        :type body: ~security.models.MicrosoftGraphTiIndicator
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtiindicator, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphtiindicator
+        :return: MicrosoftGraphTiIndicator, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphTiIndicator
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtiindicator"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTiIndicator"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3384,7 +3385,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtiindicator')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTiIndicator')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3392,10 +3393,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtiindicator', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTiIndicator', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3409,7 +3410,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum55"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphtiindicator":
+    ) -> "models.MicrosoftGraphTiIndicator":
         """Get tiIndicators from Security.
 
         Get tiIndicators from Security.
@@ -3421,11 +3422,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtiindicator, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphtiindicator
+        :return: MicrosoftGraphTiIndicator, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphTiIndicator
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtiindicator"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTiIndicator"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3456,10 +3457,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtiindicator', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTiIndicator', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3470,7 +3471,7 @@ class securityOperations:
     async def update_ti_indicators(
         self,
         ti_indicator_id: str,
-        body: "models.microsoftgraphtiindicator",
+        body: "models.MicrosoftGraphTiIndicator",
         **kwargs
     ) -> None:
         """Update the navigation property tiIndicators in Security.
@@ -3480,7 +3481,7 @@ class securityOperations:
         :param ti_indicator_id: key: id of tiIndicator.
         :type ti_indicator_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphtiindicator
+        :type body: ~security.models.MicrosoftGraphTiIndicator
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3510,7 +3511,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtiindicator')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTiIndicator')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3518,8 +3519,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3574,8 +3575,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3588,7 +3589,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum57"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofusersecurityprofile"]:
+    ) -> AsyncIterable["models.CollectionOfUserSecurityProfile"]:
         """Get userSecurityProfiles from Security.
 
         Get userSecurityProfiles from Security.
@@ -3600,11 +3601,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofusersecurityprofile or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.collectionofusersecurityprofile]
+        :return: An iterator like instance of either CollectionOfUserSecurityProfile or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~security.models.CollectionOfUserSecurityProfile]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofusersecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfUserSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3646,7 +3647,7 @@ class securityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofusersecurityprofile', pipeline_response)
+            deserialized = self._deserialize('CollectionOfUserSecurityProfile', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -3659,9 +3660,9 @@ class securityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3672,21 +3673,21 @@ class securityOperations:
 
     async def create_user_security_profiles(
         self,
-        body: "models.microsoftgraphusersecurityprofile",
+        body: "models.MicrosoftGraphUserSecurityProfile",
         **kwargs
-    ) -> "models.microsoftgraphusersecurityprofile":
+    ) -> "models.MicrosoftGraphUserSecurityProfile":
         """Create new navigation property to userSecurityProfiles for Security.
 
         Create new navigation property to userSecurityProfiles for Security.
 
         :param body: New navigation property.
-        :type body: ~security.models.microsoftgraphusersecurityprofile
+        :type body: ~security.models.MicrosoftGraphUserSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphusersecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphusersecurityprofile
+        :return: MicrosoftGraphUserSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphUserSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphusersecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3706,7 +3707,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphusersecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3714,10 +3715,10 @@ class securityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphusersecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphUserSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3731,7 +3732,7 @@ class securityOperations:
         select: Optional[List[Union[str, "models.Enum58"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphusersecurityprofile":
+    ) -> "models.MicrosoftGraphUserSecurityProfile":
         """Get userSecurityProfiles from Security.
 
         Get userSecurityProfiles from Security.
@@ -3743,11 +3744,11 @@ class securityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphusersecurityprofile, or the result of cls(response)
-        :rtype: ~security.models.microsoftgraphusersecurityprofile
+        :return: MicrosoftGraphUserSecurityProfile, or the result of cls(response)
+        :rtype: ~security.models.MicrosoftGraphUserSecurityProfile
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphusersecurityprofile"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserSecurityProfile"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3778,10 +3779,10 @@ class securityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphusersecurityprofile', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphUserSecurityProfile', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3792,7 +3793,7 @@ class securityOperations:
     async def update_user_security_profiles(
         self,
         user_security_profile_id: str,
-        body: "models.microsoftgraphusersecurityprofile",
+        body: "models.MicrosoftGraphUserSecurityProfile",
         **kwargs
     ) -> None:
         """Update the navigation property userSecurityProfiles in Security.
@@ -3802,7 +3803,7 @@ class securityOperations:
         :param user_security_profile_id: key: id of userSecurityProfile.
         :type user_security_profile_id: str
         :param body: New navigation property values.
-        :type body: ~security.models.microsoftgraphusersecurityprofile
+        :type body: ~security.models.MicrosoftGraphUserSecurityProfile
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3832,7 +3833,7 @@ class securityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphusersecurityprofile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserSecurityProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3840,8 +3841,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3896,8 +3897,8 @@ class securityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

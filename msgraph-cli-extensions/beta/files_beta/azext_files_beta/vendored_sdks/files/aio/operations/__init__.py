@@ -6,70 +6,70 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._drivesdrive_operations import drivesdriveOperations
-from ._drives_operations import drivesOperations
-from ._drivesactivities_operations import drivesactivitiesOperations
-from ._drivesactivitieslistitem_operations import drivesactivitieslistitemOperations
-from ._drivesactivitieslistitemversions_operations import drivesactivitieslistitemversionsOperations
-from ._driveslist_operations import driveslistOperations
-from ._driveslistactivities_operations import driveslistactivitiesOperations
-from ._driveslistactivitieslistitem_operations import driveslistactivitieslistitemOperations
-from ._driveslistactivitieslistitemversions_operations import driveslistactivitieslistitemversionsOperations
-from ._driveslistcontenttypes_operations import driveslistcontenttypesOperations
-from ._driveslistitems_operations import driveslistitemsOperations
-from ._driveslistitemsactivities_operations import driveslistitemsactivitiesOperations
-from ._driveslistitemsactivitieslistitem_operations import driveslistitemsactivitieslistitemOperations
-from ._driveslistitemsversions_operations import driveslistitemsversionsOperations
-from ._groups_operations import groupsOperations
-from ._sharesshareddriveitem_operations import sharesshareddriveitemOperations
-from ._shares_operations import sharesOperations
-from ._shareslist_operations import shareslistOperations
-from ._shareslistactivities_operations import shareslistactivitiesOperations
-from ._shareslistactivitieslistitem_operations import shareslistactivitieslistitemOperations
-from ._shareslistactivitieslistitemversions_operations import shareslistactivitieslistitemversionsOperations
-from ._shareslistcontenttypes_operations import shareslistcontenttypesOperations
-from ._shareslistitems_operations import shareslistitemsOperations
-from ._shareslistitemsactivities_operations import shareslistitemsactivitiesOperations
-from ._shareslistitemsactivitieslistitem_operations import shareslistitemsactivitieslistitemOperations
-from ._shareslistitemsversions_operations import shareslistitemsversionsOperations
-from ._shareslistitem_operations import shareslistitemOperations
-from ._shareslistitemactivities_operations import shareslistitemactivitiesOperations
-from ._shareslistitemactivitieslistitem_operations import shareslistitemactivitieslistitemOperations
-from ._shareslistitemversions_operations import shareslistitemversionsOperations
-from ._sharespermission_operations import sharespermissionOperations
-from ._users_operations import usersOperations
+from ._drives_drive_operations import DrivesDriveOperations
+from ._drives_operations import DrivesOperations
+from ._drives_activities_operations import DrivesActivitiesOperations
+from ._drives_activities_list_item_operations import DrivesActivitiesListItemOperations
+from ._drives_activities_list_item_versions_operations import DrivesActivitiesListItemVersionsOperations
+from ._drives_list_operations import DrivesListOperations
+from ._drives_list_activities_operations import DrivesListActivitiesOperations
+from ._drives_list_activities_list_item_operations import DrivesListActivitiesListItemOperations
+from ._drives_list_activities_list_item_versions_operations import DrivesListActivitiesListItemVersionsOperations
+from ._drives_list_content_types_operations import DrivesListContentTypesOperations
+from ._drives_list_items_operations import DrivesListItemsOperations
+from ._drives_list_items_activities_operations import DrivesListItemsActivitiesOperations
+from ._drives_list_items_activities_list_item_operations import DrivesListItemsActivitiesListItemOperations
+from ._drives_list_items_versions_operations import DrivesListItemsVersionsOperations
+from ._groups_operations import GroupsOperations
+from ._shares_shared_drive_item_operations import SharesSharedDriveItemOperations
+from ._shares_operations import SharesOperations
+from ._shares_list_operations import SharesListOperations
+from ._shares_list_activities_operations import SharesListActivitiesOperations
+from ._shares_list_activities_list_item_operations import SharesListActivitiesListItemOperations
+from ._shares_list_activities_list_item_versions_operations import SharesListActivitiesListItemVersionsOperations
+from ._shares_list_content_types_operations import SharesListContentTypesOperations
+from ._shares_list_items_operations import SharesListItemsOperations
+from ._shares_list_items_activities_operations import SharesListItemsActivitiesOperations
+from ._shares_list_items_activities_list_item_operations import SharesListItemsActivitiesListItemOperations
+from ._shares_list_items_versions_operations import SharesListItemsVersionsOperations
+from ._shares_list_item_operations import SharesListItemOperations
+from ._shares_list_item_activities_operations import SharesListItemActivitiesOperations
+from ._shares_list_item_activities_list_item_operations import SharesListItemActivitiesListItemOperations
+from ._shares_list_item_versions_operations import SharesListItemVersionsOperations
+from ._shares_permission_operations import SharesPermissionOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'drivesdriveOperations',
-    'drivesOperations',
-    'drivesactivitiesOperations',
-    'drivesactivitieslistitemOperations',
-    'drivesactivitieslistitemversionsOperations',
-    'driveslistOperations',
-    'driveslistactivitiesOperations',
-    'driveslistactivitieslistitemOperations',
-    'driveslistactivitieslistitemversionsOperations',
-    'driveslistcontenttypesOperations',
-    'driveslistitemsOperations',
-    'driveslistitemsactivitiesOperations',
-    'driveslistitemsactivitieslistitemOperations',
-    'driveslistitemsversionsOperations',
-    'groupsOperations',
-    'sharesshareddriveitemOperations',
-    'sharesOperations',
-    'shareslistOperations',
-    'shareslistactivitiesOperations',
-    'shareslistactivitieslistitemOperations',
-    'shareslistactivitieslistitemversionsOperations',
-    'shareslistcontenttypesOperations',
-    'shareslistitemsOperations',
-    'shareslistitemsactivitiesOperations',
-    'shareslistitemsactivitieslistitemOperations',
-    'shareslistitemsversionsOperations',
-    'shareslistitemOperations',
-    'shareslistitemactivitiesOperations',
-    'shareslistitemactivitieslistitemOperations',
-    'shareslistitemversionsOperations',
-    'sharespermissionOperations',
-    'usersOperations',
+    'DrivesDriveOperations',
+    'DrivesOperations',
+    'DrivesActivitiesOperations',
+    'DrivesActivitiesListItemOperations',
+    'DrivesActivitiesListItemVersionsOperations',
+    'DrivesListOperations',
+    'DrivesListActivitiesOperations',
+    'DrivesListActivitiesListItemOperations',
+    'DrivesListActivitiesListItemVersionsOperations',
+    'DrivesListContentTypesOperations',
+    'DrivesListItemsOperations',
+    'DrivesListItemsActivitiesOperations',
+    'DrivesListItemsActivitiesListItemOperations',
+    'DrivesListItemsVersionsOperations',
+    'GroupsOperations',
+    'SharesSharedDriveItemOperations',
+    'SharesOperations',
+    'SharesListOperations',
+    'SharesListActivitiesOperations',
+    'SharesListActivitiesListItemOperations',
+    'SharesListActivitiesListItemVersionsOperations',
+    'SharesListContentTypesOperations',
+    'SharesListItemsOperations',
+    'SharesListItemsActivitiesOperations',
+    'SharesListItemsActivitiesListItemOperations',
+    'SharesListItemsVersionsOperations',
+    'SharesListItemOperations',
+    'SharesListItemActivitiesOperations',
+    'SharesListItemActivitiesListItemOperations',
+    'SharesListItemVersionsOperations',
+    'SharesPermissionOperations',
+    'UsersOperations',
 ]

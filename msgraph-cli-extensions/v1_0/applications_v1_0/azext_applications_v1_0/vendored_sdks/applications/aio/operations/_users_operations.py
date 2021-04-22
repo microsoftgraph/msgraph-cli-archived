@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations:
-    """usersOperations async operations.
+class UsersOperations:
+    """UsersOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,7 +48,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum76"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofapproleassignment2"]:
+    ) -> AsyncIterable["models.CollectionOfAppRoleAssignment2"]:
         """Get appRoleAssignments from users.
 
         Get appRoleAssignments from users.
@@ -61,11 +62,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofapproleassignment2 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~applications.models.collectionofapproleassignment2]
+        :return: An iterator like instance of either CollectionOfAppRoleAssignment2 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~applications.models.CollectionOfAppRoleAssignment2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofapproleassignment2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAppRoleAssignment2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -111,7 +112,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofapproleassignment2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfAppRoleAssignment2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -124,9 +125,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -138,9 +139,9 @@ class usersOperations:
     async def create_app_role_assignments(
         self,
         user_id: str,
-        body: "models.microsoftgraphapproleassignment",
+        body: "models.MicrosoftGraphAppRoleAssignment",
         **kwargs
-    ) -> "models.microsoftgraphapproleassignment":
+    ) -> "models.MicrosoftGraphAppRoleAssignment":
         """Create new navigation property to appRoleAssignments for users.
 
         Create new navigation property to appRoleAssignments for users.
@@ -148,13 +149,13 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~applications.models.microsoftgraphapproleassignment
+        :type body: ~applications.models.MicrosoftGraphAppRoleAssignment
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphapproleassignment, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphapproleassignment
+        :return: MicrosoftGraphAppRoleAssignment, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphAppRoleAssignment
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphapproleassignment"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAppRoleAssignment"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -178,7 +179,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphapproleassignment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAppRoleAssignment')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -186,10 +187,10 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphapproleassignment', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAppRoleAssignment', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -204,7 +205,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum77"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphapproleassignment":
+    ) -> "models.MicrosoftGraphAppRoleAssignment":
         """Get appRoleAssignments from users.
 
         Get appRoleAssignments from users.
@@ -218,11 +219,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphapproleassignment, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphapproleassignment
+        :return: MicrosoftGraphAppRoleAssignment, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphAppRoleAssignment
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphapproleassignment"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAppRoleAssignment"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -254,10 +255,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphapproleassignment', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAppRoleAssignment', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -269,7 +270,7 @@ class usersOperations:
         self,
         user_id: str,
         app_role_assignment_id: str,
-        body: "models.microsoftgraphapproleassignment",
+        body: "models.MicrosoftGraphAppRoleAssignment",
         **kwargs
     ) -> None:
         """Update the navigation property appRoleAssignments in users.
@@ -281,7 +282,7 @@ class usersOperations:
         :param app_role_assignment_id: key: id of appRoleAssignment.
         :type app_role_assignment_id: str
         :param body: New navigation property values.
-        :type body: ~applications.models.microsoftgraphapproleassignment
+        :type body: ~applications.models.MicrosoftGraphAppRoleAssignment
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -312,7 +313,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphapproleassignment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAppRoleAssignment')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -320,8 +321,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -380,8 +381,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

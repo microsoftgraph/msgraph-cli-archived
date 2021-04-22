@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,11 +48,11 @@ class usersOperations(object):
     def get_inference_classification(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Get1itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphinferenceclassification"
+        # type: (...) -> "models.MicrosoftGraphInferenceClassification"
         """Get inferenceClassification from users.
 
         Get inferenceClassification from users.
@@ -59,15 +60,15 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~mail.models.Get1itemsitem]
+        :type select: list[str or ~mail.models.Get1ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~mail.models.Get2itemsitem]
+        :type expand: list[str or ~mail.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphinferenceclassification, or the result of cls(response)
-        :rtype: ~mail.models.microsoftgraphinferenceclassification
+        :return: MicrosoftGraphInferenceClassification, or the result of cls(response)
+        :rtype: ~mail.models.MicrosoftGraphInferenceClassification
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphinferenceclassification"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInferenceClassification"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -98,10 +99,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphinferenceclassification', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphInferenceClassification', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -112,7 +113,7 @@ class usersOperations(object):
     def update_inference_classification(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphinferenceclassification"
+        body,  # type: "models.MicrosoftGraphInferenceClassification"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -123,7 +124,7 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property values.
-        :type body: ~mail.models.microsoftgraphinferenceclassification
+        :type body: ~mail.models.MicrosoftGraphInferenceClassification
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -153,7 +154,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphinferenceclassification')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInferenceClassification')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -161,8 +162,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -218,8 +219,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -234,7 +235,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum8"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofmailfolder"]
+        # type: (...) -> Iterable["models.CollectionOfMailFolder"]
         """Get mailFolders from users.
 
         Get mailFolders from users.
@@ -248,11 +249,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~mail.models.Enum8]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofmailfolder or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~mail.models.collectionofmailfolder]
+        :return: An iterator like instance of either CollectionOfMailFolder or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~mail.models.CollectionOfMailFolder]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofmailfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMailFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -298,7 +299,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofmailfolder', pipeline_response)
+            deserialized = self._deserialize('CollectionOfMailFolder', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -311,9 +312,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -325,10 +326,10 @@ class usersOperations(object):
     def create_mail_folders(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphmailfolder"
+        body,  # type: "models.MicrosoftGraphMailFolder"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmailfolder"
+        # type: (...) -> "models.MicrosoftGraphMailFolder"
         """Create new navigation property to mailFolders for users.
 
         Create new navigation property to mailFolders for users.
@@ -336,13 +337,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~mail.models.microsoftgraphmailfolder
+        :type body: ~mail.models.MicrosoftGraphMailFolder
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmailfolder, or the result of cls(response)
-        :rtype: ~mail.models.microsoftgraphmailfolder
+        :return: MicrosoftGraphMailFolder, or the result of cls(response)
+        :rtype: ~mail.models.MicrosoftGraphMailFolder
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmailfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMailFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -366,7 +367,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmailfolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMailFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -374,10 +375,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmailfolder', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMailFolder', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -393,7 +394,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum15"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmailfolder"
+        # type: (...) -> "models.MicrosoftGraphMailFolder"
         """Get mailFolders from users.
 
         Get mailFolders from users.
@@ -407,11 +408,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~mail.models.Enum15]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmailfolder, or the result of cls(response)
-        :rtype: ~mail.models.microsoftgraphmailfolder
+        :return: MicrosoftGraphMailFolder, or the result of cls(response)
+        :rtype: ~mail.models.MicrosoftGraphMailFolder
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmailfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMailFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -443,10 +444,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmailfolder', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMailFolder', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -458,7 +459,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         mail_folder_id,  # type: str
-        body,  # type: "models.microsoftgraphmailfolder"
+        body,  # type: "models.MicrosoftGraphMailFolder"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -471,7 +472,7 @@ class usersOperations(object):
         :param mail_folder_id: key: id of mailFolder.
         :type mail_folder_id: str
         :param body: New navigation property values.
-        :type body: ~mail.models.microsoftgraphmailfolder
+        :type body: ~mail.models.MicrosoftGraphMailFolder
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -502,7 +503,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmailfolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMailFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -510,8 +511,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -571,8 +572,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -587,7 +588,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum47"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofmessage0"]
+        # type: (...) -> Iterable["models.CollectionOfMessage0"]
         """Get messages from users.
 
         Get messages from users.
@@ -601,11 +602,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~mail.models.Enum47]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofmessage0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~mail.models.collectionofmessage0]
+        :return: An iterator like instance of either CollectionOfMessage0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~mail.models.CollectionOfMessage0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofmessage0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMessage0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -651,7 +652,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofmessage0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfMessage0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -664,9 +665,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -678,10 +679,10 @@ class usersOperations(object):
     def create_messages(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphmessage"
+        body,  # type: "models.MicrosoftGraphMessage"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmessage"
+        # type: (...) -> "models.MicrosoftGraphMessage"
         """Create new navigation property to messages for users.
 
         Create new navigation property to messages for users.
@@ -689,13 +690,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~mail.models.microsoftgraphmessage
+        :type body: ~mail.models.MicrosoftGraphMessage
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmessage, or the result of cls(response)
-        :rtype: ~mail.models.microsoftgraphmessage
+        :return: MicrosoftGraphMessage, or the result of cls(response)
+        :rtype: ~mail.models.MicrosoftGraphMessage
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmessage"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessage"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -719,7 +720,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmessage')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessage')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -727,10 +728,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmessage', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMessage', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -746,7 +747,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum49"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmessage"
+        # type: (...) -> "models.MicrosoftGraphMessage"
         """Get messages from users.
 
         Get messages from users.
@@ -760,11 +761,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~mail.models.Enum49]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmessage, or the result of cls(response)
-        :rtype: ~mail.models.microsoftgraphmessage
+        :return: MicrosoftGraphMessage, or the result of cls(response)
+        :rtype: ~mail.models.MicrosoftGraphMessage
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmessage"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessage"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -796,10 +797,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmessage', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMessage', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -811,7 +812,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         message_id,  # type: str
-        body,  # type: "models.microsoftgraphmessage"
+        body,  # type: "models.MicrosoftGraphMessage"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -824,7 +825,7 @@ class usersOperations(object):
         :param message_id: key: id of message.
         :type message_id: str
         :param body: New navigation property values.
-        :type body: ~mail.models.microsoftgraphmessage
+        :type body: ~mail.models.MicrosoftGraphMessage
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -855,7 +856,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmessage')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessage')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -863,8 +864,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -924,8 +925,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

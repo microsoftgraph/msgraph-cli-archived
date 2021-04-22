@@ -7,85 +7,85 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofattachment
-    from ._models_py3 import collectionofattachment0
-    from ._models_py3 import collectionofextension
-    from ._models_py3 import collectionofextension0
-    from ._models_py3 import collectionofinferenceclassificationoverride
-    from ._models_py3 import collectionofmailfolder
-    from ._models_py3 import collectionofmailfolder0
-    from ._models_py3 import collectionofmessage
-    from ._models_py3 import collectionofmessage0
-    from ._models_py3 import collectionofmessagerule
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty0
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty1
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty0
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty1
-    from ._models_py3 import microsoftgraphattachment
-    from ._models_py3 import microsoftgraphdatetimezone
-    from ._models_py3 import microsoftgraphemailaddress
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphextension
-    from ._models_py3 import microsoftgraphfollowupflag
-    from ._models_py3 import microsoftgraphinferenceclassification
-    from ._models_py3 import microsoftgraphinferenceclassificationoverride
-    from ._models_py3 import microsoftgraphinternetmessageheader
-    from ._models_py3 import microsoftgraphitembody
-    from ._models_py3 import microsoftgraphmailfolder
-    from ._models_py3 import microsoftgraphmessage
-    from ._models_py3 import microsoftgraphmessagerule
-    from ._models_py3 import microsoftgraphmessageruleactions
-    from ._models_py3 import microsoftgraphmessagerulepredicates
-    from ._models_py3 import microsoftgraphmultivaluelegacyextendedproperty
-    from ._models_py3 import microsoftgraphoutlookitem
-    from ._models_py3 import microsoftgraphrecipient
-    from ._models_py3 import microsoftgraphsinglevaluelegacyextendedproperty
-    from ._models_py3 import microsoftgraphsizerange
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfAttachment
+    from ._models_py3 import CollectionOfAttachment0
+    from ._models_py3 import CollectionOfExtension
+    from ._models_py3 import CollectionOfExtension0
+    from ._models_py3 import CollectionOfInferenceClassificationOverride
+    from ._models_py3 import CollectionOfMailFolder
+    from ._models_py3 import CollectionOfMailFolder0
+    from ._models_py3 import CollectionOfMessage
+    from ._models_py3 import CollectionOfMessage0
+    from ._models_py3 import CollectionOfMessageRule
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty0
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty1
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty0
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty1
+    from ._models_py3 import MicrosoftGraphAttachment
+    from ._models_py3 import MicrosoftGraphDateTimeZone
+    from ._models_py3 import MicrosoftGraphEmailAddress
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphExtension
+    from ._models_py3 import MicrosoftGraphFollowupFlag
+    from ._models_py3 import MicrosoftGraphInferenceClassification
+    from ._models_py3 import MicrosoftGraphInferenceClassificationOverride
+    from ._models_py3 import MicrosoftGraphInternetMessageHeader
+    from ._models_py3 import MicrosoftGraphItemBody
+    from ._models_py3 import MicrosoftGraphMailFolder
+    from ._models_py3 import MicrosoftGraphMessage
+    from ._models_py3 import MicrosoftGraphMessageRule
+    from ._models_py3 import MicrosoftGraphMessageRuleActions
+    from ._models_py3 import MicrosoftGraphMessageRulePredicates
+    from ._models_py3 import MicrosoftGraphMultiValueLegacyExtendedProperty
+    from ._models_py3 import MicrosoftGraphOutlookItem
+    from ._models_py3 import MicrosoftGraphRecipient
+    from ._models_py3 import MicrosoftGraphSingleValueLegacyExtendedProperty
+    from ._models_py3 import MicrosoftGraphSizeRange
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofattachment  # type: ignore
-    from ._models import collectionofattachment0  # type: ignore
-    from ._models import collectionofextension  # type: ignore
-    from ._models import collectionofextension0  # type: ignore
-    from ._models import collectionofinferenceclassificationoverride  # type: ignore
-    from ._models import collectionofmailfolder  # type: ignore
-    from ._models import collectionofmailfolder0  # type: ignore
-    from ._models import collectionofmessage  # type: ignore
-    from ._models import collectionofmessage0  # type: ignore
-    from ._models import collectionofmessagerule  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty0  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty1  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty0  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty1  # type: ignore
-    from ._models import microsoftgraphattachment  # type: ignore
-    from ._models import microsoftgraphdatetimezone  # type: ignore
-    from ._models import microsoftgraphemailaddress  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphextension  # type: ignore
-    from ._models import microsoftgraphfollowupflag  # type: ignore
-    from ._models import microsoftgraphinferenceclassification  # type: ignore
-    from ._models import microsoftgraphinferenceclassificationoverride  # type: ignore
-    from ._models import microsoftgraphinternetmessageheader  # type: ignore
-    from ._models import microsoftgraphitembody  # type: ignore
-    from ._models import microsoftgraphmailfolder  # type: ignore
-    from ._models import microsoftgraphmessage  # type: ignore
-    from ._models import microsoftgraphmessagerule  # type: ignore
-    from ._models import microsoftgraphmessageruleactions  # type: ignore
-    from ._models import microsoftgraphmessagerulepredicates  # type: ignore
-    from ._models import microsoftgraphmultivaluelegacyextendedproperty  # type: ignore
-    from ._models import microsoftgraphoutlookitem  # type: ignore
-    from ._models import microsoftgraphrecipient  # type: ignore
-    from ._models import microsoftgraphsinglevaluelegacyextendedproperty  # type: ignore
-    from ._models import microsoftgraphsizerange  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfAttachment  # type: ignore
+    from ._models import CollectionOfAttachment0  # type: ignore
+    from ._models import CollectionOfExtension  # type: ignore
+    from ._models import CollectionOfExtension0  # type: ignore
+    from ._models import CollectionOfInferenceClassificationOverride  # type: ignore
+    from ._models import CollectionOfMailFolder  # type: ignore
+    from ._models import CollectionOfMailFolder0  # type: ignore
+    from ._models import CollectionOfMessage  # type: ignore
+    from ._models import CollectionOfMessage0  # type: ignore
+    from ._models import CollectionOfMessageRule  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty0  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty1  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty0  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty1  # type: ignore
+    from ._models import MicrosoftGraphAttachment  # type: ignore
+    from ._models import MicrosoftGraphDateTimeZone  # type: ignore
+    from ._models import MicrosoftGraphEmailAddress  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphExtension  # type: ignore
+    from ._models import MicrosoftGraphFollowupFlag  # type: ignore
+    from ._models import MicrosoftGraphInferenceClassification  # type: ignore
+    from ._models import MicrosoftGraphInferenceClassificationOverride  # type: ignore
+    from ._models import MicrosoftGraphInternetMessageHeader  # type: ignore
+    from ._models import MicrosoftGraphItemBody  # type: ignore
+    from ._models import MicrosoftGraphMailFolder  # type: ignore
+    from ._models import MicrosoftGraphMessage  # type: ignore
+    from ._models import MicrosoftGraphMessageRule  # type: ignore
+    from ._models import MicrosoftGraphMessageRuleActions  # type: ignore
+    from ._models import MicrosoftGraphMessageRulePredicates  # type: ignore
+    from ._models import MicrosoftGraphMultiValueLegacyExtendedProperty  # type: ignore
+    from ._models import MicrosoftGraphOutlookItem  # type: ignore
+    from ._models import MicrosoftGraphRecipient  # type: ignore
+    from ._models import MicrosoftGraphSingleValueLegacyExtendedProperty  # type: ignore
+    from ._models import MicrosoftGraphSizeRange  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._mail_enums import (
     Enum14,
@@ -136,60 +136,60 @@ from ._mail_enums import (
     Enum6,
     Enum7,
     Enum8,
-    Get1itemsitem,
-    Get2itemsitem,
-    Get4itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
-    Get9itemsitem,
-    Microsoftgraphbodytype,
-    Microsoftgraphfollowupflagstatus,
-    Microsoftgraphimportance,
-    Microsoftgraphinferenceclassificationtype,
-    Microsoftgraphmessageactionflag,
-    Microsoftgraphsensitivity,
+    Get1ItemsItem,
+    Get2ItemsItem,
+    Get4ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
+    Get9ItemsItem,
+    MicrosoftGraphBodyType,
+    MicrosoftGraphFollowupFlagStatus,
+    MicrosoftGraphImportance,
+    MicrosoftGraphInferenceClassificationType,
+    MicrosoftGraphMessageActionFlag,
+    MicrosoftGraphSensitivity,
 )
 
 __all__ = [
-    'collectionofattachment',
-    'collectionofattachment0',
-    'collectionofextension',
-    'collectionofextension0',
-    'collectionofinferenceclassificationoverride',
-    'collectionofmailfolder',
-    'collectionofmailfolder0',
-    'collectionofmessage',
-    'collectionofmessage0',
-    'collectionofmessagerule',
-    'collectionofmultivaluelegacyextendedproperty',
-    'collectionofmultivaluelegacyextendedproperty0',
-    'collectionofmultivaluelegacyextendedproperty1',
-    'collectionofsinglevaluelegacyextendedproperty',
-    'collectionofsinglevaluelegacyextendedproperty0',
-    'collectionofsinglevaluelegacyextendedproperty1',
-    'microsoftgraphattachment',
-    'microsoftgraphdatetimezone',
-    'microsoftgraphemailaddress',
-    'microsoftgraphentity',
-    'microsoftgraphextension',
-    'microsoftgraphfollowupflag',
-    'microsoftgraphinferenceclassification',
-    'microsoftgraphinferenceclassificationoverride',
-    'microsoftgraphinternetmessageheader',
-    'microsoftgraphitembody',
-    'microsoftgraphmailfolder',
-    'microsoftgraphmessage',
-    'microsoftgraphmessagerule',
-    'microsoftgraphmessageruleactions',
-    'microsoftgraphmessagerulepredicates',
-    'microsoftgraphmultivaluelegacyextendedproperty',
-    'microsoftgraphoutlookitem',
-    'microsoftgraphrecipient',
-    'microsoftgraphsinglevaluelegacyextendedproperty',
-    'microsoftgraphsizerange',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfAttachment',
+    'CollectionOfAttachment0',
+    'CollectionOfExtension',
+    'CollectionOfExtension0',
+    'CollectionOfInferenceClassificationOverride',
+    'CollectionOfMailFolder',
+    'CollectionOfMailFolder0',
+    'CollectionOfMessage',
+    'CollectionOfMessage0',
+    'CollectionOfMessageRule',
+    'CollectionOfMultiValueLegacyExtendedProperty',
+    'CollectionOfMultiValueLegacyExtendedProperty0',
+    'CollectionOfMultiValueLegacyExtendedProperty1',
+    'CollectionOfSingleValueLegacyExtendedProperty',
+    'CollectionOfSingleValueLegacyExtendedProperty0',
+    'CollectionOfSingleValueLegacyExtendedProperty1',
+    'MicrosoftGraphAttachment',
+    'MicrosoftGraphDateTimeZone',
+    'MicrosoftGraphEmailAddress',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphExtension',
+    'MicrosoftGraphFollowupFlag',
+    'MicrosoftGraphInferenceClassification',
+    'MicrosoftGraphInferenceClassificationOverride',
+    'MicrosoftGraphInternetMessageHeader',
+    'MicrosoftGraphItemBody',
+    'MicrosoftGraphMailFolder',
+    'MicrosoftGraphMessage',
+    'MicrosoftGraphMessageRule',
+    'MicrosoftGraphMessageRuleActions',
+    'MicrosoftGraphMessageRulePredicates',
+    'MicrosoftGraphMultiValueLegacyExtendedProperty',
+    'MicrosoftGraphOutlookItem',
+    'MicrosoftGraphRecipient',
+    'MicrosoftGraphSingleValueLegacyExtendedProperty',
+    'MicrosoftGraphSizeRange',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum14',
     'Enum15',
     'Enum16',
@@ -238,16 +238,16 @@ __all__ = [
     'Enum6',
     'Enum7',
     'Enum8',
-    'Get1itemsitem',
-    'Get2itemsitem',
-    'Get4itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
-    'Get9itemsitem',
-    'Microsoftgraphbodytype',
-    'Microsoftgraphfollowupflagstatus',
-    'Microsoftgraphimportance',
-    'Microsoftgraphinferenceclassificationtype',
-    'Microsoftgraphmessageactionflag',
-    'Microsoftgraphsensitivity',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
+    'Get4ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
+    'Get9ItemsItem',
+    'MicrosoftGraphBodyType',
+    'MicrosoftGraphFollowupFlagStatus',
+    'MicrosoftGraphImportance',
+    'MicrosoftGraphInferenceClassificationType',
+    'MicrosoftGraphMessageActionFlag',
+    'MicrosoftGraphSensitivity',
 ]

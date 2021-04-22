@@ -22,85 +22,85 @@ def cf_group(cli_ctx, *_):
     return cf_planner_v1_0_cl(cli_ctx).groups
 
 
-def cf_groupsplanner(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).groupsplanner
+def cf_group_planner(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).groups_planner
 
 
-def cf_groupsplannerplan(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).groupsplannerplans
+def cf_group_planner_plan(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).groups_planner_plans
 
 
-def cf_groupsplannerplansbucket(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).groupsplannerplansbuckets
+def cf_group_planner_plan_bucket(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).groups_planner_plans_buckets
 
 
-def cf_groupsplannerplansbucketstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).groupsplannerplansbucketstasks
+def cf_group_planner_plan_bucket_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).groups_planner_plans_buckets_tasks
 
 
-def cf_groupsplannerplanstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).groupsplannerplanstasks
+def cf_group_planner_plan_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).groups_planner_plans_tasks
 
 
-def cf_planner(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerplanner
+def cf_planner_planner(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_planner
 
 
 def cf_planner(cli_ctx, *_):
     return cf_planner_v1_0_cl(cli_ctx).planner
 
 
-def cf_plannerbucket(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerbuckets
+def cf_planner_bucket(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_buckets
 
 
-def cf_plannerbucketstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerbucketstasks
+def cf_planner_bucket_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_buckets_tasks
 
 
-def cf_plannerplan(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerplans
+def cf_planner_plan(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_plans
 
 
-def cf_plannerplansbucket(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerplansbuckets
+def cf_planner_plan_bucket(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_plans_buckets
 
 
-def cf_plannerplansbucketstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerplansbucketstasks
+def cf_planner_plan_bucket_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_plans_buckets_tasks
 
 
-def cf_plannerplanstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannerplanstasks
+def cf_planner_plan_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_plans_tasks
 
 
-def cf_plannertask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).plannertasks
+def cf_planner_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).planner_tasks
 
 
 def cf_user(cli_ctx, *_):
     return cf_planner_v1_0_cl(cli_ctx).users
 
 
-def cf_usersplanner(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplanner
+def cf_user_planner(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner
 
 
-def cf_usersplannerplan(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplannerplans
+def cf_user_planner_plan(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner_plans
 
 
-def cf_usersplannerplansbucket(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplannerplansbuckets
+def cf_user_planner_plan_bucket(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner_plans_buckets
 
 
-def cf_usersplannerplansbucketstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplannerplansbucketstasks
+def cf_user_planner_plan_bucket_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner_plans_buckets_tasks
 
 
-def cf_usersplannerplanstask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplannerplanstasks
+def cf_user_planner_plan_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner_plans_tasks
 
 
-def cf_usersplannertask(cli_ctx, *_):
-    return cf_planner_v1_0_cl(cli_ctx).usersplannertasks
+def cf_user_planner_task(cli_ctx, *_):
+    return cf_planner_v1_0_cl(cli_ctx).users_planner_tasks

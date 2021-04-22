@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class organizationOperations(object):
-    """organizationOperations operations.
+class OrganizationOperations(object):
+    """OrganizationOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -52,7 +53,7 @@ class organizationOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofcertificatebasedauthconfiguration"]
+        # type: (...) -> Iterable["models.CollectionOfCertificateBasedAuthConfiguration"]
         """Get certificateBasedAuthConfiguration from organization.
 
         Get certificateBasedAuthConfiguration from organization.
@@ -66,11 +67,11 @@ class organizationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcertificatebasedauthconfiguration or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.collectionofcertificatebasedauthconfiguration]
+        :return: An iterator like instance of either CollectionOfCertificateBasedAuthConfiguration or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfCertificateBasedAuthConfiguration]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcertificatebasedauthconfiguration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCertificateBasedAuthConfiguration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class organizationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcertificatebasedauthconfiguration', pipeline_response)
+            deserialized = self._deserialize('CollectionOfCertificateBasedAuthConfiguration', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class organizationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -146,7 +147,7 @@ class organizationOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksofcertificatebasedauthconfiguration"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfCertificateBasedAuthConfiguration"]
         """Get ref of certificateBasedAuthConfiguration from organization.
 
         Get ref of certificateBasedAuthConfiguration from organization.
@@ -156,11 +157,11 @@ class organizationOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_sign_ins.models.Enum110]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofcertificatebasedauthconfiguration or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.collectionoflinksofcertificatebasedauthconfiguration]
+        :return: An iterator like instance of either CollectionOfLinksOfCertificateBasedAuthConfiguration or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfLinksOfCertificateBasedAuthConfiguration]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofcertificatebasedauthconfiguration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfCertificateBasedAuthConfiguration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -202,7 +203,7 @@ class organizationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofcertificatebasedauthconfiguration', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfCertificateBasedAuthConfiguration', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -215,9 +216,9 @@ class organizationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -278,8 +279,8 @@ class organizationOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 

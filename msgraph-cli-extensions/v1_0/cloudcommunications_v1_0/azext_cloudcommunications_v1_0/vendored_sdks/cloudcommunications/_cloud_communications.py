@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,15 +18,15 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import CloudCommunicationsConfiguration
-from .operations import usersOperations
+from .operations import UsersOperations
 from . import models
 
 
 class CloudCommunications(object):
     """CloudCommunications.
 
-    :ivar users: usersOperations operations
-    :vartype users: cloud_communications.operations.usersOperations
+    :ivar users: UsersOperations operations
+    :vartype users: cloud_communications.operations.UsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -57,14 +57,14 @@ class CloudCommunications(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = CloudCommunicationsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.users = usersOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

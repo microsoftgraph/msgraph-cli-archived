@@ -17,77 +17,77 @@ helps['directoryobjects_v1_0'] = '''
     short-summary: Manage Directory Objects
 '''
 
-helps['directoryobjects directoryobjectsdirectoryobject'] = """
+helps['directoryobjects directory-object-directory-object'] = """
     type: group
-    short-summary: Manage directoryobjectsdirectoryobject with directoryobjects_v1_0
+    short-summary: Manage directory object directory object with directoryobjects_v1_0
 """
 
-helps['directoryobjects directoryobjectsdirectoryobject create-directory-object'] = """
+helps['directoryobjects directory-object-directory-object create-directory-object'] = """
     type: command
     short-summary: "Add new entity to directoryObjects."
 """
 
-helps['directoryobjects directoryobjectsdirectoryobject delete-directory-object'] = """
+helps['directoryobjects directory-object-directory-object delete-directory-object'] = """
     type: command
     short-summary: "Delete entity from directoryObjects."
 """
 
-helps['directoryobjects directoryobjectsdirectoryobject list-directory-object'] = """
+helps['directoryobjects directory-object-directory-object list-directory-object'] = """
     type: command
     short-summary: "Get entities from directoryObjects."
 """
 
-helps['directoryobjects directoryobjectsdirectoryobject show-directory-object'] = """
+helps['directoryobjects directory-object-directory-object show-directory-object'] = """
     type: command
     short-summary: "Get entity from directoryObjects by key."
 """
 
-helps['directoryobjects directoryobjectsdirectoryobject update-directory-object'] = """
+helps['directoryobjects directory-object-directory-object update-directory-object'] = """
     type: command
     short-summary: "Update entity in directoryObjects."
 """
 
-helps['directoryobjects directoryobject'] = """
+helps['directoryobjects directory-object'] = """
     type: group
-    short-summary: Manage directoryobject with directoryobjects_v1_0
+    short-summary: Manage directory object with directoryobjects_v1_0
 """
 
-helps['directoryobjects directoryobject check-member-group'] = """
+helps['directoryobjects directory-object check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups."
 """
 
-helps['directoryobjects directoryobject check-member-object'] = """
+helps['directoryobjects directory-object check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects."
 """
 
-helps['directoryobjects directoryobject get-available-extension-property'] = """
+helps['directoryobjects directory-object get-available-extension-property'] = """
     type: command
     short-summary: "Invoke action getAvailableExtensionProperties."
 """
 
-helps['directoryobjects directoryobject get-by-id'] = """
+helps['directoryobjects directory-object get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds."
 """
 
-helps['directoryobjects directoryobject get-member-group'] = """
+helps['directoryobjects directory-object get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups."
 """
 
-helps['directoryobjects directoryobject get-member-object'] = """
+helps['directoryobjects directory-object get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects."
 """
 
-helps['directoryobjects directoryobject restore'] = """
+helps['directoryobjects directory-object restore'] = """
     type: command
     short-summary: "Invoke action restore."
 """
 
-helps['directoryobjects directoryobject validate-property'] = """
+helps['directoryobjects directory-object validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties."
 """

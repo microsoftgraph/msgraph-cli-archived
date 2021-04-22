@@ -19,17 +19,17 @@ helps['compliance_beta'] = '''
 
 helps['compliance compliance'] = """
     type: group
-    short-summary: Manage compliance with compliance_beta
+    short-summary: Manage compliance compliance with compliance_beta
+"""
+
+helps['compliance compliance create'] = """
+    type: command
+    short-summary: "Update compliance."
 """
 
 helps['compliance compliance show-compliance'] = """
     type: command
     short-summary: "Get compliance."
-"""
-
-helps['compliance compliance update-compliance'] = """
-    type: command
-    short-summary: "Update compliance."
 """
 
 helps['compliance compliance'] = """
@@ -52,12 +52,12 @@ helps['compliance compliance update-ediscovery'] = """
     short-summary: "Update the navigation property ediscovery in compliance."
 """
 
-helps['compliance complianceediscovery'] = """
+helps['compliance compliance-ediscovery'] = """
     type: group
-    short-summary: Manage complianceediscovery with compliance_beta
+    short-summary: Manage compliance ediscovery with compliance_beta
 """
 
-helps['compliance complianceediscovery create-case'] = """
+helps['compliance compliance-ediscovery create-case'] = """
     type: command
     short-summary: "Create new navigation property to cases for compliance."
     parameters:
@@ -117,22 +117,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscovery delete-case'] = """
+helps['compliance compliance-ediscovery delete-case'] = """
     type: command
     short-summary: "Delete navigation property cases for compliance."
 """
 
-helps['compliance complianceediscovery list-case'] = """
+helps['compliance compliance-ediscovery list-case'] = """
     type: command
     short-summary: "Get cases from compliance."
 """
 
-helps['compliance complianceediscovery show-case'] = """
+helps['compliance compliance-ediscovery show-case'] = """
     type: command
     short-summary: "Get cases from compliance."
 """
 
-helps['compliance complianceediscovery update-case'] = """
+helps['compliance compliance-ediscovery update-case'] = """
     type: command
     short-summary: "Update the navigation property cases in compliance."
     parameters:
@@ -192,17 +192,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycase'] = """
+helps['compliance compliance-ediscovery-case'] = """
     type: group
-    short-summary: Manage complianceediscoverycase with compliance_beta
+    short-summary: Manage compliance ediscovery case with compliance_beta
 """
 
-helps['compliance complianceediscoverycase close'] = """
+helps['compliance compliance-ediscovery-case close'] = """
     type: command
     short-summary: "Invoke action close."
 """
 
-helps['compliance complianceediscoverycase create-custodian'] = """
+helps['compliance compliance-ediscovery-case create-custodian'] = """
     type: command
     short-summary: "Create new navigation property to custodians for compliance."
     parameters:
@@ -226,7 +226,7 @@ device=XX user=XX id=XX
             Multiple actions can be specified by using more than one --user-sources argument.
 """
 
-helps['compliance complianceediscoverycase create-review-set'] = """
+helps['compliance compliance-ediscovery-case create-review-set'] = """
     type: command
     short-summary: "Create new navigation property to reviewSets for compliance."
     parameters:
@@ -259,42 +259,42 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycase delete-custodian'] = """
+helps['compliance compliance-ediscovery-case delete-custodian'] = """
     type: command
     short-summary: "Delete navigation property custodians for compliance."
 """
 
-helps['compliance complianceediscoverycase delete-review-set'] = """
+helps['compliance compliance-ediscovery-case delete-review-set'] = """
     type: command
     short-summary: "Delete navigation property reviewSets for compliance."
 """
 
-helps['compliance complianceediscoverycase list-custodian'] = """
+helps['compliance compliance-ediscovery-case list-custodian'] = """
     type: command
     short-summary: "Get custodians from compliance."
 """
 
-helps['compliance complianceediscoverycase list-review-set'] = """
+helps['compliance compliance-ediscovery-case list-review-set'] = """
     type: command
     short-summary: "Get reviewSets from compliance."
 """
 
-helps['compliance complianceediscoverycase reopen'] = """
+helps['compliance compliance-ediscovery-case reopen'] = """
     type: command
     short-summary: "Invoke action reopen."
 """
 
-helps['compliance complianceediscoverycase show-custodian'] = """
+helps['compliance compliance-ediscovery-case show-custodian'] = """
     type: command
     short-summary: "Get custodians from compliance."
 """
 
-helps['compliance complianceediscoverycase show-review-set'] = """
+helps['compliance compliance-ediscovery-case show-review-set'] = """
     type: command
     short-summary: "Get reviewSets from compliance."
 """
 
-helps['compliance complianceediscoverycase update-custodian'] = """
+helps['compliance compliance-ediscovery-case update-custodian'] = """
     type: command
     short-summary: "Update the navigation property custodians in compliance."
     parameters:
@@ -318,7 +318,7 @@ device=XX user=XX id=XX
             Multiple actions can be specified by using more than one --user-sources argument.
 """
 
-helps['compliance complianceediscoverycase update-review-set'] = """
+helps['compliance compliance-ediscovery-case update-review-set'] = """
     type: command
     short-summary: "Update the navigation property reviewSets in compliance."
     parameters:
@@ -351,17 +351,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian'] = """
+helps['compliance compliance-ediscovery-case-custodian'] = """
     type: group
-    short-summary: Manage complianceediscoverycasescustodian with compliance_beta
+    short-summary: Manage compliance ediscovery case custodian with compliance_beta
 """
 
-helps['compliance complianceediscoverycasescustodian activate'] = """
+helps['compliance compliance-ediscovery-case-custodian activate'] = """
     type: command
     short-summary: "Invoke action activate."
 """
 
-helps['compliance complianceediscoverycasescustodian create-site-source'] = """
+helps['compliance compliance-ediscovery-case-custodian create-site-source'] = """
     type: command
     short-summary: "Create new navigation property to siteSources for compliance."
     parameters:
@@ -394,7 +394,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian create-unified-group-source'] = """
+helps['compliance compliance-ediscovery-case-custodian create-unified-group-source'] = """
     type: command
     short-summary: "Create new navigation property to unifiedGroupSources for compliance."
     parameters:
@@ -427,7 +427,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian create-user-source'] = """
+helps['compliance compliance-ediscovery-case-custodian create-user-source'] = """
     type: command
     short-summary: "Create new navigation property to userSources for compliance."
     parameters:
@@ -460,82 +460,82 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian delete-ref-last-index-operation'] = """
+helps['compliance compliance-ediscovery-case-custodian delete-ref-last-index-operation'] = """
     type: command
     short-summary: "Delete ref of navigation property lastIndexOperation for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian delete-site-source'] = """
+helps['compliance compliance-ediscovery-case-custodian delete-site-source'] = """
     type: command
     short-summary: "Delete navigation property siteSources for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian delete-unified-group-source'] = """
+helps['compliance compliance-ediscovery-case-custodian delete-unified-group-source'] = """
     type: command
     short-summary: "Delete navigation property unifiedGroupSources for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian delete-user-source'] = """
+helps['compliance compliance-ediscovery-case-custodian delete-user-source'] = """
     type: command
     short-summary: "Delete navigation property userSources for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian list-site-source'] = """
+helps['compliance compliance-ediscovery-case-custodian list-site-source'] = """
     type: command
     short-summary: "Get siteSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian list-unified-group-source'] = """
+helps['compliance compliance-ediscovery-case-custodian list-unified-group-source'] = """
     type: command
     short-summary: "Get unifiedGroupSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian list-user-source'] = """
+helps['compliance compliance-ediscovery-case-custodian list-user-source'] = """
     type: command
     short-summary: "Get userSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian release'] = """
+helps['compliance compliance-ediscovery-case-custodian release'] = """
     type: command
     short-summary: "Invoke action release."
 """
 
-helps['compliance complianceediscoverycasescustodian set-ref-last-index-operation'] = """
+helps['compliance compliance-ediscovery-case-custodian set-ref-last-index-operation'] = """
     type: command
     short-summary: "Update the ref of navigation property lastIndexOperation in compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian show-last-index-operation'] = """
+helps['compliance compliance-ediscovery-case-custodian show-last-index-operation'] = """
     type: command
     short-summary: "Get lastIndexOperation from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian show-ref-last-index-operation'] = """
+helps['compliance compliance-ediscovery-case-custodian show-ref-last-index-operation'] = """
     type: command
     short-summary: "Get ref of lastIndexOperation from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian show-site-source'] = """
+helps['compliance compliance-ediscovery-case-custodian show-site-source'] = """
     type: command
     short-summary: "Get siteSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian show-unified-group-source'] = """
+helps['compliance compliance-ediscovery-case-custodian show-unified-group-source'] = """
     type: command
     short-summary: "Get unifiedGroupSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian show-user-source'] = """
+helps['compliance compliance-ediscovery-case-custodian show-user-source'] = """
     type: command
     short-summary: "Get userSources from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodian update-index'] = """
+helps['compliance compliance-ediscovery-case-custodian update-index'] = """
     type: command
     short-summary: "Invoke action updateIndex."
 """
 
-helps['compliance complianceediscoverycasescustodian update-site-source'] = """
+helps['compliance compliance-ediscovery-case-custodian update-site-source'] = """
     type: command
     short-summary: "Update the navigation property siteSources in compliance."
     parameters:
@@ -568,7 +568,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian update-unified-group-source'] = """
+helps['compliance compliance-ediscovery-case-custodian update-unified-group-source'] = """
     type: command
     short-summary: "Update the navigation property unifiedGroupSources in compliance."
     parameters:
@@ -601,7 +601,7 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodian update-user-source'] = """
+helps['compliance compliance-ediscovery-case-custodian update-user-source'] = """
     type: command
     short-summary: "Update the navigation property userSources in compliance."
     parameters:
@@ -634,62 +634,62 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasescustodianssitesource'] = """
+helps['compliance compliance-ediscovery-case-custodian-site-source'] = """
     type: group
-    short-summary: Manage complianceediscoverycasescustodianssitesource with compliance_beta
+    short-summary: Manage compliance ediscovery case custodian site source with compliance_beta
 """
 
-helps['compliance complianceediscoverycasescustodianssitesource delete-ref-site'] = """
+helps['compliance compliance-ediscovery-case-custodian-site-source delete-ref-site'] = """
     type: command
     short-summary: "Delete ref of navigation property site for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodianssitesource set-ref-site'] = """
+helps['compliance compliance-ediscovery-case-custodian-site-source set-ref-site'] = """
     type: command
     short-summary: "Update the ref of navigation property site in compliance."
 """
 
-helps['compliance complianceediscoverycasescustodianssitesource show-ref-site'] = """
+helps['compliance compliance-ediscovery-case-custodian-site-source show-ref-site'] = """
     type: command
     short-summary: "Get ref of site from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodianssitesource show-site'] = """
+helps['compliance compliance-ediscovery-case-custodian-site-source show-site'] = """
     type: command
     short-summary: "Get site from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodiansunifiedgroupsource'] = """
+helps['compliance compliance-ediscovery-case-custodian-unified-group-source'] = """
     type: group
-    short-summary: Manage complianceediscoverycasescustodiansunifiedgroupsource with compliance_beta
+    short-summary: Manage compliance ediscovery case custodian unified group source with compliance_beta
 """
 
-helps['compliance complianceediscoverycasescustodiansunifiedgroupsource delete-ref-group'] = """
+helps['compliance compliance-ediscovery-case-custodian-unified-group-source delete-ref-group'] = """
     type: command
     short-summary: "Delete ref of navigation property group for compliance."
 """
 
-helps['compliance complianceediscoverycasescustodiansunifiedgroupsource set-ref-group'] = """
+helps['compliance compliance-ediscovery-case-custodian-unified-group-source set-ref-group'] = """
     type: command
     short-summary: "Update the ref of navigation property group in compliance."
 """
 
-helps['compliance complianceediscoverycasescustodiansunifiedgroupsource show-group'] = """
+helps['compliance compliance-ediscovery-case-custodian-unified-group-source show-group'] = """
     type: command
     short-summary: "Get group from compliance."
 """
 
-helps['compliance complianceediscoverycasescustodiansunifiedgroupsource show-ref-group'] = """
+helps['compliance compliance-ediscovery-case-custodian-unified-group-source show-ref-group'] = """
     type: command
     short-summary: "Get ref of group from compliance."
 """
 
-helps['compliance complianceediscoverycasesreviewset'] = """
+helps['compliance compliance-ediscovery-case-review-set'] = """
     type: group
-    short-summary: Manage complianceediscoverycasesreviewset with compliance_beta
+    short-summary: Manage compliance ediscovery case review set with compliance_beta
 """
 
-helps['compliance complianceediscoverycasesreviewset create-query'] = """
+helps['compliance compliance-ediscovery-case-review-set create-query'] = """
     type: command
     short-summary: "Create new navigation property to queries for compliance."
     parameters:
@@ -749,22 +749,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance complianceediscoverycasesreviewset delete-query'] = """
+helps['compliance compliance-ediscovery-case-review-set delete-query'] = """
     type: command
     short-summary: "Delete navigation property queries for compliance."
 """
 
-helps['compliance complianceediscoverycasesreviewset list-query'] = """
+helps['compliance compliance-ediscovery-case-review-set list-query'] = """
     type: command
     short-summary: "Get queries from compliance."
 """
 
-helps['compliance complianceediscoverycasesreviewset show-query'] = """
+helps['compliance compliance-ediscovery-case-review-set show-query'] = """
     type: command
     short-summary: "Get queries from compliance."
 """
 
-helps['compliance complianceediscoverycasesreviewset update-query'] = """
+helps['compliance compliance-ediscovery-case-review-set update-query'] = """
     type: command
     short-summary: "Update the navigation property queries in compliance."
     parameters:

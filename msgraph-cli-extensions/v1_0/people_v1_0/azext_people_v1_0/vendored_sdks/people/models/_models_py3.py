@@ -15,21 +15,21 @@ import msrest.serialization
 from ._people_enums import *
 
 
-class collectionofperson(msrest.serialization.Model):
+class CollectionOfPerson(msrest.serialization.Model):
     """Collection of person.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphperson]
+    :type value: list[~people.models.MicrosoftGraphPerson]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphperson]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPerson]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -37,31 +37,31 @@ class collectionofperson(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphperson"]] = None,
+        value: Optional[List["MicrosoftGraphPerson"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofperson, self).__init__(**kwargs)
+        super(CollectionOfPerson, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsharedinsight(msrest.serialization.Model):
+class CollectionOfSharedInsight(msrest.serialization.Model):
     """Collection of sharedInsight.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphsharedinsight]
+    :type value: list[~people.models.MicrosoftGraphSharedInsight]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsharedinsight]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSharedInsight]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -69,31 +69,31 @@ class collectionofsharedinsight(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsharedinsight"]] = None,
+        value: Optional[List["MicrosoftGraphSharedInsight"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsharedinsight, self).__init__(**kwargs)
+        super(CollectionOfSharedInsight, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftrending(msrest.serialization.Model):
+class CollectionOfTrending(msrest.serialization.Model):
     """Collection of trending.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphtrending]
+    :type value: list[~people.models.MicrosoftGraphTrending]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtrending]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTrending]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,31 +101,31 @@ class collectionoftrending(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtrending"]] = None,
+        value: Optional[List["MicrosoftGraphTrending"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftrending, self).__init__(**kwargs)
+        super(CollectionOfTrending, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofusedinsight(msrest.serialization.Model):
+class CollectionOfUsedInsight(msrest.serialization.Model):
     """Collection of usedInsight.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~people.models.microsoftgraphusedinsight]
+    :type value: list[~people.models.MicrosoftGraphUsedInsight]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphusedinsight]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphUsedInsight]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -133,17 +133,17 @@ class collectionofusedinsight(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphusedinsight"]] = None,
+        value: Optional[List["MicrosoftGraphUsedInsight"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofusedinsight, self).__init__(**kwargs)
+        super(CollectionOfUsedInsight, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -165,12 +165,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphinsightidentity(msrest.serialization.Model):
+class MicrosoftGraphInsightIdentity(msrest.serialization.Model):
     """insightIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -200,23 +200,23 @@ class microsoftgraphinsightidentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphinsightidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphInsightIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
         self.id = id
 
 
-class microsoftgraphlocation(msrest.serialization.Model):
+class MicrosoftGraphLocation(msrest.serialization.Model):
     """location.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~people.models.microsoftgraphphysicaladdress
+    :type address: ~people.models.MicrosoftGraphPhysicalAddress
     :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~people.models.microsoftgraphoutlookgeocoordinates
+    :type coordinates: ~people.models.MicrosoftGraphOutlookGeoCoordinates
     :param display_name: The name associated with the location.
     :type display_name: str
     :param location_email_address: Optional email address of the location.
@@ -224,20 +224,20 @@ class microsoftgraphlocation(msrest.serialization.Model):
     :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
      "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
      "postalAddress".
-    :type location_type: str or ~people.models.Microsoftgraphlocationtype
+    :type location_type: str or ~people.models.MicrosoftGraphLocationType
     :param location_uri: Optional URI representing the location.
     :type location_uri: str
     :param unique_id: For internal use only.
     :type unique_id: str
     :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
      "private", "bing".
-    :type unique_id_type: str or ~people.models.Microsoftgraphlocationuniqueidtype
+    :type unique_id_type: str or ~people.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'coordinates': {'key': 'coordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'coordinates': {'key': 'coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'location_email_address': {'key': 'locationEmailAddress', 'type': 'str'},
         'location_type': {'key': 'locationType', 'type': 'str'},
@@ -250,17 +250,17 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphphysicaladdress"] = None,
-        coordinates: Optional["microsoftgraphoutlookgeocoordinates"] = None,
+        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
+        coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
         display_name: Optional[str] = None,
         location_email_address: Optional[str] = None,
-        location_type: Optional[Union[str, "Microsoftgraphlocationtype"]] = None,
+        location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
         location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
-        unique_id_type: Optional[Union[str, "Microsoftgraphlocationuniqueidtype"]] = None,
+        unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphLocation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.coordinates = coordinates
@@ -272,7 +272,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self.unique_id_type = unique_id_type
 
 
-class microsoftgraphofficegraphinsights(microsoftgraphentity):
+class MicrosoftGraphOfficeGraphInsights(MicrosoftGraphEntity):
     """officeGraphInsights.
 
     :param id: Read-only.
@@ -284,23 +284,23 @@ class microsoftgraphofficegraphinsights(microsoftgraphentity):
      includes URLs, file attachments, and reference attachments to OneDrive for Business and
      SharePoint files found in Outlook messages and meetings. This also includes URLs and reference
      attachments to Teams conversations. Ordered by recency of share.
-    :type shared: list[~people.models.microsoftgraphsharedinsight]
+    :type shared: list[~people.models.MicrosoftGraphSharedInsight]
     :param trending: Calculated relationship identifying documents trending around a user. Trending
      documents are calculated based on activity of the user's closest network of people and include
      files stored in OneDrive for Business and SharePoint. Trending insights help the user to
      discover potentially useful content that the user has access to, but has never viewed before.
-    :type trending: list[~people.models.microsoftgraphtrending]
+    :type trending: list[~people.models.MicrosoftGraphTrending]
     :param used: Calculated relationship identifying the latest documents viewed or modified by a
      user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
-    :type used: list[~people.models.microsoftgraphusedinsight]
+    :type used: list[~people.models.MicrosoftGraphUsedInsight]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'shared': {'key': 'shared', 'type': '[microsoftgraphsharedinsight]'},
-        'trending': {'key': 'trending', 'type': '[microsoftgraphtrending]'},
-        'used': {'key': 'used', 'type': '[microsoftgraphusedinsight]'},
+        'shared': {'key': 'shared', 'type': '[MicrosoftGraphSharedInsight]'},
+        'trending': {'key': 'trending', 'type': '[MicrosoftGraphTrending]'},
+        'used': {'key': 'used', 'type': '[MicrosoftGraphUsedInsight]'},
     }
 
     def __init__(
@@ -308,19 +308,19 @@ class microsoftgraphofficegraphinsights(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        shared: Optional[List["microsoftgraphsharedinsight"]] = None,
-        trending: Optional[List["microsoftgraphtrending"]] = None,
-        used: Optional[List["microsoftgraphusedinsight"]] = None,
+        shared: Optional[List["MicrosoftGraphSharedInsight"]] = None,
+        trending: Optional[List["MicrosoftGraphTrending"]] = None,
+        used: Optional[List["MicrosoftGraphUsedInsight"]] = None,
         **kwargs
     ):
-        super(microsoftgraphofficegraphinsights, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOfficeGraphInsights, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.shared = shared
         self.trending = trending
         self.used = used
 
 
-class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
     """outlookGeoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -359,7 +359,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         longitude: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.accuracy = accuracy
         self.altitude = altitude
@@ -368,7 +368,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self.longitude = longitude
 
 
-class microsoftgraphperson(microsoftgraphentity):
+class MicrosoftGraphPerson(MicrosoftGraphEntity):
     """person.
 
     :param id: Read-only.
@@ -398,15 +398,15 @@ class microsoftgraphperson(microsoftgraphentity):
     :param person_notes: Free-form notes that the user has taken about this person.
     :type person_notes: str
     :param person_type: personType.
-    :type person_type: ~people.models.microsoftgraphpersontype
+    :type person_type: ~people.models.MicrosoftGraphPersonType
     :param phones: The person's phone numbers.
-    :type phones: list[~people.models.microsoftgraphphone]
+    :type phones: list[~people.models.MicrosoftGraphPhone]
     :param postal_addresses: The person's addresses.
-    :type postal_addresses: list[~people.models.microsoftgraphlocation]
+    :type postal_addresses: list[~people.models.MicrosoftGraphLocation]
     :param profession: The person's profession.
     :type profession: str
     :param scored_email_addresses: The person's email addresses.
-    :type scored_email_addresses: list[~people.models.microsoftgraphscoredemailaddress]
+    :type scored_email_addresses: list[~people.models.MicrosoftGraphScoredEmailAddress]
     :param surname: The person's surname.
     :type surname: str
     :param user_principal_name: The user principal name (UPN) of the person. The UPN is an
@@ -414,7 +414,7 @@ class microsoftgraphperson(microsoftgraphentity):
      this should map to the person's email name. The general format is alias@domain.
     :type user_principal_name: str
     :param websites: The person's websites.
-    :type websites: list[~people.models.microsoftgraphwebsite]
+    :type websites: list[~people.models.MicrosoftGraphWebsite]
     :param yomi_company: The phonetic Japanese name of the person's company.
     :type yomi_company: str
     """
@@ -432,14 +432,14 @@ class microsoftgraphperson(microsoftgraphentity):
         'job_title': {'key': 'jobTitle', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
         'person_notes': {'key': 'personNotes', 'type': 'str'},
-        'person_type': {'key': 'personType', 'type': 'microsoftgraphpersontype'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
-        'postal_addresses': {'key': 'postalAddresses', 'type': '[microsoftgraphlocation]'},
+        'person_type': {'key': 'personType', 'type': 'MicrosoftGraphPersonType'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
+        'postal_addresses': {'key': 'postalAddresses', 'type': '[MicrosoftGraphLocation]'},
         'profession': {'key': 'profession', 'type': 'str'},
-        'scored_email_addresses': {'key': 'scoredEmailAddresses', 'type': '[microsoftgraphscoredemailaddress]'},
+        'scored_email_addresses': {'key': 'scoredEmailAddresses', 'type': '[MicrosoftGraphScoredEmailAddress]'},
         'surname': {'key': 'surname', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'websites': {'key': 'websites', 'type': '[microsoftgraphwebsite]'},
+        'websites': {'key': 'websites', 'type': '[MicrosoftGraphWebsite]'},
         'yomi_company': {'key': 'yomiCompany', 'type': 'str'},
     }
 
@@ -458,18 +458,18 @@ class microsoftgraphperson(microsoftgraphentity):
         job_title: Optional[str] = None,
         office_location: Optional[str] = None,
         person_notes: Optional[str] = None,
-        person_type: Optional["microsoftgraphpersontype"] = None,
-        phones: Optional[List["microsoftgraphphone"]] = None,
-        postal_addresses: Optional[List["microsoftgraphlocation"]] = None,
+        person_type: Optional["MicrosoftGraphPersonType"] = None,
+        phones: Optional[List["MicrosoftGraphPhone"]] = None,
+        postal_addresses: Optional[List["MicrosoftGraphLocation"]] = None,
         profession: Optional[str] = None,
-        scored_email_addresses: Optional[List["microsoftgraphscoredemailaddress"]] = None,
+        scored_email_addresses: Optional[List["MicrosoftGraphScoredEmailAddress"]] = None,
         surname: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        websites: Optional[List["microsoftgraphwebsite"]] = None,
+        websites: Optional[List["MicrosoftGraphWebsite"]] = None,
         yomi_company: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphperson, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPerson, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.birthday = birthday
         self.company_name = company_name
@@ -492,7 +492,7 @@ class microsoftgraphperson(microsoftgraphentity):
         self.yomi_company = yomi_company
 
 
-class microsoftgraphpersontype(msrest.serialization.Model):
+class MicrosoftGraphPersonType(msrest.serialization.Model):
     """personType.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -518,13 +518,13 @@ class microsoftgraphpersontype(msrest.serialization.Model):
         subclass: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpersontype, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonType, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.class_property = class_property
         self.subclass = subclass
 
 
-class microsoftgraphphone(msrest.serialization.Model):
+class MicrosoftGraphPhone(msrest.serialization.Model):
     """phone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -538,7 +538,7 @@ class microsoftgraphphone(msrest.serialization.Model):
     :type region: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~people.models.Microsoftgraphphonetype
+    :type type: str or ~people.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
@@ -556,10 +556,10 @@ class microsoftgraphphone(msrest.serialization.Model):
         language: Optional[str] = None,
         number: Optional[str] = None,
         region: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphphonetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphPhoneType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphphone, self).__init__(**kwargs)
+        super(MicrosoftGraphPhone, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.language = language
         self.number = number
@@ -567,7 +567,7 @@ class microsoftgraphphone(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -606,7 +606,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         street: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.city = city
         self.country_or_region = country_or_region
@@ -615,7 +615,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.street = street
 
 
-class microsoftgraphresourcereference(msrest.serialization.Model):
+class MicrosoftGraphResourceReference(msrest.serialization.Model):
     """resourceReference.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -646,14 +646,14 @@ class microsoftgraphresourcereference(msrest.serialization.Model):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphresourcereference, self).__init__(**kwargs)
+        super(MicrosoftGraphResourceReference, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
         self.type = type
         self.web_url = web_url
 
 
-class microsoftgraphresourcevisualization(msrest.serialization.Model):
+class MicrosoftGraphResourceVisualization(msrest.serialization.Model):
     """resourceVisualization.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -708,7 +708,7 @@ class microsoftgraphresourcevisualization(msrest.serialization.Model):
         type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphresourcevisualization, self).__init__(**kwargs)
+        super(MicrosoftGraphResourceVisualization, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.container_display_name = container_display_name
         self.container_type = container_type
@@ -720,7 +720,7 @@ class microsoftgraphresourcevisualization(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphscoredemailaddress(msrest.serialization.Model):
+class MicrosoftGraphScoredEmailAddress(msrest.serialization.Model):
     """scoredEmailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -736,7 +736,7 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
      collaboration patterns and business relationships.
     :type relevance_score: float
     :param selection_likelihood:  Possible values include: "notSpecified", "high".
-    :type selection_likelihood: str or ~people.models.Microsoftgraphselectionlikelihoodinfo
+    :type selection_likelihood: str or ~people.models.MicrosoftGraphSelectionLikelihoodInfo
     """
 
     _attribute_map = {
@@ -754,10 +754,10 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
         address: Optional[str] = None,
         item_id: Optional[str] = None,
         relevance_score: Optional[float] = None,
-        selection_likelihood: Optional[Union[str, "Microsoftgraphselectionlikelihoodinfo"]] = None,
+        selection_likelihood: Optional[Union[str, "MicrosoftGraphSelectionLikelihoodInfo"]] = None,
         **kwargs
     ):
-        super(microsoftgraphscoredemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphScoredEmailAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.item_id = item_id
@@ -765,7 +765,7 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
         self.selection_likelihood = selection_likelihood
 
 
-class microsoftgraphsharedinsight(microsoftgraphentity):
+class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
     """sharedInsight.
 
     :param id: Read-only.
@@ -774,28 +774,28 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param last_shared: sharingDetail.
-    :type last_shared: ~people.models.microsoftgraphsharingdetail
+    :type last_shared: ~people.models.MicrosoftGraphSharingDetail
     :param resource_reference: resourceReference.
-    :type resource_reference: ~people.models.microsoftgraphresourcereference
+    :type resource_reference: ~people.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~people.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~people.models.MicrosoftGraphResourceVisualization
     :param sharing_history:
-    :type sharing_history: list[~people.models.microsoftgraphsharingdetail]
+    :type sharing_history: list[~people.models.MicrosoftGraphSharingDetail]
     :param last_shared_method: entity.
-    :type last_shared_method: ~people.models.microsoftgraphentity
+    :type last_shared_method: ~people.models.MicrosoftGraphEntity
     :param resource: entity.
-    :type resource: ~people.models.microsoftgraphentity
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'last_shared': {'key': 'lastShared', 'type': 'microsoftgraphsharingdetail'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
-        'sharing_history': {'key': 'sharingHistory', 'type': '[microsoftgraphsharingdetail]'},
-        'last_shared_method': {'key': 'lastSharedMethod', 'type': 'microsoftgraphentity'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'last_shared': {'key': 'lastShared', 'type': 'MicrosoftGraphSharingDetail'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
+        'sharing_history': {'key': 'sharingHistory', 'type': '[MicrosoftGraphSharingDetail]'},
+        'last_shared_method': {'key': 'lastSharedMethod', 'type': 'MicrosoftGraphEntity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -803,15 +803,15 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        last_shared: Optional["microsoftgraphsharingdetail"] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
-        sharing_history: Optional[List["microsoftgraphsharingdetail"]] = None,
-        last_shared_method: Optional["microsoftgraphentity"] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        last_shared: Optional["MicrosoftGraphSharingDetail"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
+        sharing_history: Optional[List["MicrosoftGraphSharingDetail"]] = None,
+        last_shared_method: Optional["MicrosoftGraphEntity"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphsharedinsight, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSharedInsight, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_shared = last_shared
         self.resource_reference = resource_reference
@@ -821,20 +821,20 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphsharingdetail(msrest.serialization.Model):
+class MicrosoftGraphSharingDetail(msrest.serialization.Model):
     """sharingDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param shared_by: insightIdentity.
-    :type shared_by: ~people.models.microsoftgraphinsightidentity
+    :type shared_by: ~people.models.MicrosoftGraphInsightIdentity
     :param shared_date_time: The date and time the file was last shared. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.
     :type shared_date_time: ~datetime.datetime
     :param sharing_reference: resourceReference.
-    :type sharing_reference: ~people.models.microsoftgraphresourcereference
+    :type sharing_reference: ~people.models.MicrosoftGraphResourceReference
     :param sharing_subject: The subject with which the document was shared.
     :type sharing_subject: str
     :param sharing_type: Determines the way the document was shared, can be by a 'Link',
@@ -844,9 +844,9 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'shared_by': {'key': 'sharedBy', 'type': 'microsoftgraphinsightidentity'},
+        'shared_by': {'key': 'sharedBy', 'type': 'MicrosoftGraphInsightIdentity'},
         'shared_date_time': {'key': 'sharedDateTime', 'type': 'iso-8601'},
-        'sharing_reference': {'key': 'sharingReference', 'type': 'microsoftgraphresourcereference'},
+        'sharing_reference': {'key': 'sharingReference', 'type': 'MicrosoftGraphResourceReference'},
         'sharing_subject': {'key': 'sharingSubject', 'type': 'str'},
         'sharing_type': {'key': 'sharingType', 'type': 'str'},
     }
@@ -855,14 +855,14 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        shared_by: Optional["microsoftgraphinsightidentity"] = None,
+        shared_by: Optional["MicrosoftGraphInsightIdentity"] = None,
         shared_date_time: Optional[datetime.datetime] = None,
-        sharing_reference: Optional["microsoftgraphresourcereference"] = None,
+        sharing_reference: Optional["MicrosoftGraphResourceReference"] = None,
         sharing_subject: Optional[str] = None,
         sharing_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsharingdetail, self).__init__(**kwargs)
+        super(MicrosoftGraphSharingDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.shared_by = shared_by
         self.shared_date_time = shared_date_time
@@ -871,7 +871,7 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
         self.sharing_type = sharing_type
 
 
-class microsoftgraphtrending(microsoftgraphentity):
+class MicrosoftGraphTrending(MicrosoftGraphEntity):
     """trending.
 
     :param id: Read-only.
@@ -882,25 +882,25 @@ class microsoftgraphtrending(microsoftgraphentity):
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param resource_reference: resourceReference.
-    :type resource_reference: ~people.models.microsoftgraphresourcereference
+    :type resource_reference: ~people.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~people.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~people.models.MicrosoftGraphResourceVisualization
     :param weight: Value indicating how much the document is currently trending. The larger the
      number, the more the document is currently trending around the user (the more relevant it is).
      Returned documents are sorted by this value.
     :type weight: float
     :param resource: entity.
-    :type resource: ~people.models.microsoftgraphentity
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
         'weight': {'key': 'weight', 'type': 'float'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -909,13 +909,13 @@ class microsoftgraphtrending(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
         weight: Optional[float] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphtrending, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTrending, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_modified_date_time = last_modified_date_time
         self.resource_reference = resource_reference
@@ -924,7 +924,7 @@ class microsoftgraphtrending(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphusagedetails(msrest.serialization.Model):
+class MicrosoftGraphUsageDetails(msrest.serialization.Model):
     """usageDetails.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -956,13 +956,13 @@ class microsoftgraphusagedetails(msrest.serialization.Model):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphusagedetails, self).__init__(**kwargs)
+        super(MicrosoftGraphUsageDetails, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.last_accessed_date_time = last_accessed_date_time
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphusedinsight(microsoftgraphentity):
+class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
     """usedInsight.
 
     :param id: Read-only.
@@ -971,22 +971,22 @@ class microsoftgraphusedinsight(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param last_used: usageDetails.
-    :type last_used: ~people.models.microsoftgraphusagedetails
+    :type last_used: ~people.models.MicrosoftGraphUsageDetails
     :param resource_reference: resourceReference.
-    :type resource_reference: ~people.models.microsoftgraphresourcereference
+    :type resource_reference: ~people.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~people.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~people.models.MicrosoftGraphResourceVisualization
     :param resource: entity.
-    :type resource: ~people.models.microsoftgraphentity
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'last_used': {'key': 'lastUsed', 'type': 'microsoftgraphusagedetails'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'last_used': {'key': 'lastUsed', 'type': 'MicrosoftGraphUsageDetails'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -994,13 +994,13 @@ class microsoftgraphusedinsight(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        last_used: Optional["microsoftgraphusagedetails"] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        last_used: Optional["MicrosoftGraphUsageDetails"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphusedinsight, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUsedInsight, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_used = last_used
         self.resource_reference = resource_reference
@@ -1008,7 +1008,7 @@ class microsoftgraphusedinsight(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphwebsite(msrest.serialization.Model):
+class MicrosoftGraphWebsite(msrest.serialization.Model):
     """website.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1019,7 +1019,7 @@ class microsoftgraphwebsite(msrest.serialization.Model):
     :param display_name: The display name of the web site.
     :type display_name: str
     :param type:  Possible values include: "other", "home", "work", "blog", "profile".
-    :type type: str or ~people.models.Microsoftgraphwebsitetype
+    :type type: str or ~people.models.MicrosoftGraphWebsiteType
     """
 
     _attribute_map = {
@@ -1035,18 +1035,18 @@ class microsoftgraphwebsite(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         address: Optional[str] = None,
         display_name: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphwebsitetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphWebsiteType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphwebsite, self).__init__(**kwargs)
+        super(MicrosoftGraphWebsite, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
         self.type = type
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1054,7 +1054,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~people.models.odataerrormain
+    :type error: ~people.models.OdataErrorMain
     """
 
     _validation = {
@@ -1063,23 +1063,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1115,15 +1115,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1137,7 +1137,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~people.models.odataerrordetail]
+    :type details: list[~people.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1152,7 +1152,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1163,11 +1163,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message

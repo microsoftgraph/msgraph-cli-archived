@@ -15,21 +15,21 @@ import msrest.serialization
 from ._calendar_enums import *
 
 
-class collectionofattachment(msrest.serialization.Model):
+class CollectionOfAttachment(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -37,31 +37,31 @@ class collectionofattachment(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment, self).__init__(**kwargs)
+        super(CollectionOfAttachment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment0(msrest.serialization.Model):
+class CollectionOfAttachment0(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -69,31 +69,31 @@ class collectionofattachment0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment0, self).__init__(**kwargs)
+        super(CollectionOfAttachment0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment1(msrest.serialization.Model):
+class CollectionOfAttachment1(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,31 +101,31 @@ class collectionofattachment1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment1, self).__init__(**kwargs)
+        super(CollectionOfAttachment1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment10(msrest.serialization.Model):
+class CollectionOfAttachment10(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -133,31 +133,31 @@ class collectionofattachment10(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment10, self).__init__(**kwargs)
+        super(CollectionOfAttachment10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment2(msrest.serialization.Model):
+class CollectionOfAttachment2(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -165,31 +165,31 @@ class collectionofattachment2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment2, self).__init__(**kwargs)
+        super(CollectionOfAttachment2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment3(msrest.serialization.Model):
+class CollectionOfAttachment3(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -197,31 +197,31 @@ class collectionofattachment3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment3, self).__init__(**kwargs)
+        super(CollectionOfAttachment3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment4(msrest.serialization.Model):
+class CollectionOfAttachment4(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -229,31 +229,31 @@ class collectionofattachment4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment4, self).__init__(**kwargs)
+        super(CollectionOfAttachment4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment5(msrest.serialization.Model):
+class CollectionOfAttachment5(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -261,31 +261,31 @@ class collectionofattachment5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment5, self).__init__(**kwargs)
+        super(CollectionOfAttachment5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment6(msrest.serialization.Model):
+class CollectionOfAttachment6(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -293,31 +293,31 @@ class collectionofattachment6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment6, self).__init__(**kwargs)
+        super(CollectionOfAttachment6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment7(msrest.serialization.Model):
+class CollectionOfAttachment7(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -325,31 +325,31 @@ class collectionofattachment7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment7, self).__init__(**kwargs)
+        super(CollectionOfAttachment7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment8(msrest.serialization.Model):
+class CollectionOfAttachment8(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -357,31 +357,31 @@ class collectionofattachment8(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment8, self).__init__(**kwargs)
+        super(CollectionOfAttachment8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofattachment9(msrest.serialization.Model):
+class CollectionOfAttachment9(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphattachment]
+    :type value: list[~calendar.models.MicrosoftGraphAttachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -389,31 +389,31 @@ class collectionofattachment9(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphattachment"]] = None,
+        value: Optional[List["MicrosoftGraphAttachment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofattachment9, self).__init__(**kwargs)
+        super(CollectionOfAttachment9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendar(msrest.serialization.Model):
+class CollectionOfCalendar(msrest.serialization.Model):
     """Collection of calendar.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendar]
+    :type value: list[~calendar.models.MicrosoftGraphCalendar]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendar]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendar]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -421,31 +421,31 @@ class collectionofcalendar(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendar"]] = None,
+        value: Optional[List["MicrosoftGraphCalendar"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendar, self).__init__(**kwargs)
+        super(CollectionOfCalendar, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendar0(msrest.serialization.Model):
+class CollectionOfCalendar0(msrest.serialization.Model):
     """Collection of calendar.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendar]
+    :type value: list[~calendar.models.MicrosoftGraphCalendar]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendar]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendar]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -453,31 +453,31 @@ class collectionofcalendar0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendar"]] = None,
+        value: Optional[List["MicrosoftGraphCalendar"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendar0, self).__init__(**kwargs)
+        super(CollectionOfCalendar0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendargroup(msrest.serialization.Model):
+class CollectionOfCalendarGroup(msrest.serialization.Model):
     """Collection of calendarGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendargroup]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarGroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendargroup]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarGroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -485,31 +485,31 @@ class collectionofcalendargroup(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendargroup"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarGroup"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendargroup, self).__init__(**kwargs)
+        super(CollectionOfCalendarGroup, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission(msrest.serialization.Model):
+class CollectionOfCalendarPermission(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -517,31 +517,31 @@ class collectionofcalendarpermission(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission0(msrest.serialization.Model):
+class CollectionOfCalendarPermission0(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -549,31 +549,31 @@ class collectionofcalendarpermission0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission0, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission1(msrest.serialization.Model):
+class CollectionOfCalendarPermission1(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -581,31 +581,31 @@ class collectionofcalendarpermission1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission1, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission2(msrest.serialization.Model):
+class CollectionOfCalendarPermission2(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -613,31 +613,31 @@ class collectionofcalendarpermission2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission2, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission3(msrest.serialization.Model):
+class CollectionOfCalendarPermission3(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -645,31 +645,31 @@ class collectionofcalendarpermission3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission3, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission4(msrest.serialization.Model):
+class CollectionOfCalendarPermission4(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -677,31 +677,31 @@ class collectionofcalendarpermission4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission4, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission5(msrest.serialization.Model):
+class CollectionOfCalendarPermission5(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -709,31 +709,31 @@ class collectionofcalendarpermission5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission5, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcalendarpermission6(msrest.serialization.Model):
+class CollectionOfCalendarPermission6(msrest.serialization.Model):
     """Collection of calendarPermission.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type value: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcalendarpermission]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCalendarPermission]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -741,31 +741,31 @@ class collectionofcalendarpermission6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcalendarpermission"]] = None,
+        value: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcalendarpermission6, self).__init__(**kwargs)
+        super(CollectionOfCalendarPermission6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent(msrest.serialization.Model):
+class CollectionOfEvent(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -773,31 +773,31 @@ class collectionofevent(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent, self).__init__(**kwargs)
+        super(CollectionOfEvent, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent0(msrest.serialization.Model):
+class CollectionOfEvent0(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -805,31 +805,31 @@ class collectionofevent0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent0, self).__init__(**kwargs)
+        super(CollectionOfEvent0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent1(msrest.serialization.Model):
+class CollectionOfEvent1(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -837,31 +837,31 @@ class collectionofevent1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent1, self).__init__(**kwargs)
+        super(CollectionOfEvent1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent10(msrest.serialization.Model):
+class CollectionOfEvent10(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -869,31 +869,31 @@ class collectionofevent10(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent10, self).__init__(**kwargs)
+        super(CollectionOfEvent10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent11(msrest.serialization.Model):
+class CollectionOfEvent11(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -901,31 +901,31 @@ class collectionofevent11(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent11, self).__init__(**kwargs)
+        super(CollectionOfEvent11, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent12(msrest.serialization.Model):
+class CollectionOfEvent12(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -933,31 +933,31 @@ class collectionofevent12(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent12, self).__init__(**kwargs)
+        super(CollectionOfEvent12, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent13(msrest.serialization.Model):
+class CollectionOfEvent13(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -965,31 +965,31 @@ class collectionofevent13(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent13, self).__init__(**kwargs)
+        super(CollectionOfEvent13, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent14(msrest.serialization.Model):
+class CollectionOfEvent14(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -997,31 +997,31 @@ class collectionofevent14(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent14, self).__init__(**kwargs)
+        super(CollectionOfEvent14, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent15(msrest.serialization.Model):
+class CollectionOfEvent15(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1029,31 +1029,31 @@ class collectionofevent15(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent15, self).__init__(**kwargs)
+        super(CollectionOfEvent15, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent16(msrest.serialization.Model):
+class CollectionOfEvent16(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1061,31 +1061,31 @@ class collectionofevent16(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent16, self).__init__(**kwargs)
+        super(CollectionOfEvent16, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent17(msrest.serialization.Model):
+class CollectionOfEvent17(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1093,31 +1093,31 @@ class collectionofevent17(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent17, self).__init__(**kwargs)
+        super(CollectionOfEvent17, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent18(msrest.serialization.Model):
+class CollectionOfEvent18(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1125,31 +1125,31 @@ class collectionofevent18(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent18, self).__init__(**kwargs)
+        super(CollectionOfEvent18, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent19(msrest.serialization.Model):
+class CollectionOfEvent19(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1157,31 +1157,31 @@ class collectionofevent19(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent19, self).__init__(**kwargs)
+        super(CollectionOfEvent19, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent2(msrest.serialization.Model):
+class CollectionOfEvent2(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1189,31 +1189,31 @@ class collectionofevent2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent2, self).__init__(**kwargs)
+        super(CollectionOfEvent2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent20(msrest.serialization.Model):
+class CollectionOfEvent20(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1221,31 +1221,31 @@ class collectionofevent20(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent20, self).__init__(**kwargs)
+        super(CollectionOfEvent20, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent21(msrest.serialization.Model):
+class CollectionOfEvent21(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1253,31 +1253,31 @@ class collectionofevent21(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent21, self).__init__(**kwargs)
+        super(CollectionOfEvent21, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent22(msrest.serialization.Model):
+class CollectionOfEvent22(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1285,31 +1285,31 @@ class collectionofevent22(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent22, self).__init__(**kwargs)
+        super(CollectionOfEvent22, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent23(msrest.serialization.Model):
+class CollectionOfEvent23(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1317,31 +1317,31 @@ class collectionofevent23(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent23, self).__init__(**kwargs)
+        super(CollectionOfEvent23, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent24(msrest.serialization.Model):
+class CollectionOfEvent24(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1349,31 +1349,31 @@ class collectionofevent24(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent24, self).__init__(**kwargs)
+        super(CollectionOfEvent24, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent25(msrest.serialization.Model):
+class CollectionOfEvent25(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1381,31 +1381,31 @@ class collectionofevent25(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent25, self).__init__(**kwargs)
+        super(CollectionOfEvent25, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent26(msrest.serialization.Model):
+class CollectionOfEvent26(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1413,31 +1413,31 @@ class collectionofevent26(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent26, self).__init__(**kwargs)
+        super(CollectionOfEvent26, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent27(msrest.serialization.Model):
+class CollectionOfEvent27(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1445,31 +1445,31 @@ class collectionofevent27(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent27, self).__init__(**kwargs)
+        super(CollectionOfEvent27, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent28(msrest.serialization.Model):
+class CollectionOfEvent28(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1477,31 +1477,31 @@ class collectionofevent28(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent28, self).__init__(**kwargs)
+        super(CollectionOfEvent28, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent29(msrest.serialization.Model):
+class CollectionOfEvent29(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1509,31 +1509,31 @@ class collectionofevent29(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent29, self).__init__(**kwargs)
+        super(CollectionOfEvent29, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent3(msrest.serialization.Model):
+class CollectionOfEvent3(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1541,31 +1541,31 @@ class collectionofevent3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent3, self).__init__(**kwargs)
+        super(CollectionOfEvent3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent30(msrest.serialization.Model):
+class CollectionOfEvent30(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1573,31 +1573,31 @@ class collectionofevent30(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent30, self).__init__(**kwargs)
+        super(CollectionOfEvent30, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent4(msrest.serialization.Model):
+class CollectionOfEvent4(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1605,31 +1605,31 @@ class collectionofevent4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent4, self).__init__(**kwargs)
+        super(CollectionOfEvent4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent5(msrest.serialization.Model):
+class CollectionOfEvent5(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1637,31 +1637,31 @@ class collectionofevent5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent5, self).__init__(**kwargs)
+        super(CollectionOfEvent5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent6(msrest.serialization.Model):
+class CollectionOfEvent6(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1669,31 +1669,31 @@ class collectionofevent6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent6, self).__init__(**kwargs)
+        super(CollectionOfEvent6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent7(msrest.serialization.Model):
+class CollectionOfEvent7(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1701,31 +1701,31 @@ class collectionofevent7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent7, self).__init__(**kwargs)
+        super(CollectionOfEvent7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent8(msrest.serialization.Model):
+class CollectionOfEvent8(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1733,31 +1733,31 @@ class collectionofevent8(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent8, self).__init__(**kwargs)
+        super(CollectionOfEvent8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofevent9(msrest.serialization.Model):
+class CollectionOfEvent9(msrest.serialization.Model):
     """Collection of event.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphevent]
+    :type value: list[~calendar.models.MicrosoftGraphEvent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphevent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEvent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1765,31 +1765,31 @@ class collectionofevent9(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphevent"]] = None,
+        value: Optional[List["MicrosoftGraphEvent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofevent9, self).__init__(**kwargs)
+        super(CollectionOfEvent9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension(msrest.serialization.Model):
+class CollectionOfExtension(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1797,31 +1797,31 @@ class collectionofextension(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension, self).__init__(**kwargs)
+        super(CollectionOfExtension, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension0(msrest.serialization.Model):
+class CollectionOfExtension0(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1829,31 +1829,31 @@ class collectionofextension0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension0, self).__init__(**kwargs)
+        super(CollectionOfExtension0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension1(msrest.serialization.Model):
+class CollectionOfExtension1(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1861,31 +1861,31 @@ class collectionofextension1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension1, self).__init__(**kwargs)
+        super(CollectionOfExtension1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension10(msrest.serialization.Model):
+class CollectionOfExtension10(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1893,31 +1893,31 @@ class collectionofextension10(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension10, self).__init__(**kwargs)
+        super(CollectionOfExtension10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension2(msrest.serialization.Model):
+class CollectionOfExtension2(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1925,31 +1925,31 @@ class collectionofextension2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension2, self).__init__(**kwargs)
+        super(CollectionOfExtension2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension3(msrest.serialization.Model):
+class CollectionOfExtension3(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1957,31 +1957,31 @@ class collectionofextension3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension3, self).__init__(**kwargs)
+        super(CollectionOfExtension3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension4(msrest.serialization.Model):
+class CollectionOfExtension4(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1989,31 +1989,31 @@ class collectionofextension4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension4, self).__init__(**kwargs)
+        super(CollectionOfExtension4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension5(msrest.serialization.Model):
+class CollectionOfExtension5(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2021,31 +2021,31 @@ class collectionofextension5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension5, self).__init__(**kwargs)
+        super(CollectionOfExtension5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension6(msrest.serialization.Model):
+class CollectionOfExtension6(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2053,31 +2053,31 @@ class collectionofextension6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension6, self).__init__(**kwargs)
+        super(CollectionOfExtension6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension7(msrest.serialization.Model):
+class CollectionOfExtension7(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2085,31 +2085,31 @@ class collectionofextension7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension7, self).__init__(**kwargs)
+        super(CollectionOfExtension7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension8(msrest.serialization.Model):
+class CollectionOfExtension8(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2117,31 +2117,31 @@ class collectionofextension8(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension8, self).__init__(**kwargs)
+        super(CollectionOfExtension8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofextension9(msrest.serialization.Model):
+class CollectionOfExtension9(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphextension]
+    :type value: list[~calendar.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2149,31 +2149,31 @@ class collectionofextension9(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphextension"]] = None,
+        value: Optional[List["MicrosoftGraphExtension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofextension9, self).__init__(**kwargs)
+        super(CollectionOfExtension9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2181,31 +2181,31 @@ class collectionofmultivaluelegacyextendedproperty(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty0(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty0(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2213,31 +2213,31 @@ class collectionofmultivaluelegacyextendedproperty0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty0, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty1(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty1(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2245,31 +2245,31 @@ class collectionofmultivaluelegacyextendedproperty1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty1, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty10(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty10(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2277,31 +2277,31 @@ class collectionofmultivaluelegacyextendedproperty10(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty10, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty11(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty11(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2309,31 +2309,31 @@ class collectionofmultivaluelegacyextendedproperty11(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty11, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty11, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty12(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty12(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2341,31 +2341,31 @@ class collectionofmultivaluelegacyextendedproperty12(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty12, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty12, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty13(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty13(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2373,31 +2373,31 @@ class collectionofmultivaluelegacyextendedproperty13(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty13, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty13, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty14(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty14(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2405,31 +2405,31 @@ class collectionofmultivaluelegacyextendedproperty14(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty14, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty14, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty15(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty15(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2437,31 +2437,31 @@ class collectionofmultivaluelegacyextendedproperty15(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty15, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty15, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty16(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty16(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2469,31 +2469,31 @@ class collectionofmultivaluelegacyextendedproperty16(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty16, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty16, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty17(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty17(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2501,31 +2501,31 @@ class collectionofmultivaluelegacyextendedproperty17(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty17, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty17, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty18(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty18(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2533,31 +2533,31 @@ class collectionofmultivaluelegacyextendedproperty18(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty18, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty18, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty2(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty2(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2565,31 +2565,31 @@ class collectionofmultivaluelegacyextendedproperty2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty2, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty3(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty3(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2597,31 +2597,31 @@ class collectionofmultivaluelegacyextendedproperty3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty3, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty4(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty4(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2629,31 +2629,31 @@ class collectionofmultivaluelegacyextendedproperty4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty4, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty5(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty5(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2661,31 +2661,31 @@ class collectionofmultivaluelegacyextendedproperty5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty5, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty6(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty6(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2693,31 +2693,31 @@ class collectionofmultivaluelegacyextendedproperty6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty6, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty7(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty7(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2725,31 +2725,31 @@ class collectionofmultivaluelegacyextendedproperty7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty7, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty8(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty8(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2757,31 +2757,31 @@ class collectionofmultivaluelegacyextendedproperty8(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty8, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofmultivaluelegacyextendedproperty9(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty9(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2789,31 +2789,31 @@ class collectionofmultivaluelegacyextendedproperty9(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty9, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofplace(msrest.serialization.Model):
+class CollectionOfPlace(msrest.serialization.Model):
     """Collection of place.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphplace]
+    :type value: list[~calendar.models.MicrosoftGraphPlace]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphplace]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPlace]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2821,31 +2821,31 @@ class collectionofplace(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphplace"]] = None,
+        value: Optional[List["MicrosoftGraphPlace"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofplace, self).__init__(**kwargs)
+        super(CollectionOfPlace, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2853,31 +2853,31 @@ class collectionofsinglevaluelegacyextendedproperty(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty0(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty0(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2885,31 +2885,31 @@ class collectionofsinglevaluelegacyextendedproperty0(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty0, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty1(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty1(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2917,31 +2917,31 @@ class collectionofsinglevaluelegacyextendedproperty1(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty1, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty10(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty10(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2949,31 +2949,31 @@ class collectionofsinglevaluelegacyextendedproperty10(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty10, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty11(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty11(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2981,31 +2981,31 @@ class collectionofsinglevaluelegacyextendedproperty11(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty11, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty11, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty12(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty12(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3013,31 +3013,31 @@ class collectionofsinglevaluelegacyextendedproperty12(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty12, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty12, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty13(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty13(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3045,31 +3045,31 @@ class collectionofsinglevaluelegacyextendedproperty13(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty13, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty13, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty14(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty14(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3077,31 +3077,31 @@ class collectionofsinglevaluelegacyextendedproperty14(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty14, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty14, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty15(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty15(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3109,31 +3109,31 @@ class collectionofsinglevaluelegacyextendedproperty15(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty15, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty15, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty16(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty16(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3141,31 +3141,31 @@ class collectionofsinglevaluelegacyextendedproperty16(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty16, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty16, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty17(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty17(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3173,31 +3173,31 @@ class collectionofsinglevaluelegacyextendedproperty17(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty17, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty17, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty18(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty18(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3205,31 +3205,31 @@ class collectionofsinglevaluelegacyextendedproperty18(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty18, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty18, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty2(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty2(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3237,31 +3237,31 @@ class collectionofsinglevaluelegacyextendedproperty2(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty2, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty3(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty3(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3269,31 +3269,31 @@ class collectionofsinglevaluelegacyextendedproperty3(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty3, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty4(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty4(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3301,31 +3301,31 @@ class collectionofsinglevaluelegacyextendedproperty4(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty4, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty5(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty5(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3333,31 +3333,31 @@ class collectionofsinglevaluelegacyextendedproperty5(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty5, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty6(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty6(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3365,31 +3365,31 @@ class collectionofsinglevaluelegacyextendedproperty6(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty6, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty7(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty7(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3397,31 +3397,31 @@ class collectionofsinglevaluelegacyextendedproperty7(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty7, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty8(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty8(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3429,31 +3429,31 @@ class collectionofsinglevaluelegacyextendedproperty8(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty8, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsinglevaluelegacyextendedproperty9(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty9(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3461,17 +3461,17 @@ class collectionofsinglevaluelegacyextendedproperty9(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        value: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty9, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3493,12 +3493,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphattachment(microsoftgraphentity):
+class MicrosoftGraphAttachment(MicrosoftGraphEntity):
     """attachment.
 
     :param id: Read-only.
@@ -3546,7 +3546,7 @@ class microsoftgraphattachment(microsoftgraphentity):
         size: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphattachment, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAttachment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.content_type = content_type
         self.is_inline = is_inline
@@ -3555,47 +3555,47 @@ class microsoftgraphattachment(microsoftgraphentity):
         self.size = size
 
 
-class microsoftgraphrecipient(msrest.serialization.Model):
+class MicrosoftGraphRecipient(msrest.serialization.Model):
     """recipient.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param email_address: emailAddress.
-    :type email_address: ~calendar.models.microsoftgraphemailaddress
+    :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         **kwargs
     ):
-        super(microsoftgraphrecipient, self).__init__(**kwargs)
+        super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.email_address = email_address
 
 
-class microsoftgraphattendeebase(microsoftgraphrecipient):
+class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
     """attendeeBase.
 
     :param email_address: emailAddress.
-    :type email_address: ~calendar.models.microsoftgraphemailaddress
+    :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param type:  Possible values include: "required", "optional", "resource".
-    :type type: str or ~calendar.models.Microsoftgraphattendeetype
+    :type type: str or ~calendar.models.MicrosoftGraphAttendeeType
     """
 
     _attribute_map = {
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'type': {'key': 'type', 'type': 'str'},
     }
@@ -3603,57 +3603,57 @@ class microsoftgraphattendeebase(microsoftgraphrecipient):
     def __init__(
         self,
         *,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        type: Optional[Union[str, "Microsoftgraphattendeetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphAttendeeType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphattendeebase, self).__init__(email_address=email_address, **kwargs)
+        super(MicrosoftGraphAttendeeBase, self).__init__(email_address=email_address, **kwargs)
         self.additional_properties = additional_properties
         self.type = type
 
 
-class microsoftgraphattendee(microsoftgraphattendeebase):
+class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """attendee.
 
     :param email_address: emailAddress.
-    :type email_address: ~calendar.models.microsoftgraphemailaddress
+    :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
     :param type:  Possible values include: "required", "optional", "resource".
-    :type type: str or ~calendar.models.Microsoftgraphattendeetype
+    :type type: str or ~calendar.models.MicrosoftGraphAttendeeType
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param proposed_new_time: timeSlot.
-    :type proposed_new_time: ~calendar.models.microsoftgraphtimeslot
+    :type proposed_new_time: ~calendar.models.MicrosoftGraphTimeSlot
     :param status: responseStatus.
-    :type status: ~calendar.models.microsoftgraphresponsestatus
+    :type status: ~calendar.models.MicrosoftGraphResponseStatus
     """
 
     _attribute_map = {
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'type': {'key': 'type', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'proposed_new_time': {'key': 'proposedNewTime', 'type': 'microsoftgraphtimeslot'},
-        'status': {'key': 'status', 'type': 'microsoftgraphresponsestatus'},
+        'proposed_new_time': {'key': 'proposedNewTime', 'type': 'MicrosoftGraphTimeSlot'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphResponseStatus'},
     }
 
     def __init__(
         self,
         *,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
-        type: Optional[Union[str, "Microsoftgraphattendeetype"]] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
+        type: Optional[Union[str, "MicrosoftGraphAttendeeType"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        proposed_new_time: Optional["microsoftgraphtimeslot"] = None,
-        status: Optional["microsoftgraphresponsestatus"] = None,
+        proposed_new_time: Optional["MicrosoftGraphTimeSlot"] = None,
+        status: Optional["MicrosoftGraphResponseStatus"] = None,
         **kwargs
     ):
-        super(microsoftgraphattendee, self).__init__(email_address=email_address, type=type, **kwargs)
+        super(MicrosoftGraphAttendee, self).__init__(email_address=email_address, type=type, **kwargs)
         self.additional_properties = additional_properties
         self.proposed_new_time = proposed_new_time
         self.status = status
 
 
-class microsoftgraphcalendar(microsoftgraphentity):
+class MicrosoftGraphCalendar(MicrosoftGraphEntity):
     """calendar.
 
     :param id: Read-only.
@@ -3665,7 +3665,7 @@ class microsoftgraphcalendar(microsoftgraphentity):
      can be used to create online meetings in this calendar. Possible values are: unknown,
      skypeForBusiness, skypeForConsumer, teamsForBusiness.
     :type allowed_online_meeting_providers: list[str or
-     ~calendar.models.Microsoftgraphonlinemeetingprovidertype]
+     ~calendar.models.MicrosoftGraphOnlineMeetingProviderType]
     :param can_edit: True if the user can write to the calendar, false otherwise. This property is
      true for the user who created the calendar. This property is also true for a user who has been
      shared a calendar and granted write access.
@@ -3682,11 +3682,11 @@ class microsoftgraphcalendar(microsoftgraphentity):
     :type change_key: str
     :param color:  Possible values include: "lightBlue", "lightGreen", "auto", "lightOrange",
      "lightGray", "lightYellow", "lightTeal", "lightPink", "lightBrown", "lightRed", "maxColor".
-    :type color: str or ~calendar.models.Microsoftgraphcalendarcolor
+    :type color: str or ~calendar.models.MicrosoftGraphCalendarColor
     :param default_online_meeting_provider:  Possible values include: "unknown",
      "skypeForBusiness", "skypeForConsumer", "teamsForBusiness".
     :type default_online_meeting_provider: str or
-     ~calendar.models.Microsoftgraphonlinemeetingprovidertype
+     ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
     :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
     :type is_removable: bool
     :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -3696,21 +3696,21 @@ class microsoftgraphcalendar(microsoftgraphentity):
     :param name: The calendar name.
     :type name: str
     :param owner: emailAddress.
-    :type owner: ~calendar.models.microsoftgraphemailaddress
+    :type owner: ~calendar.models.MicrosoftGraphEmailAddress
     :param calendar_permissions: The permissions of the users with whom the calendar is shared.
-    :type calendar_permissions: list[~calendar.models.microsoftgraphcalendarpermission]
+    :type calendar_permissions: list[~calendar.models.MicrosoftGraphCalendarPermission]
     :param calendar_view: The calendar view for the calendar. Navigation property. Read-only.
-    :type calendar_view: list[~calendar.models.microsoftgraphevent]
+    :type calendar_view: list[~calendar.models.MicrosoftGraphEvent]
     :param events: The events in the calendar. Navigation property. Read-only.
-    :type events: list[~calendar.models.microsoftgraphevent]
+    :type events: list[~calendar.models.MicrosoftGraphEvent]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the calendar. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the calendar. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -3726,12 +3726,12 @@ class microsoftgraphcalendar(microsoftgraphentity):
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'is_tallying_responses': {'key': 'isTallyingResponses', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
-        'owner': {'key': 'owner', 'type': 'microsoftgraphemailaddress'},
-        'calendar_permissions': {'key': 'calendarPermissions', 'type': '[microsoftgraphcalendarpermission]'},
-        'calendar_view': {'key': 'calendarView', 'type': '[microsoftgraphevent]'},
-        'events': {'key': 'events', 'type': '[microsoftgraphevent]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphEmailAddress'},
+        'calendar_permissions': {'key': 'calendarPermissions', 'type': '[MicrosoftGraphCalendarPermission]'},
+        'calendar_view': {'key': 'calendarView', 'type': '[MicrosoftGraphEvent]'},
+        'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -3739,25 +3739,25 @@ class microsoftgraphcalendar(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        allowed_online_meeting_providers: Optional[List[Union[str, "Microsoftgraphonlinemeetingprovidertype"]]] = None,
+        allowed_online_meeting_providers: Optional[List[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]]] = None,
         can_edit: Optional[bool] = None,
         can_share: Optional[bool] = None,
         can_view_private_items: Optional[bool] = None,
         change_key: Optional[str] = None,
-        color: Optional[Union[str, "Microsoftgraphcalendarcolor"]] = None,
-        default_online_meeting_provider: Optional[Union[str, "Microsoftgraphonlinemeetingprovidertype"]] = None,
+        color: Optional[Union[str, "MicrosoftGraphCalendarColor"]] = None,
+        default_online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
         is_removable: Optional[bool] = None,
         is_tallying_responses: Optional[bool] = None,
         name: Optional[str] = None,
-        owner: Optional["microsoftgraphemailaddress"] = None,
-        calendar_permissions: Optional[List["microsoftgraphcalendarpermission"]] = None,
-        calendar_view: Optional[List["microsoftgraphevent"]] = None,
-        events: Optional[List["microsoftgraphevent"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        owner: Optional["MicrosoftGraphEmailAddress"] = None,
+        calendar_permissions: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
+        calendar_view: Optional[List["MicrosoftGraphEvent"]] = None,
+        events: Optional[List["MicrosoftGraphEvent"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendar, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendar, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_online_meeting_providers = allowed_online_meeting_providers
         self.can_edit = can_edit
@@ -3777,7 +3777,7 @@ class microsoftgraphcalendar(microsoftgraphentity):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphcalendargroup(microsoftgraphentity):
+class MicrosoftGraphCalendarGroup(MicrosoftGraphEntity):
     """calendarGroup.
 
     :param id: Read-only.
@@ -3795,7 +3795,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
     :type name: str
     :param calendars: The calendars in the calendar group. Navigation property. Read-only.
      Nullable.
-    :type calendars: list[~calendar.models.microsoftgraphcalendar]
+    :type calendars: list[~calendar.models.MicrosoftGraphCalendar]
     """
 
     _attribute_map = {
@@ -3804,7 +3804,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         'change_key': {'key': 'changeKey', 'type': 'str'},
         'class_id': {'key': 'classId', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'calendars': {'key': 'calendars', 'type': '[microsoftgraphcalendar]'},
+        'calendars': {'key': 'calendars', 'type': '[MicrosoftGraphCalendar]'},
     }
 
     def __init__(
@@ -3815,10 +3815,10 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         change_key: Optional[str] = None,
         class_id: Optional[str] = None,
         name: Optional[str] = None,
-        calendars: Optional[List["microsoftgraphcalendar"]] = None,
+        calendars: Optional[List["MicrosoftGraphCalendar"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendargroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendarGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.change_key = change_key
         self.class_id = class_id
@@ -3826,7 +3826,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         self.calendars = calendars
 
 
-class microsoftgraphcalendarpermission(microsoftgraphentity):
+class MicrosoftGraphCalendarPermission(MicrosoftGraphEntity):
     """calendarPermission.
 
     :param id: Read-only.
@@ -3837,9 +3837,9 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
     :param allowed_roles: List of allowed sharing or delegating permission levels for the calendar.
      Possible values are: none, freeBusyRead, limitedRead, read, write,
      delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-    :type allowed_roles: list[str or ~calendar.models.Microsoftgraphcalendarroletype]
+    :type allowed_roles: list[str or ~calendar.models.MicrosoftGraphCalendarRoleType]
     :param email_address: emailAddress.
-    :type email_address: ~calendar.models.microsoftgraphemailaddress
+    :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
     :param is_inside_organization: True if the user in context (sharee or delegate) is inside the
      same organization as the calendar owner.
     :type is_inside_organization: bool
@@ -3850,14 +3850,14 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
     :type is_removable: bool
     :param role:  Possible values include: "none", "freeBusyRead", "limitedRead", "read", "write",
      "delegateWithoutPrivateEventAccess", "delegateWithPrivateEventAccess", "custom".
-    :type role: str or ~calendar.models.Microsoftgraphcalendarroletype
+    :type role: str or ~calendar.models.MicrosoftGraphCalendarRoleType
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_roles': {'key': 'allowedRoles', 'type': '[str]'},
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'is_inside_organization': {'key': 'isInsideOrganization', 'type': 'bool'},
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'role': {'key': 'role', 'type': 'str'},
@@ -3868,14 +3868,14 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        allowed_roles: Optional[List[Union[str, "Microsoftgraphcalendarroletype"]]] = None,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        allowed_roles: Optional[List[Union[str, "MicrosoftGraphCalendarRoleType"]]] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         is_inside_organization: Optional[bool] = None,
         is_removable: Optional[bool] = None,
-        role: Optional[Union[str, "Microsoftgraphcalendarroletype"]] = None,
+        role: Optional[Union[str, "MicrosoftGraphCalendarRoleType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendarpermission, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendarPermission, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_roles = allowed_roles
         self.email_address = email_address
@@ -3884,7 +3884,7 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
         self.role = role
 
 
-class microsoftgraphdatetimezone(msrest.serialization.Model):
+class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
     """dateTimeTimeZone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3912,13 +3912,13 @@ class microsoftgraphdatetimezone(msrest.serialization.Model):
         time_zone: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdatetimezone, self).__init__(**kwargs)
+        super(MicrosoftGraphDateTimeZone, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.date_time = date_time
         self.time_zone = time_zone
 
 
-class microsoftgraphemailaddress(msrest.serialization.Model):
+class MicrosoftGraphEmailAddress(msrest.serialization.Model):
     """emailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3944,13 +3944,13 @@ class microsoftgraphemailaddress(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphEmailAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.name = name
 
 
-class microsoftgraphoutlookitem(microsoftgraphentity):
+class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
     """outlookItem.
 
     :param id: Read-only.
@@ -3994,7 +3994,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOutlookItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.change_key = change_key
@@ -4002,7 +4002,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphevent(microsoftgraphoutlookitem):
+class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     """event.
 
     :param id: Read-only.
@@ -4028,21 +4028,21 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      time when responding, false otherwise. Optional. Default is true.
     :type allow_new_time_proposals: bool
     :param attendees: The collection of attendees for the event.
-    :type attendees: list[~calendar.models.microsoftgraphattendee]
+    :type attendees: list[~calendar.models.MicrosoftGraphAttendee]
     :param body: itemBody.
-    :type body: ~calendar.models.microsoftgraphitembody
+    :type body: ~calendar.models.MicrosoftGraphItemBody
     :param body_preview: The preview of the message associated with the event. It is in text
      format.
     :type body_preview: str
     :param end: dateTimeTimeZone.
-    :type end: ~calendar.models.microsoftgraphdatetimezone
+    :type end: ~calendar.models.MicrosoftGraphDateTimeZone
     :param has_attachments: Set to true if the event has attachments.
     :type has_attachments: bool
     :param i_cal_u_id: A unique identifier that is shared by all instances of an event across
      different calendars. Read-only.
     :type i_cal_u_id: str
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~calendar.models.Microsoftgraphimportance
+    :type importance: str or ~calendar.models.MicrosoftGraphImportance
     :param is_all_day: Set to true if the event lasts all day.
     :type is_all_day: bool
     :param is_cancelled: Set to true if the event has been canceled.
@@ -4057,22 +4057,22 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
     :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
     :type is_reminder_on: bool
     :param location: location.
-    :type location: ~calendar.models.microsoftgraphlocation
+    :type location: ~calendar.models.MicrosoftGraphLocation
     :param locations: The locations where the event is held or attended from. The location and
      locations properties always correspond with each other. If you update the location property,
      any prior locations in the locations collection would be removed and replaced by the new
      location value.
-    :type locations: list[~calendar.models.microsoftgraphlocation]
+    :type locations: list[~calendar.models.MicrosoftGraphLocation]
     :param online_meeting: onlineMeetingInfo.
-    :type online_meeting: ~calendar.models.microsoftgraphonlinemeetinginfo
+    :type online_meeting: ~calendar.models.MicrosoftGraphOnlineMeetingInfo
     :param online_meeting_provider:  Possible values include: "unknown", "skypeForBusiness",
      "skypeForConsumer", "teamsForBusiness".
-    :type online_meeting_provider: str or ~calendar.models.Microsoftgraphonlinemeetingprovidertype
+    :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
     :param online_meeting_url: A URL for an online meeting. The property is set only when an
      organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
     :type online_meeting_url: str
     :param organizer: recipient.
-    :type organizer: ~calendar.models.microsoftgraphrecipient
+    :type organizer: ~calendar.models.MicrosoftGraphRecipient
     :param original_end_time_zone: The end time zone that was set when the event was created. A
      value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
      Outlook.
@@ -4086,7 +4086,7 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      Outlook.
     :type original_start_time_zone: str
     :param recurrence: patternedRecurrence.
-    :type recurrence: ~calendar.models.microsoftgraphpatternedrecurrence
+    :type recurrence: ~calendar.models.MicrosoftGraphPatternedRecurrence
     :param reminder_minutes_before_start: The number of minutes before the event start time that
      the reminder alert occurs.
     :type reminder_minutes_before_start: int
@@ -4094,17 +4094,17 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      invitee to send a response to the event.
     :type response_requested: bool
     :param response_status: responseStatus.
-    :type response_status: ~calendar.models.microsoftgraphresponsestatus
+    :type response_status: ~calendar.models.MicrosoftGraphResponseStatus
     :param sensitivity:  Possible values include: "normal", "personal", "private", "confidential".
-    :type sensitivity: str or ~calendar.models.Microsoftgraphsensitivity
+    :type sensitivity: str or ~calendar.models.MicrosoftGraphSensitivity
     :param series_master_id: The ID for the recurring series master item, if this event is part of
      a recurring series.
     :type series_master_id: str
     :param show_as:  Possible values include: "free", "tentative", "unknown", "busy", "oof",
      "workingElsewhere".
-    :type show_as: str or ~calendar.models.Microsoftgraphfreebusystatus
+    :type show_as: str or ~calendar.models.MicrosoftGraphFreeBusyStatus
     :param start: dateTimeTimeZone.
-    :type start: ~calendar.models.microsoftgraphdatetimezone
+    :type start: ~calendar.models.MicrosoftGraphDateTimeZone
     :param subject: The text of the event's subject line.
     :type subject: str
     :param transaction_id: A custom identifier specified by a client app for the server to avoid
@@ -4116,29 +4116,29 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
     :type transaction_id: str
     :param type:  Possible values include: "singleInstance", "occurrence", "exception",
      "seriesMaster".
-    :type type: str or ~calendar.models.Microsoftgrapheventtype
+    :type type: str or ~calendar.models.MicrosoftGraphEventType
     :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
      event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
      prompts you to sign in.This URL can be accessed from within an iFrame.
     :type web_link: str
     :param attachments: The collection of fileAttachment and itemAttachment attachments for the
      event. Navigation property. Read-only. Nullable.
-    :type attachments: list[~calendar.models.microsoftgraphattachment]
+    :type attachments: list[~calendar.models.MicrosoftGraphAttachment]
     :param calendar: calendar.
-    :type calendar: ~calendar.models.microsoftgraphcalendar
+    :type calendar: ~calendar.models.MicrosoftGraphCalendar
     :param extensions: The collection of open extensions defined for the event. Read-only.
      Nullable.
-    :type extensions: list[~calendar.models.microsoftgraphextension]
+    :type extensions: list[~calendar.models.MicrosoftGraphExtension]
     :param instances: The instances of the event. Navigation property. Read-only. Nullable.
-    :type instances: list[~calendar.models.microsoftgraphevent]
+    :type instances: list[~calendar.models.MicrosoftGraphEvent]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the event. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~calendar.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~calendar.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the event. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~calendar.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _validation = {
@@ -4153,10 +4153,10 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allow_new_time_proposals': {'key': 'allowNewTimeProposals', 'type': 'bool'},
-        'attendees': {'key': 'attendees', 'type': '[microsoftgraphattendee]'},
-        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
+        'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphAttendee]'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
         'body_preview': {'key': 'bodyPreview', 'type': 'str'},
-        'end': {'key': 'end', 'type': 'microsoftgraphdatetimezone'},
+        'end': {'key': 'end', 'type': 'MicrosoftGraphDateTimeZone'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'i_cal_u_id': {'key': 'iCalUId', 'type': 'str'},
         'importance': {'key': 'importance', 'type': 'str'},
@@ -4165,33 +4165,33 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         'is_online_meeting': {'key': 'isOnlineMeeting', 'type': 'bool'},
         'is_organizer': {'key': 'isOrganizer', 'type': 'bool'},
         'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'microsoftgraphlocation'},
-        'locations': {'key': 'locations', 'type': '[microsoftgraphlocation]'},
-        'online_meeting': {'key': 'onlineMeeting', 'type': 'microsoftgraphonlinemeetinginfo'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphLocation'},
+        'locations': {'key': 'locations', 'type': '[MicrosoftGraphLocation]'},
+        'online_meeting': {'key': 'onlineMeeting', 'type': 'MicrosoftGraphOnlineMeetingInfo'},
         'online_meeting_provider': {'key': 'onlineMeetingProvider', 'type': 'str'},
         'online_meeting_url': {'key': 'onlineMeetingUrl', 'type': 'str'},
-        'organizer': {'key': 'organizer', 'type': 'microsoftgraphrecipient'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphRecipient'},
         'original_end_time_zone': {'key': 'originalEndTimeZone', 'type': 'str'},
         'original_start': {'key': 'originalStart', 'type': 'iso-8601'},
         'original_start_time_zone': {'key': 'originalStartTimeZone', 'type': 'str'},
-        'recurrence': {'key': 'recurrence', 'type': 'microsoftgraphpatternedrecurrence'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_minutes_before_start': {'key': 'reminderMinutesBeforeStart', 'type': 'int'},
         'response_requested': {'key': 'responseRequested', 'type': 'bool'},
-        'response_status': {'key': 'responseStatus', 'type': 'microsoftgraphresponsestatus'},
+        'response_status': {'key': 'responseStatus', 'type': 'MicrosoftGraphResponseStatus'},
         'sensitivity': {'key': 'sensitivity', 'type': 'str'},
         'series_master_id': {'key': 'seriesMasterId', 'type': 'str'},
         'show_as': {'key': 'showAs', 'type': 'str'},
-        'start': {'key': 'start', 'type': 'microsoftgraphdatetimezone'},
+        'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
         'subject': {'key': 'subject', 'type': 'str'},
         'transaction_id': {'key': 'transactionId', 'type': 'str'},
         'type': {'key': 'type', 'type': 'str'},
         'web_link': {'key': 'webLink', 'type': 'str'},
-        'attachments': {'key': 'attachments', 'type': '[microsoftgraphattachment]'},
-        'calendar': {'key': 'calendar', 'type': 'microsoftgraphcalendar'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'instances': {'key': 'instances', 'type': '[microsoftgraphevent]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphAttachment]'},
+        'calendar': {'key': 'calendar', 'type': 'MicrosoftGraphCalendar'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'instances': {'key': 'instances', 'type': '[MicrosoftGraphEvent]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -4204,48 +4204,48 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         allow_new_time_proposals: Optional[bool] = None,
-        attendees: Optional[List["microsoftgraphattendee"]] = None,
-        body: Optional["microsoftgraphitembody"] = None,
+        attendees: Optional[List["MicrosoftGraphAttendee"]] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
         body_preview: Optional[str] = None,
-        end: Optional["microsoftgraphdatetimezone"] = None,
+        end: Optional["MicrosoftGraphDateTimeZone"] = None,
         has_attachments: Optional[bool] = None,
         i_cal_u_id: Optional[str] = None,
-        importance: Optional[Union[str, "Microsoftgraphimportance"]] = None,
+        importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         is_all_day: Optional[bool] = None,
         is_cancelled: Optional[bool] = None,
         is_online_meeting: Optional[bool] = None,
         is_organizer: Optional[bool] = None,
         is_reminder_on: Optional[bool] = None,
-        location: Optional["microsoftgraphlocation"] = None,
-        locations: Optional[List["microsoftgraphlocation"]] = None,
-        online_meeting: Optional["microsoftgraphonlinemeetinginfo"] = None,
-        online_meeting_provider: Optional[Union[str, "Microsoftgraphonlinemeetingprovidertype"]] = None,
+        location: Optional["MicrosoftGraphLocation"] = None,
+        locations: Optional[List["MicrosoftGraphLocation"]] = None,
+        online_meeting: Optional["MicrosoftGraphOnlineMeetingInfo"] = None,
+        online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
         online_meeting_url: Optional[str] = None,
-        organizer: Optional["microsoftgraphrecipient"] = None,
+        organizer: Optional["MicrosoftGraphRecipient"] = None,
         original_end_time_zone: Optional[str] = None,
         original_start: Optional[datetime.datetime] = None,
         original_start_time_zone: Optional[str] = None,
-        recurrence: Optional["microsoftgraphpatternedrecurrence"] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_minutes_before_start: Optional[int] = None,
         response_requested: Optional[bool] = None,
-        response_status: Optional["microsoftgraphresponsestatus"] = None,
-        sensitivity: Optional[Union[str, "Microsoftgraphsensitivity"]] = None,
+        response_status: Optional["MicrosoftGraphResponseStatus"] = None,
+        sensitivity: Optional[Union[str, "MicrosoftGraphSensitivity"]] = None,
         series_master_id: Optional[str] = None,
-        show_as: Optional[Union[str, "Microsoftgraphfreebusystatus"]] = None,
-        start: Optional["microsoftgraphdatetimezone"] = None,
+        show_as: Optional[Union[str, "MicrosoftGraphFreeBusyStatus"]] = None,
+        start: Optional["MicrosoftGraphDateTimeZone"] = None,
         subject: Optional[str] = None,
         transaction_id: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgrapheventtype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphEventType"]] = None,
         web_link: Optional[str] = None,
-        attachments: Optional[List["microsoftgraphattachment"]] = None,
-        calendar: Optional["microsoftgraphcalendar"] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        instances: Optional[List["microsoftgraphevent"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        attachments: Optional[List["MicrosoftGraphAttachment"]] = None,
+        calendar: Optional["MicrosoftGraphCalendar"] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        instances: Optional[List["MicrosoftGraphEvent"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphevent, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphEvent, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.allow_new_time_proposals = allow_new_time_proposals
         self.attendees = attendees
@@ -4289,7 +4289,7 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphextension(microsoftgraphentity):
+class MicrosoftGraphExtension(MicrosoftGraphEntity):
     """extension.
 
     :param id: Read-only.
@@ -4311,11 +4311,11 @@ class microsoftgraphextension(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphextension, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExtension, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphitembody(msrest.serialization.Model):
+class MicrosoftGraphItemBody(msrest.serialization.Model):
     """itemBody.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4324,7 +4324,7 @@ class microsoftgraphitembody(msrest.serialization.Model):
     :param content: The content of the item.
     :type content: str
     :param content_type:  Possible values include: "text", "html".
-    :type content_type: str or ~calendar.models.Microsoftgraphbodytype
+    :type content_type: str or ~calendar.models.MicrosoftGraphBodyType
     """
 
     _attribute_map = {
@@ -4338,25 +4338,25 @@ class microsoftgraphitembody(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         content: Optional[str] = None,
-        content_type: Optional[Union[str, "Microsoftgraphbodytype"]] = None,
+        content_type: Optional[Union[str, "MicrosoftGraphBodyType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphitembody, self).__init__(**kwargs)
+        super(MicrosoftGraphItemBody, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
 
 
-class microsoftgraphlocation(msrest.serialization.Model):
+class MicrosoftGraphLocation(msrest.serialization.Model):
     """location.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~calendar.models.microsoftgraphphysicaladdress
+    :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
     :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~calendar.models.microsoftgraphoutlookgeocoordinates
+    :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
     :param display_name: The name associated with the location.
     :type display_name: str
     :param location_email_address: Optional email address of the location.
@@ -4364,20 +4364,20 @@ class microsoftgraphlocation(msrest.serialization.Model):
     :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
      "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
      "postalAddress".
-    :type location_type: str or ~calendar.models.Microsoftgraphlocationtype
+    :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
     :param location_uri: Optional URI representing the location.
     :type location_uri: str
     :param unique_id: For internal use only.
     :type unique_id: str
     :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
      "private", "bing".
-    :type unique_id_type: str or ~calendar.models.Microsoftgraphlocationuniqueidtype
+    :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'coordinates': {'key': 'coordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'coordinates': {'key': 'coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'location_email_address': {'key': 'locationEmailAddress', 'type': 'str'},
         'location_type': {'key': 'locationType', 'type': 'str'},
@@ -4390,17 +4390,17 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphphysicaladdress"] = None,
-        coordinates: Optional["microsoftgraphoutlookgeocoordinates"] = None,
+        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
+        coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
         display_name: Optional[str] = None,
         location_email_address: Optional[str] = None,
-        location_type: Optional[Union[str, "Microsoftgraphlocationtype"]] = None,
+        location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
         location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
-        unique_id_type: Optional[Union[str, "Microsoftgraphlocationuniqueidtype"]] = None,
+        unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphLocation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.coordinates = coordinates
@@ -4412,7 +4412,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self.unique_id_type = unique_id_type
 
 
-class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphMultiValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """multiValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -4438,12 +4438,12 @@ class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
         value: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphmultivaluelegacyextendedproperty, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphMultiValueLegacyExtendedProperty, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.value = value
 
 
-class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
+class MicrosoftGraphOnlineMeetingInfo(msrest.serialization.Model):
     """onlineMeetingInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4455,7 +4455,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
      will launch into a browser and will redirect the user to join the meeting.
     :type join_url: str
     :param phones: All of the phone numbers associated with this conference.
-    :type phones: list[~calendar.models.microsoftgraphphone]
+    :type phones: list[~calendar.models.MicrosoftGraphPhone]
     :param quick_dial: The pre-formatted quickdial for this call.
     :type quick_dial: str
     :param toll_free_numbers: The toll free numbers that can be used to join the conference.
@@ -4468,7 +4468,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'conference_id': {'key': 'conferenceId', 'type': 'str'},
         'join_url': {'key': 'joinUrl', 'type': 'str'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
         'quick_dial': {'key': 'quickDial', 'type': 'str'},
         'toll_free_numbers': {'key': 'tollFreeNumbers', 'type': '[str]'},
         'toll_number': {'key': 'tollNumber', 'type': 'str'},
@@ -4480,13 +4480,13 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         conference_id: Optional[str] = None,
         join_url: Optional[str] = None,
-        phones: Optional[List["microsoftgraphphone"]] = None,
+        phones: Optional[List["MicrosoftGraphPhone"]] = None,
         quick_dial: Optional[str] = None,
         toll_free_numbers: Optional[List[str]] = None,
         toll_number: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonlinemeetinginfo, self).__init__(**kwargs)
+        super(MicrosoftGraphOnlineMeetingInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.conference_id = conference_id
         self.join_url = join_url
@@ -4496,7 +4496,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         self.toll_number = toll_number
 
 
-class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
     """outlookGeoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4535,7 +4535,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         longitude: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.accuracy = accuracy
         self.altitude = altitude
@@ -4544,39 +4544,39 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self.longitude = longitude
 
 
-class microsoftgraphpatternedrecurrence(msrest.serialization.Model):
+class MicrosoftGraphPatternedRecurrence(msrest.serialization.Model):
     """patternedRecurrence.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param pattern: recurrencePattern.
-    :type pattern: ~calendar.models.microsoftgraphrecurrencepattern
+    :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
     :param range: recurrenceRange.
-    :type range: ~calendar.models.microsoftgraphrecurrencerange
+    :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'pattern': {'key': 'pattern', 'type': 'microsoftgraphrecurrencepattern'},
-        'range': {'key': 'range', 'type': 'microsoftgraphrecurrencerange'},
+        'pattern': {'key': 'pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
+        'range': {'key': 'range', 'type': 'MicrosoftGraphRecurrenceRange'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        pattern: Optional["microsoftgraphrecurrencepattern"] = None,
-        range: Optional["microsoftgraphrecurrencerange"] = None,
+        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
+        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
         **kwargs
     ):
-        super(microsoftgraphpatternedrecurrence, self).__init__(**kwargs)
+        super(MicrosoftGraphPatternedRecurrence, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.pattern = pattern
         self.range = range
 
 
-class microsoftgraphphone(msrest.serialization.Model):
+class MicrosoftGraphPhone(msrest.serialization.Model):
     """phone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4590,7 +4590,7 @@ class microsoftgraphphone(msrest.serialization.Model):
     :type region: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~calendar.models.Microsoftgraphphonetype
+    :type type: str or ~calendar.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
@@ -4608,10 +4608,10 @@ class microsoftgraphphone(msrest.serialization.Model):
         language: Optional[str] = None,
         number: Optional[str] = None,
         region: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphphonetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphPhoneType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphphone, self).__init__(**kwargs)
+        super(MicrosoftGraphPhone, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.language = language
         self.number = number
@@ -4619,7 +4619,7 @@ class microsoftgraphphone(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4658,7 +4658,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         street: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.city = city
         self.country_or_region = country_or_region
@@ -4667,7 +4667,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.street = street
 
 
-class microsoftgraphplace(microsoftgraphentity):
+class MicrosoftGraphPlace(MicrosoftGraphEntity):
     """place.
 
     :param id: Read-only.
@@ -4676,11 +4676,11 @@ class microsoftgraphplace(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~calendar.models.microsoftgraphphysicaladdress
+    :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
     :param display_name: The name associated with the place.
     :type display_name: str
     :param geo_coordinates: outlookGeoCoordinates.
-    :type geo_coordinates: ~calendar.models.microsoftgraphoutlookgeocoordinates
+    :type geo_coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
     :param phone: The phone number of the place.
     :type phone: str
     """
@@ -4688,9 +4688,9 @@ class microsoftgraphplace(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'phone': {'key': 'phone', 'type': 'str'},
     }
 
@@ -4699,13 +4699,13 @@ class microsoftgraphplace(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphphysicaladdress"] = None,
+        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
         display_name: Optional[str] = None,
-        geo_coordinates: Optional["microsoftgraphoutlookgeocoordinates"] = None,
+        geo_coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
         phone: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplace, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlace, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
@@ -4713,7 +4713,7 @@ class microsoftgraphplace(microsoftgraphentity):
         self.phone = phone
 
 
-class microsoftgraphrecurrencepattern(msrest.serialization.Model):
+class MicrosoftGraphRecurrencePattern(msrest.serialization.Model):
     """recurrencePattern.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4727,12 +4727,12 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
      relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls
      on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or
      relativeYearly.
-    :type days_of_week: list[str or ~calendar.models.Microsoftgraphdayofweek]
+    :type days_of_week: list[str or ~calendar.models.MicrosoftGraphDayOfWeek]
     :param first_day_of_week:  Possible values include: "sunday", "monday", "tuesday", "wednesday",
      "thursday", "friday", "saturday".
-    :type first_day_of_week: str or ~calendar.models.Microsoftgraphdayofweek
+    :type first_day_of_week: str or ~calendar.models.MicrosoftGraphDayOfWeek
     :param index:  Possible values include: "first", "second", "third", "fourth", "last".
-    :type index: str or ~calendar.models.Microsoftgraphweekindex
+    :type index: str or ~calendar.models.MicrosoftGraphWeekIndex
     :param interval: The number of units between occurrences, where units can be in days, weeks,
      months, or years, depending on the type. Required.
     :type interval: int
@@ -4740,7 +4740,7 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
     :type month: int
     :param type:  Possible values include: "daily", "weekly", "absoluteMonthly", "relativeMonthly",
      "absoluteYearly", "relativeYearly".
-    :type type: str or ~calendar.models.Microsoftgraphrecurrencepatterntype
+    :type type: str or ~calendar.models.MicrosoftGraphRecurrencePatternType
     """
 
     _validation = {
@@ -4765,15 +4765,15 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         day_of_month: Optional[int] = None,
-        days_of_week: Optional[List[Union[str, "Microsoftgraphdayofweek"]]] = None,
-        first_day_of_week: Optional[Union[str, "Microsoftgraphdayofweek"]] = None,
-        index: Optional[Union[str, "Microsoftgraphweekindex"]] = None,
+        days_of_week: Optional[List[Union[str, "MicrosoftGraphDayOfWeek"]]] = None,
+        first_day_of_week: Optional[Union[str, "MicrosoftGraphDayOfWeek"]] = None,
+        index: Optional[Union[str, "MicrosoftGraphWeekIndex"]] = None,
         interval: Optional[int] = None,
         month: Optional[int] = None,
-        type: Optional[Union[str, "Microsoftgraphrecurrencepatterntype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphRecurrencePatternType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphrecurrencepattern, self).__init__(**kwargs)
+        super(MicrosoftGraphRecurrencePattern, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.day_of_month = day_of_month
         self.days_of_week = days_of_week
@@ -4784,7 +4784,7 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphrecurrencerange(msrest.serialization.Model):
+class MicrosoftGraphRecurrenceRange(msrest.serialization.Model):
     """recurrenceRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4805,7 +4805,7 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
      be the same value as the start property of the recurring event. Required.
     :type start_date: ~datetime.date
     :param type:  Possible values include: "endDate", "noEnd", "numbered".
-    :type type: str or ~calendar.models.Microsoftgraphrecurrencerangetype
+    :type type: str or ~calendar.models.MicrosoftGraphRecurrenceRangeType
     """
 
     _validation = {
@@ -4829,10 +4829,10 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
         number_of_occurrences: Optional[int] = None,
         recurrence_time_zone: Optional[str] = None,
         start_date: Optional[datetime.date] = None,
-        type: Optional[Union[str, "Microsoftgraphrecurrencerangetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphRecurrenceRangeType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphrecurrencerange, self).__init__(**kwargs)
+        super(MicrosoftGraphRecurrenceRange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end_date = end_date
         self.number_of_occurrences = number_of_occurrences
@@ -4841,7 +4841,7 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphresponsestatus(msrest.serialization.Model):
+class MicrosoftGraphResponseStatus(msrest.serialization.Model):
     """responseStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4849,7 +4849,7 @@ class microsoftgraphresponsestatus(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param response:  Possible values include: "none", "organizer", "tentativelyAccepted",
      "accepted", "declined", "notResponded".
-    :type response: str or ~calendar.models.Microsoftgraphresponsetype
+    :type response: str or ~calendar.models.MicrosoftGraphResponseType
     :param time: The date and time that the response was returned. It uses ISO 8601 format and is
      always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
      '2014-01-01T00:00:00Z'.
@@ -4866,17 +4866,17 @@ class microsoftgraphresponsestatus(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        response: Optional[Union[str, "Microsoftgraphresponsetype"]] = None,
+        response: Optional[Union[str, "MicrosoftGraphResponseType"]] = None,
         time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphresponsestatus, self).__init__(**kwargs)
+        super(MicrosoftGraphResponseStatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.response = response
         self.time = time
 
 
-class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """singleValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -4902,45 +4902,45 @@ class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsinglevaluelegacyextendedproperty, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSingleValueLegacyExtendedProperty, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.value = value
 
 
-class microsoftgraphtimeslot(msrest.serialization.Model):
+class MicrosoftGraphTimeSlot(msrest.serialization.Model):
     """timeSlot.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param end: dateTimeTimeZone.
-    :type end: ~calendar.models.microsoftgraphdatetimezone
+    :type end: ~calendar.models.MicrosoftGraphDateTimeZone
     :param start: dateTimeTimeZone.
-    :type start: ~calendar.models.microsoftgraphdatetimezone
+    :type start: ~calendar.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'end': {'key': 'end', 'type': 'microsoftgraphdatetimezone'},
-        'start': {'key': 'start', 'type': 'microsoftgraphdatetimezone'},
+        'end': {'key': 'end', 'type': 'MicrosoftGraphDateTimeZone'},
+        'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        end: Optional["microsoftgraphdatetimezone"] = None,
-        start: Optional["microsoftgraphdatetimezone"] = None,
+        end: Optional["MicrosoftGraphDateTimeZone"] = None,
+        start: Optional["MicrosoftGraphDateTimeZone"] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeslot, self).__init__(**kwargs)
+        super(MicrosoftGraphTimeSlot, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end = end
         self.start = start
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -4948,7 +4948,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~calendar.models.odataerrormain
+    :type error: ~calendar.models.OdataErrorMain
     """
 
     _validation = {
@@ -4957,23 +4957,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5009,15 +5009,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5031,7 +5031,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~calendar.models.odataerrordetail]
+    :type details: list[~calendar.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -5046,7 +5046,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -5057,11 +5057,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,69 +18,69 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import IdentityDirectoryManagementConfiguration
-from .operations import contactsorgcontactOperations
-from .operations import contactsOperations
-from .operations import contractscontractOperations
-from .operations import contractsOperations
-from .operations import devicesdeviceOperations
-from .operations import devicesOperations
-from .operations import directorydirectoryOperations
-from .operations import directoryOperations
-from .operations import directoryadministrativeunitsOperations
-from .operations import directoryrolesdirectoryroleOperations
-from .operations import directoryrolesOperations
-from .operations import directoryroletemplatesdirectoryroletemplateOperations
-from .operations import directoryroletemplatesOperations
-from .operations import domainsdomainOperations
-from .operations import domainsOperations
-from .operations import organizationorganizationOperations
-from .operations import organizationOperations
-from .operations import subscribedskussubscribedskuOperations
-from .operations import usersOperations
+from .operations import ContactsOrgContactOperations
+from .operations import ContactsOperations
+from .operations import ContractsContractOperations
+from .operations import ContractsOperations
+from .operations import DevicesDeviceOperations
+from .operations import DevicesOperations
+from .operations import DirectoryDirectoryOperations
+from .operations import DirectoryOperations
+from .operations import DirectoryAdministrativeUnitsOperations
+from .operations import DirectoryRolesDirectoryRoleOperations
+from .operations import DirectoryRolesOperations
+from .operations import DirectoryRoleTemplatesDirectoryRoleTemplateOperations
+from .operations import DirectoryRoleTemplatesOperations
+from .operations import DomainsDomainOperations
+from .operations import DomainsOperations
+from .operations import OrganizationOrganizationOperations
+from .operations import OrganizationOperations
+from .operations import SubscribedSkusSubscribedSkuOperations
+from .operations import UsersOperations
 from . import models
 
 
 class IdentityDirectoryManagement(object):
     """IdentityDirectoryManagement.
 
-    :ivar contactsorgcontact: contactsorgcontactOperations operations
-    :vartype contactsorgcontact: identity_directory_management.operations.contactsorgcontactOperations
-    :ivar contacts: contactsOperations operations
-    :vartype contacts: identity_directory_management.operations.contactsOperations
-    :ivar contractscontract: contractscontractOperations operations
-    :vartype contractscontract: identity_directory_management.operations.contractscontractOperations
-    :ivar contracts: contractsOperations operations
-    :vartype contracts: identity_directory_management.operations.contractsOperations
-    :ivar devicesdevice: devicesdeviceOperations operations
-    :vartype devicesdevice: identity_directory_management.operations.devicesdeviceOperations
-    :ivar devices: devicesOperations operations
-    :vartype devices: identity_directory_management.operations.devicesOperations
-    :ivar directorydirectory: directorydirectoryOperations operations
-    :vartype directorydirectory: identity_directory_management.operations.directorydirectoryOperations
-    :ivar directory: directoryOperations operations
-    :vartype directory: identity_directory_management.operations.directoryOperations
-    :ivar directoryadministrativeunits: directoryadministrativeunitsOperations operations
-    :vartype directoryadministrativeunits: identity_directory_management.operations.directoryadministrativeunitsOperations
-    :ivar directoryrolesdirectoryrole: directoryrolesdirectoryroleOperations operations
-    :vartype directoryrolesdirectoryrole: identity_directory_management.operations.directoryrolesdirectoryroleOperations
-    :ivar directoryroles: directoryrolesOperations operations
-    :vartype directoryroles: identity_directory_management.operations.directoryrolesOperations
-    :ivar directoryroletemplatesdirectoryroletemplate: directoryroletemplatesdirectoryroletemplateOperations operations
-    :vartype directoryroletemplatesdirectoryroletemplate: identity_directory_management.operations.directoryroletemplatesdirectoryroletemplateOperations
-    :ivar directoryroletemplates: directoryroletemplatesOperations operations
-    :vartype directoryroletemplates: identity_directory_management.operations.directoryroletemplatesOperations
-    :ivar domainsdomain: domainsdomainOperations operations
-    :vartype domainsdomain: identity_directory_management.operations.domainsdomainOperations
-    :ivar domains: domainsOperations operations
-    :vartype domains: identity_directory_management.operations.domainsOperations
-    :ivar organizationorganization: organizationorganizationOperations operations
-    :vartype organizationorganization: identity_directory_management.operations.organizationorganizationOperations
-    :ivar organization: organizationOperations operations
-    :vartype organization: identity_directory_management.operations.organizationOperations
-    :ivar subscribedskussubscribedsku: subscribedskussubscribedskuOperations operations
-    :vartype subscribedskussubscribedsku: identity_directory_management.operations.subscribedskussubscribedskuOperations
-    :ivar users: usersOperations operations
-    :vartype users: identity_directory_management.operations.usersOperations
+    :ivar contacts_org_contact: ContactsOrgContactOperations operations
+    :vartype contacts_org_contact: identity_directory_management.operations.ContactsOrgContactOperations
+    :ivar contacts: ContactsOperations operations
+    :vartype contacts: identity_directory_management.operations.ContactsOperations
+    :ivar contracts_contract: ContractsContractOperations operations
+    :vartype contracts_contract: identity_directory_management.operations.ContractsContractOperations
+    :ivar contracts: ContractsOperations operations
+    :vartype contracts: identity_directory_management.operations.ContractsOperations
+    :ivar devices_device: DevicesDeviceOperations operations
+    :vartype devices_device: identity_directory_management.operations.DevicesDeviceOperations
+    :ivar devices: DevicesOperations operations
+    :vartype devices: identity_directory_management.operations.DevicesOperations
+    :ivar directory_directory: DirectoryDirectoryOperations operations
+    :vartype directory_directory: identity_directory_management.operations.DirectoryDirectoryOperations
+    :ivar directory: DirectoryOperations operations
+    :vartype directory: identity_directory_management.operations.DirectoryOperations
+    :ivar directory_administrative_units: DirectoryAdministrativeUnitsOperations operations
+    :vartype directory_administrative_units: identity_directory_management.operations.DirectoryAdministrativeUnitsOperations
+    :ivar directory_roles_directory_role: DirectoryRolesDirectoryRoleOperations operations
+    :vartype directory_roles_directory_role: identity_directory_management.operations.DirectoryRolesDirectoryRoleOperations
+    :ivar directory_roles: DirectoryRolesOperations operations
+    :vartype directory_roles: identity_directory_management.operations.DirectoryRolesOperations
+    :ivar directory_role_templates_directory_role_template: DirectoryRoleTemplatesDirectoryRoleTemplateOperations operations
+    :vartype directory_role_templates_directory_role_template: identity_directory_management.operations.DirectoryRoleTemplatesDirectoryRoleTemplateOperations
+    :ivar directory_role_templates: DirectoryRoleTemplatesOperations operations
+    :vartype directory_role_templates: identity_directory_management.operations.DirectoryRoleTemplatesOperations
+    :ivar domains_domain: DomainsDomainOperations operations
+    :vartype domains_domain: identity_directory_management.operations.DomainsDomainOperations
+    :ivar domains: DomainsOperations operations
+    :vartype domains: identity_directory_management.operations.DomainsOperations
+    :ivar organization_organization: OrganizationOrganizationOperations operations
+    :vartype organization_organization: identity_directory_management.operations.OrganizationOrganizationOperations
+    :ivar organization: OrganizationOperations operations
+    :vartype organization: identity_directory_management.operations.OrganizationOperations
+    :ivar subscribed_skus_subscribed_sku: SubscribedSkusSubscribedSkuOperations operations
+    :vartype subscribed_skus_subscribed_sku: identity_directory_management.operations.SubscribedSkusSubscribedSkuOperations
+    :ivar users: UsersOperations operations
+    :vartype users: identity_directory_management.operations.UsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -111,50 +111,50 @@ class IdentityDirectoryManagement(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = IdentityDirectoryManagementConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.contactsorgcontact = contactsorgcontactOperations(
+        self.contacts_org_contact = ContactsOrgContactOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.contacts = contactsOperations(
+        self.contacts = ContactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.contractscontract = contractscontractOperations(
+        self.contracts_contract = ContractsContractOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.contracts = contractsOperations(
+        self.contracts = ContractsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.devicesdevice = devicesdeviceOperations(
+        self.devices_device = DevicesDeviceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.devices = devicesOperations(
+        self.devices = DevicesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directorydirectory = directorydirectoryOperations(
+        self.directory_directory = DirectoryDirectoryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directory = directoryOperations(
+        self.directory = DirectoryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryadministrativeunits = directoryadministrativeunitsOperations(
+        self.directory_administrative_units = DirectoryAdministrativeUnitsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryrolesdirectoryrole = directoryrolesdirectoryroleOperations(
+        self.directory_roles_directory_role = DirectoryRolesDirectoryRoleOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryroles = directoryrolesOperations(
+        self.directory_roles = DirectoryRolesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryroletemplatesdirectoryroletemplate = directoryroletemplatesdirectoryroletemplateOperations(
+        self.directory_role_templates_directory_role_template = DirectoryRoleTemplatesDirectoryRoleTemplateOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryroletemplates = directoryroletemplatesOperations(
+        self.directory_role_templates = DirectoryRoleTemplatesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.domainsdomain = domainsdomainOperations(
+        self.domains_domain = DomainsDomainOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.domains = domainsOperations(
+        self.domains = DomainsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.organizationorganization = organizationorganizationOperations(
+        self.organization_organization = OrganizationOrganizationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.organization = organizationOperations(
+        self.organization = OrganizationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.subscribedskussubscribedsku = subscribedskussubscribedskuOperations(
+        self.subscribed_skus_subscribed_sku = SubscribedSkusSubscribedSkuOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.users = usersOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

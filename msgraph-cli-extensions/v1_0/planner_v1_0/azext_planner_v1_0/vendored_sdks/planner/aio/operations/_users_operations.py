@@ -11,14 +11,15 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations:
-    """usersOperations async operations.
+class UsersOperations:
+    """UsersOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -45,7 +46,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum86"]]] = None,
         expand: Optional[List[Union[str, "models.Enum87"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphplanneruser":
+    ) -> "models.MicrosoftGraphPlannerUser":
         """Get planner from users.
 
         Get planner from users.
@@ -57,11 +58,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum87]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplanneruser, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplanneruser
+        :return: MicrosoftGraphPlannerUser, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerUser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplanneruser"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerUser"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -92,10 +93,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplanneruser', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerUser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -106,7 +107,7 @@ class usersOperations:
     async def update_planner(
         self,
         user_id: str,
-        body: "models.microsoftgraphplanneruser",
+        body: "models.MicrosoftGraphPlannerUser",
         **kwargs
     ) -> None:
         """Update the navigation property planner in users.
@@ -116,7 +117,7 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property values.
-        :type body: ~planner.models.microsoftgraphplanneruser
+        :type body: ~planner.models.MicrosoftGraphPlannerUser
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -146,7 +147,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplanneruser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -154,8 +155,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -210,8 +211,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

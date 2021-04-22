@@ -18,21 +18,21 @@ def cf_security_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_security(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).securitysecurity
+def cf_security_security(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).security_security
 
 
 def cf_security(cli_ctx, *_):
     return cf_security_beta_cl(cli_ctx).security
 
 
-def cf_securityalert(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).securityalerts
+def cf_security_alert(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).security_alerts
 
 
-def cf_securityaction(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).securitysecurityactions
+def cf_security_security_action(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).security_security_actions
 
 
-def cf_securitytiindicator(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).securitytiindicators
+def cf_security_tiindicator(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).security_ti_indicators

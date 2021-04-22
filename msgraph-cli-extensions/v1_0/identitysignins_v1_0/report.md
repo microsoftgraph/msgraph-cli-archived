@@ -9,31 +9,31 @@
 ### <a name="CommandGroups">Command groups in `az identitysignins_v1_0` extension </a>
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
-|az identitysignins datapolicyoperationsdatapolicyoperation|dataPolicyOperations.dataPolicyOperation|[commands](#CommandsIndataPolicyOperations.dataPolicyOperation)|
+|az identitysignins data-policy-operation-data-policy-operation|dataPolicyOperations.dataPolicyOperation|[commands](#CommandsIndataPolicyOperations.dataPolicyOperation)|
 |az identitysignins identity|identity|[commands](#CommandsInidentity)|
-|az identitysignins identityconditionalaccess|identity.conditionalAccess|[commands](#CommandsInidentity.conditionalAccess)|
-|az identitysignins identityprovidersidentityprovider|identityProviders.identityProvider|[commands](#CommandsInidentityProviders.identityProvider)|
-|az identitysignins informationprotection|informationProtection.informationProtection|[commands](#CommandsIninformationProtection.informationProtection)|
-|az identitysignins informationprotection|informationProtection|[commands](#CommandsIninformationProtection)|
-|az identitysignins informationprotectionthreatassessmentrequest|informationProtection.threatAssessmentRequests|[commands](#CommandsIninformationProtection.threatAssessmentRequests)|
-|az identitysignins invitationsinvitation|invitations.invitation|[commands](#CommandsIninvitations.invitation)|
+|az identitysignins identity-conditional-access|identity.conditionalAccess|[commands](#CommandsInidentity.conditionalAccess)|
+|az identitysignins identity-provider-identity-provider|identityProviders.identityProvider|[commands](#CommandsInidentityProviders.identityProvider)|
+|az identitysignins information-protection-information-protection|informationProtection.informationProtection|[commands](#CommandsIninformationProtection.informationProtection)|
+|az identitysignins information-protection|informationProtection|[commands](#CommandsIninformationProtection)|
+|az identitysignins information-protection-threat-assessment-request|informationProtection.threatAssessmentRequests|[commands](#CommandsIninformationProtection.threatAssessmentRequests)|
+|az identitysignins invitation-invitation|invitations.invitation|[commands](#CommandsIninvitations.invitation)|
 |az identitysignins invitation|invitations|[commands](#CommandsIninvitations)|
-|az identitysignins oauth2permissiongrantsoauth2permissiongrant|oauth2PermissionGrants.oAuth2PermissionGrant|[commands](#CommandsInoauth2PermissionGrants.oAuth2PermissionGrant)|
-|az identitysignins oauth2permissiongrant|oauth2PermissionGrants|[commands](#CommandsInoauth2PermissionGrants)|
+|az identitysignins oauth2-permission-grant-o-auth2-permission-grant|oauth2PermissionGrants.oAuth2PermissionGrant|[commands](#CommandsInoauth2PermissionGrants.oAuth2PermissionGrant)|
+|az identitysignins oauth2-permission-grant|oauth2PermissionGrants|[commands](#CommandsInoauth2PermissionGrants)|
 |az identitysignins organization|organization|[commands](#CommandsInorganization)|
-|az identitysignins policiespolicyroot|policies.policyRoot|[commands](#CommandsInpolicies.policyRoot)|
+|az identitysignins policy-policy-root|policies.policyRoot|[commands](#CommandsInpolicies.policyRoot)|
 |az identitysignins policy|policies|[commands](#CommandsInpolicies)|
-|az identitysignins policiespermissiongrantpolicy|policies.permissionGrantPolicies|[commands](#CommandsInpolicies.permissionGrantPolicies)|
+|az identitysignins policy-permission-grant-policy|policies.permissionGrantPolicies|[commands](#CommandsInpolicies.permissionGrantPolicies)|
 
 ## COMMANDS
-### <a name="CommandsIndataPolicyOperations.dataPolicyOperation">Commands in `az identitysignins datapolicyoperationsdatapolicyoperation` group</a>
+### <a name="CommandsIndataPolicyOperations.dataPolicyOperation">Commands in `az identitysignins data-policy-operation-data-policy-operation` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins datapolicyoperationsdatapolicyoperation create-data-policy-operation](#dataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation)|CreateDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation)|Not Found|
-|[az identitysignins datapolicyoperationsdatapolicyoperation delete-data-policy-operation](#dataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation)|DeleteDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation)|Not Found|
-|[az identitysignins datapolicyoperationsdatapolicyoperation list-data-policy-operation](#dataPolicyOperations.dataPolicyOperationListDataPolicyOperation)|ListDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationListDataPolicyOperation)|Not Found|
-|[az identitysignins datapolicyoperationsdatapolicyoperation show-data-policy-operation](#dataPolicyOperations.dataPolicyOperationGetDataPolicyOperation)|GetDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationGetDataPolicyOperation)|Not Found|
-|[az identitysignins datapolicyoperationsdatapolicyoperation update-data-policy-operation](#dataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation)|UpdateDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation)|Not Found|
+|[az identitysignins data-policy-operation-data-policy-operation create-data-policy-operation](#dataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation)|CreateDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation)|Not Found|
+|[az identitysignins data-policy-operation-data-policy-operation delete-data-policy-operation](#dataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation)|DeleteDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation)|Not Found|
+|[az identitysignins data-policy-operation-data-policy-operation list-data-policy-operation](#dataPolicyOperations.dataPolicyOperationListDataPolicyOperation)|ListDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationListDataPolicyOperation)|Not Found|
+|[az identitysignins data-policy-operation-data-policy-operation show-data-policy-operation](#dataPolicyOperations.dataPolicyOperationGetDataPolicyOperation)|GetDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationGetDataPolicyOperation)|Not Found|
+|[az identitysignins data-policy-operation-data-policy-operation update-data-policy-operation](#dataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation)|UpdateDataPolicyOperation|[Parameters](#ParametersdataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation)|Not Found|
 
 ### <a name="CommandsInidentity">Commands in `az identitysignins identity` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -42,52 +42,52 @@
 |[az identitysignins identity show-conditional-access](#identityGetConditionalAccess)|GetConditionalAccess|[Parameters](#ParametersidentityGetConditionalAccess)|Not Found|
 |[az identitysignins identity update-conditional-access](#identityUpdateConditionalAccess)|UpdateConditionalAccess|[Parameters](#ParametersidentityUpdateConditionalAccess)|Not Found|
 
-### <a name="CommandsInidentity.conditionalAccess">Commands in `az identitysignins identityconditionalaccess` group</a>
+### <a name="CommandsInidentity.conditionalAccess">Commands in `az identitysignins identity-conditional-access` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins identityconditionalaccess create-named-location](#identity.conditionalAccessCreateNamedLocations)|CreateNamedLocations|[Parameters](#Parametersidentity.conditionalAccessCreateNamedLocations)|Not Found|
-|[az identitysignins identityconditionalaccess create-policy](#identity.conditionalAccessCreatePolicies)|CreatePolicies|[Parameters](#Parametersidentity.conditionalAccessCreatePolicies)|Not Found|
-|[az identitysignins identityconditionalaccess delete-named-location](#identity.conditionalAccessDeleteNamedLocations)|DeleteNamedLocations|[Parameters](#Parametersidentity.conditionalAccessDeleteNamedLocations)|Not Found|
-|[az identitysignins identityconditionalaccess delete-policy](#identity.conditionalAccessDeletePolicies)|DeletePolicies|[Parameters](#Parametersidentity.conditionalAccessDeletePolicies)|Not Found|
-|[az identitysignins identityconditionalaccess list-named-location](#identity.conditionalAccessListNamedLocations)|ListNamedLocations|[Parameters](#Parametersidentity.conditionalAccessListNamedLocations)|Not Found|
-|[az identitysignins identityconditionalaccess list-policy](#identity.conditionalAccessListPolicies)|ListPolicies|[Parameters](#Parametersidentity.conditionalAccessListPolicies)|Not Found|
-|[az identitysignins identityconditionalaccess show-named-location](#identity.conditionalAccessGetNamedLocations)|GetNamedLocations|[Parameters](#Parametersidentity.conditionalAccessGetNamedLocations)|Not Found|
-|[az identitysignins identityconditionalaccess show-policy](#identity.conditionalAccessGetPolicies)|GetPolicies|[Parameters](#Parametersidentity.conditionalAccessGetPolicies)|Not Found|
-|[az identitysignins identityconditionalaccess update-named-location](#identity.conditionalAccessUpdateNamedLocations)|UpdateNamedLocations|[Parameters](#Parametersidentity.conditionalAccessUpdateNamedLocations)|Not Found|
-|[az identitysignins identityconditionalaccess update-policy](#identity.conditionalAccessUpdatePolicies)|UpdatePolicies|[Parameters](#Parametersidentity.conditionalAccessUpdatePolicies)|Not Found|
+|[az identitysignins identity-conditional-access create-named-location](#identity.conditionalAccessCreateNamedLocations)|CreateNamedLocations|[Parameters](#Parametersidentity.conditionalAccessCreateNamedLocations)|Not Found|
+|[az identitysignins identity-conditional-access create-policy](#identity.conditionalAccessCreatePolicies)|CreatePolicies|[Parameters](#Parametersidentity.conditionalAccessCreatePolicies)|Not Found|
+|[az identitysignins identity-conditional-access delete-named-location](#identity.conditionalAccessDeleteNamedLocations)|DeleteNamedLocations|[Parameters](#Parametersidentity.conditionalAccessDeleteNamedLocations)|Not Found|
+|[az identitysignins identity-conditional-access delete-policy](#identity.conditionalAccessDeletePolicies)|DeletePolicies|[Parameters](#Parametersidentity.conditionalAccessDeletePolicies)|Not Found|
+|[az identitysignins identity-conditional-access list-named-location](#identity.conditionalAccessListNamedLocations)|ListNamedLocations|[Parameters](#Parametersidentity.conditionalAccessListNamedLocations)|Not Found|
+|[az identitysignins identity-conditional-access list-policy](#identity.conditionalAccessListPolicies)|ListPolicies|[Parameters](#Parametersidentity.conditionalAccessListPolicies)|Not Found|
+|[az identitysignins identity-conditional-access show-named-location](#identity.conditionalAccessGetNamedLocations)|GetNamedLocations|[Parameters](#Parametersidentity.conditionalAccessGetNamedLocations)|Not Found|
+|[az identitysignins identity-conditional-access show-policy](#identity.conditionalAccessGetPolicies)|GetPolicies|[Parameters](#Parametersidentity.conditionalAccessGetPolicies)|Not Found|
+|[az identitysignins identity-conditional-access update-named-location](#identity.conditionalAccessUpdateNamedLocations)|UpdateNamedLocations|[Parameters](#Parametersidentity.conditionalAccessUpdateNamedLocations)|Not Found|
+|[az identitysignins identity-conditional-access update-policy](#identity.conditionalAccessUpdatePolicies)|UpdatePolicies|[Parameters](#Parametersidentity.conditionalAccessUpdatePolicies)|Not Found|
 
-### <a name="CommandsInidentityProviders.identityProvider">Commands in `az identitysignins identityprovidersidentityprovider` group</a>
+### <a name="CommandsInidentityProviders.identityProvider">Commands in `az identitysignins identity-provider-identity-provider` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins identityprovidersidentityprovider create-identity-provider](#identityProviders.identityProviderCreateIdentityProvider)|CreateIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderCreateIdentityProvider)|Not Found|
-|[az identitysignins identityprovidersidentityprovider delete-identity-provider](#identityProviders.identityProviderDeleteIdentityProvider)|DeleteIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderDeleteIdentityProvider)|Not Found|
-|[az identitysignins identityprovidersidentityprovider list-identity-provider](#identityProviders.identityProviderListIdentityProvider)|ListIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderListIdentityProvider)|Not Found|
-|[az identitysignins identityprovidersidentityprovider show-identity-provider](#identityProviders.identityProviderGetIdentityProvider)|GetIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderGetIdentityProvider)|Not Found|
-|[az identitysignins identityprovidersidentityprovider update-identity-provider](#identityProviders.identityProviderUpdateIdentityProvider)|UpdateIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderUpdateIdentityProvider)|Not Found|
+|[az identitysignins identity-provider-identity-provider create-identity-provider](#identityProviders.identityProviderCreateIdentityProvider)|CreateIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderCreateIdentityProvider)|Not Found|
+|[az identitysignins identity-provider-identity-provider delete-identity-provider](#identityProviders.identityProviderDeleteIdentityProvider)|DeleteIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderDeleteIdentityProvider)|Not Found|
+|[az identitysignins identity-provider-identity-provider list-identity-provider](#identityProviders.identityProviderListIdentityProvider)|ListIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderListIdentityProvider)|Not Found|
+|[az identitysignins identity-provider-identity-provider show-identity-provider](#identityProviders.identityProviderGetIdentityProvider)|GetIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderGetIdentityProvider)|Not Found|
+|[az identitysignins identity-provider-identity-provider update-identity-provider](#identityProviders.identityProviderUpdateIdentityProvider)|UpdateIdentityProvider|[Parameters](#ParametersidentityProviders.identityProviderUpdateIdentityProvider)|Not Found|
 
-### <a name="CommandsIninformationProtection.informationProtection">Commands in `az identitysignins informationprotection` group</a>
+### <a name="CommandsIninformationProtection">Commands in `az identitysignins information-protection` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins informationprotection show-information-protection](#informationProtection.informationProtectionGetInformationProtection)|GetInformationProtection|[Parameters](#ParametersinformationProtection.informationProtectionGetInformationProtection)|Not Found|
-|[az identitysignins informationprotection update-information-protection](#informationProtection.informationProtectionUpdateInformationProtection)|UpdateInformationProtection|[Parameters](#ParametersinformationProtection.informationProtectionUpdateInformationProtection)|Not Found|
+|[az identitysignins information-protection create-threat-assessment-request](#informationProtectionCreateThreatAssessmentRequests)|CreateThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionCreateThreatAssessmentRequests)|Not Found|
+|[az identitysignins information-protection delete-threat-assessment-request](#informationProtectionDeleteThreatAssessmentRequests)|DeleteThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionDeleteThreatAssessmentRequests)|Not Found|
+|[az identitysignins information-protection list-threat-assessment-request](#informationProtectionListThreatAssessmentRequests)|ListThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionListThreatAssessmentRequests)|Not Found|
+|[az identitysignins information-protection show-threat-assessment-request](#informationProtectionGetThreatAssessmentRequests)|GetThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionGetThreatAssessmentRequests)|Not Found|
+|[az identitysignins information-protection update-threat-assessment-request](#informationProtectionUpdateThreatAssessmentRequests)|UpdateThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionUpdateThreatAssessmentRequests)|Not Found|
 
-### <a name="CommandsIninformationProtection">Commands in `az identitysignins informationprotection` group</a>
+### <a name="CommandsIninformationProtection.informationProtection">Commands in `az identitysignins information-protection-information-protection` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins informationprotection create-threat-assessment-request](#informationProtectionCreateThreatAssessmentRequests)|CreateThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionCreateThreatAssessmentRequests)|Not Found|
-|[az identitysignins informationprotection delete-threat-assessment-request](#informationProtectionDeleteThreatAssessmentRequests)|DeleteThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionDeleteThreatAssessmentRequests)|Not Found|
-|[az identitysignins informationprotection list-threat-assessment-request](#informationProtectionListThreatAssessmentRequests)|ListThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionListThreatAssessmentRequests)|Not Found|
-|[az identitysignins informationprotection show-threat-assessment-request](#informationProtectionGetThreatAssessmentRequests)|GetThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionGetThreatAssessmentRequests)|Not Found|
-|[az identitysignins informationprotection update-threat-assessment-request](#informationProtectionUpdateThreatAssessmentRequests)|UpdateThreatAssessmentRequests|[Parameters](#ParametersinformationProtectionUpdateThreatAssessmentRequests)|Not Found|
+|[az identitysignins information-protection-information-protection show-information-protection](#informationProtection.informationProtectionGetInformationProtection)|GetInformationProtection|[Parameters](#ParametersinformationProtection.informationProtectionGetInformationProtection)|Not Found|
+|[az identitysignins information-protection-information-protection update-information-protection](#informationProtection.informationProtectionUpdateInformationProtection)|UpdateInformationProtection|[Parameters](#ParametersinformationProtection.informationProtectionUpdateInformationProtection)|Not Found|
 
-### <a name="CommandsIninformationProtection.threatAssessmentRequests">Commands in `az identitysignins informationprotectionthreatassessmentrequest` group</a>
+### <a name="CommandsIninformationProtection.threatAssessmentRequests">Commands in `az identitysignins information-protection-threat-assessment-request` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins informationprotectionthreatassessmentrequest create-result](#informationProtection.threatAssessmentRequestsCreateResults)|CreateResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsCreateResults)|Not Found|
-|[az identitysignins informationprotectionthreatassessmentrequest delete-result](#informationProtection.threatAssessmentRequestsDeleteResults)|DeleteResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsDeleteResults)|Not Found|
-|[az identitysignins informationprotectionthreatassessmentrequest list-result](#informationProtection.threatAssessmentRequestsListResults)|ListResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsListResults)|Not Found|
-|[az identitysignins informationprotectionthreatassessmentrequest show-result](#informationProtection.threatAssessmentRequestsGetResults)|GetResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsGetResults)|Not Found|
-|[az identitysignins informationprotectionthreatassessmentrequest update-result](#informationProtection.threatAssessmentRequestsUpdateResults)|UpdateResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsUpdateResults)|Not Found|
+|[az identitysignins information-protection-threat-assessment-request create-result](#informationProtection.threatAssessmentRequestsCreateResults)|CreateResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsCreateResults)|Not Found|
+|[az identitysignins information-protection-threat-assessment-request delete-result](#informationProtection.threatAssessmentRequestsDeleteResults)|DeleteResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsDeleteResults)|Not Found|
+|[az identitysignins information-protection-threat-assessment-request list-result](#informationProtection.threatAssessmentRequestsListResults)|ListResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsListResults)|Not Found|
+|[az identitysignins information-protection-threat-assessment-request show-result](#informationProtection.threatAssessmentRequestsGetResults)|GetResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsGetResults)|Not Found|
+|[az identitysignins information-protection-threat-assessment-request update-result](#informationProtection.threatAssessmentRequestsUpdateResults)|UpdateResults|[Parameters](#ParametersinformationProtection.threatAssessmentRequestsUpdateResults)|Not Found|
 
 ### <a name="CommandsIninvitations">Commands in `az identitysignins invitation` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -97,28 +97,28 @@
 |[az identitysignins invitation show-invited-user](#invitationsGetInvitedUser)|GetInvitedUser|[Parameters](#ParametersinvitationsGetInvitedUser)|Not Found|
 |[az identitysignins invitation show-ref-invited-user](#invitationsGetRefInvitedUser)|GetRefInvitedUser|[Parameters](#ParametersinvitationsGetRefInvitedUser)|Not Found|
 
-### <a name="CommandsIninvitations.invitation">Commands in `az identitysignins invitationsinvitation` group</a>
+### <a name="CommandsIninvitations.invitation">Commands in `az identitysignins invitation-invitation` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins invitationsinvitation create-invitation](#invitations.invitationCreateInvitation)|CreateInvitation|[Parameters](#Parametersinvitations.invitationCreateInvitation)|Not Found|
-|[az identitysignins invitationsinvitation delete-invitation](#invitations.invitationDeleteInvitation)|DeleteInvitation|[Parameters](#Parametersinvitations.invitationDeleteInvitation)|Not Found|
-|[az identitysignins invitationsinvitation list-invitation](#invitations.invitationListInvitation)|ListInvitation|[Parameters](#Parametersinvitations.invitationListInvitation)|Not Found|
-|[az identitysignins invitationsinvitation show-invitation](#invitations.invitationGetInvitation)|GetInvitation|[Parameters](#Parametersinvitations.invitationGetInvitation)|Not Found|
-|[az identitysignins invitationsinvitation update-invitation](#invitations.invitationUpdateInvitation)|UpdateInvitation|[Parameters](#Parametersinvitations.invitationUpdateInvitation)|Not Found|
+|[az identitysignins invitation-invitation create-invitation](#invitations.invitationCreateInvitation)|CreateInvitation|[Parameters](#Parametersinvitations.invitationCreateInvitation)|Not Found|
+|[az identitysignins invitation-invitation delete-invitation](#invitations.invitationDeleteInvitation)|DeleteInvitation|[Parameters](#Parametersinvitations.invitationDeleteInvitation)|Not Found|
+|[az identitysignins invitation-invitation list-invitation](#invitations.invitationListInvitation)|ListInvitation|[Parameters](#Parametersinvitations.invitationListInvitation)|Not Found|
+|[az identitysignins invitation-invitation show-invitation](#invitations.invitationGetInvitation)|GetInvitation|[Parameters](#Parametersinvitations.invitationGetInvitation)|Not Found|
+|[az identitysignins invitation-invitation update-invitation](#invitations.invitationUpdateInvitation)|UpdateInvitation|[Parameters](#Parametersinvitations.invitationUpdateInvitation)|Not Found|
 
-### <a name="CommandsInoauth2PermissionGrants">Commands in `az identitysignins oauth2permissiongrant` group</a>
+### <a name="CommandsInoauth2PermissionGrants">Commands in `az identitysignins oauth2-permission-grant` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins oauth2permissiongrant delta](#oauth2PermissionGrantsdelta)|delta|[Parameters](#Parametersoauth2PermissionGrantsdelta)|Not Found|
+|[az identitysignins oauth2-permission-grant delta](#oauth2PermissionGrantsdelta)|delta|[Parameters](#Parametersoauth2PermissionGrantsdelta)|Not Found|
 
-### <a name="CommandsInoauth2PermissionGrants.oAuth2PermissionGrant">Commands in `az identitysignins oauth2permissiongrantsoauth2permissiongrant` group</a>
+### <a name="CommandsInoauth2PermissionGrants.oAuth2PermissionGrant">Commands in `az identitysignins oauth2-permission-grant-o-auth2-permission-grant` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az identitysignins oauth2permissiongrantsoauth2permissiongrant create-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant)|CreateOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant)|Not Found|
-|[az identitysignins oauth2permissiongrantsoauth2permissiongrant delete-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant)|DeleteOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant)|Not Found|
-|[az identitysignins oauth2permissiongrantsoauth2permissiongrant list-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant)|ListOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant)|Not Found|
-|[az identitysignins oauth2permissiongrantsoauth2permissiongrant show-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant)|GetOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant)|Not Found|
-|[az identitysignins oauth2permissiongrantsoauth2permissiongrant update-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant)|UpdateOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant)|Not Found|
+|[az identitysignins oauth2-permission-grant-o-auth2-permission-grant create-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant)|CreateOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant)|Not Found|
+|[az identitysignins oauth2-permission-grant-o-auth2-permission-grant delete-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant)|DeleteOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant)|Not Found|
+|[az identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant)|ListOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant)|Not Found|
+|[az identitysignins oauth2-permission-grant-o-auth2-permission-grant show-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant)|GetOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant)|Not Found|
+|[az identitysignins oauth2-permission-grant-o-auth2-permission-grant update-o-auth2-permission-grant](#oauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant)|UpdateOAuth2PermissionGrant|[Parameters](#Parametersoauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant)|Not Found|
 
 ### <a name="CommandsInorganization">Commands in `az identitysignins organization` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -126,26 +126,6 @@
 |[az identitysignins organization create-ref-certificate-based-auth-configuration](#organizationCreateRefCertificateBasedAuthConfiguration)|CreateRefCertificateBasedAuthConfiguration|[Parameters](#ParametersorganizationCreateRefCertificateBasedAuthConfiguration)|Not Found|
 |[az identitysignins organization list-certificate-based-auth-configuration](#organizationListCertificateBasedAuthConfiguration)|ListCertificateBasedAuthConfiguration|[Parameters](#ParametersorganizationListCertificateBasedAuthConfiguration)|Not Found|
 |[az identitysignins organization list-ref-certificate-based-auth-configuration](#organizationListRefCertificateBasedAuthConfiguration)|ListRefCertificateBasedAuthConfiguration|[Parameters](#ParametersorganizationListRefCertificateBasedAuthConfiguration)|Not Found|
-
-### <a name="CommandsInpolicies.permissionGrantPolicies">Commands in `az identitysignins policiespermissiongrantpolicy` group</a>
-|CLI Command|Operation Swagger name|Parameters|Examples|
-|---------|------------|--------|-----------|
-|[az identitysignins policiespermissiongrantpolicy create-exclude](#policies.permissionGrantPoliciesCreateExcludes)|CreateExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesCreateExcludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy create-include](#policies.permissionGrantPoliciesCreateIncludes)|CreateIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesCreateIncludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy delete-exclude](#policies.permissionGrantPoliciesDeleteExcludes)|DeleteExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesDeleteExcludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy delete-include](#policies.permissionGrantPoliciesDeleteIncludes)|DeleteIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesDeleteIncludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy list-exclude](#policies.permissionGrantPoliciesListExcludes)|ListExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesListExcludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy list-include](#policies.permissionGrantPoliciesListIncludes)|ListIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesListIncludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy show-exclude](#policies.permissionGrantPoliciesGetExcludes)|GetExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesGetExcludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy show-include](#policies.permissionGrantPoliciesGetIncludes)|GetIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesGetIncludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy update-exclude](#policies.permissionGrantPoliciesUpdateExcludes)|UpdateExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesUpdateExcludes)|Not Found|
-|[az identitysignins policiespermissiongrantpolicy update-include](#policies.permissionGrantPoliciesUpdateIncludes)|UpdateIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesUpdateIncludes)|Not Found|
-
-### <a name="CommandsInpolicies.policyRoot">Commands in `az identitysignins policiespolicyroot` group</a>
-|CLI Command|Operation Swagger name|Parameters|Examples|
-|---------|------------|--------|-----------|
-|[az identitysignins policiespolicyroot show-policy-root](#policies.policyRootGetPolicyRoot)|GetPolicyRoot|[Parameters](#Parameterspolicies.policyRootGetPolicyRoot)|Not Found|
-|[az identitysignins policiespolicyroot update-policy-root](#policies.policyRootUpdatePolicyRoot)|UpdatePolicyRoot|[Parameters](#Parameterspolicies.policyRootUpdatePolicyRoot)|Not Found|
 
 ### <a name="CommandsInpolicies">Commands in `az identitysignins policy` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -189,11 +169,31 @@
 |[az identitysignins policy update-token-issuance-policy](#policiesUpdateTokenIssuancePolicies)|UpdateTokenIssuancePolicies|[Parameters](#ParameterspoliciesUpdateTokenIssuancePolicies)|Not Found|
 |[az identitysignins policy update-token-lifetime-policy](#policiesUpdateTokenLifetimePolicies)|UpdateTokenLifetimePolicies|[Parameters](#ParameterspoliciesUpdateTokenLifetimePolicies)|Not Found|
 
+### <a name="CommandsInpolicies.permissionGrantPolicies">Commands in `az identitysignins policy-permission-grant-policy` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitysignins policy-permission-grant-policy create-exclude](#policies.permissionGrantPoliciesCreateExcludes)|CreateExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesCreateExcludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy create-include](#policies.permissionGrantPoliciesCreateIncludes)|CreateIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesCreateIncludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy delete-exclude](#policies.permissionGrantPoliciesDeleteExcludes)|DeleteExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesDeleteExcludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy delete-include](#policies.permissionGrantPoliciesDeleteIncludes)|DeleteIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesDeleteIncludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy list-exclude](#policies.permissionGrantPoliciesListExcludes)|ListExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesListExcludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy list-include](#policies.permissionGrantPoliciesListIncludes)|ListIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesListIncludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy show-exclude](#policies.permissionGrantPoliciesGetExcludes)|GetExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesGetExcludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy show-include](#policies.permissionGrantPoliciesGetIncludes)|GetIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesGetIncludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy update-exclude](#policies.permissionGrantPoliciesUpdateExcludes)|UpdateExcludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesUpdateExcludes)|Not Found|
+|[az identitysignins policy-permission-grant-policy update-include](#policies.permissionGrantPoliciesUpdateIncludes)|UpdateIncludes|[Parameters](#Parameterspolicies.permissionGrantPoliciesUpdateIncludes)|Not Found|
+
+### <a name="CommandsInpolicies.policyRoot">Commands in `az identitysignins policy-policy-root` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitysignins policy-policy-root show-policy-root](#policies.policyRootGetPolicyRoot)|GetPolicyRoot|[Parameters](#Parameterspolicies.policyRootGetPolicyRoot)|Not Found|
+|[az identitysignins policy-policy-root update-policy-root](#policies.policyRootUpdatePolicyRoot)|UpdatePolicyRoot|[Parameters](#Parameterspolicies.policyRootUpdatePolicyRoot)|Not Found|
+
 
 ## COMMAND DETAILS
 
-### group `az identitysignins datapolicyoperationsdatapolicyoperation`
-#### <a name="dataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation">Command `az identitysignins datapolicyoperationsdatapolicyoperation create-data-policy-operation`</a>
+### group `az identitysignins data-policy-operation-data-policy-operation`
+#### <a name="dataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation">Command `az identitysignins data-policy-operation-data-policy-operation create-data-policy-operation`</a>
 
 ##### <a name="ParametersdataPolicyOperations.dataPolicyOperationCreateDataPolicyOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -206,7 +206,7 @@
 |**--submitted-date-time**|date-time|Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|submitted_date_time|submittedDateTime|
 |**--user-id**|string|The id for the user on whom the operation is performed.|user_id|userId|
 
-#### <a name="dataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation">Command `az identitysignins datapolicyoperationsdatapolicyoperation delete-data-policy-operation`</a>
+#### <a name="dataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation">Command `az identitysignins data-policy-operation-data-policy-operation delete-data-policy-operation`</a>
 
 ##### <a name="ParametersdataPolicyOperations.dataPolicyOperationDeleteDataPolicyOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -214,7 +214,7 @@
 |**--data-policy-operation-id**|string|key: id of dataPolicyOperation|data_policy_operation_id|dataPolicyOperation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="dataPolicyOperations.dataPolicyOperationListDataPolicyOperation">Command `az identitysignins datapolicyoperationsdatapolicyoperation list-data-policy-operation`</a>
+#### <a name="dataPolicyOperations.dataPolicyOperationListDataPolicyOperation">Command `az identitysignins data-policy-operation-data-policy-operation list-data-policy-operation`</a>
 
 ##### <a name="ParametersdataPolicyOperations.dataPolicyOperationListDataPolicyOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -223,7 +223,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="dataPolicyOperations.dataPolicyOperationGetDataPolicyOperation">Command `az identitysignins datapolicyoperationsdatapolicyoperation show-data-policy-operation`</a>
+#### <a name="dataPolicyOperations.dataPolicyOperationGetDataPolicyOperation">Command `az identitysignins data-policy-operation-data-policy-operation show-data-policy-operation`</a>
 
 ##### <a name="ParametersdataPolicyOperations.dataPolicyOperationGetDataPolicyOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -232,7 +232,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="dataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation">Command `az identitysignins datapolicyoperationsdatapolicyoperation update-data-policy-operation`</a>
+#### <a name="dataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation">Command `az identitysignins data-policy-operation-data-policy-operation update-data-policy-operation`</a>
 
 ##### <a name="ParametersdataPolicyOperations.dataPolicyOperationUpdateDataPolicyOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -271,8 +271,8 @@
 |**--named-locations**|array||named_locations|namedLocations|
 |**--policies**|array||policies|policies|
 
-### group `az identitysignins identityconditionalaccess`
-#### <a name="identity.conditionalAccessCreateNamedLocations">Command `az identitysignins identityconditionalaccess create-named-location`</a>
+### group `az identitysignins identity-conditional-access`
+#### <a name="identity.conditionalAccessCreateNamedLocations">Command `az identitysignins identity-conditional-access create-named-location`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessCreateNamedLocations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -282,7 +282,7 @@
 |**--display-name**|string|Human-readable name of the location.|display_name|displayName|
 |**--modified-date-time**|date-time|The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|modified_date_time|modifiedDateTime|
 
-#### <a name="identity.conditionalAccessCreatePolicies">Command `az identitysignins identityconditionalaccess create-policy`</a>
+#### <a name="identity.conditionalAccessCreatePolicies">Command `az identitysignins identity-conditional-access create-policy`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessCreatePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -305,7 +305,7 @@
 |**--sign-in-risk-levels**|array|Risk levels included in the policy. Possible values are: low, medium, high, none.|sign_in_risk_levels|signInRiskLevels|
 |**--users**|object|conditionalAccessUsers|users|users|
 
-#### <a name="identity.conditionalAccessDeleteNamedLocations">Command `az identitysignins identityconditionalaccess delete-named-location`</a>
+#### <a name="identity.conditionalAccessDeleteNamedLocations">Command `az identitysignins identity-conditional-access delete-named-location`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessDeleteNamedLocations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -313,7 +313,7 @@
 |**--named-location-id**|string|key: id of namedLocation|named_location_id|namedLocation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="identity.conditionalAccessDeletePolicies">Command `az identitysignins identityconditionalaccess delete-policy`</a>
+#### <a name="identity.conditionalAccessDeletePolicies">Command `az identitysignins identity-conditional-access delete-policy`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessDeletePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -321,7 +321,7 @@
 |**--conditional-access-policy-id**|string|key: id of conditionalAccessPolicy|conditional_access_policy_id|conditionalAccessPolicy-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="identity.conditionalAccessListNamedLocations">Command `az identitysignins identityconditionalaccess list-named-location`</a>
+#### <a name="identity.conditionalAccessListNamedLocations">Command `az identitysignins identity-conditional-access list-named-location`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessListNamedLocations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -330,7 +330,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identity.conditionalAccessListPolicies">Command `az identitysignins identityconditionalaccess list-policy`</a>
+#### <a name="identity.conditionalAccessListPolicies">Command `az identitysignins identity-conditional-access list-policy`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessListPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -339,7 +339,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identity.conditionalAccessGetNamedLocations">Command `az identitysignins identityconditionalaccess show-named-location`</a>
+#### <a name="identity.conditionalAccessGetNamedLocations">Command `az identitysignins identity-conditional-access show-named-location`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessGetNamedLocations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -348,7 +348,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identity.conditionalAccessGetPolicies">Command `az identitysignins identityconditionalaccess show-policy`</a>
+#### <a name="identity.conditionalAccessGetPolicies">Command `az identitysignins identity-conditional-access show-policy`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessGetPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -357,7 +357,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identity.conditionalAccessUpdateNamedLocations">Command `az identitysignins identityconditionalaccess update-named-location`</a>
+#### <a name="identity.conditionalAccessUpdateNamedLocations">Command `az identitysignins identity-conditional-access update-named-location`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessUpdateNamedLocations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -368,7 +368,7 @@
 |**--display-name**|string|Human-readable name of the location.|display_name|displayName|
 |**--modified-date-time**|date-time|The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|modified_date_time|modifiedDateTime|
 
-#### <a name="identity.conditionalAccessUpdatePolicies">Command `az identitysignins identityconditionalaccess update-policy`</a>
+#### <a name="identity.conditionalAccessUpdatePolicies">Command `az identitysignins identity-conditional-access update-policy`</a>
 
 ##### <a name="Parametersidentity.conditionalAccessUpdatePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -392,8 +392,8 @@
 |**--sign-in-risk-levels**|array|Risk levels included in the policy. Possible values are: low, medium, high, none.|sign_in_risk_levels|signInRiskLevels|
 |**--users**|object|conditionalAccessUsers|users|users|
 
-### group `az identitysignins identityprovidersidentityprovider`
-#### <a name="identityProviders.identityProviderCreateIdentityProvider">Command `az identitysignins identityprovidersidentityprovider create-identity-provider`</a>
+### group `az identitysignins identity-provider-identity-provider`
+#### <a name="identityProviders.identityProviderCreateIdentityProvider">Command `az identitysignins identity-provider-identity-provider create-identity-provider`</a>
 
 ##### <a name="ParametersidentityProviders.identityProviderCreateIdentityProvider">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -404,7 +404,7 @@
 |**--name**|string||name|name|
 |**--type**|string||type|type|
 
-#### <a name="identityProviders.identityProviderDeleteIdentityProvider">Command `az identitysignins identityprovidersidentityprovider delete-identity-provider`</a>
+#### <a name="identityProviders.identityProviderDeleteIdentityProvider">Command `az identitysignins identity-provider-identity-provider delete-identity-provider`</a>
 
 ##### <a name="ParametersidentityProviders.identityProviderDeleteIdentityProvider">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -412,7 +412,7 @@
 |**--identity-provider-id**|string|key: id of identityProvider|identity_provider_id|identityProvider-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="identityProviders.identityProviderListIdentityProvider">Command `az identitysignins identityprovidersidentityprovider list-identity-provider`</a>
+#### <a name="identityProviders.identityProviderListIdentityProvider">Command `az identitysignins identity-provider-identity-provider list-identity-provider`</a>
 
 ##### <a name="ParametersidentityProviders.identityProviderListIdentityProvider">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -421,7 +421,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identityProviders.identityProviderGetIdentityProvider">Command `az identitysignins identityprovidersidentityprovider show-identity-provider`</a>
+#### <a name="identityProviders.identityProviderGetIdentityProvider">Command `az identitysignins identity-provider-identity-provider show-identity-provider`</a>
 
 ##### <a name="ParametersidentityProviders.identityProviderGetIdentityProvider">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -430,7 +430,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="identityProviders.identityProviderUpdateIdentityProvider">Command `az identitysignins identityprovidersidentityprovider update-identity-provider`</a>
+#### <a name="identityProviders.identityProviderUpdateIdentityProvider">Command `az identitysignins identity-provider-identity-provider update-identity-provider`</a>
 
 ##### <a name="ParametersidentityProviders.identityProviderUpdateIdentityProvider">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -442,25 +442,8 @@
 |**--name**|string||name|name|
 |**--type**|string||type|type|
 
-### group `az identitysignins informationprotection`
-#### <a name="informationProtection.informationProtectionGetInformationProtection">Command `az identitysignins informationprotection show-information-protection`</a>
-
-##### <a name="ParametersinformationProtection.informationProtectionGetInformationProtection">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="informationProtection.informationProtectionUpdateInformationProtection">Command `az identitysignins informationprotection update-information-protection`</a>
-
-##### <a name="ParametersinformationProtection.informationProtectionUpdateInformationProtection">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--threat-assessment-requests**|array||threat_assessment_requests|threatAssessmentRequests|
-
-### group `az identitysignins informationprotection`
-#### <a name="informationProtectionCreateThreatAssessmentRequests">Command `az identitysignins informationprotection create-threat-assessment-request`</a>
+### group `az identitysignins information-protection`
+#### <a name="informationProtectionCreateThreatAssessmentRequests">Command `az identitysignins information-protection create-threat-assessment-request`</a>
 
 ##### <a name="ParametersinformationProtectionCreateThreatAssessmentRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -477,7 +460,7 @@
 |**--device**|object|identity|device|device|
 |**--user**|object|identity|user|user|
 
-#### <a name="informationProtectionDeleteThreatAssessmentRequests">Command `az identitysignins informationprotection delete-threat-assessment-request`</a>
+#### <a name="informationProtectionDeleteThreatAssessmentRequests">Command `az identitysignins information-protection delete-threat-assessment-request`</a>
 
 ##### <a name="ParametersinformationProtectionDeleteThreatAssessmentRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -485,7 +468,7 @@
 |**--threat-assessment-request-id**|string|key: id of threatAssessmentRequest|threat_assessment_request_id|threatAssessmentRequest-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="informationProtectionListThreatAssessmentRequests">Command `az identitysignins informationprotection list-threat-assessment-request`</a>
+#### <a name="informationProtectionListThreatAssessmentRequests">Command `az identitysignins information-protection list-threat-assessment-request`</a>
 
 ##### <a name="ParametersinformationProtectionListThreatAssessmentRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -494,7 +477,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="informationProtectionGetThreatAssessmentRequests">Command `az identitysignins informationprotection show-threat-assessment-request`</a>
+#### <a name="informationProtectionGetThreatAssessmentRequests">Command `az identitysignins information-protection show-threat-assessment-request`</a>
 
 ##### <a name="ParametersinformationProtectionGetThreatAssessmentRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -503,7 +486,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="informationProtectionUpdateThreatAssessmentRequests">Command `az identitysignins informationprotection update-threat-assessment-request`</a>
+#### <a name="informationProtectionUpdateThreatAssessmentRequests">Command `az identitysignins information-protection update-threat-assessment-request`</a>
 
 ##### <a name="ParametersinformationProtectionUpdateThreatAssessmentRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -521,8 +504,25 @@
 |**--device**|object|identity|device|device|
 |**--user**|object|identity|user|user|
 
-### group `az identitysignins informationprotectionthreatassessmentrequest`
-#### <a name="informationProtection.threatAssessmentRequestsCreateResults">Command `az identitysignins informationprotectionthreatassessmentrequest create-result`</a>
+### group `az identitysignins information-protection-information-protection`
+#### <a name="informationProtection.informationProtectionGetInformationProtection">Command `az identitysignins information-protection-information-protection show-information-protection`</a>
+
+##### <a name="ParametersinformationProtection.informationProtectionGetInformationProtection">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="informationProtection.informationProtectionUpdateInformationProtection">Command `az identitysignins information-protection-information-protection update-information-protection`</a>
+
+##### <a name="ParametersinformationProtection.informationProtectionUpdateInformationProtection">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--threat-assessment-requests**|array||threat_assessment_requests|threatAssessmentRequests|
+
+### group `az identitysignins information-protection-threat-assessment-request`
+#### <a name="informationProtection.threatAssessmentRequestsCreateResults">Command `az identitysignins information-protection-threat-assessment-request create-result`</a>
 
 ##### <a name="ParametersinformationProtection.threatAssessmentRequestsCreateResults">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -533,7 +533,7 @@
 |**--message**|string|The result message for each threat assessment.|message|message|
 |**--result-type**|choice||result_type|resultType|
 
-#### <a name="informationProtection.threatAssessmentRequestsDeleteResults">Command `az identitysignins informationprotectionthreatassessmentrequest delete-result`</a>
+#### <a name="informationProtection.threatAssessmentRequestsDeleteResults">Command `az identitysignins information-protection-threat-assessment-request delete-result`</a>
 
 ##### <a name="ParametersinformationProtection.threatAssessmentRequestsDeleteResults">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -542,7 +542,7 @@
 |**--threat-assessment-result-id**|string|key: id of threatAssessmentResult|threat_assessment_result_id|threatAssessmentResult-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="informationProtection.threatAssessmentRequestsListResults">Command `az identitysignins informationprotectionthreatassessmentrequest list-result`</a>
+#### <a name="informationProtection.threatAssessmentRequestsListResults">Command `az identitysignins information-protection-threat-assessment-request list-result`</a>
 
 ##### <a name="ParametersinformationProtection.threatAssessmentRequestsListResults">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -552,7 +552,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="informationProtection.threatAssessmentRequestsGetResults">Command `az identitysignins informationprotectionthreatassessmentrequest show-result`</a>
+#### <a name="informationProtection.threatAssessmentRequestsGetResults">Command `az identitysignins information-protection-threat-assessment-request show-result`</a>
 
 ##### <a name="ParametersinformationProtection.threatAssessmentRequestsGetResults">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -562,7 +562,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="informationProtection.threatAssessmentRequestsUpdateResults">Command `az identitysignins informationprotectionthreatassessmentrequest update-result`</a>
+#### <a name="informationProtection.threatAssessmentRequestsUpdateResults">Command `az identitysignins information-protection-threat-assessment-request update-result`</a>
 
 ##### <a name="ParametersinformationProtection.threatAssessmentRequestsUpdateResults">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -607,8 +607,8 @@
 |------|----|-----------|----------|------------|
 |**--invitation-id**|string|key: id of invitation|invitation_id|invitation-id|
 
-### group `az identitysignins invitationsinvitation`
-#### <a name="invitations.invitationCreateInvitation">Command `az identitysignins invitationsinvitation create-invitation`</a>
+### group `az identitysignins invitation-invitation`
+#### <a name="invitations.invitationCreateInvitation">Command `az identitysignins invitation-invitation create-invitation`</a>
 
 ##### <a name="Parametersinvitations.invitationCreateInvitation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -626,7 +626,7 @@
 |**--customized-message-body**|string|Customized message body you want to send if you don't want the default message.|customized_message_body|customizedMessageBody|
 |**--message-language**|string|The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.|message_language|messageLanguage|
 
-#### <a name="invitations.invitationDeleteInvitation">Command `az identitysignins invitationsinvitation delete-invitation`</a>
+#### <a name="invitations.invitationDeleteInvitation">Command `az identitysignins invitation-invitation delete-invitation`</a>
 
 ##### <a name="Parametersinvitations.invitationDeleteInvitation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -634,7 +634,7 @@
 |**--invitation-id**|string|key: id of invitation|invitation_id|invitation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="invitations.invitationListInvitation">Command `az identitysignins invitationsinvitation list-invitation`</a>
+#### <a name="invitations.invitationListInvitation">Command `az identitysignins invitation-invitation list-invitation`</a>
 
 ##### <a name="Parametersinvitations.invitationListInvitation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -643,7 +643,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="invitations.invitationGetInvitation">Command `az identitysignins invitationsinvitation show-invitation`</a>
+#### <a name="invitations.invitationGetInvitation">Command `az identitysignins invitation-invitation show-invitation`</a>
 
 ##### <a name="Parametersinvitations.invitationGetInvitation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -652,7 +652,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="invitations.invitationUpdateInvitation">Command `az identitysignins invitationsinvitation update-invitation`</a>
+#### <a name="invitations.invitationUpdateInvitation">Command `az identitysignins invitation-invitation update-invitation`</a>
 
 ##### <a name="Parametersinvitations.invitationUpdateInvitation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -671,14 +671,14 @@
 |**--customized-message-body**|string|Customized message body you want to send if you don't want the default message.|customized_message_body|customizedMessageBody|
 |**--message-language**|string|The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.|message_language|messageLanguage|
 
-### group `az identitysignins oauth2permissiongrant`
-#### <a name="oauth2PermissionGrantsdelta">Command `az identitysignins oauth2permissiongrant delta`</a>
+### group `az identitysignins oauth2-permission-grant`
+#### <a name="oauth2PermissionGrantsdelta">Command `az identitysignins oauth2-permission-grant delta`</a>
 
 ##### <a name="Parametersoauth2PermissionGrantsdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-### group `az identitysignins oauth2permissiongrantsoauth2permissiongrant`
-#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant">Command `az identitysignins oauth2permissiongrantsoauth2permissiongrant create-o-auth2-permission-grant`</a>
+### group `az identitysignins oauth2-permission-grant-o-auth2-permission-grant`
+#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant">Command `az identitysignins oauth2-permission-grant-o-auth2-permission-grant create-o-auth2-permission-grant`</a>
 
 ##### <a name="Parametersoauth2PermissionGrants.oAuth2PermissionGrantCreateOAuth2PermissionGrant">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -690,7 +690,7 @@
 |**--resource-id**|string|The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user.|resource_id|resourceId|
 |**--scope**|string|A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal.|scope|scope|
 
-#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant">Command `az identitysignins oauth2permissiongrantsoauth2permissiongrant delete-o-auth2-permission-grant`</a>
+#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant">Command `az identitysignins oauth2-permission-grant-o-auth2-permission-grant delete-o-auth2-permission-grant`</a>
 
 ##### <a name="Parametersoauth2PermissionGrants.oAuth2PermissionGrantDeleteOAuth2PermissionGrant">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -698,7 +698,7 @@
 |**--o-auth2-permission-grant-id**|string|key: id of oAuth2PermissionGrant|o_auth2_permission_grant_id|oAuth2PermissionGrant-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant">Command `az identitysignins oauth2permissiongrantsoauth2permissiongrant list-o-auth2-permission-grant`</a>
+#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant">Command `az identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant`</a>
 
 ##### <a name="Parametersoauth2PermissionGrants.oAuth2PermissionGrantListOAuth2PermissionGrant">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -707,7 +707,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant">Command `az identitysignins oauth2permissiongrantsoauth2permissiongrant show-o-auth2-permission-grant`</a>
+#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant">Command `az identitysignins oauth2-permission-grant-o-auth2-permission-grant show-o-auth2-permission-grant`</a>
 
 ##### <a name="Parametersoauth2PermissionGrants.oAuth2PermissionGrantGetOAuth2PermissionGrant">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -716,7 +716,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant">Command `az identitysignins oauth2permissiongrantsoauth2permissiongrant update-o-auth2-permission-grant`</a>
+#### <a name="oauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant">Command `az identitysignins oauth2-permission-grant-o-auth2-permission-grant update-o-auth2-permission-grant`</a>
 
 ##### <a name="Parametersoauth2PermissionGrants.oAuth2PermissionGrantUpdateOAuth2PermissionGrant">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -755,155 +755,6 @@
 |------|----|-----------|----------|------------|
 |**--organization-id**|string|key: id of organization|organization_id|organization-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### group `az identitysignins policiespermissiongrantpolicy`
-#### <a name="policies.permissionGrantPoliciesCreateExcludes">Command `az identitysignins policiespermissiongrantpolicy create-exclude`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesCreateExcludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--id**|string|Read-only.|id|id|
-|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
-|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
-|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
-|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
-|**--permission-classification**|string||permission_classification|permissionClassification|
-|**--permissions**|array||permissions|permissions|
-|**--permission-type**|choice||permission_type|permissionType|
-|**--resource-application**|string||resource_application|resourceApplication|
-
-#### <a name="policies.permissionGrantPoliciesCreateIncludes">Command `az identitysignins policiespermissiongrantpolicy create-include`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesCreateIncludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--id**|string|Read-only.|id|id|
-|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
-|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
-|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
-|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
-|**--permission-classification**|string||permission_classification|permissionClassification|
-|**--permissions**|array||permissions|permissions|
-|**--permission-type**|choice||permission_type|permissionType|
-|**--resource-application**|string||resource_application|resourceApplication|
-
-#### <a name="policies.permissionGrantPoliciesDeleteExcludes">Command `az identitysignins policiespermissiongrantpolicy delete-exclude`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesDeleteExcludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="policies.permissionGrantPoliciesDeleteIncludes">Command `az identitysignins policiespermissiongrantpolicy delete-include`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesDeleteIncludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="policies.permissionGrantPoliciesListExcludes">Command `az identitysignins policiespermissiongrantpolicy list-exclude`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesListExcludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="policies.permissionGrantPoliciesListIncludes">Command `az identitysignins policiespermissiongrantpolicy list-include`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesListIncludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="policies.permissionGrantPoliciesGetExcludes">Command `az identitysignins policiespermissiongrantpolicy show-exclude`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesGetExcludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="policies.permissionGrantPoliciesGetIncludes">Command `az identitysignins policiespermissiongrantpolicy show-include`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesGetIncludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="policies.permissionGrantPoliciesUpdateExcludes">Command `az identitysignins policiespermissiongrantpolicy update-exclude`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesUpdateExcludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--id**|string|Read-only.|id|id|
-|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
-|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
-|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
-|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
-|**--permission-classification**|string||permission_classification|permissionClassification|
-|**--permissions**|array||permissions|permissions|
-|**--permission-type**|choice||permission_type|permissionType|
-|**--resource-application**|string||resource_application|resourceApplication|
-
-#### <a name="policies.permissionGrantPoliciesUpdateIncludes">Command `az identitysignins policiespermissiongrantpolicy update-include`</a>
-
-##### <a name="Parameterspolicies.permissionGrantPoliciesUpdateIncludes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
-|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
-|**--id**|string|Read-only.|id|id|
-|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
-|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
-|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
-|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
-|**--permission-classification**|string||permission_classification|permissionClassification|
-|**--permissions**|array||permissions|permissions|
-|**--permission-type**|choice||permission_type|permissionType|
-|**--resource-application**|string||resource_application|resourceApplication|
-
-### group `az identitysignins policiespolicyroot`
-#### <a name="policies.policyRootGetPolicyRoot">Command `az identitysignins policiespolicyroot show-policy-root`</a>
-
-##### <a name="Parameterspolicies.policyRootGetPolicyRoot">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="policies.policyRootUpdatePolicyRoot">Command `az identitysignins policiespolicyroot update-policy-root`</a>
-
-##### <a name="Parameterspolicies.policyRootUpdatePolicyRoot">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--activity-based-timeout-policies**|array||activity_based_timeout_policies|activityBasedTimeoutPolicies|
-|**--claims-mapping-policies**|array||claims_mapping_policies|claimsMappingPolicies|
-|**--home-realm-discovery-policies**|array||home_realm_discovery_policies|homeRealmDiscoveryPolicies|
-|**--permission-grant-policies**|array||permission_grant_policies|permissionGrantPolicies|
-|**--token-issuance-policies**|array||token_issuance_policies|tokenIssuancePolicies|
-|**--token-lifetime-policies**|array||token_lifetime_policies|tokenLifetimePolicies|
-|**--conditional-access-policies**|array||conditional_access_policies|conditionalAccessPolicies|
-|**--identity-security-defaults-enforcement-policy**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|identity_security_defaults_enforcement_policy|identitySecurityDefaultsEnforcementPolicy|
 
 ### group `az identitysignins policy`
 #### <a name="policiesCreateActivityBasedTimeoutPolicies">Command `az identitysignins policy create-activity-based-timeout-policy`</a>
@@ -1320,3 +1171,152 @@
 |**--definition**|array|A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.|definition|definition|
 |**--is-organization-default**|boolean|If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false.|is_organization_default|isOrganizationDefault|
 |**--applies-to**|array||applies_to|appliesTo|
+
+### group `az identitysignins policy-permission-grant-policy`
+#### <a name="policies.permissionGrantPoliciesCreateExcludes">Command `az identitysignins policy-permission-grant-policy create-exclude`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesCreateExcludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--id**|string|Read-only.|id|id|
+|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
+|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
+|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
+|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
+|**--permission-classification**|string||permission_classification|permissionClassification|
+|**--permissions**|array||permissions|permissions|
+|**--permission-type**|choice||permission_type|permissionType|
+|**--resource-application**|string||resource_application|resourceApplication|
+
+#### <a name="policies.permissionGrantPoliciesCreateIncludes">Command `az identitysignins policy-permission-grant-policy create-include`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesCreateIncludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--id**|string|Read-only.|id|id|
+|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
+|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
+|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
+|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
+|**--permission-classification**|string||permission_classification|permissionClassification|
+|**--permissions**|array||permissions|permissions|
+|**--permission-type**|choice||permission_type|permissionType|
+|**--resource-application**|string||resource_application|resourceApplication|
+
+#### <a name="policies.permissionGrantPoliciesDeleteExcludes">Command `az identitysignins policy-permission-grant-policy delete-exclude`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesDeleteExcludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="policies.permissionGrantPoliciesDeleteIncludes">Command `az identitysignins policy-permission-grant-policy delete-include`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesDeleteIncludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="policies.permissionGrantPoliciesListExcludes">Command `az identitysignins policy-permission-grant-policy list-exclude`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesListExcludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="policies.permissionGrantPoliciesListIncludes">Command `az identitysignins policy-permission-grant-policy list-include`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesListIncludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="policies.permissionGrantPoliciesGetExcludes">Command `az identitysignins policy-permission-grant-policy show-exclude`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesGetExcludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="policies.permissionGrantPoliciesGetIncludes">Command `az identitysignins policy-permission-grant-policy show-include`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesGetIncludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="policies.permissionGrantPoliciesUpdateExcludes">Command `az identitysignins policy-permission-grant-policy update-exclude`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesUpdateExcludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--id**|string|Read-only.|id|id|
+|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
+|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
+|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
+|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
+|**--permission-classification**|string||permission_classification|permissionClassification|
+|**--permissions**|array||permissions|permissions|
+|**--permission-type**|choice||permission_type|permissionType|
+|**--resource-application**|string||resource_application|resourceApplication|
+
+#### <a name="policies.permissionGrantPoliciesUpdateIncludes">Command `az identitysignins policy-permission-grant-policy update-include`</a>
+
+##### <a name="Parameterspolicies.permissionGrantPoliciesUpdateIncludes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--permission-grant-policy-id**|string|key: id of permissionGrantPolicy|permission_grant_policy_id|permissionGrantPolicy-id|
+|**--permission-grant-condition-set-id**|string|key: id of permissionGrantConditionSet|permission_grant_condition_set_id|permissionGrantConditionSet-id|
+|**--id**|string|Read-only.|id|id|
+|**--client-application-ids**|array||client_application_ids|clientApplicationIds|
+|**--client-application-publisher-ids**|array||client_application_publisher_ids|clientApplicationPublisherIds|
+|**--client-applications-from-verified-publisher-only**|boolean||client_applications_from_verified_publisher_only|clientApplicationsFromVerifiedPublisherOnly|
+|**--client-application-tenant-ids**|array||client_application_tenant_ids|clientApplicationTenantIds|
+|**--permission-classification**|string||permission_classification|permissionClassification|
+|**--permissions**|array||permissions|permissions|
+|**--permission-type**|choice||permission_type|permissionType|
+|**--resource-application**|string||resource_application|resourceApplication|
+
+### group `az identitysignins policy-policy-root`
+#### <a name="policies.policyRootGetPolicyRoot">Command `az identitysignins policy-policy-root show-policy-root`</a>
+
+##### <a name="Parameterspolicies.policyRootGetPolicyRoot">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="policies.policyRootUpdatePolicyRoot">Command `az identitysignins policy-policy-root update-policy-root`</a>
+
+##### <a name="Parameterspolicies.policyRootUpdatePolicyRoot">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--activity-based-timeout-policies**|array||activity_based_timeout_policies|activityBasedTimeoutPolicies|
+|**--claims-mapping-policies**|array||claims_mapping_policies|claimsMappingPolicies|
+|**--home-realm-discovery-policies**|array||home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--permission-grant-policies**|array||permission_grant_policies|permissionGrantPolicies|
+|**--token-issuance-policies**|array||token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array||token_lifetime_policies|tokenLifetimePolicies|
+|**--conditional-access-policies**|array||conditional_access_policies|conditionalAccessPolicies|
+|**--identity-security-defaults-enforcement-policy**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|identity_security_defaults_enforcement_policy|identitySecurityDefaultsEnforcementPolicy|

@@ -17,17 +17,17 @@ helps['cloudcommunications_beta'] = '''
     short-summary: Manage Cloud Communications
 '''
 
-helps['cloudcommunications communicationscloudcommunication'] = """
+helps['cloudcommunications communication-cloud-communication'] = """
     type: group
-    short-summary: Manage communicationscloudcommunication with cloudcommunications_beta
+    short-summary: Manage communication cloud communication with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationscloudcommunication show-cloud-communication'] = """
+helps['cloudcommunications communication-cloud-communication show-cloud-communication'] = """
     type: command
     short-summary: "Get communications."
 """
 
-helps['cloudcommunications communicationscloudcommunication update-cloud-communication'] = """
+helps['cloudcommunications communication-cloud-communication update-cloud-communication'] = """
     type: command
     short-summary: "Update communications."
     parameters:
@@ -340,12 +340,12 @@ helps['cloudcommunications communication update-presence'] = """
     short-summary: "Update the navigation property presences in communications."
 """
 
-helps['cloudcommunications communicationscallrecord'] = """
+helps['cloudcommunications communication-call-record'] = """
     type: group
-    short-summary: Manage communicationscallrecord with cloudcommunications_beta
+    short-summary: Manage communication call record with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationscallrecord create-session'] = """
+helps['cloudcommunications communication-call-record create-session'] = """
     type: command
     short-summary: "Create new navigation property to sessions for communications."
     parameters:
@@ -371,22 +371,22 @@ helps['cloudcommunications communicationscallrecord create-session'] = """
             header-value: User-agent header value reported by this endpoint.
 """
 
-helps['cloudcommunications communicationscallrecord delete-session'] = """
+helps['cloudcommunications communication-call-record delete-session'] = """
     type: command
     short-summary: "Delete navigation property sessions for communications."
 """
 
-helps['cloudcommunications communicationscallrecord list-session'] = """
+helps['cloudcommunications communication-call-record list-session'] = """
     type: command
     short-summary: "Get sessions from communications."
 """
 
-helps['cloudcommunications communicationscallrecord show-session'] = """
+helps['cloudcommunications communication-call-record show-session'] = """
     type: command
     short-summary: "Get sessions from communications."
 """
 
-helps['cloudcommunications communicationscallrecord update-session'] = """
+helps['cloudcommunications communication-call-record update-session'] = """
     type: command
     short-summary: "Update the navigation property sessions in communications."
     parameters:
@@ -412,12 +412,12 @@ helps['cloudcommunications communicationscallrecord update-session'] = """
             header-value: User-agent header value reported by this endpoint.
 """
 
-helps['cloudcommunications communicationscallrecordssession'] = """
+helps['cloudcommunications communication-call-record-session'] = """
     type: group
-    short-summary: Manage communicationscallrecordssession with cloudcommunications_beta
+    short-summary: Manage communication call record session with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationscallrecordssession create-segment'] = """
+helps['cloudcommunications communication-call-record-session create-segment'] = """
     type: command
     short-summary: "Create new navigation property to segments for communications."
     parameters:
@@ -443,22 +443,22 @@ helps['cloudcommunications communicationscallrecordssession create-segment'] = "
             header-value: User-agent header value reported by this endpoint.
 """
 
-helps['cloudcommunications communicationscallrecordssession delete-segment'] = """
+helps['cloudcommunications communication-call-record-session delete-segment'] = """
     type: command
     short-summary: "Delete navigation property segments for communications."
 """
 
-helps['cloudcommunications communicationscallrecordssession list-segment'] = """
+helps['cloudcommunications communication-call-record-session list-segment'] = """
     type: command
     short-summary: "Get segments from communications."
 """
 
-helps['cloudcommunications communicationscallrecordssession show-segment'] = """
+helps['cloudcommunications communication-call-record-session show-segment'] = """
     type: command
     short-summary: "Get segments from communications."
 """
 
-helps['cloudcommunications communicationscallrecordssession update-segment'] = """
+helps['cloudcommunications communication-call-record-session update-segment'] = """
     type: command
     short-summary: "Update the navigation property segments in communications."
     parameters:
@@ -484,32 +484,32 @@ helps['cloudcommunications communicationscallrecordssession update-segment'] = "
             header-value: User-agent header value reported by this endpoint.
 """
 
-helps['cloudcommunications communicationscall'] = """
+helps['cloudcommunications communication-call'] = """
     type: group
-    short-summary: Manage communicationscall with cloudcommunications_beta
+    short-summary: Manage communication call with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationscall answer'] = """
+helps['cloudcommunications communication-call answer'] = """
     type: command
     short-summary: "Invoke action answer."
 """
 
-helps['cloudcommunications communicationscall cancel-media-processing'] = """
+helps['cloudcommunications communication-call cancel-media-processing'] = """
     type: command
     short-summary: "Invoke action cancelMediaProcessing."
 """
 
-helps['cloudcommunications communicationscall change-screen-sharing-role'] = """
+helps['cloudcommunications communication-call change-screen-sharing-role'] = """
     type: command
     short-summary: "Invoke action changeScreenSharingRole."
 """
 
-helps['cloudcommunications communicationscall create-audio-routing-group'] = """
+helps['cloudcommunications communication-call create-audio-routing-group'] = """
     type: command
     short-summary: "Create new navigation property to audioRoutingGroups for communications."
 """
 
-helps['cloudcommunications communicationscall create-operation'] = """
+helps['cloudcommunications communication-call create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for communications."
     parameters:
@@ -520,7 +520,7 @@ helps['cloudcommunications communicationscall create-operation'] = """
 
 """
 
-helps['cloudcommunications communicationscall create-participant'] = """
+helps['cloudcommunications communication-call create-participant'] = """
     type: command
     short-summary: "Create new navigation property to participants for communications."
     parameters:
@@ -536,42 +536,42 @@ helps['cloudcommunications communicationscall create-participant'] = """
             Multiple actions can be specified by using more than one --media-streams argument.
 """
 
-helps['cloudcommunications communicationscall delete-audio-routing-group'] = """
+helps['cloudcommunications communication-call delete-audio-routing-group'] = """
     type: command
     short-summary: "Delete navigation property audioRoutingGroups for communications."
 """
 
-helps['cloudcommunications communicationscall delete-operation'] = """
+helps['cloudcommunications communication-call delete-operation'] = """
     type: command
     short-summary: "Delete navigation property operations for communications."
 """
 
-helps['cloudcommunications communicationscall delete-participant'] = """
+helps['cloudcommunications communication-call delete-participant'] = """
     type: command
     short-summary: "Delete navigation property participants for communications."
 """
 
-helps['cloudcommunications communicationscall keep-alive'] = """
+helps['cloudcommunications communication-call keep-alive'] = """
     type: command
     short-summary: "Invoke action keepAlive."
 """
 
-helps['cloudcommunications communicationscall list-audio-routing-group'] = """
+helps['cloudcommunications communication-call list-audio-routing-group'] = """
     type: command
     short-summary: "Get audioRoutingGroups from communications."
 """
 
-helps['cloudcommunications communicationscall list-operation'] = """
+helps['cloudcommunications communication-call list-operation'] = """
     type: command
     short-summary: "Get operations from communications."
 """
 
-helps['cloudcommunications communicationscall list-participant'] = """
+helps['cloudcommunications communication-call list-participant'] = """
     type: command
     short-summary: "Get participants from communications."
 """
 
-helps['cloudcommunications communicationscall log-teleconference-device-quality'] = """
+helps['cloudcommunications communication-call log-teleconference-device-quality'] = """
     type: command
     short-summary: "Invoke action logTeleconferenceDeviceQuality."
     parameters:
@@ -617,57 +617,57 @@ MediaDuration will the summation of all of the durations.
             Multiple actions can be specified by using more than one --media-quality-list argument.
 """
 
-helps['cloudcommunications communicationscall mute'] = """
+helps['cloudcommunications communication-call mute'] = """
     type: command
     short-summary: "Invoke action mute."
 """
 
-helps['cloudcommunications communicationscall play-prompt'] = """
+helps['cloudcommunications communication-call play-prompt'] = """
     type: command
     short-summary: "Invoke action playPrompt."
 """
 
-helps['cloudcommunications communicationscall record'] = """
+helps['cloudcommunications communication-call record'] = """
     type: command
     short-summary: "Invoke action record."
 """
 
-helps['cloudcommunications communicationscall record-response'] = """
+helps['cloudcommunications communication-call record-response'] = """
     type: command
     short-summary: "Invoke action recordResponse."
 """
 
-helps['cloudcommunications communicationscall redirect'] = """
+helps['cloudcommunications communication-call redirect'] = """
     type: command
     short-summary: "Invoke action redirect."
 """
 
-helps['cloudcommunications communicationscall reject'] = """
+helps['cloudcommunications communication-call reject'] = """
     type: command
     short-summary: "Invoke action reject."
 """
 
-helps['cloudcommunications communicationscall show-audio-routing-group'] = """
+helps['cloudcommunications communication-call show-audio-routing-group'] = """
     type: command
     short-summary: "Get audioRoutingGroups from communications."
 """
 
-helps['cloudcommunications communicationscall show-operation'] = """
+helps['cloudcommunications communication-call show-operation'] = """
     type: command
     short-summary: "Get operations from communications."
 """
 
-helps['cloudcommunications communicationscall show-participant'] = """
+helps['cloudcommunications communication-call show-participant'] = """
     type: command
     short-summary: "Get participants from communications."
 """
 
-helps['cloudcommunications communicationscall subscribe-to-tone'] = """
+helps['cloudcommunications communication-call subscribe-to-tone'] = """
     type: command
     short-summary: "Invoke action subscribeToTone."
 """
 
-helps['cloudcommunications communicationscall transfer'] = """
+helps['cloudcommunications communication-call transfer'] = """
     type: command
     short-summary: "Invoke action transfer."
     parameters:
@@ -700,17 +700,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['cloudcommunications communicationscall unmute'] = """
+helps['cloudcommunications communication-call unmute'] = """
     type: command
     short-summary: "Invoke action unmute."
 """
 
-helps['cloudcommunications communicationscall update-audio-routing-group'] = """
+helps['cloudcommunications communication-call update-audio-routing-group'] = """
     type: command
     short-summary: "Update the navigation property audioRoutingGroups in communications."
 """
 
-helps['cloudcommunications communicationscall update-operation'] = """
+helps['cloudcommunications communication-call update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in communications."
     parameters:
@@ -721,7 +721,7 @@ helps['cloudcommunications communicationscall update-operation'] = """
 
 """
 
-helps['cloudcommunications communicationscall update-participant'] = """
+helps['cloudcommunications communication-call update-participant'] = """
     type: command
     short-summary: "Update the navigation property participants in communications."
     parameters:
@@ -737,37 +737,37 @@ helps['cloudcommunications communicationscall update-participant'] = """
             Multiple actions can be specified by using more than one --media-streams argument.
 """
 
-helps['cloudcommunications communicationscall update-recording-status'] = """
+helps['cloudcommunications communication-call update-recording-status'] = """
     type: command
     short-summary: "Invoke action updateRecordingStatus."
 """
 
-helps['cloudcommunications communicationscallsparticipant'] = """
+helps['cloudcommunications communication-call-participant'] = """
     type: group
-    short-summary: Manage communicationscallsparticipant with cloudcommunications_beta
+    short-summary: Manage communication call participant with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationscallsparticipant invite'] = """
+helps['cloudcommunications communication-call-participant invite'] = """
     type: command
     short-summary: "Invoke action invite."
 """
 
-helps['cloudcommunications communicationscallsparticipant mute'] = """
+helps['cloudcommunications communication-call-participant mute'] = """
     type: command
     short-summary: "Invoke action mute."
 """
 
-helps['cloudcommunications communicationscallsparticipant mute-all'] = """
+helps['cloudcommunications communication-call-participant mute-all'] = """
     type: command
     short-summary: "Invoke action muteAll."
 """
 
-helps['cloudcommunications communicationsonlinemeeting'] = """
+helps['cloudcommunications communication-online-meeting'] = """
     type: group
-    short-summary: Manage communicationsonlinemeeting with cloudcommunications_beta
+    short-summary: Manage communication online meeting with cloudcommunications_beta
 """
 
-helps['cloudcommunications communicationsonlinemeeting create-or-get'] = """
+helps['cloudcommunications communication-online-meeting create-or-get'] = """
     type: command
     short-summary: "Invoke action createOrGet."
     parameters:

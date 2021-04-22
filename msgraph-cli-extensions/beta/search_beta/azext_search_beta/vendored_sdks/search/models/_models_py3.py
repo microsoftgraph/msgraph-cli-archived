@@ -14,21 +14,21 @@ import msrest.serialization
 from ._search_enums import *
 
 
-class collectionofexternalconnection(msrest.serialization.Model):
+class CollectionOfExternalConnection(msrest.serialization.Model):
     """Collection of externalConnection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~search.models.microsoftgraphexternalconnection]
+    :type value: list[~search.models.MicrosoftGraphExternalConnection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphexternalconnection]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExternalConnection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -36,28 +36,28 @@ class collectionofexternalconnection(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphexternalconnection"]] = None,
+        value: Optional[List["MicrosoftGraphExternalConnection"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofexternalconnection, self).__init__(**kwargs)
+        super(CollectionOfExternalConnection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphacl(msrest.serialization.Model):
+class MicrosoftGraphAcl(msrest.serialization.Model):
     """acl.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param access_type:  Possible values include: "grant", "deny".
-    :type access_type: str or ~search.models.Microsoftgraphaccesstype
+    :type access_type: str or ~search.models.MicrosoftGraphAccessType
     :param identity_source:
     :type identity_source: str
     :param type:  Possible values include: "user", "group", "everyone", "everyoneExceptGuests".
-    :type type: str or ~search.models.Microsoftgraphacltype
+    :type type: str or ~search.models.MicrosoftGraphAclType
     :param value:
     :type value: str
     """
@@ -74,13 +74,13 @@ class microsoftgraphacl(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        access_type: Optional[Union[str, "Microsoftgraphaccesstype"]] = None,
+        access_type: Optional[Union[str, "MicrosoftGraphAccessType"]] = None,
         identity_source: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphacltype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphAclType"]] = None,
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphacl, self).__init__(**kwargs)
+        super(MicrosoftGraphAcl, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.access_type = access_type
         self.identity_source = identity_source
@@ -88,14 +88,14 @@ class microsoftgraphacl(msrest.serialization.Model):
         self.value = value
 
 
-class microsoftgraphaggregationoption(msrest.serialization.Model):
+class MicrosoftGraphAggregationOption(msrest.serialization.Model):
     """aggregationOption.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param bucket_definition: bucketAggregationDefinition.
-    :type bucket_definition: ~search.models.microsoftgraphbucketaggregationdefinition
+    :type bucket_definition: ~search.models.MicrosoftGraphBucketAggregationDefinition
     :param field:
     :type field: str
     :param size:
@@ -108,7 +108,7 @@ class microsoftgraphaggregationoption(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'bucket_definition': {'key': 'bucketDefinition', 'type': 'microsoftgraphbucketaggregationdefinition'},
+        'bucket_definition': {'key': 'bucketDefinition', 'type': 'MicrosoftGraphBucketAggregationDefinition'},
         'field': {'key': 'field', 'type': 'str'},
         'size': {'key': 'size', 'type': 'int'},
     }
@@ -117,19 +117,19 @@ class microsoftgraphaggregationoption(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        bucket_definition: Optional["microsoftgraphbucketaggregationdefinition"] = None,
+        bucket_definition: Optional["MicrosoftGraphBucketAggregationDefinition"] = None,
         field: Optional[str] = None,
         size: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphaggregationoption, self).__init__(**kwargs)
+        super(MicrosoftGraphAggregationOption, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.bucket_definition = bucket_definition
         self.field = field
         self.size = size
 
 
-class microsoftgraphbucketaggregationdefinition(msrest.serialization.Model):
+class MicrosoftGraphBucketAggregationDefinition(msrest.serialization.Model):
     """bucketAggregationDefinition.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -142,9 +142,9 @@ class microsoftgraphbucketaggregationdefinition(msrest.serialization.Model):
     :param prefix_filter:
     :type prefix_filter: str
     :param ranges:
-    :type ranges: list[~search.models.microsoftgraphbucketaggregationrange]
+    :type ranges: list[~search.models.MicrosoftGraphBucketAggregationRange]
     :param sort_by:  Possible values include: "count", "keyAsString", "keyAsNumber".
-    :type sort_by: str or ~search.models.Microsoftgraphbucketaggregationsortproperty
+    :type sort_by: str or ~search.models.MicrosoftGraphBucketAggregationSortProperty
     """
 
     _validation = {
@@ -156,7 +156,7 @@ class microsoftgraphbucketaggregationdefinition(msrest.serialization.Model):
         'is_descending': {'key': 'isDescending', 'type': 'bool'},
         'minimum_count': {'key': 'minimumCount', 'type': 'int'},
         'prefix_filter': {'key': 'prefixFilter', 'type': 'str'},
-        'ranges': {'key': 'ranges', 'type': '[microsoftgraphbucketaggregationrange]'},
+        'ranges': {'key': 'ranges', 'type': '[MicrosoftGraphBucketAggregationRange]'},
         'sort_by': {'key': 'sortBy', 'type': 'str'},
     }
 
@@ -167,11 +167,11 @@ class microsoftgraphbucketaggregationdefinition(msrest.serialization.Model):
         is_descending: Optional[bool] = None,
         minimum_count: Optional[int] = None,
         prefix_filter: Optional[str] = None,
-        ranges: Optional[List["microsoftgraphbucketaggregationrange"]] = None,
-        sort_by: Optional[Union[str, "Microsoftgraphbucketaggregationsortproperty"]] = None,
+        ranges: Optional[List["MicrosoftGraphBucketAggregationRange"]] = None,
+        sort_by: Optional[Union[str, "MicrosoftGraphBucketAggregationSortProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphbucketaggregationdefinition, self).__init__(**kwargs)
+        super(MicrosoftGraphBucketAggregationDefinition, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.is_descending = is_descending
         self.minimum_count = minimum_count
@@ -180,7 +180,7 @@ class microsoftgraphbucketaggregationdefinition(msrest.serialization.Model):
         self.sort_by = sort_by
 
 
-class microsoftgraphbucketaggregationrange(msrest.serialization.Model):
+class MicrosoftGraphBucketAggregationRange(msrest.serialization.Model):
     """bucketAggregationRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -206,13 +206,13 @@ class microsoftgraphbucketaggregationrange(msrest.serialization.Model):
         to: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphbucketaggregationrange, self).__init__(**kwargs)
+        super(MicrosoftGraphBucketAggregationRange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.from_property = from_property
         self.to = to
 
 
-class microsoftgraphconfiguration(msrest.serialization.Model):
+class MicrosoftGraphConfiguration(msrest.serialization.Model):
     """configuration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -234,12 +234,12 @@ class microsoftgraphconfiguration(msrest.serialization.Model):
         authorized_apps: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphconfiguration, self).__init__(**kwargs)
+        super(MicrosoftGraphConfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.authorized_apps = authorized_apps
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -261,12 +261,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphconnectionoperation(microsoftgraphentity):
+class MicrosoftGraphConnectionOperation(MicrosoftGraphEntity):
     """connectionOperation.
 
     :param id: Read-only.
@@ -275,15 +275,15 @@ class microsoftgraphconnectionoperation(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param error: errorDetail.
-    :type error: ~search.models.microsoftgrapherrordetail
+    :type error: ~search.models.MicrosoftGraphErrorDetail
     :param status:  Possible values include: "unspecified", "inprogress", "completed", "failed".
-    :type status: str or ~search.models.Microsoftgraphconnectionoperationstatus
+    :type status: str or ~search.models.MicrosoftGraphConnectionOperationStatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'microsoftgrapherrordetail'},
+        'error': {'key': 'error', 'type': 'MicrosoftGraphErrorDetail'},
         'status': {'key': 'status', 'type': 'str'},
     }
 
@@ -292,24 +292,24 @@ class microsoftgraphconnectionoperation(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        error: Optional["microsoftgrapherrordetail"] = None,
-        status: Optional[Union[str, "Microsoftgraphconnectionoperationstatus"]] = None,
+        error: Optional["MicrosoftGraphErrorDetail"] = None,
+        status: Optional[Union[str, "MicrosoftGraphConnectionOperationStatus"]] = None,
         **kwargs
     ):
-        super(microsoftgraphconnectionoperation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphConnectionOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.error = error
         self.status = status
 
 
-class microsoftgrapherrordetail(msrest.serialization.Model):
+class MicrosoftGraphErrorDetail(msrest.serialization.Model):
     """errorDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param details:
-    :type details: list[~search.models.microsoftgraphinnererrordetail]
+    :type details: list[~search.models.MicrosoftGraphInnerErrorDetail]
     :param error_code:
     :type error_code: str
     :param message:
@@ -318,7 +318,7 @@ class microsoftgrapherrordetail(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'details': {'key': 'details', 'type': '[microsoftgraphinnererrordetail]'},
+        'details': {'key': 'details', 'type': '[MicrosoftGraphInnerErrorDetail]'},
         'error_code': {'key': 'errorCode', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
     }
@@ -327,46 +327,46 @@ class microsoftgrapherrordetail(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        details: Optional[List["microsoftgraphinnererrordetail"]] = None,
+        details: Optional[List["MicrosoftGraphInnerErrorDetail"]] = None,
         error_code: Optional[str] = None,
         message: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgrapherrordetail, self).__init__(**kwargs)
+        super(MicrosoftGraphErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.details = details
         self.error_code = error_code
         self.message = message
 
 
-class microsoftgraphexternal(msrest.serialization.Model):
+class MicrosoftGraphExternal(msrest.serialization.Model):
     """external.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param connections:
-    :type connections: list[~search.models.microsoftgraphexternalconnection]
+    :type connections: list[~search.models.MicrosoftGraphExternalConnection]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'connections': {'key': 'connections', 'type': '[microsoftgraphexternalconnection]'},
+        'connections': {'key': 'connections', 'type': '[MicrosoftGraphExternalConnection]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        connections: Optional[List["microsoftgraphexternalconnection"]] = None,
+        connections: Optional[List["MicrosoftGraphExternalConnection"]] = None,
         **kwargs
     ):
-        super(microsoftgraphexternal, self).__init__(**kwargs)
+        super(MicrosoftGraphExternal, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.connections = connections
 
 
-class microsoftgraphexternalconnection(microsoftgraphentity):
+class MicrosoftGraphExternalConnection(MicrosoftGraphEntity):
     """externalConnection.
 
     :param id: Read-only.
@@ -375,35 +375,35 @@ class microsoftgraphexternalconnection(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param configuration: configuration.
-    :type configuration: ~search.models.microsoftgraphconfiguration
+    :type configuration: ~search.models.MicrosoftGraphConfiguration
     :param description:
     :type description: str
     :param name:
     :type name: str
     :param state:  Possible values include: "draft", "ready", "obsolete", "limitExceeded",
      "unknownFutureValue".
-    :type state: str or ~search.models.Microsoftgraphconnectionstate
+    :type state: str or ~search.models.MicrosoftGraphConnectionState
     :param groups:
-    :type groups: list[~search.models.microsoftgraphexternalgroup]
+    :type groups: list[~search.models.MicrosoftGraphExternalGroup]
     :param items:
-    :type items: list[~search.models.microsoftgraphexternalitem]
+    :type items: list[~search.models.MicrosoftGraphExternalItem]
     :param operations:
-    :type operations: list[~search.models.microsoftgraphconnectionoperation]
+    :type operations: list[~search.models.MicrosoftGraphConnectionOperation]
     :param schema: schema.
-    :type schema: ~search.models.microsoftgraphschema
+    :type schema: ~search.models.MicrosoftGraphSchema
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'configuration': {'key': 'configuration', 'type': 'microsoftgraphconfiguration'},
+        'configuration': {'key': 'configuration', 'type': 'MicrosoftGraphConfiguration'},
         'description': {'key': 'description', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
         'state': {'key': 'state', 'type': 'str'},
-        'groups': {'key': 'groups', 'type': '[microsoftgraphexternalgroup]'},
-        'items': {'key': 'items', 'type': '[microsoftgraphexternalitem]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphconnectionoperation]'},
-        'schema': {'key': 'schema', 'type': 'microsoftgraphschema'},
+        'groups': {'key': 'groups', 'type': '[MicrosoftGraphExternalGroup]'},
+        'items': {'key': 'items', 'type': '[MicrosoftGraphExternalItem]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphConnectionOperation]'},
+        'schema': {'key': 'schema', 'type': 'MicrosoftGraphSchema'},
     }
 
     def __init__(
@@ -411,17 +411,17 @@ class microsoftgraphexternalconnection(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        configuration: Optional["microsoftgraphconfiguration"] = None,
+        configuration: Optional["MicrosoftGraphConfiguration"] = None,
         description: Optional[str] = None,
         name: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphconnectionstate"]] = None,
-        groups: Optional[List["microsoftgraphexternalgroup"]] = None,
-        items: Optional[List["microsoftgraphexternalitem"]] = None,
-        operations: Optional[List["microsoftgraphconnectionoperation"]] = None,
-        schema: Optional["microsoftgraphschema"] = None,
+        state: Optional[Union[str, "MicrosoftGraphConnectionState"]] = None,
+        groups: Optional[List["MicrosoftGraphExternalGroup"]] = None,
+        items: Optional[List["MicrosoftGraphExternalItem"]] = None,
+        operations: Optional[List["MicrosoftGraphConnectionOperation"]] = None,
+        schema: Optional["MicrosoftGraphSchema"] = None,
         **kwargs
     ):
-        super(microsoftgraphexternalconnection, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExternalConnection, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration = configuration
         self.description = description
@@ -433,7 +433,7 @@ class microsoftgraphexternalconnection(microsoftgraphentity):
         self.schema = schema
 
 
-class microsoftgraphexternalgroup(microsoftgraphentity):
+class MicrosoftGraphExternalGroup(MicrosoftGraphEntity):
     """externalGroup.
 
     :param id: Read-only.
@@ -446,7 +446,7 @@ class microsoftgraphexternalgroup(microsoftgraphentity):
     :param display_name:
     :type display_name: str
     :param members:
-    :type members: list[~search.models.microsoftgraphexternalgroupmember]
+    :type members: list[~search.models.MicrosoftGraphExternalGroupMember]
     """
 
     _attribute_map = {
@@ -454,7 +454,7 @@ class microsoftgraphexternalgroup(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'members': {'key': 'members', 'type': '[microsoftgraphexternalgroupmember]'},
+        'members': {'key': 'members', 'type': '[MicrosoftGraphExternalGroupMember]'},
     }
 
     def __init__(
@@ -464,17 +464,17 @@ class microsoftgraphexternalgroup(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
-        members: Optional[List["microsoftgraphexternalgroupmember"]] = None,
+        members: Optional[List["MicrosoftGraphExternalGroupMember"]] = None,
         **kwargs
     ):
-        super(microsoftgraphexternalgroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExternalGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
         self.members = members
 
 
-class microsoftgraphexternalgroupmember(microsoftgraphentity):
+class MicrosoftGraphExternalGroupMember(MicrosoftGraphEntity):
     """externalGroupMember.
 
     :param id: Read-only.
@@ -483,9 +483,9 @@ class microsoftgraphexternalgroupmember(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param identity_source:  Possible values include: "azureActiveDirectory", "external".
-    :type identity_source: str or ~search.models.Microsoftgraphidentitysourcetype
+    :type identity_source: str or ~search.models.MicrosoftGraphIdentitySourceType
     :param type:  Possible values include: "user", "group".
-    :type type: str or ~search.models.Microsoftgraphexternalgroupmembertype
+    :type type: str or ~search.models.MicrosoftGraphExternalGroupMemberType
     """
 
     _attribute_map = {
@@ -500,17 +500,17 @@ class microsoftgraphexternalgroupmember(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        identity_source: Optional[Union[str, "Microsoftgraphidentitysourcetype"]] = None,
-        type: Optional[Union[str, "Microsoftgraphexternalgroupmembertype"]] = None,
+        identity_source: Optional[Union[str, "MicrosoftGraphIdentitySourceType"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphExternalGroupMemberType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphexternalgroupmember, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExternalGroupMember, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.identity_source = identity_source
         self.type = type
 
 
-class microsoftgraphexternalitem(microsoftgraphentity):
+class MicrosoftGraphExternalItem(MicrosoftGraphEntity):
     """externalItem.
 
     :param id: Read-only.
@@ -519,9 +519,9 @@ class microsoftgraphexternalitem(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param acl:
-    :type acl: list[~search.models.microsoftgraphacl]
+    :type acl: list[~search.models.MicrosoftGraphAcl]
     :param content: externalItemContent.
-    :type content: ~search.models.microsoftgraphexternalitemcontent
+    :type content: ~search.models.MicrosoftGraphExternalItemContent
     :param properties: properties.
     :type properties: dict[str, object]
     """
@@ -529,8 +529,8 @@ class microsoftgraphexternalitem(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'acl': {'key': 'acl', 'type': '[microsoftgraphacl]'},
-        'content': {'key': 'content', 'type': 'microsoftgraphexternalitemcontent'},
+        'acl': {'key': 'acl', 'type': '[MicrosoftGraphAcl]'},
+        'content': {'key': 'content', 'type': 'MicrosoftGraphExternalItemContent'},
         'properties': {'key': 'properties', 'type': '{object}'},
     }
 
@@ -539,26 +539,26 @@ class microsoftgraphexternalitem(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        acl: Optional[List["microsoftgraphacl"]] = None,
-        content: Optional["microsoftgraphexternalitemcontent"] = None,
+        acl: Optional[List["MicrosoftGraphAcl"]] = None,
+        content: Optional["MicrosoftGraphExternalItemContent"] = None,
         properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphexternalitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExternalItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.acl = acl
         self.content = content
         self.properties = properties
 
 
-class microsoftgraphexternalitemcontent(msrest.serialization.Model):
+class MicrosoftGraphExternalItemContent(msrest.serialization.Model):
     """externalItemContent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param type:  Possible values include: "text", "html", "unknownFutureValue".
-    :type type: str or ~search.models.Microsoftgraphexternalitemcontenttype
+    :type type: str or ~search.models.MicrosoftGraphExternalItemContentType
     :param value:
     :type value: str
     """
@@ -573,17 +573,17 @@ class microsoftgraphexternalitemcontent(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        type: Optional[Union[str, "Microsoftgraphexternalitemcontenttype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphExternalItemContentType"]] = None,
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphexternalitemcontent, self).__init__(**kwargs)
+        super(MicrosoftGraphExternalItemContent, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.type = type
         self.value = value
 
 
-class microsoftgraphinnererrordetail(msrest.serialization.Model):
+class MicrosoftGraphInnerErrorDetail(msrest.serialization.Model):
     """innerErrorDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -609,13 +609,13 @@ class microsoftgraphinnererrordetail(msrest.serialization.Model):
         source: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphinnererrordetail, self).__init__(**kwargs)
+        super(MicrosoftGraphInnerErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.message = message
         self.source = source
 
 
-class microsoftgraphproperty(msrest.serialization.Model):
+class MicrosoftGraphProperty(msrest.serialization.Model):
     """property.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -634,12 +634,12 @@ class microsoftgraphproperty(msrest.serialization.Model):
     :param is_searchable:
     :type is_searchable: bool
     :param labels:
-    :type labels: list[str or ~search.models.Microsoftgraphlabel]
+    :type labels: list[str or ~search.models.MicrosoftGraphLabel]
     :param name:
     :type name: str
     :param type:  Possible values include: "String", "Int64", "Double", "DateTime", "Boolean",
      "StringCollection", "Int64Collection", "DoubleCollection", "DateTimeCollection".
-    :type type: str or ~search.models.Microsoftgraphpropertytype
+    :type type: str or ~search.models.MicrosoftGraphPropertyType
     """
 
     _attribute_map = {
@@ -665,12 +665,12 @@ class microsoftgraphproperty(msrest.serialization.Model):
         is_refinable: Optional[bool] = None,
         is_retrievable: Optional[bool] = None,
         is_searchable: Optional[bool] = None,
-        labels: Optional[List[Union[str, "Microsoftgraphlabel"]]] = None,
+        labels: Optional[List[Union[str, "MicrosoftGraphLabel"]]] = None,
         name: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphpropertytype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphPropertyType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphProperty, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.aliases = aliases
         self.is_content = is_content
@@ -683,7 +683,7 @@ class microsoftgraphproperty(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphschema(microsoftgraphentity):
+class MicrosoftGraphSchema(MicrosoftGraphEntity):
     """schema.
 
     :param id: Read-only.
@@ -694,14 +694,14 @@ class microsoftgraphschema(microsoftgraphentity):
     :param base_type:
     :type base_type: str
     :param properties:
-    :type properties: list[~search.models.microsoftgraphproperty]
+    :type properties: list[~search.models.MicrosoftGraphProperty]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'base_type': {'key': 'baseType', 'type': 'str'},
-        'properties': {'key': 'properties', 'type': '[microsoftgraphproperty]'},
+        'properties': {'key': 'properties', 'type': '[MicrosoftGraphProperty]'},
     }
 
     def __init__(
@@ -710,30 +710,30 @@ class microsoftgraphschema(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         base_type: Optional[str] = None,
-        properties: Optional[List["microsoftgraphproperty"]] = None,
+        properties: Optional[List["MicrosoftGraphProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphschema, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSchema, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.base_type = base_type
         self.properties = properties
 
 
-class microsoftgraphsearchaggregation(msrest.serialization.Model):
+class MicrosoftGraphSearchAggregation(msrest.serialization.Model):
     """searchAggregation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param buckets:
-    :type buckets: list[~search.models.microsoftgraphsearchbucket]
+    :type buckets: list[~search.models.MicrosoftGraphSearchBucket]
     :param field:
     :type field: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'buckets': {'key': 'buckets', 'type': '[microsoftgraphsearchbucket]'},
+        'buckets': {'key': 'buckets', 'type': '[MicrosoftGraphSearchBucket]'},
         'field': {'key': 'field', 'type': 'str'},
     }
 
@@ -741,17 +741,17 @@ class microsoftgraphsearchaggregation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        buckets: Optional[List["microsoftgraphsearchbucket"]] = None,
+        buckets: Optional[List["MicrosoftGraphSearchBucket"]] = None,
         field: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchaggregation, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchAggregation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.buckets = buckets
         self.field = field
 
 
-class microsoftgraphsearchbucket(msrest.serialization.Model):
+class MicrosoftGraphSearchBucket(msrest.serialization.Model):
     """searchBucket.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -785,14 +785,14 @@ class microsoftgraphsearchbucket(msrest.serialization.Model):
         key: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchbucket, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchBucket, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.aggregation_filter_token = aggregation_filter_token
         self.count = count
         self.key = key
 
 
-class microsoftgraphsearchentity(microsoftgraphentity):
+class MicrosoftGraphSearchEntity(MicrosoftGraphEntity):
     """searchEntity.
 
     :param id: Read-only.
@@ -814,11 +814,11 @@ class microsoftgraphsearchentity(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchentity, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSearchEntity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphsearchhit(msrest.serialization.Model):
+class MicrosoftGraphSearchHit(msrest.serialization.Model):
     """searchHit.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -839,9 +839,9 @@ class microsoftgraphsearchhit(msrest.serialization.Model):
     :param summary:
     :type summary: str
     :param source: entity.
-    :type source: ~search.models.microsoftgraphentity
+    :type source: ~search.models.MicrosoftGraphEntity
     :param resource: entity.
-    :type resource: ~search.models.microsoftgraphentity
+    :type resource: ~search.models.MicrosoftGraphEntity
     """
 
     _validation = {
@@ -858,8 +858,8 @@ class microsoftgraphsearchhit(msrest.serialization.Model):
         'hit_id': {'key': 'hitId', 'type': 'str'},
         'rank': {'key': 'rank', 'type': 'int'},
         'summary': {'key': 'summary', 'type': 'str'},
-        'source': {'key': '_source', 'type': 'microsoftgraphentity'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'source': {'key': '_source', 'type': 'MicrosoftGraphEntity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -873,11 +873,11 @@ class microsoftgraphsearchhit(msrest.serialization.Model):
         hit_id: Optional[str] = None,
         rank: Optional[int] = None,
         summary: Optional[str] = None,
-        source: Optional["microsoftgraphentity"] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        source: Optional["MicrosoftGraphEntity"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchhit, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchHit, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
         self.score = score
@@ -890,16 +890,16 @@ class microsoftgraphsearchhit(msrest.serialization.Model):
         self.resource = resource
 
 
-class microsoftgraphsearchhitscontainer(msrest.serialization.Model):
+class MicrosoftGraphSearchHitsContainer(msrest.serialization.Model):
     """searchHitsContainer.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param aggregations:
-    :type aggregations: list[~search.models.microsoftgraphsearchaggregation]
+    :type aggregations: list[~search.models.MicrosoftGraphSearchAggregation]
     :param hits:
-    :type hits: list[~search.models.microsoftgraphsearchhit]
+    :type hits: list[~search.models.MicrosoftGraphSearchHit]
     :param more_results_available:
     :type more_results_available: bool
     :param total:
@@ -912,8 +912,8 @@ class microsoftgraphsearchhitscontainer(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'aggregations': {'key': 'aggregations', 'type': '[microsoftgraphsearchaggregation]'},
-        'hits': {'key': 'hits', 'type': '[microsoftgraphsearchhit]'},
+        'aggregations': {'key': 'aggregations', 'type': '[MicrosoftGraphSearchAggregation]'},
+        'hits': {'key': 'hits', 'type': '[MicrosoftGraphSearchHit]'},
         'more_results_available': {'key': 'moreResultsAvailable', 'type': 'bool'},
         'total': {'key': 'total', 'type': 'int'},
     }
@@ -922,13 +922,13 @@ class microsoftgraphsearchhitscontainer(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        aggregations: Optional[List["microsoftgraphsearchaggregation"]] = None,
-        hits: Optional[List["microsoftgraphsearchhit"]] = None,
+        aggregations: Optional[List["MicrosoftGraphSearchAggregation"]] = None,
+        hits: Optional[List["MicrosoftGraphSearchHit"]] = None,
         more_results_available: Optional[bool] = None,
         total: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchhitscontainer, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchHitsContainer, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.aggregations = aggregations
         self.hits = hits
@@ -936,21 +936,21 @@ class microsoftgraphsearchhitscontainer(msrest.serialization.Model):
         self.total = total
 
 
-class microsoftgraphsearchquery(msrest.serialization.Model):
+class MicrosoftGraphSearchQuery(msrest.serialization.Model):
     """searchQuery.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param query_string: searchQueryString.
-    :type query_string: ~search.models.microsoftgraphsearchquerystring
+    :type query_string: ~search.models.MicrosoftGraphSearchQueryString
     :param query_string:
     :type query_string: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'query_string': {'key': 'query_string', 'type': 'microsoftgraphsearchquerystring'},
+        'query_string': {'key': 'query_string', 'type': 'MicrosoftGraphSearchQueryString'},
         'query_string': {'key': 'queryString', 'type': 'str'},
     }
 
@@ -958,17 +958,17 @@ class microsoftgraphsearchquery(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        query_string: Optional["microsoftgraphsearchquerystring"] = None,
+        query_string: Optional["MicrosoftGraphSearchQueryString"] = None,
         query_string: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchquery, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchQuery, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.query_string = query_string
         self.query_string = query_string
 
 
-class microsoftgraphsearchquerystring(msrest.serialization.Model):
+class MicrosoftGraphSearchQueryString(msrest.serialization.Model):
     """searchQueryString.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -990,12 +990,12 @@ class microsoftgraphsearchquerystring(msrest.serialization.Model):
         query: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchquerystring, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchQueryString, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.query = query
 
 
-class microsoftgraphsearchrequest(msrest.serialization.Model):
+class MicrosoftGraphSearchRequest(msrest.serialization.Model):
     """searchRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1004,23 +1004,23 @@ class microsoftgraphsearchrequest(msrest.serialization.Model):
     :param aggregation_filters:
     :type aggregation_filters: list[str]
     :param aggregations:
-    :type aggregations: list[~search.models.microsoftgraphaggregationoption]
+    :type aggregations: list[~search.models.MicrosoftGraphAggregationOption]
     :param content_sources:
     :type content_sources: list[str]
     :param enable_top_results:
     :type enable_top_results: bool
     :param entity_types:
-    :type entity_types: list[str or ~search.models.Microsoftgraphentitytype]
+    :type entity_types: list[str or ~search.models.MicrosoftGraphEntityType]
     :param fields:
     :type fields: list[str]
     :param from_property:
     :type from_property: int
     :param query: searchQuery.
-    :type query: ~search.models.microsoftgraphsearchquery
+    :type query: ~search.models.MicrosoftGraphSearchQuery
     :param size:
     :type size: int
     :param sort_properties:
-    :type sort_properties: list[~search.models.microsoftgraphsortproperty]
+    :type sort_properties: list[~search.models.MicrosoftGraphSortProperty]
     :param stored_fields:
     :type stored_fields: list[str]
     """
@@ -1033,15 +1033,15 @@ class microsoftgraphsearchrequest(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'aggregation_filters': {'key': 'aggregationFilters', 'type': '[str]'},
-        'aggregations': {'key': 'aggregations', 'type': '[microsoftgraphaggregationoption]'},
+        'aggregations': {'key': 'aggregations', 'type': '[MicrosoftGraphAggregationOption]'},
         'content_sources': {'key': 'contentSources', 'type': '[str]'},
         'enable_top_results': {'key': 'enableTopResults', 'type': 'bool'},
         'entity_types': {'key': 'entityTypes', 'type': '[str]'},
         'fields': {'key': 'fields', 'type': '[str]'},
         'from_property': {'key': 'from', 'type': 'int'},
-        'query': {'key': 'query', 'type': 'microsoftgraphsearchquery'},
+        'query': {'key': 'query', 'type': 'MicrosoftGraphSearchQuery'},
         'size': {'key': 'size', 'type': 'int'},
-        'sort_properties': {'key': 'sortProperties', 'type': '[microsoftgraphsortproperty]'},
+        'sort_properties': {'key': 'sortProperties', 'type': '[MicrosoftGraphSortProperty]'},
         'stored_fields': {'key': 'stored_fields', 'type': '[str]'},
     }
 
@@ -1050,19 +1050,19 @@ class microsoftgraphsearchrequest(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         aggregation_filters: Optional[List[str]] = None,
-        aggregations: Optional[List["microsoftgraphaggregationoption"]] = None,
+        aggregations: Optional[List["MicrosoftGraphAggregationOption"]] = None,
         content_sources: Optional[List[str]] = None,
         enable_top_results: Optional[bool] = None,
-        entity_types: Optional[List[Union[str, "Microsoftgraphentitytype"]]] = None,
+        entity_types: Optional[List[Union[str, "MicrosoftGraphEntityType"]]] = None,
         fields: Optional[List[str]] = None,
         from_property: Optional[int] = None,
-        query: Optional["microsoftgraphsearchquery"] = None,
+        query: Optional["MicrosoftGraphSearchQuery"] = None,
         size: Optional[int] = None,
-        sort_properties: Optional[List["microsoftgraphsortproperty"]] = None,
+        sort_properties: Optional[List["MicrosoftGraphSortProperty"]] = None,
         stored_fields: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchrequest, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchRequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.aggregation_filters = aggregation_filters
         self.aggregations = aggregations
@@ -1077,21 +1077,21 @@ class microsoftgraphsearchrequest(msrest.serialization.Model):
         self.stored_fields = stored_fields
 
 
-class microsoftgraphsearchresponse(msrest.serialization.Model):
+class MicrosoftGraphSearchResponse(msrest.serialization.Model):
     """searchResponse.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param hits_containers:
-    :type hits_containers: list[~search.models.microsoftgraphsearchhitscontainer]
+    :type hits_containers: list[~search.models.MicrosoftGraphSearchHitsContainer]
     :param search_terms:
     :type search_terms: list[str]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'hits_containers': {'key': 'hitsContainers', 'type': '[microsoftgraphsearchhitscontainer]'},
+        'hits_containers': {'key': 'hitsContainers', 'type': '[MicrosoftGraphSearchHitsContainer]'},
         'search_terms': {'key': 'searchTerms', 'type': '[str]'},
     }
 
@@ -1099,17 +1099,17 @@ class microsoftgraphsearchresponse(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        hits_containers: Optional[List["microsoftgraphsearchhitscontainer"]] = None,
+        hits_containers: Optional[List["MicrosoftGraphSearchHitsContainer"]] = None,
         search_terms: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchresponse, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchResponse, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.hits_containers = hits_containers
         self.search_terms = search_terms
 
 
-class microsoftgraphsortproperty(msrest.serialization.Model):
+class MicrosoftGraphSortProperty(msrest.serialization.Model):
     """sortProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1135,14 +1135,14 @@ class microsoftgraphsortproperty(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsortproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphSortProperty, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.is_descending = is_descending
         self.name = name
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1150,7 +1150,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~search.models.odataerrormain
+    :type error: ~search.models.OdataErrorMain
     """
 
     _validation = {
@@ -1159,23 +1159,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1211,15 +1211,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1233,7 +1233,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~search.models.odataerrordetail]
+    :type details: list[~search.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1248,7 +1248,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1259,11 +1259,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
@@ -1272,28 +1272,28 @@ class odataerrormain(msrest.serialization.Model):
         self.innererror = innererror
 
 
-class paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema.
+class Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param requests:
-    :type requests: list[~search.models.microsoftgraphsearchrequest]
+    :type requests: list[~search.models.MicrosoftGraphSearchRequest]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'requests': {'key': 'requests', 'type': '[microsoftgraphsearchrequest]'},
+        'requests': {'key': 'requests', 'type': '[MicrosoftGraphSearchRequest]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        requests: Optional[List["microsoftgraphsearchrequest"]] = None,
+        requests: Optional[List["MicrosoftGraphSearchRequest"]] = None,
         **kwargs
     ):
-        super(paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.requests = requests

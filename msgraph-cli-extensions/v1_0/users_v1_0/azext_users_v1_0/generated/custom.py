@@ -11,41 +11,321 @@
 # pylint: disable=too-many-lines
 
 
-def users_usersuser_create_user(client,
-                                body):
-    return client.create_user(body=body)
-
-
-def users_usersuser_delete_user(client,
-                                user_id,
-                                if_match=None):
-    return client.delete_user(user_id=user_id,
-                              if_match=if_match)
-
-
-def users_usersuser_list_user(client,
-                              orderby=None,
-                              select=None,
-                              expand=None):
+def users_user_list(client,
+                    orderby=None,
+                    select=None,
+                    expand=None):
     return client.list_user(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def users_usersuser_show_user(client,
-                              user_id,
-                              select=None,
-                              expand=None):
+def users_user_create(client,
+                      user_id=None,
+                      id_=None,
+                      deleted_date_time=None,
+                      account_enabled=None,
+                      age_group=None,
+                      assigned_licenses=None,
+                      assigned_plans=None,
+                      business_phones=None,
+                      city=None,
+                      company_name=None,
+                      consent_provided_for_minor=None,
+                      country=None,
+                      created_date_time=None,
+                      creation_type=None,
+                      department=None,
+                      display_name=None,
+                      employee_id=None,
+                      external_user_state=None,
+                      external_user_state_change_date_time=None,
+                      fax_number=None,
+                      given_name=None,
+                      identities=None,
+                      im_addresses=None,
+                      is_resource_account=None,
+                      job_title=None,
+                      last_password_change_date_time=None,
+                      legal_age_group_classification=None,
+                      license_assignment_states=None,
+                      mail=None,
+                      mail_nickname=None,
+                      mobile_phone=None,
+                      office_location=None,
+                      on_premises_distinguished_name=None,
+                      on_premises_domain_name=None,
+                      on_premises_extension_attributes=None,
+                      on_premises_immutable_id=None,
+                      on_premises_last_sync_date_time=None,
+                      on_premises_provisioning_errors=None,
+                      on_premises_sam_account_name=None,
+                      on_premises_security_identifier=None,
+                      on_premises_sync_enabled=None,
+                      on_premises_user_principal_name=None,
+                      other_mails=None,
+                      password_policies=None,
+                      password_profile=None,
+                      postal_code=None,
+                      preferred_language=None,
+                      provisioned_plans=None,
+                      proxy_addresses=None,
+                      show_in_address_list=None,
+                      sign_in_sessions_valid_from_date_time=None,
+                      state=None,
+                      street_address=None,
+                      surname=None,
+                      usage_location=None,
+                      user_principal_name=None,
+                      user_type=None,
+                      device_enrollment_limit=None,
+                      about_me=None,
+                      birthday=None,
+                      hire_date=None,
+                      interests=None,
+                      my_site=None,
+                      past_projects=None,
+                      preferred_name=None,
+                      responsibilities=None,
+                      schools=None,
+                      skills=None,
+                      app_role_assignments=None,
+                      created_objects=None,
+                      direct_reports=None,
+                      license_details=None,
+                      manager=None,
+                      member_of=None,
+                      oauth2_permission_grants=None,
+                      owned_devices=None,
+                      owned_objects=None,
+                      registered_devices=None,
+                      scoped_role_member_of=None,
+                      transitive_member_of=None,
+                      calendar=None,
+                      calendar_groups=None,
+                      calendars=None,
+                      calendar_view=None,
+                      contact_folders=None,
+                      contacts=None,
+                      events=None,
+                      mail_folders=None,
+                      messages=None,
+                      people=None,
+                      photo=None,
+                      photos=None,
+                      drive=None,
+                      drives=None,
+                      followed_sites=None,
+                      extensions=None,
+                      managed_devices=None,
+                      managed_app_registrations=None,
+                      device_management_troubleshooting_events=None,
+                      activities=None,
+                      online_meetings=None,
+                      joined_teams=None,
+                      microsoft_graph_entity_id=None,
+                      notebooks=None,
+                      operations=None,
+                      pages=None,
+                      resources=None,
+                      section_groups=None,
+                      sections=None,
+                      id1=None,
+                      contribution_to_content_discovery_as_organization_disabled=None,
+                      contribution_to_content_discovery_disabled=None,
+                      id2=None,
+                      microsoft_graph_change_tracked_entity_created_date_time_created_date_time=None,
+                      last_modified_date_time=None,
+                      application=None,
+                      device=None,
+                      user=None,
+                      availability=None,
+                      id3=None,
+                      shared=None,
+                      trending=None,
+                      used=None,
+                      id4=None,
+                      plans=None,
+                      tasks=None,
+                      id5=None,
+                      master_categories=None,
+                      id6=None,
+                      overrides=None,
+                      archive_folder=None,
+                      automatic_replies_setting=None,
+                      date_format=None,
+                      delegate_meeting_message_delivery_options=None,
+                      language=None,
+                      time_format=None,
+                      time_zone=None,
+                      working_hours=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['account_enabled'] = account_enabled
+    body['age_group'] = age_group
+    body['assigned_licenses'] = assigned_licenses
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['city'] = city
+    body['company_name'] = company_name
+    body['consent_provided_for_minor'] = consent_provided_for_minor
+    body['country'] = country
+    body['created_date_time'] = created_date_time
+    body['creation_type'] = creation_type
+    body['department'] = department
+    body['display_name'] = display_name
+    body['employee_id'] = employee_id
+    body['external_user_state'] = external_user_state
+    body['external_user_state_change_date_time'] = external_user_state_change_date_time
+    body['fax_number'] = fax_number
+    body['given_name'] = given_name
+    body['identities'] = identities
+    body['im_addresses'] = im_addresses
+    body['is_resource_account'] = is_resource_account
+    body['job_title'] = job_title
+    body['last_password_change_date_time'] = last_password_change_date_time
+    body['legal_age_group_classification'] = legal_age_group_classification
+    body['license_assignment_states'] = license_assignment_states
+    body['mail'] = mail
+    body['mail_nickname'] = mail_nickname
+    body['mobile_phone'] = mobile_phone
+    body['office_location'] = office_location
+    body['on_premises_distinguished_name'] = on_premises_distinguished_name
+    body['on_premises_domain_name'] = on_premises_domain_name
+    body['on_premises_extension_attributes'] = on_premises_extension_attributes
+    body['on_premises_immutable_id'] = on_premises_immutable_id
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['on_premises_sam_account_name'] = on_premises_sam_account_name
+    body['on_premises_security_identifier'] = on_premises_security_identifier
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['on_premises_user_principal_name'] = on_premises_user_principal_name
+    body['other_mails'] = other_mails
+    body['password_policies'] = password_policies
+    body['password_profile'] = password_profile
+    body['postal_code'] = postal_code
+    body['preferred_language'] = preferred_language
+    body['provisioned_plans'] = provisioned_plans
+    body['proxy_addresses'] = proxy_addresses
+    body['show_in_address_list'] = show_in_address_list
+    body['sign_in_sessions_valid_from_date_time'] = sign_in_sessions_valid_from_date_time
+    body['state'] = state
+    body['street_address'] = street_address
+    body['surname'] = surname
+    body['usage_location'] = usage_location
+    body['user_principal_name'] = user_principal_name
+    body['user_type'] = user_type
+    body['device_enrollment_limit'] = device_enrollment_limit
+    body['about_me'] = about_me
+    body['birthday'] = birthday
+    body['hire_date'] = hire_date
+    body['interests'] = interests
+    body['my_site'] = my_site
+    body['past_projects'] = past_projects
+    body['preferred_name'] = preferred_name
+    body['responsibilities'] = responsibilities
+    body['schools'] = schools
+    body['skills'] = skills
+    body['app_role_assignments'] = app_role_assignments
+    body['created_objects'] = created_objects
+    body['direct_reports'] = direct_reports
+    body['license_details'] = license_details
+    body['manager'] = manager
+    body['member_of'] = member_of
+    body['oauth2_permission_grants'] = oauth2_permission_grants
+    body['owned_devices'] = owned_devices
+    body['owned_objects'] = owned_objects
+    body['registered_devices'] = registered_devices
+    body['scoped_role_member_of'] = scoped_role_member_of
+    body['transitive_member_of'] = transitive_member_of
+    body['calendar'] = calendar
+    body['calendar_groups'] = calendar_groups
+    body['calendars'] = calendars
+    body['calendar_view'] = calendar_view
+    body['contact_folders'] = contact_folders
+    body['contacts'] = contacts
+    body['events'] = events
+    body['mail_folders'] = mail_folders
+    body['messages'] = messages
+    body['people'] = people
+    body['photo'] = photo
+    body['photos'] = photos
+    body['drive'] = drive
+    body['drives'] = drives
+    body['followed_sites'] = followed_sites
+    body['extensions'] = extensions
+    body['managed_devices'] = managed_devices
+    body['managed_app_registrations'] = managed_app_registrations
+    body['device_management_troubleshooting_events'] = device_management_troubleshooting_events
+    body['activities'] = activities
+    body['online_meetings'] = online_meetings
+    body['joined_teams'] = joined_teams
+    body['onenote'] = {}
+    body['onenote']['id'] = microsoft_graph_entity_id
+    body['onenote']['notebooks'] = notebooks
+    body['onenote']['operations'] = operations
+    body['onenote']['pages'] = pages
+    body['onenote']['resources'] = resources
+    body['onenote']['section_groups'] = section_groups
+    body['onenote']['sections'] = sections
+    body['settings'] = {}
+    body['settings']['id'] = id1
+    body['settings']['contribution_to_content_discovery_as_organization_disabled'] = contribution_to_content_discovery_as_organization_disabled
+    body['settings']['contribution_to_content_discovery_disabled'] = contribution_to_content_discovery_disabled
+    body['settings']['shift_preferences'] = {}
+    body['settings']['shift_preferences']['id'] = id2
+    body['settings']['shift_preferences']['created_date_time'] = microsoft_graph_change_tracked_entity_created_date_time_created_date_time
+    body['settings']['shift_preferences']['last_modified_date_time'] = last_modified_date_time
+    body['settings']['shift_preferences']['last_modified_by'] = {}
+    body['settings']['shift_preferences']['last_modified_by']['application'] = application
+    body['settings']['shift_preferences']['last_modified_by']['device'] = device
+    body['settings']['shift_preferences']['last_modified_by']['user'] = user
+    body['settings']['shift_preferences']['availability'] = availability
+    body['insights'] = {}
+    body['insights']['id'] = id3
+    body['insights']['shared'] = shared
+    body['insights']['trending'] = trending
+    body['insights']['used'] = used
+    body['planner'] = {}
+    body['planner']['id'] = id4
+    body['planner']['plans'] = plans
+    body['planner']['tasks'] = tasks
+    body['outlook'] = {}
+    body['outlook']['id'] = id5
+    body['outlook']['master_categories'] = master_categories
+    body['inference_classification'] = {}
+    body['inference_classification']['id'] = id6
+    body['inference_classification']['overrides'] = overrides
+    body['mailbox_settings'] = {}
+    body['mailbox_settings']['archive_folder'] = archive_folder
+    body['mailbox_settings']['automatic_replies_setting'] = automatic_replies_setting
+    body['mailbox_settings']['date_format'] = date_format
+    body['mailbox_settings']['delegate_meeting_message_delivery_options'] = delegate_meeting_message_delivery_options
+    body['mailbox_settings']['language'] = language
+    body['mailbox_settings']['time_format'] = time_format
+    body['mailbox_settings']['time_zone'] = time_zone
+    body['mailbox_settings']['working_hours'] = working_hours
+    if user_id is not None:
+        return client.update_user(user_id=user_id,
+                                  body=body)
+    return client.create_user(body=body)
+
+
+def users_user_delete_user(client,
+                           user_id,
+                           if_match=None):
+    return client.delete_user(user_id=user_id,
+                              if_match=if_match)
+
+
+def users_user_show_user(client,
+                         user_id,
+                         select=None,
+                         expand=None):
     return client.get_user(user_id=user_id,
                            select=select,
                            expand=expand)
-
-
-def users_usersuser_update_user(client,
-                                user_id,
-                                body):
-    return client.update_user(user_id=user_id,
-                              body=body)
 
 
 def users_user_create_extension(client,
@@ -531,7 +811,7 @@ def users_user_update_setting(client,
                                   body=body)
 
 
-def users_usersoutlook_create_master_category(client,
+def users_user_outlook_create_master_category(client,
                                               user_id,
                                               id_=None,
                                               color=None,
@@ -544,7 +824,7 @@ def users_usersoutlook_create_master_category(client,
                                            body=body)
 
 
-def users_usersoutlook_delete_master_category(client,
+def users_user_outlook_delete_master_category(client,
                                               user_id,
                                               outlook_category_id,
                                               if_match=None):
@@ -553,7 +833,7 @@ def users_usersoutlook_delete_master_category(client,
                                            if_match=if_match)
 
 
-def users_usersoutlook_list_master_category(client,
+def users_user_outlook_list_master_category(client,
                                             user_id,
                                             orderby=None,
                                             select=None,
@@ -564,7 +844,7 @@ def users_usersoutlook_list_master_category(client,
                                          expand=expand)
 
 
-def users_usersoutlook_show_master_category(client,
+def users_user_outlook_show_master_category(client,
                                             user_id,
                                             outlook_category_id,
                                             select=None,
@@ -575,7 +855,7 @@ def users_usersoutlook_show_master_category(client,
                                         expand=expand)
 
 
-def users_usersoutlook_update_master_category(client,
+def users_user_outlook_update_master_category(client,
                                               user_id,
                                               outlook_category_id,
                                               id_=None,
@@ -590,14 +870,14 @@ def users_usersoutlook_update_master_category(client,
                                            body=body)
 
 
-def users_userssetting_delete_shift_preference(client,
+def users_user_setting_delete_shift_preference(client,
                                                user_id,
                                                if_match=None):
     return client.delete_shift_preferences(user_id=user_id,
                                            if_match=if_match)
 
 
-def users_userssetting_show_shift_preference(client,
+def users_user_setting_show_shift_preference(client,
                                              user_id,
                                              select=None,
                                              expand=None):
@@ -606,7 +886,7 @@ def users_userssetting_show_shift_preference(client,
                                         expand=expand)
 
 
-def users_userssetting_update_shift_preference(client,
+def users_user_setting_update_shift_preference(client,
                                                user_id,
                                                id_=None,
                                                created_date_time=None,

@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class identityOperations:
-    """identityOperations async operations.
+class IdentityOperations:
+    """IdentityOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -42,24 +43,24 @@ class identityOperations:
 
     async def get_conditional_access(
         self,
-        select: Optional[List[Union[str, "models.Get0itemsitem"]]] = None,
+        select: Optional[List[Union[str, "models.Get0ItemsItem"]]] = None,
         expand: Optional[List[Union[str, "models.Enum5"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphconditionalaccessroot":
+    ) -> "models.MicrosoftGraphConditionalAccessRoot":
         """Get conditionalAccess from identity.
 
         Get conditionalAccess from identity.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Get0itemsitem]
+        :type select: list[str or ~identity_sign_ins.models.Get0ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum5]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphconditionalaccessroot, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphconditionalaccessroot
+        :return: MicrosoftGraphConditionalAccessRoot, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessRoot
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphconditionalaccessroot"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphConditionalAccessRoot"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -86,10 +87,10 @@ class identityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphconditionalaccessroot', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphConditionalAccessRoot', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -99,7 +100,7 @@ class identityOperations:
 
     async def update_conditional_access(
         self,
-        body: "models.microsoftgraphconditionalaccessroot",
+        body: "models.MicrosoftGraphConditionalAccessRoot",
         **kwargs
     ) -> None:
         """Update the navigation property conditionalAccess in identity.
@@ -107,7 +108,7 @@ class identityOperations:
         Update the navigation property conditionalAccess in identity.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphconditionalaccessroot
+        :type body: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -133,7 +134,7 @@ class identityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphconditionalaccessroot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphConditionalAccessRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -141,8 +142,8 @@ class identityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -190,8 +191,8 @@ class identityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -204,7 +205,7 @@ class identityOperations:
         select: Optional[List[Union[str, "models.Enum21"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofidentityuserflow"]:
+    ) -> AsyncIterable["models.CollectionOfIdentityUserFlow"]:
         """Get userFlows from identity.
 
         Get userFlows from identity.
@@ -216,11 +217,11 @@ class identityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofidentityuserflow or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofidentityuserflow]
+        :return: An iterator like instance of either CollectionOfIdentityUserFlow or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfIdentityUserFlow]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofidentityuserflow"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfIdentityUserFlow"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -262,7 +263,7 @@ class identityOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofidentityuserflow', pipeline_response)
+            deserialized = self._deserialize('CollectionOfIdentityUserFlow', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -275,9 +276,9 @@ class identityOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -288,21 +289,21 @@ class identityOperations:
 
     async def create_user_flows(
         self,
-        body: "models.microsoftgraphidentityuserflow",
+        body: "models.MicrosoftGraphIdentityUserFlow",
         **kwargs
-    ) -> "models.microsoftgraphidentityuserflow":
+    ) -> "models.MicrosoftGraphIdentityUserFlow":
         """Create new navigation property to userFlows for identity.
 
         Create new navigation property to userFlows for identity.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphidentityuserflow
+        :type body: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphidentityuserflow, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphidentityuserflow
+        :return: MicrosoftGraphIdentityUserFlow, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphidentityuserflow"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIdentityUserFlow"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -322,7 +323,7 @@ class identityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphidentityuserflow')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIdentityUserFlow')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -330,10 +331,10 @@ class identityOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphidentityuserflow', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphIdentityUserFlow', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -347,7 +348,7 @@ class identityOperations:
         select: Optional[List[Union[str, "models.Enum23"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphidentityuserflow":
+    ) -> "models.MicrosoftGraphIdentityUserFlow":
         """Get userFlows from identity.
 
         Get userFlows from identity.
@@ -359,11 +360,11 @@ class identityOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphidentityuserflow, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphidentityuserflow
+        :return: MicrosoftGraphIdentityUserFlow, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphidentityuserflow"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIdentityUserFlow"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -394,10 +395,10 @@ class identityOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphidentityuserflow', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphIdentityUserFlow', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -408,7 +409,7 @@ class identityOperations:
     async def update_user_flows(
         self,
         identity_user_flow_id: str,
-        body: "models.microsoftgraphidentityuserflow",
+        body: "models.MicrosoftGraphIdentityUserFlow",
         **kwargs
     ) -> None:
         """Update the navigation property userFlows in identity.
@@ -418,7 +419,7 @@ class identityOperations:
         :param identity_user_flow_id: key: id of identityUserFlow.
         :type identity_user_flow_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphidentityuserflow
+        :type body: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -448,7 +449,7 @@ class identityOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphidentityuserflow')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIdentityUserFlow')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -456,8 +457,8 @@ class identityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -512,8 +513,8 @@ class identityOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

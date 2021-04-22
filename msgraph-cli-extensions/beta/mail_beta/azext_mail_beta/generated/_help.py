@@ -58,6 +58,111 @@ Nullable."
 helps['mail user create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for users."
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
 helps['mail user delete-inference-classification'] = """
@@ -151,14 +256,119 @@ Nullable."
 helps['mail user update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in users."
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['mail usersinferenceclassification'] = """
+helps['mail user-inference-classification'] = """
     type: group
-    short-summary: Manage usersinferenceclassification with mail_beta
+    short-summary: Manage user inference classification with mail_beta
 """
 
-helps['mail usersinferenceclassification create-override'] = """
+helps['mail user-inference-classification create-override'] = """
     type: command
     short-summary: "Create new navigation property to overrides for users."
     parameters:
@@ -171,22 +381,22 @@ helps['mail usersinferenceclassification create-override'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersinferenceclassification delete-override'] = """
+helps['mail user-inference-classification delete-override'] = """
     type: command
     short-summary: "Delete navigation property overrides for users."
 """
 
-helps['mail usersinferenceclassification list-override'] = """
+helps['mail user-inference-classification list-override'] = """
     type: command
     short-summary: "Get overrides from users."
 """
 
-helps['mail usersinferenceclassification show-override'] = """
+helps['mail user-inference-classification show-override'] = """
     type: command
     short-summary: "Get overrides from users."
 """
 
-helps['mail usersinferenceclassification update-override'] = """
+helps['mail user-inference-classification update-override'] = """
     type: command
     short-summary: "Update the navigation property overrides in users."
     parameters:
@@ -199,12 +409,12 @@ helps['mail usersinferenceclassification update-override'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersmailfolder'] = """
+helps['mail user-mail-folder'] = """
     type: group
-    short-summary: Manage usersmailfolder with mail_beta
+    short-summary: Manage user mail folder with mail_beta
 """
 
-helps['mail usersmailfolder create-child-folder'] = """
+helps['mail user-mail-folder create-child-folder'] = """
     type: command
     short-summary: "Create new navigation property to childFolders for users."
     parameters:
@@ -237,132 +447,256 @@ Nullable."
             Multiple actions can be specified by using more than one --user-configurations argument.
 """
 
-helps['mail usersmailfolder create-message'] = """
+helps['mail user-mail-folder create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for users."
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['mail usersmailfolder create-message-rule'] = """
+helps['mail user-mail-folder create-message-rule'] = """
     type: command
     short-summary: "Create new navigation property to messageRules for users."
+    parameters:
+      - name: --within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --microsoft-graph-size-range-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --microsoft-graph-size-range-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
 """
 
-helps['mail usersmailfolder create-multi-value-extended-property'] = """
+helps['mail user-mail-folder create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['mail usersmailfolder create-single-value-extended-property'] = """
+helps['mail user-mail-folder create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['mail usersmailfolder create-user-configuration'] = """
+helps['mail user-mail-folder create-user-configuration'] = """
     type: command
     short-summary: "Create new navigation property to userConfigurations for users."
 """
 
-helps['mail usersmailfolder delete-child-folder'] = """
+helps['mail user-mail-folder delete-child-folder'] = """
     type: command
     short-summary: "Delete navigation property childFolders for users."
 """
 
-helps['mail usersmailfolder delete-message'] = """
+helps['mail user-mail-folder delete-message'] = """
     type: command
     short-summary: "Delete navigation property messages for users."
 """
 
-helps['mail usersmailfolder delete-message-rule'] = """
+helps['mail user-mail-folder delete-message-rule'] = """
     type: command
     short-summary: "Delete navigation property messageRules for users."
 """
 
-helps['mail usersmailfolder delete-multi-value-extended-property'] = """
+helps['mail user-mail-folder delete-multi-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['mail usersmailfolder delete-single-value-extended-property'] = """
+helps['mail user-mail-folder delete-single-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
-helps['mail usersmailfolder delete-user-configuration'] = """
+helps['mail user-mail-folder delete-user-configuration'] = """
     type: command
     short-summary: "Delete navigation property userConfigurations for users."
 """
 
-helps['mail usersmailfolder list-child-folder'] = """
+helps['mail user-mail-folder list-child-folder'] = """
     type: command
     short-summary: "Get childFolders from users."
 """
 
-helps['mail usersmailfolder list-message'] = """
+helps['mail user-mail-folder list-message'] = """
     type: command
     short-summary: "Get messages from users."
 """
 
-helps['mail usersmailfolder list-message-rule'] = """
+helps['mail user-mail-folder list-message-rule'] = """
     type: command
     short-summary: "Get messageRules from users."
 """
 
-helps['mail usersmailfolder list-multi-value-extended-property'] = """
+helps['mail user-mail-folder list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmailfolder list-single-value-extended-property'] = """
+helps['mail user-mail-folder list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmailfolder list-user-configuration'] = """
+helps['mail user-mail-folder list-user-configuration'] = """
     type: command
     short-summary: "Get userConfigurations from users."
 """
 
-helps['mail usersmailfolder set-message-content'] = """
+helps['mail user-mail-folder set-message-content'] = """
     type: command
     short-summary: "Update media content for the navigation property messages in users."
 """
 
-helps['mail usersmailfolder show-child-folder'] = """
+helps['mail user-mail-folder show-child-folder'] = """
     type: command
     short-summary: "Get childFolders from users."
 """
 
-helps['mail usersmailfolder show-message'] = """
+helps['mail user-mail-folder show-message'] = """
     type: command
     short-summary: "Get messages from users."
 """
 
-helps['mail usersmailfolder show-message-content'] = """
+helps['mail user-mail-folder show-message-content'] = """
     type: command
     short-summary: "Get media content for the navigation property messages from users."
 """
 
-helps['mail usersmailfolder show-message-rule'] = """
+helps['mail user-mail-folder show-message-rule'] = """
     type: command
     short-summary: "Get messageRules from users."
 """
 
-helps['mail usersmailfolder show-multi-value-extended-property'] = """
+helps['mail user-mail-folder show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmailfolder show-single-value-extended-property'] = """
+helps['mail user-mail-folder show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmailfolder show-user-configuration'] = """
+helps['mail user-mail-folder show-user-configuration'] = """
     type: command
     short-summary: "Get userConfigurations from users."
 """
 
-helps['mail usersmailfolder update-child-folder'] = """
+helps['mail user-mail-folder update-child-folder'] = """
     type: command
     short-summary: "Update the navigation property childFolders in users."
     parameters:
@@ -395,47 +729,171 @@ Nullable."
             Multiple actions can be specified by using more than one --user-configurations argument.
 """
 
-helps['mail usersmailfolder update-message'] = """
+helps['mail user-mail-folder update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in users."
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
-helps['mail usersmailfolder update-message-rule'] = """
+helps['mail user-mail-folder update-message-rule'] = """
     type: command
     short-summary: "Update the navigation property messageRules in users."
+    parameters:
+      - name: --within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+      - name: --microsoft-graph-size-range-within-size-range
+        short-summary: "sizeRange"
+        long-summary: |
+            Usage: --microsoft-graph-size-range-within-size-range maximum-size=XX minimum-size=XX
+
+            maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
+            minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
+or exception to apply.
 """
 
-helps['mail usersmailfolder update-multi-value-extended-property'] = """
+helps['mail user-mail-folder update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['mail usersmailfolder update-single-value-extended-property'] = """
+helps['mail user-mail-folder update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['mail usersmailfolder update-user-configuration'] = """
+helps['mail user-mail-folder update-user-configuration'] = """
     type: command
     short-summary: "Update the navigation property userConfigurations in users."
 """
 
-helps['mail usersmailfoldersmessage'] = """
+helps['mail user-mail-folder-message'] = """
     type: group
-    short-summary: Manage usersmailfoldersmessage with mail_beta
+    short-summary: Manage user mail folder message with mail_beta
 """
 
-helps['mail usersmailfoldersmessage create-attachment'] = """
+helps['mail user-mail-folder-message create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['mail usersmailfoldersmessage create-extension'] = """
+helps['mail user-mail-folder-message create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['mail usersmailfoldersmessage create-mention'] = """
+helps['mail user-mail-folder-message create-mention'] = """
     type: command
     short-summary: "Create new navigation property to mentions for users."
     parameters:
@@ -455,102 +913,102 @@ helps['mail usersmailfoldersmessage create-mention'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersmailfoldersmessage create-multi-value-extended-property'] = """
+helps['mail user-mail-folder-message create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['mail usersmailfoldersmessage create-single-value-extended-property'] = """
+helps['mail user-mail-folder-message create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['mail usersmailfoldersmessage delete-attachment'] = """
+helps['mail user-mail-folder-message delete-attachment'] = """
     type: command
     short-summary: "Delete navigation property attachments for users."
 """
 
-helps['mail usersmailfoldersmessage delete-extension'] = """
+helps['mail user-mail-folder-message delete-extension'] = """
     type: command
     short-summary: "Delete navigation property extensions for users."
 """
 
-helps['mail usersmailfoldersmessage delete-mention'] = """
+helps['mail user-mail-folder-message delete-mention'] = """
     type: command
     short-summary: "Delete navigation property mentions for users."
 """
 
-helps['mail usersmailfoldersmessage delete-multi-value-extended-property'] = """
+helps['mail user-mail-folder-message delete-multi-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['mail usersmailfoldersmessage delete-single-value-extended-property'] = """
+helps['mail user-mail-folder-message delete-single-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
-helps['mail usersmailfoldersmessage list-attachment'] = """
+helps['mail user-mail-folder-message list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['mail usersmailfoldersmessage list-extension'] = """
+helps['mail user-mail-folder-message list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['mail usersmailfoldersmessage list-mention'] = """
+helps['mail user-mail-folder-message list-mention'] = """
     type: command
     short-summary: "Get mentions from users."
 """
 
-helps['mail usersmailfoldersmessage list-multi-value-extended-property'] = """
+helps['mail user-mail-folder-message list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmailfoldersmessage list-single-value-extended-property'] = """
+helps['mail user-mail-folder-message list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmailfoldersmessage show-attachment'] = """
+helps['mail user-mail-folder-message show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['mail usersmailfoldersmessage show-extension'] = """
+helps['mail user-mail-folder-message show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['mail usersmailfoldersmessage show-mention'] = """
+helps['mail user-mail-folder-message show-mention'] = """
     type: command
     short-summary: "Get mentions from users."
 """
 
-helps['mail usersmailfoldersmessage show-multi-value-extended-property'] = """
+helps['mail user-mail-folder-message show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmailfoldersmessage show-single-value-extended-property'] = """
+helps['mail user-mail-folder-message show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmailfoldersmessage update-attachment'] = """
+helps['mail user-mail-folder-message update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['mail usersmailfoldersmessage update-extension'] = """
+helps['mail user-mail-folder-message update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['mail usersmailfoldersmessage update-mention'] = """
+helps['mail user-mail-folder-message update-mention'] = """
     type: command
     short-summary: "Update the navigation property mentions in users."
     parameters:
@@ -570,32 +1028,32 @@ helps['mail usersmailfoldersmessage update-mention'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersmailfoldersmessage update-multi-value-extended-property'] = """
+helps['mail user-mail-folder-message update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['mail usersmailfoldersmessage update-single-value-extended-property'] = """
+helps['mail user-mail-folder-message update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['mail usersmessage'] = """
+helps['mail user-message'] = """
     type: group
-    short-summary: Manage usersmessage with mail_beta
+    short-summary: Manage user message with mail_beta
 """
 
-helps['mail usersmessage create-attachment'] = """
+helps['mail user-message create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['mail usersmessage create-extension'] = """
+helps['mail user-message create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['mail usersmessage create-mention'] = """
+helps['mail user-message create-mention'] = """
     type: command
     short-summary: "Create new navigation property to mentions for users."
     parameters:
@@ -615,102 +1073,102 @@ helps['mail usersmessage create-mention'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersmessage create-multi-value-extended-property'] = """
+helps['mail user-message create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['mail usersmessage create-single-value-extended-property'] = """
+helps['mail user-message create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['mail usersmessage delete-attachment'] = """
+helps['mail user-message delete-attachment'] = """
     type: command
     short-summary: "Delete navigation property attachments for users."
 """
 
-helps['mail usersmessage delete-extension'] = """
+helps['mail user-message delete-extension'] = """
     type: command
     short-summary: "Delete navigation property extensions for users."
 """
 
-helps['mail usersmessage delete-mention'] = """
+helps['mail user-message delete-mention'] = """
     type: command
     short-summary: "Delete navigation property mentions for users."
 """
 
-helps['mail usersmessage delete-multi-value-extended-property'] = """
+helps['mail user-message delete-multi-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['mail usersmessage delete-single-value-extended-property'] = """
+helps['mail user-message delete-single-value-extended-property'] = """
     type: command
     short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
-helps['mail usersmessage list-attachment'] = """
+helps['mail user-message list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['mail usersmessage list-extension'] = """
+helps['mail user-message list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['mail usersmessage list-mention'] = """
+helps['mail user-message list-mention'] = """
     type: command
     short-summary: "Get mentions from users."
 """
 
-helps['mail usersmessage list-multi-value-extended-property'] = """
+helps['mail user-message list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmessage list-single-value-extended-property'] = """
+helps['mail user-message list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmessage show-attachment'] = """
+helps['mail user-message show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['mail usersmessage show-extension'] = """
+helps['mail user-message show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['mail usersmessage show-mention'] = """
+helps['mail user-message show-mention'] = """
     type: command
     short-summary: "Get mentions from users."
 """
 
-helps['mail usersmessage show-multi-value-extended-property'] = """
+helps['mail user-message show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['mail usersmessage show-single-value-extended-property'] = """
+helps['mail user-message show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['mail usersmessage update-attachment'] = """
+helps['mail user-message update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['mail usersmessage update-extension'] = """
+helps['mail user-message update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['mail usersmessage update-mention'] = """
+helps['mail user-message update-mention'] = """
     type: command
     short-summary: "Update the navigation property mentions in users."
     parameters:
@@ -730,12 +1188,12 @@ helps['mail usersmessage update-mention'] = """
             name: The display name of the person or entity.
 """
 
-helps['mail usersmessage update-multi-value-extended-property'] = """
+helps['mail user-message update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['mail usersmessage update-single-value-extended-property'] = """
+helps['mail user-message update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """

@@ -18,69 +18,69 @@ def cf_devicescorpmgt_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_deviceappmanagementdeviceappmanagement(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementdeviceappmanagement
+def cf_device_app_management_device_app_management(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_device_app_management
 
 
-def cf_deviceappmanagement(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagement
+def cf_device_app_management(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management
 
 
-def cf_deviceappmanagementandroidmanagedappprotection(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementandroidmanagedappprotections
+def cf_device_app_management_android_managed_app_protection(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_android_managed_app_protections
 
 
-def cf_deviceappmanagementdefaultmanagedappprotection(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementdefaultmanagedappprotections
+def cf_device_app_management_default_managed_app_protection(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_default_managed_app_protections
 
 
-def cf_deviceappmanagementiosmanagedappprotection(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementiosmanagedappprotections
+def cf_device_app_management_io_managed_app_protection(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_ios_managed_app_protections
 
 
-def cf_deviceappmanagementmanagedapppolicy(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedapppolicies
+def cf_device_app_management_managed_app_policy(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_app_policies
 
 
-def cf_deviceappmanagementmanagedappregistration(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedappregistrations
+def cf_device_app_management_managed_app_registration(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_app_registrations
 
 
-def cf_deviceappmanagementmanagedappregistrationsappliedpolicy(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedappregistrationsappliedpolicies
+def cf_device_app_management_managed_app_registration_applied_policy(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_app_registrations_applied_policies
 
 
-def cf_deviceappmanagementmanagedappregistrationsintendedpolicy(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedappregistrationsintendedpolicies
+def cf_device_app_management_managed_app_registration_intended_policy(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_app_registrations_intended_policies
 
 
-def cf_deviceappmanagementmanagedebook(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedebooks
+def cf_device_app_management_managed_ebook(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_ebooks
 
 
-def cf_deviceappmanagementmanagedebooksuserstatesummary(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmanagedebooksuserstatesummary
+def cf_device_app_management_managed_ebook_user_state_summary(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_managed_ebooks_user_state_summary
 
 
-def cf_deviceappmanagementmobileappconfiguration(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmobileappconfigurations
+def cf_device_app_management_mobile_app_configuration(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_mobile_app_configurations
 
 
-def cf_deviceappmanagementmobileapp(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementmobileapps
+def cf_device_app_management_mobile_app(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_mobile_apps
 
 
-def cf_deviceappmanagementtargetedmanagedappconfiguration(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementtargetedmanagedappconfigurations
+def cf_device_app_management_targeted_managed_app_configuration(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_targeted_managed_app_configurations
 
 
-def cf_deviceappmanagementvpptoken(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).deviceappmanagementvpptokens
+def cf_device_app_management_vpp_token(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).device_app_management_vpp_tokens
 
 
 def cf_user(cli_ctx, *_):
     return cf_devicescorpmgt_v1_0_cl(cli_ctx).users
 
 
-def cf_usersmanageddevice(cli_ctx, *_):
-    return cf_devicescorpmgt_v1_0_cl(cli_ctx).usersmanageddevices
+def cf_user_managed_device(cli_ctx, *_):
+    return cf_devicescorpmgt_v1_0_cl(cli_ctx).users_managed_devices

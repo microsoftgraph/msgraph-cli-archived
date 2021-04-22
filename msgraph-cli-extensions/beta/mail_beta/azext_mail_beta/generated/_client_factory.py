@@ -22,17 +22,17 @@ def cf_user(cli_ctx, *_):
     return cf_mail_beta_cl(cli_ctx).users
 
 
-def cf_usersinferenceclassification(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).usersinferenceclassification
+def cf_user_inference_classification(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).users_inference_classification
 
 
-def cf_usersmailfolder(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).usersmailfolders
+def cf_user_mail_folder(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).users_mail_folders
 
 
-def cf_usersmailfoldersmessage(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).usersmailfoldersmessages
+def cf_user_mail_folder_message(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).users_mail_folders_messages
 
 
-def cf_usersmessage(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).usersmessages
+def cf_user_message(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).users_messages

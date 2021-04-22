@@ -15,44 +15,44 @@
 from msgraph.cli.core.commands import CliCommandType
 from azext_mail_v1_0.generated._client_factory import (
     cf_user,
-    cf_usersinferenceclassification,
-    cf_usersmailfolder,
-    cf_usersmailfoldersmessage,
-    cf_usersmessage,
+    cf_user_inference_classification,
+    cf_user_mail_folder,
+    cf_user_mail_folder_message,
+    cf_user_message,
 )
 
 
 mail_v1_0_user = CliCommandType(
-    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-mail_v1_0_usersinferenceclassification = CliCommandType(
-    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._usersinferenceclassification_operations#usersinferenceclassificationOperations.{}',
-    client_factory=cf_usersinferenceclassification,
+mail_v1_0_user_inference_classification = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._users_inference_classification_operations#UsersInferenceClassificationOperations.{}',
+    client_factory=cf_user_inference_classification,
 )
 
 
-mail_v1_0_usersmailfolder = CliCommandType(
+mail_v1_0_user_mail_folder = CliCommandType(
     operations_tmpl=(
-        'azext_mail_v1_0.vendored_sdks.mail.operations._usersmailfolders_operations#usersmailfoldersOperations.{}'
+        'azext_mail_v1_0.vendored_sdks.mail.operations._users_mail_folders_operations#UsersMailFoldersOperations.{}'
     ),
-    client_factory=cf_usersmailfolder,
+    client_factory=cf_user_mail_folder,
 )
 
 
-mail_v1_0_usersmailfoldersmessage = CliCommandType(
-    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._usersmailfoldersmessages_operations#usersmailfoldersmessagesOperations.{}',
-    client_factory=cf_usersmailfoldersmessage,
+mail_v1_0_user_mail_folder_message = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._users_mail_folders_messages_operations#UsersMailFoldersMessagesOperations.{}',
+    client_factory=cf_user_mail_folder_message,
 )
 
 
-mail_v1_0_usersmessage = CliCommandType(
+mail_v1_0_user_message = CliCommandType(
     operations_tmpl=(
-        'azext_mail_v1_0.vendored_sdks.mail.operations._usersmessages_operations#usersmessagesOperations.{}'
+        'azext_mail_v1_0.vendored_sdks.mail.operations._users_messages_operations#UsersMessagesOperations.{}'
     ),
-    client_factory=cf_usersmessage,
+    client_factory=cf_user_message,
 )
 
 
@@ -74,142 +74,144 @@ def load_command_table(self, _):
         g.custom_command('update-message', 'mail_user_update_message')
 
     with self.command_group(
-        'mail usersinferenceclassification',
-        mail_v1_0_usersinferenceclassification,
-        client_factory=cf_usersinferenceclassification,
+        'mail user-inference-classification',
+        mail_v1_0_user_inference_classification,
+        client_factory=cf_user_inference_classification,
     ) as g:
-        g.custom_command('create-override', 'mail_usersinferenceclassification_create_override')
-        g.custom_command('delete-override', 'mail_usersinferenceclassification_delete_override')
-        g.custom_command('list-override', 'mail_usersinferenceclassification_list_override')
-        g.custom_command('show-override', 'mail_usersinferenceclassification_show_override')
-        g.custom_command('update-override', 'mail_usersinferenceclassification_update_override')
+        g.custom_command('create-override', 'mail_user_inference_classification_create_override')
+        g.custom_command('delete-override', 'mail_user_inference_classification_delete_override')
+        g.custom_command('list-override', 'mail_user_inference_classification_list_override')
+        g.custom_command('show-override', 'mail_user_inference_classification_show_override')
+        g.custom_command('update-override', 'mail_user_inference_classification_update_override')
 
-    with self.command_group('mail usersmailfolder', mail_v1_0_usersmailfolder, client_factory=cf_usersmailfolder) as g:
-        g.custom_command('create-child-folder', 'mail_usersmailfolder_create_child_folder')
-        g.custom_command('create-message', 'mail_usersmailfolder_create_message')
-        g.custom_command('create-message-rule', 'mail_usersmailfolder_create_message_rule')
+    with self.command_group(
+        'mail user-mail-folder', mail_v1_0_user_mail_folder, client_factory=cf_user_mail_folder
+    ) as g:
+        g.custom_command('create-child-folder', 'mail_user_mail_folder_create_child_folder')
+        g.custom_command('create-message', 'mail_user_mail_folder_create_message')
+        g.custom_command('create-message-rule', 'mail_user_mail_folder_create_message_rule')
         g.custom_command(
-            'create-multi-value-extended-property', 'mail_usersmailfolder_create_multi_value_extended_property'
+            'create-multi-value-extended-property', 'mail_user_mail_folder_create_multi_value_extended_property'
         )
         g.custom_command(
-            'create-single-value-extended-property', 'mail_usersmailfolder_create_single_value_extended_property'
+            'create-single-value-extended-property', 'mail_user_mail_folder_create_single_value_extended_property'
         )
-        g.custom_command('delete-child-folder', 'mail_usersmailfolder_delete_child_folder')
-        g.custom_command('delete-message', 'mail_usersmailfolder_delete_message')
-        g.custom_command('delete-message-rule', 'mail_usersmailfolder_delete_message_rule')
+        g.custom_command('delete-child-folder', 'mail_user_mail_folder_delete_child_folder')
+        g.custom_command('delete-message', 'mail_user_mail_folder_delete_message')
+        g.custom_command('delete-message-rule', 'mail_user_mail_folder_delete_message_rule')
         g.custom_command(
-            'delete-multi-value-extended-property', 'mail_usersmailfolder_delete_multi_value_extended_property'
-        )
-        g.custom_command(
-            'delete-single-value-extended-property', 'mail_usersmailfolder_delete_single_value_extended_property'
-        )
-        g.custom_command('list-child-folder', 'mail_usersmailfolder_list_child_folder')
-        g.custom_command('list-message', 'mail_usersmailfolder_list_message')
-        g.custom_command('list-message-rule', 'mail_usersmailfolder_list_message_rule')
-        g.custom_command(
-            'list-multi-value-extended-property', 'mail_usersmailfolder_list_multi_value_extended_property'
+            'delete-multi-value-extended-property', 'mail_user_mail_folder_delete_multi_value_extended_property'
         )
         g.custom_command(
-            'list-single-value-extended-property', 'mail_usersmailfolder_list_single_value_extended_property'
+            'delete-single-value-extended-property', 'mail_user_mail_folder_delete_single_value_extended_property'
         )
-        g.custom_command('show-child-folder', 'mail_usersmailfolder_show_child_folder')
-        g.custom_command('show-message', 'mail_usersmailfolder_show_message')
-        g.custom_command('show-message-rule', 'mail_usersmailfolder_show_message_rule')
+        g.custom_command('list-child-folder', 'mail_user_mail_folder_list_child_folder')
+        g.custom_command('list-message', 'mail_user_mail_folder_list_message')
+        g.custom_command('list-message-rule', 'mail_user_mail_folder_list_message_rule')
         g.custom_command(
-            'show-multi-value-extended-property', 'mail_usersmailfolder_show_multi_value_extended_property'
-        )
-        g.custom_command(
-            'show-single-value-extended-property', 'mail_usersmailfolder_show_single_value_extended_property'
-        )
-        g.custom_command('update-child-folder', 'mail_usersmailfolder_update_child_folder')
-        g.custom_command('update-message', 'mail_usersmailfolder_update_message')
-        g.custom_command('update-message-rule', 'mail_usersmailfolder_update_message_rule')
-        g.custom_command(
-            'update-multi-value-extended-property', 'mail_usersmailfolder_update_multi_value_extended_property'
+            'list-multi-value-extended-property', 'mail_user_mail_folder_list_multi_value_extended_property'
         )
         g.custom_command(
-            'update-single-value-extended-property', 'mail_usersmailfolder_update_single_value_extended_property'
+            'list-single-value-extended-property', 'mail_user_mail_folder_list_single_value_extended_property'
+        )
+        g.custom_command('show-child-folder', 'mail_user_mail_folder_show_child_folder')
+        g.custom_command('show-message', 'mail_user_mail_folder_show_message')
+        g.custom_command('show-message-rule', 'mail_user_mail_folder_show_message_rule')
+        g.custom_command(
+            'show-multi-value-extended-property', 'mail_user_mail_folder_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'mail_user_mail_folder_show_single_value_extended_property'
+        )
+        g.custom_command('update-child-folder', 'mail_user_mail_folder_update_child_folder')
+        g.custom_command('update-message', 'mail_user_mail_folder_update_message')
+        g.custom_command('update-message-rule', 'mail_user_mail_folder_update_message_rule')
+        g.custom_command(
+            'update-multi-value-extended-property', 'mail_user_mail_folder_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'mail_user_mail_folder_update_single_value_extended_property'
         )
 
     with self.command_group(
-        'mail usersmailfoldersmessage', mail_v1_0_usersmailfoldersmessage, client_factory=cf_usersmailfoldersmessage
+        'mail user-mail-folder-message', mail_v1_0_user_mail_folder_message, client_factory=cf_user_mail_folder_message
     ) as g:
-        g.custom_command('create-attachment', 'mail_usersmailfoldersmessage_create_attachment')
-        g.custom_command('create-extension', 'mail_usersmailfoldersmessage_create_extension')
+        g.custom_command('create-attachment', 'mail_user_mail_folder_message_create_attachment')
+        g.custom_command('create-extension', 'mail_user_mail_folder_message_create_extension')
         g.custom_command(
-            'create-multi-value-extended-property', 'mail_usersmailfoldersmessage_create_multi_value_extended_property'
+            'create-multi-value-extended-property', 'mail_user_mail_folder_message_create_multi_value_extended_property'
         )
         g.custom_command(
             'create-single-value-extended-property',
-            'mail_usersmailfoldersmessage_create_single_value_extended_property',
+            'mail_user_mail_folder_message_create_single_value_extended_property',
         )
-        g.custom_command('delete-attachment', 'mail_usersmailfoldersmessage_delete_attachment')
-        g.custom_command('delete-extension', 'mail_usersmailfoldersmessage_delete_extension')
+        g.custom_command('delete-attachment', 'mail_user_mail_folder_message_delete_attachment')
+        g.custom_command('delete-extension', 'mail_user_mail_folder_message_delete_extension')
         g.custom_command(
-            'delete-multi-value-extended-property', 'mail_usersmailfoldersmessage_delete_multi_value_extended_property'
+            'delete-multi-value-extended-property', 'mail_user_mail_folder_message_delete_multi_value_extended_property'
         )
         g.custom_command(
             'delete-single-value-extended-property',
-            'mail_usersmailfoldersmessage_delete_single_value_extended_property',
+            'mail_user_mail_folder_message_delete_single_value_extended_property',
         )
-        g.custom_command('list-attachment', 'mail_usersmailfoldersmessage_list_attachment')
-        g.custom_command('list-extension', 'mail_usersmailfoldersmessage_list_extension')
+        g.custom_command('list-attachment', 'mail_user_mail_folder_message_list_attachment')
+        g.custom_command('list-extension', 'mail_user_mail_folder_message_list_extension')
         g.custom_command(
-            'list-multi-value-extended-property', 'mail_usersmailfoldersmessage_list_multi_value_extended_property'
-        )
-        g.custom_command(
-            'list-single-value-extended-property', 'mail_usersmailfoldersmessage_list_single_value_extended_property'
-        )
-        g.custom_command('show-attachment', 'mail_usersmailfoldersmessage_show_attachment')
-        g.custom_command('show-extension', 'mail_usersmailfoldersmessage_show_extension')
-        g.custom_command(
-            'show-multi-value-extended-property', 'mail_usersmailfoldersmessage_show_multi_value_extended_property'
+            'list-multi-value-extended-property', 'mail_user_mail_folder_message_list_multi_value_extended_property'
         )
         g.custom_command(
-            'show-single-value-extended-property', 'mail_usersmailfoldersmessage_show_single_value_extended_property'
+            'list-single-value-extended-property', 'mail_user_mail_folder_message_list_single_value_extended_property'
         )
-        g.custom_command('update-attachment', 'mail_usersmailfoldersmessage_update_attachment')
-        g.custom_command('update-extension', 'mail_usersmailfoldersmessage_update_extension')
+        g.custom_command('show-attachment', 'mail_user_mail_folder_message_show_attachment')
+        g.custom_command('show-extension', 'mail_user_mail_folder_message_show_extension')
         g.custom_command(
-            'update-multi-value-extended-property', 'mail_usersmailfoldersmessage_update_multi_value_extended_property'
+            'show-multi-value-extended-property', 'mail_user_mail_folder_message_show_multi_value_extended_property'
+        )
+        g.custom_command(
+            'show-single-value-extended-property', 'mail_user_mail_folder_message_show_single_value_extended_property'
+        )
+        g.custom_command('update-attachment', 'mail_user_mail_folder_message_update_attachment')
+        g.custom_command('update-extension', 'mail_user_mail_folder_message_update_extension')
+        g.custom_command(
+            'update-multi-value-extended-property', 'mail_user_mail_folder_message_update_multi_value_extended_property'
         )
         g.custom_command(
             'update-single-value-extended-property',
-            'mail_usersmailfoldersmessage_update_single_value_extended_property',
+            'mail_user_mail_folder_message_update_single_value_extended_property',
         )
 
-    with self.command_group('mail usersmessage', mail_v1_0_usersmessage, client_factory=cf_usersmessage) as g:
-        g.custom_command('create-attachment', 'mail_usersmessage_create_attachment')
-        g.custom_command('create-extension', 'mail_usersmessage_create_extension')
+    with self.command_group('mail user-message', mail_v1_0_user_message, client_factory=cf_user_message) as g:
+        g.custom_command('create-attachment', 'mail_user_message_create_attachment')
+        g.custom_command('create-extension', 'mail_user_message_create_extension')
         g.custom_command(
-            'create-multi-value-extended-property', 'mail_usersmessage_create_multi_value_extended_property'
+            'create-multi-value-extended-property', 'mail_user_message_create_multi_value_extended_property'
         )
         g.custom_command(
-            'create-single-value-extended-property', 'mail_usersmessage_create_single_value_extended_property'
+            'create-single-value-extended-property', 'mail_user_message_create_single_value_extended_property'
         )
-        g.custom_command('delete-attachment', 'mail_usersmessage_delete_attachment')
-        g.custom_command('delete-extension', 'mail_usersmessage_delete_extension')
+        g.custom_command('delete-attachment', 'mail_user_message_delete_attachment')
+        g.custom_command('delete-extension', 'mail_user_message_delete_extension')
         g.custom_command(
-            'delete-multi-value-extended-property', 'mail_usersmessage_delete_multi_value_extended_property'
-        )
-        g.custom_command(
-            'delete-single-value-extended-property', 'mail_usersmessage_delete_single_value_extended_property'
-        )
-        g.custom_command('list-attachment', 'mail_usersmessage_list_attachment')
-        g.custom_command('list-extension', 'mail_usersmessage_list_extension')
-        g.custom_command('list-multi-value-extended-property', 'mail_usersmessage_list_multi_value_extended_property')
-        g.custom_command('list-single-value-extended-property', 'mail_usersmessage_list_single_value_extended_property')
-        g.custom_command('show-attachment', 'mail_usersmessage_show_attachment')
-        g.custom_command('show-extension', 'mail_usersmessage_show_extension')
-        g.custom_command('show-multi-value-extended-property', 'mail_usersmessage_show_multi_value_extended_property')
-        g.custom_command('show-single-value-extended-property', 'mail_usersmessage_show_single_value_extended_property')
-        g.custom_command('update-attachment', 'mail_usersmessage_update_attachment')
-        g.custom_command('update-extension', 'mail_usersmessage_update_extension')
-        g.custom_command(
-            'update-multi-value-extended-property', 'mail_usersmessage_update_multi_value_extended_property'
+            'delete-multi-value-extended-property', 'mail_user_message_delete_multi_value_extended_property'
         )
         g.custom_command(
-            'update-single-value-extended-property', 'mail_usersmessage_update_single_value_extended_property'
+            'delete-single-value-extended-property', 'mail_user_message_delete_single_value_extended_property'
+        )
+        g.custom_command('list-attachment', 'mail_user_message_list_attachment')
+        g.custom_command('list-extension', 'mail_user_message_list_extension')
+        g.custom_command('list-multi-value-extended-property', 'mail_user_message_list_multi_value_extended_property')
+        g.custom_command('list-single-value-extended-property', 'mail_user_message_list_single_value_extended_property')
+        g.custom_command('show-attachment', 'mail_user_message_show_attachment')
+        g.custom_command('show-extension', 'mail_user_message_show_extension')
+        g.custom_command('show-multi-value-extended-property', 'mail_user_message_show_multi_value_extended_property')
+        g.custom_command('show-single-value-extended-property', 'mail_user_message_show_single_value_extended_property')
+        g.custom_command('update-attachment', 'mail_user_message_update_attachment')
+        g.custom_command('update-extension', 'mail_user_message_update_extension')
+        g.custom_command(
+            'update-multi-value-extended-property', 'mail_user_message_update_multi_value_extended_property'
+        )
+        g.custom_command(
+            'update-single-value-extended-property', 'mail_user_message_update_single_value_extended_property'
         )
 
     with self.command_group('mail_v1_0', is_experimental=True):

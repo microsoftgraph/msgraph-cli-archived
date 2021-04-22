@@ -14,190 +14,188 @@
 
 from msgraph.cli.core.commands import CliCommandType
 from azext_education_beta.generated._client_factory import (
-    cf_educationroot,
+    cf_education_education_root,
     cf_education,
-    cf_educationclass,
-    cf_educationclassesassignment,
-    cf_educationclassesassignmentssubmission,
-    cf_educationclassesmember,
-    cf_educationclassesschool,
-    cf_educationclassesteacher,
-    cf_educationme,
-    cf_educationmeassignment,
-    cf_educationmeassignmentssubmission,
-    cf_educationmeclass,
-    cf_educationmeschool,
-    cf_educationmetaughtclass,
-    cf_educationschool,
-    cf_educationschoolsclass,
-    cf_educationschoolsuser,
-    cf_educationsynchronizationprofile,
-    cf_educationuser,
-    cf_educationusersassignment,
-    cf_educationusersassignmentssubmission,
-    cf_educationusersclass,
-    cf_educationusersschool,
-    cf_educationuserstaughtclass,
+    cf_education_class,
+    cf_education_class_assignment,
+    cf_education_class_assignment_submission,
+    cf_education_class_member,
+    cf_education_class_school,
+    cf_education_class_teacher,
+    cf_education_me,
+    cf_education_me_assignment,
+    cf_education_me_assignment_submission,
+    cf_education_me_class,
+    cf_education_me_school,
+    cf_education_me_taught_class,
+    cf_education_school,
+    cf_education_school_class,
+    cf_education_school_user,
+    cf_education_synchronization_profile,
+    cf_education_user,
+    cf_education_user_assignment,
+    cf_education_user_assignment_submission,
+    cf_education_user_class,
+    cf_education_user_school,
+    cf_education_user_taught_class,
 )
 
 
-education_beta_educationroot = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationeducationroot_operations#educationeducationrootOperations.{}',
-    client_factory=cf_educationroot,
+education_beta_education_education_root = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_education_root_operations#EducationEducationRootOperations.{}',
+    client_factory=cf_education_education_root,
 )
 
 
 education_beta_education = CliCommandType(
     operations_tmpl=(
-        'azext_education_beta.vendored_sdks.education.operations._education_operations#educationOperations.{}'
+        'azext_education_beta.vendored_sdks.education.operations._education_operations#EducationOperations.{}'
     ),
     client_factory=cf_education,
 )
 
 
-education_beta_educationclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclasses_operations#educationclassesOperations.{}',
-    client_factory=cf_educationclass,
+education_beta_education_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_operations#EducationClassesOperations.{}',
+    client_factory=cf_education_class,
 )
 
 
-education_beta_educationclassesassignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclassesassignments_operations#educationclassesassignmentsOperations.{}',
-    client_factory=cf_educationclassesassignment,
+education_beta_education_class_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_assignments_operations#EducationClassesAssignmentsOperations.{}',
+    client_factory=cf_education_class_assignment,
 )
 
 
-education_beta_educationclassesassignmentssubmission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclassesassignmentssubmissions_operations#educationclassesassignmentssubmissionsOperations.{}',
-    client_factory=cf_educationclassesassignmentssubmission,
+education_beta_education_class_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_assignments_submissions_operations#EducationClassesAssignmentsSubmissionsOperations.{}',
+    client_factory=cf_education_class_assignment_submission,
 )
 
 
-education_beta_educationclassesmember = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclassesmembers_operations#educationclassesmembersOperations.{}',
-    client_factory=cf_educationclassesmember,
+education_beta_education_class_member = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_members_operations#EducationClassesMembersOperations.{}',
+    client_factory=cf_education_class_member,
 )
 
 
-education_beta_educationclassesschool = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclassesschools_operations#educationclassesschoolsOperations.{}',
-    client_factory=cf_educationclassesschool,
+education_beta_education_class_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_schools_operations#EducationClassesSchoolsOperations.{}',
+    client_factory=cf_education_class_school,
 )
 
 
-education_beta_educationclassesteacher = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationclassesteachers_operations#educationclassesteachersOperations.{}',
-    client_factory=cf_educationclassesteacher,
+education_beta_education_class_teacher = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_teachers_operations#EducationClassesTeachersOperations.{}',
+    client_factory=cf_education_class_teacher,
 )
 
 
-education_beta_educationme = CliCommandType(
+education_beta_education_me = CliCommandType(
     operations_tmpl=(
-        'azext_education_beta.vendored_sdks.education.operations._educationme_operations#educationmeOperations.{}'
+        'azext_education_beta.vendored_sdks.education.operations._education_me_operations#EducationMeOperations.{}'
     ),
-    client_factory=cf_educationme,
+    client_factory=cf_education_me,
 )
 
 
-education_beta_educationmeassignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationmeassignments_operations#educationmeassignmentsOperations.{}',
-    client_factory=cf_educationmeassignment,
+education_beta_education_me_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignments_operations#EducationMeAssignmentsOperations.{}',
+    client_factory=cf_education_me_assignment,
 )
 
 
-education_beta_educationmeassignmentssubmission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationmeassignmentssubmissions_operations#educationmeassignmentssubmissionsOperations.{}',
-    client_factory=cf_educationmeassignmentssubmission,
+education_beta_education_me_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignments_submissions_operations#EducationMeAssignmentsSubmissionsOperations.{}',
+    client_factory=cf_education_me_assignment_submission,
 )
 
 
-education_beta_educationmeclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationmeclasses_operations#educationmeclassesOperations.{}',
-    client_factory=cf_educationmeclass,
+education_beta_education_me_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_classes_operations#EducationMeClassesOperations.{}',
+    client_factory=cf_education_me_class,
 )
 
 
-education_beta_educationmeschool = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationmeschools_operations#educationmeschoolsOperations.{}',
-    client_factory=cf_educationmeschool,
+education_beta_education_me_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_schools_operations#EducationMeSchoolsOperations.{}',
+    client_factory=cf_education_me_school,
 )
 
 
-education_beta_educationmetaughtclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationmetaughtclasses_operations#educationmetaughtclassesOperations.{}',
-    client_factory=cf_educationmetaughtclass,
+education_beta_education_me_taught_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_taught_classes_operations#EducationMeTaughtClassesOperations.{}',
+    client_factory=cf_education_me_taught_class,
 )
 
 
-education_beta_educationschool = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationschools_operations#educationschoolsOperations.{}',
-    client_factory=cf_educationschool,
+education_beta_education_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_operations#EducationSchoolsOperations.{}',
+    client_factory=cf_education_school,
 )
 
 
-education_beta_educationschoolsclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationschoolsclasses_operations#educationschoolsclassesOperations.{}',
-    client_factory=cf_educationschoolsclass,
+education_beta_education_school_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_classes_operations#EducationSchoolsClassesOperations.{}',
+    client_factory=cf_education_school_class,
 )
 
 
-education_beta_educationschoolsuser = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationschoolsusers_operations#educationschoolsusersOperations.{}',
-    client_factory=cf_educationschoolsuser,
+education_beta_education_school_user = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_users_operations#EducationSchoolsUsersOperations.{}',
+    client_factory=cf_education_school_user,
 )
 
 
-education_beta_educationsynchronizationprofile = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationsynchronizationprofiles_operations#educationsynchronizationprofilesOperations.{}',
-    client_factory=cf_educationsynchronizationprofile,
+education_beta_education_synchronization_profile = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_synchronization_profiles_operations#EducationSynchronizationProfilesOperations.{}',
+    client_factory=cf_education_synchronization_profile,
 )
 
 
-education_beta_educationuser = CliCommandType(
-    operations_tmpl=(
-        'azext_education_beta.vendored_sdks.education.operations._educationusers_operations#educationusersOperations.{}'
-    ),
-    client_factory=cf_educationuser,
+education_beta_education_user = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_operations#EducationUsersOperations.{}',
+    client_factory=cf_education_user,
 )
 
 
-education_beta_educationusersassignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationusersassignments_operations#educationusersassignmentsOperations.{}',
-    client_factory=cf_educationusersassignment,
+education_beta_education_user_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_assignments_operations#EducationUsersAssignmentsOperations.{}',
+    client_factory=cf_education_user_assignment,
 )
 
 
-education_beta_educationusersassignmentssubmission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationusersassignmentssubmissions_operations#educationusersassignmentssubmissionsOperations.{}',
-    client_factory=cf_educationusersassignmentssubmission,
+education_beta_education_user_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_assignments_submissions_operations#EducationUsersAssignmentsSubmissionsOperations.{}',
+    client_factory=cf_education_user_assignment_submission,
 )
 
 
-education_beta_educationusersclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationusersclasses_operations#educationusersclassesOperations.{}',
-    client_factory=cf_educationusersclass,
+education_beta_education_user_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_classes_operations#EducationUsersClassesOperations.{}',
+    client_factory=cf_education_user_class,
 )
 
 
-education_beta_educationusersschool = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationusersschools_operations#educationusersschoolsOperations.{}',
-    client_factory=cf_educationusersschool,
+education_beta_education_user_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_schools_operations#EducationUsersSchoolsOperations.{}',
+    client_factory=cf_education_user_school,
 )
 
 
-education_beta_educationuserstaughtclass = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._educationuserstaughtclasses_operations#educationuserstaughtclassesOperations.{}',
-    client_factory=cf_educationuserstaughtclass,
+education_beta_education_user_taught_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_taught_classes_operations#EducationUsersTaughtClassesOperations.{}',
+    client_factory=cf_education_user_taught_class,
 )
 
 
 def load_command_table(self, _):
 
     with self.command_group(
-        'education educationroot', education_beta_educationroot, client_factory=cf_educationroot
+        'education education-root', education_beta_education_education_root, client_factory=cf_education_education_root
     ) as g:
-        g.custom_command('show-education-root', 'education_educationroot_show_education_root')
-        g.custom_command('update-education-root', 'education_educationroot_update_education_root')
+        g.custom_command('show-education-root', 'education_education_root_show_education_root')
+        g.custom_command('update-education-root', 'education_education_root_update_education_root')
 
     with self.command_group('education education', education_beta_education, client_factory=cf_education) as g:
         g.custom_command('create-class', 'education_education_create_class')
@@ -225,362 +223,366 @@ def load_command_table(self, _):
         g.custom_command('update-user', 'education_education_update_user')
 
     with self.command_group(
-        'education educationclass', education_beta_educationclass, client_factory=cf_educationclass
+        'education education-class', education_beta_education_class, client_factory=cf_education_class
     ) as g:
-        g.custom_command('create-assignment', 'education_educationclass_create_assignment')
-        g.custom_command('create-assignment-category', 'education_educationclass_create_assignment_category')
-        g.custom_command('create-ref-member', 'education_educationclass_create_ref_member')
-        g.custom_command('create-ref-school', 'education_educationclass_create_ref_school')
-        g.custom_command('create-ref-teacher', 'education_educationclass_create_ref_teacher')
-        g.custom_command('delete-assignment', 'education_educationclass_delete_assignment')
-        g.custom_command('delete-assignment-category', 'education_educationclass_delete_assignment_category')
-        g.custom_command('delete-ref-group', 'education_educationclass_delete_ref_group')
-        g.custom_command('delta', 'education_educationclass_delta')
-        g.custom_command('list-assignment', 'education_educationclass_list_assignment')
-        g.custom_command('list-assignment-category', 'education_educationclass_list_assignment_category')
-        g.custom_command('list-member', 'education_educationclass_list_member')
-        g.custom_command('list-ref-member', 'education_educationclass_list_ref_member')
-        g.custom_command('list-ref-school', 'education_educationclass_list_ref_school')
-        g.custom_command('list-ref-teacher', 'education_educationclass_list_ref_teacher')
-        g.custom_command('list-school', 'education_educationclass_list_school')
-        g.custom_command('list-teacher', 'education_educationclass_list_teacher')
-        g.custom_command('set-ref-group', 'education_educationclass_set_ref_group')
-        g.custom_command('show-assignment', 'education_educationclass_show_assignment')
-        g.custom_command('show-assignment-category', 'education_educationclass_show_assignment_category')
-        g.custom_command('show-group', 'education_educationclass_show_group')
-        g.custom_command('show-ref-group', 'education_educationclass_show_ref_group')
-        g.custom_command('update-assignment', 'education_educationclass_update_assignment')
-        g.custom_command('update-assignment-category', 'education_educationclass_update_assignment_category')
+        g.custom_command('create-assignment', 'education_education_class_create_assignment')
+        g.custom_command('create-assignment-category', 'education_education_class_create_assignment_category')
+        g.custom_command('create-ref-member', 'education_education_class_create_ref_member')
+        g.custom_command('create-ref-school', 'education_education_class_create_ref_school')
+        g.custom_command('create-ref-teacher', 'education_education_class_create_ref_teacher')
+        g.custom_command('delete-assignment', 'education_education_class_delete_assignment')
+        g.custom_command('delete-assignment-category', 'education_education_class_delete_assignment_category')
+        g.custom_command('delete-ref-group', 'education_education_class_delete_ref_group')
+        g.custom_command('delta', 'education_education_class_delta')
+        g.custom_command('list-assignment', 'education_education_class_list_assignment')
+        g.custom_command('list-assignment-category', 'education_education_class_list_assignment_category')
+        g.custom_command('list-member', 'education_education_class_list_member')
+        g.custom_command('list-ref-member', 'education_education_class_list_ref_member')
+        g.custom_command('list-ref-school', 'education_education_class_list_ref_school')
+        g.custom_command('list-ref-teacher', 'education_education_class_list_ref_teacher')
+        g.custom_command('list-school', 'education_education_class_list_school')
+        g.custom_command('list-teacher', 'education_education_class_list_teacher')
+        g.custom_command('set-ref-group', 'education_education_class_set_ref_group')
+        g.custom_command('show-assignment', 'education_education_class_show_assignment')
+        g.custom_command('show-assignment-category', 'education_education_class_show_assignment_category')
+        g.custom_command('show-group', 'education_education_class_show_group')
+        g.custom_command('show-ref-group', 'education_education_class_show_ref_group')
+        g.custom_command('update-assignment', 'education_education_class_update_assignment')
+        g.custom_command('update-assignment-category', 'education_education_class_update_assignment_category')
 
     with self.command_group(
-        'education educationclassesassignment',
-        education_beta_educationclassesassignment,
-        client_factory=cf_educationclassesassignment,
+        'education education-class-assignment',
+        education_beta_education_class_assignment,
+        client_factory=cf_education_class_assignment,
     ) as g:
-        g.custom_command('create-category', 'education_educationclassesassignment_create_category')
-        g.custom_command('create-resource', 'education_educationclassesassignment_create_resource')
-        g.custom_command('create-submission', 'education_educationclassesassignment_create_submission')
-        g.custom_command('delete-category', 'education_educationclassesassignment_delete_category')
-        g.custom_command('delete-resource', 'education_educationclassesassignment_delete_resource')
-        g.custom_command('delete-rubric', 'education_educationclassesassignment_delete_rubric')
-        g.custom_command('delete-submission', 'education_educationclassesassignment_delete_submission')
-        g.custom_command('list-category', 'education_educationclassesassignment_list_category')
-        g.custom_command('list-resource', 'education_educationclassesassignment_list_resource')
-        g.custom_command('list-submission', 'education_educationclassesassignment_list_submission')
-        g.custom_command('publish', 'education_educationclassesassignment_publish')
-        g.custom_command('show-category', 'education_educationclassesassignment_show_category')
-        g.custom_command('show-resource', 'education_educationclassesassignment_show_resource')
-        g.custom_command('show-resource-folder-url', 'education_educationclassesassignment_show_resource_folder_url')
-        g.custom_command('show-rubric', 'education_educationclassesassignment_show_rubric')
-        g.custom_command('show-submission', 'education_educationclassesassignment_show_submission')
-        g.custom_command('update-category', 'education_educationclassesassignment_update_category')
-        g.custom_command('update-resource', 'education_educationclassesassignment_update_resource')
-        g.custom_command('update-rubric', 'education_educationclassesassignment_update_rubric')
-        g.custom_command('update-submission', 'education_educationclassesassignment_update_submission')
+        g.custom_command('create-category', 'education_education_class_assignment_create_category')
+        g.custom_command('create-resource', 'education_education_class_assignment_create_resource')
+        g.custom_command('create-submission', 'education_education_class_assignment_create_submission')
+        g.custom_command('delete-category', 'education_education_class_assignment_delete_category')
+        g.custom_command('delete-resource', 'education_education_class_assignment_delete_resource')
+        g.custom_command('delete-rubric', 'education_education_class_assignment_delete_rubric')
+        g.custom_command('delete-submission', 'education_education_class_assignment_delete_submission')
+        g.custom_command('list-category', 'education_education_class_assignment_list_category')
+        g.custom_command('list-resource', 'education_education_class_assignment_list_resource')
+        g.custom_command('list-submission', 'education_education_class_assignment_list_submission')
+        g.custom_command('publish', 'education_education_class_assignment_publish')
+        g.custom_command('show-category', 'education_education_class_assignment_show_category')
+        g.custom_command('show-resource', 'education_education_class_assignment_show_resource')
+        g.custom_command('show-resource-folder-url', 'education_education_class_assignment_show_resource_folder_url')
+        g.custom_command('show-rubric', 'education_education_class_assignment_show_rubric')
+        g.custom_command('show-submission', 'education_education_class_assignment_show_submission')
+        g.custom_command('update-category', 'education_education_class_assignment_update_category')
+        g.custom_command('update-resource', 'education_education_class_assignment_update_resource')
+        g.custom_command('update-rubric', 'education_education_class_assignment_update_rubric')
+        g.custom_command('update-submission', 'education_education_class_assignment_update_submission')
 
     with self.command_group(
-        'education educationclassesassignmentssubmission',
-        education_beta_educationclassesassignmentssubmission,
-        client_factory=cf_educationclassesassignmentssubmission,
+        'education education-class-assignment-submission',
+        education_beta_education_class_assignment_submission,
+        client_factory=cf_education_class_assignment_submission,
     ) as g:
-        g.custom_command('create-outcome', 'education_educationclassesassignmentssubmission_create_outcome')
-        g.custom_command('create-resource', 'education_educationclassesassignmentssubmission_create_resource')
+        g.custom_command('create-outcome', 'education_education_class_assignment_submission_create_outcome')
+        g.custom_command('create-resource', 'education_education_class_assignment_submission_create_resource')
         g.custom_command(
-            'create-submitted-resource', 'education_educationclassesassignmentssubmission_create_submitted_resource'
+            'create-submitted-resource', 'education_education_class_assignment_submission_create_submitted_resource'
         )
-        g.custom_command('delete-outcome', 'education_educationclassesassignmentssubmission_delete_outcome')
-        g.custom_command('delete-resource', 'education_educationclassesassignmentssubmission_delete_resource')
+        g.custom_command('delete-outcome', 'education_education_class_assignment_submission_delete_outcome')
+        g.custom_command('delete-resource', 'education_education_class_assignment_submission_delete_resource')
         g.custom_command(
-            'delete-submitted-resource', 'education_educationclassesassignmentssubmission_delete_submitted_resource'
+            'delete-submitted-resource', 'education_education_class_assignment_submission_delete_submitted_resource'
         )
-        g.custom_command('list-outcome', 'education_educationclassesassignmentssubmission_list_outcome')
-        g.custom_command('list-resource', 'education_educationclassesassignmentssubmission_list_resource')
+        g.custom_command('list-outcome', 'education_education_class_assignment_submission_list_outcome')
+        g.custom_command('list-resource', 'education_education_class_assignment_submission_list_resource')
         g.custom_command(
-            'list-submitted-resource', 'education_educationclassesassignmentssubmission_list_submitted_resource'
+            'list-submitted-resource', 'education_education_class_assignment_submission_list_submitted_resource'
         )
-        g.custom_command('return', 'education_educationclassesassignmentssubmission_return')
-        g.custom_command('show-outcome', 'education_educationclassesassignmentssubmission_show_outcome')
-        g.custom_command('show-resource', 'education_educationclassesassignmentssubmission_show_resource')
+        g.custom_command('return', 'education_education_class_assignment_submission_return')
+        g.custom_command('show-outcome', 'education_education_class_assignment_submission_show_outcome')
+        g.custom_command('show-resource', 'education_education_class_assignment_submission_show_resource')
         g.custom_command(
-            'show-submitted-resource', 'education_educationclassesassignmentssubmission_show_submitted_resource'
+            'show-submitted-resource', 'education_education_class_assignment_submission_show_submitted_resource'
         )
-        g.custom_command('submit', 'education_educationclassesassignmentssubmission_submit')
-        g.custom_command('unsubmit', 'education_educationclassesassignmentssubmission_unsubmit')
-        g.custom_command('update-outcome', 'education_educationclassesassignmentssubmission_update_outcome')
-        g.custom_command('update-resource', 'education_educationclassesassignmentssubmission_update_resource')
+        g.custom_command('submit', 'education_education_class_assignment_submission_submit')
+        g.custom_command('unsubmit', 'education_education_class_assignment_submission_unsubmit')
+        g.custom_command('update-outcome', 'education_education_class_assignment_submission_update_outcome')
+        g.custom_command('update-resource', 'education_education_class_assignment_submission_update_resource')
         g.custom_command(
-            'update-submitted-resource', 'education_educationclassesassignmentssubmission_update_submitted_resource'
-        )
-
-    with self.command_group(
-        'education educationclassesmember',
-        education_beta_educationclassesmember,
-        client_factory=cf_educationclassesmember,
-    ) as g:
-        g.custom_command('delta', 'education_educationclassesmember_delta')
-
-    with self.command_group(
-        'education educationclassesschool',
-        education_beta_educationclassesschool,
-        client_factory=cf_educationclassesschool,
-    ) as g:
-        g.custom_command('delta', 'education_educationclassesschool_delta')
-
-    with self.command_group(
-        'education educationclassesteacher',
-        education_beta_educationclassesteacher,
-        client_factory=cf_educationclassesteacher,
-    ) as g:
-        g.custom_command('delta', 'education_educationclassesteacher_delta')
-
-    with self.command_group('education educationme', education_beta_educationme, client_factory=cf_educationme) as g:
-        g.custom_command('create-assignment', 'education_educationme_create_assignment')
-        g.custom_command('create-ref-class', 'education_educationme_create_ref_class')
-        g.custom_command('create-ref-school', 'education_educationme_create_ref_school')
-        g.custom_command('create-ref-taught-class', 'education_educationme_create_ref_taught_class')
-        g.custom_command('create-rubric', 'education_educationme_create_rubric')
-        g.custom_command('delete-assignment', 'education_educationme_delete_assignment')
-        g.custom_command('delete-ref-user', 'education_educationme_delete_ref_user')
-        g.custom_command('delete-rubric', 'education_educationme_delete_rubric')
-        g.custom_command('list-assignment', 'education_educationme_list_assignment')
-        g.custom_command('list-class', 'education_educationme_list_class')
-        g.custom_command('list-ref-class', 'education_educationme_list_ref_class')
-        g.custom_command('list-ref-school', 'education_educationme_list_ref_school')
-        g.custom_command('list-ref-taught-class', 'education_educationme_list_ref_taught_class')
-        g.custom_command('list-rubric', 'education_educationme_list_rubric')
-        g.custom_command('list-school', 'education_educationme_list_school')
-        g.custom_command('list-taught-class', 'education_educationme_list_taught_class')
-        g.custom_command('set-ref-user', 'education_educationme_set_ref_user')
-        g.custom_command('show-assignment', 'education_educationme_show_assignment')
-        g.custom_command('show-ref-user', 'education_educationme_show_ref_user')
-        g.custom_command('show-rubric', 'education_educationme_show_rubric')
-        g.custom_command('show-user', 'education_educationme_show_user')
-        g.custom_command('update-assignment', 'education_educationme_update_assignment')
-        g.custom_command('update-rubric', 'education_educationme_update_rubric')
-
-    with self.command_group(
-        'education educationmeassignment', education_beta_educationmeassignment, client_factory=cf_educationmeassignment
-    ) as g:
-        g.custom_command('create-category', 'education_educationmeassignment_create_category')
-        g.custom_command('create-resource', 'education_educationmeassignment_create_resource')
-        g.custom_command('create-submission', 'education_educationmeassignment_create_submission')
-        g.custom_command('delete-category', 'education_educationmeassignment_delete_category')
-        g.custom_command('delete-resource', 'education_educationmeassignment_delete_resource')
-        g.custom_command('delete-rubric', 'education_educationmeassignment_delete_rubric')
-        g.custom_command('delete-submission', 'education_educationmeassignment_delete_submission')
-        g.custom_command('list-category', 'education_educationmeassignment_list_category')
-        g.custom_command('list-resource', 'education_educationmeassignment_list_resource')
-        g.custom_command('list-submission', 'education_educationmeassignment_list_submission')
-        g.custom_command('publish', 'education_educationmeassignment_publish')
-        g.custom_command('show-category', 'education_educationmeassignment_show_category')
-        g.custom_command('show-resource', 'education_educationmeassignment_show_resource')
-        g.custom_command('show-resource-folder-url', 'education_educationmeassignment_show_resource_folder_url')
-        g.custom_command('show-rubric', 'education_educationmeassignment_show_rubric')
-        g.custom_command('show-submission', 'education_educationmeassignment_show_submission')
-        g.custom_command('update-category', 'education_educationmeassignment_update_category')
-        g.custom_command('update-resource', 'education_educationmeassignment_update_resource')
-        g.custom_command('update-rubric', 'education_educationmeassignment_update_rubric')
-        g.custom_command('update-submission', 'education_educationmeassignment_update_submission')
-
-    with self.command_group(
-        'education educationmeassignmentssubmission',
-        education_beta_educationmeassignmentssubmission,
-        client_factory=cf_educationmeassignmentssubmission,
-    ) as g:
-        g.custom_command('create-outcome', 'education_educationmeassignmentssubmission_create_outcome')
-        g.custom_command('create-resource', 'education_educationmeassignmentssubmission_create_resource')
-        g.custom_command(
-            'create-submitted-resource', 'education_educationmeassignmentssubmission_create_submitted_resource'
-        )
-        g.custom_command('delete-outcome', 'education_educationmeassignmentssubmission_delete_outcome')
-        g.custom_command('delete-resource', 'education_educationmeassignmentssubmission_delete_resource')
-        g.custom_command(
-            'delete-submitted-resource', 'education_educationmeassignmentssubmission_delete_submitted_resource'
-        )
-        g.custom_command('list-outcome', 'education_educationmeassignmentssubmission_list_outcome')
-        g.custom_command('list-resource', 'education_educationmeassignmentssubmission_list_resource')
-        g.custom_command(
-            'list-submitted-resource', 'education_educationmeassignmentssubmission_list_submitted_resource'
-        )
-        g.custom_command('return', 'education_educationmeassignmentssubmission_return')
-        g.custom_command('show-outcome', 'education_educationmeassignmentssubmission_show_outcome')
-        g.custom_command('show-resource', 'education_educationmeassignmentssubmission_show_resource')
-        g.custom_command(
-            'show-submitted-resource', 'education_educationmeassignmentssubmission_show_submitted_resource'
-        )
-        g.custom_command('submit', 'education_educationmeassignmentssubmission_submit')
-        g.custom_command('unsubmit', 'education_educationmeassignmentssubmission_unsubmit')
-        g.custom_command('update-outcome', 'education_educationmeassignmentssubmission_update_outcome')
-        g.custom_command('update-resource', 'education_educationmeassignmentssubmission_update_resource')
-        g.custom_command(
-            'update-submitted-resource', 'education_educationmeassignmentssubmission_update_submitted_resource'
+            'update-submitted-resource', 'education_education_class_assignment_submission_update_submitted_resource'
         )
 
     with self.command_group(
-        'education educationmeclass', education_beta_educationmeclass, client_factory=cf_educationmeclass
+        'education education-class-member',
+        education_beta_education_class_member,
+        client_factory=cf_education_class_member,
     ) as g:
-        g.custom_command('delta', 'education_educationmeclass_delta')
+        g.custom_command('delta', 'education_education_class_member_delta')
 
     with self.command_group(
-        'education educationmeschool', education_beta_educationmeschool, client_factory=cf_educationmeschool
+        'education education-class-school',
+        education_beta_education_class_school,
+        client_factory=cf_education_class_school,
     ) as g:
-        g.custom_command('delta', 'education_educationmeschool_delta')
+        g.custom_command('delta', 'education_education_class_school_delta')
 
     with self.command_group(
-        'education educationmetaughtclass',
-        education_beta_educationmetaughtclass,
-        client_factory=cf_educationmetaughtclass,
+        'education education-class-teacher',
+        education_beta_education_class_teacher,
+        client_factory=cf_education_class_teacher,
     ) as g:
-        g.custom_command('delta', 'education_educationmetaughtclass_delta')
+        g.custom_command('delta', 'education_education_class_teacher_delta')
+
+    with self.command_group('education education-me', education_beta_education_me, client_factory=cf_education_me) as g:
+        g.custom_command('create-assignment', 'education_education_me_create_assignment')
+        g.custom_command('create-ref-class', 'education_education_me_create_ref_class')
+        g.custom_command('create-ref-school', 'education_education_me_create_ref_school')
+        g.custom_command('create-ref-taught-class', 'education_education_me_create_ref_taught_class')
+        g.custom_command('create-rubric', 'education_education_me_create_rubric')
+        g.custom_command('delete-assignment', 'education_education_me_delete_assignment')
+        g.custom_command('delete-ref-user', 'education_education_me_delete_ref_user')
+        g.custom_command('delete-rubric', 'education_education_me_delete_rubric')
+        g.custom_command('list-assignment', 'education_education_me_list_assignment')
+        g.custom_command('list-class', 'education_education_me_list_class')
+        g.custom_command('list-ref-class', 'education_education_me_list_ref_class')
+        g.custom_command('list-ref-school', 'education_education_me_list_ref_school')
+        g.custom_command('list-ref-taught-class', 'education_education_me_list_ref_taught_class')
+        g.custom_command('list-rubric', 'education_education_me_list_rubric')
+        g.custom_command('list-school', 'education_education_me_list_school')
+        g.custom_command('list-taught-class', 'education_education_me_list_taught_class')
+        g.custom_command('set-ref-user', 'education_education_me_set_ref_user')
+        g.custom_command('show-assignment', 'education_education_me_show_assignment')
+        g.custom_command('show-ref-user', 'education_education_me_show_ref_user')
+        g.custom_command('show-rubric', 'education_education_me_show_rubric')
+        g.custom_command('show-user', 'education_education_me_show_user')
+        g.custom_command('update-assignment', 'education_education_me_update_assignment')
+        g.custom_command('update-rubric', 'education_education_me_update_rubric')
 
     with self.command_group(
-        'education educationschool', education_beta_educationschool, client_factory=cf_educationschool
+        'education education-me-assignment',
+        education_beta_education_me_assignment,
+        client_factory=cf_education_me_assignment,
     ) as g:
-        g.custom_command('create-ref-class', 'education_educationschool_create_ref_class')
-        g.custom_command('create-ref-user', 'education_educationschool_create_ref_user')
-        g.custom_command('delete-ref-administrative-unit', 'education_educationschool_delete_ref_administrative_unit')
-        g.custom_command('delta', 'education_educationschool_delta')
-        g.custom_command('list-class', 'education_educationschool_list_class')
-        g.custom_command('list-ref-class', 'education_educationschool_list_ref_class')
-        g.custom_command('list-ref-user', 'education_educationschool_list_ref_user')
-        g.custom_command('list-user', 'education_educationschool_list_user')
-        g.custom_command('set-ref-administrative-unit', 'education_educationschool_set_ref_administrative_unit')
-        g.custom_command('show-administrative-unit', 'education_educationschool_show_administrative_unit')
-        g.custom_command('show-ref-administrative-unit', 'education_educationschool_show_ref_administrative_unit')
+        g.custom_command('create-category', 'education_education_me_assignment_create_category')
+        g.custom_command('create-resource', 'education_education_me_assignment_create_resource')
+        g.custom_command('create-submission', 'education_education_me_assignment_create_submission')
+        g.custom_command('delete-category', 'education_education_me_assignment_delete_category')
+        g.custom_command('delete-resource', 'education_education_me_assignment_delete_resource')
+        g.custom_command('delete-rubric', 'education_education_me_assignment_delete_rubric')
+        g.custom_command('delete-submission', 'education_education_me_assignment_delete_submission')
+        g.custom_command('list-category', 'education_education_me_assignment_list_category')
+        g.custom_command('list-resource', 'education_education_me_assignment_list_resource')
+        g.custom_command('list-submission', 'education_education_me_assignment_list_submission')
+        g.custom_command('publish', 'education_education_me_assignment_publish')
+        g.custom_command('show-category', 'education_education_me_assignment_show_category')
+        g.custom_command('show-resource', 'education_education_me_assignment_show_resource')
+        g.custom_command('show-resource-folder-url', 'education_education_me_assignment_show_resource_folder_url')
+        g.custom_command('show-rubric', 'education_education_me_assignment_show_rubric')
+        g.custom_command('show-submission', 'education_education_me_assignment_show_submission')
+        g.custom_command('update-category', 'education_education_me_assignment_update_category')
+        g.custom_command('update-resource', 'education_education_me_assignment_update_resource')
+        g.custom_command('update-rubric', 'education_education_me_assignment_update_rubric')
+        g.custom_command('update-submission', 'education_education_me_assignment_update_submission')
 
     with self.command_group(
-        'education educationschoolsclass', education_beta_educationschoolsclass, client_factory=cf_educationschoolsclass
+        'education education-me-assignment-submission',
+        education_beta_education_me_assignment_submission,
+        client_factory=cf_education_me_assignment_submission,
     ) as g:
-        g.custom_command('delta', 'education_educationschoolsclass_delta')
-
-    with self.command_group(
-        'education educationschoolsuser', education_beta_educationschoolsuser, client_factory=cf_educationschoolsuser
-    ) as g:
-        g.custom_command('delta', 'education_educationschoolsuser_delta')
-
-    with self.command_group(
-        'education educationsynchronizationprofile',
-        education_beta_educationsynchronizationprofile,
-        client_factory=cf_educationsynchronizationprofile,
-    ) as g:
-        g.custom_command('create-error', 'education_educationsynchronizationprofile_create_error')
-        g.custom_command('delete-error', 'education_educationsynchronizationprofile_delete_error')
-        g.custom_command('delete-profile-status', 'education_educationsynchronizationprofile_delete_profile_status')
-        g.custom_command('list-error', 'education_educationsynchronizationprofile_list_error')
-        g.custom_command('pause', 'education_educationsynchronizationprofile_pause')
-        g.custom_command('reset', 'education_educationsynchronizationprofile_reset')
-        g.custom_command('resume', 'education_educationsynchronizationprofile_resume')
-        g.custom_command('show-error', 'education_educationsynchronizationprofile_show_error')
-        g.custom_command('show-profile-status', 'education_educationsynchronizationprofile_show_profile_status')
-        g.custom_command('start', 'education_educationsynchronizationprofile_start')
-        g.custom_command('update-error', 'education_educationsynchronizationprofile_update_error')
-        g.custom_command('update-profile-status', 'education_educationsynchronizationprofile_update_profile_status')
-        g.custom_command('upload-url', 'education_educationsynchronizationprofile_upload_url')
-
-    with self.command_group(
-        'education educationuser', education_beta_educationuser, client_factory=cf_educationuser
-    ) as g:
-        g.custom_command('create-assignment', 'education_educationuser_create_assignment')
-        g.custom_command('create-ref-class', 'education_educationuser_create_ref_class')
-        g.custom_command('create-ref-school', 'education_educationuser_create_ref_school')
-        g.custom_command('create-ref-taught-class', 'education_educationuser_create_ref_taught_class')
-        g.custom_command('create-rubric', 'education_educationuser_create_rubric')
-        g.custom_command('delete-assignment', 'education_educationuser_delete_assignment')
-        g.custom_command('delete-ref-user', 'education_educationuser_delete_ref_user')
-        g.custom_command('delete-rubric', 'education_educationuser_delete_rubric')
-        g.custom_command('delta', 'education_educationuser_delta')
-        g.custom_command('list-assignment', 'education_educationuser_list_assignment')
-        g.custom_command('list-class', 'education_educationuser_list_class')
-        g.custom_command('list-ref-class', 'education_educationuser_list_ref_class')
-        g.custom_command('list-ref-school', 'education_educationuser_list_ref_school')
-        g.custom_command('list-ref-taught-class', 'education_educationuser_list_ref_taught_class')
-        g.custom_command('list-rubric', 'education_educationuser_list_rubric')
-        g.custom_command('list-school', 'education_educationuser_list_school')
-        g.custom_command('list-taught-class', 'education_educationuser_list_taught_class')
-        g.custom_command('set-ref-user', 'education_educationuser_set_ref_user')
-        g.custom_command('show-assignment', 'education_educationuser_show_assignment')
-        g.custom_command('show-ref-user', 'education_educationuser_show_ref_user')
-        g.custom_command('show-rubric', 'education_educationuser_show_rubric')
-        g.custom_command('show-user', 'education_educationuser_show_user')
-        g.custom_command('update-assignment', 'education_educationuser_update_assignment')
-        g.custom_command('update-rubric', 'education_educationuser_update_rubric')
-
-    with self.command_group(
-        'education educationusersassignment',
-        education_beta_educationusersassignment,
-        client_factory=cf_educationusersassignment,
-    ) as g:
-        g.custom_command('create-category', 'education_educationusersassignment_create_category')
-        g.custom_command('create-resource', 'education_educationusersassignment_create_resource')
-        g.custom_command('create-submission', 'education_educationusersassignment_create_submission')
-        g.custom_command('delete-category', 'education_educationusersassignment_delete_category')
-        g.custom_command('delete-resource', 'education_educationusersassignment_delete_resource')
-        g.custom_command('delete-rubric', 'education_educationusersassignment_delete_rubric')
-        g.custom_command('delete-submission', 'education_educationusersassignment_delete_submission')
-        g.custom_command('list-category', 'education_educationusersassignment_list_category')
-        g.custom_command('list-resource', 'education_educationusersassignment_list_resource')
-        g.custom_command('list-submission', 'education_educationusersassignment_list_submission')
-        g.custom_command('publish', 'education_educationusersassignment_publish')
-        g.custom_command('show-category', 'education_educationusersassignment_show_category')
-        g.custom_command('show-resource', 'education_educationusersassignment_show_resource')
-        g.custom_command('show-resource-folder-url', 'education_educationusersassignment_show_resource_folder_url')
-        g.custom_command('show-rubric', 'education_educationusersassignment_show_rubric')
-        g.custom_command('show-submission', 'education_educationusersassignment_show_submission')
-        g.custom_command('update-category', 'education_educationusersassignment_update_category')
-        g.custom_command('update-resource', 'education_educationusersassignment_update_resource')
-        g.custom_command('update-rubric', 'education_educationusersassignment_update_rubric')
-        g.custom_command('update-submission', 'education_educationusersassignment_update_submission')
-
-    with self.command_group(
-        'education educationusersassignmentssubmission',
-        education_beta_educationusersassignmentssubmission,
-        client_factory=cf_educationusersassignmentssubmission,
-    ) as g:
-        g.custom_command('create-outcome', 'education_educationusersassignmentssubmission_create_outcome')
-        g.custom_command('create-resource', 'education_educationusersassignmentssubmission_create_resource')
+        g.custom_command('create-outcome', 'education_education_me_assignment_submission_create_outcome')
+        g.custom_command('create-resource', 'education_education_me_assignment_submission_create_resource')
         g.custom_command(
-            'create-submitted-resource', 'education_educationusersassignmentssubmission_create_submitted_resource'
+            'create-submitted-resource', 'education_education_me_assignment_submission_create_submitted_resource'
         )
-        g.custom_command('delete-outcome', 'education_educationusersassignmentssubmission_delete_outcome')
-        g.custom_command('delete-resource', 'education_educationusersassignmentssubmission_delete_resource')
+        g.custom_command('delete-outcome', 'education_education_me_assignment_submission_delete_outcome')
+        g.custom_command('delete-resource', 'education_education_me_assignment_submission_delete_resource')
         g.custom_command(
-            'delete-submitted-resource', 'education_educationusersassignmentssubmission_delete_submitted_resource'
+            'delete-submitted-resource', 'education_education_me_assignment_submission_delete_submitted_resource'
         )
-        g.custom_command('list-outcome', 'education_educationusersassignmentssubmission_list_outcome')
-        g.custom_command('list-resource', 'education_educationusersassignmentssubmission_list_resource')
+        g.custom_command('list-outcome', 'education_education_me_assignment_submission_list_outcome')
+        g.custom_command('list-resource', 'education_education_me_assignment_submission_list_resource')
         g.custom_command(
-            'list-submitted-resource', 'education_educationusersassignmentssubmission_list_submitted_resource'
+            'list-submitted-resource', 'education_education_me_assignment_submission_list_submitted_resource'
         )
-        g.custom_command('return', 'education_educationusersassignmentssubmission_return')
-        g.custom_command('show-outcome', 'education_educationusersassignmentssubmission_show_outcome')
-        g.custom_command('show-resource', 'education_educationusersassignmentssubmission_show_resource')
+        g.custom_command('return', 'education_education_me_assignment_submission_return')
+        g.custom_command('show-outcome', 'education_education_me_assignment_submission_show_outcome')
+        g.custom_command('show-resource', 'education_education_me_assignment_submission_show_resource')
         g.custom_command(
-            'show-submitted-resource', 'education_educationusersassignmentssubmission_show_submitted_resource'
+            'show-submitted-resource', 'education_education_me_assignment_submission_show_submitted_resource'
         )
-        g.custom_command('submit', 'education_educationusersassignmentssubmission_submit')
-        g.custom_command('unsubmit', 'education_educationusersassignmentssubmission_unsubmit')
-        g.custom_command('update-outcome', 'education_educationusersassignmentssubmission_update_outcome')
-        g.custom_command('update-resource', 'education_educationusersassignmentssubmission_update_resource')
+        g.custom_command('submit', 'education_education_me_assignment_submission_submit')
+        g.custom_command('unsubmit', 'education_education_me_assignment_submission_unsubmit')
+        g.custom_command('update-outcome', 'education_education_me_assignment_submission_update_outcome')
+        g.custom_command('update-resource', 'education_education_me_assignment_submission_update_resource')
         g.custom_command(
-            'update-submitted-resource', 'education_educationusersassignmentssubmission_update_submitted_resource'
+            'update-submitted-resource', 'education_education_me_assignment_submission_update_submitted_resource'
         )
 
     with self.command_group(
-        'education educationusersclass', education_beta_educationusersclass, client_factory=cf_educationusersclass
+        'education education-me-class', education_beta_education_me_class, client_factory=cf_education_me_class
     ) as g:
-        g.custom_command('delta', 'education_educationusersclass_delta')
+        g.custom_command('delta', 'education_education_me_class_delta')
 
     with self.command_group(
-        'education educationusersschool', education_beta_educationusersschool, client_factory=cf_educationusersschool
+        'education education-me-school', education_beta_education_me_school, client_factory=cf_education_me_school
     ) as g:
-        g.custom_command('delta', 'education_educationusersschool_delta')
+        g.custom_command('delta', 'education_education_me_school_delta')
 
     with self.command_group(
-        'education educationuserstaughtclass',
-        education_beta_educationuserstaughtclass,
-        client_factory=cf_educationuserstaughtclass,
+        'education education-me-taught-class',
+        education_beta_education_me_taught_class,
+        client_factory=cf_education_me_taught_class,
     ) as g:
-        g.custom_command('delta', 'education_educationuserstaughtclass_delta')
+        g.custom_command('delta', 'education_education_me_taught_class_delta')
+
+    with self.command_group(
+        'education education-school', education_beta_education_school, client_factory=cf_education_school
+    ) as g:
+        g.custom_command('create-ref-class', 'education_education_school_create_ref_class')
+        g.custom_command('create-ref-user', 'education_education_school_create_ref_user')
+        g.custom_command('delete-ref-administrative-unit', 'education_education_school_delete_ref_administrative_unit')
+        g.custom_command('delta', 'education_education_school_delta')
+        g.custom_command('list-class', 'education_education_school_list_class')
+        g.custom_command('list-ref-class', 'education_education_school_list_ref_class')
+        g.custom_command('list-ref-user', 'education_education_school_list_ref_user')
+        g.custom_command('list-user', 'education_education_school_list_user')
+        g.custom_command('set-ref-administrative-unit', 'education_education_school_set_ref_administrative_unit')
+        g.custom_command('show-administrative-unit', 'education_education_school_show_administrative_unit')
+        g.custom_command('show-ref-administrative-unit', 'education_education_school_show_ref_administrative_unit')
+
+    with self.command_group(
+        'education education-school-class',
+        education_beta_education_school_class,
+        client_factory=cf_education_school_class,
+    ) as g:
+        g.custom_command('delta', 'education_education_school_class_delta')
+
+    with self.command_group(
+        'education education-school-user', education_beta_education_school_user, client_factory=cf_education_school_user
+    ) as g:
+        g.custom_command('delta', 'education_education_school_user_delta')
+
+    with self.command_group(
+        'education education-synchronization-profile',
+        education_beta_education_synchronization_profile,
+        client_factory=cf_education_synchronization_profile,
+    ) as g:
+        g.custom_command('create-error', 'education_education_synchronization_profile_create_error')
+        g.custom_command('delete-error', 'education_education_synchronization_profile_delete_error')
+        g.custom_command('delete-profile-status', 'education_education_synchronization_profile_delete_profile_status')
+        g.custom_command('list-error', 'education_education_synchronization_profile_list_error')
+        g.custom_command('pause', 'education_education_synchronization_profile_pause')
+        g.custom_command('reset', 'education_education_synchronization_profile_reset')
+        g.custom_command('resume', 'education_education_synchronization_profile_resume')
+        g.custom_command('show-error', 'education_education_synchronization_profile_show_error')
+        g.custom_command('show-profile-status', 'education_education_synchronization_profile_show_profile_status')
+        g.custom_command('start', 'education_education_synchronization_profile_start')
+        g.custom_command('update-error', 'education_education_synchronization_profile_update_error')
+        g.custom_command('update-profile-status', 'education_education_synchronization_profile_update_profile_status')
+        g.custom_command('upload-url', 'education_education_synchronization_profile_upload_url')
+
+    with self.command_group(
+        'education education-user', education_beta_education_user, client_factory=cf_education_user
+    ) as g:
+        g.custom_command('create-assignment', 'education_education_user_create_assignment')
+        g.custom_command('create-ref-class', 'education_education_user_create_ref_class')
+        g.custom_command('create-ref-school', 'education_education_user_create_ref_school')
+        g.custom_command('create-ref-taught-class', 'education_education_user_create_ref_taught_class')
+        g.custom_command('create-rubric', 'education_education_user_create_rubric')
+        g.custom_command('delete-assignment', 'education_education_user_delete_assignment')
+        g.custom_command('delete-ref-user', 'education_education_user_delete_ref_user')
+        g.custom_command('delete-rubric', 'education_education_user_delete_rubric')
+        g.custom_command('delta', 'education_education_user_delta')
+        g.custom_command('list-assignment', 'education_education_user_list_assignment')
+        g.custom_command('list-class', 'education_education_user_list_class')
+        g.custom_command('list-ref-class', 'education_education_user_list_ref_class')
+        g.custom_command('list-ref-school', 'education_education_user_list_ref_school')
+        g.custom_command('list-ref-taught-class', 'education_education_user_list_ref_taught_class')
+        g.custom_command('list-rubric', 'education_education_user_list_rubric')
+        g.custom_command('list-school', 'education_education_user_list_school')
+        g.custom_command('list-taught-class', 'education_education_user_list_taught_class')
+        g.custom_command('set-ref-user', 'education_education_user_set_ref_user')
+        g.custom_command('show-assignment', 'education_education_user_show_assignment')
+        g.custom_command('show-ref-user', 'education_education_user_show_ref_user')
+        g.custom_command('show-rubric', 'education_education_user_show_rubric')
+        g.custom_command('show-user', 'education_education_user_show_user')
+        g.custom_command('update-assignment', 'education_education_user_update_assignment')
+        g.custom_command('update-rubric', 'education_education_user_update_rubric')
+
+    with self.command_group(
+        'education education-user-assignment',
+        education_beta_education_user_assignment,
+        client_factory=cf_education_user_assignment,
+    ) as g:
+        g.custom_command('create-category', 'education_education_user_assignment_create_category')
+        g.custom_command('create-resource', 'education_education_user_assignment_create_resource')
+        g.custom_command('create-submission', 'education_education_user_assignment_create_submission')
+        g.custom_command('delete-category', 'education_education_user_assignment_delete_category')
+        g.custom_command('delete-resource', 'education_education_user_assignment_delete_resource')
+        g.custom_command('delete-rubric', 'education_education_user_assignment_delete_rubric')
+        g.custom_command('delete-submission', 'education_education_user_assignment_delete_submission')
+        g.custom_command('list-category', 'education_education_user_assignment_list_category')
+        g.custom_command('list-resource', 'education_education_user_assignment_list_resource')
+        g.custom_command('list-submission', 'education_education_user_assignment_list_submission')
+        g.custom_command('publish', 'education_education_user_assignment_publish')
+        g.custom_command('show-category', 'education_education_user_assignment_show_category')
+        g.custom_command('show-resource', 'education_education_user_assignment_show_resource')
+        g.custom_command('show-resource-folder-url', 'education_education_user_assignment_show_resource_folder_url')
+        g.custom_command('show-rubric', 'education_education_user_assignment_show_rubric')
+        g.custom_command('show-submission', 'education_education_user_assignment_show_submission')
+        g.custom_command('update-category', 'education_education_user_assignment_update_category')
+        g.custom_command('update-resource', 'education_education_user_assignment_update_resource')
+        g.custom_command('update-rubric', 'education_education_user_assignment_update_rubric')
+        g.custom_command('update-submission', 'education_education_user_assignment_update_submission')
+
+    with self.command_group(
+        'education education-user-assignment-submission',
+        education_beta_education_user_assignment_submission,
+        client_factory=cf_education_user_assignment_submission,
+    ) as g:
+        g.custom_command('create-outcome', 'education_education_user_assignment_submission_create_outcome')
+        g.custom_command('create-resource', 'education_education_user_assignment_submission_create_resource')
+        g.custom_command(
+            'create-submitted-resource', 'education_education_user_assignment_submission_create_submitted_resource'
+        )
+        g.custom_command('delete-outcome', 'education_education_user_assignment_submission_delete_outcome')
+        g.custom_command('delete-resource', 'education_education_user_assignment_submission_delete_resource')
+        g.custom_command(
+            'delete-submitted-resource', 'education_education_user_assignment_submission_delete_submitted_resource'
+        )
+        g.custom_command('list-outcome', 'education_education_user_assignment_submission_list_outcome')
+        g.custom_command('list-resource', 'education_education_user_assignment_submission_list_resource')
+        g.custom_command(
+            'list-submitted-resource', 'education_education_user_assignment_submission_list_submitted_resource'
+        )
+        g.custom_command('return', 'education_education_user_assignment_submission_return')
+        g.custom_command('show-outcome', 'education_education_user_assignment_submission_show_outcome')
+        g.custom_command('show-resource', 'education_education_user_assignment_submission_show_resource')
+        g.custom_command(
+            'show-submitted-resource', 'education_education_user_assignment_submission_show_submitted_resource'
+        )
+        g.custom_command('submit', 'education_education_user_assignment_submission_submit')
+        g.custom_command('unsubmit', 'education_education_user_assignment_submission_unsubmit')
+        g.custom_command('update-outcome', 'education_education_user_assignment_submission_update_outcome')
+        g.custom_command('update-resource', 'education_education_user_assignment_submission_update_resource')
+        g.custom_command(
+            'update-submitted-resource', 'education_education_user_assignment_submission_update_submitted_resource'
+        )
+
+    with self.command_group(
+        'education education-user-class', education_beta_education_user_class, client_factory=cf_education_user_class
+    ) as g:
+        g.custom_command('delta', 'education_education_user_class_delta')
+
+    with self.command_group(
+        'education education-user-school', education_beta_education_user_school, client_factory=cf_education_user_school
+    ) as g:
+        g.custom_command('delta', 'education_education_user_school_delta')
+
+    with self.command_group(
+        'education education-user-taught-class',
+        education_beta_education_user_taught_class,
+        client_factory=cf_education_user_taught_class,
+    ) as g:
+        g.custom_command('delta', 'education_education_user_taught_class_delta')
 
     with self.command_group('education_beta', is_experimental=True):
         pass

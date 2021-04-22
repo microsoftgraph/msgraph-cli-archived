@@ -17,17 +17,17 @@ helps['reports_v1_0'] = '''
     short-summary: Manage Reports
 '''
 
-helps['reports auditlogsauditlogroot'] = """
+helps['reports audit-log-audit-log-root'] = """
     type: group
-    short-summary: Manage auditlogsauditlogroot with reports_v1_0
+    short-summary: Manage audit log audit log root with reports_v1_0
 """
 
-helps['reports auditlogsauditlogroot show-audit-log-root'] = """
+helps['reports audit-log-audit-log-root show-audit-log-root'] = """
     type: command
     short-summary: "Get auditLogs."
 """
 
-helps['reports auditlogsauditlogroot update-audit-log-root'] = """
+helps['reports audit-log-audit-log-root update-audit-log-root'] = """
     type: command
     short-summary: "Update auditLogs."
     parameters:
@@ -75,12 +75,12 @@ information from the sign-in activity.
             Multiple actions can be specified by using more than one --restricted-sign-ins argument.
 """
 
-helps['reports auditlog'] = """
+helps['reports audit-log'] = """
     type: group
-    short-summary: Manage auditlog with reports_v1_0
+    short-summary: Manage audit log with reports_v1_0
 """
 
-helps['reports auditlog create-directory-audit'] = """
+helps['reports audit-log create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs."
     parameters:
@@ -114,7 +114,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports auditlog create-restricted-sign-in'] = """
+helps['reports audit-log create-restricted-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to restrictedSignIns for auditLogs."
     parameters:
@@ -165,7 +165,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports auditlog create-sign-in'] = """
+helps['reports audit-log create-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to signIns for auditLogs."
     parameters:
@@ -216,52 +216,52 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports auditlog delete-directory-audit'] = """
+helps['reports audit-log delete-directory-audit'] = """
     type: command
     short-summary: "Delete navigation property directoryAudits for auditLogs."
 """
 
-helps['reports auditlog delete-restricted-sign-in'] = """
+helps['reports audit-log delete-restricted-sign-in'] = """
     type: command
     short-summary: "Delete navigation property restrictedSignIns for auditLogs."
 """
 
-helps['reports auditlog delete-sign-in'] = """
+helps['reports audit-log delete-sign-in'] = """
     type: command
     short-summary: "Delete navigation property signIns for auditLogs."
 """
 
-helps['reports auditlog list-directory-audit'] = """
+helps['reports audit-log list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports auditlog list-restricted-sign-in'] = """
+helps['reports audit-log list-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports auditlog list-sign-in'] = """
+helps['reports audit-log list-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports auditlog show-directory-audit'] = """
+helps['reports audit-log show-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports auditlog show-restricted-sign-in'] = """
+helps['reports audit-log show-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports auditlog show-sign-in'] = """
+helps['reports audit-log show-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports auditlog update-directory-audit'] = """
+helps['reports audit-log update-directory-audit'] = """
     type: command
     short-summary: "Update the navigation property directoryAudits in auditLogs."
     parameters:
@@ -295,7 +295,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports auditlog update-restricted-sign-in'] = """
+helps['reports audit-log update-restricted-sign-in'] = """
     type: command
     short-summary: "Update the navigation property restrictedSignIns in auditLogs."
     parameters:
@@ -346,7 +346,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports auditlog update-sign-in'] = """
+helps['reports audit-log update-sign-in'] = """
     type: command
     short-summary: "Update the navigation property signIns in auditLogs."
     parameters:
@@ -397,17 +397,17 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports reportsreportroot'] = """
+helps['reports report-root'] = """
     type: group
-    short-summary: Manage reportsreportroot with reports_v1_0
+    short-summary: Manage report report root with reports_v1_0
 """
 
-helps['reports reportsreportroot show-report-root'] = """
+helps['reports report-root show-report-root'] = """
     type: command
     short-summary: "Get reports."
 """
 
-helps['reports reportsreportroot update-report-root'] = """
+helps['reports report-root update-report-root'] = """
     type: command
     short-summary: "Update reports."
 """

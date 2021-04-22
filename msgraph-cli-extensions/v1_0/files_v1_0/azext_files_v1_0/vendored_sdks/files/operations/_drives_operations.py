@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class drivesOperations(object):
-    """drivesOperations operations.
+class DrivesOperations(object):
+    """DrivesOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -49,10 +50,10 @@ class drivesOperations(object):
         drive_id,  # type: str
         orderby=None,  # type: Optional[List[Union[str, "models.Enum64"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum65"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get8itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdriveitem"]
+        # type: (...) -> Iterable["models.CollectionOfDriveItem"]
         """Get following from drives.
 
         Get following from drives.
@@ -64,13 +65,13 @@ class drivesOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~files.models.Enum65]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Get8itemsitem]
+        :type expand: list[str or ~files.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdriveitem or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~files.models.collectionofdriveitem]
+        :return: An iterator like instance of either CollectionOfDriveItem or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfDriveItem]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class drivesOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdriveitem', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDriveItem', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class drivesOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -143,10 +144,10 @@ class drivesOperations(object):
     def create_following(
         self,
         drive_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Create new navigation property to following for drives.
 
         Create new navigation property to following for drives.
@@ -154,13 +155,13 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,7 +185,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -192,10 +193,10 @@ class drivesOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -208,10 +209,10 @@ class drivesOperations(object):
         drive_id,  # type: str
         drive_item_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get3itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get following from drives.
 
         Get following from drives.
@@ -223,13 +224,13 @@ class drivesOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~files.models.Enum67]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Get3itemsitem]
+        :type expand: list[str or ~files.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -261,10 +262,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -276,7 +277,7 @@ class drivesOperations(object):
         self,
         drive_id,  # type: str
         drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -289,7 +290,7 @@ class drivesOperations(object):
         :param drive_item_id: key: id of driveItem.
         :type drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -320,7 +321,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -328,8 +329,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -389,8 +390,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -405,7 +406,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdriveitem0"]
+        # type: (...) -> Iterable["models.CollectionOfDriveItem0"]
         """Get items from drives.
 
         Get items from drives.
@@ -419,11 +420,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum71]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdriveitem0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~files.models.collectionofdriveitem0]
+        :return: An iterator like instance of either CollectionOfDriveItem0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfDriveItem0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdriveitem0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDriveItem0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -469,7 +470,7 @@ class drivesOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdriveitem0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDriveItem0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -482,9 +483,9 @@ class drivesOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -496,10 +497,10 @@ class drivesOperations(object):
     def create_items(
         self,
         drive_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Create new navigation property to items for drives.
 
         Create new navigation property to items for drives.
@@ -507,13 +508,13 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -537,7 +538,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -545,10 +546,10 @@ class drivesOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -564,7 +565,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get items from drives.
 
         Get items from drives.
@@ -578,11 +579,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum73]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -614,10 +615,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -629,7 +630,7 @@ class drivesOperations(object):
         self,
         drive_id,  # type: str
         drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -642,7 +643,7 @@ class drivesOperations(object):
         :param drive_item_id: key: id of driveItem.
         :type drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -673,7 +674,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -681,8 +682,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -742,8 +743,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -757,7 +758,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphlist"
+        # type: (...) -> "models.MicrosoftGraphList"
         """Get list from drives.
 
         Get list from drives.
@@ -769,11 +770,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum75]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphlist, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphlist
+        :return: MicrosoftGraphList, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphList
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphlist"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphList"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -804,10 +805,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphlist', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphList', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -818,7 +819,7 @@ class drivesOperations(object):
     def update_list(
         self,
         drive_id,  # type: str
-        body,  # type: "models.microsoftgraphlist"
+        body,  # type: "models.MicrosoftGraphList"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -829,7 +830,7 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphlist
+        :type body: ~files.models.MicrosoftGraphList
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -859,7 +860,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphlist')
+        body_content = self._serialize.body(body, 'MicrosoftGraphList')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -867,8 +868,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -924,8 +925,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -937,7 +938,7 @@ class drivesOperations(object):
         drive_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdriveitem"]
+        # type: (...) -> List["models.MicrosoftGraphDriveItem"]
         """Invoke function recent.
 
         Invoke function recent.
@@ -945,11 +946,11 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: list[~files.models.microsoftgraphdriveitem]
+        :return: list of MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: list[~files.models.MicrosoftGraphDriveItem]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdriveitem"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDriveItem"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -976,10 +977,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdriveitem]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDriveItem]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -993,7 +994,7 @@ class drivesOperations(object):
         q,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdriveitem"]
+        # type: (...) -> List["models.MicrosoftGraphDriveItem"]
         """Invoke function search.
 
         Invoke function search.
@@ -1003,11 +1004,11 @@ class drivesOperations(object):
         :param q:
         :type q: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: list[~files.models.microsoftgraphdriveitem]
+        :return: list of MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: list[~files.models.MicrosoftGraphDriveItem]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdriveitem"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDriveItem"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1035,10 +1036,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdriveitem]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDriveItem]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1051,7 +1052,7 @@ class drivesOperations(object):
         drive_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdriveitem"]
+        # type: (...) -> List["models.MicrosoftGraphDriveItem"]
         """Invoke function sharedWithMe.
 
         Invoke function sharedWithMe.
@@ -1059,11 +1060,11 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: list[~files.models.microsoftgraphdriveitem]
+        :return: list of MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: list[~files.models.MicrosoftGraphDriveItem]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdriveitem"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDriveItem"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1090,10 +1091,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdriveitem]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDriveItem]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1108,7 +1109,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get root from drives.
 
         Get root from drives.
@@ -1120,11 +1121,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum107]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1155,10 +1156,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1169,7 +1170,7 @@ class drivesOperations(object):
     def update_root(
         self,
         drive_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1180,7 +1181,7 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1210,7 +1211,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1218,8 +1219,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1275,8 +1276,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1291,7 +1292,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdriveitem1"]
+        # type: (...) -> Iterable["models.CollectionOfDriveItem1"]
         """Get special from drives.
 
         Get special from drives.
@@ -1305,11 +1306,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum110]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdriveitem1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~files.models.collectionofdriveitem1]
+        :return: An iterator like instance of either CollectionOfDriveItem1 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfDriveItem1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdriveitem1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDriveItem1"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1355,7 +1356,7 @@ class drivesOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdriveitem1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDriveItem1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1368,9 +1369,9 @@ class drivesOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1382,10 +1383,10 @@ class drivesOperations(object):
     def create_special(
         self,
         drive_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Create new navigation property to special for drives.
 
         Create new navigation property to special for drives.
@@ -1393,13 +1394,13 @@ class drivesOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1423,7 +1424,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1431,10 +1432,10 @@ class drivesOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1450,7 +1451,7 @@ class drivesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get special from drives.
 
         Get special from drives.
@@ -1464,11 +1465,11 @@ class drivesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum112]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1500,10 +1501,10 @@ class drivesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1515,7 +1516,7 @@ class drivesOperations(object):
         self,
         drive_id,  # type: str
         drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1528,7 +1529,7 @@ class drivesOperations(object):
         :param drive_item_id: key: id of driveItem.
         :type drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1559,7 +1560,7 @@ class drivesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1567,8 +1568,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1628,8 +1629,8 @@ class drivesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

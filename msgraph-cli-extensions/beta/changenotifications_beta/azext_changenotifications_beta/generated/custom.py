@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 
 
-def changenotifications_subscriptionssubscription_create_subscription(client,
+def changenotifications_subscription_subscription_create_subscription(client,
                                                                       id_=None,
                                                                       application_id=None,
                                                                       change_type=None,
@@ -43,14 +43,14 @@ def changenotifications_subscriptionssubscription_create_subscription(client,
     return client.create_subscription(body=body)
 
 
-def changenotifications_subscriptionssubscription_delete_subscription(client,
+def changenotifications_subscription_subscription_delete_subscription(client,
                                                                       subscription_id,
                                                                       if_match=None):
     return client.delete_subscription(subscription_id=subscription_id,
                                       if_match=if_match)
 
 
-def changenotifications_subscriptionssubscription_list_subscription(client,
+def changenotifications_subscription_subscription_list_subscription(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
@@ -59,7 +59,7 @@ def changenotifications_subscriptionssubscription_list_subscription(client,
                                     expand=expand)
 
 
-def changenotifications_subscriptionssubscription_show_subscription(client,
+def changenotifications_subscription_subscription_show_subscription(client,
                                                                     subscription_id,
                                                                     select=None,
                                                                     expand=None):
@@ -68,7 +68,7 @@ def changenotifications_subscriptionssubscription_show_subscription(client,
                                    expand=expand)
 
 
-def changenotifications_subscriptionssubscription_update_subscription(client,
+def changenotifications_subscription_subscription_update_subscription(client,
                                                                       subscription_id,
                                                                       id_=None,
                                                                       application_id=None,

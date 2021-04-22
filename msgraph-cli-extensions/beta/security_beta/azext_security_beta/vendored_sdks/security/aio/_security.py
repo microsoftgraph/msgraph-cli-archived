@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.core import AsyncPipelineClient
+from azure.mgmt.core import AsyncARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,27 +16,27 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import SecurityConfiguration
-from .operations import securitysecurityOperations
-from .operations import securityOperations
-from .operations import securityalertsOperations
-from .operations import securitysecurityactionsOperations
-from .operations import securitytiindicatorsOperations
+from .operations import SecuritySecurityOperations
+from .operations import SecurityOperations
+from .operations import SecurityAlertsOperations
+from .operations import SecuritySecurityActionsOperations
+from .operations import SecurityTiIndicatorsOperations
 from .. import models
 
 
 class Security(object):
     """Security.
 
-    :ivar securitysecurity: securitysecurityOperations operations
-    :vartype securitysecurity: security.aio.operations.securitysecurityOperations
-    :ivar security: securityOperations operations
-    :vartype security: security.aio.operations.securityOperations
-    :ivar securityalerts: securityalertsOperations operations
-    :vartype securityalerts: security.aio.operations.securityalertsOperations
-    :ivar securitysecurityactions: securitysecurityactionsOperations operations
-    :vartype securitysecurityactions: security.aio.operations.securitysecurityactionsOperations
-    :ivar securitytiindicators: securitytiindicatorsOperations operations
-    :vartype securitytiindicators: security.aio.operations.securitytiindicatorsOperations
+    :ivar security_security: SecuritySecurityOperations operations
+    :vartype security_security: security.aio.operations.SecuritySecurityOperations
+    :ivar security: SecurityOperations operations
+    :vartype security: security.aio.operations.SecurityOperations
+    :ivar security_alerts: SecurityAlertsOperations operations
+    :vartype security_alerts: security.aio.operations.SecurityAlertsOperations
+    :ivar security_security_actions: SecuritySecurityActionsOperations operations
+    :vartype security_security_actions: security.aio.operations.SecuritySecurityActionsOperations
+    :ivar security_ti_indicators: SecurityTiIndicatorsOperations operations
+    :vartype security_ti_indicators: security.aio.operations.SecurityTiIndicatorsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -66,22 +66,22 @@ class Security(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = SecurityConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.securitysecurity = securitysecurityOperations(
+        self.security_security = SecuritySecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security = securityOperations(
+        self.security = SecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.securityalerts = securityalertsOperations(
+        self.security_alerts = SecurityAlertsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.securitysecurityactions = securitysecurityactionsOperations(
+        self.security_security_actions = SecuritySecurityActionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.securitytiindicators = securitytiindicatorsOperations(
+        self.security_ti_indicators = SecurityTiIndicatorsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

@@ -11,6 +11,7 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -21,8 +22,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class contractsOperations(object):
-    """contractsOperations operations.
+class ContractsOperations(object):
+    """ContractsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,7 +47,7 @@ class contractsOperations(object):
     def check_member_groups(
         self,
         contract_id,  # type: str
-        body,  # type: "models.paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -57,7 +58,7 @@ class contractsOperations(object):
         :param contract_id: key: id of contract.
         :type contract_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -87,7 +88,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -95,8 +96,8 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -109,7 +110,7 @@ class contractsOperations(object):
     def check_member_objects(
         self,
         contract_id,  # type: str
-        body,  # type: "models.pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -120,7 +121,7 @@ class contractsOperations(object):
         :param contract_id: key: id of contract.
         :type contract_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -150,7 +151,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -158,8 +159,8 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -172,7 +173,7 @@ class contractsOperations(object):
     def get_member_groups(
         self,
         contract_id,  # type: str
-        body,  # type: "models.paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -183,7 +184,7 @@ class contractsOperations(object):
         :param contract_id: key: id of contract.
         :type contract_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -213,7 +214,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -221,8 +222,8 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -235,7 +236,7 @@ class contractsOperations(object):
     def get_member_objects(
         self,
         contract_id,  # type: str
-        body,  # type: "models.paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -246,7 +247,7 @@ class contractsOperations(object):
         :param contract_id: key: id of contract.
         :type contract_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -276,7 +277,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -284,8 +285,8 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -300,7 +301,7 @@ class contractsOperations(object):
         contract_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdirectoryobject"
+        # type: (...) -> "models.MicrosoftGraphDirectoryObject"
         """Invoke action restore.
 
         Invoke action restore.
@@ -308,11 +309,11 @@ class contractsOperations(object):
         :param contract_id: key: id of contract.
         :type contract_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -339,10 +340,10 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -352,22 +353,22 @@ class contractsOperations(object):
 
     def get_available_extension_properties(
         self,
-        body,  # type: "models.paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphextensionproperty"]
+        # type: (...) -> List["models.MicrosoftGraphExtensionProperty"]
         """Invoke action getAvailableExtensionProperties.
 
         Invoke action getAvailableExtensionProperties.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphextensionproperty, or the result of cls(response)
-        :rtype: list[~identity_directory_management.models.microsoftgraphextensionproperty]
+        :return: list of MicrosoftGraphExtensionProperty, or the result of cls(response)
+        :rtype: list[~identity_directory_management.models.MicrosoftGraphExtensionProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphextensionproperty"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphExtensionProperty"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -387,7 +388,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -395,10 +396,10 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphextensionproperty]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphExtensionProperty]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -408,22 +409,22 @@ class contractsOperations(object):
 
     def get_by_ids(
         self,
-        body,  # type: "models.paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdirectoryobject"]
+        # type: (...) -> List["models.MicrosoftGraphDirectoryObject"]
         """Invoke action getByIds.
 
         Invoke action getByIds.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: list[~identity_directory_management.models.microsoftgraphdirectoryobject]
+        :return: list of MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: list[~identity_directory_management.models.MicrosoftGraphDirectoryObject]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdirectoryobject"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDirectoryObject"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -443,7 +444,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -451,10 +452,10 @@ class contractsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdirectoryobject]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDirectoryObject]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -464,7 +465,7 @@ class contractsOperations(object):
 
     def validate_properties(
         self,
-        body,  # type: "models.pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -473,7 +474,7 @@ class contractsOperations(object):
         Invoke action validateProperties.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -499,7 +500,7 @@ class contractsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -507,8 +508,8 @@ class contractsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class printOperations(object):
-    """printOperations operations.
+class PrintOperations(object):
+    """PrintOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,28 +47,28 @@ class printOperations(object):
 
     def list_connectors(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprintconnector"]
+        # type: (...) -> Iterable["models.CollectionOfPrintConnector"]
         """Get connectors from print.
 
         Get connectors from print.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~devices_cloud_print.models.Get5itemsitem]
+        :type orderby: list[str or ~devices_cloud_print.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~devices_cloud_print.models.Get6itemsitem]
+        :type select: list[str or ~devices_cloud_print.models.Get6ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprintconnector or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprintconnector]
+        :return: An iterator like instance of either CollectionOfPrintConnector or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrintConnector]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprintconnector"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintConnector"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprintconnector', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrintConnector', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class printOperations(object):
 
     def create_connectors(
         self,
-        body,  # type: "models.microsoftgraphprintconnector"
+        body,  # type: "models.MicrosoftGraphPrintConnector"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintconnector"
+        # type: (...) -> "models.MicrosoftGraphPrintConnector"
         """Create new navigation property to connectors for print.
 
         Create new navigation property to connectors for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintconnector
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintConnector
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintconnector, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintconnector
+        :return: MicrosoftGraphPrintConnector, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintConnector
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintconnector"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintConnector"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintconnector')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintConnector')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintconnector', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintConnector', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -196,7 +197,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintconnector"
+        # type: (...) -> "models.MicrosoftGraphPrintConnector"
         """Get connectors from print.
 
         Get connectors from print.
@@ -208,11 +209,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintconnector, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintconnector
+        :return: MicrosoftGraphPrintConnector, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintConnector
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintconnector"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintConnector"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintconnector', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintConnector', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class printOperations(object):
     def update_connectors(
         self,
         print_connector_id,  # type: str
-        body,  # type: "models.microsoftgraphprintconnector"
+        body,  # type: "models.MicrosoftGraphPrintConnector"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class printOperations(object):
         :param print_connector_id: key: id of printConnector.
         :type print_connector_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintconnector
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintConnector
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintconnector')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintConnector')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -378,7 +379,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprintoperation"]
+        # type: (...) -> Iterable["models.CollectionOfPrintOperation"]
         """Get operations from print.
 
         Get operations from print.
@@ -390,11 +391,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprintoperation or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprintoperation]
+        :return: An iterator like instance of either CollectionOfPrintOperation or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrintOperation]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprintoperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintOperation"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -436,7 +437,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprintoperation', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrintOperation', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -449,9 +450,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -462,22 +463,22 @@ class printOperations(object):
 
     def create_operations(
         self,
-        body,  # type: "models.microsoftgraphprintoperation"
+        body,  # type: "models.MicrosoftGraphPrintOperation"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintoperation"
+        # type: (...) -> "models.MicrosoftGraphPrintOperation"
         """Create new navigation property to operations for print.
 
         Create new navigation property to operations for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintoperation
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintOperation
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintoperation, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintoperation
+        :return: MicrosoftGraphPrintOperation, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintoperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintOperation"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -497,7 +498,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintoperation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintOperation')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -505,10 +506,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintoperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -523,7 +524,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintoperation"
+        # type: (...) -> "models.MicrosoftGraphPrintOperation"
         """Get operations from print.
 
         Get operations from print.
@@ -535,11 +536,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintoperation, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintoperation
+        :return: MicrosoftGraphPrintOperation, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintoperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintOperation"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -570,10 +571,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintoperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -584,7 +585,7 @@ class printOperations(object):
     def update_operations(
         self,
         print_operation_id,  # type: str
-        body,  # type: "models.microsoftgraphprintoperation"
+        body,  # type: "models.MicrosoftGraphPrintOperation"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -595,7 +596,7 @@ class printOperations(object):
         :param print_operation_id: key: id of printOperation.
         :type print_operation_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintoperation
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintOperation
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -625,7 +626,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintoperation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintOperation')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -633,8 +634,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -690,8 +691,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -705,7 +706,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum34"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprinter"]
+        # type: (...) -> Iterable["models.CollectionOfPrinter"]
         """Get printers from print.
 
         Get printers from print.
@@ -717,11 +718,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum34]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprinter or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprinter]
+        :return: An iterator like instance of either CollectionOfPrinter or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrinter]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprinter"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinter"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -763,7 +764,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprinter', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrinter', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -776,9 +777,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -789,22 +790,22 @@ class printOperations(object):
 
     def create_printers(
         self,
-        body,  # type: "models.microsoftgraphprinter"
+        body,  # type: "models.MicrosoftGraphPrinter"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprinter"
+        # type: (...) -> "models.MicrosoftGraphPrinter"
         """Create new navigation property to printers for print.
 
         Create new navigation property to printers for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprinter
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinter
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprinter, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprinter
+        :return: MicrosoftGraphPrinter, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinter
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprinter"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinter"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -824,7 +825,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprinter')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinter')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -832,10 +833,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprinter', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinter', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -850,7 +851,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum36"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprinter"
+        # type: (...) -> "models.MicrosoftGraphPrinter"
         """Get printers from print.
 
         Get printers from print.
@@ -862,11 +863,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum36]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprinter, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprinter
+        :return: MicrosoftGraphPrinter, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinter
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprinter"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinter"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -897,10 +898,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprinter', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinter', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -911,7 +912,7 @@ class printOperations(object):
     def update_printers(
         self,
         printer_id,  # type: str
-        body,  # type: "models.microsoftgraphprinter"
+        body,  # type: "models.MicrosoftGraphPrinter"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -922,7 +923,7 @@ class printOperations(object):
         :param printer_id: key: id of printer.
         :type printer_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprinter
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinter
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -952,7 +953,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprinter')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinter')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -960,8 +961,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1017,8 +1018,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1032,7 +1033,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum61"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprintershare0"]
+        # type: (...) -> Iterable["models.CollectionOfPrinterShare0"]
         """Get printerShares from print.
 
         Get printerShares from print.
@@ -1044,11 +1045,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum61]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprintershare0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprintershare0]
+        :return: An iterator like instance of either CollectionOfPrinterShare0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrinterShare0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprintershare0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinterShare0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1090,7 +1091,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprintershare0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrinterShare0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1103,9 +1104,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1116,22 +1117,22 @@ class printOperations(object):
 
     def create_printer_shares(
         self,
-        body,  # type: "models.microsoftgraphprintershare"
+        body,  # type: "models.MicrosoftGraphPrinterShare"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintershare"
+        # type: (...) -> "models.MicrosoftGraphPrinterShare"
         """Create new navigation property to printerShares for print.
 
         Create new navigation property to printerShares for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintershare
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintershare, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintershare
+        :return: MicrosoftGraphPrinterShare, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintershare"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1151,7 +1152,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintershare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1159,10 +1160,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintershare', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinterShare', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1177,7 +1178,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum63"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintershare"
+        # type: (...) -> "models.MicrosoftGraphPrinterShare"
         """Get printerShares from print.
 
         Get printerShares from print.
@@ -1189,11 +1190,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum63]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintershare, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintershare
+        :return: MicrosoftGraphPrinterShare, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintershare"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1224,10 +1225,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintershare', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinterShare', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1238,7 +1239,7 @@ class printOperations(object):
     def update_printer_shares(
         self,
         printer_share_id,  # type: str
-        body,  # type: "models.microsoftgraphprintershare"
+        body,  # type: "models.MicrosoftGraphPrinterShare"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1249,7 +1250,7 @@ class printOperations(object):
         :param printer_share_id: key: id of printerShare.
         :type printer_share_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintershare
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1279,7 +1280,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintershare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1287,8 +1288,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1344,8 +1345,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1359,7 +1360,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofreportroot"]
+        # type: (...) -> Iterable["models.CollectionOfReportRoot"]
         """Get reports from print.
 
         Get reports from print.
@@ -1371,11 +1372,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum74]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofreportroot or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofreportroot]
+        :return: An iterator like instance of either CollectionOfReportRoot or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfReportRoot]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofreportroot"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfReportRoot"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1417,7 +1418,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofreportroot', pipeline_response)
+            deserialized = self._deserialize('CollectionOfReportRoot', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1430,9 +1431,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1443,22 +1444,22 @@ class printOperations(object):
 
     def create_reports(
         self,
-        body,  # type: "models.microsoftgraphreportroot"
+        body,  # type: "models.MicrosoftGraphReportRoot"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreportroot"
+        # type: (...) -> "models.MicrosoftGraphReportRoot"
         """Create new navigation property to reports for print.
 
         Create new navigation property to reports for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphreportroot
+        :type body: ~devices_cloud_print.models.MicrosoftGraphReportRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreportroot, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphreportroot
+        :return: MicrosoftGraphReportRoot, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphReportRoot
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreportroot"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReportRoot"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1478,7 +1479,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphreportroot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphReportRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1486,10 +1487,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreportroot', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReportRoot', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1504,7 +1505,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphreportroot"
+        # type: (...) -> "models.MicrosoftGraphReportRoot"
         """Get reports from print.
 
         Get reports from print.
@@ -1516,11 +1517,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum76]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphreportroot, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphreportroot
+        :return: MicrosoftGraphReportRoot, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphReportRoot
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphreportroot"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReportRoot"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1551,10 +1552,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphreportroot', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReportRoot', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1565,7 +1566,7 @@ class printOperations(object):
     def update_reports(
         self,
         report_root_id,  # type: str
-        body,  # type: "models.microsoftgraphreportroot"
+        body,  # type: "models.MicrosoftGraphReportRoot"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1576,7 +1577,7 @@ class printOperations(object):
         :param report_root_id: key: id of reportRoot.
         :type report_root_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphreportroot
+        :type body: ~devices_cloud_print.models.MicrosoftGraphReportRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1606,7 +1607,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphreportroot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphReportRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1614,8 +1615,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1671,8 +1672,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1686,7 +1687,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprintservice"]
+        # type: (...) -> Iterable["models.CollectionOfPrintService"]
         """Get services from print.
 
         Get services from print.
@@ -1698,11 +1699,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum79]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprintservice or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprintservice]
+        :return: An iterator like instance of either CollectionOfPrintService or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrintService]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprintservice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintService"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1744,7 +1745,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprintservice', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrintService', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1757,9 +1758,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1770,22 +1771,22 @@ class printOperations(object):
 
     def create_services(
         self,
-        body,  # type: "models.microsoftgraphprintservice"
+        body,  # type: "models.MicrosoftGraphPrintService"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintservice"
+        # type: (...) -> "models.MicrosoftGraphPrintService"
         """Create new navigation property to services for print.
 
         Create new navigation property to services for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintservice
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintService
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintservice, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintservice
+        :return: MicrosoftGraphPrintService, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintService
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintservice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintService"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1805,7 +1806,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintservice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintService')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1813,10 +1814,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintservice', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintService', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1831,7 +1832,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintservice"
+        # type: (...) -> "models.MicrosoftGraphPrintService"
         """Get services from print.
 
         Get services from print.
@@ -1843,11 +1844,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum81]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintservice, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintservice
+        :return: MicrosoftGraphPrintService, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintService
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintservice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintService"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1878,10 +1879,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintservice', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintService', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1892,7 +1893,7 @@ class printOperations(object):
     def update_services(
         self,
         print_service_id,  # type: str
-        body,  # type: "models.microsoftgraphprintservice"
+        body,  # type: "models.MicrosoftGraphPrintService"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1903,7 +1904,7 @@ class printOperations(object):
         :param print_service_id: key: id of printService.
         :type print_service_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintservice
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintService
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1933,7 +1934,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintservice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintService')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1941,8 +1942,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1998,8 +1999,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2013,7 +2014,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprintershare1"]
+        # type: (...) -> Iterable["models.CollectionOfPrinterShare1"]
         """Get shares from print.
 
         Get shares from print.
@@ -2025,11 +2026,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum87]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprintershare1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprintershare1]
+        :return: An iterator like instance of either CollectionOfPrinterShare1 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrinterShare1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprintershare1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinterShare1"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2071,7 +2072,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprintershare1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrinterShare1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2084,9 +2085,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2097,22 +2098,22 @@ class printOperations(object):
 
     def create_shares(
         self,
-        body,  # type: "models.microsoftgraphprintershare"
+        body,  # type: "models.MicrosoftGraphPrinterShare"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintershare"
+        # type: (...) -> "models.MicrosoftGraphPrinterShare"
         """Create new navigation property to shares for print.
 
         Create new navigation property to shares for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintershare
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintershare, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintershare
+        :return: MicrosoftGraphPrinterShare, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintershare"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2132,7 +2133,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintershare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2140,10 +2141,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintershare', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinterShare', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2158,7 +2159,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprintershare"
+        # type: (...) -> "models.MicrosoftGraphPrinterShare"
         """Get shares from print.
 
         Get shares from print.
@@ -2170,11 +2171,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum89]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprintershare, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprintershare
+        :return: MicrosoftGraphPrinterShare, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprintershare"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2205,10 +2206,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprintershare', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrinterShare', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2219,7 +2220,7 @@ class printOperations(object):
     def update_shares(
         self,
         printer_share_id,  # type: str
-        body,  # type: "models.microsoftgraphprintershare"
+        body,  # type: "models.MicrosoftGraphPrinterShare"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -2230,7 +2231,7 @@ class printOperations(object):
         :param printer_share_id: key: id of printerShare.
         :type printer_share_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprintershare
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2260,7 +2261,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprintershare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2268,8 +2269,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2325,8 +2326,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2340,7 +2341,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofprinttaskdefinition"]
+        # type: (...) -> Iterable["models.CollectionOfPrintTaskDefinition"]
         """Get taskDefinitions from print.
 
         Get taskDefinitions from print.
@@ -2352,11 +2353,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum100]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprinttaskdefinition or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.collectionofprinttaskdefinition]
+        :return: An iterator like instance of either CollectionOfPrintTaskDefinition or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_cloud_print.models.CollectionOfPrintTaskDefinition]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprinttaskdefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintTaskDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2398,7 +2399,7 @@ class printOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprinttaskdefinition', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrintTaskDefinition', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2411,9 +2412,9 @@ class printOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2424,22 +2425,22 @@ class printOperations(object):
 
     def create_task_definitions(
         self,
-        body,  # type: "models.microsoftgraphprinttaskdefinition"
+        body,  # type: "models.MicrosoftGraphPrintTaskDefinition"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprinttaskdefinition"
+        # type: (...) -> "models.MicrosoftGraphPrintTaskDefinition"
         """Create new navigation property to taskDefinitions for print.
 
         Create new navigation property to taskDefinitions for print.
 
         :param body: New navigation property.
-        :type body: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprinttaskdefinition, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
+        :return: MicrosoftGraphPrintTaskDefinition, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprinttaskdefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintTaskDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2459,7 +2460,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprinttaskdefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintTaskDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2467,10 +2468,10 @@ class printOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprinttaskdefinition', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintTaskDefinition', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2485,7 +2486,7 @@ class printOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphprinttaskdefinition"
+        # type: (...) -> "models.MicrosoftGraphPrintTaskDefinition"
         """Get taskDefinitions from print.
 
         Get taskDefinitions from print.
@@ -2497,11 +2498,11 @@ class printOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_cloud_print.models.Enum102]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprinttaskdefinition, or the result of cls(response)
-        :rtype: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
+        :return: MicrosoftGraphPrintTaskDefinition, or the result of cls(response)
+        :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprinttaskdefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintTaskDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2532,10 +2533,10 @@ class printOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprinttaskdefinition', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrintTaskDefinition', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2546,7 +2547,7 @@ class printOperations(object):
     def update_task_definitions(
         self,
         print_task_definition_id,  # type: str
-        body,  # type: "models.microsoftgraphprinttaskdefinition"
+        body,  # type: "models.MicrosoftGraphPrintTaskDefinition"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -2557,7 +2558,7 @@ class printOperations(object):
         :param print_task_definition_id: key: id of printTaskDefinition.
         :type print_task_definition_id: str
         :param body: New navigation property values.
-        :type body: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2587,7 +2588,7 @@ class printOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprinttaskdefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintTaskDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2595,8 +2596,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2652,8 +2653,8 @@ class printOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

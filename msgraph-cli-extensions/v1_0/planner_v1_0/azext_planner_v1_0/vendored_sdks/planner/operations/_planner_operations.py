@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class plannerOperations(object):
-    """plannerOperations operations.
+class PlannerOperations(object):
+    """PlannerOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -51,7 +52,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum36"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofplannerbucket0"]
+        # type: (...) -> Iterable["models.CollectionOfPlannerBucket0"]
         """Get buckets from planner.
 
         Get buckets from planner.
@@ -63,11 +64,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum36]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofplannerbucket0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~planner.models.collectionofplannerbucket0]
+        :return: An iterator like instance of either CollectionOfPlannerBucket0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~planner.models.CollectionOfPlannerBucket0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofplannerbucket0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerBucket0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class plannerOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofplannerbucket0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPlannerBucket0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class plannerOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class plannerOperations(object):
 
     def create_buckets(
         self,
-        body,  # type: "models.microsoftgraphplannerbucket"
+        body,  # type: "models.MicrosoftGraphPlannerBucket"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannerbucket"
+        # type: (...) -> "models.MicrosoftGraphPlannerBucket"
         """Create new navigation property to buckets for planner.
 
         Create new navigation property to buckets for planner.
 
         :param body: New navigation property.
-        :type body: ~planner.models.microsoftgraphplannerbucket
+        :type body: ~planner.models.MicrosoftGraphPlannerBucket
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannerbucket, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannerbucket
+        :return: MicrosoftGraphPlannerBucket, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerBucket
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannerbucket"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerBucket"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannerbucket')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerBucket')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class plannerOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannerbucket', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerBucket', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -196,7 +197,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum38"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannerbucket"
+        # type: (...) -> "models.MicrosoftGraphPlannerBucket"
         """Get buckets from planner.
 
         Get buckets from planner.
@@ -208,11 +209,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum38]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannerbucket, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannerbucket
+        :return: MicrosoftGraphPlannerBucket, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerBucket
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannerbucket"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerBucket"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class plannerOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannerbucket', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerBucket', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class plannerOperations(object):
     def update_buckets(
         self,
         planner_bucket_id,  # type: str
-        body,  # type: "models.microsoftgraphplannerbucket"
+        body,  # type: "models.MicrosoftGraphPlannerBucket"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class plannerOperations(object):
         :param planner_bucket_id: key: id of plannerBucket.
         :type planner_bucket_id: str
         :param body: New navigation property values.
-        :type body: ~planner.models.microsoftgraphplannerbucket
+        :type body: ~planner.models.MicrosoftGraphPlannerBucket
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannerbucket')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerBucket')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -378,7 +379,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum50"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofplannerplan0"]
+        # type: (...) -> Iterable["models.CollectionOfPlannerPlan0"]
         """Get plans from planner.
 
         Get plans from planner.
@@ -390,11 +391,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum50]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofplannerplan0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~planner.models.collectionofplannerplan0]
+        :return: An iterator like instance of either CollectionOfPlannerPlan0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~planner.models.CollectionOfPlannerPlan0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofplannerplan0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerPlan0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -436,7 +437,7 @@ class plannerOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofplannerplan0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPlannerPlan0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -449,9 +450,9 @@ class plannerOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -462,22 +463,22 @@ class plannerOperations(object):
 
     def create_plans(
         self,
-        body,  # type: "models.microsoftgraphplannerplan"
+        body,  # type: "models.MicrosoftGraphPlannerPlan"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannerplan"
+        # type: (...) -> "models.MicrosoftGraphPlannerPlan"
         """Create new navigation property to plans for planner.
 
         Create new navigation property to plans for planner.
 
         :param body: New navigation property.
-        :type body: ~planner.models.microsoftgraphplannerplan
+        :type body: ~planner.models.MicrosoftGraphPlannerPlan
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannerplan, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannerplan
+        :return: MicrosoftGraphPlannerPlan, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerPlan
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannerplan"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerPlan"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -497,7 +498,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannerplan')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerPlan')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -505,10 +506,10 @@ class plannerOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannerplan', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerPlan', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -523,7 +524,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum52"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannerplan"
+        # type: (...) -> "models.MicrosoftGraphPlannerPlan"
         """Get plans from planner.
 
         Get plans from planner.
@@ -535,11 +536,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum52]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannerplan, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannerplan
+        :return: MicrosoftGraphPlannerPlan, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerPlan
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannerplan"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerPlan"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -570,10 +571,10 @@ class plannerOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannerplan', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerPlan', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -584,7 +585,7 @@ class plannerOperations(object):
     def update_plans(
         self,
         planner_plan_id,  # type: str
-        body,  # type: "models.microsoftgraphplannerplan"
+        body,  # type: "models.MicrosoftGraphPlannerPlan"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -595,7 +596,7 @@ class plannerOperations(object):
         :param planner_plan_id: key: id of plannerPlan.
         :type planner_plan_id: str
         :param body: New navigation property values.
-        :type body: ~planner.models.microsoftgraphplannerplan
+        :type body: ~planner.models.MicrosoftGraphPlannerPlan
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -625,7 +626,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannerplan')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerPlan')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -633,8 +634,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -690,8 +691,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -705,7 +706,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofplannertask4"]
+        # type: (...) -> Iterable["models.CollectionOfPlannerTask4"]
         """Get tasks from planner.
 
         Get tasks from planner.
@@ -717,11 +718,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum79]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofplannertask4 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~planner.models.collectionofplannertask4]
+        :return: An iterator like instance of either CollectionOfPlannerTask4 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~planner.models.CollectionOfPlannerTask4]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofplannertask4"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerTask4"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -763,7 +764,7 @@ class plannerOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofplannertask4', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPlannerTask4', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -776,9 +777,9 @@ class plannerOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -789,22 +790,22 @@ class plannerOperations(object):
 
     def create_tasks(
         self,
-        body,  # type: "models.microsoftgraphplannertask"
+        body,  # type: "models.MicrosoftGraphPlannerTask"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannertask"
+        # type: (...) -> "models.MicrosoftGraphPlannerTask"
         """Create new navigation property to tasks for planner.
 
         Create new navigation property to tasks for planner.
 
         :param body: New navigation property.
-        :type body: ~planner.models.microsoftgraphplannertask
+        :type body: ~planner.models.MicrosoftGraphPlannerTask
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannertask, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannertask
+        :return: MicrosoftGraphPlannerTask, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerTask
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannertask"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerTask"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -824,7 +825,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannertask')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -832,10 +833,10 @@ class plannerOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannertask', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerTask', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -850,7 +851,7 @@ class plannerOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphplannertask"
+        # type: (...) -> "models.MicrosoftGraphPlannerTask"
         """Get tasks from planner.
 
         Get tasks from planner.
@@ -862,11 +863,11 @@ class plannerOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~planner.models.Enum81]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphplannertask, or the result of cls(response)
-        :rtype: ~planner.models.microsoftgraphplannertask
+        :return: MicrosoftGraphPlannerTask, or the result of cls(response)
+        :rtype: ~planner.models.MicrosoftGraphPlannerTask
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphplannertask"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerTask"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -897,10 +898,10 @@ class plannerOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphplannertask', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPlannerTask', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -911,7 +912,7 @@ class plannerOperations(object):
     def update_tasks(
         self,
         planner_task_id,  # type: str
-        body,  # type: "models.microsoftgraphplannertask"
+        body,  # type: "models.MicrosoftGraphPlannerTask"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -922,7 +923,7 @@ class plannerOperations(object):
         :param planner_task_id: key: id of plannerTask.
         :type planner_task_id: str
         :param body: New navigation property values.
-        :type body: ~planner.models.microsoftgraphplannertask
+        :type body: ~planner.models.MicrosoftGraphPlannerTask
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -952,7 +953,7 @@ class plannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphplannertask')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -960,8 +961,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1017,8 +1018,8 @@ class plannerOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

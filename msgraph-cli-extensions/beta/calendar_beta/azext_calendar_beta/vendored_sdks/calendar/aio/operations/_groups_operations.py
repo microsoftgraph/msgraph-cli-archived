@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class groupsOperations:
-    """groupsOperations async operations.
+class GroupsOperations:
+    """GroupsOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -43,10 +44,10 @@ class groupsOperations:
     async def get_calendar(
         self,
         group_id: str,
-        select: Optional[List[Union[str, "models.Get1itemsitem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get2itemsitem"]]] = None,
+        select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcalendar":
+    ) -> "models.MicrosoftGraphCalendar":
         """Get calendar from groups.
 
         Get calendar from groups.
@@ -54,15 +55,15 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~calendar.models.Get1itemsitem]
+        :type select: list[str or ~calendar.models.Get1ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~calendar.models.Get2itemsitem]
+        :type expand: list[str or ~calendar.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcalendar, or the result of cls(response)
-        :rtype: ~calendar.models.microsoftgraphcalendar
+        :return: MicrosoftGraphCalendar, or the result of cls(response)
+        :rtype: ~calendar.models.MicrosoftGraphCalendar
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcalendar"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCalendar"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -93,10 +94,10 @@ class groupsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcalendar', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCalendar', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -107,7 +108,7 @@ class groupsOperations:
     async def update_calendar(
         self,
         group_id: str,
-        body: "models.microsoftgraphcalendar",
+        body: "models.MicrosoftGraphCalendar",
         **kwargs
     ) -> None:
         """Update the navigation property calendar in groups.
@@ -117,7 +118,7 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property values.
-        :type body: ~calendar.models.microsoftgraphcalendar
+        :type body: ~calendar.models.MicrosoftGraphCalendar
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -147,7 +148,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcalendar')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCalendar')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -155,8 +156,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -211,8 +212,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -228,7 +229,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum84"]]] = None,
         expand: Optional[List[Union[str, "models.Enum85"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofevent5"]:
+    ) -> AsyncIterable["models.CollectionOfEvent5"]:
         """Get calendarView from groups.
 
         Get calendarView from groups.
@@ -248,11 +249,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~calendar.models.Enum85]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofevent5 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~calendar.models.collectionofevent5]
+        :return: An iterator like instance of either CollectionOfEvent5 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~calendar.models.CollectionOfEvent5]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofevent5"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEvent5"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -300,7 +301,7 @@ class groupsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofevent5', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEvent5', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -313,9 +314,9 @@ class groupsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -327,9 +328,9 @@ class groupsOperations:
     async def create_calendar_view(
         self,
         group_id: str,
-        body: "models.microsoftgraphevent",
+        body: "models.MicrosoftGraphEvent",
         **kwargs
-    ) -> "models.microsoftgraphevent":
+    ) -> "models.MicrosoftGraphEvent":
         """Create new navigation property to calendarView for groups.
 
         Create new navigation property to calendarView for groups.
@@ -337,13 +338,13 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property.
-        :type body: ~calendar.models.microsoftgraphevent
+        :type body: ~calendar.models.MicrosoftGraphEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphevent, or the result of cls(response)
-        :rtype: ~calendar.models.microsoftgraphevent
+        :return: MicrosoftGraphEvent, or the result of cls(response)
+        :rtype: ~calendar.models.MicrosoftGraphEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -367,7 +368,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -375,10 +376,10 @@ class groupsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -395,7 +396,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum86"]]] = None,
         expand: Optional[List[Union[str, "models.Enum87"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphevent":
+    ) -> "models.MicrosoftGraphEvent":
         """Get calendarView from groups.
 
         Get calendarView from groups.
@@ -415,11 +416,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~calendar.models.Enum87]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphevent, or the result of cls(response)
-        :rtype: ~calendar.models.microsoftgraphevent
+        :return: MicrosoftGraphEvent, or the result of cls(response)
+        :rtype: ~calendar.models.MicrosoftGraphEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -453,10 +454,10 @@ class groupsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -468,7 +469,7 @@ class groupsOperations:
         self,
         group_id: str,
         event_id: str,
-        body: "models.microsoftgraphevent",
+        body: "models.MicrosoftGraphEvent",
         **kwargs
     ) -> None:
         """Update the navigation property calendarView in groups.
@@ -480,7 +481,7 @@ class groupsOperations:
         :param event_id: key: id of event.
         :type event_id: str
         :param body: New navigation property values.
-        :type body: ~calendar.models.microsoftgraphevent
+        :type body: ~calendar.models.MicrosoftGraphEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -511,7 +512,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -519,8 +520,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -579,8 +580,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -594,7 +595,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum130"]]] = None,
         expand: Optional[List[Union[str, "models.Enum131"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofevent10"]:
+    ) -> AsyncIterable["models.CollectionOfEvent10"]:
         """Get events from groups.
 
         Get events from groups.
@@ -608,11 +609,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~calendar.models.Enum131]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofevent10 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~calendar.models.collectionofevent10]
+        :return: An iterator like instance of either CollectionOfEvent10 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~calendar.models.CollectionOfEvent10]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofevent10"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEvent10"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -658,7 +659,7 @@ class groupsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofevent10', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEvent10', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -671,9 +672,9 @@ class groupsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -685,9 +686,9 @@ class groupsOperations:
     async def create_events(
         self,
         group_id: str,
-        body: "models.microsoftgraphevent",
+        body: "models.MicrosoftGraphEvent",
         **kwargs
-    ) -> "models.microsoftgraphevent":
+    ) -> "models.MicrosoftGraphEvent":
         """Create new navigation property to events for groups.
 
         Create new navigation property to events for groups.
@@ -695,13 +696,13 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property.
-        :type body: ~calendar.models.microsoftgraphevent
+        :type body: ~calendar.models.MicrosoftGraphEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphevent, or the result of cls(response)
-        :rtype: ~calendar.models.microsoftgraphevent
+        :return: MicrosoftGraphEvent, or the result of cls(response)
+        :rtype: ~calendar.models.MicrosoftGraphEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -725,7 +726,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -733,10 +734,10 @@ class groupsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -751,7 +752,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum132"]]] = None,
         expand: Optional[List[Union[str, "models.Enum133"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphevent":
+    ) -> "models.MicrosoftGraphEvent":
         """Get events from groups.
 
         Get events from groups.
@@ -765,11 +766,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~calendar.models.Enum133]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphevent, or the result of cls(response)
-        :rtype: ~calendar.models.microsoftgraphevent
+        :return: MicrosoftGraphEvent, or the result of cls(response)
+        :rtype: ~calendar.models.MicrosoftGraphEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -801,10 +802,10 @@ class groupsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -816,7 +817,7 @@ class groupsOperations:
         self,
         group_id: str,
         event_id: str,
-        body: "models.microsoftgraphevent",
+        body: "models.MicrosoftGraphEvent",
         **kwargs
     ) -> None:
         """Update the navigation property events in groups.
@@ -828,7 +829,7 @@ class groupsOperations:
         :param event_id: key: id of event.
         :type event_id: str
         :param body: New navigation property values.
-        :type body: ~calendar.models.microsoftgraphevent
+        :type body: ~calendar.models.MicrosoftGraphEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -859,7 +860,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -867,8 +868,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -927,8 +928,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -22,17 +22,17 @@ def cf_user(cli_ctx, *_):
     return cf_people_v1_0_cl(cli_ctx).users
 
 
-def cf_usersinsight(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).usersinsights
+def cf_user_insight(cli_ctx, *_):
+    return cf_people_v1_0_cl(cli_ctx).users_insights
 
 
-def cf_usersinsightsshared(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).usersinsightsshared
+def cf_user_insight_shared(cli_ctx, *_):
+    return cf_people_v1_0_cl(cli_ctx).users_insights_shared
 
 
-def cf_usersinsightstrending(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).usersinsightstrending
+def cf_user_insight_trending(cli_ctx, *_):
+    return cf_people_v1_0_cl(cli_ctx).users_insights_trending
 
 
-def cf_usersinsightsused(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).usersinsightsused
+def cf_user_insight_used(cli_ctx, *_):
+    return cf_people_v1_0_cl(cli_ctx).users_insights_used

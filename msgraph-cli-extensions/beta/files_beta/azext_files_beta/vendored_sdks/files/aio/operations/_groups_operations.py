@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class groupsOperations:
-    """groupsOperations async operations.
+class GroupsOperations:
+    """GroupsOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,7 +47,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum233"]]] = None,
         expand: Optional[List[Union[str, "models.Enum234"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Get drive from groups.
 
         Get drive from groups.
@@ -58,11 +59,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum234]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -93,10 +94,10 @@ class groupsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -107,7 +108,7 @@ class groupsOperations:
     async def update_drive(
         self,
         group_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
     ) -> None:
         """Update the navigation property drive in groups.
@@ -117,7 +118,7 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdrive
+        :type body: ~files.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -147,7 +148,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -155,8 +156,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -211,8 +212,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -226,7 +227,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum236"]]] = None,
         expand: Optional[List[Union[str, "models.Enum237"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdrive0"]:
+    ) -> AsyncIterable["models.CollectionOfDrive0"]:
         """Get drives from groups.
 
         Get drives from groups.
@@ -240,11 +241,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum237]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdrive0 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.collectionofdrive0]
+        :return: An iterator like instance of either CollectionOfDrive0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfDrive0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdrive0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDrive0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -290,7 +291,7 @@ class groupsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdrive0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDrive0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -303,9 +304,9 @@ class groupsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -317,9 +318,9 @@ class groupsOperations:
     async def create_drives(
         self,
         group_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Create new navigation property to drives for groups.
 
         Create new navigation property to drives for groups.
@@ -327,13 +328,13 @@ class groupsOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property.
-        :type body: ~files.models.microsoftgraphdrive
+        :type body: ~files.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -357,7 +358,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -365,10 +366,10 @@ class groupsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -383,7 +384,7 @@ class groupsOperations:
         select: Optional[List[Union[str, "models.Enum238"]]] = None,
         expand: Optional[List[Union[str, "models.Enum239"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Get drives from groups.
 
         Get drives from groups.
@@ -397,11 +398,11 @@ class groupsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum239]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -433,10 +434,10 @@ class groupsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -448,7 +449,7 @@ class groupsOperations:
         self,
         group_id: str,
         drive_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
     ) -> None:
         """Update the navigation property drives in groups.
@@ -460,7 +461,7 @@ class groupsOperations:
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdrive
+        :type body: ~files.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -491,7 +492,7 @@ class groupsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -499,8 +500,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -559,8 +560,8 @@ class groupsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

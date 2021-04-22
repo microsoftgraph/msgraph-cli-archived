@@ -29,11 +29,11 @@ from azext_reports_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('reports auditlogsauditlogroot show-audit-log-root') as c:
+    with self.argument_context('reports audit-log-audit-log-root show-audit-log-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlogsauditlogroot update-audit-log-root') as c:
+    with self.argument_context('reports audit-log-audit-log-root update-audit-log-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('directory_audits', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -41,7 +41,7 @@ def load_arguments(self, _):
         c.argument('sign_ins', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('reports auditlog create-directory-audit') as c:
+    with self.argument_context('reports audit-log create-directory-audit') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
                    'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
@@ -67,7 +67,7 @@ def load_arguments(self, _):
         c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
         c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
 
-    with self.argument_context('reports auditlog create-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log create-restricted-sign-in') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
         c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
@@ -126,7 +126,7 @@ def load_arguments(self, _):
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
         c.argument('target_tenant_id', help='')
 
-    with self.argument_context('reports auditlog create-sign-in') as c:
+    with self.argument_context('reports audit-log create-sign-in') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
         c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
@@ -184,49 +184,49 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
 
-    with self.argument_context('reports auditlog delete-directory-audit') as c:
+    with self.argument_context('reports audit-log delete-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('reports auditlog delete-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log delete-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('reports auditlog delete-sign-in') as c:
+    with self.argument_context('reports audit-log delete-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('reports auditlog list-directory-audit') as c:
+    with self.argument_context('reports audit-log list-directory-audit') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog list-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log list-restricted-sign-in') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog list-sign-in') as c:
+    with self.argument_context('reports audit-log list-sign-in') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog show-directory-audit') as c:
+    with self.argument_context('reports audit-log show-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog show-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log show-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog show-sign-in') as c:
+    with self.argument_context('reports audit-log show-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports auditlog update-directory-audit') as c:
+    with self.argument_context('reports audit-log update-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
@@ -253,7 +253,7 @@ def load_arguments(self, _):
         c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
         c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
 
-    with self.argument_context('reports auditlog update-restricted-sign-in') as c:
+    with self.argument_context('reports audit-log update-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
@@ -313,7 +313,7 @@ def load_arguments(self, _):
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
         c.argument('target_tenant_id', help='')
 
-    with self.argument_context('reports auditlog update-sign-in') as c:
+    with self.argument_context('reports audit-log update-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
@@ -372,11 +372,11 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
 
-    with self.argument_context('reports reportsreportroot show-report-root') as c:
+    with self.argument_context('reports report-root show-report-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports reportsreportroot update-report-root') as c:
+    with self.argument_context('reports report-root update-report-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('reports report managed-device-enrollment-failure-details2-b3-d') as c:

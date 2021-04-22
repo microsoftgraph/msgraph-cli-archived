@@ -7,57 +7,57 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofcontact
-    from ._models_py3 import collectionofcontact0
-    from ._models_py3 import collectionofcontactfolder
-    from ._models_py3 import collectionofcontactfolder0
-    from ._models_py3 import collectionofextension
-    from ._models_py3 import collectionofextension0
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty0
-    from ._models_py3 import collectionofmultivaluelegacyextendedproperty1
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty0
-    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty1
-    from ._models_py3 import microsoftgraphcontact
-    from ._models_py3 import microsoftgraphcontactfolder
-    from ._models_py3 import microsoftgraphemailaddress
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphextension
-    from ._models_py3 import microsoftgraphmultivaluelegacyextendedproperty
-    from ._models_py3 import microsoftgraphoutlookitem
-    from ._models_py3 import microsoftgraphphysicaladdress
-    from ._models_py3 import microsoftgraphprofilephoto
-    from ._models_py3 import microsoftgraphsinglevaluelegacyextendedproperty
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfContact
+    from ._models_py3 import CollectionOfContact0
+    from ._models_py3 import CollectionOfContactFolder
+    from ._models_py3 import CollectionOfContactFolder0
+    from ._models_py3 import CollectionOfExtension
+    from ._models_py3 import CollectionOfExtension0
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty0
+    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty1
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty0
+    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty1
+    from ._models_py3 import MicrosoftGraphContact
+    from ._models_py3 import MicrosoftGraphContactFolder
+    from ._models_py3 import MicrosoftGraphEmailAddress
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphExtension
+    from ._models_py3 import MicrosoftGraphMultiValueLegacyExtendedProperty
+    from ._models_py3 import MicrosoftGraphOutlookItem
+    from ._models_py3 import MicrosoftGraphPhysicalAddress
+    from ._models_py3 import MicrosoftGraphProfilePhoto
+    from ._models_py3 import MicrosoftGraphSingleValueLegacyExtendedProperty
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofcontact  # type: ignore
-    from ._models import collectionofcontact0  # type: ignore
-    from ._models import collectionofcontactfolder  # type: ignore
-    from ._models import collectionofcontactfolder0  # type: ignore
-    from ._models import collectionofextension  # type: ignore
-    from ._models import collectionofextension0  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty0  # type: ignore
-    from ._models import collectionofmultivaluelegacyextendedproperty1  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty0  # type: ignore
-    from ._models import collectionofsinglevaluelegacyextendedproperty1  # type: ignore
-    from ._models import microsoftgraphcontact  # type: ignore
-    from ._models import microsoftgraphcontactfolder  # type: ignore
-    from ._models import microsoftgraphemailaddress  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphextension  # type: ignore
-    from ._models import microsoftgraphmultivaluelegacyextendedproperty  # type: ignore
-    from ._models import microsoftgraphoutlookitem  # type: ignore
-    from ._models import microsoftgraphphysicaladdress  # type: ignore
-    from ._models import microsoftgraphprofilephoto  # type: ignore
-    from ._models import microsoftgraphsinglevaluelegacyextendedproperty  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfContact  # type: ignore
+    from ._models import CollectionOfContact0  # type: ignore
+    from ._models import CollectionOfContactFolder  # type: ignore
+    from ._models import CollectionOfContactFolder0  # type: ignore
+    from ._models import CollectionOfExtension  # type: ignore
+    from ._models import CollectionOfExtension0  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty0  # type: ignore
+    from ._models import CollectionOfMultiValueLegacyExtendedProperty1  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty0  # type: ignore
+    from ._models import CollectionOfSingleValueLegacyExtendedProperty1  # type: ignore
+    from ._models import MicrosoftGraphContact  # type: ignore
+    from ._models import MicrosoftGraphContactFolder  # type: ignore
+    from ._models import MicrosoftGraphEmailAddress  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphExtension  # type: ignore
+    from ._models import MicrosoftGraphMultiValueLegacyExtendedProperty  # type: ignore
+    from ._models import MicrosoftGraphOutlookItem  # type: ignore
+    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
+    from ._models import MicrosoftGraphProfilePhoto  # type: ignore
+    from ._models import MicrosoftGraphSingleValueLegacyExtendedProperty  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._personal_contacts_enums import (
     Enum10,
@@ -95,41 +95,41 @@ from ._personal_contacts_enums import (
     Enum5,
     Enum6,
     Enum8,
-    Get2itemsitem,
-    Get3itemsitem,
-    Get4itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
-    Get8itemsitem,
-    Get9itemsitem,
+    Get2ItemsItem,
+    Get3ItemsItem,
+    Get4ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
+    Get8ItemsItem,
+    Get9ItemsItem,
 )
 
 __all__ = [
-    'collectionofcontact',
-    'collectionofcontact0',
-    'collectionofcontactfolder',
-    'collectionofcontactfolder0',
-    'collectionofextension',
-    'collectionofextension0',
-    'collectionofmultivaluelegacyextendedproperty',
-    'collectionofmultivaluelegacyextendedproperty0',
-    'collectionofmultivaluelegacyextendedproperty1',
-    'collectionofsinglevaluelegacyextendedproperty',
-    'collectionofsinglevaluelegacyextendedproperty0',
-    'collectionofsinglevaluelegacyextendedproperty1',
-    'microsoftgraphcontact',
-    'microsoftgraphcontactfolder',
-    'microsoftgraphemailaddress',
-    'microsoftgraphentity',
-    'microsoftgraphextension',
-    'microsoftgraphmultivaluelegacyextendedproperty',
-    'microsoftgraphoutlookitem',
-    'microsoftgraphphysicaladdress',
-    'microsoftgraphprofilephoto',
-    'microsoftgraphsinglevaluelegacyextendedproperty',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfContact',
+    'CollectionOfContact0',
+    'CollectionOfContactFolder',
+    'CollectionOfContactFolder0',
+    'CollectionOfExtension',
+    'CollectionOfExtension0',
+    'CollectionOfMultiValueLegacyExtendedProperty',
+    'CollectionOfMultiValueLegacyExtendedProperty0',
+    'CollectionOfMultiValueLegacyExtendedProperty1',
+    'CollectionOfSingleValueLegacyExtendedProperty',
+    'CollectionOfSingleValueLegacyExtendedProperty0',
+    'CollectionOfSingleValueLegacyExtendedProperty1',
+    'MicrosoftGraphContact',
+    'MicrosoftGraphContactFolder',
+    'MicrosoftGraphEmailAddress',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphExtension',
+    'MicrosoftGraphMultiValueLegacyExtendedProperty',
+    'MicrosoftGraphOutlookItem',
+    'MicrosoftGraphPhysicalAddress',
+    'MicrosoftGraphProfilePhoto',
+    'MicrosoftGraphSingleValueLegacyExtendedProperty',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum10',
     'Enum11',
     'Enum12',
@@ -165,11 +165,11 @@ __all__ = [
     'Enum5',
     'Enum6',
     'Enum8',
-    'Get2itemsitem',
-    'Get3itemsitem',
-    'Get4itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
-    'Get8itemsitem',
-    'Get9itemsitem',
+    'Get2ItemsItem',
+    'Get3ItemsItem',
+    'Get4ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
+    'Get8ItemsItem',
+    'Get9ItemsItem',
 ]

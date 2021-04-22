@@ -15,21 +15,21 @@ import msrest.serialization
 from ._reports_enums import *
 
 
-class collectionofdirectoryaudit(msrest.serialization.Model):
+class CollectionOfDirectoryAudit(msrest.serialization.Model):
     """Collection of directoryAudit.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.microsoftgraphdirectoryaudit]
+    :type value: list[~reports.models.MicrosoftGraphDirectoryAudit]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdirectoryaudit]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryAudit]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -37,31 +37,31 @@ class collectionofdirectoryaudit(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphdirectoryaudit"]] = None,
+        value: Optional[List["MicrosoftGraphDirectoryAudit"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofdirectoryaudit, self).__init__(**kwargs)
+        super(CollectionOfDirectoryAudit, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofrestrictedsignin(msrest.serialization.Model):
+class CollectionOfRestrictedSignIn(msrest.serialization.Model):
     """Collection of restrictedSignIn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.microsoftgraphrestrictedsignin]
+    :type value: list[~reports.models.MicrosoftGraphRestrictedSignIn]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphrestrictedsignin]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphRestrictedSignIn]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -69,31 +69,31 @@ class collectionofrestrictedsignin(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphrestrictedsignin"]] = None,
+        value: Optional[List["MicrosoftGraphRestrictedSignIn"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofrestrictedsignin, self).__init__(**kwargs)
+        super(CollectionOfRestrictedSignIn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsignin(msrest.serialization.Model):
+class CollectionOfSignIn(msrest.serialization.Model):
     """Collection of signIn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.microsoftgraphsignin]
+    :type value: list[~reports.models.MicrosoftGraphSignIn]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsignin]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSignIn]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,17 +101,17 @@ class collectionofsignin(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsignin"]] = None,
+        value: Optional[List["MicrosoftGraphSignIn"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsignin, self).__init__(**kwargs)
+        super(CollectionOfSignIn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphappidentity(msrest.serialization.Model):
+class MicrosoftGraphAppIdentity(msrest.serialization.Model):
     """appIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -148,7 +148,7 @@ class microsoftgraphappidentity(msrest.serialization.Model):
         service_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphappidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphAppIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.app_id = app_id
         self.display_name = display_name
@@ -156,7 +156,7 @@ class microsoftgraphappidentity(msrest.serialization.Model):
         self.service_principal_name = service_principal_name
 
 
-class microsoftgraphappliedconditionalaccesspolicy(msrest.serialization.Model):
+class MicrosoftGraphAppliedConditionalAccessPolicy(msrest.serialization.Model):
     """appliedConditionalAccessPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -175,7 +175,7 @@ class microsoftgraphappliedconditionalaccesspolicy(msrest.serialization.Model):
     :type id: str
     :param result:  Possible values include: "success", "failure", "notApplied", "notEnabled",
      "unknown", "unknownFutureValue".
-    :type result: str or ~reports.models.Microsoftgraphappliedconditionalaccesspolicyresult
+    :type result: str or ~reports.models.MicrosoftGraphAppliedConditionalAccessPolicyResult
     """
 
     _attribute_map = {
@@ -195,10 +195,10 @@ class microsoftgraphappliedconditionalaccesspolicy(msrest.serialization.Model):
         enforced_grant_controls: Optional[List[str]] = None,
         enforced_session_controls: Optional[List[str]] = None,
         id: Optional[str] = None,
-        result: Optional[Union[str, "Microsoftgraphappliedconditionalaccesspolicyresult"]] = None,
+        result: Optional[Union[str, "MicrosoftGraphAppliedConditionalAccessPolicyResult"]] = None,
         **kwargs
     ):
-        super(microsoftgraphappliedconditionalaccesspolicy, self).__init__(**kwargs)
+        super(MicrosoftGraphAppliedConditionalAccessPolicy, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.enforced_grant_controls = enforced_grant_controls
@@ -207,39 +207,39 @@ class microsoftgraphappliedconditionalaccesspolicy(msrest.serialization.Model):
         self.result = result
 
 
-class microsoftgraphauditactivityinitiator(msrest.serialization.Model):
+class MicrosoftGraphAuditActivityInitiator(msrest.serialization.Model):
     """auditActivityInitiator.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param app: appIdentity.
-    :type app: ~reports.models.microsoftgraphappidentity
+    :type app: ~reports.models.MicrosoftGraphAppIdentity
     :param user: userIdentity.
-    :type user: ~reports.models.microsoftgraphuseridentity
+    :type user: ~reports.models.MicrosoftGraphUserIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'app': {'key': 'app', 'type': 'microsoftgraphappidentity'},
-        'user': {'key': 'user', 'type': 'microsoftgraphuseridentity'},
+        'app': {'key': 'app', 'type': 'MicrosoftGraphAppIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphUserIdentity'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        app: Optional["microsoftgraphappidentity"] = None,
-        user: Optional["microsoftgraphuseridentity"] = None,
+        app: Optional["MicrosoftGraphAppIdentity"] = None,
+        user: Optional["MicrosoftGraphUserIdentity"] = None,
         **kwargs
     ):
-        super(microsoftgraphauditactivityinitiator, self).__init__(**kwargs)
+        super(MicrosoftGraphAuditActivityInitiator, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.app = app
         self.user = user
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -261,12 +261,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphauditlogroot(microsoftgraphentity):
+class MicrosoftGraphAuditLogRoot(MicrosoftGraphEntity):
     """auditLogRoot.
 
     :param id: Read-only.
@@ -275,19 +275,19 @@ class microsoftgraphauditlogroot(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param directory_audits: Read-only. Nullable.
-    :type directory_audits: list[~reports.models.microsoftgraphdirectoryaudit]
+    :type directory_audits: list[~reports.models.MicrosoftGraphDirectoryAudit]
     :param restricted_sign_ins:
-    :type restricted_sign_ins: list[~reports.models.microsoftgraphrestrictedsignin]
+    :type restricted_sign_ins: list[~reports.models.MicrosoftGraphRestrictedSignIn]
     :param sign_ins: Read-only. Nullable.
-    :type sign_ins: list[~reports.models.microsoftgraphsignin]
+    :type sign_ins: list[~reports.models.MicrosoftGraphSignIn]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'directory_audits': {'key': 'directoryAudits', 'type': '[microsoftgraphdirectoryaudit]'},
-        'restricted_sign_ins': {'key': 'restrictedSignIns', 'type': '[microsoftgraphrestrictedsignin]'},
-        'sign_ins': {'key': 'signIns', 'type': '[microsoftgraphsignin]'},
+        'directory_audits': {'key': 'directoryAudits', 'type': '[MicrosoftGraphDirectoryAudit]'},
+        'restricted_sign_ins': {'key': 'restrictedSignIns', 'type': '[MicrosoftGraphRestrictedSignIn]'},
+        'sign_ins': {'key': 'signIns', 'type': '[MicrosoftGraphSignIn]'},
     }
 
     def __init__(
@@ -295,19 +295,19 @@ class microsoftgraphauditlogroot(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        directory_audits: Optional[List["microsoftgraphdirectoryaudit"]] = None,
-        restricted_sign_ins: Optional[List["microsoftgraphrestrictedsignin"]] = None,
-        sign_ins: Optional[List["microsoftgraphsignin"]] = None,
+        directory_audits: Optional[List["MicrosoftGraphDirectoryAudit"]] = None,
+        restricted_sign_ins: Optional[List["MicrosoftGraphRestrictedSignIn"]] = None,
+        sign_ins: Optional[List["MicrosoftGraphSignIn"]] = None,
         **kwargs
     ):
-        super(microsoftgraphauditlogroot, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAuditLogRoot, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.directory_audits = directory_audits
         self.restricted_sign_ins = restricted_sign_ins
         self.sign_ins = sign_ins
 
 
-class microsoftgraphdevicedetail(msrest.serialization.Model):
+class MicrosoftGraphDeviceDetail(msrest.serialization.Model):
     """deviceDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -354,7 +354,7 @@ class microsoftgraphdevicedetail(msrest.serialization.Model):
         trust_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicedetail, self).__init__(**kwargs)
+        super(MicrosoftGraphDeviceDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.browser = browser
         self.device_id = device_id
@@ -365,7 +365,7 @@ class microsoftgraphdevicedetail(msrest.serialization.Model):
         self.trust_type = trust_type
 
 
-class microsoftgraphdirectoryaudit(microsoftgraphentity):
+class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
     """directoryAudit.
 
     :param id: Read-only.
@@ -381,7 +381,7 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
      'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
     :type activity_display_name: str
     :param additional_details: Indicates additional details on the activity.
-    :type additional_details: list[~reports.models.microsoftgraphkeyvalue]
+    :type additional_details: list[~reports.models.MicrosoftGraphKeyValue]
     :param category: Indicates which resource category that's targeted by the activity. (For
      example: User Management, Group Management etc..).
     :type category: str
@@ -389,7 +389,7 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
      various services. Can be used to trace logs across services.
     :type correlation_id: str
     :param initiated_by: auditActivityInitiator.
-    :type initiated_by: ~reports.models.microsoftgraphauditactivityinitiator
+    :type initiated_by: ~reports.models.MicrosoftGraphAuditActivityInitiator
     :param logged_by_service: Indicates information on which service initiated the activity (For
      example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft
      Identity Manager, Privileged Identity Management.
@@ -397,13 +397,13 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
     :param operation_type:
     :type operation_type: str
     :param result:  Possible values include: "success", "failure", "timeout", "unknownFutureValue".
-    :type result: str or ~reports.models.Microsoftgraphoperationresult
+    :type result: str or ~reports.models.MicrosoftGraphOperationResult
     :param result_reason: Describes cause of 'failure' or 'timeout' results.
     :type result_reason: str
     :param target_resources: Indicates information on which resource was changed due to the
      activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or
      Other.
-    :type target_resources: list[~reports.models.microsoftgraphtargetresource]
+    :type target_resources: list[~reports.models.MicrosoftGraphTargetResource]
     """
 
     _attribute_map = {
@@ -411,15 +411,15 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'activity_date_time': {'key': 'activityDateTime', 'type': 'iso-8601'},
         'activity_display_name': {'key': 'activityDisplayName', 'type': 'str'},
-        'additional_details': {'key': 'additionalDetails', 'type': '[microsoftgraphkeyvalue]'},
+        'additional_details': {'key': 'additionalDetails', 'type': '[MicrosoftGraphKeyValue]'},
         'category': {'key': 'category', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
-        'initiated_by': {'key': 'initiatedBy', 'type': 'microsoftgraphauditactivityinitiator'},
+        'initiated_by': {'key': 'initiatedBy', 'type': 'MicrosoftGraphAuditActivityInitiator'},
         'logged_by_service': {'key': 'loggedByService', 'type': 'str'},
         'operation_type': {'key': 'operationType', 'type': 'str'},
         'result': {'key': 'result', 'type': 'str'},
         'result_reason': {'key': 'resultReason', 'type': 'str'},
-        'target_resources': {'key': 'targetResources', 'type': '[microsoftgraphtargetresource]'},
+        'target_resources': {'key': 'targetResources', 'type': '[MicrosoftGraphTargetResource]'},
     }
 
     def __init__(
@@ -429,18 +429,18 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         activity_date_time: Optional[datetime.datetime] = None,
         activity_display_name: Optional[str] = None,
-        additional_details: Optional[List["microsoftgraphkeyvalue"]] = None,
+        additional_details: Optional[List["MicrosoftGraphKeyValue"]] = None,
         category: Optional[str] = None,
         correlation_id: Optional[str] = None,
-        initiated_by: Optional["microsoftgraphauditactivityinitiator"] = None,
+        initiated_by: Optional["MicrosoftGraphAuditActivityInitiator"] = None,
         logged_by_service: Optional[str] = None,
         operation_type: Optional[str] = None,
-        result: Optional[Union[str, "Microsoftgraphoperationresult"]] = None,
+        result: Optional[Union[str, "MicrosoftGraphOperationResult"]] = None,
         result_reason: Optional[str] = None,
-        target_resources: Optional[List["microsoftgraphtargetresource"]] = None,
+        target_resources: Optional[List["MicrosoftGraphTargetResource"]] = None,
         **kwargs
     ):
-        super(microsoftgraphdirectoryaudit, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDirectoryAudit, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.activity_date_time = activity_date_time
         self.activity_display_name = activity_display_name
@@ -455,7 +455,7 @@ class microsoftgraphdirectoryaudit(microsoftgraphentity):
         self.target_resources = target_resources
 
 
-class microsoftgraphgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
     """geoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -486,14 +486,14 @@ class microsoftgraphgeocoordinates(msrest.serialization.Model):
         longitude: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.altitude = altitude
         self.latitude = latitude
         self.longitude = longitude
 
 
-class microsoftgraphkeyvalue(msrest.serialization.Model):
+class MicrosoftGraphKeyValue(msrest.serialization.Model):
     """keyValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -519,13 +519,13 @@ class microsoftgraphkeyvalue(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphkeyvalue, self).__init__(**kwargs)
+        super(MicrosoftGraphKeyValue, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.key = key
         self.value = value
 
 
-class microsoftgraphmodifiedproperty(msrest.serialization.Model):
+class MicrosoftGraphModifiedProperty(msrest.serialization.Model):
     """modifiedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -555,14 +555,14 @@ class microsoftgraphmodifiedproperty(msrest.serialization.Model):
         old_value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphmodifiedproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphModifiedProperty, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.new_value = new_value
         self.old_value = old_value
 
 
-class microsoftgraphreport(msrest.serialization.Model):
+class MicrosoftGraphReport(msrest.serialization.Model):
     """Device Configuration profile History reports.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -584,12 +584,12 @@ class microsoftgraphreport(msrest.serialization.Model):
         content: Optional[bytes] = None,
         **kwargs
     ):
-        super(microsoftgraphreport, self).__init__(**kwargs)
+        super(MicrosoftGraphReport, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
 
 
-class microsoftgraphreportroot(microsoftgraphentity):
+class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
     """The resource that represents an instance of History Reports.
 
     :param id: Read-only.
@@ -611,11 +611,11 @@ class microsoftgraphreportroot(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphreportroot, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphReportRoot, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphsignin(microsoftgraphentity):
+class MicrosoftGraphSignIn(MicrosoftGraphEntity):
     """signIn.
 
     :param id: Read-only.
@@ -629,13 +629,13 @@ class microsoftgraphsignin(microsoftgraphentity):
     :type app_id: str
     :param applied_conditional_access_policies:
     :type applied_conditional_access_policies:
-     list[~reports.models.microsoftgraphappliedconditionalaccesspolicy]
+     list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
     :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
      Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
     :type client_app_used: str
     :param conditional_access_status:  Possible values include: "success", "failure", "notApplied",
      "unknownFutureValue".
-    :type conditional_access_status: str or ~reports.models.Microsoftgraphconditionalaccessstatus
+    :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
     :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
      to troubleshoot sign-in activity.
     :type correlation_id: str
@@ -643,13 +643,13 @@ class microsoftgraphsignin(microsoftgraphentity):
      Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param device_detail: deviceDetail.
-    :type device_detail: ~reports.models.microsoftgraphdevicedetail
+    :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
     :param ip_address: IP address of the client used to sign in.
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
     :param location: signInLocation.
-    :type location: ~reports.models.microsoftgraphsigninlocation
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param resource_display_name: Name of the resource the user signed into.
     :type resource_display_name: str
     :param resource_id: ID of the resource that the user signed into.
@@ -659,12 +659,12 @@ class microsoftgraphsignin(microsoftgraphentity):
      "adminConfirmedSigninSafe", "aiConfirmedSigninSafe", "userPassedMFADrivenByRiskBasedPolicy",
      "adminDismissedAllRiskForUser", "adminConfirmedSigninCompromised", "hidden",
      "adminConfirmedUserCompromised", "unknownFutureValue".
-    :type risk_detail: str or ~reports.models.Microsoftgraphriskdetail
+    :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
     :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
      unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
      malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
      investigationsThreatIntelligence,  generic, and unknownFutureValue.
-    :type risk_event_types: list[str or ~reports.models.Microsoftgraphriskeventtype]
+    :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
     :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
      values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
      malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
@@ -672,15 +672,15 @@ class microsoftgraphsignin(microsoftgraphentity):
     :type risk_event_types_v2: list[str]
     :param risk_level_aggregated:  Possible values include: "low", "medium", "high", "hidden",
      "none", "unknownFutureValue".
-    :type risk_level_aggregated: str or ~reports.models.Microsoftgraphrisklevel
+    :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
     :param risk_level_during_sign_in:  Possible values include: "low", "medium", "high", "hidden",
      "none", "unknownFutureValue".
-    :type risk_level_during_sign_in: str or ~reports.models.Microsoftgraphrisklevel
+    :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
     :param risk_state:  Possible values include: "none", "confirmedSafe", "remediated",
      "dismissed", "atRisk", "confirmedCompromised", "unknownFutureValue".
-    :type risk_state: str or ~reports.models.Microsoftgraphriskstate
+    :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
     :param status: signInStatus.
-    :type status: ~reports.models.microsoftgraphsigninstatus
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
     :param user_display_name: Display name of the user that initiated the sign-in.
     :type user_display_name: str
     :param user_id: ID of the user that initiated the sign-in.
@@ -694,15 +694,15 @@ class microsoftgraphsignin(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
-        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[microsoftgraphappliedconditionalaccesspolicy]'},
+        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[MicrosoftGraphAppliedConditionalAccessPolicy]'},
         'client_app_used': {'key': 'clientAppUsed', 'type': 'str'},
         'conditional_access_status': {'key': 'conditionalAccessStatus', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'device_detail': {'key': 'deviceDetail', 'type': 'microsoftgraphdevicedetail'},
+        'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'microsoftgraphsigninlocation'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'risk_detail': {'key': 'riskDetail', 'type': 'str'},
@@ -711,7 +711,7 @@ class microsoftgraphsignin(microsoftgraphentity):
         'risk_level_aggregated': {'key': 'riskLevelAggregated', 'type': 'str'},
         'risk_level_during_sign_in': {'key': 'riskLevelDuringSignIn', 'type': 'str'},
         'risk_state': {'key': 'riskState', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'microsoftgraphsigninstatus'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
@@ -724,30 +724,30 @@ class microsoftgraphsignin(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
-        applied_conditional_access_policies: Optional[List["microsoftgraphappliedconditionalaccesspolicy"]] = None,
+        applied_conditional_access_policies: Optional[List["MicrosoftGraphAppliedConditionalAccessPolicy"]] = None,
         client_app_used: Optional[str] = None,
-        conditional_access_status: Optional[Union[str, "Microsoftgraphconditionalaccessstatus"]] = None,
+        conditional_access_status: Optional[Union[str, "MicrosoftGraphConditionalAccessStatus"]] = None,
         correlation_id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        device_detail: Optional["microsoftgraphdevicedetail"] = None,
+        device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
-        location: Optional["microsoftgraphsigninlocation"] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         resource_display_name: Optional[str] = None,
         resource_id: Optional[str] = None,
-        risk_detail: Optional[Union[str, "Microsoftgraphriskdetail"]] = None,
-        risk_event_types: Optional[List[Union[str, "Microsoftgraphriskeventtype"]]] = None,
+        risk_detail: Optional[Union[str, "MicrosoftGraphRiskDetail"]] = None,
+        risk_event_types: Optional[List[Union[str, "MicrosoftGraphRiskEventType"]]] = None,
         risk_event_types_v2: Optional[List[str]] = None,
-        risk_level_aggregated: Optional[Union[str, "Microsoftgraphrisklevel"]] = None,
-        risk_level_during_sign_in: Optional[Union[str, "Microsoftgraphrisklevel"]] = None,
-        risk_state: Optional[Union[str, "Microsoftgraphriskstate"]] = None,
-        status: Optional["microsoftgraphsigninstatus"] = None,
+        risk_level_aggregated: Optional[Union[str, "MicrosoftGraphRiskLevel"]] = None,
+        risk_level_during_sign_in: Optional[Union[str, "MicrosoftGraphRiskLevel"]] = None,
+        risk_state: Optional[Union[str, "MicrosoftGraphRiskState"]] = None,
+        status: Optional["MicrosoftGraphSignInStatus"] = None,
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsignin, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSignIn, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.app_display_name = app_display_name
         self.app_id = app_id
@@ -774,7 +774,7 @@ class microsoftgraphsignin(microsoftgraphentity):
         self.user_principal_name = user_principal_name
 
 
-class microsoftgraphrestrictedsignin(microsoftgraphsignin):
+class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
     :param id: Read-only.
@@ -785,13 +785,13 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
     :type app_id: str
     :param applied_conditional_access_policies:
     :type applied_conditional_access_policies:
-     list[~reports.models.microsoftgraphappliedconditionalaccesspolicy]
+     list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
     :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
      Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
     :type client_app_used: str
     :param conditional_access_status:  Possible values include: "success", "failure", "notApplied",
      "unknownFutureValue".
-    :type conditional_access_status: str or ~reports.models.Microsoftgraphconditionalaccessstatus
+    :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
     :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
      to troubleshoot sign-in activity.
     :type correlation_id: str
@@ -799,13 +799,13 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
      Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param device_detail: deviceDetail.
-    :type device_detail: ~reports.models.microsoftgraphdevicedetail
+    :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
     :param ip_address: IP address of the client used to sign in.
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
     :param location: signInLocation.
-    :type location: ~reports.models.microsoftgraphsigninlocation
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param resource_display_name: Name of the resource the user signed into.
     :type resource_display_name: str
     :param resource_id: ID of the resource that the user signed into.
@@ -815,12 +815,12 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
      "adminConfirmedSigninSafe", "aiConfirmedSigninSafe", "userPassedMFADrivenByRiskBasedPolicy",
      "adminDismissedAllRiskForUser", "adminConfirmedSigninCompromised", "hidden",
      "adminConfirmedUserCompromised", "unknownFutureValue".
-    :type risk_detail: str or ~reports.models.Microsoftgraphriskdetail
+    :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
     :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
      unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
      malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
      investigationsThreatIntelligence,  generic, and unknownFutureValue.
-    :type risk_event_types: list[str or ~reports.models.Microsoftgraphriskeventtype]
+    :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
     :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
      values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
      malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
@@ -828,15 +828,15 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
     :type risk_event_types_v2: list[str]
     :param risk_level_aggregated:  Possible values include: "low", "medium", "high", "hidden",
      "none", "unknownFutureValue".
-    :type risk_level_aggregated: str or ~reports.models.Microsoftgraphrisklevel
+    :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
     :param risk_level_during_sign_in:  Possible values include: "low", "medium", "high", "hidden",
      "none", "unknownFutureValue".
-    :type risk_level_during_sign_in: str or ~reports.models.Microsoftgraphrisklevel
+    :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
     :param risk_state:  Possible values include: "none", "confirmedSafe", "remediated",
      "dismissed", "atRisk", "confirmedCompromised", "unknownFutureValue".
-    :type risk_state: str or ~reports.models.Microsoftgraphriskstate
+    :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
     :param status: signInStatus.
-    :type status: ~reports.models.microsoftgraphsigninstatus
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
     :param user_display_name: Display name of the user that initiated the sign-in.
     :type user_display_name: str
     :param user_id: ID of the user that initiated the sign-in.
@@ -854,15 +854,15 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
         'id': {'key': 'id', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
-        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[microsoftgraphappliedconditionalaccesspolicy]'},
+        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[MicrosoftGraphAppliedConditionalAccessPolicy]'},
         'client_app_used': {'key': 'clientAppUsed', 'type': 'str'},
         'conditional_access_status': {'key': 'conditionalAccessStatus', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'device_detail': {'key': 'deviceDetail', 'type': 'microsoftgraphdevicedetail'},
+        'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'microsoftgraphsigninlocation'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'risk_detail': {'key': 'riskDetail', 'type': 'str'},
@@ -871,7 +871,7 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
         'risk_level_aggregated': {'key': 'riskLevelAggregated', 'type': 'str'},
         'risk_level_during_sign_in': {'key': 'riskLevelDuringSignIn', 'type': 'str'},
         'risk_state': {'key': 'riskState', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'microsoftgraphsigninstatus'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
@@ -885,24 +885,24 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
         id: Optional[str] = None,
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
-        applied_conditional_access_policies: Optional[List["microsoftgraphappliedconditionalaccesspolicy"]] = None,
+        applied_conditional_access_policies: Optional[List["MicrosoftGraphAppliedConditionalAccessPolicy"]] = None,
         client_app_used: Optional[str] = None,
-        conditional_access_status: Optional[Union[str, "Microsoftgraphconditionalaccessstatus"]] = None,
+        conditional_access_status: Optional[Union[str, "MicrosoftGraphConditionalAccessStatus"]] = None,
         correlation_id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        device_detail: Optional["microsoftgraphdevicedetail"] = None,
+        device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
-        location: Optional["microsoftgraphsigninlocation"] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         resource_display_name: Optional[str] = None,
         resource_id: Optional[str] = None,
-        risk_detail: Optional[Union[str, "Microsoftgraphriskdetail"]] = None,
-        risk_event_types: Optional[List[Union[str, "Microsoftgraphriskeventtype"]]] = None,
+        risk_detail: Optional[Union[str, "MicrosoftGraphRiskDetail"]] = None,
+        risk_event_types: Optional[List[Union[str, "MicrosoftGraphRiskEventType"]]] = None,
         risk_event_types_v2: Optional[List[str]] = None,
-        risk_level_aggregated: Optional[Union[str, "Microsoftgraphrisklevel"]] = None,
-        risk_level_during_sign_in: Optional[Union[str, "Microsoftgraphrisklevel"]] = None,
-        risk_state: Optional[Union[str, "Microsoftgraphriskstate"]] = None,
-        status: Optional["microsoftgraphsigninstatus"] = None,
+        risk_level_aggregated: Optional[Union[str, "MicrosoftGraphRiskLevel"]] = None,
+        risk_level_during_sign_in: Optional[Union[str, "MicrosoftGraphRiskLevel"]] = None,
+        risk_state: Optional[Union[str, "MicrosoftGraphRiskState"]] = None,
+        status: Optional["MicrosoftGraphSignInStatus"] = None,
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
@@ -910,12 +910,12 @@ class microsoftgraphrestrictedsignin(microsoftgraphsignin):
         target_tenant_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphrestrictedsignin, self).__init__(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, location=location, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, **kwargs)
+        super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, location=location, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, **kwargs)
         self.additional_properties = additional_properties
         self.target_tenant_id = target_tenant_id
 
 
-class microsoftgraphsigninlocation(msrest.serialization.Model):
+class MicrosoftGraphSignInLocation(msrest.serialization.Model):
     """signInLocation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -928,7 +928,7 @@ class microsoftgraphsigninlocation(msrest.serialization.Model):
      originated.  This is calculated using latitude/longitude information from the sign-in activity.
     :type country_or_region: str
     :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~reports.models.microsoftgraphgeocoordinates
+    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
     :param state: Provides the State where the sign-in originated. This is calculated using
      latitude/longitude information from the sign-in activity.
     :type state: str
@@ -938,7 +938,7 @@ class microsoftgraphsigninlocation(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'city': {'key': 'city', 'type': 'str'},
         'country_or_region': {'key': 'countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'microsoftgraphgeocoordinates'},
+        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
         'state': {'key': 'state', 'type': 'str'},
     }
 
@@ -948,11 +948,11 @@ class microsoftgraphsigninlocation(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         city: Optional[str] = None,
         country_or_region: Optional[str] = None,
-        geo_coordinates: Optional["microsoftgraphgeocoordinates"] = None,
+        geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
         state: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsigninlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphSignInLocation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.city = city
         self.country_or_region = country_or_region
@@ -960,7 +960,7 @@ class microsoftgraphsigninlocation(msrest.serialization.Model):
         self.state = state
 
 
-class microsoftgraphsigninstatus(msrest.serialization.Model):
+class MicrosoftGraphSignInStatus(msrest.serialization.Model):
     """signInStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -996,14 +996,14 @@ class microsoftgraphsigninstatus(msrest.serialization.Model):
         failure_reason: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsigninstatus, self).__init__(**kwargs)
+        super(MicrosoftGraphSignInStatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.additional_details = additional_details
         self.error_code = error_code
         self.failure_reason = failure_reason
 
 
-class microsoftgraphtargetresource(msrest.serialization.Model):
+class MicrosoftGraphTargetResource(msrest.serialization.Model):
     """targetResource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1013,12 +1013,12 @@ class microsoftgraphtargetresource(msrest.serialization.Model):
      when the resource is created.
     :type display_name: str
     :param group_type:  Possible values include: "unifiedGroups", "azureAD", "unknownFutureValue".
-    :type group_type: str or ~reports.models.Microsoftgraphgrouptype
+    :type group_type: str or ~reports.models.MicrosoftGraphGroupType
     :param id: Indicates the unique ID of the resource.
     :type id: str
     :param modified_properties: Indicates name, old value and new value of each attribute that
      changed. Property values depend on the operation type.
-    :type modified_properties: list[~reports.models.microsoftgraphmodifiedproperty]
+    :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
     :param type: Describes the resource type.  Example values include Application, Group,
      ServicePrincipal, and User.
     :type type: str
@@ -1032,7 +1032,7 @@ class microsoftgraphtargetresource(msrest.serialization.Model):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'group_type': {'key': 'groupType', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'},
-        'modified_properties': {'key': 'modifiedProperties', 'type': '[microsoftgraphmodifiedproperty]'},
+        'modified_properties': {'key': 'modifiedProperties', 'type': '[MicrosoftGraphModifiedProperty]'},
         'type': {'key': 'type', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
     }
@@ -1042,14 +1042,14 @@ class microsoftgraphtargetresource(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        group_type: Optional[Union[str, "Microsoftgraphgrouptype"]] = None,
+        group_type: Optional[Union[str, "MicrosoftGraphGroupType"]] = None,
         id: Optional[str] = None,
-        modified_properties: Optional[List["microsoftgraphmodifiedproperty"]] = None,
+        modified_properties: Optional[List["MicrosoftGraphModifiedProperty"]] = None,
         type: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtargetresource, self).__init__(**kwargs)
+        super(MicrosoftGraphTargetResource, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.group_type = group_type
@@ -1059,7 +1059,7 @@ class microsoftgraphtargetresource(msrest.serialization.Model):
         self.user_principal_name = user_principal_name
 
 
-class microsoftgraphuseridentity(msrest.serialization.Model):
+class MicrosoftGraphUserIdentity(msrest.serialization.Model):
     """userIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1095,7 +1095,7 @@ class microsoftgraphuseridentity(msrest.serialization.Model):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphuseridentity, self).__init__(**kwargs)
+        super(MicrosoftGraphUserIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
@@ -1103,8 +1103,8 @@ class microsoftgraphuseridentity(msrest.serialization.Model):
         self.user_principal_name = user_principal_name
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1112,7 +1112,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~reports.models.odataerrormain
+    :type error: ~reports.models.OdataErrorMain
     """
 
     _validation = {
@@ -1121,23 +1121,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1173,15 +1173,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1195,7 +1195,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~reports.models.odataerrordetail]
+    :type details: list[~reports.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1210,7 +1210,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1221,11 +1221,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message

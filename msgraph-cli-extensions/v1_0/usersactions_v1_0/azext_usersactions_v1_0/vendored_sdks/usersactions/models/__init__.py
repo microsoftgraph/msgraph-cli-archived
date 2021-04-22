@@ -7,1783 +7,1783 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import microsoftgraphactivityhistoryitem
-    from ._models_py3 import microsoftgraphapproleassignment
-    from ._models_py3 import microsoftgraphassignedlabel
-    from ._models_py3 import microsoftgraphassignedlicense
-    from ._models_py3 import microsoftgraphassignedplan
-    from ._models_py3 import microsoftgraphattachment
-    from ._models_py3 import microsoftgraphattachmentitem
-    from ._models_py3 import microsoftgraphattendee
-    from ._models_py3 import microsoftgraphattendeeavailability
-    from ._models_py3 import microsoftgraphattendeebase
-    from ._models_py3 import microsoftgraphaudio
-    from ._models_py3 import microsoftgraphaudioconferencing
-    from ._models_py3 import microsoftgraphautomaticrepliesmailtips
-    from ._models_py3 import microsoftgraphautomaticrepliessetting
-    from ._models_py3 import microsoftgraphbaseitem
-    from ._models_py3 import microsoftgraphbaseitemversion
-    from ._models_py3 import microsoftgraphcalculatedcolumn
-    from ._models_py3 import microsoftgraphcalendar
-    from ._models_py3 import microsoftgraphcalendargroup
-    from ._models_py3 import microsoftgraphcalendarpermission
-    from ._models_py3 import microsoftgraphchangetrackedentity
-    from ._models_py3 import microsoftgraphchannel
-    from ._models_py3 import microsoftgraphchatinfo
-    from ._models_py3 import microsoftgraphchatmessage
-    from ._models_py3 import microsoftgraphchatmessageattachment
-    from ._models_py3 import microsoftgraphchatmessagehostedcontent
-    from ._models_py3 import microsoftgraphchatmessagemention
-    from ._models_py3 import microsoftgraphchatmessagepolicyviolation
-    from ._models_py3 import microsoftgraphchatmessagepolicyviolationpolicytip
-    from ._models_py3 import microsoftgraphchatmessagereaction
-    from ._models_py3 import microsoftgraphchoicecolumn
-    from ._models_py3 import microsoftgraphcolumndefinition
-    from ._models_py3 import microsoftgraphcolumnlink
-    from ._models_py3 import microsoftgraphconfigurationmanagerclientenabledfeatures
-    from ._models_py3 import microsoftgraphcontact
-    from ._models_py3 import microsoftgraphcontactfolder
-    from ._models_py3 import microsoftgraphcontenttype
-    from ._models_py3 import microsoftgraphcontenttypeinfo
-    from ._models_py3 import microsoftgraphcontenttypeorder
-    from ._models_py3 import microsoftgraphconversation
-    from ._models_py3 import microsoftgraphconversationmember
-    from ._models_py3 import microsoftgraphconversationthread
-    from ._models_py3 import microsoftgraphconvertidresult
-    from ._models_py3 import microsoftgraphcopynotebookmodel
-    from ._models_py3 import microsoftgraphcurrencycolumn
-    from ._models_py3 import microsoftgraphdatetimecolumn
-    from ._models_py3 import microsoftgraphdatetimezone
-    from ._models_py3 import microsoftgraphdefaultcolumnvalue
-    from ._models_py3 import microsoftgraphdeleted
-    from ._models_py3 import microsoftgraphdeviceactionresult
-    from ._models_py3 import microsoftgraphdevicecategory
-    from ._models_py3 import microsoftgraphdevicecompliancepolicysettingstate
-    from ._models_py3 import microsoftgraphdevicecompliancepolicystate
-    from ._models_py3 import microsoftgraphdeviceconfigurationsettingstate
-    from ._models_py3 import microsoftgraphdeviceconfigurationstate
-    from ._models_py3 import microsoftgraphdevicehealthattestationstate
-    from ._models_py3 import microsoftgraphdevicemanagementtroubleshootingevent
-    from ._models_py3 import microsoftgraphdirectoryobject
-    from ._models_py3 import microsoftgraphdrive
-    from ._models_py3 import microsoftgraphdriveitem
-    from ._models_py3 import microsoftgraphdriveitemversion
-    from ._models_py3 import microsoftgraphemailaddress
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphevent
-    from ._models_py3 import microsoftgraphextension
-    from ._models_py3 import microsoftgraphextensionproperty
-    from ._models_py3 import microsoftgraphexternallink
-    from ._models_py3 import microsoftgraphfieldvalueset
-    from ._models_py3 import microsoftgraphfile
-    from ._models_py3 import microsoftgraphfilesysteminfo
-    from ._models_py3 import microsoftgraphfolder
-    from ._models_py3 import microsoftgraphfolderview
-    from ._models_py3 import microsoftgraphfollowupflag
-    from ._models_py3 import microsoftgraphfreebusyerror
-    from ._models_py3 import microsoftgraphgenericerror
-    from ._models_py3 import microsoftgraphgeocoordinates
-    from ._models_py3 import microsoftgraphgroup
-    from ._models_py3 import microsoftgraphgrouplifecyclepolicy
-    from ._models_py3 import microsoftgraphgroupsetting
-    from ._models_py3 import microsoftgraphhashes
-    from ._models_py3 import microsoftgraphidentity
-    from ._models_py3 import microsoftgraphidentityset
-    from ._models_py3 import microsoftgraphimage
-    from ._models_py3 import microsoftgraphimageinfo
-    from ._models_py3 import microsoftgraphincompletedata
-    from ._models_py3 import microsoftgraphinferenceclassification
-    from ._models_py3 import microsoftgraphinferenceclassificationoverride
-    from ._models_py3 import microsoftgraphinsightidentity
-    from ._models_py3 import microsoftgraphinternetmessageheader
-    from ._models_py3 import microsoftgraphitemactionstat
-    from ._models_py3 import microsoftgraphitemactivity
-    from ._models_py3 import microsoftgraphitemactivitystat
-    from ._models_py3 import microsoftgraphitemanalytics
-    from ._models_py3 import microsoftgraphitembody
-    from ._models_py3 import microsoftgraphitemreference
-    from ._models_py3 import microsoftgraphlicenseassignmentstate
-    from ._models_py3 import microsoftgraphlicensedetails
-    from ._models_py3 import microsoftgraphlicenseprocessingstate
-    from ._models_py3 import microsoftgraphlist
-    from ._models_py3 import microsoftgraphlistinfo
-    from ._models_py3 import microsoftgraphlistitem
-    from ._models_py3 import microsoftgraphlistitemversion
-    from ._models_py3 import microsoftgraphlocaleinfo
-    from ._models_py3 import microsoftgraphlocation
-    from ._models_py3 import microsoftgraphlocationconstraint
-    from ._models_py3 import microsoftgraphlocationconstraintitem
-    from ._models_py3 import microsoftgraphlookupcolumn
-    from ._models_py3 import microsoftgraphmailboxsettings
-    from ._models_py3 import microsoftgraphmailfolder
-    from ._models_py3 import microsoftgraphmailtips
-    from ._models_py3 import microsoftgraphmailtipserror
-    from ._models_py3 import microsoftgraphmanagedappoperation
-    from ._models_py3 import microsoftgraphmanagedapppolicy
-    from ._models_py3 import microsoftgraphmanagedappregistration
-    from ._models_py3 import microsoftgraphmanageddevice
-    from ._models_py3 import microsoftgraphmeetingparticipantinfo
-    from ._models_py3 import microsoftgraphmeetingparticipants
-    from ._models_py3 import microsoftgraphmeetingtimesuggestion
-    from ._models_py3 import microsoftgraphmeetingtimesuggestionsresult
-    from ._models_py3 import microsoftgraphmessage
-    from ._models_py3 import microsoftgraphmessagerule
-    from ._models_py3 import microsoftgraphmessageruleactions
-    from ._models_py3 import microsoftgraphmessagerulepredicates
-    from ._models_py3 import microsoftgraphmultivaluelegacyextendedproperty
-    from ._models_py3 import microsoftgraphnotebook
-    from ._models_py3 import microsoftgraphnotebooklinks
-    from ._models_py3 import microsoftgraphnumbercolumn
-    from ._models_py3 import microsoftgraphoauth2permissiongrant
-    from ._models_py3 import microsoftgraphobjectidentity
-    from ._models_py3 import microsoftgraphoffershiftrequest
-    from ._models_py3 import microsoftgraphofficegraphinsights
-    from ._models_py3 import microsoftgraphonenote
-    from ._models_py3 import microsoftgraphonenoteentitybasemodel
-    from ._models_py3 import microsoftgraphonenoteentityhierarchymodel
-    from ._models_py3 import microsoftgraphonenoteentityschemaobjectmodel
-    from ._models_py3 import microsoftgraphonenoteoperation
-    from ._models_py3 import microsoftgraphonenoteoperationerror
-    from ._models_py3 import microsoftgraphonenotepage
-    from ._models_py3 import microsoftgraphonenotepatchcontentcommand
-    from ._models_py3 import microsoftgraphonenoteresource
-    from ._models_py3 import microsoftgraphonenotesection
-    from ._models_py3 import microsoftgraphonlinemeeting
-    from ._models_py3 import microsoftgraphonlinemeetinginfo
-    from ._models_py3 import microsoftgraphonpremisesextensionattributes
-    from ._models_py3 import microsoftgraphonpremisesprovisioningerror
-    from ._models_py3 import microsoftgraphopenshift
-    from ._models_py3 import microsoftgraphopenshiftchangerequest
-    from ._models_py3 import microsoftgraphopenshiftitem
-    from ._models_py3 import microsoftgraphoperation
-    from ._models_py3 import microsoftgraphoperationerror
-    from ._models_py3 import microsoftgraphoutlookcategory
-    from ._models_py3 import microsoftgraphoutlookgeocoordinates
-    from ._models_py3 import microsoftgraphoutlookitem
-    from ._models_py3 import microsoftgraphoutlookuser
-    from ._models_py3 import microsoftgraphpackage
-    from ._models_py3 import microsoftgraphpagelinks
-    from ._models_py3 import microsoftgraphpasswordprofile
-    from ._models_py3 import microsoftgraphpatternedrecurrence
-    from ._models_py3 import microsoftgraphpendingcontentupdate
-    from ._models_py3 import microsoftgraphpendingoperations
-    from ._models_py3 import microsoftgraphpermission
-    from ._models_py3 import microsoftgraphperson
-    from ._models_py3 import microsoftgraphpersonorgroupcolumn
-    from ._models_py3 import microsoftgraphpersontype
-    from ._models_py3 import microsoftgraphphone
-    from ._models_py3 import microsoftgraphphoto
-    from ._models_py3 import microsoftgraphphysicaladdress
-    from ._models_py3 import microsoftgraphplannerassignedtotaskboardtaskformat
-    from ._models_py3 import microsoftgraphplannerbucket
-    from ._models_py3 import microsoftgraphplannerbuckettaskboardtaskformat
-    from ._models_py3 import microsoftgraphplannercategorydescriptions
-    from ._models_py3 import microsoftgraphplannergroup
-    from ._models_py3 import microsoftgraphplannerplan
-    from ._models_py3 import microsoftgraphplannerplandetails
-    from ._models_py3 import microsoftgraphplannerprogresstaskboardtaskformat
-    from ._models_py3 import microsoftgraphplannertask
-    from ._models_py3 import microsoftgraphplannertaskdetails
-    from ._models_py3 import microsoftgraphplanneruser
-    from ._models_py3 import microsoftgraphpost
-    from ._models_py3 import microsoftgraphprofilephoto
-    from ._models_py3 import microsoftgraphprovisionedplan
-    from ._models_py3 import microsoftgraphpublicationfacet
-    from ._models_py3 import microsoftgraphpublicerror
-    from ._models_py3 import microsoftgraphpublicerrordetail
-    from ._models_py3 import microsoftgraphpublicinnererror
-    from ._models_py3 import microsoftgraphquota
-    from ._models_py3 import microsoftgraphrecipient
-    from ._models_py3 import microsoftgraphrecurrencepattern
-    from ._models_py3 import microsoftgraphrecurrencerange
-    from ._models_py3 import microsoftgraphremoteitem
-    from ._models_py3 import microsoftgraphresourcereference
-    from ._models_py3 import microsoftgraphresourcevisualization
-    from ._models_py3 import microsoftgraphresponsestatus
-    from ._models_py3 import microsoftgraphschedule
-    from ._models_py3 import microsoftgraphschedulechangerequest
-    from ._models_py3 import microsoftgraphscheduleentity
-    from ._models_py3 import microsoftgraphscheduleinformation
-    from ._models_py3 import microsoftgraphscheduleitem
-    from ._models_py3 import microsoftgraphschedulinggroup
-    from ._models_py3 import microsoftgraphscopedrolemembership
-    from ._models_py3 import microsoftgraphscoredemailaddress
-    from ._models_py3 import microsoftgraphsearchresult
-    from ._models_py3 import microsoftgraphsectiongroup
-    from ._models_py3 import microsoftgraphsectionlinks
-    from ._models_py3 import microsoftgraphserviceplaninfo
-    from ._models_py3 import microsoftgraphsettingsource
-    from ._models_py3 import microsoftgraphsettingvalue
-    from ._models_py3 import microsoftgraphshared
-    from ._models_py3 import microsoftgraphsharedinsight
-    from ._models_py3 import microsoftgraphsharepointids
-    from ._models_py3 import microsoftgraphsharingdetail
-    from ._models_py3 import microsoftgraphsharinginvitation
-    from ._models_py3 import microsoftgraphsharinglink
-    from ._models_py3 import microsoftgraphshift
-    from ._models_py3 import microsoftgraphshiftactivity
-    from ._models_py3 import microsoftgraphshiftavailability
-    from ._models_py3 import microsoftgraphshiftitem
-    from ._models_py3 import microsoftgraphshiftpreferences
-    from ._models_py3 import microsoftgraphsinglevaluelegacyextendedproperty
-    from ._models_py3 import microsoftgraphsite
-    from ._models_py3 import microsoftgraphsitecollection
-    from ._models_py3 import microsoftgraphsizerange
-    from ._models_py3 import microsoftgraphspecialfolder
-    from ._models_py3 import microsoftgraphstorageplaninformation
-    from ._models_py3 import microsoftgraphsubscription
-    from ._models_py3 import microsoftgraphswapshiftschangerequest
-    from ._models_py3 import microsoftgraphteam
-    from ._models_py3 import microsoftgraphteamfunsettings
-    from ._models_py3 import microsoftgraphteamguestsettings
-    from ._models_py3 import microsoftgraphteammembersettings
-    from ._models_py3 import microsoftgraphteammessagingsettings
-    from ._models_py3 import microsoftgraphteamsapp
-    from ._models_py3 import microsoftgraphteamsappdefinition
-    from ._models_py3 import microsoftgraphteamsappinstallation
-    from ._models_py3 import microsoftgraphteamsasyncoperation
-    from ._models_py3 import microsoftgraphteamstab
-    from ._models_py3 import microsoftgraphteamstabconfiguration
-    from ._models_py3 import microsoftgraphteamstemplate
-    from ._models_py3 import microsoftgraphtextcolumn
-    from ._models_py3 import microsoftgraphthumbnail
-    from ._models_py3 import microsoftgraphthumbnailset
-    from ._models_py3 import microsoftgraphtimeconstraint
-    from ._models_py3 import microsoftgraphtimeoff
-    from ._models_py3 import microsoftgraphtimeoffitem
-    from ._models_py3 import microsoftgraphtimeoffreason
-    from ._models_py3 import microsoftgraphtimeoffrequest
-    from ._models_py3 import microsoftgraphtimerange
-    from ._models_py3 import microsoftgraphtimeslot
-    from ._models_py3 import microsoftgraphtimezonebase
-    from ._models_py3 import microsoftgraphtrending
-    from ._models_py3 import microsoftgraphupdatewindowsdeviceaccountactionparameter
-    from ._models_py3 import microsoftgraphuploadsession
-    from ._models_py3 import microsoftgraphusagedetails
-    from ._models_py3 import microsoftgraphusedinsight
-    from ._models_py3 import microsoftgraphuser
-    from ._models_py3 import microsoftgraphuseractivity
-    from ._models_py3 import microsoftgraphusersettings
-    from ._models_py3 import microsoftgraphvideo
-    from ._models_py3 import microsoftgraphvisualinfo
-    from ._models_py3 import microsoftgraphwebsite
-    from ._models_py3 import microsoftgraphwindowsdeviceaccount
-    from ._models_py3 import microsoftgraphworkbook
-    from ._models_py3 import microsoftgraphworkbookapplication
-    from ._models_py3 import microsoftgraphworkbookchart
-    from ._models_py3 import microsoftgraphworkbookchartareaformat
-    from ._models_py3 import microsoftgraphworkbookchartaxes
-    from ._models_py3 import microsoftgraphworkbookchartaxis
-    from ._models_py3 import microsoftgraphworkbookchartaxisformat
-    from ._models_py3 import microsoftgraphworkbookchartaxistitle
-    from ._models_py3 import microsoftgraphworkbookchartaxistitleformat
-    from ._models_py3 import microsoftgraphworkbookchartdatalabelformat
-    from ._models_py3 import microsoftgraphworkbookchartdatalabels
-    from ._models_py3 import microsoftgraphworkbookchartfill
-    from ._models_py3 import microsoftgraphworkbookchartfont
-    from ._models_py3 import microsoftgraphworkbookchartgridlines
-    from ._models_py3 import microsoftgraphworkbookchartgridlinesformat
-    from ._models_py3 import microsoftgraphworkbookchartlegend
-    from ._models_py3 import microsoftgraphworkbookchartlegendformat
-    from ._models_py3 import microsoftgraphworkbookchartlineformat
-    from ._models_py3 import microsoftgraphworkbookchartpoint
-    from ._models_py3 import microsoftgraphworkbookchartpointformat
-    from ._models_py3 import microsoftgraphworkbookchartseries
-    from ._models_py3 import microsoftgraphworkbookchartseriesformat
-    from ._models_py3 import microsoftgraphworkbookcharttitle
-    from ._models_py3 import microsoftgraphworkbookcharttitleformat
-    from ._models_py3 import microsoftgraphworkbookcomment
-    from ._models_py3 import microsoftgraphworkbookcommentreply
-    from ._models_py3 import microsoftgraphworkbookfilter
-    from ._models_py3 import microsoftgraphworkbookfiltercriteria
-    from ._models_py3 import microsoftgraphworkbookfunctions
-    from ._models_py3 import microsoftgraphworkbookicon
-    from ._models_py3 import microsoftgraphworkbooknameditem
-    from ._models_py3 import microsoftgraphworkbookoperation
-    from ._models_py3 import microsoftgraphworkbookoperationerror
-    from ._models_py3 import microsoftgraphworkbookpivottable
-    from ._models_py3 import microsoftgraphworkbooksortfield
-    from ._models_py3 import microsoftgraphworkbooktable
-    from ._models_py3 import microsoftgraphworkbooktablecolumn
-    from ._models_py3 import microsoftgraphworkbooktablerow
-    from ._models_py3 import microsoftgraphworkbooktablesort
-    from ._models_py3 import microsoftgraphworkbookworksheet
-    from ._models_py3 import microsoftgraphworkbookworksheetprotection
-    from ._models_py3 import microsoftgraphworkbookworksheetprotectionoptions
-    from ._models_py3 import microsoftgraphworkinghours
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
-    from ._models_py3 import paths10c1mhjusersuseridcalendareventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths10vg7jzusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths10x81jrusersuserideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths119ldlmusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths11a86bdusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths11gylkusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths11iq6nwusersuserideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths11m2l0eusersuseridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths11yp7ufusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths128fvv9usersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths13g7nkfusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths13okkifusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths140i0icusersuseridmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths14d4s5wusersuserideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths14r8rr7usersuseridmanageddevicesmanageddeviceidmicrosoftgraphwipepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths151e8wwusersuserideventseventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths156ew11usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths15r2sysusersuseridonenotesectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths15umoapusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16gijiuusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16mdb34usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16noj0iusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16pob1qusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16rtv1jusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16snmwtusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16w4hmtusersuseridmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths17c2focusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths17rsh7pusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths17x3yxsusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths18h5wxmusersuseridmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths18ls1vzusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths192tlrmusersuseridonenotepagesonenotepageidparentsectionparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths19ec369usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths19vjg2rusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1adv2srusersuseridmailfoldersmailfolderidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ahzdayusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1b0fh08usersuseridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1bibiieusersuseridmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1c56la0usersuseridmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1c6hil8usersuseridcalendarcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1c74suusersuseridonenotepagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1c7xgoqusersuseridmailfoldersmailfolderidmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1cftdqjusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1chjk56usersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1d35h7nusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1d54f85usersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1da9f6cusersuseridonenotepagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1e02jcusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphcopypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1eg8r1ausersuseridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ejrdf9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ekxa5vusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphmovepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1envxcpusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1f2odubusersuseridcalendarcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1f7g8m9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1f9hoe8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1fegpkwusersuseridmanageddevicesmanageddeviceidmicrosoftgraphwindowsdefenderscanpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1flenwhusersuserideventseventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1fukv4usersuseridonenotenotebooksmicrosoftgraphgetnotebookfromweburlpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1g0hk3pusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1g3uapzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1grtroqusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1guv8fqusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1gv8qr5usersuseridcalendarvieweventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1h2gcesusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1h47062usersuseridonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1h6creusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1h9iwvtusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ht4b6ausersuseridcalendareventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1i4wog5usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1iagkehusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ify85uusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1inq4eusersuseridmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1j1kpiuusersuserideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1jl02ousersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1jn2mgdusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1jpbj0eusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1k5rhlbusersuserideventseventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1k9n0s0usersuserideventseventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1l3g4wcusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1l9hd4fusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ly1w91usersuserideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1lzzd1usersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1m7vin1usersuseridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1mzp0abusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1n4rmv8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1n721hkusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1nos4sfusersuseridmanageddevicesmanageddeviceidmicrosoftgraphcleanwindowsdevicepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1o1ne8tusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ogajoousersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ou2udrusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ph8596usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1pkc23dusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1pzceceusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1q6dqpausersuseridmanageddevicesmanageddeviceidmicrosoftgraphupdatewindowsdeviceaccountpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1qrxrllusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1qs6j67usersuserideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1rgcx0qusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1rkkrvbusersmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1rqzk12usersuseridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1spvidmusersuserideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1stb234usersuseridcalendarcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1tj87ozusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1tz6rb9usersmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1tzbvorusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1u32v1iusersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1uvas2qusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1w4lo3nusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1w64sdlusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1w7tof0usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1w9jog8usersuseridcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1wryb6xusersuseridcalendareventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1wtwkl0usersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1x2td9vusersuseridcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1x4ekfuusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1x68uvwusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1x7dum0usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1xbrsxousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1xhdcw6usersuseridmicrosoftgraphexportpersonaldatapostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1xl24cxusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ybn8bcusersuseridcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ybxwjgusersuseridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1z00d6kusersuseridcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths202kkyusersuseridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths26y9cmusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths2873uiusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths29l6iuusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths2d8u7eusersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths2eac0qusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths32a7ipusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths3anah4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths3m6qbmusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths3mx0jpusersuseridmicrosoftgraphchangepasswordpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths3sjaliusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths3ta6enusersuseridmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths42qvm9usersuserideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths46t88qusersuseridmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths47pyxmusersuseridonenotenotebooksnotebookidmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths4r77cgusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths56bwctusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths5dr3vuusersuseridcalendargroupscalendargroupidcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths5r82u5usersuseridcalendareventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths5y1azfusersuseridmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths6nclapusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths6qlv56usersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths6uw0c9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths6zjq1husersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths7booayusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths7matkpusersuseridcalendareventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths8hu9xiusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths8kc9dzusersuseridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths98m1f2usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths9ep4rausersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsansnbnusersuseridcalendarcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsaunguzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsbc6jymusersuseridcalendareventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsbfhtneusersuseridmicrosoftgraphassignlicensepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsbjm3zyusersmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsbu2eysusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathscrqzktusersuseridcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathscxo2wyusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdfxlk2usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdg14ojusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdoh0lausersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdqjogtusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdy94gcusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsdyyrb2usersuseridmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathse89wzyusersuseridcalendareventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsey9pr2usersuseridonenotepagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsfh5ojtusersuseridmicrosoftgraphsendmailpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsfm3zd0usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsfpj67husersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsg7so0jusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgc6aojusersuseridcalendareventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgdge0lusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgoce2susersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgpd5xxusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgsmlkyusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsgu1s0busersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsh9f1uhusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathshnu66musersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathshqegrcusersuseridmicrosoftgraphtranslateexchangeidspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsi6vxt9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsie80u1usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsiojy9fusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsiu6emausersuseridcalendarvieweventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsj97b30usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsj9yxi4usersuseridmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsjugtduusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsk3pzouusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathskn6r94usersuseridmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathslp9dm2usersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathslw4yucusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsmcgwybusersuseridonenotesectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsmditrnusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsmktb9jusersuseridcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsnxrhkdusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsp7nrg0usersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathspgt1c5usersuseridcalendareventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathspp15vbusersuseridmicrosoftgraphgetmailtipspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsq7nzumusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqbims6usersuseridmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqe3psvusersuseridcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqegv42usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqn6eixusersuseridcalendareventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqr5gy6usersuseridcalendarcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsque4orusersuseridcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsqw4n4jusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsrkiwhhusersuseridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsrnf0yousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsrppvczusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsrzk26rusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathss06xxsusersuseridcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathss3lb31usersuseridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathssdgf1musersuseridmailfoldersmailfolderidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathssmo844usersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsszpbzfusersuseridmicrosoftgraphfindmeetingtimespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathst4hh9dusersuserideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathst5e3j9usersuseridcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathstoj28vusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathstvg0qfusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsuhxao3usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsuing61usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsuxclr4usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsvloam1usersuseridmicrosoftgraphwipemanagedappregistrationsbydevicetagpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathswalct4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathswbtl2jusersuseridmanageddevicesmanageddeviceidmicrosoftgraphdeleteuserfromsharedappledevicepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathswl7pqtusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathswzrwtkusersuserideventseventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathswzxfzeusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsxf93ngusersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsxntkdousersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsy9zbvfusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyamuhvusersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsybtkdsusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyd0wriusersuseridcalendarcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsymbls2usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsysucmrusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyv35byusersuserideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyyyl36usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsyzyxmwusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import MicrosoftGraphActivityHistoryItem
+    from ._models_py3 import MicrosoftGraphAppRoleAssignment
+    from ._models_py3 import MicrosoftGraphAssignedLabel
+    from ._models_py3 import MicrosoftGraphAssignedLicense
+    from ._models_py3 import MicrosoftGraphAssignedPlan
+    from ._models_py3 import MicrosoftGraphAttachment
+    from ._models_py3 import MicrosoftGraphAttachmentItem
+    from ._models_py3 import MicrosoftGraphAttendee
+    from ._models_py3 import MicrosoftGraphAttendeeAvailability
+    from ._models_py3 import MicrosoftGraphAttendeeBase
+    from ._models_py3 import MicrosoftGraphAudio
+    from ._models_py3 import MicrosoftGraphAudioConferencing
+    from ._models_py3 import MicrosoftGraphAutomaticRepliesMailTips
+    from ._models_py3 import MicrosoftGraphAutomaticRepliesSetting
+    from ._models_py3 import MicrosoftGraphBaseItem
+    from ._models_py3 import MicrosoftGraphBaseItemVersion
+    from ._models_py3 import MicrosoftGraphCalculatedColumn
+    from ._models_py3 import MicrosoftGraphCalendar
+    from ._models_py3 import MicrosoftGraphCalendarGroup
+    from ._models_py3 import MicrosoftGraphCalendarPermission
+    from ._models_py3 import MicrosoftGraphChangeTrackedEntity
+    from ._models_py3 import MicrosoftGraphChannel
+    from ._models_py3 import MicrosoftGraphChatInfo
+    from ._models_py3 import MicrosoftGraphChatMessage
+    from ._models_py3 import MicrosoftGraphChatMessageAttachment
+    from ._models_py3 import MicrosoftGraphChatMessageHostedContent
+    from ._models_py3 import MicrosoftGraphChatMessageMention
+    from ._models_py3 import MicrosoftGraphChatMessagePolicyViolation
+    from ._models_py3 import MicrosoftGraphChatMessagePolicyViolationPolicyTip
+    from ._models_py3 import MicrosoftGraphChatMessageReaction
+    from ._models_py3 import MicrosoftGraphChoiceColumn
+    from ._models_py3 import MicrosoftGraphColumnDefinition
+    from ._models_py3 import MicrosoftGraphColumnLink
+    from ._models_py3 import MicrosoftGraphConfigurationManagerClientEnabledFeatures
+    from ._models_py3 import MicrosoftGraphContact
+    from ._models_py3 import MicrosoftGraphContactFolder
+    from ._models_py3 import MicrosoftGraphContentType
+    from ._models_py3 import MicrosoftGraphContentTypeInfo
+    from ._models_py3 import MicrosoftGraphContentTypeOrder
+    from ._models_py3 import MicrosoftGraphConversation
+    from ._models_py3 import MicrosoftGraphConversationMember
+    from ._models_py3 import MicrosoftGraphConversationThread
+    from ._models_py3 import MicrosoftGraphConvertIdResult
+    from ._models_py3 import MicrosoftGraphCopyNotebookModel
+    from ._models_py3 import MicrosoftGraphCurrencyColumn
+    from ._models_py3 import MicrosoftGraphDateTimeColumn
+    from ._models_py3 import MicrosoftGraphDateTimeZone
+    from ._models_py3 import MicrosoftGraphDefaultColumnValue
+    from ._models_py3 import MicrosoftGraphDeleted
+    from ._models_py3 import MicrosoftGraphDeviceActionResult
+    from ._models_py3 import MicrosoftGraphDeviceCategory
+    from ._models_py3 import MicrosoftGraphDeviceCompliancePolicySettingState
+    from ._models_py3 import MicrosoftGraphDeviceCompliancePolicyState
+    from ._models_py3 import MicrosoftGraphDeviceConfigurationSettingState
+    from ._models_py3 import MicrosoftGraphDeviceConfigurationState
+    from ._models_py3 import MicrosoftGraphDeviceHealthAttestationState
+    from ._models_py3 import MicrosoftGraphDeviceManagementTroubleshootingEvent
+    from ._models_py3 import MicrosoftGraphDirectoryObject
+    from ._models_py3 import MicrosoftGraphDrive
+    from ._models_py3 import MicrosoftGraphDriveItem
+    from ._models_py3 import MicrosoftGraphDriveItemVersion
+    from ._models_py3 import MicrosoftGraphEmailAddress
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphEvent
+    from ._models_py3 import MicrosoftGraphExtension
+    from ._models_py3 import MicrosoftGraphExtensionProperty
+    from ._models_py3 import MicrosoftGraphExternalLink
+    from ._models_py3 import MicrosoftGraphFieldValueSet
+    from ._models_py3 import MicrosoftGraphFile
+    from ._models_py3 import MicrosoftGraphFileSystemInfo
+    from ._models_py3 import MicrosoftGraphFolder
+    from ._models_py3 import MicrosoftGraphFolderView
+    from ._models_py3 import MicrosoftGraphFollowupFlag
+    from ._models_py3 import MicrosoftGraphFreeBusyError
+    from ._models_py3 import MicrosoftGraphGenericError
+    from ._models_py3 import MicrosoftGraphGeoCoordinates
+    from ._models_py3 import MicrosoftGraphGroup
+    from ._models_py3 import MicrosoftGraphGroupLifecyclePolicy
+    from ._models_py3 import MicrosoftGraphGroupSetting
+    from ._models_py3 import MicrosoftGraphHashes
+    from ._models_py3 import MicrosoftGraphIdentity
+    from ._models_py3 import MicrosoftGraphIdentitySet
+    from ._models_py3 import MicrosoftGraphImage
+    from ._models_py3 import MicrosoftGraphImageInfo
+    from ._models_py3 import MicrosoftGraphIncompleteData
+    from ._models_py3 import MicrosoftGraphInferenceClassification
+    from ._models_py3 import MicrosoftGraphInferenceClassificationOverride
+    from ._models_py3 import MicrosoftGraphInsightIdentity
+    from ._models_py3 import MicrosoftGraphInternetMessageHeader
+    from ._models_py3 import MicrosoftGraphItemActionStat
+    from ._models_py3 import MicrosoftGraphItemActivity
+    from ._models_py3 import MicrosoftGraphItemActivityStat
+    from ._models_py3 import MicrosoftGraphItemAnalytics
+    from ._models_py3 import MicrosoftGraphItemBody
+    from ._models_py3 import MicrosoftGraphItemReference
+    from ._models_py3 import MicrosoftGraphLicenseAssignmentState
+    from ._models_py3 import MicrosoftGraphLicenseDetails
+    from ._models_py3 import MicrosoftGraphLicenseProcessingState
+    from ._models_py3 import MicrosoftGraphList
+    from ._models_py3 import MicrosoftGraphListInfo
+    from ._models_py3 import MicrosoftGraphListItem
+    from ._models_py3 import MicrosoftGraphListItemVersion
+    from ._models_py3 import MicrosoftGraphLocaleInfo
+    from ._models_py3 import MicrosoftGraphLocation
+    from ._models_py3 import MicrosoftGraphLocationConstraint
+    from ._models_py3 import MicrosoftGraphLocationConstraintItem
+    from ._models_py3 import MicrosoftGraphLookupColumn
+    from ._models_py3 import MicrosoftGraphMailFolder
+    from ._models_py3 import MicrosoftGraphMailTips
+    from ._models_py3 import MicrosoftGraphMailTipsError
+    from ._models_py3 import MicrosoftGraphMailboxSettings
+    from ._models_py3 import MicrosoftGraphManagedAppOperation
+    from ._models_py3 import MicrosoftGraphManagedAppPolicy
+    from ._models_py3 import MicrosoftGraphManagedAppRegistration
+    from ._models_py3 import MicrosoftGraphManagedDevice
+    from ._models_py3 import MicrosoftGraphMeetingParticipantInfo
+    from ._models_py3 import MicrosoftGraphMeetingParticipants
+    from ._models_py3 import MicrosoftGraphMeetingTimeSuggestion
+    from ._models_py3 import MicrosoftGraphMeetingTimeSuggestionsResult
+    from ._models_py3 import MicrosoftGraphMessage
+    from ._models_py3 import MicrosoftGraphMessageRule
+    from ._models_py3 import MicrosoftGraphMessageRuleActions
+    from ._models_py3 import MicrosoftGraphMessageRulePredicates
+    from ._models_py3 import MicrosoftGraphMultiValueLegacyExtendedProperty
+    from ._models_py3 import MicrosoftGraphNotebook
+    from ._models_py3 import MicrosoftGraphNotebookLinks
+    from ._models_py3 import MicrosoftGraphNumberColumn
+    from ._models_py3 import MicrosoftGraphOAuth2PermissionGrant
+    from ._models_py3 import MicrosoftGraphObjectIdentity
+    from ._models_py3 import MicrosoftGraphOfferShiftRequest
+    from ._models_py3 import MicrosoftGraphOfficeGraphInsights
+    from ._models_py3 import MicrosoftGraphOnPremisesExtensionAttributes
+    from ._models_py3 import MicrosoftGraphOnPremisesProvisioningError
+    from ._models_py3 import MicrosoftGraphOnenote
+    from ._models_py3 import MicrosoftGraphOnenoteEntityBaseModel
+    from ._models_py3 import MicrosoftGraphOnenoteEntityHierarchyModel
+    from ._models_py3 import MicrosoftGraphOnenoteEntitySchemaObjectModel
+    from ._models_py3 import MicrosoftGraphOnenoteOperation
+    from ._models_py3 import MicrosoftGraphOnenoteOperationError
+    from ._models_py3 import MicrosoftGraphOnenotePage
+    from ._models_py3 import MicrosoftGraphOnenotePatchContentCommand
+    from ._models_py3 import MicrosoftGraphOnenoteResource
+    from ._models_py3 import MicrosoftGraphOnenoteSection
+    from ._models_py3 import MicrosoftGraphOnlineMeeting
+    from ._models_py3 import MicrosoftGraphOnlineMeetingInfo
+    from ._models_py3 import MicrosoftGraphOpenShift
+    from ._models_py3 import MicrosoftGraphOpenShiftChangeRequest
+    from ._models_py3 import MicrosoftGraphOpenShiftItem
+    from ._models_py3 import MicrosoftGraphOperation
+    from ._models_py3 import MicrosoftGraphOperationError
+    from ._models_py3 import MicrosoftGraphOutlookCategory
+    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
+    from ._models_py3 import MicrosoftGraphOutlookItem
+    from ._models_py3 import MicrosoftGraphOutlookUser
+    from ._models_py3 import MicrosoftGraphPackage
+    from ._models_py3 import MicrosoftGraphPageLinks
+    from ._models_py3 import MicrosoftGraphPasswordProfile
+    from ._models_py3 import MicrosoftGraphPatternedRecurrence
+    from ._models_py3 import MicrosoftGraphPendingContentUpdate
+    from ._models_py3 import MicrosoftGraphPendingOperations
+    from ._models_py3 import MicrosoftGraphPermission
+    from ._models_py3 import MicrosoftGraphPerson
+    from ._models_py3 import MicrosoftGraphPersonOrGroupColumn
+    from ._models_py3 import MicrosoftGraphPersonType
+    from ._models_py3 import MicrosoftGraphPhone
+    from ._models_py3 import MicrosoftGraphPhoto
+    from ._models_py3 import MicrosoftGraphPhysicalAddress
+    from ._models_py3 import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
+    from ._models_py3 import MicrosoftGraphPlannerBucket
+    from ._models_py3 import MicrosoftGraphPlannerBucketTaskBoardTaskFormat
+    from ._models_py3 import MicrosoftGraphPlannerCategoryDescriptions
+    from ._models_py3 import MicrosoftGraphPlannerGroup
+    from ._models_py3 import MicrosoftGraphPlannerPlan
+    from ._models_py3 import MicrosoftGraphPlannerPlanDetails
+    from ._models_py3 import MicrosoftGraphPlannerProgressTaskBoardTaskFormat
+    from ._models_py3 import MicrosoftGraphPlannerTask
+    from ._models_py3 import MicrosoftGraphPlannerTaskDetails
+    from ._models_py3 import MicrosoftGraphPlannerUser
+    from ._models_py3 import MicrosoftGraphPost
+    from ._models_py3 import MicrosoftGraphProfilePhoto
+    from ._models_py3 import MicrosoftGraphProvisionedPlan
+    from ._models_py3 import MicrosoftGraphPublicError
+    from ._models_py3 import MicrosoftGraphPublicErrorDetail
+    from ._models_py3 import MicrosoftGraphPublicInnerError
+    from ._models_py3 import MicrosoftGraphPublicationFacet
+    from ._models_py3 import MicrosoftGraphQuota
+    from ._models_py3 import MicrosoftGraphRecipient
+    from ._models_py3 import MicrosoftGraphRecurrencePattern
+    from ._models_py3 import MicrosoftGraphRecurrenceRange
+    from ._models_py3 import MicrosoftGraphRemoteItem
+    from ._models_py3 import MicrosoftGraphResourceReference
+    from ._models_py3 import MicrosoftGraphResourceVisualization
+    from ._models_py3 import MicrosoftGraphResponseStatus
+    from ._models_py3 import MicrosoftGraphSchedule
+    from ._models_py3 import MicrosoftGraphScheduleChangeRequest
+    from ._models_py3 import MicrosoftGraphScheduleEntity
+    from ._models_py3 import MicrosoftGraphScheduleInformation
+    from ._models_py3 import MicrosoftGraphScheduleItem
+    from ._models_py3 import MicrosoftGraphSchedulingGroup
+    from ._models_py3 import MicrosoftGraphScopedRoleMembership
+    from ._models_py3 import MicrosoftGraphScoredEmailAddress
+    from ._models_py3 import MicrosoftGraphSearchResult
+    from ._models_py3 import MicrosoftGraphSectionGroup
+    from ._models_py3 import MicrosoftGraphSectionLinks
+    from ._models_py3 import MicrosoftGraphServicePlanInfo
+    from ._models_py3 import MicrosoftGraphSettingSource
+    from ._models_py3 import MicrosoftGraphSettingValue
+    from ._models_py3 import MicrosoftGraphShared
+    from ._models_py3 import MicrosoftGraphSharedInsight
+    from ._models_py3 import MicrosoftGraphSharepointIds
+    from ._models_py3 import MicrosoftGraphSharingDetail
+    from ._models_py3 import MicrosoftGraphSharingInvitation
+    from ._models_py3 import MicrosoftGraphSharingLink
+    from ._models_py3 import MicrosoftGraphShift
+    from ._models_py3 import MicrosoftGraphShiftActivity
+    from ._models_py3 import MicrosoftGraphShiftAvailability
+    from ._models_py3 import MicrosoftGraphShiftItem
+    from ._models_py3 import MicrosoftGraphShiftPreferences
+    from ._models_py3 import MicrosoftGraphSingleValueLegacyExtendedProperty
+    from ._models_py3 import MicrosoftGraphSite
+    from ._models_py3 import MicrosoftGraphSiteCollection
+    from ._models_py3 import MicrosoftGraphSizeRange
+    from ._models_py3 import MicrosoftGraphSpecialFolder
+    from ._models_py3 import MicrosoftGraphStoragePlanInformation
+    from ._models_py3 import MicrosoftGraphSubscription
+    from ._models_py3 import MicrosoftGraphSwapShiftsChangeRequest
+    from ._models_py3 import MicrosoftGraphTeam
+    from ._models_py3 import MicrosoftGraphTeamFunSettings
+    from ._models_py3 import MicrosoftGraphTeamGuestSettings
+    from ._models_py3 import MicrosoftGraphTeamMemberSettings
+    from ._models_py3 import MicrosoftGraphTeamMessagingSettings
+    from ._models_py3 import MicrosoftGraphTeamsApp
+    from ._models_py3 import MicrosoftGraphTeamsAppDefinition
+    from ._models_py3 import MicrosoftGraphTeamsAppInstallation
+    from ._models_py3 import MicrosoftGraphTeamsAsyncOperation
+    from ._models_py3 import MicrosoftGraphTeamsTab
+    from ._models_py3 import MicrosoftGraphTeamsTabConfiguration
+    from ._models_py3 import MicrosoftGraphTeamsTemplate
+    from ._models_py3 import MicrosoftGraphTextColumn
+    from ._models_py3 import MicrosoftGraphThumbnail
+    from ._models_py3 import MicrosoftGraphThumbnailSet
+    from ._models_py3 import MicrosoftGraphTimeConstraint
+    from ._models_py3 import MicrosoftGraphTimeOff
+    from ._models_py3 import MicrosoftGraphTimeOffItem
+    from ._models_py3 import MicrosoftGraphTimeOffReason
+    from ._models_py3 import MicrosoftGraphTimeOffRequest
+    from ._models_py3 import MicrosoftGraphTimeRange
+    from ._models_py3 import MicrosoftGraphTimeSlot
+    from ._models_py3 import MicrosoftGraphTimeZoneBase
+    from ._models_py3 import MicrosoftGraphTrending
+    from ._models_py3 import MicrosoftGraphUpdateWindowsDeviceAccountActionParameter
+    from ._models_py3 import MicrosoftGraphUploadSession
+    from ._models_py3 import MicrosoftGraphUsageDetails
+    from ._models_py3 import MicrosoftGraphUsedInsight
+    from ._models_py3 import MicrosoftGraphUser
+    from ._models_py3 import MicrosoftGraphUserActivity
+    from ._models_py3 import MicrosoftGraphUserSettings
+    from ._models_py3 import MicrosoftGraphVideo
+    from ._models_py3 import MicrosoftGraphVisualInfo
+    from ._models_py3 import MicrosoftGraphWebsite
+    from ._models_py3 import MicrosoftGraphWindowsDeviceAccount
+    from ._models_py3 import MicrosoftGraphWorkbook
+    from ._models_py3 import MicrosoftGraphWorkbookApplication
+    from ._models_py3 import MicrosoftGraphWorkbookChart
+    from ._models_py3 import MicrosoftGraphWorkbookChartAreaFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartAxes
+    from ._models_py3 import MicrosoftGraphWorkbookChartAxis
+    from ._models_py3 import MicrosoftGraphWorkbookChartAxisFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartAxisTitle
+    from ._models_py3 import MicrosoftGraphWorkbookChartAxisTitleFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartDataLabelFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartDataLabels
+    from ._models_py3 import MicrosoftGraphWorkbookChartFill
+    from ._models_py3 import MicrosoftGraphWorkbookChartFont
+    from ._models_py3 import MicrosoftGraphWorkbookChartGridlines
+    from ._models_py3 import MicrosoftGraphWorkbookChartGridlinesFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartLegend
+    from ._models_py3 import MicrosoftGraphWorkbookChartLegendFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartLineFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartPoint
+    from ._models_py3 import MicrosoftGraphWorkbookChartPointFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartSeries
+    from ._models_py3 import MicrosoftGraphWorkbookChartSeriesFormat
+    from ._models_py3 import MicrosoftGraphWorkbookChartTitle
+    from ._models_py3 import MicrosoftGraphWorkbookChartTitleFormat
+    from ._models_py3 import MicrosoftGraphWorkbookComment
+    from ._models_py3 import MicrosoftGraphWorkbookCommentReply
+    from ._models_py3 import MicrosoftGraphWorkbookFilter
+    from ._models_py3 import MicrosoftGraphWorkbookFilterCriteria
+    from ._models_py3 import MicrosoftGraphWorkbookFunctions
+    from ._models_py3 import MicrosoftGraphWorkbookIcon
+    from ._models_py3 import MicrosoftGraphWorkbookNamedItem
+    from ._models_py3 import MicrosoftGraphWorkbookOperation
+    from ._models_py3 import MicrosoftGraphWorkbookOperationError
+    from ._models_py3 import MicrosoftGraphWorkbookPivotTable
+    from ._models_py3 import MicrosoftGraphWorkbookSortField
+    from ._models_py3 import MicrosoftGraphWorkbookTable
+    from ._models_py3 import MicrosoftGraphWorkbookTableColumn
+    from ._models_py3 import MicrosoftGraphWorkbookTableRow
+    from ._models_py3 import MicrosoftGraphWorkbookTableSort
+    from ._models_py3 import MicrosoftGraphWorkbookWorksheet
+    from ._models_py3 import MicrosoftGraphWorkbookWorksheetProtection
+    from ._models_py3 import MicrosoftGraphWorkbookWorksheetProtectionOptions
+    from ._models_py3 import MicrosoftGraphWorkingHours
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths10C1MhjUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths10Vg7JzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths10X81JrUsersUserIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths119LdlmUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths11A86BdUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths11GylkUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths11Iq6NwUsersUserIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths11M2L0EUsersUserIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths11Yp7UfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths128Fvv9UsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths13G7NkfUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths13OkkifUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths14D4S5WUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths14R8Rr7UsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWipePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths151E8WwUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths156Ew11UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths15R2SysUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths15UmoapUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16GijiuUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16Noj0IUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16Pob1QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16Rtv1JUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16SnmwtUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths17C2FocUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths17Rsh7PUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths17X3YxsUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths18H5WxmUsersUserIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths18Ls1VzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths192TlrmUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths19Ec369UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths19Vjg2RUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Adv2SrUsersUserIdMailfoldersMailfolderIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1AhzdayUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1B0Fh08UsersUserIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1C56La0UsersUserIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1C6Hil8UsersUserIdCalendarCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1C74SuUsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1C7XgoqUsersUserIdMailfoldersMailfolderIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1CftdqjUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Chjk56UsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1D35H7NUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1D54F85UsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Da9F6CUsersUserIdOnenotePagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1E02JcUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Eg8R1AUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ejrdf9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ekxa5VUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1EnvxcpUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1F2OdubUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1F7G8M9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1F9Hoe8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1FegpkwUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWindowsdefenderscanPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1FlenwhUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Fukv4UsersUserIdOnenoteNotebooksMicrosoftGraphGetnotebookfromweburlPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1G0Hk3PUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1G3UapzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1GrtroqUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Guv8FqUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Gv8Qr5UsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1H2GcesUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1H6CreUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1H9IwvtUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ht4B6AUsersUserIdCalendarEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1I4Wog5UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1IagkehUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ify85UUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1J1KpiuUsersUserIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Jl02OUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Jn2MgdUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Jpbj0EUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1K5RhlbUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1K9N0S0UsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1L3G4WcUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1L9Hd4FUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ly1W91UsersUserIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Lzzd1UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1M7Vin1UsersUserIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Mzp0AbUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1N4Rmv8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1N721HkUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Nos4SfUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphCleanwindowsdevicePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1O1Ne8TUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1OgajooUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ou2UdrUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ph8596UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Pkc23DUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1PzceceUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1QrxrllUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Qs6J67UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Rgcx0QUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1RkkrvbUsersMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Rqzk12UsersUserIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1SpvidmUsersUserIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Stb234UsersUserIdCalendarCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Tj87OzUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Tz6Rb9UsersMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1TzbvorUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1U32V1IUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Uvas2QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1W4Lo3NUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1W64SdlUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1W7Tof0UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1W9Jog8UsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Wryb6XUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Wtwkl0UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1X2Td9VUsersUserIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1X4EkfuUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1X68UvwUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1XbrsxoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Xhdcw6UsersUserIdMicrosoftGraphExportpersonaldataPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Xl24CxUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ybn8BcUsersUserIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1YbxwjgUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Z00D6KUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths202KkyUsersUserIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths26Y9CmUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths2873UiUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths2D8U7EUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths2Eac0QUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths32A7IpUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths3Anah4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths3Mx0JpUsersUserIdMicrosoftGraphChangepasswordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths3SjaliUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths42Qvm9UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths46T88QUsersUserIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths47PyxmUsersUserIdOnenoteNotebooksNotebookIdMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths4R77CgUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths56BwctUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths5Dr3VuUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths5R82U5UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths5Y1AzfUsersUserIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths6NclapUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths6Qlv56UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths6Uw0C9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths7BooayUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths7MatkpUsersUserIdCalendarEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths8Hu9XiUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths8Kc9DzUsersUserIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths98M1F2UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths9Ep4RaUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsAnsnbnUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsAunguzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsBc6JymUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsBfhtneUsersUserIdMicrosoftGraphAssignlicensePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsBjm3ZyUsersMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsBu2EysUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsCrqzktUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsCxo2WyUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDfxlk2UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDg14OjUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDoh0LaUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDqjogtUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDy94GcUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsDyyrb2UsersUserIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsE89WzyUsersUserIdCalendarEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsEy9Pr2UsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsFm3Zd0UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsFpj67HUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsG7So0JUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGc6AojUsersUserIdCalendarEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGdge0LUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGoce2SUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGsmlkyUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsGu1S0BUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsH9F1UhUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsHnu66MUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsHqegrcUsersUserIdMicrosoftGraphTranslateexchangeidsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsI6Vxt9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsIe80U1UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsIojy9FUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsIu6EmaUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsJ97B30UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsJ9Yxi4UsersUserIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsJugtduUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsK3PzouUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsLp9Dm2UsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsLw4YucUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsMcgwybUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsMditrnUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsMktb9JUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsNxrhkdUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsP7Nrg0UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsPgt1C5UsersUserIdCalendarEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsPp15VbUsersUserIdMicrosoftGraphGetmailtipsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQ7NzumUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQbims6UsersUserIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQe3PsvUsersUserIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQegv42UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQn6EixUsersUserIdCalendarEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQr5Gy6UsersUserIdCalendarCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQue4OrUsersUserIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQw4N4JUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsRkiwhhUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsRnf0YoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsRppvczUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsRzk26RUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsS06XxsUsersUserIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsS3Lb31UsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsSdgf1MUsersUserIdMailfoldersMailfolderIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsSmo844UsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsT4Hh9DUsersUserIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsT5E3J9UsersUserIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsToj28VUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsTvg0QfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsUhxao3UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsUing61UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsUxclr4UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsVloam1UsersUserIdMicrosoftGraphWipemanagedappregistrationsbydevicetagPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsWalct4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsWbtl2JUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphDeleteuserfromsharedappledevicePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsWl7PqtUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsWzrwtkUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsWzxfzeUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsXf93NgUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsXntkdoUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsY9ZbvfUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYamuhvUsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYbtkdsUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYd0WriUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYmbls2UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYsucmrUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYv35ByUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYyyl36UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYzyxmwUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
-    from ._models import microsoftgraphactivityhistoryitem  # type: ignore
-    from ._models import microsoftgraphapproleassignment  # type: ignore
-    from ._models import microsoftgraphassignedlabel  # type: ignore
-    from ._models import microsoftgraphassignedlicense  # type: ignore
-    from ._models import microsoftgraphassignedplan  # type: ignore
-    from ._models import microsoftgraphattachment  # type: ignore
-    from ._models import microsoftgraphattachmentitem  # type: ignore
-    from ._models import microsoftgraphattendee  # type: ignore
-    from ._models import microsoftgraphattendeeavailability  # type: ignore
-    from ._models import microsoftgraphattendeebase  # type: ignore
-    from ._models import microsoftgraphaudio  # type: ignore
-    from ._models import microsoftgraphaudioconferencing  # type: ignore
-    from ._models import microsoftgraphautomaticrepliesmailtips  # type: ignore
-    from ._models import microsoftgraphautomaticrepliessetting  # type: ignore
-    from ._models import microsoftgraphbaseitem  # type: ignore
-    from ._models import microsoftgraphbaseitemversion  # type: ignore
-    from ._models import microsoftgraphcalculatedcolumn  # type: ignore
-    from ._models import microsoftgraphcalendar  # type: ignore
-    from ._models import microsoftgraphcalendargroup  # type: ignore
-    from ._models import microsoftgraphcalendarpermission  # type: ignore
-    from ._models import microsoftgraphchangetrackedentity  # type: ignore
-    from ._models import microsoftgraphchannel  # type: ignore
-    from ._models import microsoftgraphchatinfo  # type: ignore
-    from ._models import microsoftgraphchatmessage  # type: ignore
-    from ._models import microsoftgraphchatmessageattachment  # type: ignore
-    from ._models import microsoftgraphchatmessagehostedcontent  # type: ignore
-    from ._models import microsoftgraphchatmessagemention  # type: ignore
-    from ._models import microsoftgraphchatmessagepolicyviolation  # type: ignore
-    from ._models import microsoftgraphchatmessagepolicyviolationpolicytip  # type: ignore
-    from ._models import microsoftgraphchatmessagereaction  # type: ignore
-    from ._models import microsoftgraphchoicecolumn  # type: ignore
-    from ._models import microsoftgraphcolumndefinition  # type: ignore
-    from ._models import microsoftgraphcolumnlink  # type: ignore
-    from ._models import microsoftgraphconfigurationmanagerclientenabledfeatures  # type: ignore
-    from ._models import microsoftgraphcontact  # type: ignore
-    from ._models import microsoftgraphcontactfolder  # type: ignore
-    from ._models import microsoftgraphcontenttype  # type: ignore
-    from ._models import microsoftgraphcontenttypeinfo  # type: ignore
-    from ._models import microsoftgraphcontenttypeorder  # type: ignore
-    from ._models import microsoftgraphconversation  # type: ignore
-    from ._models import microsoftgraphconversationmember  # type: ignore
-    from ._models import microsoftgraphconversationthread  # type: ignore
-    from ._models import microsoftgraphconvertidresult  # type: ignore
-    from ._models import microsoftgraphcopynotebookmodel  # type: ignore
-    from ._models import microsoftgraphcurrencycolumn  # type: ignore
-    from ._models import microsoftgraphdatetimecolumn  # type: ignore
-    from ._models import microsoftgraphdatetimezone  # type: ignore
-    from ._models import microsoftgraphdefaultcolumnvalue  # type: ignore
-    from ._models import microsoftgraphdeleted  # type: ignore
-    from ._models import microsoftgraphdeviceactionresult  # type: ignore
-    from ._models import microsoftgraphdevicecategory  # type: ignore
-    from ._models import microsoftgraphdevicecompliancepolicysettingstate  # type: ignore
-    from ._models import microsoftgraphdevicecompliancepolicystate  # type: ignore
-    from ._models import microsoftgraphdeviceconfigurationsettingstate  # type: ignore
-    from ._models import microsoftgraphdeviceconfigurationstate  # type: ignore
-    from ._models import microsoftgraphdevicehealthattestationstate  # type: ignore
-    from ._models import microsoftgraphdevicemanagementtroubleshootingevent  # type: ignore
-    from ._models import microsoftgraphdirectoryobject  # type: ignore
-    from ._models import microsoftgraphdrive  # type: ignore
-    from ._models import microsoftgraphdriveitem  # type: ignore
-    from ._models import microsoftgraphdriveitemversion  # type: ignore
-    from ._models import microsoftgraphemailaddress  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphevent  # type: ignore
-    from ._models import microsoftgraphextension  # type: ignore
-    from ._models import microsoftgraphextensionproperty  # type: ignore
-    from ._models import microsoftgraphexternallink  # type: ignore
-    from ._models import microsoftgraphfieldvalueset  # type: ignore
-    from ._models import microsoftgraphfile  # type: ignore
-    from ._models import microsoftgraphfilesysteminfo  # type: ignore
-    from ._models import microsoftgraphfolder  # type: ignore
-    from ._models import microsoftgraphfolderview  # type: ignore
-    from ._models import microsoftgraphfollowupflag  # type: ignore
-    from ._models import microsoftgraphfreebusyerror  # type: ignore
-    from ._models import microsoftgraphgenericerror  # type: ignore
-    from ._models import microsoftgraphgeocoordinates  # type: ignore
-    from ._models import microsoftgraphgroup  # type: ignore
-    from ._models import microsoftgraphgrouplifecyclepolicy  # type: ignore
-    from ._models import microsoftgraphgroupsetting  # type: ignore
-    from ._models import microsoftgraphhashes  # type: ignore
-    from ._models import microsoftgraphidentity  # type: ignore
-    from ._models import microsoftgraphidentityset  # type: ignore
-    from ._models import microsoftgraphimage  # type: ignore
-    from ._models import microsoftgraphimageinfo  # type: ignore
-    from ._models import microsoftgraphincompletedata  # type: ignore
-    from ._models import microsoftgraphinferenceclassification  # type: ignore
-    from ._models import microsoftgraphinferenceclassificationoverride  # type: ignore
-    from ._models import microsoftgraphinsightidentity  # type: ignore
-    from ._models import microsoftgraphinternetmessageheader  # type: ignore
-    from ._models import microsoftgraphitemactionstat  # type: ignore
-    from ._models import microsoftgraphitemactivity  # type: ignore
-    from ._models import microsoftgraphitemactivitystat  # type: ignore
-    from ._models import microsoftgraphitemanalytics  # type: ignore
-    from ._models import microsoftgraphitembody  # type: ignore
-    from ._models import microsoftgraphitemreference  # type: ignore
-    from ._models import microsoftgraphlicenseassignmentstate  # type: ignore
-    from ._models import microsoftgraphlicensedetails  # type: ignore
-    from ._models import microsoftgraphlicenseprocessingstate  # type: ignore
-    from ._models import microsoftgraphlist  # type: ignore
-    from ._models import microsoftgraphlistinfo  # type: ignore
-    from ._models import microsoftgraphlistitem  # type: ignore
-    from ._models import microsoftgraphlistitemversion  # type: ignore
-    from ._models import microsoftgraphlocaleinfo  # type: ignore
-    from ._models import microsoftgraphlocation  # type: ignore
-    from ._models import microsoftgraphlocationconstraint  # type: ignore
-    from ._models import microsoftgraphlocationconstraintitem  # type: ignore
-    from ._models import microsoftgraphlookupcolumn  # type: ignore
-    from ._models import microsoftgraphmailboxsettings  # type: ignore
-    from ._models import microsoftgraphmailfolder  # type: ignore
-    from ._models import microsoftgraphmailtips  # type: ignore
-    from ._models import microsoftgraphmailtipserror  # type: ignore
-    from ._models import microsoftgraphmanagedappoperation  # type: ignore
-    from ._models import microsoftgraphmanagedapppolicy  # type: ignore
-    from ._models import microsoftgraphmanagedappregistration  # type: ignore
-    from ._models import microsoftgraphmanageddevice  # type: ignore
-    from ._models import microsoftgraphmeetingparticipantinfo  # type: ignore
-    from ._models import microsoftgraphmeetingparticipants  # type: ignore
-    from ._models import microsoftgraphmeetingtimesuggestion  # type: ignore
-    from ._models import microsoftgraphmeetingtimesuggestionsresult  # type: ignore
-    from ._models import microsoftgraphmessage  # type: ignore
-    from ._models import microsoftgraphmessagerule  # type: ignore
-    from ._models import microsoftgraphmessageruleactions  # type: ignore
-    from ._models import microsoftgraphmessagerulepredicates  # type: ignore
-    from ._models import microsoftgraphmultivaluelegacyextendedproperty  # type: ignore
-    from ._models import microsoftgraphnotebook  # type: ignore
-    from ._models import microsoftgraphnotebooklinks  # type: ignore
-    from ._models import microsoftgraphnumbercolumn  # type: ignore
-    from ._models import microsoftgraphoauth2permissiongrant  # type: ignore
-    from ._models import microsoftgraphobjectidentity  # type: ignore
-    from ._models import microsoftgraphoffershiftrequest  # type: ignore
-    from ._models import microsoftgraphofficegraphinsights  # type: ignore
-    from ._models import microsoftgraphonenote  # type: ignore
-    from ._models import microsoftgraphonenoteentitybasemodel  # type: ignore
-    from ._models import microsoftgraphonenoteentityhierarchymodel  # type: ignore
-    from ._models import microsoftgraphonenoteentityschemaobjectmodel  # type: ignore
-    from ._models import microsoftgraphonenoteoperation  # type: ignore
-    from ._models import microsoftgraphonenoteoperationerror  # type: ignore
-    from ._models import microsoftgraphonenotepage  # type: ignore
-    from ._models import microsoftgraphonenotepatchcontentcommand  # type: ignore
-    from ._models import microsoftgraphonenoteresource  # type: ignore
-    from ._models import microsoftgraphonenotesection  # type: ignore
-    from ._models import microsoftgraphonlinemeeting  # type: ignore
-    from ._models import microsoftgraphonlinemeetinginfo  # type: ignore
-    from ._models import microsoftgraphonpremisesextensionattributes  # type: ignore
-    from ._models import microsoftgraphonpremisesprovisioningerror  # type: ignore
-    from ._models import microsoftgraphopenshift  # type: ignore
-    from ._models import microsoftgraphopenshiftchangerequest  # type: ignore
-    from ._models import microsoftgraphopenshiftitem  # type: ignore
-    from ._models import microsoftgraphoperation  # type: ignore
-    from ._models import microsoftgraphoperationerror  # type: ignore
-    from ._models import microsoftgraphoutlookcategory  # type: ignore
-    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
-    from ._models import microsoftgraphoutlookitem  # type: ignore
-    from ._models import microsoftgraphoutlookuser  # type: ignore
-    from ._models import microsoftgraphpackage  # type: ignore
-    from ._models import microsoftgraphpagelinks  # type: ignore
-    from ._models import microsoftgraphpasswordprofile  # type: ignore
-    from ._models import microsoftgraphpatternedrecurrence  # type: ignore
-    from ._models import microsoftgraphpendingcontentupdate  # type: ignore
-    from ._models import microsoftgraphpendingoperations  # type: ignore
-    from ._models import microsoftgraphpermission  # type: ignore
-    from ._models import microsoftgraphperson  # type: ignore
-    from ._models import microsoftgraphpersonorgroupcolumn  # type: ignore
-    from ._models import microsoftgraphpersontype  # type: ignore
-    from ._models import microsoftgraphphone  # type: ignore
-    from ._models import microsoftgraphphoto  # type: ignore
-    from ._models import microsoftgraphphysicaladdress  # type: ignore
-    from ._models import microsoftgraphplannerassignedtotaskboardtaskformat  # type: ignore
-    from ._models import microsoftgraphplannerbucket  # type: ignore
-    from ._models import microsoftgraphplannerbuckettaskboardtaskformat  # type: ignore
-    from ._models import microsoftgraphplannercategorydescriptions  # type: ignore
-    from ._models import microsoftgraphplannergroup  # type: ignore
-    from ._models import microsoftgraphplannerplan  # type: ignore
-    from ._models import microsoftgraphplannerplandetails  # type: ignore
-    from ._models import microsoftgraphplannerprogresstaskboardtaskformat  # type: ignore
-    from ._models import microsoftgraphplannertask  # type: ignore
-    from ._models import microsoftgraphplannertaskdetails  # type: ignore
-    from ._models import microsoftgraphplanneruser  # type: ignore
-    from ._models import microsoftgraphpost  # type: ignore
-    from ._models import microsoftgraphprofilephoto  # type: ignore
-    from ._models import microsoftgraphprovisionedplan  # type: ignore
-    from ._models import microsoftgraphpublicationfacet  # type: ignore
-    from ._models import microsoftgraphpublicerror  # type: ignore
-    from ._models import microsoftgraphpublicerrordetail  # type: ignore
-    from ._models import microsoftgraphpublicinnererror  # type: ignore
-    from ._models import microsoftgraphquota  # type: ignore
-    from ._models import microsoftgraphrecipient  # type: ignore
-    from ._models import microsoftgraphrecurrencepattern  # type: ignore
-    from ._models import microsoftgraphrecurrencerange  # type: ignore
-    from ._models import microsoftgraphremoteitem  # type: ignore
-    from ._models import microsoftgraphresourcereference  # type: ignore
-    from ._models import microsoftgraphresourcevisualization  # type: ignore
-    from ._models import microsoftgraphresponsestatus  # type: ignore
-    from ._models import microsoftgraphschedule  # type: ignore
-    from ._models import microsoftgraphschedulechangerequest  # type: ignore
-    from ._models import microsoftgraphscheduleentity  # type: ignore
-    from ._models import microsoftgraphscheduleinformation  # type: ignore
-    from ._models import microsoftgraphscheduleitem  # type: ignore
-    from ._models import microsoftgraphschedulinggroup  # type: ignore
-    from ._models import microsoftgraphscopedrolemembership  # type: ignore
-    from ._models import microsoftgraphscoredemailaddress  # type: ignore
-    from ._models import microsoftgraphsearchresult  # type: ignore
-    from ._models import microsoftgraphsectiongroup  # type: ignore
-    from ._models import microsoftgraphsectionlinks  # type: ignore
-    from ._models import microsoftgraphserviceplaninfo  # type: ignore
-    from ._models import microsoftgraphsettingsource  # type: ignore
-    from ._models import microsoftgraphsettingvalue  # type: ignore
-    from ._models import microsoftgraphshared  # type: ignore
-    from ._models import microsoftgraphsharedinsight  # type: ignore
-    from ._models import microsoftgraphsharepointids  # type: ignore
-    from ._models import microsoftgraphsharingdetail  # type: ignore
-    from ._models import microsoftgraphsharinginvitation  # type: ignore
-    from ._models import microsoftgraphsharinglink  # type: ignore
-    from ._models import microsoftgraphshift  # type: ignore
-    from ._models import microsoftgraphshiftactivity  # type: ignore
-    from ._models import microsoftgraphshiftavailability  # type: ignore
-    from ._models import microsoftgraphshiftitem  # type: ignore
-    from ._models import microsoftgraphshiftpreferences  # type: ignore
-    from ._models import microsoftgraphsinglevaluelegacyextendedproperty  # type: ignore
-    from ._models import microsoftgraphsite  # type: ignore
-    from ._models import microsoftgraphsitecollection  # type: ignore
-    from ._models import microsoftgraphsizerange  # type: ignore
-    from ._models import microsoftgraphspecialfolder  # type: ignore
-    from ._models import microsoftgraphstorageplaninformation  # type: ignore
-    from ._models import microsoftgraphsubscription  # type: ignore
-    from ._models import microsoftgraphswapshiftschangerequest  # type: ignore
-    from ._models import microsoftgraphteam  # type: ignore
-    from ._models import microsoftgraphteamfunsettings  # type: ignore
-    from ._models import microsoftgraphteamguestsettings  # type: ignore
-    from ._models import microsoftgraphteammembersettings  # type: ignore
-    from ._models import microsoftgraphteammessagingsettings  # type: ignore
-    from ._models import microsoftgraphteamsapp  # type: ignore
-    from ._models import microsoftgraphteamsappdefinition  # type: ignore
-    from ._models import microsoftgraphteamsappinstallation  # type: ignore
-    from ._models import microsoftgraphteamsasyncoperation  # type: ignore
-    from ._models import microsoftgraphteamstab  # type: ignore
-    from ._models import microsoftgraphteamstabconfiguration  # type: ignore
-    from ._models import microsoftgraphteamstemplate  # type: ignore
-    from ._models import microsoftgraphtextcolumn  # type: ignore
-    from ._models import microsoftgraphthumbnail  # type: ignore
-    from ._models import microsoftgraphthumbnailset  # type: ignore
-    from ._models import microsoftgraphtimeconstraint  # type: ignore
-    from ._models import microsoftgraphtimeoff  # type: ignore
-    from ._models import microsoftgraphtimeoffitem  # type: ignore
-    from ._models import microsoftgraphtimeoffreason  # type: ignore
-    from ._models import microsoftgraphtimeoffrequest  # type: ignore
-    from ._models import microsoftgraphtimerange  # type: ignore
-    from ._models import microsoftgraphtimeslot  # type: ignore
-    from ._models import microsoftgraphtimezonebase  # type: ignore
-    from ._models import microsoftgraphtrending  # type: ignore
-    from ._models import microsoftgraphupdatewindowsdeviceaccountactionparameter  # type: ignore
-    from ._models import microsoftgraphuploadsession  # type: ignore
-    from ._models import microsoftgraphusagedetails  # type: ignore
-    from ._models import microsoftgraphusedinsight  # type: ignore
-    from ._models import microsoftgraphuser  # type: ignore
-    from ._models import microsoftgraphuseractivity  # type: ignore
-    from ._models import microsoftgraphusersettings  # type: ignore
-    from ._models import microsoftgraphvideo  # type: ignore
-    from ._models import microsoftgraphvisualinfo  # type: ignore
-    from ._models import microsoftgraphwebsite  # type: ignore
-    from ._models import microsoftgraphwindowsdeviceaccount  # type: ignore
-    from ._models import microsoftgraphworkbook  # type: ignore
-    from ._models import microsoftgraphworkbookapplication  # type: ignore
-    from ._models import microsoftgraphworkbookchart  # type: ignore
-    from ._models import microsoftgraphworkbookchartareaformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartaxes  # type: ignore
-    from ._models import microsoftgraphworkbookchartaxis  # type: ignore
-    from ._models import microsoftgraphworkbookchartaxisformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartaxistitle  # type: ignore
-    from ._models import microsoftgraphworkbookchartaxistitleformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartdatalabelformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartdatalabels  # type: ignore
-    from ._models import microsoftgraphworkbookchartfill  # type: ignore
-    from ._models import microsoftgraphworkbookchartfont  # type: ignore
-    from ._models import microsoftgraphworkbookchartgridlines  # type: ignore
-    from ._models import microsoftgraphworkbookchartgridlinesformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartlegend  # type: ignore
-    from ._models import microsoftgraphworkbookchartlegendformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartlineformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartpoint  # type: ignore
-    from ._models import microsoftgraphworkbookchartpointformat  # type: ignore
-    from ._models import microsoftgraphworkbookchartseries  # type: ignore
-    from ._models import microsoftgraphworkbookchartseriesformat  # type: ignore
-    from ._models import microsoftgraphworkbookcharttitle  # type: ignore
-    from ._models import microsoftgraphworkbookcharttitleformat  # type: ignore
-    from ._models import microsoftgraphworkbookcomment  # type: ignore
-    from ._models import microsoftgraphworkbookcommentreply  # type: ignore
-    from ._models import microsoftgraphworkbookfilter  # type: ignore
-    from ._models import microsoftgraphworkbookfiltercriteria  # type: ignore
-    from ._models import microsoftgraphworkbookfunctions  # type: ignore
-    from ._models import microsoftgraphworkbookicon  # type: ignore
-    from ._models import microsoftgraphworkbooknameditem  # type: ignore
-    from ._models import microsoftgraphworkbookoperation  # type: ignore
-    from ._models import microsoftgraphworkbookoperationerror  # type: ignore
-    from ._models import microsoftgraphworkbookpivottable  # type: ignore
-    from ._models import microsoftgraphworkbooksortfield  # type: ignore
-    from ._models import microsoftgraphworkbooktable  # type: ignore
-    from ._models import microsoftgraphworkbooktablecolumn  # type: ignore
-    from ._models import microsoftgraphworkbooktablerow  # type: ignore
-    from ._models import microsoftgraphworkbooktablesort  # type: ignore
-    from ._models import microsoftgraphworkbookworksheet  # type: ignore
-    from ._models import microsoftgraphworkbookworksheetprotection  # type: ignore
-    from ._models import microsoftgraphworkbookworksheetprotectionoptions  # type: ignore
-    from ._models import microsoftgraphworkinghours  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
-    from ._models import paths10c1mhjusersuseridcalendareventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths10vg7jzusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths10x81jrusersuserideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths119ldlmusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths11a86bdusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths11gylkusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths11iq6nwusersuserideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths11m2l0eusersuseridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths11yp7ufusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths128fvv9usersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths13g7nkfusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths13okkifusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths140i0icusersuseridmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths14d4s5wusersuserideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths14r8rr7usersuseridmanageddevicesmanageddeviceidmicrosoftgraphwipepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths151e8wwusersuserideventseventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths156ew11usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths15r2sysusersuseridonenotesectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths15umoapusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16gijiuusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16mdb34usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16noj0iusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16pob1qusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16rtv1jusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16snmwtusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16w4hmtusersuseridmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths17c2focusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths17rsh7pusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths17x3yxsusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths18h5wxmusersuseridmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths18ls1vzusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths192tlrmusersuseridonenotepagesonenotepageidparentsectionparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths19ec369usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths19vjg2rusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1adv2srusersuseridmailfoldersmailfolderidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ahzdayusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1b0fh08usersuseridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1bibiieusersuseridmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1c56la0usersuseridmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1c6hil8usersuseridcalendarcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1c74suusersuseridonenotepagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1c7xgoqusersuseridmailfoldersmailfolderidmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1cftdqjusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1chjk56usersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1d35h7nusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1d54f85usersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1da9f6cusersuseridonenotepagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1e02jcusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphcopypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1eg8r1ausersuseridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ejrdf9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ekxa5vusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphmovepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1envxcpusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1f2odubusersuseridcalendarcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1f7g8m9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1f9hoe8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1fegpkwusersuseridmanageddevicesmanageddeviceidmicrosoftgraphwindowsdefenderscanpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1flenwhusersuserideventseventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1fukv4usersuseridonenotenotebooksmicrosoftgraphgetnotebookfromweburlpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1g0hk3pusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1g3uapzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1grtroqusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1guv8fqusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1gv8qr5usersuseridcalendarvieweventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1h2gcesusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1h47062usersuseridonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1h6creusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1h9iwvtusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ht4b6ausersuseridcalendareventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1i4wog5usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1iagkehusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ify85uusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1inq4eusersuseridmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1j1kpiuusersuserideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1jl02ousersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1jn2mgdusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1jpbj0eusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1k5rhlbusersuserideventseventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1k9n0s0usersuserideventseventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1l3g4wcusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1l9hd4fusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ly1w91usersuserideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1lzzd1usersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1m7vin1usersuseridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1mzp0abusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1n4rmv8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1n721hkusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1nos4sfusersuseridmanageddevicesmanageddeviceidmicrosoftgraphcleanwindowsdevicepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1o1ne8tusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ogajoousersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ou2udrusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ph8596usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1pkc23dusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1pzceceusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1q6dqpausersuseridmanageddevicesmanageddeviceidmicrosoftgraphupdatewindowsdeviceaccountpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1qrxrllusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1qs6j67usersuserideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1rgcx0qusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1rkkrvbusersmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1rqzk12usersuseridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1spvidmusersuserideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1stb234usersuseridcalendarcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1tj87ozusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1tz6rb9usersmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1tzbvorusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1u32v1iusersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1uvas2qusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1w4lo3nusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1w64sdlusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1w7tof0usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1w9jog8usersuseridcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1wryb6xusersuseridcalendareventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1wtwkl0usersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1x2td9vusersuseridcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1x4ekfuusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1x68uvwusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1x7dum0usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1xbrsxousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1xhdcw6usersuseridmicrosoftgraphexportpersonaldatapostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1xl24cxusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ybn8bcusersuseridcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ybxwjgusersuseridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1z00d6kusersuseridcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths202kkyusersuseridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths26y9cmusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths2873uiusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths29l6iuusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths2d8u7eusersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths2eac0qusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths32a7ipusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths3anah4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths3m6qbmusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths3mx0jpusersuseridmicrosoftgraphchangepasswordpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths3sjaliusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths3ta6enusersuseridmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths42qvm9usersuserideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths46t88qusersuseridmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths47pyxmusersuseridonenotenotebooksnotebookidmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths4r77cgusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths56bwctusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths5dr3vuusersuseridcalendargroupscalendargroupidcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths5r82u5usersuseridcalendareventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths5y1azfusersuseridmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths6nclapusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths6qlv56usersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths6uw0c9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths6zjq1husersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths7booayusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths7matkpusersuseridcalendareventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths8hu9xiusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths8kc9dzusersuseridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths98m1f2usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths9ep4rausersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsansnbnusersuseridcalendarcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsaunguzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsbc6jymusersuseridcalendareventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsbfhtneusersuseridmicrosoftgraphassignlicensepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsbjm3zyusersmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsbu2eysusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathscrqzktusersuseridcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathscxo2wyusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdfxlk2usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdg14ojusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdoh0lausersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdqjogtusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdy94gcusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsdyyrb2usersuseridmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathse89wzyusersuseridcalendareventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsey9pr2usersuseridonenotepagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsfh5ojtusersuseridmicrosoftgraphsendmailpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsfm3zd0usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsfpj67husersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsg7so0jusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgc6aojusersuseridcalendareventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgdge0lusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgoce2susersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgpd5xxusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgsmlkyusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsgu1s0busersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsh9f1uhusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathshnu66musersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathshqegrcusersuseridmicrosoftgraphtranslateexchangeidspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsi6vxt9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsie80u1usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsiojy9fusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsiu6emausersuseridcalendarvieweventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsj97b30usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsj9yxi4usersuseridmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsjugtduusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsk3pzouusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathskn6r94usersuseridmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathslp9dm2usersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathslw4yucusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsmcgwybusersuseridonenotesectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsmditrnusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsmktb9jusersuseridcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsnxrhkdusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsp7nrg0usersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathspgt1c5usersuseridcalendareventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathspp15vbusersuseridmicrosoftgraphgetmailtipspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsq7nzumusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqbims6usersuseridmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqe3psvusersuseridcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqegv42usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqn6eixusersuseridcalendareventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqr5gy6usersuseridcalendarcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsque4orusersuseridcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsqw4n4jusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsrkiwhhusersuseridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsrnf0yousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsrppvczusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsrzk26rusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathss06xxsusersuseridcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathss3lb31usersuseridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathssdgf1musersuseridmailfoldersmailfolderidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathssmo844usersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsszpbzfusersuseridmicrosoftgraphfindmeetingtimespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathst4hh9dusersuserideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathst5e3j9usersuseridcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathstoj28vusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathstvg0qfusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsuhxao3usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsuing61usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsuxclr4usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsvloam1usersuseridmicrosoftgraphwipemanagedappregistrationsbydevicetagpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathswalct4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathswbtl2jusersuseridmanageddevicesmanageddeviceidmicrosoftgraphdeleteuserfromsharedappledevicepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathswl7pqtusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathswzrwtkusersuserideventseventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathswzxfzeusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsxf93ngusersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsxntkdousersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsy9zbvfusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyamuhvusersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsybtkdsusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyd0wriusersuseridcalendarcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsymbls2usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsysucmrusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyv35byusersuserideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyyyl36usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsyzyxmwusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import MicrosoftGraphActivityHistoryItem  # type: ignore
+    from ._models import MicrosoftGraphAppRoleAssignment  # type: ignore
+    from ._models import MicrosoftGraphAssignedLabel  # type: ignore
+    from ._models import MicrosoftGraphAssignedLicense  # type: ignore
+    from ._models import MicrosoftGraphAssignedPlan  # type: ignore
+    from ._models import MicrosoftGraphAttachment  # type: ignore
+    from ._models import MicrosoftGraphAttachmentItem  # type: ignore
+    from ._models import MicrosoftGraphAttendee  # type: ignore
+    from ._models import MicrosoftGraphAttendeeAvailability  # type: ignore
+    from ._models import MicrosoftGraphAttendeeBase  # type: ignore
+    from ._models import MicrosoftGraphAudio  # type: ignore
+    from ._models import MicrosoftGraphAudioConferencing  # type: ignore
+    from ._models import MicrosoftGraphAutomaticRepliesMailTips  # type: ignore
+    from ._models import MicrosoftGraphAutomaticRepliesSetting  # type: ignore
+    from ._models import MicrosoftGraphBaseItem  # type: ignore
+    from ._models import MicrosoftGraphBaseItemVersion  # type: ignore
+    from ._models import MicrosoftGraphCalculatedColumn  # type: ignore
+    from ._models import MicrosoftGraphCalendar  # type: ignore
+    from ._models import MicrosoftGraphCalendarGroup  # type: ignore
+    from ._models import MicrosoftGraphCalendarPermission  # type: ignore
+    from ._models import MicrosoftGraphChangeTrackedEntity  # type: ignore
+    from ._models import MicrosoftGraphChannel  # type: ignore
+    from ._models import MicrosoftGraphChatInfo  # type: ignore
+    from ._models import MicrosoftGraphChatMessage  # type: ignore
+    from ._models import MicrosoftGraphChatMessageAttachment  # type: ignore
+    from ._models import MicrosoftGraphChatMessageHostedContent  # type: ignore
+    from ._models import MicrosoftGraphChatMessageMention  # type: ignore
+    from ._models import MicrosoftGraphChatMessagePolicyViolation  # type: ignore
+    from ._models import MicrosoftGraphChatMessagePolicyViolationPolicyTip  # type: ignore
+    from ._models import MicrosoftGraphChatMessageReaction  # type: ignore
+    from ._models import MicrosoftGraphChoiceColumn  # type: ignore
+    from ._models import MicrosoftGraphColumnDefinition  # type: ignore
+    from ._models import MicrosoftGraphColumnLink  # type: ignore
+    from ._models import MicrosoftGraphConfigurationManagerClientEnabledFeatures  # type: ignore
+    from ._models import MicrosoftGraphContact  # type: ignore
+    from ._models import MicrosoftGraphContactFolder  # type: ignore
+    from ._models import MicrosoftGraphContentType  # type: ignore
+    from ._models import MicrosoftGraphContentTypeInfo  # type: ignore
+    from ._models import MicrosoftGraphContentTypeOrder  # type: ignore
+    from ._models import MicrosoftGraphConversation  # type: ignore
+    from ._models import MicrosoftGraphConversationMember  # type: ignore
+    from ._models import MicrosoftGraphConversationThread  # type: ignore
+    from ._models import MicrosoftGraphConvertIdResult  # type: ignore
+    from ._models import MicrosoftGraphCopyNotebookModel  # type: ignore
+    from ._models import MicrosoftGraphCurrencyColumn  # type: ignore
+    from ._models import MicrosoftGraphDateTimeColumn  # type: ignore
+    from ._models import MicrosoftGraphDateTimeZone  # type: ignore
+    from ._models import MicrosoftGraphDefaultColumnValue  # type: ignore
+    from ._models import MicrosoftGraphDeleted  # type: ignore
+    from ._models import MicrosoftGraphDeviceActionResult  # type: ignore
+    from ._models import MicrosoftGraphDeviceCategory  # type: ignore
+    from ._models import MicrosoftGraphDeviceCompliancePolicySettingState  # type: ignore
+    from ._models import MicrosoftGraphDeviceCompliancePolicyState  # type: ignore
+    from ._models import MicrosoftGraphDeviceConfigurationSettingState  # type: ignore
+    from ._models import MicrosoftGraphDeviceConfigurationState  # type: ignore
+    from ._models import MicrosoftGraphDeviceHealthAttestationState  # type: ignore
+    from ._models import MicrosoftGraphDeviceManagementTroubleshootingEvent  # type: ignore
+    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
+    from ._models import MicrosoftGraphDrive  # type: ignore
+    from ._models import MicrosoftGraphDriveItem  # type: ignore
+    from ._models import MicrosoftGraphDriveItemVersion  # type: ignore
+    from ._models import MicrosoftGraphEmailAddress  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphEvent  # type: ignore
+    from ._models import MicrosoftGraphExtension  # type: ignore
+    from ._models import MicrosoftGraphExtensionProperty  # type: ignore
+    from ._models import MicrosoftGraphExternalLink  # type: ignore
+    from ._models import MicrosoftGraphFieldValueSet  # type: ignore
+    from ._models import MicrosoftGraphFile  # type: ignore
+    from ._models import MicrosoftGraphFileSystemInfo  # type: ignore
+    from ._models import MicrosoftGraphFolder  # type: ignore
+    from ._models import MicrosoftGraphFolderView  # type: ignore
+    from ._models import MicrosoftGraphFollowupFlag  # type: ignore
+    from ._models import MicrosoftGraphFreeBusyError  # type: ignore
+    from ._models import MicrosoftGraphGenericError  # type: ignore
+    from ._models import MicrosoftGraphGeoCoordinates  # type: ignore
+    from ._models import MicrosoftGraphGroup  # type: ignore
+    from ._models import MicrosoftGraphGroupLifecyclePolicy  # type: ignore
+    from ._models import MicrosoftGraphGroupSetting  # type: ignore
+    from ._models import MicrosoftGraphHashes  # type: ignore
+    from ._models import MicrosoftGraphIdentity  # type: ignore
+    from ._models import MicrosoftGraphIdentitySet  # type: ignore
+    from ._models import MicrosoftGraphImage  # type: ignore
+    from ._models import MicrosoftGraphImageInfo  # type: ignore
+    from ._models import MicrosoftGraphIncompleteData  # type: ignore
+    from ._models import MicrosoftGraphInferenceClassification  # type: ignore
+    from ._models import MicrosoftGraphInferenceClassificationOverride  # type: ignore
+    from ._models import MicrosoftGraphInsightIdentity  # type: ignore
+    from ._models import MicrosoftGraphInternetMessageHeader  # type: ignore
+    from ._models import MicrosoftGraphItemActionStat  # type: ignore
+    from ._models import MicrosoftGraphItemActivity  # type: ignore
+    from ._models import MicrosoftGraphItemActivityStat  # type: ignore
+    from ._models import MicrosoftGraphItemAnalytics  # type: ignore
+    from ._models import MicrosoftGraphItemBody  # type: ignore
+    from ._models import MicrosoftGraphItemReference  # type: ignore
+    from ._models import MicrosoftGraphLicenseAssignmentState  # type: ignore
+    from ._models import MicrosoftGraphLicenseDetails  # type: ignore
+    from ._models import MicrosoftGraphLicenseProcessingState  # type: ignore
+    from ._models import MicrosoftGraphList  # type: ignore
+    from ._models import MicrosoftGraphListInfo  # type: ignore
+    from ._models import MicrosoftGraphListItem  # type: ignore
+    from ._models import MicrosoftGraphListItemVersion  # type: ignore
+    from ._models import MicrosoftGraphLocaleInfo  # type: ignore
+    from ._models import MicrosoftGraphLocation  # type: ignore
+    from ._models import MicrosoftGraphLocationConstraint  # type: ignore
+    from ._models import MicrosoftGraphLocationConstraintItem  # type: ignore
+    from ._models import MicrosoftGraphLookupColumn  # type: ignore
+    from ._models import MicrosoftGraphMailFolder  # type: ignore
+    from ._models import MicrosoftGraphMailTips  # type: ignore
+    from ._models import MicrosoftGraphMailTipsError  # type: ignore
+    from ._models import MicrosoftGraphMailboxSettings  # type: ignore
+    from ._models import MicrosoftGraphManagedAppOperation  # type: ignore
+    from ._models import MicrosoftGraphManagedAppPolicy  # type: ignore
+    from ._models import MicrosoftGraphManagedAppRegistration  # type: ignore
+    from ._models import MicrosoftGraphManagedDevice  # type: ignore
+    from ._models import MicrosoftGraphMeetingParticipantInfo  # type: ignore
+    from ._models import MicrosoftGraphMeetingParticipants  # type: ignore
+    from ._models import MicrosoftGraphMeetingTimeSuggestion  # type: ignore
+    from ._models import MicrosoftGraphMeetingTimeSuggestionsResult  # type: ignore
+    from ._models import MicrosoftGraphMessage  # type: ignore
+    from ._models import MicrosoftGraphMessageRule  # type: ignore
+    from ._models import MicrosoftGraphMessageRuleActions  # type: ignore
+    from ._models import MicrosoftGraphMessageRulePredicates  # type: ignore
+    from ._models import MicrosoftGraphMultiValueLegacyExtendedProperty  # type: ignore
+    from ._models import MicrosoftGraphNotebook  # type: ignore
+    from ._models import MicrosoftGraphNotebookLinks  # type: ignore
+    from ._models import MicrosoftGraphNumberColumn  # type: ignore
+    from ._models import MicrosoftGraphOAuth2PermissionGrant  # type: ignore
+    from ._models import MicrosoftGraphObjectIdentity  # type: ignore
+    from ._models import MicrosoftGraphOfferShiftRequest  # type: ignore
+    from ._models import MicrosoftGraphOfficeGraphInsights  # type: ignore
+    from ._models import MicrosoftGraphOnPremisesExtensionAttributes  # type: ignore
+    from ._models import MicrosoftGraphOnPremisesProvisioningError  # type: ignore
+    from ._models import MicrosoftGraphOnenote  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntityBaseModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntityHierarchyModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntitySchemaObjectModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteOperation  # type: ignore
+    from ._models import MicrosoftGraphOnenoteOperationError  # type: ignore
+    from ._models import MicrosoftGraphOnenotePage  # type: ignore
+    from ._models import MicrosoftGraphOnenotePatchContentCommand  # type: ignore
+    from ._models import MicrosoftGraphOnenoteResource  # type: ignore
+    from ._models import MicrosoftGraphOnenoteSection  # type: ignore
+    from ._models import MicrosoftGraphOnlineMeeting  # type: ignore
+    from ._models import MicrosoftGraphOnlineMeetingInfo  # type: ignore
+    from ._models import MicrosoftGraphOpenShift  # type: ignore
+    from ._models import MicrosoftGraphOpenShiftChangeRequest  # type: ignore
+    from ._models import MicrosoftGraphOpenShiftItem  # type: ignore
+    from ._models import MicrosoftGraphOperation  # type: ignore
+    from ._models import MicrosoftGraphOperationError  # type: ignore
+    from ._models import MicrosoftGraphOutlookCategory  # type: ignore
+    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
+    from ._models import MicrosoftGraphOutlookItem  # type: ignore
+    from ._models import MicrosoftGraphOutlookUser  # type: ignore
+    from ._models import MicrosoftGraphPackage  # type: ignore
+    from ._models import MicrosoftGraphPageLinks  # type: ignore
+    from ._models import MicrosoftGraphPasswordProfile  # type: ignore
+    from ._models import MicrosoftGraphPatternedRecurrence  # type: ignore
+    from ._models import MicrosoftGraphPendingContentUpdate  # type: ignore
+    from ._models import MicrosoftGraphPendingOperations  # type: ignore
+    from ._models import MicrosoftGraphPermission  # type: ignore
+    from ._models import MicrosoftGraphPerson  # type: ignore
+    from ._models import MicrosoftGraphPersonOrGroupColumn  # type: ignore
+    from ._models import MicrosoftGraphPersonType  # type: ignore
+    from ._models import MicrosoftGraphPhone  # type: ignore
+    from ._models import MicrosoftGraphPhoto  # type: ignore
+    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
+    from ._models import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat  # type: ignore
+    from ._models import MicrosoftGraphPlannerBucket  # type: ignore
+    from ._models import MicrosoftGraphPlannerBucketTaskBoardTaskFormat  # type: ignore
+    from ._models import MicrosoftGraphPlannerCategoryDescriptions  # type: ignore
+    from ._models import MicrosoftGraphPlannerGroup  # type: ignore
+    from ._models import MicrosoftGraphPlannerPlan  # type: ignore
+    from ._models import MicrosoftGraphPlannerPlanDetails  # type: ignore
+    from ._models import MicrosoftGraphPlannerProgressTaskBoardTaskFormat  # type: ignore
+    from ._models import MicrosoftGraphPlannerTask  # type: ignore
+    from ._models import MicrosoftGraphPlannerTaskDetails  # type: ignore
+    from ._models import MicrosoftGraphPlannerUser  # type: ignore
+    from ._models import MicrosoftGraphPost  # type: ignore
+    from ._models import MicrosoftGraphProfilePhoto  # type: ignore
+    from ._models import MicrosoftGraphProvisionedPlan  # type: ignore
+    from ._models import MicrosoftGraphPublicError  # type: ignore
+    from ._models import MicrosoftGraphPublicErrorDetail  # type: ignore
+    from ._models import MicrosoftGraphPublicInnerError  # type: ignore
+    from ._models import MicrosoftGraphPublicationFacet  # type: ignore
+    from ._models import MicrosoftGraphQuota  # type: ignore
+    from ._models import MicrosoftGraphRecipient  # type: ignore
+    from ._models import MicrosoftGraphRecurrencePattern  # type: ignore
+    from ._models import MicrosoftGraphRecurrenceRange  # type: ignore
+    from ._models import MicrosoftGraphRemoteItem  # type: ignore
+    from ._models import MicrosoftGraphResourceReference  # type: ignore
+    from ._models import MicrosoftGraphResourceVisualization  # type: ignore
+    from ._models import MicrosoftGraphResponseStatus  # type: ignore
+    from ._models import MicrosoftGraphSchedule  # type: ignore
+    from ._models import MicrosoftGraphScheduleChangeRequest  # type: ignore
+    from ._models import MicrosoftGraphScheduleEntity  # type: ignore
+    from ._models import MicrosoftGraphScheduleInformation  # type: ignore
+    from ._models import MicrosoftGraphScheduleItem  # type: ignore
+    from ._models import MicrosoftGraphSchedulingGroup  # type: ignore
+    from ._models import MicrosoftGraphScopedRoleMembership  # type: ignore
+    from ._models import MicrosoftGraphScoredEmailAddress  # type: ignore
+    from ._models import MicrosoftGraphSearchResult  # type: ignore
+    from ._models import MicrosoftGraphSectionGroup  # type: ignore
+    from ._models import MicrosoftGraphSectionLinks  # type: ignore
+    from ._models import MicrosoftGraphServicePlanInfo  # type: ignore
+    from ._models import MicrosoftGraphSettingSource  # type: ignore
+    from ._models import MicrosoftGraphSettingValue  # type: ignore
+    from ._models import MicrosoftGraphShared  # type: ignore
+    from ._models import MicrosoftGraphSharedInsight  # type: ignore
+    from ._models import MicrosoftGraphSharepointIds  # type: ignore
+    from ._models import MicrosoftGraphSharingDetail  # type: ignore
+    from ._models import MicrosoftGraphSharingInvitation  # type: ignore
+    from ._models import MicrosoftGraphSharingLink  # type: ignore
+    from ._models import MicrosoftGraphShift  # type: ignore
+    from ._models import MicrosoftGraphShiftActivity  # type: ignore
+    from ._models import MicrosoftGraphShiftAvailability  # type: ignore
+    from ._models import MicrosoftGraphShiftItem  # type: ignore
+    from ._models import MicrosoftGraphShiftPreferences  # type: ignore
+    from ._models import MicrosoftGraphSingleValueLegacyExtendedProperty  # type: ignore
+    from ._models import MicrosoftGraphSite  # type: ignore
+    from ._models import MicrosoftGraphSiteCollection  # type: ignore
+    from ._models import MicrosoftGraphSizeRange  # type: ignore
+    from ._models import MicrosoftGraphSpecialFolder  # type: ignore
+    from ._models import MicrosoftGraphStoragePlanInformation  # type: ignore
+    from ._models import MicrosoftGraphSubscription  # type: ignore
+    from ._models import MicrosoftGraphSwapShiftsChangeRequest  # type: ignore
+    from ._models import MicrosoftGraphTeam  # type: ignore
+    from ._models import MicrosoftGraphTeamFunSettings  # type: ignore
+    from ._models import MicrosoftGraphTeamGuestSettings  # type: ignore
+    from ._models import MicrosoftGraphTeamMemberSettings  # type: ignore
+    from ._models import MicrosoftGraphTeamMessagingSettings  # type: ignore
+    from ._models import MicrosoftGraphTeamsApp  # type: ignore
+    from ._models import MicrosoftGraphTeamsAppDefinition  # type: ignore
+    from ._models import MicrosoftGraphTeamsAppInstallation  # type: ignore
+    from ._models import MicrosoftGraphTeamsAsyncOperation  # type: ignore
+    from ._models import MicrosoftGraphTeamsTab  # type: ignore
+    from ._models import MicrosoftGraphTeamsTabConfiguration  # type: ignore
+    from ._models import MicrosoftGraphTeamsTemplate  # type: ignore
+    from ._models import MicrosoftGraphTextColumn  # type: ignore
+    from ._models import MicrosoftGraphThumbnail  # type: ignore
+    from ._models import MicrosoftGraphThumbnailSet  # type: ignore
+    from ._models import MicrosoftGraphTimeConstraint  # type: ignore
+    from ._models import MicrosoftGraphTimeOff  # type: ignore
+    from ._models import MicrosoftGraphTimeOffItem  # type: ignore
+    from ._models import MicrosoftGraphTimeOffReason  # type: ignore
+    from ._models import MicrosoftGraphTimeOffRequest  # type: ignore
+    from ._models import MicrosoftGraphTimeRange  # type: ignore
+    from ._models import MicrosoftGraphTimeSlot  # type: ignore
+    from ._models import MicrosoftGraphTimeZoneBase  # type: ignore
+    from ._models import MicrosoftGraphTrending  # type: ignore
+    from ._models import MicrosoftGraphUpdateWindowsDeviceAccountActionParameter  # type: ignore
+    from ._models import MicrosoftGraphUploadSession  # type: ignore
+    from ._models import MicrosoftGraphUsageDetails  # type: ignore
+    from ._models import MicrosoftGraphUsedInsight  # type: ignore
+    from ._models import MicrosoftGraphUser  # type: ignore
+    from ._models import MicrosoftGraphUserActivity  # type: ignore
+    from ._models import MicrosoftGraphUserSettings  # type: ignore
+    from ._models import MicrosoftGraphVideo  # type: ignore
+    from ._models import MicrosoftGraphVisualInfo  # type: ignore
+    from ._models import MicrosoftGraphWebsite  # type: ignore
+    from ._models import MicrosoftGraphWindowsDeviceAccount  # type: ignore
+    from ._models import MicrosoftGraphWorkbook  # type: ignore
+    from ._models import MicrosoftGraphWorkbookApplication  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChart  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAreaFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAxes  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAxis  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAxisFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAxisTitle  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartAxisTitleFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartDataLabelFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartDataLabels  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartFill  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartFont  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartGridlines  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartGridlinesFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartLegend  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartLegendFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartLineFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartPoint  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartPointFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartSeries  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartSeriesFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartTitle  # type: ignore
+    from ._models import MicrosoftGraphWorkbookChartTitleFormat  # type: ignore
+    from ._models import MicrosoftGraphWorkbookComment  # type: ignore
+    from ._models import MicrosoftGraphWorkbookCommentReply  # type: ignore
+    from ._models import MicrosoftGraphWorkbookFilter  # type: ignore
+    from ._models import MicrosoftGraphWorkbookFilterCriteria  # type: ignore
+    from ._models import MicrosoftGraphWorkbookFunctions  # type: ignore
+    from ._models import MicrosoftGraphWorkbookIcon  # type: ignore
+    from ._models import MicrosoftGraphWorkbookNamedItem  # type: ignore
+    from ._models import MicrosoftGraphWorkbookOperation  # type: ignore
+    from ._models import MicrosoftGraphWorkbookOperationError  # type: ignore
+    from ._models import MicrosoftGraphWorkbookPivotTable  # type: ignore
+    from ._models import MicrosoftGraphWorkbookSortField  # type: ignore
+    from ._models import MicrosoftGraphWorkbookTable  # type: ignore
+    from ._models import MicrosoftGraphWorkbookTableColumn  # type: ignore
+    from ._models import MicrosoftGraphWorkbookTableRow  # type: ignore
+    from ._models import MicrosoftGraphWorkbookTableSort  # type: ignore
+    from ._models import MicrosoftGraphWorkbookWorksheet  # type: ignore
+    from ._models import MicrosoftGraphWorkbookWorksheetProtection  # type: ignore
+    from ._models import MicrosoftGraphWorkbookWorksheetProtectionOptions  # type: ignore
+    from ._models import MicrosoftGraphWorkingHours  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths10C1MhjUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths10Vg7JzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths10X81JrUsersUserIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths119LdlmUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths11A86BdUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths11GylkUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths11Iq6NwUsersUserIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths11M2L0EUsersUserIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths11Yp7UfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths128Fvv9UsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths13G7NkfUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths13OkkifUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths14D4S5WUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths14R8Rr7UsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWipePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths151E8WwUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths156Ew11UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths15R2SysUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths15UmoapUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16GijiuUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16Noj0IUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16Pob1QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16Rtv1JUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16SnmwtUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths17C2FocUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths17Rsh7PUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths17X3YxsUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths18H5WxmUsersUserIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths18Ls1VzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths192TlrmUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths19Ec369UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths19Vjg2RUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Adv2SrUsersUserIdMailfoldersMailfolderIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1AhzdayUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1B0Fh08UsersUserIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1C56La0UsersUserIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1C6Hil8UsersUserIdCalendarCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1C74SuUsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1C7XgoqUsersUserIdMailfoldersMailfolderIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1CftdqjUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Chjk56UsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1D35H7NUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1D54F85UsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Da9F6CUsersUserIdOnenotePagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1E02JcUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Eg8R1AUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ejrdf9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ekxa5VUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1EnvxcpUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1F2OdubUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1F7G8M9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1F9Hoe8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1FegpkwUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWindowsdefenderscanPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1FlenwhUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Fukv4UsersUserIdOnenoteNotebooksMicrosoftGraphGetnotebookfromweburlPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1G0Hk3PUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1G3UapzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1GrtroqUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Guv8FqUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Gv8Qr5UsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1H2GcesUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1H6CreUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1H9IwvtUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ht4B6AUsersUserIdCalendarEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1I4Wog5UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1IagkehUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ify85UUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1J1KpiuUsersUserIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Jl02OUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Jn2MgdUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Jpbj0EUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1K5RhlbUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1K9N0S0UsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1L3G4WcUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1L9Hd4FUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ly1W91UsersUserIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Lzzd1UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1M7Vin1UsersUserIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Mzp0AbUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1N4Rmv8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1N721HkUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Nos4SfUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphCleanwindowsdevicePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1O1Ne8TUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1OgajooUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ou2UdrUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ph8596UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Pkc23DUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1PzceceUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1QrxrllUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Qs6J67UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Rgcx0QUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1RkkrvbUsersMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Rqzk12UsersUserIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1SpvidmUsersUserIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Stb234UsersUserIdCalendarCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Tj87OzUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Tz6Rb9UsersMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1TzbvorUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1U32V1IUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Uvas2QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1W4Lo3NUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1W64SdlUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1W7Tof0UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1W9Jog8UsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Wryb6XUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Wtwkl0UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1X2Td9VUsersUserIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1X4EkfuUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1X68UvwUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1XbrsxoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Xhdcw6UsersUserIdMicrosoftGraphExportpersonaldataPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Xl24CxUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ybn8BcUsersUserIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1YbxwjgUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Z00D6KUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths202KkyUsersUserIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths26Y9CmUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths2873UiUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths2D8U7EUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths2Eac0QUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths32A7IpUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths3Anah4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths3Mx0JpUsersUserIdMicrosoftGraphChangepasswordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths3SjaliUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths42Qvm9UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths46T88QUsersUserIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths47PyxmUsersUserIdOnenoteNotebooksNotebookIdMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths4R77CgUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths56BwctUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths5Dr3VuUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths5R82U5UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths5Y1AzfUsersUserIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths6NclapUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths6Qlv56UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths6Uw0C9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths7BooayUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths7MatkpUsersUserIdCalendarEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths8Hu9XiUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths8Kc9DzUsersUserIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths98M1F2UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths9Ep4RaUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsAnsnbnUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsAunguzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsBc6JymUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsBfhtneUsersUserIdMicrosoftGraphAssignlicensePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsBjm3ZyUsersMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsBu2EysUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsCrqzktUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsCxo2WyUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDfxlk2UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDg14OjUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDoh0LaUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDqjogtUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDy94GcUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsDyyrb2UsersUserIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsE89WzyUsersUserIdCalendarEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsEy9Pr2UsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsFm3Zd0UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsFpj67HUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsG7So0JUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGc6AojUsersUserIdCalendarEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGdge0LUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGoce2SUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGsmlkyUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsGu1S0BUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsH9F1UhUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsHnu66MUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsHqegrcUsersUserIdMicrosoftGraphTranslateexchangeidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsI6Vxt9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsIe80U1UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsIojy9FUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsIu6EmaUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsJ97B30UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsJ9Yxi4UsersUserIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsJugtduUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsK3PzouUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsLp9Dm2UsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsLw4YucUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsMcgwybUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsMditrnUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsMktb9JUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsNxrhkdUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsP7Nrg0UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsPgt1C5UsersUserIdCalendarEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsPp15VbUsersUserIdMicrosoftGraphGetmailtipsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQ7NzumUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQbims6UsersUserIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQe3PsvUsersUserIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQegv42UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQn6EixUsersUserIdCalendarEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQr5Gy6UsersUserIdCalendarCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQue4OrUsersUserIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQw4N4JUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsRkiwhhUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsRnf0YoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsRppvczUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsRzk26RUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsS06XxsUsersUserIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsS3Lb31UsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsSdgf1MUsersUserIdMailfoldersMailfolderIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsSmo844UsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsT4Hh9DUsersUserIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsT5E3J9UsersUserIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsToj28VUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsTvg0QfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsUhxao3UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsUing61UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsUxclr4UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsVloam1UsersUserIdMicrosoftGraphWipemanagedappregistrationsbydevicetagPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsWalct4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsWbtl2JUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphDeleteuserfromsharedappledevicePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsWl7PqtUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsWzrwtkUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsWzxfzeUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsXf93NgUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsXntkdoUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsY9ZbvfUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYamuhvUsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYbtkdsUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYd0WriUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYmbls2UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYsucmrUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYv35ByUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYyyl36UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYzyxmwUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._users_actions_enums import (
-    Microsoftgraphactionstate,
-    Microsoftgraphactivitydomain,
-    Microsoftgraphattachmenttype,
-    Microsoftgraphattendeetype,
-    Microsoftgraphautomaticrepliesstatus,
-    Microsoftgraphbodytype,
-    Microsoftgraphcalendarcolor,
-    Microsoftgraphcalendarroletype,
-    Microsoftgraphcategorycolor,
-    Microsoftgraphchannelmembershiptype,
-    Microsoftgraphchatmessageimportance,
-    Microsoftgraphchatmessagepolicyviolationdlpactiontypes,
-    Microsoftgraphchatmessagepolicyviolationuseractiontypes,
-    Microsoftgraphchatmessagepolicyviolationverdictdetailstypes,
-    Microsoftgraphchatmessagetype,
-    Microsoftgraphcompliancestate,
-    Microsoftgraphcompliancestatus,
-    Microsoftgraphdayofweek,
-    Microsoftgraphdelegatemeetingmessagedeliveryoptions,
-    Microsoftgraphdeviceenrollmenttype,
-    Microsoftgraphdevicemanagementexchangeaccessstate,
-    Microsoftgraphdevicemanagementexchangeaccessstatereason,
-    Microsoftgraphdeviceregistrationstate,
-    Microsoftgrapheventtype,
-    Microsoftgraphexchangeidformat,
-    Microsoftgraphexternalaudiencescope,
-    Microsoftgraphfollowupflagstatus,
-    Microsoftgraphfreebusystatus,
-    Microsoftgraphgiphyratingtype,
-    Microsoftgraphimportance,
-    Microsoftgraphinferenceclassificationtype,
-    Microsoftgraphlocationtype,
-    Microsoftgraphlocationuniqueidtype,
-    Microsoftgraphmailtipstype,
-    Microsoftgraphmanagedappflaggedreason,
-    Microsoftgraphmanageddeviceownertype,
-    Microsoftgraphmanageddevicepartnerreportedhealthstate,
-    Microsoftgraphmanagementagenttype,
-    Microsoftgraphmessageactionflag,
-    Microsoftgraphonenotepatchactiontype,
-    Microsoftgraphonenotepatchinsertposition,
-    Microsoftgraphonenoteuserrole,
-    Microsoftgraphonlinemeetingprovidertype,
-    Microsoftgraphoperationstatus,
-    Microsoftgraphphonetype,
-    Microsoftgraphplannerpreviewtype,
-    Microsoftgraphpolicyplatformtype,
-    Microsoftgraphrecipientscopetype,
-    Microsoftgraphrecurrencepatterntype,
-    Microsoftgraphrecurrencerangetype,
-    Microsoftgraphresponsetype,
-    Microsoftgraphschedulechangerequestactor,
-    Microsoftgraphschedulechangestate,
-    Microsoftgraphscheduleentitytheme,
-    Microsoftgraphselectionlikelihoodinfo,
-    Microsoftgraphsensitivity,
-    Microsoftgraphstatus,
-    Microsoftgraphteamsappdistributionmethod,
-    Microsoftgraphteamsasyncoperationstatus,
-    Microsoftgraphteamsasyncoperationtype,
-    Microsoftgraphteamspecialization,
-    Microsoftgraphteamvisibilitytype,
-    Microsoftgraphtimeoffreasonicontype,
-    Microsoftgraphwebsitetype,
-    Microsoftgraphweekindex,
-    Microsoftgraphworkbookoperationstatus,
+    MicrosoftGraphActionState,
+    MicrosoftGraphActivityDomain,
+    MicrosoftGraphAttachmentType,
+    MicrosoftGraphAttendeeType,
+    MicrosoftGraphAutomaticRepliesStatus,
+    MicrosoftGraphBodyType,
+    MicrosoftGraphCalendarColor,
+    MicrosoftGraphCalendarRoleType,
+    MicrosoftGraphCategoryColor,
+    MicrosoftGraphChannelMembershipType,
+    MicrosoftGraphChatMessageImportance,
+    MicrosoftGraphChatMessagePolicyViolationDlpActionTypes,
+    MicrosoftGraphChatMessagePolicyViolationUserActionTypes,
+    MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes,
+    MicrosoftGraphChatMessageType,
+    MicrosoftGraphComplianceState,
+    MicrosoftGraphComplianceStatus,
+    MicrosoftGraphDayOfWeek,
+    MicrosoftGraphDelegateMeetingMessageDeliveryOptions,
+    MicrosoftGraphDeviceEnrollmentType,
+    MicrosoftGraphDeviceManagementExchangeAccessState,
+    MicrosoftGraphDeviceManagementExchangeAccessStateReason,
+    MicrosoftGraphDeviceRegistrationState,
+    MicrosoftGraphEventType,
+    MicrosoftGraphExchangeIdFormat,
+    MicrosoftGraphExternalAudienceScope,
+    MicrosoftGraphFollowupFlagStatus,
+    MicrosoftGraphFreeBusyStatus,
+    MicrosoftGraphGiphyRatingType,
+    MicrosoftGraphImportance,
+    MicrosoftGraphInferenceClassificationType,
+    MicrosoftGraphLocationType,
+    MicrosoftGraphLocationUniqueIdType,
+    MicrosoftGraphMailTipsType,
+    MicrosoftGraphManagedAppFlaggedReason,
+    MicrosoftGraphManagedDeviceOwnerType,
+    MicrosoftGraphManagedDevicePartnerReportedHealthState,
+    MicrosoftGraphManagementAgentType,
+    MicrosoftGraphMessageActionFlag,
+    MicrosoftGraphOnenotePatchActionType,
+    MicrosoftGraphOnenotePatchInsertPosition,
+    MicrosoftGraphOnenoteUserRole,
+    MicrosoftGraphOnlineMeetingProviderType,
+    MicrosoftGraphOperationStatus,
+    MicrosoftGraphPhoneType,
+    MicrosoftGraphPlannerPreviewType,
+    MicrosoftGraphPolicyPlatformType,
+    MicrosoftGraphRecipientScopeType,
+    MicrosoftGraphRecurrencePatternType,
+    MicrosoftGraphRecurrenceRangeType,
+    MicrosoftGraphResponseType,
+    MicrosoftGraphScheduleChangeRequestActor,
+    MicrosoftGraphScheduleChangeState,
+    MicrosoftGraphScheduleEntityTheme,
+    MicrosoftGraphSelectionLikelihoodInfo,
+    MicrosoftGraphSensitivity,
+    MicrosoftGraphStatus,
+    MicrosoftGraphTeamSpecialization,
+    MicrosoftGraphTeamVisibilityType,
+    MicrosoftGraphTeamsAppDistributionMethod,
+    MicrosoftGraphTeamsAsyncOperationStatus,
+    MicrosoftGraphTeamsAsyncOperationType,
+    MicrosoftGraphTimeOffReasonIconType,
+    MicrosoftGraphWebsiteType,
+    MicrosoftGraphWeekIndex,
+    MicrosoftGraphWorkbookOperationStatus,
 )
 
 __all__ = [
-    'microsoftgraphactivityhistoryitem',
-    'microsoftgraphapproleassignment',
-    'microsoftgraphassignedlabel',
-    'microsoftgraphassignedlicense',
-    'microsoftgraphassignedplan',
-    'microsoftgraphattachment',
-    'microsoftgraphattachmentitem',
-    'microsoftgraphattendee',
-    'microsoftgraphattendeeavailability',
-    'microsoftgraphattendeebase',
-    'microsoftgraphaudio',
-    'microsoftgraphaudioconferencing',
-    'microsoftgraphautomaticrepliesmailtips',
-    'microsoftgraphautomaticrepliessetting',
-    'microsoftgraphbaseitem',
-    'microsoftgraphbaseitemversion',
-    'microsoftgraphcalculatedcolumn',
-    'microsoftgraphcalendar',
-    'microsoftgraphcalendargroup',
-    'microsoftgraphcalendarpermission',
-    'microsoftgraphchangetrackedentity',
-    'microsoftgraphchannel',
-    'microsoftgraphchatinfo',
-    'microsoftgraphchatmessage',
-    'microsoftgraphchatmessageattachment',
-    'microsoftgraphchatmessagehostedcontent',
-    'microsoftgraphchatmessagemention',
-    'microsoftgraphchatmessagepolicyviolation',
-    'microsoftgraphchatmessagepolicyviolationpolicytip',
-    'microsoftgraphchatmessagereaction',
-    'microsoftgraphchoicecolumn',
-    'microsoftgraphcolumndefinition',
-    'microsoftgraphcolumnlink',
-    'microsoftgraphconfigurationmanagerclientenabledfeatures',
-    'microsoftgraphcontact',
-    'microsoftgraphcontactfolder',
-    'microsoftgraphcontenttype',
-    'microsoftgraphcontenttypeinfo',
-    'microsoftgraphcontenttypeorder',
-    'microsoftgraphconversation',
-    'microsoftgraphconversationmember',
-    'microsoftgraphconversationthread',
-    'microsoftgraphconvertidresult',
-    'microsoftgraphcopynotebookmodel',
-    'microsoftgraphcurrencycolumn',
-    'microsoftgraphdatetimecolumn',
-    'microsoftgraphdatetimezone',
-    'microsoftgraphdefaultcolumnvalue',
-    'microsoftgraphdeleted',
-    'microsoftgraphdeviceactionresult',
-    'microsoftgraphdevicecategory',
-    'microsoftgraphdevicecompliancepolicysettingstate',
-    'microsoftgraphdevicecompliancepolicystate',
-    'microsoftgraphdeviceconfigurationsettingstate',
-    'microsoftgraphdeviceconfigurationstate',
-    'microsoftgraphdevicehealthattestationstate',
-    'microsoftgraphdevicemanagementtroubleshootingevent',
-    'microsoftgraphdirectoryobject',
-    'microsoftgraphdrive',
-    'microsoftgraphdriveitem',
-    'microsoftgraphdriveitemversion',
-    'microsoftgraphemailaddress',
-    'microsoftgraphentity',
-    'microsoftgraphevent',
-    'microsoftgraphextension',
-    'microsoftgraphextensionproperty',
-    'microsoftgraphexternallink',
-    'microsoftgraphfieldvalueset',
-    'microsoftgraphfile',
-    'microsoftgraphfilesysteminfo',
-    'microsoftgraphfolder',
-    'microsoftgraphfolderview',
-    'microsoftgraphfollowupflag',
-    'microsoftgraphfreebusyerror',
-    'microsoftgraphgenericerror',
-    'microsoftgraphgeocoordinates',
-    'microsoftgraphgroup',
-    'microsoftgraphgrouplifecyclepolicy',
-    'microsoftgraphgroupsetting',
-    'microsoftgraphhashes',
-    'microsoftgraphidentity',
-    'microsoftgraphidentityset',
-    'microsoftgraphimage',
-    'microsoftgraphimageinfo',
-    'microsoftgraphincompletedata',
-    'microsoftgraphinferenceclassification',
-    'microsoftgraphinferenceclassificationoverride',
-    'microsoftgraphinsightidentity',
-    'microsoftgraphinternetmessageheader',
-    'microsoftgraphitemactionstat',
-    'microsoftgraphitemactivity',
-    'microsoftgraphitemactivitystat',
-    'microsoftgraphitemanalytics',
-    'microsoftgraphitembody',
-    'microsoftgraphitemreference',
-    'microsoftgraphlicenseassignmentstate',
-    'microsoftgraphlicensedetails',
-    'microsoftgraphlicenseprocessingstate',
-    'microsoftgraphlist',
-    'microsoftgraphlistinfo',
-    'microsoftgraphlistitem',
-    'microsoftgraphlistitemversion',
-    'microsoftgraphlocaleinfo',
-    'microsoftgraphlocation',
-    'microsoftgraphlocationconstraint',
-    'microsoftgraphlocationconstraintitem',
-    'microsoftgraphlookupcolumn',
-    'microsoftgraphmailboxsettings',
-    'microsoftgraphmailfolder',
-    'microsoftgraphmailtips',
-    'microsoftgraphmailtipserror',
-    'microsoftgraphmanagedappoperation',
-    'microsoftgraphmanagedapppolicy',
-    'microsoftgraphmanagedappregistration',
-    'microsoftgraphmanageddevice',
-    'microsoftgraphmeetingparticipantinfo',
-    'microsoftgraphmeetingparticipants',
-    'microsoftgraphmeetingtimesuggestion',
-    'microsoftgraphmeetingtimesuggestionsresult',
-    'microsoftgraphmessage',
-    'microsoftgraphmessagerule',
-    'microsoftgraphmessageruleactions',
-    'microsoftgraphmessagerulepredicates',
-    'microsoftgraphmultivaluelegacyextendedproperty',
-    'microsoftgraphnotebook',
-    'microsoftgraphnotebooklinks',
-    'microsoftgraphnumbercolumn',
-    'microsoftgraphoauth2permissiongrant',
-    'microsoftgraphobjectidentity',
-    'microsoftgraphoffershiftrequest',
-    'microsoftgraphofficegraphinsights',
-    'microsoftgraphonenote',
-    'microsoftgraphonenoteentitybasemodel',
-    'microsoftgraphonenoteentityhierarchymodel',
-    'microsoftgraphonenoteentityschemaobjectmodel',
-    'microsoftgraphonenoteoperation',
-    'microsoftgraphonenoteoperationerror',
-    'microsoftgraphonenotepage',
-    'microsoftgraphonenotepatchcontentcommand',
-    'microsoftgraphonenoteresource',
-    'microsoftgraphonenotesection',
-    'microsoftgraphonlinemeeting',
-    'microsoftgraphonlinemeetinginfo',
-    'microsoftgraphonpremisesextensionattributes',
-    'microsoftgraphonpremisesprovisioningerror',
-    'microsoftgraphopenshift',
-    'microsoftgraphopenshiftchangerequest',
-    'microsoftgraphopenshiftitem',
-    'microsoftgraphoperation',
-    'microsoftgraphoperationerror',
-    'microsoftgraphoutlookcategory',
-    'microsoftgraphoutlookgeocoordinates',
-    'microsoftgraphoutlookitem',
-    'microsoftgraphoutlookuser',
-    'microsoftgraphpackage',
-    'microsoftgraphpagelinks',
-    'microsoftgraphpasswordprofile',
-    'microsoftgraphpatternedrecurrence',
-    'microsoftgraphpendingcontentupdate',
-    'microsoftgraphpendingoperations',
-    'microsoftgraphpermission',
-    'microsoftgraphperson',
-    'microsoftgraphpersonorgroupcolumn',
-    'microsoftgraphpersontype',
-    'microsoftgraphphone',
-    'microsoftgraphphoto',
-    'microsoftgraphphysicaladdress',
-    'microsoftgraphplannerassignedtotaskboardtaskformat',
-    'microsoftgraphplannerbucket',
-    'microsoftgraphplannerbuckettaskboardtaskformat',
-    'microsoftgraphplannercategorydescriptions',
-    'microsoftgraphplannergroup',
-    'microsoftgraphplannerplan',
-    'microsoftgraphplannerplandetails',
-    'microsoftgraphplannerprogresstaskboardtaskformat',
-    'microsoftgraphplannertask',
-    'microsoftgraphplannertaskdetails',
-    'microsoftgraphplanneruser',
-    'microsoftgraphpost',
-    'microsoftgraphprofilephoto',
-    'microsoftgraphprovisionedplan',
-    'microsoftgraphpublicationfacet',
-    'microsoftgraphpublicerror',
-    'microsoftgraphpublicerrordetail',
-    'microsoftgraphpublicinnererror',
-    'microsoftgraphquota',
-    'microsoftgraphrecipient',
-    'microsoftgraphrecurrencepattern',
-    'microsoftgraphrecurrencerange',
-    'microsoftgraphremoteitem',
-    'microsoftgraphresourcereference',
-    'microsoftgraphresourcevisualization',
-    'microsoftgraphresponsestatus',
-    'microsoftgraphschedule',
-    'microsoftgraphschedulechangerequest',
-    'microsoftgraphscheduleentity',
-    'microsoftgraphscheduleinformation',
-    'microsoftgraphscheduleitem',
-    'microsoftgraphschedulinggroup',
-    'microsoftgraphscopedrolemembership',
-    'microsoftgraphscoredemailaddress',
-    'microsoftgraphsearchresult',
-    'microsoftgraphsectiongroup',
-    'microsoftgraphsectionlinks',
-    'microsoftgraphserviceplaninfo',
-    'microsoftgraphsettingsource',
-    'microsoftgraphsettingvalue',
-    'microsoftgraphshared',
-    'microsoftgraphsharedinsight',
-    'microsoftgraphsharepointids',
-    'microsoftgraphsharingdetail',
-    'microsoftgraphsharinginvitation',
-    'microsoftgraphsharinglink',
-    'microsoftgraphshift',
-    'microsoftgraphshiftactivity',
-    'microsoftgraphshiftavailability',
-    'microsoftgraphshiftitem',
-    'microsoftgraphshiftpreferences',
-    'microsoftgraphsinglevaluelegacyextendedproperty',
-    'microsoftgraphsite',
-    'microsoftgraphsitecollection',
-    'microsoftgraphsizerange',
-    'microsoftgraphspecialfolder',
-    'microsoftgraphstorageplaninformation',
-    'microsoftgraphsubscription',
-    'microsoftgraphswapshiftschangerequest',
-    'microsoftgraphteam',
-    'microsoftgraphteamfunsettings',
-    'microsoftgraphteamguestsettings',
-    'microsoftgraphteammembersettings',
-    'microsoftgraphteammessagingsettings',
-    'microsoftgraphteamsapp',
-    'microsoftgraphteamsappdefinition',
-    'microsoftgraphteamsappinstallation',
-    'microsoftgraphteamsasyncoperation',
-    'microsoftgraphteamstab',
-    'microsoftgraphteamstabconfiguration',
-    'microsoftgraphteamstemplate',
-    'microsoftgraphtextcolumn',
-    'microsoftgraphthumbnail',
-    'microsoftgraphthumbnailset',
-    'microsoftgraphtimeconstraint',
-    'microsoftgraphtimeoff',
-    'microsoftgraphtimeoffitem',
-    'microsoftgraphtimeoffreason',
-    'microsoftgraphtimeoffrequest',
-    'microsoftgraphtimerange',
-    'microsoftgraphtimeslot',
-    'microsoftgraphtimezonebase',
-    'microsoftgraphtrending',
-    'microsoftgraphupdatewindowsdeviceaccountactionparameter',
-    'microsoftgraphuploadsession',
-    'microsoftgraphusagedetails',
-    'microsoftgraphusedinsight',
-    'microsoftgraphuser',
-    'microsoftgraphuseractivity',
-    'microsoftgraphusersettings',
-    'microsoftgraphvideo',
-    'microsoftgraphvisualinfo',
-    'microsoftgraphwebsite',
-    'microsoftgraphwindowsdeviceaccount',
-    'microsoftgraphworkbook',
-    'microsoftgraphworkbookapplication',
-    'microsoftgraphworkbookchart',
-    'microsoftgraphworkbookchartareaformat',
-    'microsoftgraphworkbookchartaxes',
-    'microsoftgraphworkbookchartaxis',
-    'microsoftgraphworkbookchartaxisformat',
-    'microsoftgraphworkbookchartaxistitle',
-    'microsoftgraphworkbookchartaxistitleformat',
-    'microsoftgraphworkbookchartdatalabelformat',
-    'microsoftgraphworkbookchartdatalabels',
-    'microsoftgraphworkbookchartfill',
-    'microsoftgraphworkbookchartfont',
-    'microsoftgraphworkbookchartgridlines',
-    'microsoftgraphworkbookchartgridlinesformat',
-    'microsoftgraphworkbookchartlegend',
-    'microsoftgraphworkbookchartlegendformat',
-    'microsoftgraphworkbookchartlineformat',
-    'microsoftgraphworkbookchartpoint',
-    'microsoftgraphworkbookchartpointformat',
-    'microsoftgraphworkbookchartseries',
-    'microsoftgraphworkbookchartseriesformat',
-    'microsoftgraphworkbookcharttitle',
-    'microsoftgraphworkbookcharttitleformat',
-    'microsoftgraphworkbookcomment',
-    'microsoftgraphworkbookcommentreply',
-    'microsoftgraphworkbookfilter',
-    'microsoftgraphworkbookfiltercriteria',
-    'microsoftgraphworkbookfunctions',
-    'microsoftgraphworkbookicon',
-    'microsoftgraphworkbooknameditem',
-    'microsoftgraphworkbookoperation',
-    'microsoftgraphworkbookoperationerror',
-    'microsoftgraphworkbookpivottable',
-    'microsoftgraphworkbooksortfield',
-    'microsoftgraphworkbooktable',
-    'microsoftgraphworkbooktablecolumn',
-    'microsoftgraphworkbooktablerow',
-    'microsoftgraphworkbooktablesort',
-    'microsoftgraphworkbookworksheet',
-    'microsoftgraphworkbookworksheetprotection',
-    'microsoftgraphworkbookworksheetprotectionoptions',
-    'microsoftgraphworkinghours',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
-    'paths10c1mhjusersuseridcalendareventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths10vg7jzusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths10x81jrusersuserideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths119ldlmusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths11a86bdusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths11gylkusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths11iq6nwusersuserideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths11m2l0eusersuseridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths11yp7ufusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths128fvv9usersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths13g7nkfusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths13okkifusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths140i0icusersuseridmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema',
-    'paths14d4s5wusersuserideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths14r8rr7usersuseridmanageddevicesmanageddeviceidmicrosoftgraphwipepostrequestbodycontentapplicationjsonschema',
-    'paths151e8wwusersuserideventseventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths156ew11usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths15r2sysusersuseridonenotesectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths15umoapusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths16gijiuusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths16mdb34usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema',
-    'paths16noj0iusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths16pob1qusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths16rtv1jusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths16snmwtusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths16w4hmtusersuseridmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema',
-    'paths17c2focusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'paths17rsh7pusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'paths17x3yxsusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths18h5wxmusersuseridmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths18ls1vzusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths192tlrmusersuseridonenotepagesonenotepageidparentsectionparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths19ec369usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths19vjg2rusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1adv2srusersuseridmailfoldersmailfolderidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema',
-    'paths1ahzdayusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1b0fh08usersuseridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1bibiieusersuseridmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema',
-    'paths1c56la0usersuseridmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1c6hil8usersuseridcalendarcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1c74suusersuseridonenotepagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'paths1c7xgoqusersuseridmailfoldersmailfolderidmessagesmessageidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1cftdqjusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1chjk56usersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1d35h7nusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1d54f85usersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'paths1da9f6cusersuseridonenotepagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1e02jcusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphcopypostrequestbodycontentapplicationjsonschema',
-    'paths1eg8r1ausersuseridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths1ejrdf9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1ekxa5vusersuseridmailfoldersmailfolderidchildfoldersmailfolderid1microsoftgraphmovepostrequestbodycontentapplicationjsonschema',
-    'paths1envxcpusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1f2odubusersuseridcalendarcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths1f7g8m9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1f9hoe8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1fegpkwusersuseridmanageddevicesmanageddeviceidmicrosoftgraphwindowsdefenderscanpostrequestbodycontentapplicationjsonschema',
-    'paths1flenwhusersuserideventseventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1fukv4usersuseridonenotenotebooksmicrosoftgraphgetnotebookfromweburlpostrequestbodycontentapplicationjsonschema',
-    'paths1g0hk3pusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1g3uapzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'paths1grtroqusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1guv8fqusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1gv8qr5usersuseridcalendarvieweventidcalendareventseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1h2gcesusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1h47062usersuseridonlinemeetingsmicrosoftgraphcreateorgetpostrequestbodycontentapplicationjsonschema',
-    'paths1h6creusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1h9iwvtusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1ht4b6ausersuseridcalendareventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1i4wog5usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1iagkehusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths1ify85uusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1inq4eusersuseridmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema',
-    'paths1j1kpiuusersuserideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1jl02ousersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1jn2mgdusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1jpbj0eusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1k5rhlbusersuserideventseventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1k9n0s0usersuserideventseventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1l3g4wcusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1l9hd4fusersuseridonenotesectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'paths1ly1w91usersuserideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1lzzd1usersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1m7vin1usersuseridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1mzp0abusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1n4rmv8usersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1n721hkusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1nos4sfusersuseridmanageddevicesmanageddeviceidmicrosoftgraphcleanwindowsdevicepostrequestbodycontentapplicationjsonschema',
-    'paths1o1ne8tusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths1ogajoousersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths1ou2udrusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1ph8596usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema',
-    'paths1pkc23dusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths1pzceceusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1q6dqpausersuseridmanageddevicesmanageddeviceidmicrosoftgraphupdatewindowsdeviceaccountpostrequestbodycontentapplicationjsonschema',
-    'paths1qrxrllusersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1qs6j67usersuserideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1rgcx0qusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1rkkrvbusersmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
-    'paths1rqzk12usersuseridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1spvidmusersuserideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1stb234usersuseridcalendarcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1tj87ozusersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1tz6rb9usersmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
-    'paths1tzbvorusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1u32v1iusersuseridonenotesectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1uvas2qusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1w4lo3nusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1w64sdlusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1w7tof0usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1w9jog8usersuseridcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1wryb6xusersuseridcalendareventseventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1wtwkl0usersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1x2td9vusersuseridcalendarscalendarideventseventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'paths1x4ekfuusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths1x68uvwusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1x7dum0usersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema',
-    'paths1xbrsxousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths1xhdcw6usersuseridmicrosoftgraphexportpersonaldatapostrequestbodycontentapplicationjsonschema',
-    'paths1xl24cxusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths1ybn8bcusersuseridcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths1ybxwjgusersuseridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths1z00d6kusersuseridcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths202kkyusersuseridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths26y9cmusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths2873uiusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths29l6iuusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreateforwardpostrequestbodycontentapplicationjsonschema',
-    'paths2d8u7eusersuseridonenotesectionsonenotesectionidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'paths2eac0qusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths32a7ipusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths3anah4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths3m6qbmusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplyallpostrequestbodycontentapplicationjsonschema',
-    'paths3mx0jpusersuseridmicrosoftgraphchangepasswordpostrequestbodycontentapplicationjsonschema',
-    'paths3sjaliusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'paths3ta6enusersuseridmessagesmessageidmicrosoftgraphforwardpostrequestbodycontentapplicationjsonschema',
-    'paths42qvm9usersuserideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'paths46t88qusersuseridmessagesmessageidmicrosoftgraphmovepostrequestbodycontentapplicationjsonschema',
-    'paths47pyxmusersuseridonenotenotebooksnotebookidmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'paths4r77cgusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths56bwctusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'paths5dr3vuusersuseridcalendargroupscalendargroupidcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths5r82u5usersuseridcalendareventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'paths5y1azfusersuseridmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths6nclapusersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageid1microsoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'paths6qlv56usersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths6uw0c9usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths6zjq1husersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphreplypostrequestbodycontentapplicationjsonschema',
-    'paths7booayusersuseridonenotesectionsonenotesectionidparentsectiongroupparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths7matkpusersuseridcalendareventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths8hu9xiusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'paths8kc9dzusersuseridcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'paths98m1f2usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'paths9ep4rausersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsansnbnusersuseridcalendarcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsaunguzusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsbc6jymusersuseridcalendareventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsbfhtneusersuseridmicrosoftgraphassignlicensepostrequestbodycontentapplicationjsonschema',
-    'pathsbjm3zyusersmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
-    'pathsbu2eysusersuseridonenotesectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathscrqzktusersuseridcalendarscalendarideventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathscxo2wyusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsdfxlk2usersuseridonenotepagesonenotepageidparentsectionparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsdg14ojusersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsdoh0lausersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsdqjogtusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsdy94gcusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema',
-    'pathsdyyrb2usersuseridmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
-    'pathse89wzyusersuseridcalendareventseventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsey9pr2usersuseridonenotepagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'pathsfh5ojtusersuseridmicrosoftgraphsendmailpostrequestbodycontentapplicationjsonschema',
-    'pathsfm3zd0usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsfpj67husersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsg7so0jusersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsgc6aojusersuseridcalendareventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsgdge0lusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'pathsgoce2susersuseridonenotepagesonenotepageidparentsectionparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsgpd5xxusersuseridmailfoldersmailfolderidmessagesmessageidmicrosoftgraphcreatereplypostrequestbodycontentapplicationjsonschema',
-    'pathsgsmlkyusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsgu1s0busersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsh9f1uhusersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathshnu66musersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathshqegrcusersuseridmicrosoftgraphtranslateexchangeidspostrequestbodycontentapplicationjsonschema',
-    'pathsi6vxt9usersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsie80u1usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsiojy9fusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsiu6emausersuseridcalendarvieweventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsj97b30usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsj9yxi4usersuseridmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'pathsjugtduusersuserideventseventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsk3pzouusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'pathskn6r94usersuseridmessagesmessageidmicrosoftgraphreplyallpostrequestbodycontentapplicationjsonschema',
-    'pathslp9dm2usersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathslw4yucusersuseridonenotesectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'pathsmcgwybusersuseridonenotesectionsonenotesectionidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsmditrnusersuseridcalendarscalendarideventseventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsmktb9jusersuseridcalendarscalendarideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsnxrhkdusersuseridonenotenotebooksnotebookidsectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'pathsp7nrg0usersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'pathspgt1c5usersuseridcalendareventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'pathspp15vbusersuseridmicrosoftgraphgetmailtipspostrequestbodycontentapplicationjsonschema',
-    'pathsq7nzumusersuseridcalendarscalendaridcalendarvieweventidinstanceseventid1microsoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsqbims6usersuseridmessagesmessageidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema',
-    'pathsqe3psvusersuseridcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'pathsqegv42usersuseridonenotenotebooksnotebookidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsqn6eixusersuseridcalendareventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsqr5gy6usersuseridcalendarcalendarvieweventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'pathsque4orusersuseridcalendarscalendaridmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'pathsqw4n4jusersuseridcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsrkiwhhusersuseridcalendarvieweventidinstanceseventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsrnf0yousersuseridonenotepagesonenotepageidparentnotebooksectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsrppvczusersuseridonenotesectionsonenotesectionidmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsrzk26rusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphtentativelyacceptpostrequestbodycontentapplicationjsonschema',
-    'pathss06xxsusersuseridcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'pathss3lb31usersuseridcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathssdgf1musersuseridmailfoldersmailfolderidmicrosoftgraphcopypostrequestbodycontentapplicationjsonschema',
-    'pathssmo844usersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathsszpbzfusersuseridmicrosoftgraphfindmeetingtimespostrequestbodycontentapplicationjsonschema',
-    'pathst4hh9dusersuserideventseventidmicrosoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathst5e3j9usersuseridcalendarscalendarideventseventidcalendarmicrosoftgraphgetschedulepostrequestbodycontentapplicationjsonschema',
-    'pathstoj28vusersuseridcalendarcalendarvieweventidinstanceseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathstvg0qfusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsuhxao3usersuseridonenotepagesonenotepageidparentnotebooksectiongroupssectiongroupidparentnotebookmicrosoftgraphcopynotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsuing61usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectiongroupssectiongroupidsectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsuxclr4usersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidmicrosoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsvloam1usersuseridmicrosoftgraphwipemanagedappregistrationsbydevicetagpostrequestbodycontentapplicationjsonschema',
-    'pathswalct4usersuseridcalendargroupscalendargroupidcalendarscalendarideventseventidmicrosoftgraphacceptpostrequestbodycontentapplicationjsonschema',
-    'pathswbtl2jusersuseridmanageddevicesmanageddeviceidmicrosoftgraphdeleteuserfromsharedappledevicepostrequestbodycontentapplicationjsonschema',
-    'pathswl7pqtusersuseridcalendarvieweventidcalendareventseventid1microsoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathswzrwtkusersuserideventseventidcalendareventseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathswzxfzeusersuseridcalendarvieweventidcalendarcalendarvieweventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsxf93ngusersuseridonenotesectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsxntkdousersuseridonenotenotebooksnotebookidsectionsonenotesectionidparentsectiongroupsectionsonenotesectionid1microsoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsy9zbvfusersuseridonenotepagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsyamuhvusersuseridonenotepagesonenotepageidparentsectionpagesonenotepageid1microsoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'pathsybtkdsusersuseridcalendargroupscalendargroupidcalendarscalendaridcalendarvieweventidattachmentsmicrosoftgraphcreateuploadsessionpostrequestbodycontentapplicationjsonschema',
-    'pathsyd0wriusersuseridcalendarcalendarvieweventidmicrosoftgraphsnoozereminderpostrequestbodycontentapplicationjsonschema',
-    'pathsymbls2usersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphonenotepatchcontentpostrequestbodycontentapplicationjsonschema',
-    'pathsysucmrusersuseridonenotenotebooksnotebookidsectiongroupssectiongroupidsectionsonenotesectionidpagesonenotepageidparentsectionmicrosoftgraphcopytosectiongrouppostrequestbodycontentapplicationjsonschema',
-    'pathsyv35byusersuserideventseventidinstanceseventid1microsoftgraphdeclinepostrequestbodycontentapplicationjsonschema',
-    'pathsyyyl36usersuseridonenotesectionsonenotesectionidpagesonenotepageidparentnotebooksectionsonenotesectionid1microsoftgraphcopytonotebookpostrequestbodycontentapplicationjsonschema',
-    'pathsyzyxmwusersuseridonenotesectiongroupssectiongroupidparentnotebooksectionsonenotesectionidpagesonenotepageidmicrosoftgraphcopytosectionpostrequestbodycontentapplicationjsonschema',
-    'Microsoftgraphactionstate',
-    'Microsoftgraphactivitydomain',
-    'Microsoftgraphattachmenttype',
-    'Microsoftgraphattendeetype',
-    'Microsoftgraphautomaticrepliesstatus',
-    'Microsoftgraphbodytype',
-    'Microsoftgraphcalendarcolor',
-    'Microsoftgraphcalendarroletype',
-    'Microsoftgraphcategorycolor',
-    'Microsoftgraphchannelmembershiptype',
-    'Microsoftgraphchatmessageimportance',
-    'Microsoftgraphchatmessagepolicyviolationdlpactiontypes',
-    'Microsoftgraphchatmessagepolicyviolationuseractiontypes',
-    'Microsoftgraphchatmessagepolicyviolationverdictdetailstypes',
-    'Microsoftgraphchatmessagetype',
-    'Microsoftgraphcompliancestate',
-    'Microsoftgraphcompliancestatus',
-    'Microsoftgraphdayofweek',
-    'Microsoftgraphdelegatemeetingmessagedeliveryoptions',
-    'Microsoftgraphdeviceenrollmenttype',
-    'Microsoftgraphdevicemanagementexchangeaccessstate',
-    'Microsoftgraphdevicemanagementexchangeaccessstatereason',
-    'Microsoftgraphdeviceregistrationstate',
-    'Microsoftgrapheventtype',
-    'Microsoftgraphexchangeidformat',
-    'Microsoftgraphexternalaudiencescope',
-    'Microsoftgraphfollowupflagstatus',
-    'Microsoftgraphfreebusystatus',
-    'Microsoftgraphgiphyratingtype',
-    'Microsoftgraphimportance',
-    'Microsoftgraphinferenceclassificationtype',
-    'Microsoftgraphlocationtype',
-    'Microsoftgraphlocationuniqueidtype',
-    'Microsoftgraphmailtipstype',
-    'Microsoftgraphmanagedappflaggedreason',
-    'Microsoftgraphmanageddeviceownertype',
-    'Microsoftgraphmanageddevicepartnerreportedhealthstate',
-    'Microsoftgraphmanagementagenttype',
-    'Microsoftgraphmessageactionflag',
-    'Microsoftgraphonenotepatchactiontype',
-    'Microsoftgraphonenotepatchinsertposition',
-    'Microsoftgraphonenoteuserrole',
-    'Microsoftgraphonlinemeetingprovidertype',
-    'Microsoftgraphoperationstatus',
-    'Microsoftgraphphonetype',
-    'Microsoftgraphplannerpreviewtype',
-    'Microsoftgraphpolicyplatformtype',
-    'Microsoftgraphrecipientscopetype',
-    'Microsoftgraphrecurrencepatterntype',
-    'Microsoftgraphrecurrencerangetype',
-    'Microsoftgraphresponsetype',
-    'Microsoftgraphschedulechangerequestactor',
-    'Microsoftgraphschedulechangestate',
-    'Microsoftgraphscheduleentitytheme',
-    'Microsoftgraphselectionlikelihoodinfo',
-    'Microsoftgraphsensitivity',
-    'Microsoftgraphstatus',
-    'Microsoftgraphteamsappdistributionmethod',
-    'Microsoftgraphteamsasyncoperationstatus',
-    'Microsoftgraphteamsasyncoperationtype',
-    'Microsoftgraphteamspecialization',
-    'Microsoftgraphteamvisibilitytype',
-    'Microsoftgraphtimeoffreasonicontype',
-    'Microsoftgraphwebsitetype',
-    'Microsoftgraphweekindex',
-    'Microsoftgraphworkbookoperationstatus',
+    'MicrosoftGraphActivityHistoryItem',
+    'MicrosoftGraphAppRoleAssignment',
+    'MicrosoftGraphAssignedLabel',
+    'MicrosoftGraphAssignedLicense',
+    'MicrosoftGraphAssignedPlan',
+    'MicrosoftGraphAttachment',
+    'MicrosoftGraphAttachmentItem',
+    'MicrosoftGraphAttendee',
+    'MicrosoftGraphAttendeeAvailability',
+    'MicrosoftGraphAttendeeBase',
+    'MicrosoftGraphAudio',
+    'MicrosoftGraphAudioConferencing',
+    'MicrosoftGraphAutomaticRepliesMailTips',
+    'MicrosoftGraphAutomaticRepliesSetting',
+    'MicrosoftGraphBaseItem',
+    'MicrosoftGraphBaseItemVersion',
+    'MicrosoftGraphCalculatedColumn',
+    'MicrosoftGraphCalendar',
+    'MicrosoftGraphCalendarGroup',
+    'MicrosoftGraphCalendarPermission',
+    'MicrosoftGraphChangeTrackedEntity',
+    'MicrosoftGraphChannel',
+    'MicrosoftGraphChatInfo',
+    'MicrosoftGraphChatMessage',
+    'MicrosoftGraphChatMessageAttachment',
+    'MicrosoftGraphChatMessageHostedContent',
+    'MicrosoftGraphChatMessageMention',
+    'MicrosoftGraphChatMessagePolicyViolation',
+    'MicrosoftGraphChatMessagePolicyViolationPolicyTip',
+    'MicrosoftGraphChatMessageReaction',
+    'MicrosoftGraphChoiceColumn',
+    'MicrosoftGraphColumnDefinition',
+    'MicrosoftGraphColumnLink',
+    'MicrosoftGraphConfigurationManagerClientEnabledFeatures',
+    'MicrosoftGraphContact',
+    'MicrosoftGraphContactFolder',
+    'MicrosoftGraphContentType',
+    'MicrosoftGraphContentTypeInfo',
+    'MicrosoftGraphContentTypeOrder',
+    'MicrosoftGraphConversation',
+    'MicrosoftGraphConversationMember',
+    'MicrosoftGraphConversationThread',
+    'MicrosoftGraphConvertIdResult',
+    'MicrosoftGraphCopyNotebookModel',
+    'MicrosoftGraphCurrencyColumn',
+    'MicrosoftGraphDateTimeColumn',
+    'MicrosoftGraphDateTimeZone',
+    'MicrosoftGraphDefaultColumnValue',
+    'MicrosoftGraphDeleted',
+    'MicrosoftGraphDeviceActionResult',
+    'MicrosoftGraphDeviceCategory',
+    'MicrosoftGraphDeviceCompliancePolicySettingState',
+    'MicrosoftGraphDeviceCompliancePolicyState',
+    'MicrosoftGraphDeviceConfigurationSettingState',
+    'MicrosoftGraphDeviceConfigurationState',
+    'MicrosoftGraphDeviceHealthAttestationState',
+    'MicrosoftGraphDeviceManagementTroubleshootingEvent',
+    'MicrosoftGraphDirectoryObject',
+    'MicrosoftGraphDrive',
+    'MicrosoftGraphDriveItem',
+    'MicrosoftGraphDriveItemVersion',
+    'MicrosoftGraphEmailAddress',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphEvent',
+    'MicrosoftGraphExtension',
+    'MicrosoftGraphExtensionProperty',
+    'MicrosoftGraphExternalLink',
+    'MicrosoftGraphFieldValueSet',
+    'MicrosoftGraphFile',
+    'MicrosoftGraphFileSystemInfo',
+    'MicrosoftGraphFolder',
+    'MicrosoftGraphFolderView',
+    'MicrosoftGraphFollowupFlag',
+    'MicrosoftGraphFreeBusyError',
+    'MicrosoftGraphGenericError',
+    'MicrosoftGraphGeoCoordinates',
+    'MicrosoftGraphGroup',
+    'MicrosoftGraphGroupLifecyclePolicy',
+    'MicrosoftGraphGroupSetting',
+    'MicrosoftGraphHashes',
+    'MicrosoftGraphIdentity',
+    'MicrosoftGraphIdentitySet',
+    'MicrosoftGraphImage',
+    'MicrosoftGraphImageInfo',
+    'MicrosoftGraphIncompleteData',
+    'MicrosoftGraphInferenceClassification',
+    'MicrosoftGraphInferenceClassificationOverride',
+    'MicrosoftGraphInsightIdentity',
+    'MicrosoftGraphInternetMessageHeader',
+    'MicrosoftGraphItemActionStat',
+    'MicrosoftGraphItemActivity',
+    'MicrosoftGraphItemActivityStat',
+    'MicrosoftGraphItemAnalytics',
+    'MicrosoftGraphItemBody',
+    'MicrosoftGraphItemReference',
+    'MicrosoftGraphLicenseAssignmentState',
+    'MicrosoftGraphLicenseDetails',
+    'MicrosoftGraphLicenseProcessingState',
+    'MicrosoftGraphList',
+    'MicrosoftGraphListInfo',
+    'MicrosoftGraphListItem',
+    'MicrosoftGraphListItemVersion',
+    'MicrosoftGraphLocaleInfo',
+    'MicrosoftGraphLocation',
+    'MicrosoftGraphLocationConstraint',
+    'MicrosoftGraphLocationConstraintItem',
+    'MicrosoftGraphLookupColumn',
+    'MicrosoftGraphMailFolder',
+    'MicrosoftGraphMailTips',
+    'MicrosoftGraphMailTipsError',
+    'MicrosoftGraphMailboxSettings',
+    'MicrosoftGraphManagedAppOperation',
+    'MicrosoftGraphManagedAppPolicy',
+    'MicrosoftGraphManagedAppRegistration',
+    'MicrosoftGraphManagedDevice',
+    'MicrosoftGraphMeetingParticipantInfo',
+    'MicrosoftGraphMeetingParticipants',
+    'MicrosoftGraphMeetingTimeSuggestion',
+    'MicrosoftGraphMeetingTimeSuggestionsResult',
+    'MicrosoftGraphMessage',
+    'MicrosoftGraphMessageRule',
+    'MicrosoftGraphMessageRuleActions',
+    'MicrosoftGraphMessageRulePredicates',
+    'MicrosoftGraphMultiValueLegacyExtendedProperty',
+    'MicrosoftGraphNotebook',
+    'MicrosoftGraphNotebookLinks',
+    'MicrosoftGraphNumberColumn',
+    'MicrosoftGraphOAuth2PermissionGrant',
+    'MicrosoftGraphObjectIdentity',
+    'MicrosoftGraphOfferShiftRequest',
+    'MicrosoftGraphOfficeGraphInsights',
+    'MicrosoftGraphOnPremisesExtensionAttributes',
+    'MicrosoftGraphOnPremisesProvisioningError',
+    'MicrosoftGraphOnenote',
+    'MicrosoftGraphOnenoteEntityBaseModel',
+    'MicrosoftGraphOnenoteEntityHierarchyModel',
+    'MicrosoftGraphOnenoteEntitySchemaObjectModel',
+    'MicrosoftGraphOnenoteOperation',
+    'MicrosoftGraphOnenoteOperationError',
+    'MicrosoftGraphOnenotePage',
+    'MicrosoftGraphOnenotePatchContentCommand',
+    'MicrosoftGraphOnenoteResource',
+    'MicrosoftGraphOnenoteSection',
+    'MicrosoftGraphOnlineMeeting',
+    'MicrosoftGraphOnlineMeetingInfo',
+    'MicrosoftGraphOpenShift',
+    'MicrosoftGraphOpenShiftChangeRequest',
+    'MicrosoftGraphOpenShiftItem',
+    'MicrosoftGraphOperation',
+    'MicrosoftGraphOperationError',
+    'MicrosoftGraphOutlookCategory',
+    'MicrosoftGraphOutlookGeoCoordinates',
+    'MicrosoftGraphOutlookItem',
+    'MicrosoftGraphOutlookUser',
+    'MicrosoftGraphPackage',
+    'MicrosoftGraphPageLinks',
+    'MicrosoftGraphPasswordProfile',
+    'MicrosoftGraphPatternedRecurrence',
+    'MicrosoftGraphPendingContentUpdate',
+    'MicrosoftGraphPendingOperations',
+    'MicrosoftGraphPermission',
+    'MicrosoftGraphPerson',
+    'MicrosoftGraphPersonOrGroupColumn',
+    'MicrosoftGraphPersonType',
+    'MicrosoftGraphPhone',
+    'MicrosoftGraphPhoto',
+    'MicrosoftGraphPhysicalAddress',
+    'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat',
+    'MicrosoftGraphPlannerBucket',
+    'MicrosoftGraphPlannerBucketTaskBoardTaskFormat',
+    'MicrosoftGraphPlannerCategoryDescriptions',
+    'MicrosoftGraphPlannerGroup',
+    'MicrosoftGraphPlannerPlan',
+    'MicrosoftGraphPlannerPlanDetails',
+    'MicrosoftGraphPlannerProgressTaskBoardTaskFormat',
+    'MicrosoftGraphPlannerTask',
+    'MicrosoftGraphPlannerTaskDetails',
+    'MicrosoftGraphPlannerUser',
+    'MicrosoftGraphPost',
+    'MicrosoftGraphProfilePhoto',
+    'MicrosoftGraphProvisionedPlan',
+    'MicrosoftGraphPublicError',
+    'MicrosoftGraphPublicErrorDetail',
+    'MicrosoftGraphPublicInnerError',
+    'MicrosoftGraphPublicationFacet',
+    'MicrosoftGraphQuota',
+    'MicrosoftGraphRecipient',
+    'MicrosoftGraphRecurrencePattern',
+    'MicrosoftGraphRecurrenceRange',
+    'MicrosoftGraphRemoteItem',
+    'MicrosoftGraphResourceReference',
+    'MicrosoftGraphResourceVisualization',
+    'MicrosoftGraphResponseStatus',
+    'MicrosoftGraphSchedule',
+    'MicrosoftGraphScheduleChangeRequest',
+    'MicrosoftGraphScheduleEntity',
+    'MicrosoftGraphScheduleInformation',
+    'MicrosoftGraphScheduleItem',
+    'MicrosoftGraphSchedulingGroup',
+    'MicrosoftGraphScopedRoleMembership',
+    'MicrosoftGraphScoredEmailAddress',
+    'MicrosoftGraphSearchResult',
+    'MicrosoftGraphSectionGroup',
+    'MicrosoftGraphSectionLinks',
+    'MicrosoftGraphServicePlanInfo',
+    'MicrosoftGraphSettingSource',
+    'MicrosoftGraphSettingValue',
+    'MicrosoftGraphShared',
+    'MicrosoftGraphSharedInsight',
+    'MicrosoftGraphSharepointIds',
+    'MicrosoftGraphSharingDetail',
+    'MicrosoftGraphSharingInvitation',
+    'MicrosoftGraphSharingLink',
+    'MicrosoftGraphShift',
+    'MicrosoftGraphShiftActivity',
+    'MicrosoftGraphShiftAvailability',
+    'MicrosoftGraphShiftItem',
+    'MicrosoftGraphShiftPreferences',
+    'MicrosoftGraphSingleValueLegacyExtendedProperty',
+    'MicrosoftGraphSite',
+    'MicrosoftGraphSiteCollection',
+    'MicrosoftGraphSizeRange',
+    'MicrosoftGraphSpecialFolder',
+    'MicrosoftGraphStoragePlanInformation',
+    'MicrosoftGraphSubscription',
+    'MicrosoftGraphSwapShiftsChangeRequest',
+    'MicrosoftGraphTeam',
+    'MicrosoftGraphTeamFunSettings',
+    'MicrosoftGraphTeamGuestSettings',
+    'MicrosoftGraphTeamMemberSettings',
+    'MicrosoftGraphTeamMessagingSettings',
+    'MicrosoftGraphTeamsApp',
+    'MicrosoftGraphTeamsAppDefinition',
+    'MicrosoftGraphTeamsAppInstallation',
+    'MicrosoftGraphTeamsAsyncOperation',
+    'MicrosoftGraphTeamsTab',
+    'MicrosoftGraphTeamsTabConfiguration',
+    'MicrosoftGraphTeamsTemplate',
+    'MicrosoftGraphTextColumn',
+    'MicrosoftGraphThumbnail',
+    'MicrosoftGraphThumbnailSet',
+    'MicrosoftGraphTimeConstraint',
+    'MicrosoftGraphTimeOff',
+    'MicrosoftGraphTimeOffItem',
+    'MicrosoftGraphTimeOffReason',
+    'MicrosoftGraphTimeOffRequest',
+    'MicrosoftGraphTimeRange',
+    'MicrosoftGraphTimeSlot',
+    'MicrosoftGraphTimeZoneBase',
+    'MicrosoftGraphTrending',
+    'MicrosoftGraphUpdateWindowsDeviceAccountActionParameter',
+    'MicrosoftGraphUploadSession',
+    'MicrosoftGraphUsageDetails',
+    'MicrosoftGraphUsedInsight',
+    'MicrosoftGraphUser',
+    'MicrosoftGraphUserActivity',
+    'MicrosoftGraphUserSettings',
+    'MicrosoftGraphVideo',
+    'MicrosoftGraphVisualInfo',
+    'MicrosoftGraphWebsite',
+    'MicrosoftGraphWindowsDeviceAccount',
+    'MicrosoftGraphWorkbook',
+    'MicrosoftGraphWorkbookApplication',
+    'MicrosoftGraphWorkbookChart',
+    'MicrosoftGraphWorkbookChartAreaFormat',
+    'MicrosoftGraphWorkbookChartAxes',
+    'MicrosoftGraphWorkbookChartAxis',
+    'MicrosoftGraphWorkbookChartAxisFormat',
+    'MicrosoftGraphWorkbookChartAxisTitle',
+    'MicrosoftGraphWorkbookChartAxisTitleFormat',
+    'MicrosoftGraphWorkbookChartDataLabelFormat',
+    'MicrosoftGraphWorkbookChartDataLabels',
+    'MicrosoftGraphWorkbookChartFill',
+    'MicrosoftGraphWorkbookChartFont',
+    'MicrosoftGraphWorkbookChartGridlines',
+    'MicrosoftGraphWorkbookChartGridlinesFormat',
+    'MicrosoftGraphWorkbookChartLegend',
+    'MicrosoftGraphWorkbookChartLegendFormat',
+    'MicrosoftGraphWorkbookChartLineFormat',
+    'MicrosoftGraphWorkbookChartPoint',
+    'MicrosoftGraphWorkbookChartPointFormat',
+    'MicrosoftGraphWorkbookChartSeries',
+    'MicrosoftGraphWorkbookChartSeriesFormat',
+    'MicrosoftGraphWorkbookChartTitle',
+    'MicrosoftGraphWorkbookChartTitleFormat',
+    'MicrosoftGraphWorkbookComment',
+    'MicrosoftGraphWorkbookCommentReply',
+    'MicrosoftGraphWorkbookFilter',
+    'MicrosoftGraphWorkbookFilterCriteria',
+    'MicrosoftGraphWorkbookFunctions',
+    'MicrosoftGraphWorkbookIcon',
+    'MicrosoftGraphWorkbookNamedItem',
+    'MicrosoftGraphWorkbookOperation',
+    'MicrosoftGraphWorkbookOperationError',
+    'MicrosoftGraphWorkbookPivotTable',
+    'MicrosoftGraphWorkbookSortField',
+    'MicrosoftGraphWorkbookTable',
+    'MicrosoftGraphWorkbookTableColumn',
+    'MicrosoftGraphWorkbookTableRow',
+    'MicrosoftGraphWorkbookTableSort',
+    'MicrosoftGraphWorkbookWorksheet',
+    'MicrosoftGraphWorkbookWorksheetProtection',
+    'MicrosoftGraphWorkbookWorksheetProtectionOptions',
+    'MicrosoftGraphWorkingHours',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
+    'Paths10C1MhjUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths10Vg7JzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths10X81JrUsersUserIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths119LdlmUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths11A86BdUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths11GylkUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths11Iq6NwUsersUserIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths11M2L0EUsersUserIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths11Yp7UfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths128Fvv9UsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths13G7NkfUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths13OkkifUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema',
+    'Paths14D4S5WUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths14R8Rr7UsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWipePostRequestbodyContentApplicationJsonSchema',
+    'Paths151E8WwUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths156Ew11UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths15R2SysUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths15UmoapUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths16GijiuUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema',
+    'Paths16Noj0IUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths16Pob1QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths16Rtv1JUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths16SnmwtUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema',
+    'Paths17C2FocUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'Paths17Rsh7PUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'Paths17X3YxsUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths18H5WxmUsersUserIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths18Ls1VzUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths192TlrmUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths19Ec369UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths19Vjg2RUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Adv2SrUsersUserIdMailfoldersMailfolderIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema',
+    'Paths1AhzdayUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1B0Fh08UsersUserIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema',
+    'Paths1C56La0UsersUserIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1C6Hil8UsersUserIdCalendarCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1C74SuUsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'Paths1C7XgoqUsersUserIdMailfoldersMailfolderIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1CftdqjUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Chjk56UsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1D35H7NUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1D54F85UsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Da9F6CUsersUserIdOnenotePagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1E02JcUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Eg8R1AUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ejrdf9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ekxa5VUsersUserIdMailfoldersMailfolderIdChildfoldersMailfolderId1MicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema',
+    'Paths1EnvxcpUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1F2OdubUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths1F7G8M9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1F9Hoe8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1FegpkwUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphWindowsdefenderscanPostRequestbodyContentApplicationJsonSchema',
+    'Paths1FlenwhUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Fukv4UsersUserIdOnenoteNotebooksMicrosoftGraphGetnotebookfromweburlPostRequestbodyContentApplicationJsonSchema',
+    'Paths1G0Hk3PUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1G3UapzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'Paths1GrtroqUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Guv8FqUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Gv8Qr5UsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1H2GcesUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema',
+    'Paths1H6CreUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1H9IwvtUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ht4B6AUsersUserIdCalendarEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1I4Wog5UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1IagkehUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ify85UUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema',
+    'Paths1J1KpiuUsersUserIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Jl02OUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Jn2MgdUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Jpbj0EUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1K5RhlbUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1K9N0S0UsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1L3G4WcUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1L9Hd4FUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ly1W91UsersUserIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Lzzd1UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1M7Vin1UsersUserIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Mzp0AbUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1N4Rmv8UsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1N721HkUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Nos4SfUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphCleanwindowsdevicePostRequestbodyContentApplicationJsonSchema',
+    'Paths1O1Ne8TUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths1OgajooUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ou2UdrUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ph8596UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema',
+    'Paths1Pkc23DUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths1PzceceUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema',
+    'Paths1QrxrllUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Qs6J67UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Rgcx0QUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1RkkrvbUsersMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Rqzk12UsersUserIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1SpvidmUsersUserIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Stb234UsersUserIdCalendarCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Tj87OzUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Tz6Rb9UsersMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
+    'Paths1TzbvorUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1U32V1IUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Uvas2QUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1W4Lo3NUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1W64SdlUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1W7Tof0UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1W9Jog8UsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Wryb6XUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Wtwkl0UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1X2Td9VUsersUserIdCalendarsCalendarIdEventsEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'Paths1X4EkfuUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths1X68UvwUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema',
+    'Paths1XbrsxoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Xhdcw6UsersUserIdMicrosoftGraphExportpersonaldataPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Xl24CxUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ybn8BcUsersUserIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths1YbxwjgUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Z00D6KUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths202KkyUsersUserIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths26Y9CmUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths2873UiUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema',
+    'Paths2D8U7EUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'Paths2Eac0QUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths32A7IpUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths3Anah4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema',
+    'Paths3Mx0JpUsersUserIdMicrosoftGraphChangepasswordPostRequestbodyContentApplicationJsonSchema',
+    'Paths3SjaliUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema',
+    'Paths42Qvm9UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'Paths46T88QUsersUserIdMessagesMessageIdMicrosoftGraphMovePostRequestbodyContentApplicationJsonSchema',
+    'Paths47PyxmUsersUserIdOnenoteNotebooksNotebookIdMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths4R77CgUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths56BwctUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'Paths5Dr3VuUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths5R82U5UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'Paths5Y1AzfUsersUserIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths6NclapUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'Paths6Qlv56UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths6Uw0C9UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema',
+    'Paths7BooayUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths7MatkpUsersUserIdCalendarEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths8Hu9XiUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'Paths8Kc9DzUsersUserIdCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'Paths98M1F2UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'Paths9Ep4RaUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsAnsnbnUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsAunguzUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsBc6JymUsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsBfhtneUsersUserIdMicrosoftGraphAssignlicensePostRequestbodyContentApplicationJsonSchema',
+    'PathsBjm3ZyUsersMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
+    'PathsBu2EysUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsCrqzktUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsCxo2WyUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsDfxlk2UsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsDg14OjUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsDoh0LaUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsDqjogtUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsDy94GcUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema',
+    'PathsDyyrb2UsersUserIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'PathsE89WzyUsersUserIdCalendarEventsEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsEy9Pr2UsersUserIdOnenotePagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicationJsonSchema',
+    'PathsFm3Zd0UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsFpj67HUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsG7So0JUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsGc6AojUsersUserIdCalendarEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsGdge0LUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'PathsGoce2SUsersUserIdOnenotePagesOnenotepageIdParentsectionParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema',
+    'PathsGsmlkyUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsGu1S0BUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsH9F1UhUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsHnu66MUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsHqegrcUsersUserIdMicrosoftGraphTranslateexchangeidsPostRequestbodyContentApplicationJsonSchema',
+    'PathsI6Vxt9UsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsIe80U1UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsIojy9FUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsIu6EmaUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsJ97B30UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsJ9Yxi4UsersUserIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'PathsJugtduUsersUserIdEventsEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsK3PzouUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema',
+    'PathsLp9Dm2UsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsLw4YucUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'PathsMcgwybUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsMditrnUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsMktb9JUsersUserIdCalendarsCalendarIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsNxrhkdUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'PathsP7Nrg0UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'PathsPgt1C5UsersUserIdCalendarEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'PathsPp15VbUsersUserIdMicrosoftGraphGetmailtipsPostRequestbodyContentApplicationJsonSchema',
+    'PathsQ7NzumUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsQbims6UsersUserIdMessagesMessageIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema',
+    'PathsQe3PsvUsersUserIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'PathsQegv42UsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsQn6EixUsersUserIdCalendarEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsQr5Gy6UsersUserIdCalendarCalendarviewEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'PathsQue4OrUsersUserIdCalendarsCalendarIdMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'PathsQw4N4JUsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsRkiwhhUsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsRnf0YoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsRppvczUsersUserIdOnenoteSectionsOnenotesectionIdMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsRzk26RUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsS06XxsUsersUserIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'PathsS3Lb31UsersUserIdCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsSdgf1MUsersUserIdMailfoldersMailfolderIdMicrosoftGraphCopyPostRequestbodyContentApplicationJsonSchema',
+    'PathsSmo844UsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema',
+    'PathsT4Hh9DUsersUserIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsT5E3J9UsersUserIdCalendarsCalendarIdEventsEventIdCalendarMicrosoftGraphGetschedulePostRequestbodyContentApplicationJsonSchema',
+    'PathsToj28VUsersUserIdCalendarCalendarviewEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsTvg0QfUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsUhxao3UsersUserIdOnenotePagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsUing61UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsUxclr4UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsVloam1UsersUserIdMicrosoftGraphWipemanagedappregistrationsbydevicetagPostRequestbodyContentApplicationJsonSchema',
+    'PathsWalct4UsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema',
+    'PathsWbtl2JUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphDeleteuserfromsharedappledevicePostRequestbodyContentApplicationJsonSchema',
+    'PathsWl7PqtUsersUserIdCalendarviewEventIdCalendarEventsEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsWzrwtkUsersUserIdEventsEventIdCalendarEventsEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsWzxfzeUsersUserIdCalendarviewEventIdCalendarCalendarviewEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsXf93NgUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsXntkdoUsersUserIdOnenoteNotebooksNotebookIdSectionsOnenotesectionIdParentsectiongroupSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsY9ZbvfUsersUserIdOnenotePagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsYamuhvUsersUserIdOnenotePagesOnenotepageIdParentsectionPagesOnenotepageId1MicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'PathsYbtkdsUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdCalendarviewEventIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema',
+    'PathsYd0WriUsersUserIdCalendarCalendarviewEventIdMicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema',
+    'PathsYmbls2UsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema',
+    'PathsYsucmrUsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentsectionMicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema',
+    'PathsYv35ByUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema',
+    'PathsYyyl36UsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema',
+    'PathsYzyxmwUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphCopytosectionPostRequestbodyContentApplicationJsonSchema',
+    'MicrosoftGraphActionState',
+    'MicrosoftGraphActivityDomain',
+    'MicrosoftGraphAttachmentType',
+    'MicrosoftGraphAttendeeType',
+    'MicrosoftGraphAutomaticRepliesStatus',
+    'MicrosoftGraphBodyType',
+    'MicrosoftGraphCalendarColor',
+    'MicrosoftGraphCalendarRoleType',
+    'MicrosoftGraphCategoryColor',
+    'MicrosoftGraphChannelMembershipType',
+    'MicrosoftGraphChatMessageImportance',
+    'MicrosoftGraphChatMessagePolicyViolationDlpActionTypes',
+    'MicrosoftGraphChatMessagePolicyViolationUserActionTypes',
+    'MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes',
+    'MicrosoftGraphChatMessageType',
+    'MicrosoftGraphComplianceState',
+    'MicrosoftGraphComplianceStatus',
+    'MicrosoftGraphDayOfWeek',
+    'MicrosoftGraphDelegateMeetingMessageDeliveryOptions',
+    'MicrosoftGraphDeviceEnrollmentType',
+    'MicrosoftGraphDeviceManagementExchangeAccessState',
+    'MicrosoftGraphDeviceManagementExchangeAccessStateReason',
+    'MicrosoftGraphDeviceRegistrationState',
+    'MicrosoftGraphEventType',
+    'MicrosoftGraphExchangeIdFormat',
+    'MicrosoftGraphExternalAudienceScope',
+    'MicrosoftGraphFollowupFlagStatus',
+    'MicrosoftGraphFreeBusyStatus',
+    'MicrosoftGraphGiphyRatingType',
+    'MicrosoftGraphImportance',
+    'MicrosoftGraphInferenceClassificationType',
+    'MicrosoftGraphLocationType',
+    'MicrosoftGraphLocationUniqueIdType',
+    'MicrosoftGraphMailTipsType',
+    'MicrosoftGraphManagedAppFlaggedReason',
+    'MicrosoftGraphManagedDeviceOwnerType',
+    'MicrosoftGraphManagedDevicePartnerReportedHealthState',
+    'MicrosoftGraphManagementAgentType',
+    'MicrosoftGraphMessageActionFlag',
+    'MicrosoftGraphOnenotePatchActionType',
+    'MicrosoftGraphOnenotePatchInsertPosition',
+    'MicrosoftGraphOnenoteUserRole',
+    'MicrosoftGraphOnlineMeetingProviderType',
+    'MicrosoftGraphOperationStatus',
+    'MicrosoftGraphPhoneType',
+    'MicrosoftGraphPlannerPreviewType',
+    'MicrosoftGraphPolicyPlatformType',
+    'MicrosoftGraphRecipientScopeType',
+    'MicrosoftGraphRecurrencePatternType',
+    'MicrosoftGraphRecurrenceRangeType',
+    'MicrosoftGraphResponseType',
+    'MicrosoftGraphScheduleChangeRequestActor',
+    'MicrosoftGraphScheduleChangeState',
+    'MicrosoftGraphScheduleEntityTheme',
+    'MicrosoftGraphSelectionLikelihoodInfo',
+    'MicrosoftGraphSensitivity',
+    'MicrosoftGraphStatus',
+    'MicrosoftGraphTeamSpecialization',
+    'MicrosoftGraphTeamVisibilityType',
+    'MicrosoftGraphTeamsAppDistributionMethod',
+    'MicrosoftGraphTeamsAsyncOperationStatus',
+    'MicrosoftGraphTeamsAsyncOperationType',
+    'MicrosoftGraphTimeOffReasonIconType',
+    'MicrosoftGraphWebsiteType',
+    'MicrosoftGraphWeekIndex',
+    'MicrosoftGraphWorkbookOperationStatus',
 ]

@@ -11,6 +11,7 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -21,8 +22,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -48,7 +49,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdeviceandappmanagementdata"
+        # type: (...) -> "models.MicrosoftGraphDeviceAndAppManagementData"
         """Invoke function exportDeviceAndAppManagementData.
 
         Invoke function exportDeviceAndAppManagementData.
@@ -56,11 +57,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdeviceandappmanagementdata, or the result of cls(response)
-        :rtype: ~users_functions.models.microsoftgraphdeviceandappmanagementdata
+        :return: MicrosoftGraphDeviceAndAppManagementData, or the result of cls(response)
+        :rtype: ~users_functions.models.MicrosoftGraphDeviceAndAppManagementData
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdeviceandappmanagementdata"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceAndAppManagementData"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -87,10 +88,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdeviceandappmanagementdata', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDeviceAndAppManagementData', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -105,7 +106,7 @@ class usersOperations(object):
         top,  # type: int
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdeviceandappmanagementdata"
+        # type: (...) -> "models.MicrosoftGraphDeviceAndAppManagementData"
         """Invoke function exportDeviceAndAppManagementData.
 
         Invoke function exportDeviceAndAppManagementData.
@@ -117,11 +118,11 @@ class usersOperations(object):
         :param top:
         :type top: int
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdeviceandappmanagementdata, or the result of cls(response)
-        :rtype: ~users_functions.models.microsoftgraphdeviceandappmanagementdata
+        :return: MicrosoftGraphDeviceAndAppManagementData, or the result of cls(response)
+        :rtype: ~users_functions.models.MicrosoftGraphDeviceAndAppManagementData
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdeviceandappmanagementdata"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceAndAppManagementData"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -150,10 +151,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdeviceandappmanagementdata', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDeviceAndAppManagementData', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -166,7 +167,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphemailaddress"]
+        # type: (...) -> List["models.MicrosoftGraphEmailAddress"]
         """Invoke function findRoomLists.
 
         Invoke function findRoomLists.
@@ -174,11 +175,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphemailaddress, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphemailaddress]
+        :return: list of MicrosoftGraphEmailAddress, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphEmailAddress]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphemailaddress"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAddress"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -205,10 +206,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphemailaddress]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphEmailAddress]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -221,7 +222,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphemailaddress"]
+        # type: (...) -> List["models.MicrosoftGraphEmailAddress"]
         """Invoke function findRooms.
 
         Invoke function findRooms.
@@ -229,11 +230,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphemailaddress, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphemailaddress]
+        :return: list of MicrosoftGraphEmailAddress, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphEmailAddress]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphemailaddress"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAddress"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -260,10 +261,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphemailaddress]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphEmailAddress]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -277,7 +278,7 @@ class usersOperations(object):
         room_list,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphemailaddress"]
+        # type: (...) -> List["models.MicrosoftGraphEmailAddress"]
         """Invoke function findRooms.
 
         Invoke function findRooms.
@@ -287,11 +288,11 @@ class usersOperations(object):
         :param room_list:
         :type room_list: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphemailaddress, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphemailaddress]
+        :return: list of MicrosoftGraphEmailAddress, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphEmailAddress]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphemailaddress"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAddress"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -319,10 +320,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphemailaddress]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphEmailAddress]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -335,7 +336,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdeviceenrollmentconfiguration"]
+        # type: (...) -> List["models.MicrosoftGraphDeviceEnrollmentConfiguration"]
         """Invoke function getEffectiveDeviceEnrollmentConfigurations.
 
         Invoke function getEffectiveDeviceEnrollmentConfigurations.
@@ -343,11 +344,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdeviceenrollmentconfiguration, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphdeviceenrollmentconfiguration]
+        :return: list of MicrosoftGraphDeviceEnrollmentConfiguration, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphDeviceEnrollmentConfiguration]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdeviceenrollmentconfiguration"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDeviceEnrollmentConfiguration"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -374,10 +375,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdeviceenrollmentconfiguration]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDeviceEnrollmentConfiguration]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -390,7 +391,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphmanageddevice"]
+        # type: (...) -> List["models.MicrosoftGraphManagedDevice"]
         """Invoke function getLoggedOnManagedDevices.
 
         Invoke function getLoggedOnManagedDevices.
@@ -398,11 +399,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphmanageddevice, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphmanageddevice]
+        :return: list of MicrosoftGraphManagedDevice, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphManagedDevice]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphmanageddevice"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphManagedDevice"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -429,10 +430,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphmanageddevice]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphManagedDevice]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -445,7 +446,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphmanagedappdiagnosticstatus"]
+        # type: (...) -> List["models.MicrosoftGraphManagedAppDiagnosticStatus"]
         """Invoke function getManagedAppDiagnosticStatuses.
 
         Invoke function getManagedAppDiagnosticStatuses.
@@ -453,11 +454,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphmanagedappdiagnosticstatus, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphmanagedappdiagnosticstatus]
+        :return: list of MicrosoftGraphManagedAppDiagnosticStatus, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphManagedAppDiagnosticStatus]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphmanagedappdiagnosticstatus"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphManagedAppDiagnosticStatus"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -484,10 +485,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphmanagedappdiagnosticstatus]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphManagedAppDiagnosticStatus]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -500,7 +501,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphmanagedapppolicy"]
+        # type: (...) -> List["models.MicrosoftGraphManagedAppPolicy"]
         """Invoke function getManagedAppPolicies.
 
         Invoke function getManagedAppPolicies.
@@ -508,11 +509,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphmanagedapppolicy, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphmanagedapppolicy]
+        :return: list of MicrosoftGraphManagedAppPolicy, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphManagedAppPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphmanagedapppolicy"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphManagedAppPolicy"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -539,10 +540,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphmanagedapppolicy]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphManagedAppPolicy]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -594,8 +595,8 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -610,7 +611,7 @@ class usersOperations(object):
         user_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphmanageddevicesummarizedappstate"]
+        # type: (...) -> List["models.MicrosoftGraphManagedDeviceSummarizedAppState"]
         """Invoke function getManagedDevicesWithFailedOrPendingApps.
 
         Invoke function getManagedDevicesWithFailedOrPendingApps.
@@ -618,11 +619,11 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphmanageddevicesummarizedappstate, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphmanageddevicesummarizedappstate]
+        :return: list of MicrosoftGraphManagedDeviceSummarizedAppState, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphManagedDeviceSummarizedAppState]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphmanageddevicesummarizedappstate"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphManagedDeviceSummarizedAppState"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -649,10 +650,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphmanageddevicesummarizedappstate]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphManagedDeviceSummarizedAppState]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -704,8 +705,8 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('bool', pipeline_response)
 
@@ -722,7 +723,7 @@ class usersOperations(object):
         end_date_time,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphreminder"]
+        # type: (...) -> List["models.MicrosoftGraphReminder"]
         """Invoke function reminderView.
 
         Invoke function reminderView.
@@ -734,11 +735,11 @@ class usersOperations(object):
         :param end_date_time:
         :type end_date_time: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphreminder, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphreminder]
+        :return: list of MicrosoftGraphReminder, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphReminder]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphreminder"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphReminder"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -767,10 +768,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphreminder]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphReminder]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -782,17 +783,17 @@ class usersOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphuser"]
+        # type: (...) -> List["models.MicrosoftGraphUser"]
         """Invoke function delta.
 
         Invoke function delta.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphuser, or the result of cls(response)
-        :rtype: list[~users_functions.models.microsoftgraphuser]
+        :return: list of MicrosoftGraphUser, or the result of cls(response)
+        :rtype: list[~users_functions.models.MicrosoftGraphUser]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphuser"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphUser"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -815,10 +816,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphuser]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphUser]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -863,8 +864,8 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 

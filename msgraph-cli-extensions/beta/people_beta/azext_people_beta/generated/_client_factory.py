@@ -22,9 +22,9 @@ def cf_user(cli_ctx, *_):
     return cf_people_beta_cl(cli_ctx).users
 
 
-def cf_usersanalytic(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).usersanalytics
+def cf_user_analytic(cli_ctx, *_):
+    return cf_people_beta_cl(cli_ctx).users_analytics
 
 
-def cf_usersprofile(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).usersprofile
+def cf_user_profile(cli_ctx, *_):
+    return cf_people_beta_cl(cli_ctx).users_profile

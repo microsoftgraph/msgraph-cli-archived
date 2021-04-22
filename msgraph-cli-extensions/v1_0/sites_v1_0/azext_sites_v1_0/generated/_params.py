@@ -11,7 +11,10 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_three_state_flag
+from msgraph.cli.core.commands.parameters import (
+    get_three_state_flag,
+    get_location_type
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_sites_v1_0.action import (
     AddSharepointIds,
@@ -31,10 +34,23 @@ from azext_sites_v1_0.action import (
     AddColumnLinks,
     AddStoragePlanInformation,
     AddList,
-    AddSubscriptions,
+    AddSitesSubscriptions,
     AddContentType,
-    AddVersions,
+    AddSitesListsVersions,
     AddPublication,
+    AddAudio,
+    AddFileSystemInfo,
+    AddImage,
+    AddPhoto,
+    AddVideo,
+    AddSitesListsItemsSubscriptions,
+    AddSitesListsItemsVersions,
+    AddMicrosoftGraphWorkbookApplication,
+    AddFunctions,
+    AddPackage,
+    AddSpecialFolder,
+    AddView,
+    AddHashes,
     AddSitesOnenoteNotebooksSectiongroupsSectionsPagesCommands,
     AddSitesOnenoteNotebooksSectionsPagesCommands,
     AddSitesOnenotePagesCommands,
@@ -241,202 +257,11 @@ def load_arguments(self, _):
         c.argument('message', type=str, help='', arg_group='Error')
         c.argument('target', type=str, help='', arg_group='Error')
 
-    with self.argument_context('sites sitessite create-site') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
-        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
-        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
-        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
-        c.argument('name', type=str, help='The name of the item. Read-write.')
-        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
-        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
-                   'object. Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
-                   'user object. Expected value: json-string/@json-file.')
-        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
-                   arg_group='Parent Reference')
-        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
-                   arg_group='Parent Reference')
-        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
-                   '[Shares][] API.', arg_group='Parent Reference')
-        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
-                   'Reference')
-        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('display_name', type=str, help='The full title for the site. Read-only.')
-        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
-        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
-                   'json-string/@json-file.')
-        c.argument('columns', type=validate_file_or_dict, help='The collection of column definitions reusable across '
-                   'lists under this site. Expected value: json-string/@json-file.')
-        c.argument('content_types', type=validate_file_or_dict, help='The collection of content types defined for this '
-                   'site. Expected value: json-string/@json-file.')
-        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
-        c.argument('drives', type=validate_file_or_dict, help='The collection of drives (document libraries) under '
-                   'this site. Expected value: json-string/@json-file.')
-        c.argument('items', type=validate_file_or_dict, help='Used to address any item contained in this site. This '
-                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
-        c.argument('lists', type=validate_file_or_dict, help='The collection of lists under this site. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('sites', type=validate_file_or_dict, help='The collection of the sub-sites under this site. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
-        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
-                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
-                   'operations collection is not supported, but you can get the status of long-running operations if '
-                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
-                   'json-string/@json-file.', arg_group='Onenote')
-        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
-                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
-                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
-                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
-                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
-                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('data_location_code', type=str, help='The geographic region code for where this site collection '
-                   'resides. Read-only.', arg_group='Site Collection')
-        c.argument('hostname', type=str, help='The hostname for the site collection. Read-only.', arg_group='Site '
-                   'Collection')
-        c.argument('microsoft_graph_root', type=validate_file_or_dict, help='root Expected value: '
-                   'json-string/@json-file.', arg_group='Site Collection')
-        c.argument('code', type=str, help='', arg_group='Error')
-        c.argument('details', action=AddDetails, nargs='+', help='', arg_group='Error')
-        c.argument('inner_error', action=AddInnerError, nargs='+', help='publicInnerError', arg_group='Error')
-        c.argument('message', type=str, help='', arg_group='Error')
-        c.argument('target', type=str, help='', arg_group='Error')
-
-    with self.argument_context('sites sitessite delete-site') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('sites sitessite list-site') as c:
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('sites sitessite show-site') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('sites sitessite update-site') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
-        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
-        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
-        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
-        c.argument('name', type=str, help='The name of the item. Read-write.')
-        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
-        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
-                   'object. Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
-                   'user object. Expected value: json-string/@json-file.')
-        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
-                   arg_group='Parent Reference')
-        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
-                   'Read-only.', arg_group='Parent Reference')
-        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
-                   arg_group='Parent Reference')
-        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
-                   '[Shares][] API.', arg_group='Parent Reference')
-        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
-                   'Reference')
-        c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Parent Reference')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
-        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
-                   arg_group='Created By')
-        c.argument('display_name', type=str, help='The full title for the site. Read-only.')
-        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
-        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
-                   'json-string/@json-file.')
-        c.argument('columns', type=validate_file_or_dict, help='The collection of column definitions reusable across '
-                   'lists under this site. Expected value: json-string/@json-file.')
-        c.argument('content_types', type=validate_file_or_dict, help='The collection of content types defined for this '
-                   'site. Expected value: json-string/@json-file.')
-        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
-        c.argument('drives', type=validate_file_or_dict, help='The collection of drives (document libraries) under '
-                   'this site. Expected value: json-string/@json-file.')
-        c.argument('items', type=validate_file_or_dict, help='Used to address any item contained in this site. This '
-                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
-        c.argument('lists', type=validate_file_or_dict, help='The collection of lists under this site. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('sites', type=validate_file_or_dict, help='The collection of the sub-sites under this site. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
-        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
-                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
-                   'operations collection is not supported, but you can get the status of long-running operations if '
-                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
-                   'json-string/@json-file.', arg_group='Onenote')
-        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
-                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
-                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
-                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
-                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
-                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('data_location_code', type=str, help='The geographic region code for where this site collection '
-                   'resides. Read-only.', arg_group='Site Collection')
-        c.argument('hostname', type=str, help='The hostname for the site collection. Read-only.', arg_group='Site '
-                   'Collection')
-        c.argument('microsoft_graph_root', type=validate_file_or_dict, help='root Expected value: '
-                   'json-string/@json-file.', arg_group='Site Collection')
-        c.argument('code', type=str, help='', arg_group='Error')
-        c.argument('details', action=AddDetails, nargs='+', help='', arg_group='Error')
-        c.argument('inner_error', action=AddInnerError, nargs='+', help='publicInnerError', arg_group='Error')
-        c.argument('message', type=str, help='', arg_group='Error')
-        c.argument('target', type=str, help='', arg_group='Error')
-
     with self.argument_context('sites site list') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('sites site show') as c:
-        c.argument('site_id', type=str, help='key: id of site')
-        c.argument('path', type=str, help='')
 
     with self.argument_context('sites site create') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -525,6 +350,19 @@ def load_arguments(self, _):
         c.argument('inner_error', action=AddInnerError, nargs='+', help='publicInnerError', arg_group='Error')
         c.argument('message', type=str, help='', arg_group='Error')
         c.argument('target', type=str, help='', arg_group='Error')
+
+    with self.argument_context('sites site delete-site') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('sites site show-site') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('sites site show') as c:
+        c.argument('site_id', type=str, help='key: id of site')
+        c.argument('path', type=str, help='')
 
     with self.argument_context('sites site add') as c:
         c.argument('value', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -709,7 +547,8 @@ def load_arguments(self, _):
         c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
         c.argument('items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
                    'json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.')
+        c.argument('subscriptions', action=AddSitesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'list.')
 
     with self.argument_context('sites site delete-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
@@ -1000,42 +839,43 @@ def load_arguments(self, _):
         c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
         c.argument('items', type=validate_file_or_dict, help='All items contained in the list. Expected value: '
                    'json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the list.')
+        c.argument('subscriptions', action=AddSitesSubscriptions, nargs='+', help='The set of subscriptions on the '
+                   'list.')
 
-    with self.argument_context('sites sitescontenttype create-column-link') as c:
+    with self.argument_context('sites site-content-type create-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('sites sitescontenttype delete-column-link') as c:
+    with self.argument_context('sites site-content-type delete-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites sitescontenttype list-column-link') as c:
+    with self.argument_context('sites site-content-type list-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites sitescontenttype show-column-link') as c:
+    with self.argument_context('sites site-content-type show-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites sitescontenttype update-column-link') as c:
+    with self.argument_context('sites site-content-type update-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('sites siteslist create-column') as c:
+    with self.argument_context('sites site-list create-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1070,7 +910,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('sites siteslist create-content-type') as c:
+    with self.argument_context('sites site-list create-content-type') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1105,7 +945,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('sites siteslist create-item') as c:
+    with self.argument_context('sites site-list create-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1148,10 +988,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddSitesListsVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('sites siteslist create-subscription') as c:
+    with self.argument_context('sites site-list create-subscription') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1191,98 +1032,98 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('sites siteslist delete-column') as c:
+    with self.argument_context('sites site-list delete-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslist delete-content-type') as c:
+    with self.argument_context('sites site-list delete-content-type') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslist delete-drive') as c:
+    with self.argument_context('sites site-list delete-drive') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslist delete-item') as c:
+    with self.argument_context('sites site-list delete-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslist delete-subscription') as c:
+    with self.argument_context('sites site-list delete-subscription') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslist list-column') as c:
+    with self.argument_context('sites site-list list-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist list-content-type') as c:
+    with self.argument_context('sites site-list list-content-type') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist list-item') as c:
+    with self.argument_context('sites site-list list-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist list-subscription') as c:
+    with self.argument_context('sites site-list list-subscription') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist show-column') as c:
+    with self.argument_context('sites site-list show-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist show-content-type') as c:
+    with self.argument_context('sites site-list show-content-type') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist show-drive') as c:
+    with self.argument_context('sites site-list show-drive') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist show-item') as c:
+    with self.argument_context('sites site-list show-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist show-subscription') as c:
+    with self.argument_context('sites site-list show-subscription') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslist update-column') as c:
+    with self.argument_context('sites site-list update-column') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('column_definition_id', type=str, help='key: id of columnDefinition')
@@ -1318,7 +1159,7 @@ def load_arguments(self, _):
         c.argument('locale', type=str, help='Specifies the locale from which to infer the currency symbol.',
                    arg_group='Currency')
 
-    with self.argument_context('sites siteslist update-content-type') as c:
+    with self.argument_context('sites site-list update-content-type') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
@@ -1354,7 +1195,7 @@ def load_arguments(self, _):
                    'From')
         c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Inherited From')
 
-    with self.argument_context('sites siteslist update-drive') as c:
+    with self.argument_context('sites site-list update-drive') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1419,7 +1260,7 @@ def load_arguments(self, _):
         c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
         c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Owner')
 
-    with self.argument_context('sites siteslist update-item') as c:
+    with self.argument_context('sites site-list update-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1463,10 +1304,11 @@ def load_arguments(self, _):
         c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
         c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the list item.')
+        c.argument('versions', action=AddSitesListsVersions, nargs='+', help='The list of previous versions of the '
+                   'list item.')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('sites siteslist update-subscription') as c:
+    with self.argument_context('sites site-list update-subscription') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
@@ -1507,21 +1349,21 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('sites siteslistscontenttype create-column-link') as c:
+    with self.argument_context('sites site-list-content-type create-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('sites siteslistscontenttype delete-column-link') as c:
+    with self.argument_context('sites site-list-content-type delete-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
         c.argument('column_link_id', type=str, help='key: id of columnLink')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistscontenttype list-column-link') as c:
+    with self.argument_context('sites site-list-content-type list-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
@@ -1529,7 +1371,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistscontenttype show-column-link') as c:
+    with self.argument_context('sites site-list-content-type show-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
@@ -1537,7 +1379,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistscontenttype update-column-link') as c:
+    with self.argument_context('sites site-list-content-type update-column-link') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('content_type_id', type=str, help='key: id of contentType')
@@ -1545,7 +1387,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('name', type=str, help='The name of the column  in this content type.')
 
-    with self.argument_context('sites siteslistsitem create-version') as c:
+    with self.argument_context('sites site-list-item create-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1557,32 +1399,32 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('sites siteslistsitem delete-drive-item') as c:
+    with self.argument_context('sites site-list-item delete-drive-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistsitem delete-field') as c:
+    with self.argument_context('sites site-list-item delete-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistsitem delete-ref-analytic') as c:
+    with self.argument_context('sites site-list-item delete-ref-analytic') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistsitem delete-version') as c:
+    with self.argument_context('sites site-list-item delete-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistsitem list-version') as c:
+    with self.argument_context('sites site-list-item list-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1590,14 +1432,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitem set-ref-analytic') as c:
+    with self.argument_context('sites site-list-item set-ref-analytic') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('sites siteslistsitem show-activity') as c:
+    with self.argument_context('sites site-list-item show-activity') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1605,33 +1447,33 @@ def load_arguments(self, _):
         c.argument('end_date_time', type=str, help='')
         c.argument('interval', type=str, help='')
 
-    with self.argument_context('sites siteslistsitem show-analytic') as c:
+    with self.argument_context('sites site-list-item show-analytic') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitem show-drive-item') as c:
+    with self.argument_context('sites site-list-item show-drive-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitem show-field') as c:
+    with self.argument_context('sites site-list-item show-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitem show-ref-analytic') as c:
+    with self.argument_context('sites site-list-item show-ref-analytic') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
 
-    with self.argument_context('sites siteslistsitem show-version') as c:
+    with self.argument_context('sites site-list-item show-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1639,20 +1481,208 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitem update-drive-item') as c:
+    with self.argument_context('sites site-list-item update-drive-item') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddSitesListsItemsSubscriptions, nargs='+', help='The set of subscriptions '
+                   'on the item. Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddSitesListsItemsVersions, nargs='+', help='The list of previous versions of '
+                   'the item. For more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_description', type=str, help='Provides a user-visible description of the '
+                   'item. Optional.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_e_tag', type=str, help='ETag for the item. Read-only.', arg_group='List '
+                   'Item')
+        c.argument('microsoft_graph_base_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_base_item_name', type=str, help='The name of the item. Read-write.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_base_item_web_url', type=str, help='URL that displays the resource in the browser. '
+                   'Read-only.', arg_group='List Item')
+        c.argument('microsoft_graph_user_created_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_user_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure '
+                   'Active Directory user object. Expected value: json-string/@json-file.', arg_group='List Item')
+        c.argument('microsoft_graph_item_reference_drive_id', type=str, help='Unique identifier of the drive instance '
+                   'that contains the item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.', arg_group='List Item Parent Reference')
+        c.argument('id1', type=str, help='Unique identifier of the item in the drive. Read-only.', arg_group='List '
+                   'Item Parent Reference')
+        c.argument('name1', type=str, help='The name of the item being referenced. Read-only.', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('microsoft_graph_item_reference_path', type=str, help='Path that can be used to navigate to the '
+                   'item. Read-only.', arg_group='List Item Parent Reference')
+        c.argument('microsoft_graph_item_reference_share_id', type=str, help='A unique identifier for a shared '
+                   'resource that can be accessed via the [Shares][] API.', arg_group='List Item Parent Reference')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item '
+                   'Parent Reference')
+        c.argument('site_id1', type=str, help='', arg_group='List Item Parent Reference')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last '
+                   'Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='List Item Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity',
+                   arg_group='List Item Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
+        c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
+        c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.', arg_group='List Item')
+        c.argument('drive_item', type=validate_file_or_dict, help='driveItem Expected value: json-string/@json-file.',
+                   arg_group='List Item')
+        c.argument('microsoft_graph_list_item_versions', action=AddSitesListsVersions, nargs='+', help='The list of '
+                   'previous versions of the list item.', arg_group='List Item')
+        c.argument('id2', type=str, help='Read-only.', arg_group='List Item Fields')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids3', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
 
-    with self.argument_context('sites siteslistsitem update-field') as c:
+    with self.argument_context('sites site-list-item update-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('sites siteslistsitem update-version') as c:
+    with self.argument_context('sites site-list-item update-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1665,20 +1695,20 @@ def load_arguments(self, _):
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Fields')
 
-    with self.argument_context('sites siteslistsitemsversion delete-field') as c:
+    with self.argument_context('sites site-list-item-version delete-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('sites siteslistsitemsversion restore-version') as c:
+    with self.argument_context('sites site-list-item-version restore-version') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
 
-    with self.argument_context('sites siteslistsitemsversion show-field') as c:
+    with self.argument_context('sites site-list-item-version show-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
@@ -1686,14 +1716,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('sites siteslistsitemsversion update-field') as c:
+    with self.argument_context('sites site-list-item-version update-field') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('list_id', type=str, help='key: id of list')
         c.argument('list_item_id', type=str, help='key: id of listItem')
         c.argument('list_item_version_id', type=str, help='key: id of listItemVersion')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('sites sitesonenotenotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('group_id', type=str, help='')
@@ -1702,15 +1732,15 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('post_content_schema_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebook get-notebook-from-web-url') as c:
+    with self.argument_context('sites site-onenote-notebook get-notebook-from-web-url') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebook show-recent-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook show-recent-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('include_personal_notebooks', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1720,7 +1750,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1731,7 +1761,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1742,7 +1772,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1753,7 +1783,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1761,14 +1791,14 @@ def load_arguments(self, _):
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenoteNotebooksSectiongroupsSectionsPagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspage preview') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1780,7 +1810,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1792,7 +1822,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionspagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1804,7 +1834,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectiongroupssectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1815,7 +1845,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1825,7 +1855,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1835,7 +1865,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1845,20 +1875,20 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenoteNotebooksSectionsPagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspage preview') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1869,7 +1899,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1880,7 +1910,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionspagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-notebook-section-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1891,7 +1921,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1901,7 +1931,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionsparentsectiongroupparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1911,7 +1941,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionsparentsectiongroupsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-notebook-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1922,7 +1952,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotenotebookssectionsparentsectiongroupsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-notebook-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -1933,7 +1963,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -1941,16 +1971,16 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenotePagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotepage preview') as c:
+    with self.argument_context('sites site-onenote-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -1959,7 +1989,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1969,7 +1999,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1980,7 +2010,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -1991,7 +2021,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2002,7 +2032,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2011,14 +2041,14 @@ def load_arguments(self, _):
         c.argument('commands', action=AddSitesOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands, nargs='+',
                    help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssectionspage preview') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectiongroupssectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2029,7 +2059,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2039,7 +2069,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2049,7 +2079,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2059,20 +2089,20 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenotePagesParentnotebookSectionsPagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionspage preview') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2082,7 +2112,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2092,7 +2122,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionsparentsectiongroupsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2103,7 +2133,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentnotebooksectionsparentsectiongroupsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-notebook-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2114,7 +2144,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2123,7 +2153,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2132,7 +2162,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionpage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
@@ -2141,18 +2171,18 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionpage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenotePagesParentsectionPagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionpage preview') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -2161,7 +2191,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2171,7 +2201,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebooksectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2182,7 +2212,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebooksectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2193,7 +2223,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2203,7 +2233,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectionparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2213,7 +2243,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectiongroupparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('group_id', type=str, help='')
@@ -2222,7 +2252,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectiongroupparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2232,7 +2262,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectiongroupparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2242,7 +2272,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectiongroupsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2252,7 +2282,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotepagesparentsectiongroupsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-page-parent-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2262,7 +2292,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('group_id', type=str, help='')
@@ -2271,7 +2301,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2281,7 +2311,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2291,7 +2321,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2301,7 +2331,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2309,13 +2339,13 @@ def load_arguments(self, _):
         c.argument('commands', action=AddSitesOnenoteSectiongroupsParentnotebookSectionsPagesCommands, nargs='+',
                    help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspage preview') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2326,7 +2356,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2337,7 +2367,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionspagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2348,7 +2378,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupsparentnotebooksectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-parent-notebook-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2358,7 +2388,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2368,7 +2398,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2378,7 +2408,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2388,20 +2418,20 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddSitesOnenoteSectiongroupsSectionsPagesCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspage preview') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2412,7 +2442,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspagesparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2424,7 +2454,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspagesparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2436,7 +2466,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2447,7 +2477,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionspagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-section-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2458,7 +2488,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2468,7 +2498,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionsparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-group-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2479,7 +2509,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectiongroupssectionsparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-group-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
@@ -2490,7 +2520,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2499,7 +2529,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('id_', options_list=['--id'], type=str, help='')
@@ -2508,7 +2538,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspage copy-to-section') as c:
+    with self.argument_context('sites site-onenote-section-page copy-to-section') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2517,18 +2547,18 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspage onenote-patch-content') as c:
+    with self.argument_context('sites site-onenote-section-page onenote-patch-content') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('commands', action=AddCommands, nargs='+', help='')
 
-    with self.argument_context('sites sitesonenotesectionspage preview') as c:
+    with self.argument_context('sites site-onenote-section-page preview') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2538,7 +2568,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebooksectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2549,7 +2579,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebooksectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2561,7 +2591,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebooksectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2573,7 +2603,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2584,7 +2614,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2595,7 +2625,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2605,7 +2635,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionspagesparentsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-page-parent-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
@@ -2615,7 +2645,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('group_id', type=str, help='')
@@ -2624,7 +2654,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebooksectiongroupsparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2634,7 +2664,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebooksectiongroupssection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2645,7 +2675,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebooksectiongroupssection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
@@ -2656,7 +2686,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2666,7 +2696,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2676,7 +2706,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentsectiongroupparentnotebook copy-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-section-group-parent-notebook copy-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('group_id', type=str, help='')
@@ -2685,7 +2715,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentsectiongroupparentnotebooksection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-section-group-parent-notebook-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2695,7 +2725,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentsectiongroupparentnotebooksection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-parent-section-group-parent-notebook-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2705,7 +2735,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentsectiongroupsection copy-to-notebook') as c:
+    with self.argument_context('sites site-onenote-section-parent-section-group-section copy-to-notebook') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')
@@ -2715,7 +2745,7 @@ def load_arguments(self, _):
         c.argument('site_collection_id', type=str, help='')
         c.argument('string_site_id', type=str, help='')
 
-    with self.argument_context('sites sitesonenotesectionsparentsectiongroupsection copy-to-section-group') as c:
+    with self.argument_context('sites site-onenote-section-parent-section-group-section copy-to-section-group') as c:
         c.argument('site_id', type=str, help='key: id of site')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_section_id1', type=str, help='key: id of onenoteSection')

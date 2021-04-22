@@ -15,21 +15,21 @@ import msrest.serialization
 from ._cross_device_experiences_enums import *
 
 
-class collectionofactivityhistoryitem(msrest.serialization.Model):
+class CollectionOfActivityHistoryItem(msrest.serialization.Model):
     """Collection of activityHistoryItem.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cross_device_experiences.models.microsoftgraphactivityhistoryitem]
+    :type value: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphactivityhistoryitem]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphActivityHistoryItem]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -37,31 +37,31 @@ class collectionofactivityhistoryitem(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphactivityhistoryitem"]] = None,
+        value: Optional[List["MicrosoftGraphActivityHistoryItem"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofactivityhistoryitem, self).__init__(**kwargs)
+        super(CollectionOfActivityHistoryItem, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofuseractivity(msrest.serialization.Model):
+class CollectionOfUserActivity(msrest.serialization.Model):
     """Collection of userActivity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cross_device_experiences.models.microsoftgraphuseractivity]
+    :type value: list[~cross_device_experiences.models.MicrosoftGraphUserActivity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphuseractivity]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphUserActivity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -69,17 +69,17 @@ class collectionofuseractivity(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphuseractivity"]] = None,
+        value: Optional[List["MicrosoftGraphUserActivity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofuseractivity, self).__init__(**kwargs)
+        super(CollectionOfUserActivity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -101,12 +101,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphactivityhistoryitem(microsoftgraphentity):
+class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
     """activityHistoryItem.
 
     :param id: Read-only.
@@ -134,13 +134,13 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
     :type started_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~cross_device_experiences.models.Microsoftgraphstatus
+    :type status: str or ~cross_device_experiences.models.MicrosoftGraphStatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time. Values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
     :param activity: userActivity.
-    :type activity: ~cross_device_experiences.models.microsoftgraphuseractivity
+    :type activity: ~cross_device_experiences.models.MicrosoftGraphUserActivity
     """
 
     _validation = {
@@ -158,7 +158,7 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         'started_date_time': {'key': 'startedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'activity': {'key': 'activity', 'type': 'microsoftgraphuseractivity'},
+        'activity': {'key': 'activity', 'type': 'MicrosoftGraphUserActivity'},
     }
 
     def __init__(
@@ -172,12 +172,12 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         last_active_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         started_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphStatus"]] = None,
         user_timezone: Optional[str] = None,
-        activity: Optional["microsoftgraphuseractivity"] = None,
+        activity: Optional["MicrosoftGraphUserActivity"] = None,
         **kwargs
     ):
-        super(microsoftgraphactivityhistoryitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphActivityHistoryItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.active_duration_seconds = active_duration_seconds
         self.created_date_time = created_date_time
@@ -190,7 +190,7 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         self.activity = activity
 
 
-class microsoftgraphimageinfo(msrest.serialization.Model):
+class MicrosoftGraphImageInfo(msrest.serialization.Model):
     """imageInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -226,7 +226,7 @@ class microsoftgraphimageinfo(msrest.serialization.Model):
         icon_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphimageinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphImageInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.add_image_query = add_image_query
         self.alternate_text = alternate_text
@@ -234,7 +234,7 @@ class microsoftgraphimageinfo(msrest.serialization.Model):
         self.icon_url = icon_url
 
 
-class microsoftgraphuseractivity(microsoftgraphentity):
+class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
     """userActivity.
 
     :param id: Read-only.
@@ -279,16 +279,16 @@ class microsoftgraphuseractivity(microsoftgraphentity):
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~cross_device_experiences.models.Microsoftgraphstatus
+    :type status: str or ~cross_device_experiences.models.MicrosoftGraphStatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time; values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
     :param visual_elements: visualInfo.
-    :type visual_elements: ~cross_device_experiences.models.microsoftgraphvisualinfo
+    :type visual_elements: ~cross_device_experiences.models.MicrosoftGraphVisualInfo
     :param history_items: Optional. NavigationProperty/Containment; navigation property to the
      activity's historyItems.
-    :type history_items: list[~cross_device_experiences.models.microsoftgraphactivityhistoryitem]
+    :type history_items: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
     """
 
     _attribute_map = {
@@ -306,8 +306,8 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'visual_elements': {'key': 'visualElements', 'type': 'microsoftgraphvisualinfo'},
-        'history_items': {'key': 'historyItems', 'type': '[microsoftgraphactivityhistoryitem]'},
+        'visual_elements': {'key': 'visualElements', 'type': 'MicrosoftGraphVisualInfo'},
+        'history_items': {'key': 'historyItems', 'type': '[MicrosoftGraphActivityHistoryItem]'},
     }
 
     def __init__(
@@ -325,13 +325,13 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         expiration_date_time: Optional[datetime.datetime] = None,
         fallback_url: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphStatus"]] = None,
         user_timezone: Optional[str] = None,
-        visual_elements: Optional["microsoftgraphvisualinfo"] = None,
-        history_items: Optional[List["microsoftgraphactivityhistoryitem"]] = None,
+        visual_elements: Optional["MicrosoftGraphVisualInfo"] = None,
+        history_items: Optional[List["MicrosoftGraphActivityHistoryItem"]] = None,
         **kwargs
     ):
-        super(microsoftgraphuseractivity, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUserActivity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.activation_url = activation_url
         self.activity_source_host = activity_source_host
@@ -349,14 +349,14 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         self.history_items = history_items
 
 
-class microsoftgraphvisualinfo(msrest.serialization.Model):
+class MicrosoftGraphVisualInfo(msrest.serialization.Model):
     """visualInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param attribution: imageInfo.
-    :type attribution: ~cross_device_experiences.models.microsoftgraphimageinfo
+    :type attribution: ~cross_device_experiences.models.MicrosoftGraphImageInfo
     :param background_color: Optional. Background color used to render the activity in the UI -
      brand color for the application source of the activity. Must be a valid hex color.
     :type background_color: str
@@ -372,7 +372,7 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attribution': {'key': 'attribution', 'type': 'microsoftgraphimageinfo'},
+        'attribution': {'key': 'attribution', 'type': 'MicrosoftGraphImageInfo'},
         'background_color': {'key': 'backgroundColor', 'type': 'str'},
         'content': {'key': 'content', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
@@ -383,14 +383,14 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        attribution: Optional["microsoftgraphimageinfo"] = None,
+        attribution: Optional["MicrosoftGraphImageInfo"] = None,
         background_color: Optional[str] = None,
         content: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_text: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphvisualinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphVisualInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attribution = attribution
         self.background_color = background_color
@@ -399,8 +399,8 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
         self.display_text = display_text
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -408,7 +408,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~cross_device_experiences.models.odataerrormain
+    :type error: ~cross_device_experiences.models.OdataErrorMain
     """
 
     _validation = {
@@ -417,23 +417,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -469,15 +469,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -491,7 +491,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~cross_device_experiences.models.odataerrordetail]
+    :type details: list[~cross_device_experiences.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -506,7 +506,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -517,11 +517,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message

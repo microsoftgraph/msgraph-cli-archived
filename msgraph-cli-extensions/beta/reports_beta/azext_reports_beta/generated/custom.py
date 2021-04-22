@@ -11,20 +11,20 @@
 # pylint: disable=too-many-lines
 
 
-def reports_auditlogsauditlogroot_show_audit_log_root(client,
-                                                      select=None,
-                                                      expand=None):
+def reports_audit_log_audit_log_root_show_audit_log_root(client,
+                                                         select=None,
+                                                         expand=None):
     return client.get_audit_log_root(select=select,
                                      expand=expand)
 
 
-def reports_auditlogsauditlogroot_update_audit_log_root(client,
-                                                        id_=None,
-                                                        directory_audits=None,
-                                                        directory_provisioning=None,
-                                                        provisioning=None,
-                                                        restricted_sign_ins=None,
-                                                        sign_ins=None):
+def reports_audit_log_audit_log_root_update_audit_log_root(client,
+                                                           id_=None,
+                                                           directory_audits=None,
+                                                           directory_provisioning=None,
+                                                           provisioning=None,
+                                                           restricted_sign_ins=None,
+                                                           sign_ins=None):
     body = {}
     body['id'] = id_
     body['directory_audits'] = directory_audits
@@ -35,20 +35,20 @@ def reports_auditlogsauditlogroot_update_audit_log_root(client,
     return client.update_audit_log_root(body=body)
 
 
-def reports_auditlog_create_directory_audit(client,
-                                            id_=None,
-                                            activity_date_time=None,
-                                            activity_display_name=None,
-                                            additional_details=None,
-                                            category=None,
-                                            correlation_id=None,
-                                            logged_by_service=None,
-                                            operation_type=None,
-                                            result=None,
-                                            result_reason=None,
-                                            target_resources=None,
-                                            app=None,
-                                            user=None):
+def reports_audit_log_create_directory_audit(client,
+                                             id_=None,
+                                             activity_date_time=None,
+                                             activity_display_name=None,
+                                             additional_details=None,
+                                             category=None,
+                                             correlation_id=None,
+                                             logged_by_service=None,
+                                             operation_type=None,
+                                             result=None,
+                                             result_reason=None,
+                                             target_resources=None,
+                                             app=None,
+                                             user=None):
     body = {}
     body['id'] = id_
     body['activity_date_time'] = activity_date_time
@@ -67,62 +67,180 @@ def reports_auditlog_create_directory_audit(client,
     return client.create_directory_audits(body=body)
 
 
-def reports_auditlog_create_directory_provisioning(client,
-                                                   body):
+def reports_audit_log_create_directory_provisioning(client,
+                                                    id_=None,
+                                                    action=None,
+                                                    activity_date_time=None,
+                                                    change_id=None,
+                                                    cycle_id=None,
+                                                    duration_in_milliseconds=None,
+                                                    initiated_by=None,
+                                                    job_id=None,
+                                                    modified_properties=None,
+                                                    provisioning_steps=None,
+                                                    service_principal=None,
+                                                    tenant_id=None,
+                                                    details=None,
+                                                    display_name=None,
+                                                    microsoft_graph_provisioning_system_details_id=None,
+                                                    microsoft_graph_details_info_details=None,
+                                                    microsoft_graph_provisioned_identity_display_name=None,
+                                                    microsoft_graph_provisioned_identity_id=None,
+                                                    identity_type=None,
+                                                    status=None,
+                                                    details1=None,
+                                                    microsoft_graph_provisioning_system_details_display_name=None,
+                                                    id1=None,
+                                                    details2=None,
+                                                    display_name1=None,
+                                                    id2=None,
+                                                    microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.create_directory_provisioning(body=body)
 
 
-def reports_auditlog_create_provisioning(client,
-                                         body):
+def reports_audit_log_create_provisioning(client,
+                                          id_=None,
+                                          action=None,
+                                          activity_date_time=None,
+                                          change_id=None,
+                                          cycle_id=None,
+                                          duration_in_milliseconds=None,
+                                          initiated_by=None,
+                                          job_id=None,
+                                          modified_properties=None,
+                                          provisioning_steps=None,
+                                          service_principal=None,
+                                          tenant_id=None,
+                                          details=None,
+                                          display_name=None,
+                                          microsoft_graph_provisioning_system_details_id=None,
+                                          microsoft_graph_details_info_details=None,
+                                          microsoft_graph_provisioned_identity_display_name=None,
+                                          microsoft_graph_provisioned_identity_id=None,
+                                          identity_type=None,
+                                          status=None,
+                                          details1=None,
+                                          microsoft_graph_provisioning_system_details_display_name=None,
+                                          id1=None,
+                                          details2=None,
+                                          display_name1=None,
+                                          id2=None,
+                                          microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.create_provisioning(body=body)
 
 
-def reports_auditlog_create_restricted_sign_in(client,
-                                               id_=None,
-                                               alternate_sign_in_name=None,
-                                               app_display_name=None,
-                                               app_id=None,
-                                               applied_conditional_access_policies=None,
-                                               authentication_details=None,
-                                               authentication_methods_used=None,
-                                               authentication_processing_details=None,
-                                               authentication_requirement=None,
-                                               authentication_requirement_policies=None,
-                                               client_app_used=None,
-                                               conditional_access_status=None,
-                                               correlation_id=None,
-                                               created_date_time=None,
-                                               device_detail=None,
-                                               ip_address=None,
-                                               is_interactive=None,
-                                               mfa_detail=None,
-                                               network_location_details=None,
-                                               original_request_id=None,
-                                               processing_time_in_milliseconds=None,
-                                               resource_display_name=None,
-                                               resource_id=None,
-                                               resource_tenant_id=None,
-                                               risk_detail=None,
-                                               risk_event_types=None,
-                                               risk_event_types_v2=None,
-                                               risk_level_aggregated=None,
-                                               risk_level_during_sign_in=None,
-                                               risk_state=None,
-                                               service_principal_id=None,
-                                               service_principal_name=None,
-                                               sign_in_event_types=None,
-                                               status=None,
-                                               token_issuer_name=None,
-                                               token_issuer_type=None,
-                                               user_agent=None,
-                                               user_display_name=None,
-                                               user_id=None,
-                                               user_principal_name=None,
-                                               city=None,
-                                               country_or_region=None,
-                                               geo_coordinates=None,
-                                               state=None,
-                                               target_tenant_id=None):
+def reports_audit_log_create_restricted_sign_in(client,
+                                                id_=None,
+                                                alternate_sign_in_name=None,
+                                                app_display_name=None,
+                                                app_id=None,
+                                                applied_conditional_access_policies=None,
+                                                authentication_details=None,
+                                                authentication_methods_used=None,
+                                                authentication_processing_details=None,
+                                                authentication_requirement=None,
+                                                authentication_requirement_policies=None,
+                                                client_app_used=None,
+                                                conditional_access_status=None,
+                                                correlation_id=None,
+                                                created_date_time=None,
+                                                device_detail=None,
+                                                ip_address=None,
+                                                is_interactive=None,
+                                                mfa_detail=None,
+                                                network_location_details=None,
+                                                original_request_id=None,
+                                                processing_time_in_milliseconds=None,
+                                                resource_display_name=None,
+                                                resource_id=None,
+                                                resource_tenant_id=None,
+                                                risk_detail=None,
+                                                risk_event_types=None,
+                                                risk_event_types_v2=None,
+                                                risk_level_aggregated=None,
+                                                risk_level_during_sign_in=None,
+                                                risk_state=None,
+                                                service_principal_id=None,
+                                                service_principal_name=None,
+                                                sign_in_event_types=None,
+                                                status=None,
+                                                token_issuer_name=None,
+                                                token_issuer_type=None,
+                                                user_agent=None,
+                                                user_display_name=None,
+                                                user_id=None,
+                                                user_principal_name=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
+                                                target_tenant_id=None):
     body = {}
     body['id'] = id_
     body['alternate_sign_in_name'] = alternate_sign_in_name
@@ -173,151 +291,240 @@ def reports_auditlog_create_restricted_sign_in(client,
     return client.create_restricted_sign_ins(body=body)
 
 
-def reports_auditlog_create_sign_in(client,
-                                    body):
+def reports_audit_log_create_sign_in(client,
+                                     id_=None,
+                                     alternate_sign_in_name=None,
+                                     app_display_name=None,
+                                     app_id=None,
+                                     applied_conditional_access_policies=None,
+                                     authentication_details=None,
+                                     authentication_methods_used=None,
+                                     authentication_processing_details=None,
+                                     authentication_requirement=None,
+                                     authentication_requirement_policies=None,
+                                     client_app_used=None,
+                                     conditional_access_status=None,
+                                     correlation_id=None,
+                                     created_date_time=None,
+                                     device_detail=None,
+                                     ip_address=None,
+                                     is_interactive=None,
+                                     mfa_detail=None,
+                                     network_location_details=None,
+                                     original_request_id=None,
+                                     processing_time_in_milliseconds=None,
+                                     resource_display_name=None,
+                                     resource_id=None,
+                                     resource_tenant_id=None,
+                                     risk_detail=None,
+                                     risk_event_types=None,
+                                     risk_event_types_v2=None,
+                                     risk_level_aggregated=None,
+                                     risk_level_during_sign_in=None,
+                                     risk_state=None,
+                                     service_principal_id=None,
+                                     service_principal_name=None,
+                                     sign_in_event_types=None,
+                                     status=None,
+                                     token_issuer_name=None,
+                                     token_issuer_type=None,
+                                     user_agent=None,
+                                     user_display_name=None,
+                                     user_id=None,
+                                     user_principal_name=None,
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
     return client.create_sign_ins(body=body)
 
 
-def reports_auditlog_delete_directory_audit(client,
-                                            directory_audit_id,
-                                            if_match=None):
+def reports_audit_log_delete_directory_audit(client,
+                                             directory_audit_id,
+                                             if_match=None):
     return client.delete_directory_audits(directory_audit_id=directory_audit_id,
                                           if_match=if_match)
 
 
-def reports_auditlog_delete_directory_provisioning(client,
-                                                   provisioning_object_summary_id,
-                                                   if_match=None):
+def reports_audit_log_delete_directory_provisioning(client,
+                                                    provisioning_object_summary_id,
+                                                    if_match=None):
     return client.delete_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                                 if_match=if_match)
 
 
-def reports_auditlog_delete_provisioning(client,
-                                         provisioning_object_summary_id,
-                                         if_match=None):
+def reports_audit_log_delete_provisioning(client,
+                                          provisioning_object_summary_id,
+                                          if_match=None):
     return client.delete_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                       if_match=if_match)
 
 
-def reports_auditlog_delete_restricted_sign_in(client,
-                                               restricted_sign_in_id,
-                                               if_match=None):
+def reports_audit_log_delete_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                if_match=None):
     return client.delete_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
                                              if_match=if_match)
 
 
-def reports_auditlog_delete_sign_in(client,
-                                    sign_in_id,
-                                    if_match=None):
+def reports_audit_log_delete_sign_in(client,
+                                     sign_in_id,
+                                     if_match=None):
     return client.delete_sign_ins(sign_in_id=sign_in_id,
                                   if_match=if_match)
 
 
-def reports_auditlog_list_directory_audit(client,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def reports_audit_log_list_directory_audit(client,
+                                           orderby=None,
+                                           select=None,
+                                           expand=None):
     return client.list_directory_audits(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def reports_auditlog_list_directory_provisioning(client,
-                                                 orderby=None,
-                                                 select=None,
-                                                 expand=None):
+def reports_audit_log_list_directory_provisioning(client,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
     return client.list_directory_provisioning(orderby=orderby,
                                               select=select,
                                               expand=expand)
 
 
-def reports_auditlog_list_provisioning(client,
-                                       orderby=None,
-                                       select=None,
-                                       expand=None):
+def reports_audit_log_list_provisioning(client,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
     return client.list_provisioning(orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def reports_auditlog_list_restricted_sign_in(client,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def reports_audit_log_list_restricted_sign_in(client,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
     return client.list_restricted_sign_ins(orderby=orderby,
                                            select=select,
                                            expand=expand)
 
 
-def reports_auditlog_list_sign_in(client,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def reports_audit_log_list_sign_in(client,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_sign_ins(orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def reports_auditlog_show_directory_audit(client,
-                                          directory_audit_id,
-                                          select=None,
-                                          expand=None):
+def reports_audit_log_show_directory_audit(client,
+                                           directory_audit_id,
+                                           select=None,
+                                           expand=None):
     return client.get_directory_audits(directory_audit_id=directory_audit_id,
                                        select=select,
                                        expand=expand)
 
 
-def reports_auditlog_show_directory_provisioning(client,
-                                                 provisioning_object_summary_id,
-                                                 select=None,
-                                                 expand=None):
+def reports_audit_log_show_directory_provisioning(client,
+                                                  provisioning_object_summary_id,
+                                                  select=None,
+                                                  expand=None):
     return client.get_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                              select=select,
                                              expand=expand)
 
 
-def reports_auditlog_show_provisioning(client,
-                                       provisioning_object_summary_id,
-                                       select=None,
-                                       expand=None):
+def reports_audit_log_show_provisioning(client,
+                                        provisioning_object_summary_id,
+                                        select=None,
+                                        expand=None):
     return client.get_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                    select=select,
                                    expand=expand)
 
 
-def reports_auditlog_show_restricted_sign_in(client,
-                                             restricted_sign_in_id,
-                                             select=None,
-                                             expand=None):
+def reports_audit_log_show_restricted_sign_in(client,
+                                              restricted_sign_in_id,
+                                              select=None,
+                                              expand=None):
     return client.get_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
                                           select=select,
                                           expand=expand)
 
 
-def reports_auditlog_show_sign_in(client,
-                                  sign_in_id,
-                                  select=None,
-                                  expand=None):
+def reports_audit_log_show_sign_in(client,
+                                   sign_in_id,
+                                   select=None,
+                                   expand=None):
     return client.get_sign_ins(sign_in_id=sign_in_id,
                                select=select,
                                expand=expand)
 
 
-def reports_auditlog_update_directory_audit(client,
-                                            directory_audit_id,
-                                            id_=None,
-                                            activity_date_time=None,
-                                            activity_display_name=None,
-                                            additional_details=None,
-                                            category=None,
-                                            correlation_id=None,
-                                            logged_by_service=None,
-                                            operation_type=None,
-                                            result=None,
-                                            result_reason=None,
-                                            target_resources=None,
-                                            app=None,
-                                            user=None):
+def reports_audit_log_update_directory_audit(client,
+                                             directory_audit_id,
+                                             id_=None,
+                                             activity_date_time=None,
+                                             activity_display_name=None,
+                                             additional_details=None,
+                                             category=None,
+                                             correlation_id=None,
+                                             logged_by_service=None,
+                                             operation_type=None,
+                                             result=None,
+                                             result_reason=None,
+                                             target_resources=None,
+                                             app=None,
+                                             user=None):
     body = {}
     body['id'] = id_
     body['activity_date_time'] = activity_date_time
@@ -337,67 +544,185 @@ def reports_auditlog_update_directory_audit(client,
                                           body=body)
 
 
-def reports_auditlog_update_directory_provisioning(client,
-                                                   provisioning_object_summary_id,
-                                                   body):
+def reports_audit_log_update_directory_provisioning(client,
+                                                    provisioning_object_summary_id,
+                                                    id_=None,
+                                                    action=None,
+                                                    activity_date_time=None,
+                                                    change_id=None,
+                                                    cycle_id=None,
+                                                    duration_in_milliseconds=None,
+                                                    initiated_by=None,
+                                                    job_id=None,
+                                                    modified_properties=None,
+                                                    provisioning_steps=None,
+                                                    service_principal=None,
+                                                    tenant_id=None,
+                                                    details=None,
+                                                    display_name=None,
+                                                    microsoft_graph_provisioning_system_details_id=None,
+                                                    microsoft_graph_details_info_details=None,
+                                                    microsoft_graph_provisioned_identity_display_name=None,
+                                                    microsoft_graph_provisioned_identity_id=None,
+                                                    identity_type=None,
+                                                    status=None,
+                                                    details1=None,
+                                                    microsoft_graph_provisioning_system_details_display_name=None,
+                                                    id1=None,
+                                                    details2=None,
+                                                    display_name1=None,
+                                                    id2=None,
+                                                    microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.update_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                                 body=body)
 
 
-def reports_auditlog_update_provisioning(client,
-                                         provisioning_object_summary_id,
-                                         body):
+def reports_audit_log_update_provisioning(client,
+                                          provisioning_object_summary_id,
+                                          id_=None,
+                                          action=None,
+                                          activity_date_time=None,
+                                          change_id=None,
+                                          cycle_id=None,
+                                          duration_in_milliseconds=None,
+                                          initiated_by=None,
+                                          job_id=None,
+                                          modified_properties=None,
+                                          provisioning_steps=None,
+                                          service_principal=None,
+                                          tenant_id=None,
+                                          details=None,
+                                          display_name=None,
+                                          microsoft_graph_provisioning_system_details_id=None,
+                                          microsoft_graph_details_info_details=None,
+                                          microsoft_graph_provisioned_identity_display_name=None,
+                                          microsoft_graph_provisioned_identity_id=None,
+                                          identity_type=None,
+                                          status=None,
+                                          details1=None,
+                                          microsoft_graph_provisioning_system_details_display_name=None,
+                                          id1=None,
+                                          details2=None,
+                                          display_name1=None,
+                                          id2=None,
+                                          microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.update_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
                                       body=body)
 
 
-def reports_auditlog_update_restricted_sign_in(client,
-                                               restricted_sign_in_id,
-                                               id_=None,
-                                               alternate_sign_in_name=None,
-                                               app_display_name=None,
-                                               app_id=None,
-                                               applied_conditional_access_policies=None,
-                                               authentication_details=None,
-                                               authentication_methods_used=None,
-                                               authentication_processing_details=None,
-                                               authentication_requirement=None,
-                                               authentication_requirement_policies=None,
-                                               client_app_used=None,
-                                               conditional_access_status=None,
-                                               correlation_id=None,
-                                               created_date_time=None,
-                                               device_detail=None,
-                                               ip_address=None,
-                                               is_interactive=None,
-                                               mfa_detail=None,
-                                               network_location_details=None,
-                                               original_request_id=None,
-                                               processing_time_in_milliseconds=None,
-                                               resource_display_name=None,
-                                               resource_id=None,
-                                               resource_tenant_id=None,
-                                               risk_detail=None,
-                                               risk_event_types=None,
-                                               risk_event_types_v2=None,
-                                               risk_level_aggregated=None,
-                                               risk_level_during_sign_in=None,
-                                               risk_state=None,
-                                               service_principal_id=None,
-                                               service_principal_name=None,
-                                               sign_in_event_types=None,
-                                               status=None,
-                                               token_issuer_name=None,
-                                               token_issuer_type=None,
-                                               user_agent=None,
-                                               user_display_name=None,
-                                               user_id=None,
-                                               user_principal_name=None,
-                                               city=None,
-                                               country_or_region=None,
-                                               geo_coordinates=None,
-                                               state=None,
-                                               target_tenant_id=None):
+def reports_audit_log_update_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                id_=None,
+                                                alternate_sign_in_name=None,
+                                                app_display_name=None,
+                                                app_id=None,
+                                                applied_conditional_access_policies=None,
+                                                authentication_details=None,
+                                                authentication_methods_used=None,
+                                                authentication_processing_details=None,
+                                                authentication_requirement=None,
+                                                authentication_requirement_policies=None,
+                                                client_app_used=None,
+                                                conditional_access_status=None,
+                                                correlation_id=None,
+                                                created_date_time=None,
+                                                device_detail=None,
+                                                ip_address=None,
+                                                is_interactive=None,
+                                                mfa_detail=None,
+                                                network_location_details=None,
+                                                original_request_id=None,
+                                                processing_time_in_milliseconds=None,
+                                                resource_display_name=None,
+                                                resource_id=None,
+                                                resource_tenant_id=None,
+                                                risk_detail=None,
+                                                risk_event_types=None,
+                                                risk_event_types_v2=None,
+                                                risk_level_aggregated=None,
+                                                risk_level_during_sign_in=None,
+                                                risk_state=None,
+                                                service_principal_id=None,
+                                                service_principal_name=None,
+                                                sign_in_event_types=None,
+                                                status=None,
+                                                token_issuer_name=None,
+                                                token_issuer_type=None,
+                                                user_agent=None,
+                                                user_display_name=None,
+                                                user_id=None,
+                                                user_principal_name=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
+                                                target_tenant_id=None):
     body = {}
     body['id'] = id_
     body['alternate_sign_in_name'] = alternate_sign_in_name
@@ -449,29 +774,118 @@ def reports_auditlog_update_restricted_sign_in(client,
                                              body=body)
 
 
-def reports_auditlog_update_sign_in(client,
-                                    sign_in_id,
-                                    body):
+def reports_audit_log_update_sign_in(client,
+                                     sign_in_id,
+                                     id_=None,
+                                     alternate_sign_in_name=None,
+                                     app_display_name=None,
+                                     app_id=None,
+                                     applied_conditional_access_policies=None,
+                                     authentication_details=None,
+                                     authentication_methods_used=None,
+                                     authentication_processing_details=None,
+                                     authentication_requirement=None,
+                                     authentication_requirement_policies=None,
+                                     client_app_used=None,
+                                     conditional_access_status=None,
+                                     correlation_id=None,
+                                     created_date_time=None,
+                                     device_detail=None,
+                                     ip_address=None,
+                                     is_interactive=None,
+                                     mfa_detail=None,
+                                     network_location_details=None,
+                                     original_request_id=None,
+                                     processing_time_in_milliseconds=None,
+                                     resource_display_name=None,
+                                     resource_id=None,
+                                     resource_tenant_id=None,
+                                     risk_detail=None,
+                                     risk_event_types=None,
+                                     risk_event_types_v2=None,
+                                     risk_level_aggregated=None,
+                                     risk_level_during_sign_in=None,
+                                     risk_state=None,
+                                     service_principal_id=None,
+                                     service_principal_name=None,
+                                     sign_in_event_types=None,
+                                     status=None,
+                                     token_issuer_name=None,
+                                     token_issuer_type=None,
+                                     user_agent=None,
+                                     user_display_name=None,
+                                     user_id=None,
+                                     user_principal_name=None,
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
     return client.update_sign_ins(sign_in_id=sign_in_id,
                                   body=body)
 
 
-def reports_reportsreportroot_show_report_root(client,
-                                               select=None,
-                                               expand=None):
+def reports_report_root_show_report_root(client,
+                                         select=None,
+                                         expand=None):
     return client.get_report_root(select=select,
                                   expand=expand)
 
 
-def reports_reportsreportroot_update_report_root(client,
-                                                 id_=None,
-                                                 application_sign_in_detailed_summary=None,
-                                                 credential_user_registration_details=None,
-                                                 user_credential_usage_details=None,
-                                                 daily_print_usage_summaries_by_printer=None,
-                                                 daily_print_usage_summaries_by_user=None,
-                                                 monthly_print_usage_summaries_by_printer=None,
-                                                 monthly_print_usage_summaries_by_user=None):
+def reports_report_root_update_report_root(client,
+                                           id_=None,
+                                           application_sign_in_detailed_summary=None,
+                                           credential_user_registration_details=None,
+                                           user_credential_usage_details=None,
+                                           daily_print_usage_summaries_by_printer=None,
+                                           daily_print_usage_summaries_by_user=None,
+                                           monthly_print_usage_summaries_by_printer=None,
+                                           monthly_print_usage_summaries_by_user=None):
     body = {}
     body['id'] = id_
     body['application_sign_in_detailed_summary'] = application_sign_in_detailed_summary

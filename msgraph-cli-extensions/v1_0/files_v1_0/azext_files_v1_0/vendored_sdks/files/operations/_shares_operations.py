@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class sharesOperations(object):
-    """sharesOperations operations.
+class SharesOperations(object):
+    """SharesOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -51,7 +52,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum126"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get driveItem from shares.
 
         Get driveItem from shares.
@@ -63,11 +64,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum126]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -98,10 +99,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -112,7 +113,7 @@ class sharesOperations(object):
     def update_drive_item(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -123,7 +124,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -153,7 +154,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -161,8 +162,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -218,8 +219,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -234,7 +235,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum129"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdriveitem2"]
+        # type: (...) -> Iterable["models.CollectionOfDriveItem2"]
         """Get items from shares.
 
         Get items from shares.
@@ -248,11 +249,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum129]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdriveitem2 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~files.models.collectionofdriveitem2]
+        :return: An iterator like instance of either CollectionOfDriveItem2 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfDriveItem2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdriveitem2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDriveItem2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -298,7 +299,7 @@ class sharesOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdriveitem2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDriveItem2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -311,9 +312,9 @@ class sharesOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -325,10 +326,10 @@ class sharesOperations(object):
     def create_items(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Create new navigation property to items for shares.
 
         Create new navigation property to items for shares.
@@ -336,13 +337,13 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -366,7 +367,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -374,10 +375,10 @@ class sharesOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -393,7 +394,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum131"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get items from shares.
 
         Get items from shares.
@@ -407,11 +408,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum131]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -443,10 +444,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -458,7 +459,7 @@ class sharesOperations(object):
         self,
         shared_drive_item_id,  # type: str
         drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -471,7 +472,7 @@ class sharesOperations(object):
         :param drive_item_id: key: id of driveItem.
         :type drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -502,7 +503,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -510,8 +511,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -571,8 +572,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -586,7 +587,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum133"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphlist"
+        # type: (...) -> "models.MicrosoftGraphList"
         """Get list from shares.
 
         Get list from shares.
@@ -598,11 +599,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum133]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphlist, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphlist
+        :return: MicrosoftGraphList, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphList
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphlist"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphList"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -633,10 +634,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphlist', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphList', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -647,7 +648,7 @@ class sharesOperations(object):
     def update_list(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphlist"
+        body,  # type: "models.MicrosoftGraphList"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -658,7 +659,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphlist
+        :type body: ~files.models.MicrosoftGraphList
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -688,7 +689,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphlist')
+        body_content = self._serialize.body(body, 'MicrosoftGraphList')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -696,8 +697,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -753,8 +754,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -768,7 +769,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum165"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphlistitem"
+        # type: (...) -> "models.MicrosoftGraphListItem"
         """Get listItem from shares.
 
         Get listItem from shares.
@@ -780,11 +781,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum165]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphlistitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphlistitem
+        :return: MicrosoftGraphListItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphListItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphlistitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphListItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -815,10 +816,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphlistitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphListItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -829,7 +830,7 @@ class sharesOperations(object):
     def update_list_item(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphlistitem"
+        body,  # type: "models.MicrosoftGraphListItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -840,7 +841,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphlistitem
+        :type body: ~files.models.MicrosoftGraphListItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -870,7 +871,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphlistitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphListItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -878,8 +879,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -935,8 +936,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -950,7 +951,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphpermission"
+        # type: (...) -> "models.MicrosoftGraphPermission"
         """Get permission from shares.
 
         Get permission from shares.
@@ -962,11 +963,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpermission, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphpermission
+        :return: MicrosoftGraphPermission, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphPermission
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpermission"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPermission"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -997,10 +998,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpermission', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPermission', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1011,7 +1012,7 @@ class sharesOperations(object):
     def update_permission(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphpermission"
+        body,  # type: "models.MicrosoftGraphPermission"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1022,7 +1023,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphpermission
+        :type body: ~files.models.MicrosoftGraphPermission
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1052,7 +1053,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphpermission')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPermission')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1060,8 +1061,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1117,8 +1118,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1132,7 +1133,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum177"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdriveitem"
+        # type: (...) -> "models.MicrosoftGraphDriveItem"
         """Get root from shares.
 
         Get root from shares.
@@ -1144,11 +1145,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum177]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdriveitem, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphdriveitem
+        :return: MicrosoftGraphDriveItem, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphDriveItem
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdriveitem"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDriveItem"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1179,10 +1180,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdriveitem', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDriveItem', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1193,7 +1194,7 @@ class sharesOperations(object):
     def update_root(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphdriveitem"
+        body,  # type: "models.MicrosoftGraphDriveItem"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1204,7 +1205,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphdriveitem
+        :type body: ~files.models.MicrosoftGraphDriveItem
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1234,7 +1235,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdriveitem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDriveItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1242,8 +1243,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1299,8 +1300,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1314,7 +1315,7 @@ class sharesOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum179"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphsite"
+        # type: (...) -> "models.MicrosoftGraphSite"
         """Get site from shares.
 
         Get site from shares.
@@ -1326,11 +1327,11 @@ class sharesOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~files.models.Enum179]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~files.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~files.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1361,10 +1362,10 @@ class sharesOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1375,7 +1376,7 @@ class sharesOperations(object):
     def update_site(
         self,
         shared_drive_item_id,  # type: str
-        body,  # type: "models.microsoftgraphsite"
+        body,  # type: "models.MicrosoftGraphSite"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1386,7 +1387,7 @@ class sharesOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param body: New navigation property values.
-        :type body: ~files.models.microsoftgraphsite
+        :type body: ~files.models.MicrosoftGraphSite
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1416,7 +1417,7 @@ class sharesOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsite')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSite')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1424,8 +1425,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1481,8 +1482,8 @@ class sharesOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -9,18 +9,12 @@
 ### <a name="CommandGroups">Command groups in `az search_beta` extension </a>
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
-|az search external|external.external|[commands](#CommandsInexternal.external)|
+|az search external-external|external.external|[commands](#CommandsInexternal.external)|
 |az search external|external|[commands](#CommandsInexternal)|
-|az search searchentity|search.searchEntity|[commands](#CommandsInsearch.searchEntity)|
+|az search search-entity|search.searchEntity|[commands](#CommandsInsearch.searchEntity)|
 |az search search|search|[commands](#CommandsInsearch)|
 
 ## COMMANDS
-### <a name="CommandsInexternal.external">Commands in `az search external` group</a>
-|CLI Command|Operation Swagger name|Parameters|Examples|
-|---------|------------|--------|-----------|
-|[az search external show-external](#external.externalGetExternal)|GetExternal|[Parameters](#Parametersexternal.externalGetExternal)|Not Found|
-|[az search external update-external](#external.externalUpdateExternal)|UpdateExternal|[Parameters](#Parametersexternal.externalUpdateExternal)|Not Found|
-
 ### <a name="CommandsInexternal">Commands in `az search external` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
@@ -30,35 +24,25 @@
 |[az search external show-connection](#externalGetConnections)|GetConnections|[Parameters](#ParametersexternalGetConnections)|Not Found|
 |[az search external update-connection](#externalUpdateConnections)|UpdateConnections|[Parameters](#ParametersexternalUpdateConnections)|Not Found|
 
+### <a name="CommandsInexternal.external">Commands in `az search external-external` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az search external-external show-external](#external.externalGetExternal)|GetExternal|[Parameters](#Parametersexternal.externalGetExternal)|Not Found|
+|[az search external-external update-external](#external.externalUpdateExternal)|UpdateExternal|[Parameters](#Parametersexternal.externalUpdateExternal)|Not Found|
+
 ### <a name="CommandsInsearch">Commands in `az search search` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
 |[az search search query](#searchquery)|query|[Parameters](#Parameterssearchquery)|Not Found|
 
-### <a name="CommandsInsearch.searchEntity">Commands in `az search searchentity` group</a>
+### <a name="CommandsInsearch.searchEntity">Commands in `az search search-entity` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az search searchentity show-search-entity](#search.searchEntityGetSearchEntity)|GetSearchEntity|[Parameters](#Parameterssearch.searchEntityGetSearchEntity)|Not Found|
-|[az search searchentity update-search-entity](#search.searchEntityUpdateSearchEntity)|UpdateSearchEntity|[Parameters](#Parameterssearch.searchEntityUpdateSearchEntity)|Not Found|
+|[az search search-entity show-search-entity](#search.searchEntityGetSearchEntity)|GetSearchEntity|[Parameters](#Parameterssearch.searchEntityGetSearchEntity)|Not Found|
+|[az search search-entity update-search-entity](#search.searchEntityUpdateSearchEntity)|UpdateSearchEntity|[Parameters](#Parameterssearch.searchEntityUpdateSearchEntity)|Not Found|
 
 
 ## COMMAND DETAILS
-
-### group `az search external`
-#### <a name="external.externalGetExternal">Command `az search external show-external`</a>
-
-##### <a name="Parametersexternal.externalGetExternal">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="external.externalUpdateExternal">Command `az search external update-external`</a>
-
-##### <a name="Parametersexternal.externalUpdateExternal">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--connections**|array||connections|connections|
 
 ### group `az search external`
 #### <a name="externalCreateConnections">Command `az search external create-connection`</a>
@@ -122,6 +106,22 @@
 |**--base-type**|string||base_type|baseType|
 |**--properties**|array||properties|properties|
 
+### group `az search external-external`
+#### <a name="external.externalGetExternal">Command `az search external-external show-external`</a>
+
+##### <a name="Parametersexternal.externalGetExternal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="external.externalUpdateExternal">Command `az search external-external update-external`</a>
+
+##### <a name="Parametersexternal.externalUpdateExternal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--connections**|array||connections|connections|
+
 ### group `az search search`
 #### <a name="searchquery">Command `az search search query`</a>
 
@@ -130,8 +130,8 @@
 |------|----|-----------|----------|------------|
 |**--requests**|array||requests|requests|
 
-### group `az search searchentity`
-#### <a name="search.searchEntityGetSearchEntity">Command `az search searchentity show-search-entity`</a>
+### group `az search search-entity`
+#### <a name="search.searchEntityGetSearchEntity">Command `az search search-entity show-search-entity`</a>
 
 ##### <a name="Parameterssearch.searchEntityGetSearchEntity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -139,7 +139,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="search.searchEntityUpdateSearchEntity">Command `az search searchentity update-search-entity`</a>
+#### <a name="search.searchEntityUpdateSearchEntity">Command `az search search-entity update-search-entity`</a>
 
 ##### <a name="Parameterssearch.searchEntityUpdateSearchEntity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

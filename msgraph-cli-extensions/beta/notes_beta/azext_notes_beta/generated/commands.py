@@ -15,836 +15,834 @@
 from msgraph.cli.core.commands import CliCommandType
 from azext_notes_beta.generated._client_factory import (
     cf_group,
-    cf_groupsonenote,
-    cf_groupsonenotenotebook,
-    cf_groupsonenotenotebookssectiongroup,
-    cf_groupsonenotenotebookssectiongroupssection,
-    cf_groupsonenotenotebookssectiongroupssectionspage,
-    cf_groupsonenotenotebookssection,
-    cf_groupsonenotenotebookssectionspage,
-    cf_groupsonenotenotebookssectionsparentsectiongroup,
-    cf_groupsonenotepage,
-    cf_groupsonenotepagesparentnotebook,
-    cf_groupsonenotepagesparentnotebooksectiongroup,
-    cf_groupsonenotepagesparentnotebooksectiongroupssection,
-    cf_groupsonenoteparentnotebooksectiongroupssectionspage,
-    cf_groupsonenotepagesparentnotebooksection,
-    cf_groupsonenoteparentnotebooksectionspage,
-    cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
-    cf_groupsonenotepagesparentsection,
-    cf_groupsonenoteparentsectionpage,
-    cf_groupsonenotepagesparentsectionparentnotebook,
-    cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
-    cf_groupsonenotepagesparentsectiongroup,
-    cf_groupsonenotepagesparentsectiongroupparentnotebook,
-    cf_groupsonenotesectiongroup,
-    cf_groupsonenotesectiongroupsparentnotebook,
-    cf_groupsonenotesectiongroupsparentnotebooksection,
-    cf_groupsonenotesectiongroupsparentnotebooksectionspage,
-    cf_groupsonenotesectiongroupssection,
-    cf_groupsonenotesectiongroupssectionspage,
-    cf_groupsonenotesectiongroupssectionspagesparentnotebook,
-    cf_groupsonenotesectiongroupssectionsparentnotebook,
-    cf_groupsonenotesection,
-    cf_groupsonenotesectionspage,
-    cf_groupsonenotesectionspagesparentnotebook,
-    cf_groupsonenotesectionspagesparentnotebooksectiongroup,
-    cf_groupsonenotesectionsparentnotebook,
-    cf_groupsonenotesectionsparentnotebooksectiongroup,
-    cf_groupsonenotesectionsparentsectiongroup,
-    cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+    cf_group_onenote,
+    cf_group_onenote_notebook,
+    cf_group_onenote_notebook_section_group,
+    cf_group_onenote_notebook_section_group_section,
+    cf_group_onenote_notebook_section_group_section_page,
+    cf_group_onenote_notebook_section,
+    cf_group_onenote_notebook_section_page,
+    cf_group_onenote_notebook_section_parent_section_group,
+    cf_group_onenote_page,
+    cf_group_onenote_page_parent_notebook,
+    cf_group_onenote_page_parent_notebook_section_group,
+    cf_group_onenote_page_parent_notebook_section_group_section,
+    cf_group_onenote_parent_notebook_section_group_section_page,
+    cf_group_onenote_page_parent_notebook_section,
+    cf_group_onenote_parent_notebook_section_page,
+    cf_group_onenote_page_parent_notebook_section_parent_section_group,
+    cf_group_onenote_page_parent_section,
+    cf_group_onenote_parent_section_page,
+    cf_group_onenote_page_parent_section_parent_notebook,
+    cf_group_onenote_page_parent_section_parent_notebook_section_group,
+    cf_group_onenote_page_parent_section_parent_section_group,
+    cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_group_onenote_section_group,
+    cf_group_onenote_section_group_parent_notebook,
+    cf_group_onenote_section_group_parent_notebook_section,
+    cf_group_onenote_section_group_parent_notebook_section_page,
+    cf_group_onenote_section_group_section,
+    cf_group_onenote_section_group_section_page,
+    cf_group_onenote_section_group_section_page_parent_notebook,
+    cf_group_onenote_section_group_section_parent_notebook,
+    cf_group_onenote_section,
+    cf_group_onenote_section_page,
+    cf_group_onenote_section_page_parent_notebook,
+    cf_group_onenote_section_page_parent_notebook_section_group,
+    cf_group_onenote_section_parent_notebook,
+    cf_group_onenote_section_parent_notebook_section_group,
+    cf_group_onenote_section_parent_section_group,
+    cf_group_onenote_section_parent_section_group_parent_notebook,
     cf_site,
-    cf_sitesonenote,
-    cf_sitesonenotenotebook,
-    cf_sitesonenotenotebookssectiongroup,
-    cf_sitesonenotenotebookssectiongroupssection,
-    cf_sitesonenotenotebookssectiongroupssectionspage,
-    cf_sitesonenotenotebookssection,
-    cf_sitesonenotenotebookssectionspage,
-    cf_sitesonenotenotebookssectionsparentsectiongroup,
-    cf_sitesonenotepage,
-    cf_sitesonenotepagesparentnotebook,
-    cf_sitesonenotepagesparentnotebooksectiongroup,
-    cf_sitesonenotepagesparentnotebooksectiongroupssection,
-    cf_sitesonenoteparentnotebooksectiongroupssectionspage,
-    cf_sitesonenotepagesparentnotebooksection,
-    cf_sitesonenoteparentnotebooksectionspage,
-    cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
-    cf_sitesonenotepagesparentsection,
-    cf_sitesonenoteparentsectionpage,
-    cf_sitesonenotepagesparentsectionparentnotebook,
-    cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
-    cf_sitesonenotepagesparentsectiongroup,
-    cf_sitesonenotepagesparentsectiongroupparentnotebook,
-    cf_sitesonenotesectiongroup,
-    cf_sitesonenotesectiongroupsparentnotebook,
-    cf_sitesonenotesectiongroupsparentnotebooksection,
-    cf_sitesonenotesectiongroupsparentnotebooksectionspage,
-    cf_sitesonenotesectiongroupssection,
-    cf_sitesonenotesectiongroupssectionspage,
-    cf_sitesonenotesectiongroupssectionspagesparentnotebook,
-    cf_sitesonenotesectiongroupssectionsparentnotebook,
-    cf_sitesonenotesection,
-    cf_sitesonenotesectionspage,
-    cf_sitesonenotesectionspagesparentnotebook,
-    cf_sitesonenotesectionspagesparentnotebooksectiongroup,
-    cf_sitesonenotesectionsparentnotebook,
-    cf_sitesonenotesectionsparentnotebooksectiongroup,
-    cf_sitesonenotesectionsparentsectiongroup,
-    cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+    cf_site_onenote,
+    cf_site_onenote_notebook,
+    cf_site_onenote_notebook_section_group,
+    cf_site_onenote_notebook_section_group_section,
+    cf_site_onenote_notebook_section_group_section_page,
+    cf_site_onenote_notebook_section,
+    cf_site_onenote_notebook_section_page,
+    cf_site_onenote_notebook_section_parent_section_group,
+    cf_site_onenote_page,
+    cf_site_onenote_page_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_group,
+    cf_site_onenote_page_parent_notebook_section_group_section,
+    cf_site_onenote_parent_notebook_section_group_section_page,
+    cf_site_onenote_page_parent_notebook_section,
+    cf_site_onenote_parent_notebook_section_page,
+    cf_site_onenote_page_parent_notebook_section_parent_section_group,
+    cf_site_onenote_page_parent_section,
+    cf_site_onenote_parent_section_page,
+    cf_site_onenote_page_parent_section_parent_notebook,
+    cf_site_onenote_page_parent_section_parent_notebook_section_group,
+    cf_site_onenote_page_parent_section_parent_section_group,
+    cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_site_onenote_section_group,
+    cf_site_onenote_section_group_parent_notebook,
+    cf_site_onenote_section_group_parent_notebook_section,
+    cf_site_onenote_section_group_parent_notebook_section_page,
+    cf_site_onenote_section_group_section,
+    cf_site_onenote_section_group_section_page,
+    cf_site_onenote_section_group_section_page_parent_notebook,
+    cf_site_onenote_section_group_section_parent_notebook,
+    cf_site_onenote_section,
+    cf_site_onenote_section_page,
+    cf_site_onenote_section_page_parent_notebook,
+    cf_site_onenote_section_page_parent_notebook_section_group,
+    cf_site_onenote_section_parent_notebook,
+    cf_site_onenote_section_parent_notebook_section_group,
+    cf_site_onenote_section_parent_section_group,
+    cf_site_onenote_section_parent_section_group_parent_notebook,
     cf_user,
-    cf_usersonenote,
-    cf_usersonenotenotebook,
-    cf_usersonenotenotebookssectiongroup,
-    cf_usersonenotenotebookssectiongroupssection,
-    cf_usersonenotenotebookssectiongroupssectionspage,
-    cf_usersonenotenotebookssection,
-    cf_usersonenotenotebookssectionspage,
-    cf_usersonenotenotebookssectionsparentsectiongroup,
-    cf_usersonenotepage,
-    cf_usersonenotepagesparentnotebook,
-    cf_usersonenotepagesparentnotebooksectiongroup,
-    cf_usersonenotepagesparentnotebooksectiongroupssection,
-    cf_usersonenoteparentnotebooksectiongroupssectionspage,
-    cf_usersonenotepagesparentnotebooksection,
-    cf_usersonenoteparentnotebooksectionspage,
-    cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
-    cf_usersonenotepagesparentsection,
-    cf_usersonenoteparentsectionpage,
-    cf_usersonenotepagesparentsectionparentnotebook,
-    cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
-    cf_usersonenotepagesparentsectiongroup,
-    cf_usersonenotepagesparentsectiongroupparentnotebook,
-    cf_usersonenotesectiongroup,
-    cf_usersonenotesectiongroupsparentnotebook,
-    cf_usersonenotesectiongroupsparentnotebooksection,
-    cf_usersonenotesectiongroupsparentnotebooksectionspage,
-    cf_usersonenotesectiongroupssection,
-    cf_usersonenotesectiongroupssectionspage,
-    cf_usersonenotesectiongroupssectionspagesparentnotebook,
-    cf_usersonenotesectiongroupssectionsparentnotebook,
-    cf_usersonenotesection,
-    cf_usersonenotesectionspage,
-    cf_usersonenotesectionspagesparentnotebook,
-    cf_usersonenotesectionspagesparentnotebooksectiongroup,
-    cf_usersonenotesectionsparentnotebook,
-    cf_usersonenotesectionsparentnotebooksectiongroup,
-    cf_usersonenotesectionsparentsectiongroup,
-    cf_usersonenotesectionsparentsectiongroupparentnotebook,
+    cf_user_onenote,
+    cf_user_onenote_notebook,
+    cf_user_onenote_notebook_section_group,
+    cf_user_onenote_notebook_section_group_section,
+    cf_user_onenote_notebook_section_group_section_page,
+    cf_user_onenote_notebook_section,
+    cf_user_onenote_notebook_section_page,
+    cf_user_onenote_notebook_section_parent_section_group,
+    cf_user_onenote_page,
+    cf_user_onenote_page_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group,
+    cf_user_onenote_page_parent_notebook_section_group_section,
+    cf_user_onenote_parent_notebook_section_group_section_page,
+    cf_user_onenote_page_parent_notebook_section,
+    cf_user_onenote_parent_notebook_section_page,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group,
+    cf_user_onenote_page_parent_section,
+    cf_user_onenote_parent_section_page,
+    cf_user_onenote_page_parent_section_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group,
+    cf_user_onenote_page_parent_section_parent_section_group,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_user_onenote_section_group,
+    cf_user_onenote_section_group_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section,
+    cf_user_onenote_section_group_parent_notebook_section_page,
+    cf_user_onenote_section_group_section,
+    cf_user_onenote_section_group_section_page,
+    cf_user_onenote_section_group_section_page_parent_notebook,
+    cf_user_onenote_section_group_section_parent_notebook,
+    cf_user_onenote_section,
+    cf_user_onenote_section_page,
+    cf_user_onenote_section_page_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group,
+    cf_user_onenote_section_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group,
+    cf_user_onenote_section_parent_section_group,
+    cf_user_onenote_section_parent_section_group_parent_notebook,
 )
 
 
 notes_beta_group = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_operations#groupsOperations.{}',
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
-notes_beta_groupsonenote = CliCommandType(
+notes_beta_group_onenote = CliCommandType(
     operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._groupsonenote_operations#groupsonenoteOperations.{}'
+        'azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_operations#GroupsOnenoteOperations.{}'
     ),
-    client_factory=cf_groupsonenote,
+    client_factory=cf_group_onenote,
 )
 
 
-notes_beta_groupsonenotenotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebooks_operations#groupsonenotenotebooksOperations.{}',
-    client_factory=cf_groupsonenotenotebook,
+notes_beta_group_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_operations#GroupsOnenoteNotebooksOperations.{}',
+    client_factory=cf_group_onenote_notebook,
 )
 
 
-notes_beta_groupsonenotenotebookssectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroups_operations#groupsonenotenotebookssectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotenotebookssectiongroup,
+notes_beta_group_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_operations#GroupsOnenoteNotebooksSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group,
 )
 
 
-notes_beta_groupsonenotenotebookssectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroupssections_operations#groupsonenotenotebookssectiongroupssectionsOperations.{}',
-    client_factory=cf_groupsonenotenotebookssectiongroupssection,
+notes_beta_group_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_sections_operations#GroupsOnenoteNotebooksSectionGroupsSectionsOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group_section,
 )
 
 
-notes_beta_groupsonenotenotebookssectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroupssectionspages_operations#groupsonenotenotebookssectiongroupssectionspagesOperations.{}',
-    client_factory=cf_groupsonenotenotebookssectiongroupssectionspage,
+notes_beta_group_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_sections_pages_operations#GroupsOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group_section_page,
 )
 
 
-notes_beta_groupsonenotenotebookssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssections_operations#groupsonenotenotebookssectionsOperations.{}',
-    client_factory=cf_groupsonenotenotebookssection,
+notes_beta_group_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_operations#GroupsOnenoteNotebooksSectionsOperations.{}',
+    client_factory=cf_group_onenote_notebook_section,
 )
 
 
-notes_beta_groupsonenotenotebookssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssectionspages_operations#groupsonenotenotebookssectionspagesOperations.{}',
-    client_factory=cf_groupsonenotenotebookssectionspage,
+notes_beta_group_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_pages_operations#GroupsOnenoteNotebooksSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_page,
 )
 
 
-notes_beta_groupsonenotenotebookssectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotenotebookssectionsparentsectiongroup_operations#groupsonenotenotebookssectionsparentsectiongroupOperations.{}',
-    client_factory=cf_groupsonenotenotebookssectionsparentsectiongroup,
+notes_beta_group_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_parent_section_group_operations#GroupsOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_parent_section_group,
 )
 
 
-notes_beta_groupsonenotepage = CliCommandType(
-    operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepages_operations#groupsonenotepagesOperations.{}'
-    ),
-    client_factory=cf_groupsonenotepage,
+notes_beta_group_onenote_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_operations#GroupsOnenotePagesOperations.{}',
+    client_factory=cf_group_onenote_page,
 )
 
 
-notes_beta_groupsonenotepagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentnotebook_operations#groupsonenotepagesparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotepagesparentnotebook,
+notes_beta_group_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_operations#GroupsOnenotePagesParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook,
 )
 
 
-notes_beta_groupsonenotepagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectiongroups_operations#groupsonenotepagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotepagesparentnotebooksectiongroup,
+notes_beta_group_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_section_groups_operations#GroupsOnenotePagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_group,
 )
 
 
-notes_beta_groupsonenotepagesparentnotebooksectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectiongroupssections_operations#groupsonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
-    client_factory=cf_groupsonenotepagesparentnotebooksectiongroupssection,
+notes_beta_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_section_groups_sections_operations#GroupsOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_group_section,
 )
 
 
-notes_beta_groupsonenoteparentnotebooksectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenoteparentnotebooksectiongroupssectionspages_operations#groupsonenoteparentnotebooksectiongroupssectionspagesOperations.{}',
-    client_factory=cf_groupsonenoteparentnotebooksectiongroupssectionspage,
+notes_beta_group_onenote_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_parent_notebook_section_groups_sections_pages_operations#GroupsOnenoteParentNotebookSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_parent_notebook_section_group_section_page,
 )
 
 
-notes_beta_groupsonenotepagesparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksections_operations#groupsonenotepagesparentnotebooksectionsOperations.{}',
-    client_factory=cf_groupsonenotepagesparentnotebooksection,
+notes_beta_group_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_sections_operations#GroupsOnenotePagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section,
 )
 
 
-notes_beta_groupsonenoteparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenoteparentnotebooksectionspages_operations#groupsonenoteparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_groupsonenoteparentnotebooksectionspage,
+notes_beta_group_onenote_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_parent_notebook_sections_pages_operations#GroupsOnenoteParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_parent_notebook_section_page,
 )
 
 
-notes_beta_groupsonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectionsparentsectiongroup_operations#groupsonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
-    client_factory=cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+notes_beta_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_sections_parent_section_group_operations#GroupsOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
-notes_beta_groupsonenotepagesparentsection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentsection_operations#groupsonenotepagesparentsectionOperations.{}',
-    client_factory=cf_groupsonenotepagesparentsection,
+notes_beta_group_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_operations#GroupsOnenotePagesParentSectionOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section,
 )
 
 
-notes_beta_groupsonenoteparentsectionpage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenoteparentsectionpages_operations#groupsonenoteparentsectionpagesOperations.{}',
-    client_factory=cf_groupsonenoteparentsectionpage,
+notes_beta_group_onenote_parent_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_parent_section_pages_operations#GroupsOnenoteParentSectionPagesOperations.{}',
+    client_factory=cf_group_onenote_parent_section_page,
 )
 
 
-notes_beta_groupsonenotepagesparentsectionparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentnotebook_operations#groupsonenotepagesparentsectionparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotepagesparentsectionparentnotebook,
+notes_beta_group_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_notebook_operations#GroupsOnenotePagesParentSectionParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_notebook,
 )
 
 
-notes_beta_groupsonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentnotebooksectiongroups_operations#groupsonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+notes_beta_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_notebook_section_groups_operations#GroupsOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
-notes_beta_groupsonenotepagesparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentsectiongroup_operations#groupsonenotepagesparentsectionparentsectiongroupOperations.{}',
-    client_factory=cf_groupsonenotepagesparentsectiongroup,
+notes_beta_group_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_section_group_operations#GroupsOnenotePagesParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_section_group,
 )
 
 
-notes_beta_groupsonenotepagesparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentsectiongroupparentnotebook_operations#groupsonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotepagesparentsectiongroupparentnotebook,
+notes_beta_group_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#GroupsOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroups_operations#groupsonenotesectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotesectiongroup,
+notes_beta_group_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_operations#GroupsOnenoteSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_section_group,
 )
 
 
-notes_beta_groupsonenotesectiongroupsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebook_operations#groupsonenotesectiongroupsparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupsparentnotebook,
+notes_beta_group_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_operations#GroupsOnenoteSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesectiongroupsparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebooksections_operations#groupsonenotesectiongroupsparentnotebooksectionsOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupsparentnotebooksection,
+notes_beta_group_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_sections_operations#GroupsOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook_section,
 )
 
 
-notes_beta_groupsonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebooksectionspages_operations#groupsonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupsparentnotebooksectionspage,
+notes_beta_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_sections_pages_operations#GroupsOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook_section_page,
 )
 
 
-notes_beta_groupsonenotesectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupssections_operations#groupsonenotesectiongroupssectionsOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupssection,
+notes_beta_group_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_operations#GroupsOnenoteSectionGroupsSectionsOperations.{}',
+    client_factory=cf_group_onenote_section_group_section,
 )
 
 
-notes_beta_groupsonenotesectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionspages_operations#groupsonenotesectiongroupssectionspagesOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupssectionspage,
+notes_beta_group_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_pages_operations#GroupsOnenoteSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_page,
 )
 
 
-notes_beta_groupsonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionspagesparentnotebook_operations#groupsonenotesectiongroupssectionspagesparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupssectionspagesparentnotebook,
+notes_beta_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_pages_parent_notebook_operations#GroupsOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_page_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesectiongroupssectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionsparentnotebook_operations#groupsonenotesectiongroupssectionsparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectiongroupssectionsparentnotebook,
+notes_beta_group_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_parent_notebook_operations#GroupsOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesections_operations#groupsonenotesectionsOperations.{}',
-    client_factory=cf_groupsonenotesection,
+notes_beta_group_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_operations#GroupsOnenoteSectionsOperations.{}',
+    client_factory=cf_group_onenote_section,
 )
 
 
-notes_beta_groupsonenotesectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionspages_operations#groupsonenotesectionspagesOperations.{}',
-    client_factory=cf_groupsonenotesectionspage,
+notes_beta_group_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_pages_operations#GroupsOnenoteSectionsPagesOperations.{}',
+    client_factory=cf_group_onenote_section_page,
 )
 
 
-notes_beta_groupsonenotesectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionspagesparentnotebook_operations#groupsonenotesectionspagesparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectionspagesparentnotebook,
+notes_beta_group_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_pages_parent_notebook_operations#GroupsOnenoteSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_page_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionspagesparentnotebooksectiongroups_operations#groupsonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotesectionspagesparentnotebooksectiongroup,
+notes_beta_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_pages_parent_notebook_section_groups_operations#GroupsOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_section_page_parent_notebook_section_group,
 )
 
 
-notes_beta_groupsonenotesectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionsparentnotebook_operations#groupsonenotesectionsparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectionsparentnotebook,
+notes_beta_group_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_parent_notebook_operations#GroupsOnenoteSectionsParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_parent_notebook,
 )
 
 
-notes_beta_groupsonenotesectionsparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionsparentnotebooksectiongroups_operations#groupsonenotesectionsparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_groupsonenotesectionsparentnotebooksectiongroup,
+notes_beta_group_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_parent_notebook_section_groups_operations#GroupsOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_group_onenote_section_parent_notebook_section_group,
 )
 
 
-notes_beta_groupsonenotesectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionsparentsectiongroup_operations#groupsonenotesectionsparentsectiongroupOperations.{}',
-    client_factory=cf_groupsonenotesectionsparentsectiongroup,
+notes_beta_group_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_parent_section_group_operations#GroupsOnenoteSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_section_parent_section_group,
 )
 
 
-notes_beta_groupsonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groupsonenotesectionsparentsectiongroupparentnotebook_operations#groupsonenotesectionsparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+notes_beta_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._groups_onenote_sections_parent_section_group_parent_notebook_operations#GroupsOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_parent_section_group_parent_notebook,
 )
 
 
 notes_beta_site = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_operations#sitesOperations.{}',
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_operations#SitesOperations.{}',
     client_factory=cf_site,
 )
 
 
-notes_beta_sitesonenote = CliCommandType(
+notes_beta_site_onenote = CliCommandType(
     operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._sitesonenote_operations#sitesonenoteOperations.{}'
+        'azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_operations#SitesOnenoteOperations.{}'
     ),
-    client_factory=cf_sitesonenote,
+    client_factory=cf_site_onenote,
 )
 
 
-notes_beta_sitesonenotenotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebooks_operations#sitesonenotenotebooksOperations.{}',
-    client_factory=cf_sitesonenotenotebook,
+notes_beta_site_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_operations#SitesOnenoteNotebooksOperations.{}',
+    client_factory=cf_site_onenote_notebook,
 )
 
 
-notes_beta_sitesonenotenotebookssectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroups_operations#sitesonenotenotebookssectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotenotebookssectiongroup,
+notes_beta_site_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_operations#SitesOnenoteNotebooksSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group,
 )
 
 
-notes_beta_sitesonenotenotebookssectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroupssections_operations#sitesonenotenotebookssectiongroupssectionsOperations.{}',
-    client_factory=cf_sitesonenotenotebookssectiongroupssection,
+notes_beta_site_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_sections_operations#SitesOnenoteNotebooksSectionGroupsSectionsOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section,
 )
 
 
-notes_beta_sitesonenotenotebookssectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroupssectionspages_operations#sitesonenotenotebookssectiongroupssectionspagesOperations.{}',
-    client_factory=cf_sitesonenotenotebookssectiongroupssectionspage,
+notes_beta_site_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_sections_pages_operations#SitesOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_page,
 )
 
 
-notes_beta_sitesonenotenotebookssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssections_operations#sitesonenotenotebookssectionsOperations.{}',
-    client_factory=cf_sitesonenotenotebookssection,
+notes_beta_site_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_operations#SitesOnenoteNotebooksSectionsOperations.{}',
+    client_factory=cf_site_onenote_notebook_section,
 )
 
 
-notes_beta_sitesonenotenotebookssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssectionspages_operations#sitesonenotenotebookssectionspagesOperations.{}',
-    client_factory=cf_sitesonenotenotebookssectionspage,
+notes_beta_site_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_pages_operations#SitesOnenoteNotebooksSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_page,
 )
 
 
-notes_beta_sitesonenotenotebookssectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotenotebookssectionsparentsectiongroup_operations#sitesonenotenotebookssectionsparentsectiongroupOperations.{}',
-    client_factory=cf_sitesonenotenotebookssectionsparentsectiongroup,
+notes_beta_site_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_parent_section_group_operations#SitesOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_parent_section_group,
 )
 
 
-notes_beta_sitesonenotepage = CliCommandType(
+notes_beta_site_onenote_page = CliCommandType(
     operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepages_operations#sitesonenotepagesOperations.{}'
+        'azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_operations#SitesOnenotePagesOperations.{}'
     ),
-    client_factory=cf_sitesonenotepage,
+    client_factory=cf_site_onenote_page,
 )
 
 
-notes_beta_sitesonenotepagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentnotebook_operations#sitesonenotepagesparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotepagesparentnotebook,
+notes_beta_site_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_operations#SitesOnenotePagesParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook,
 )
 
 
-notes_beta_sitesonenotepagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectiongroups_operations#sitesonenotepagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotepagesparentnotebooksectiongroup,
+notes_beta_site_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_section_groups_operations#SitesOnenotePagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group,
 )
 
 
-notes_beta_sitesonenotepagesparentnotebooksectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectiongroupssections_operations#sitesonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
-    client_factory=cf_sitesonenotepagesparentnotebooksectiongroupssection,
+notes_beta_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_section_groups_sections_operations#SitesOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
 )
 
 
-notes_beta_sitesonenoteparentnotebooksectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenoteparentnotebooksectiongroupssectionspages_operations#sitesonenoteparentnotebooksectiongroupssectionspagesOperations.{}',
-    client_factory=cf_sitesonenoteparentnotebooksectiongroupssectionspage,
+notes_beta_site_onenote_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_parent_notebook_section_groups_sections_pages_operations#SitesOnenoteParentNotebookSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_parent_notebook_section_group_section_page,
 )
 
 
-notes_beta_sitesonenotepagesparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksections_operations#sitesonenotepagesparentnotebooksectionsOperations.{}',
-    client_factory=cf_sitesonenotepagesparentnotebooksection,
+notes_beta_site_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_sections_operations#SitesOnenotePagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section,
 )
 
 
-notes_beta_sitesonenoteparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenoteparentnotebooksectionspages_operations#sitesonenoteparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_sitesonenoteparentnotebooksectionspage,
+notes_beta_site_onenote_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_parent_notebook_sections_pages_operations#SitesOnenoteParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_parent_notebook_section_page,
 )
 
 
-notes_beta_sitesonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectionsparentsectiongroup_operations#sitesonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
-    client_factory=cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+notes_beta_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_sections_parent_section_group_operations#SitesOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
-notes_beta_sitesonenotepagesparentsection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentsection_operations#sitesonenotepagesparentsectionOperations.{}',
-    client_factory=cf_sitesonenotepagesparentsection,
+notes_beta_site_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_operations#SitesOnenotePagesParentSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section,
 )
 
 
-notes_beta_sitesonenoteparentsectionpage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenoteparentsectionpages_operations#sitesonenoteparentsectionpagesOperations.{}',
-    client_factory=cf_sitesonenoteparentsectionpage,
+notes_beta_site_onenote_parent_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_parent_section_pages_operations#SitesOnenoteParentSectionPagesOperations.{}',
+    client_factory=cf_site_onenote_parent_section_page,
 )
 
 
-notes_beta_sitesonenotepagesparentsectionparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentnotebook_operations#sitesonenotepagesparentsectionparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotepagesparentsectionparentnotebook,
+notes_beta_site_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_notebook_operations#SitesOnenotePagesParentSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook,
 )
 
 
-notes_beta_sitesonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentnotebooksectiongroups_operations#sitesonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+notes_beta_site_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_notebook_section_groups_operations#SitesOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
-notes_beta_sitesonenotepagesparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentsectiongroup_operations#sitesonenotepagesparentsectionparentsectiongroupOperations.{}',
-    client_factory=cf_sitesonenotepagesparentsectiongroup,
+notes_beta_site_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_section_group_operations#SitesOnenotePagesParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group,
 )
 
 
-notes_beta_sitesonenotepagesparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentsectiongroupparentnotebook_operations#sitesonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotepagesparentsectiongroupparentnotebook,
+notes_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#SitesOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroups_operations#sitesonenotesectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotesectiongroup,
+notes_beta_site_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_operations#SitesOnenoteSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_section_group,
 )
 
 
-notes_beta_sitesonenotesectiongroupsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebook_operations#sitesonenotesectiongroupsparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupsparentnotebook,
+notes_beta_site_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_operations#SitesOnenoteSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesectiongroupsparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebooksections_operations#sitesonenotesectiongroupsparentnotebooksectionsOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupsparentnotebooksection,
+notes_beta_site_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_sections_operations#SitesOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section,
 )
 
 
-notes_beta_sitesonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebooksectionspages_operations#sitesonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupsparentnotebooksectionspage,
+notes_beta_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_sections_pages_operations#SitesOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
 )
 
 
-notes_beta_sitesonenotesectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupssections_operations#sitesonenotesectiongroupssectionsOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupssection,
+notes_beta_site_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_operations#SitesOnenoteSectionGroupsSectionsOperations.{}',
+    client_factory=cf_site_onenote_section_group_section,
 )
 
 
-notes_beta_sitesonenotesectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionspages_operations#sitesonenotesectiongroupssectionspagesOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupssectionspage,
+notes_beta_site_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_pages_operations#SitesOnenoteSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page,
 )
 
 
-notes_beta_sitesonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionspagesparentnotebook_operations#sitesonenotesectiongroupssectionspagesparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupssectionspagesparentnotebook,
+notes_beta_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_pages_parent_notebook_operations#SitesOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesectiongroupssectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionsparentnotebook_operations#sitesonenotesectiongroupssectionsparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectiongroupssectionsparentnotebook,
+notes_beta_site_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_parent_notebook_operations#SitesOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesections_operations#sitesonenotesectionsOperations.{}',
-    client_factory=cf_sitesonenotesection,
+notes_beta_site_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_operations#SitesOnenoteSectionsOperations.{}',
+    client_factory=cf_site_onenote_section,
 )
 
 
-notes_beta_sitesonenotesectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionspages_operations#sitesonenotesectionspagesOperations.{}',
-    client_factory=cf_sitesonenotesectionspage,
+notes_beta_site_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_pages_operations#SitesOnenoteSectionsPagesOperations.{}',
+    client_factory=cf_site_onenote_section_page,
 )
 
 
-notes_beta_sitesonenotesectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionspagesparentnotebook_operations#sitesonenotesectionspagesparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectionspagesparentnotebook,
+notes_beta_site_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_pages_parent_notebook_operations#SitesOnenoteSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionspagesparentnotebooksectiongroups_operations#sitesonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotesectionspagesparentnotebooksectiongroup,
+notes_beta_site_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_pages_parent_notebook_section_groups_operations#SitesOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook_section_group,
 )
 
 
-notes_beta_sitesonenotesectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionsparentnotebook_operations#sitesonenotesectionsparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectionsparentnotebook,
+notes_beta_site_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_parent_notebook_operations#SitesOnenoteSectionsParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook,
 )
 
 
-notes_beta_sitesonenotesectionsparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionsparentnotebooksectiongroups_operations#sitesonenotesectionsparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_sitesonenotesectionsparentnotebooksectiongroup,
+notes_beta_site_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_parent_notebook_section_groups_operations#SitesOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook_section_group,
 )
 
 
-notes_beta_sitesonenotesectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionsparentsectiongroup_operations#sitesonenotesectionsparentsectiongroupOperations.{}',
-    client_factory=cf_sitesonenotesectionsparentsectiongroup,
+notes_beta_site_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_parent_section_group_operations#SitesOnenoteSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group,
 )
 
 
-notes_beta_sitesonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sitesonenotesectionsparentsectiongroupparentnotebook_operations#sitesonenotesectionsparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+notes_beta_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._sites_onenote_sections_parent_section_group_parent_notebook_operations#SitesOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
 )
 
 
 notes_beta_user = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-notes_beta_usersonenote = CliCommandType(
+notes_beta_user_onenote = CliCommandType(
     operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._usersonenote_operations#usersonenoteOperations.{}'
+        'azext_notes_beta.vendored_sdks.notes.operations._users_onenote_operations#UsersOnenoteOperations.{}'
     ),
-    client_factory=cf_usersonenote,
+    client_factory=cf_user_onenote,
 )
 
 
-notes_beta_usersonenotenotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebooks_operations#usersonenotenotebooksOperations.{}',
-    client_factory=cf_usersonenotenotebook,
+notes_beta_user_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_operations#UsersOnenoteNotebooksOperations.{}',
+    client_factory=cf_user_onenote_notebook,
 )
 
 
-notes_beta_usersonenotenotebookssectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssectiongroups_operations#usersonenotenotebookssectiongroupsOperations.{}',
-    client_factory=cf_usersonenotenotebookssectiongroup,
+notes_beta_user_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_operations#UsersOnenoteNotebooksSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group,
 )
 
 
-notes_beta_usersonenotenotebookssectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssectiongroupssections_operations#usersonenotenotebookssectiongroupssectionsOperations.{}',
-    client_factory=cf_usersonenotenotebookssectiongroupssection,
+notes_beta_user_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_sections_operations#UsersOnenoteNotebooksSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section,
 )
 
 
-notes_beta_usersonenotenotebookssectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssectiongroupssectionspages_operations#usersonenotenotebookssectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
+notes_beta_user_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_sections_pages_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page,
 )
 
 
-notes_beta_usersonenotenotebookssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssections_operations#usersonenotenotebookssectionsOperations.{}',
-    client_factory=cf_usersonenotenotebookssection,
+notes_beta_user_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_sections_operations#UsersOnenoteNotebooksSectionsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section,
 )
 
 
-notes_beta_usersonenotenotebookssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssectionspages_operations#usersonenotenotebookssectionspagesOperations.{}',
-    client_factory=cf_usersonenotenotebookssectionspage,
+notes_beta_user_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_sections_pages_operations#UsersOnenoteNotebooksSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page,
 )
 
 
-notes_beta_usersonenotenotebookssectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotenotebookssectionsparentsectiongroup_operations#usersonenotenotebookssectionsparentsectiongroupOperations.{}',
-    client_factory=cf_usersonenotenotebookssectionsparentsectiongroup,
+notes_beta_user_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_notebooks_sections_parent_section_group_operations#UsersOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group,
 )
 
 
-notes_beta_usersonenotepage = CliCommandType(
+notes_beta_user_onenote_page = CliCommandType(
     operations_tmpl=(
-        'azext_notes_beta.vendored_sdks.notes.operations._usersonenotepages_operations#usersonenotepagesOperations.{}'
+        'azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_operations#UsersOnenotePagesOperations.{}'
     ),
-    client_factory=cf_usersonenotepage,
+    client_factory=cf_user_onenote_page,
 )
 
 
-notes_beta_usersonenotepagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentnotebook_operations#usersonenotepagesparentnotebookOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebook,
+notes_beta_user_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_operations#UsersOnenotePagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook,
 )
 
 
-notes_beta_usersonenotepagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectiongroups_operations#usersonenotepagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksectiongroup,
+notes_beta_user_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_section_groups_operations#UsersOnenotePagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group,
 )
 
 
-notes_beta_usersonenotepagesparentnotebooksectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectiongroupssections_operations#usersonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksectiongroupssection,
+notes_beta_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_section_groups_sections_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
 )
 
 
-notes_beta_usersonenoteparentnotebooksectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenoteparentnotebooksectiongroupssectionspages_operations#usersonenoteparentnotebooksectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenoteparentnotebooksectiongroupssectionspage,
+notes_beta_user_onenote_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_parent_notebook_section_groups_sections_pages_operations#UsersOnenoteParentNotebookSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_parent_notebook_section_group_section_page,
 )
 
 
-notes_beta_usersonenotepagesparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksections_operations#usersonenotepagesparentnotebooksectionsOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksection,
+notes_beta_user_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_sections_operations#UsersOnenotePagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section,
 )
 
 
-notes_beta_usersonenoteparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenoteparentnotebooksectionspages_operations#usersonenoteparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_usersonenoteparentnotebooksectionspage,
+notes_beta_user_onenote_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_parent_notebook_sections_pages_operations#UsersOnenoteParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_parent_notebook_section_page,
 )
 
 
-notes_beta_usersonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectionsparentsectiongroup_operations#usersonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
-    client_factory=cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+notes_beta_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_sections_parent_section_group_operations#UsersOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
-notes_beta_usersonenotepagesparentsection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentsection_operations#usersonenotepagesparentsectionOperations.{}',
-    client_factory=cf_usersonenotepagesparentsection,
+notes_beta_user_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_section_operations#UsersOnenotePagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section,
 )
 
 
-notes_beta_usersonenoteparentsectionpage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenoteparentsectionpages_operations#usersonenoteparentsectionpagesOperations.{}',
-    client_factory=cf_usersonenoteparentsectionpage,
+notes_beta_user_onenote_parent_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_parent_section_pages_operations#UsersOnenoteParentSectionPagesOperations.{}',
+    client_factory=cf_user_onenote_parent_section_page,
 )
 
 
-notes_beta_usersonenotepagesparentsectionparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentnotebook_operations#usersonenotepagesparentsectionparentnotebookOperations.{}',
-    client_factory=cf_usersonenotepagesparentsectionparentnotebook,
+notes_beta_user_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_notebook_operations#UsersOnenotePagesParentSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook,
 )
 
 
-notes_beta_usersonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentnotebooksectiongroups_operations#usersonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
+notes_beta_user_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_notebook_section_groups_operations#UsersOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
-notes_beta_usersonenotepagesparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentsectiongroup_operations#usersonenotepagesparentsectionparentsectiongroupOperations.{}',
-    client_factory=cf_usersonenotepagesparentsectiongroup,
+notes_beta_user_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_section_group_operations#UsersOnenotePagesParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group,
 )
 
 
-notes_beta_usersonenotepagesparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentsectiongroupparentnotebook_operations#usersonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_usersonenotepagesparentsectiongroupparentnotebook,
+notes_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#UsersOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
-notes_beta_usersonenotesectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroups_operations#usersonenotesectiongroupsOperations.{}',
-    client_factory=cf_usersonenotesectiongroup,
+notes_beta_user_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_operations#UsersOnenoteSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_section_group,
 )
 
 
-notes_beta_usersonenotesectiongroupsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebook_operations#usersonenotesectiongroupsparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectiongroupsparentnotebook,
+notes_beta_user_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_operations#UsersOnenoteSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook,
 )
 
 
-notes_beta_usersonenotesectiongroupsparentnotebooksection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebooksections_operations#usersonenotesectiongroupsparentnotebooksectionsOperations.{}',
-    client_factory=cf_usersonenotesectiongroupsparentnotebooksection,
+notes_beta_user_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_sections_operations#UsersOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section,
 )
 
 
-notes_beta_usersonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebooksectionspages_operations#usersonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+notes_beta_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_sections_pages_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
 )
 
 
-notes_beta_usersonenotesectiongroupssection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupssections_operations#usersonenotesectiongroupssectionsOperations.{}',
-    client_factory=cf_usersonenotesectiongroupssection,
+notes_beta_user_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_sections_operations#UsersOnenoteSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_section,
 )
 
 
-notes_beta_usersonenotesectiongroupssectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupssectionspages_operations#usersonenotesectiongroupssectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectiongroupssectionspage,
+notes_beta_user_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_sections_pages_operations#UsersOnenoteSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page,
 )
 
 
-notes_beta_usersonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupssectionspagesparentnotebook_operations#usersonenotesectiongroupssectionspagesparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectiongroupssectionspagesparentnotebook,
+notes_beta_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_sections_pages_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
 )
 
 
-notes_beta_usersonenotesectiongroupssectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectiongroupssectionsparentnotebook_operations#usersonenotesectiongroupssectionsparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectiongroupssectionsparentnotebook,
+notes_beta_user_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_section_groups_sections_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook,
 )
 
 
-notes_beta_usersonenotesection = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesections_operations#usersonenotesectionsOperations.{}',
-    client_factory=cf_usersonenotesection,
+notes_beta_user_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_operations#UsersOnenoteSectionsOperations.{}',
+    client_factory=cf_user_onenote_section,
 )
 
 
-notes_beta_usersonenotesectionspage = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionspages_operations#usersonenotesectionspagesOperations.{}',
-    client_factory=cf_usersonenotesectionspage,
+notes_beta_user_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_pages_operations#UsersOnenoteSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_page,
 )
 
 
-notes_beta_usersonenotesectionspagesparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionspagesparentnotebook_operations#usersonenotesectionspagesparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectionspagesparentnotebook,
+notes_beta_user_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_pages_parent_notebook_operations#UsersOnenoteSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook,
 )
 
 
-notes_beta_usersonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionspagesparentnotebooksectiongroups_operations#usersonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_usersonenotesectionspagesparentnotebooksectiongroup,
+notes_beta_user_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_pages_parent_notebook_section_groups_operations#UsersOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group,
 )
 
 
-notes_beta_usersonenotesectionsparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionsparentnotebook_operations#usersonenotesectionsparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectionsparentnotebook,
+notes_beta_user_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_parent_notebook_operations#UsersOnenoteSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook,
 )
 
 
-notes_beta_usersonenotesectionsparentnotebooksectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionsparentnotebooksectiongroups_operations#usersonenotesectionsparentnotebooksectiongroupsOperations.{}',
-    client_factory=cf_usersonenotesectionsparentnotebooksectiongroup,
+notes_beta_user_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_parent_notebook_section_groups_operations#UsersOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group,
 )
 
 
-notes_beta_usersonenotesectionsparentsectiongroup = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionsparentsectiongroup_operations#usersonenotesectionsparentsectiongroupOperations.{}',
-    client_factory=cf_usersonenotesectionsparentsectiongroup,
+notes_beta_user_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_parent_section_group_operations#UsersOnenoteSectionsParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group,
 )
 
 
-notes_beta_usersonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
-    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._usersonenotesectionsparentsectiongroupparentnotebook_operations#usersonenotesectionsparentsectiongroupparentnotebookOperations.{}',
-    client_factory=cf_usersonenotesectionsparentsectiongroupparentnotebook,
+notes_beta_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_beta.vendored_sdks.notes.operations._users_onenote_sections_parent_section_group_parent_notebook_operations#UsersOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
 )
 
 
@@ -855,1003 +853,1127 @@ def load_command_table(self, _):
         g.custom_command('show-onenote', 'notes_group_show_onenote')
         g.custom_command('update-onenote', 'notes_group_update_onenote')
 
-    with self.command_group('notes groupsonenote', notes_beta_groupsonenote, client_factory=cf_groupsonenote) as g:
-        g.custom_command('create-notebook', 'notes_groupsonenote_create_notebook')
-        g.custom_command('create-operation', 'notes_groupsonenote_create_operation')
-        g.custom_command('create-page', 'notes_groupsonenote_create_page')
-        g.custom_command('create-resource', 'notes_groupsonenote_create_resource')
-        g.custom_command('create-section', 'notes_groupsonenote_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenote_create_section_group')
-        g.custom_command('delete-notebook', 'notes_groupsonenote_delete_notebook')
-        g.custom_command('delete-operation', 'notes_groupsonenote_delete_operation')
-        g.custom_command('delete-page', 'notes_groupsonenote_delete_page')
-        g.custom_command('delete-resource', 'notes_groupsonenote_delete_resource')
-        g.custom_command('delete-section', 'notes_groupsonenote_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenote_delete_section_group')
-        g.custom_command('list-notebook', 'notes_groupsonenote_list_notebook')
-        g.custom_command('list-operation', 'notes_groupsonenote_list_operation')
-        g.custom_command('list-page', 'notes_groupsonenote_list_page')
-        g.custom_command('list-resource', 'notes_groupsonenote_list_resource')
-        g.custom_command('list-section', 'notes_groupsonenote_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenote_list_section_group')
-        g.custom_command('set-page-content', 'notes_groupsonenote_set_page_content')
-        g.custom_command('set-resource-content', 'notes_groupsonenote_set_resource_content')
-        g.custom_command('show-notebook', 'notes_groupsonenote_show_notebook')
-        g.custom_command('show-operation', 'notes_groupsonenote_show_operation')
-        g.custom_command('show-page', 'notes_groupsonenote_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenote_show_page_content')
-        g.custom_command('show-resource', 'notes_groupsonenote_show_resource')
-        g.custom_command('show-resource-content', 'notes_groupsonenote_show_resource_content')
-        g.custom_command('show-section', 'notes_groupsonenote_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenote_show_section_group')
-        g.custom_command('update-notebook', 'notes_groupsonenote_update_notebook')
-        g.custom_command('update-operation', 'notes_groupsonenote_update_operation')
-        g.custom_command('update-page', 'notes_groupsonenote_update_page')
-        g.custom_command('update-resource', 'notes_groupsonenote_update_resource')
-        g.custom_command('update-section', 'notes_groupsonenote_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenote_update_section_group')
+    with self.command_group('notes group-onenote', notes_beta_group_onenote, client_factory=cf_group_onenote) as g:
+        g.custom_command('create-notebook', 'notes_group_onenote_create_notebook')
+        g.custom_command('create-operation', 'notes_group_onenote_create_operation')
+        g.custom_command('create-page', 'notes_group_onenote_create_page')
+        g.custom_command('create-resource', 'notes_group_onenote_create_resource')
+        g.custom_command('create-section', 'notes_group_onenote_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_group_onenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_group_onenote_delete_operation')
+        g.custom_command('delete-page', 'notes_group_onenote_delete_page')
+        g.custom_command('delete-resource', 'notes_group_onenote_delete_resource')
+        g.custom_command('delete-section', 'notes_group_onenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_group_onenote_list_notebook')
+        g.custom_command('list-operation', 'notes_group_onenote_list_operation')
+        g.custom_command('list-page', 'notes_group_onenote_list_page')
+        g.custom_command('list-resource', 'notes_group_onenote_list_resource')
+        g.custom_command('list-section', 'notes_group_onenote_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_list_section_group')
+        g.custom_command('set-page-content', 'notes_group_onenote_set_page_content')
+        g.custom_command('set-resource-content', 'notes_group_onenote_set_resource_content')
+        g.custom_command('show-notebook', 'notes_group_onenote_show_notebook')
+        g.custom_command('show-operation', 'notes_group_onenote_show_operation')
+        g.custom_command('show-page', 'notes_group_onenote_show_page')
+        g.custom_command('show-page-content', 'notes_group_onenote_show_page_content')
+        g.custom_command('show-resource', 'notes_group_onenote_show_resource')
+        g.custom_command('show-resource-content', 'notes_group_onenote_show_resource_content')
+        g.custom_command('show-section', 'notes_group_onenote_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_group_onenote_update_notebook')
+        g.custom_command('update-operation', 'notes_group_onenote_update_operation')
+        g.custom_command('update-page', 'notes_group_onenote_update_page')
+        g.custom_command('update-resource', 'notes_group_onenote_update_resource')
+        g.custom_command('update-section', 'notes_group_onenote_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenote_update_section_group')
 
     with self.command_group(
-        'notes groupsonenotenotebook', notes_beta_groupsonenotenotebook, client_factory=cf_groupsonenotenotebook
+        'notes group-onenotebook', notes_beta_group_onenote_notebook, client_factory=cf_group_onenote_notebook
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotenotebook_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotenotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotenotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotenotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotenotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotenotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotenotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotenotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotenotebook_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotenotebook_update_section_group')
+        g.custom_command('create-section', 'notes_group_onenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_group_onenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_group_onenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_group_onenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_group_onenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenotebook_update_section_group')
 
     with self.command_group(
-        'notes groupsonenotenotebookssectiongroup',
-        notes_beta_groupsonenotenotebookssectiongroup,
-        client_factory=cf_groupsonenotenotebookssectiongroup,
+        'notes group-onenotebook-section-group',
+        notes_beta_group_onenote_notebook_section_group,
+        client_factory=cf_group_onenote_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotenotebookssectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotenotebookssectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_group_onenotebook_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenotebook_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenotebook_section_group_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_group_onenotebook_section_group_delete_parent_section_group'
         )
-        g.custom_command('delete-section', 'notes_groupsonenotenotebookssectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotenotebookssectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotenotebookssectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotenotebookssectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command('delete-section', 'notes_group_onenotebook_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenotebook_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_group_onenotebook_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenotebook_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_group_onenotebook_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_group_onenotebook_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_group_onenotebook_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenotebook_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_group_onenotebook_section_group_update_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_show_parent_section_group'
+            'update-parent-section-group', 'notes_group_onenotebook_section_group_update_parent_section_group'
         )
-        g.custom_command('show-section', 'notes_groupsonenotenotebookssectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotenotebookssectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_groupsonenotenotebookssectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotenotebookssectiongroup_update_section_group')
+        g.custom_command('update-section', 'notes_group_onenotebook_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenotebook_section_group_update_section_group')
 
     with self.command_group(
-        'notes groupsonenotenotebookssectiongroupssection',
-        notes_beta_groupsonenotenotebookssectiongroupssection,
-        client_factory=cf_groupsonenotenotebookssectiongroupssection,
+        'notes group-onenotebook-section-group-section',
+        notes_beta_group_onenote_notebook_section_group_section,
+        client_factory=cf_group_onenote_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotenotebookssectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_group_onenotebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenotebook_section_group_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_group_onenotebook_section_group_section_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_group_onenotebook_section_group_section_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_group_onenotebook_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_group_onenotebook_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_group_onenotebook_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_group_onenotebook_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_group_onenotebook_section_group_section_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_group_onenotebook_section_group_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_group_onenotebook_section_group_section_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenotebook_section_group_section_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_group_onenotebook_section_group_section_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenotebook-section-group-section-page',
+        notes_beta_group_onenote_notebook_section_group_section_page,
+        client_factory=cf_group_onenote_notebook_section_group_section_page,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_group_onenotebook_section_group_section_page_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_group_onenotebook_section_group_section_page_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_group_onenotebook_section_group_section_page_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_group_onenotebook_section_group_section_page_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenotebook_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_group_onenotebook_section_group_section_page_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes group-onenotebook-section',
+        notes_beta_group_onenote_notebook_section,
+        client_factory=cf_group_onenote_notebook_section,
+    ) as g:
+        g.custom_command('create-page', 'notes_group_onenotebook_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenotebook_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenotebook_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_group_onenotebook_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_group_onenotebook_section_list_page')
+        g.custom_command('set-page-content', 'notes_group_onenotebook_section_set_page_content')
+        g.custom_command('show-page', 'notes_group_onenotebook_section_show_page')
+        g.custom_command('show-page-content', 'notes_group_onenotebook_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_group_onenotebook_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_group_onenotebook_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_group_onenotebook_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_group_onenotebook_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_group_onenotebook_section_update_parent_section_group')
+
+    with self.command_group(
+        'notes group-onenotebook-section-page',
+        notes_beta_group_onenote_notebook_section_page,
+        client_factory=cf_group_onenote_notebook_section_page,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_group_onenotebook_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_group_onenotebook_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_group_onenotebook_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_group_onenotebook_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_group_onenotebook_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_group_onenotebook_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes group-onenotebook-section-parent-section-group',
+        notes_beta_group_onenote_notebook_section_parent_section_group,
+        client_factory=cf_group_onenote_notebook_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenotebook_section_parent_section_group_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenotebook_section_parent_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_group_onenotebook_section_parent_section_group_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotenotebookssectiongroupssection_delete_parent_section_group',
+            'notes_group_onenotebook_section_parent_section_group_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_groupsonenotenotebookssectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_groupsonenotenotebookssectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_groupsonenotenotebookssectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenotenotebookssectiongroupssection_show_page_content')
+        g.custom_command('delete-section', 'notes_group_onenotebook_section_parent_section_group_delete_section')
         g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_show_parent_notebook'
+            'delete-section-group', 'notes_group_onenotebook_section_parent_section_group_delete_section_group'
         )
+        g.custom_command('list-section', 'notes_group_onenotebook_section_parent_section_group_list_section')
         g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotenotebookssectiongroupssection_show_parent_section_group'
-        )
-        g.custom_command('update-page', 'notes_groupsonenotenotebookssectiongroupssection_update_page')
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_update_parent_notebook'
+            'list-section-group', 'notes_group_onenotebook_section_parent_section_group_list_section_group'
         )
         g.custom_command(
-            'update-parent-section-group',
-            'notes_groupsonenotenotebookssectiongroupssection_update_parent_section_group',
-        )
-
-    with self.command_group(
-        'notes groupsonenotenotebookssectiongroupssectionspage',
-        notes_beta_groupsonenotenotebookssectiongroupssectionspage,
-        client_factory=cf_groupsonenotenotebookssectiongroupssectionspage,
-    ) as g:
-        g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_delete_parent_section'
-        )
-        g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_show_parent_section'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_update_parent_section'
-        )
-
-    with self.command_group(
-        'notes groupsonenotenotebookssection',
-        notes_beta_groupsonenotenotebookssection,
-        client_factory=cf_groupsonenotenotebookssection,
-    ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotenotebookssection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotenotebookssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssection_delete_parent_notebook')
-        g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotenotebookssection_delete_parent_section_group'
-        )
-        g.custom_command('list-page', 'notes_groupsonenotenotebookssection_list_page')
-        g.custom_command('set-page-content', 'notes_groupsonenotenotebookssection_set_page_content')
-        g.custom_command('show-page', 'notes_groupsonenotenotebookssection_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenotenotebookssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_groupsonenotenotebookssection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_groupsonenotenotebookssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssection_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotenotebookssection_update_parent_section_group'
-        )
-
-    with self.command_group(
-        'notes groupsonenotenotebookssectionspage',
-        notes_beta_groupsonenotenotebookssectionspage,
-        client_factory=cf_groupsonenotenotebookssectionspage,
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_groupsonenotenotebookssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_groupsonenotenotebookssectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_groupsonenotenotebookssectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes groupsonenotenotebookssectionsparentsectiongroup',
-        notes_beta_groupsonenotenotebookssectionsparentsectiongroup,
-        client_factory=cf_groupsonenotenotebookssectionsparentsectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_create_section_group'
-        )
-        g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group',
-            'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_list_section_group'
-        )
-        g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+            'show-parent-notebook', 'notes_group_onenotebook_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+            'notes_group_onenotebook_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command('show-section', 'notes_group_onenotebook_section_parent_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_section_group'
+            'show-section-group', 'notes_group_onenotebook_section_parent_section_group_show_section_group'
         )
         g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_group_onenotebook_section_parent_section_group_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
+            'notes_group_onenotebook_section_parent_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_section')
+        g.custom_command('update-section', 'notes_group_onenotebook_section_parent_section_group_update_section')
         g.custom_command(
-            'update-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_section_group'
+            'update-section-group', 'notes_group_onenotebook_section_parent_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes groupsonenotepage', notes_beta_groupsonenotepage, client_factory=cf_groupsonenotepage
+        'notes group-onenote-page', notes_beta_group_onenote_page, client_factory=cf_group_onenote_page
     ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_groupsonenotepage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotepage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_groupsonenotepage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotepage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_groupsonenotepage_update_parent_section')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_group_onenote_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_group_onenote_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_group_onenote_page_update_parent_section')
 
     with self.command_group(
-        'notes groupsonenotepagesparentnotebook',
-        notes_beta_groupsonenotepagesparentnotebook,
-        client_factory=cf_groupsonenotepagesparentnotebook,
+        'notes group-onenote-page-parent-notebook',
+        notes_beta_group_onenote_page_parent_notebook,
+        client_factory=cf_group_onenote_page_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotepagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotepagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotepagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotepagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotepagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotepagesparentnotebook_update_section_group')
+        g.custom_command('create-section', 'notes_group_onenote_page_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenote_page_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_group_onenote_page_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenote_page_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_group_onenote_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_group_onenote_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_group_onenote_page_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenote_page_parent_notebook_update_section_group')
 
     with self.command_group(
-        'notes groupsonenotepagesparentnotebooksectiongroup',
-        notes_beta_groupsonenotepagesparentnotebooksectiongroup,
-        client_factory=cf_groupsonenotepagesparentnotebooksectiongroup,
+        'notes group-onenote-page-parent-notebook-section-group',
+        notes_beta_group_onenote_page_parent_notebook_section_group,
+        client_factory=cf_group_onenote_page_parent_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_create_section')
+        g.custom_command('create-section', 'notes_group_onenote_page_parent_notebook_section_group_create_section')
         g.custom_command(
-            'create-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_create_section_group'
+            'create-section-group', 'notes_group_onenote_page_parent_notebook_section_group_create_section_group'
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_group_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_group_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_section')
+        g.custom_command('delete-section', 'notes_group_onenote_page_parent_notebook_section_group_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_section_group'
+            'delete-section-group', 'notes_group_onenote_page_parent_notebook_section_group_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_list_section_group')
+        g.custom_command('list-section', 'notes_group_onenote_page_parent_notebook_section_group_list_section')
         g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_parent_notebook'
+            'list-section-group', 'notes_group_onenote_page_parent_notebook_section_group_list_section_group'
         )
         g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_parent_section_group'
+            'show-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_group_show_parent_notebook'
         )
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_section_group')
         g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+            'show-parent-section-group',
+            'notes_group_onenote_page_parent_notebook_section_group_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_group_onenote_page_parent_notebook_section_group_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_page_parent_notebook_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_group_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command('update-section', 'notes_group_onenote_page_parent_notebook_section_group_update_section')
         g.custom_command(
-            'update-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_section_group'
+            'update-section-group', 'notes_group_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes groupsonenotepagesparentnotebooksectiongroupssection',
-        notes_beta_groupsonenotepagesparentnotebooksectiongroupssection,
-        client_factory=cf_groupsonenotepagesparentnotebooksectiongroupssection,
+        'notes group-onenote-page-parent-notebook-section-group-section',
+        notes_beta_group_onenote_page_parent_notebook_section_group_section,
+        client_factory=cf_group_onenote_page_parent_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_group_onenote_page_parent_notebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_page_parent_notebook_section_group_section_delete_page')
         g.custom_command(
             'delete-parent-notebook',
-            'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook',
+            'notes_group_onenote_page_parent_notebook_section_group_section_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_group_section_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_list_page')
-        g.custom_command('show-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command('list-page', 'notes_group_onenote_page_parent_notebook_section_group_section_list_page')
+        g.custom_command('show-page', 'notes_group_onenote_page_parent_notebook_section_group_section_show_page')
         g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+            'show-parent-notebook',
+            'notes_group_onenote_page_parent_notebook_section_group_section_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_group_section_show_parent_section_group',
         )
-        g.custom_command('update-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command('update-page', 'notes_group_onenote_page_parent_notebook_section_group_section_update_page')
         g.custom_command(
             'update-parent-notebook',
-            'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_parent_notebook',
+            'notes_group_onenote_page_parent_notebook_section_group_section_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes groupsonenoteparentnotebooksectiongroupssectionspage',
-        notes_beta_groupsonenoteparentnotebooksectiongroupssectionspage,
-        client_factory=cf_groupsonenoteparentnotebooksectiongroupssectionspage,
+        'notes group-onenote-parent-notebook-section-group-section-page',
+        notes_beta_group_onenote_parent_notebook_section_group_section_page,
+        client_factory=cf_group_onenote_parent_notebook_section_group_section_page,
     ) as g:
         g.custom_command(
-            'set-page-content', 'notes_groupsonenoteparentnotebooksectiongroupssectionspage_set_page_content'
+            'set-page-content', 'notes_group_onenote_parent_notebook_section_group_section_page_set_page_content'
         )
         g.custom_command(
-            'show-page-content', 'notes_groupsonenoteparentnotebooksectiongroupssectionspage_show_page_content'
+            'show-page-content', 'notes_group_onenote_parent_notebook_section_group_section_page_show_page_content'
         )
 
     with self.command_group(
-        'notes groupsonenotepagesparentnotebooksection',
-        notes_beta_groupsonenotepagesparentnotebooksection,
-        client_factory=cf_groupsonenotepagesparentnotebooksection,
+        'notes group-onenote-page-parent-notebook-section',
+        notes_beta_group_onenote_page_parent_notebook_section,
+        client_factory=cf_group_onenote_page_parent_notebook_section,
     ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotepagesparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotepagesparentnotebooksection_delete_page')
+        g.custom_command('create-page', 'notes_group_onenote_page_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_page_parent_notebook_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_delete_parent_section_group'
+            'delete-parent-section-group',
+            'notes_group_onenote_page_parent_notebook_section_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_groupsonenotepagesparentnotebooksection_list_page')
-        g.custom_command('show-page', 'notes_groupsonenotepagesparentnotebooksection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command('list-page', 'notes_group_onenote_page_parent_notebook_section_list_page')
+        g.custom_command('show-page', 'notes_group_onenote_page_parent_notebook_section_show_page')
         g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_show_parent_section_group'
-        )
-        g.custom_command('update-page', 'notes_groupsonenotepagesparentnotebooksection_update_page')
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_update_parent_notebook'
+            'show-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_show_parent_notebook'
         )
         g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_update_parent_section_group'
+            'show-parent-section-group', 'notes_group_onenote_page_parent_notebook_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_group_onenote_page_parent_notebook_section_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenote_page_parent_notebook_section_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_group_onenote_page_parent_notebook_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes groupsonenoteparentnotebooksectionspage',
-        notes_beta_groupsonenoteparentnotebooksectionspage,
-        client_factory=cf_groupsonenoteparentnotebooksectionspage,
+        'notes group-onenote-parent-notebook-section-page',
+        notes_beta_group_onenote_parent_notebook_section_page,
+        client_factory=cf_group_onenote_parent_notebook_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_groupsonenoteparentnotebooksectionspage_set_page_content')
-        g.custom_command('show-page-content', 'notes_groupsonenoteparentnotebooksectionspage_show_page_content')
+        g.custom_command('set-page-content', 'notes_group_onenote_parent_notebook_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_group_onenote_parent_notebook_section_page_show_page_content')
 
     with self.command_group(
-        'notes groupsonenotepagesparentnotebooksectionsparentsectiongroup',
-        notes_beta_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
-        client_factory=cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+        'notes group-onenote-page-parent-notebook-section-parent-section-group',
+        notes_beta_group_onenote_page_parent_notebook_section_parent_section_group,
+        client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+            'create-section', 'notes_group_onenote_page_parent_notebook_section_parent_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+            'delete-section', 'notes_group_onenote_page_parent_notebook_section_parent_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_delete_section_group',
         )
         g.custom_command(
-            'list-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_list_section'
+            'list-section', 'notes_group_onenote_page_parent_notebook_section_parent_section_group_list_section'
         )
         g.custom_command(
-            'list-section-group', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+            'list-section-group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_show_parent_section_group',
         )
         g.custom_command(
-            'show-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_section'
+            'show-section', 'notes_group_onenote_page_parent_notebook_section_parent_section_group_show_section'
         )
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+            'show-section-group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+            'update-section', 'notes_group_onenote_page_parent_notebook_section_parent_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+            'notes_group_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes groupsonenotepagesparentsection',
-        notes_beta_groupsonenotepagesparentsection,
-        client_factory=cf_groupsonenotepagesparentsection,
+        'notes group-onenote-page-parent-section',
+        notes_beta_group_onenote_page_parent_section,
+        client_factory=cf_group_onenote_page_parent_section,
     ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotepagesparentsection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotepagesparentsection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command('create-page', 'notes_group_onenote_page_parent_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_page_parent_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_page_parent_section_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotepagesparentsection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_group_onenote_page_parent_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_groupsonenotepagesparentsection_list_page')
-        g.custom_command('show-page', 'notes_groupsonenotepagesparentsection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentsection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_groupsonenotepagesparentsection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_groupsonenotepagesparentsection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotepagesparentsection_update_parent_notebook')
+        g.custom_command('list-page', 'notes_group_onenote_page_parent_section_list_page')
+        g.custom_command('show-page', 'notes_group_onenote_page_parent_section_show_page')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_page_parent_section_show_parent_notebook')
         g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotepagesparentsection_update_parent_section_group'
+            'show-parent-section-group', 'notes_group_onenote_page_parent_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_group_onenote_page_parent_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_page_parent_section_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_group_onenote_page_parent_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes groupsonenoteparentsectionpage',
-        notes_beta_groupsonenoteparentsectionpage,
-        client_factory=cf_groupsonenoteparentsectionpage,
+        'notes group-onenote-parent-section-page',
+        notes_beta_group_onenote_parent_section_page,
+        client_factory=cf_group_onenote_parent_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_groupsonenoteparentsectionpage_set_page_content')
-        g.custom_command('show-page-content', 'notes_groupsonenoteparentsectionpage_show_page_content')
+        g.custom_command('set-page-content', 'notes_group_onenote_parent_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_group_onenote_parent_section_page_show_page_content')
 
     with self.command_group(
-        'notes groupsonenotepagesparentsectionparentnotebook',
-        notes_beta_groupsonenotepagesparentsectionparentnotebook,
-        client_factory=cf_groupsonenotepagesparentsectionparentnotebook,
+        'notes group-onenote-page-parent-section-parent-notebook',
+        notes_beta_group_onenote_page_parent_section_parent_notebook,
+        client_factory=cf_group_onenote_page_parent_section_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command('create-section', 'notes_group_onenote_page_parent_section_parent_notebook_create_section')
         g.custom_command(
-            'create-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_create_section_group'
+            'create-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command('delete-section', 'notes_group_onenote_page_parent_section_parent_notebook_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_delete_section_group'
+            'delete-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectionparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectionparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command('list-section', 'notes_group_onenote_page_parent_section_parent_notebook_list_section')
         g.custom_command(
-            'update-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_update_section_group'
+            'list-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_group_onenote_page_parent_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_group_onenote_page_parent_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
     with self.command_group(
-        'notes groupsonenotepagesparentsectionparentnotebooksectiongroup',
-        notes_beta_groupsonenotepagesparentsectionparentnotebooksectiongroup,
-        client_factory=cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+        'notes group-onenote-page-parent-section-parent-notebook-section-group',
+        notes_beta_group_onenote_page_parent_section_parent_notebook_section_group,
+        client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+            'create-section', 'notes_group_onenote_page_parent_section_parent_notebook_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+            'delete-section', 'notes_group_onenote_page_parent_section_parent_notebook_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_delete_section_group',
         )
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_list_section')
         g.custom_command(
-            'list-section-group', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+            'list-section', 'notes_group_onenote_page_parent_section_parent_notebook_section_group_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_section')
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+            'show-section', 'notes_group_onenote_page_parent_section_parent_notebook_section_group_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+            'update-section', 'notes_group_onenote_page_parent_section_parent_notebook_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+            'notes_group_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes groupsonenotepagesparentsectiongroup',
-        notes_beta_groupsonenotepagesparentsectiongroup,
-        client_factory=cf_groupsonenotepagesparentsectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotepagesparentsectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_delete_parent_notebook')
-        g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_delete_parent_section_group'
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotepagesparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_show_parent_notebook')
-        g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentsectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotepagesparentsectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes groupsonenotepagesparentsectiongroupparentnotebook',
-        notes_beta_groupsonenotepagesparentsectiongroupparentnotebook,
-        client_factory=cf_groupsonenotepagesparentsectiongroupparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes groupsonenotesectiongroup',
-        notes_beta_groupsonenotesectiongroup,
-        client_factory=cf_groupsonenotesectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotesectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectiongroup_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_groupsonenotesectiongroup_delete_parent_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotesectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotesectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotesectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotesectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroup_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_groupsonenotesectiongroup_show_parent_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotesectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotesectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectiongroup_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_groupsonenotesectiongroup_update_parent_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotesectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotesectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupsparentnotebook',
-        notes_beta_groupsonenotesectiongroupsparentnotebook,
-        client_factory=cf_groupsonenotesectiongroupsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectiongroupsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotesectiongroupsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotesectiongroupsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotesectiongroupsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupsparentnotebooksection',
-        notes_beta_groupsonenotesectiongroupsparentnotebooksection,
-        client_factory=cf_groupsonenotesectiongroupsparentnotebooksection,
-    ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_delete_page')
-        g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group',
-            'notes_groupsonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
-        )
-        g.custom_command('list-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_list_page')
-        g.custom_command('set-page-content', 'notes_groupsonenotesectiongroupsparentnotebooksection_set_page_content')
-        g.custom_command('show-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenotesectiongroupsparentnotebooksection_show_page_content')
-        g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section-group',
-            'notes_groupsonenotesectiongroupsparentnotebooksection_show_parent_section_group',
-        )
-        g.custom_command('update-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_update_page')
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section-group',
-            'notes_groupsonenotesectiongroupsparentnotebooksection_update_parent_section_group',
-        )
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupsparentnotebooksectionspage',
-        notes_beta_groupsonenotesectiongroupsparentnotebooksectionspage,
-        client_factory=cf_groupsonenotesectiongroupsparentnotebooksectionspage,
+        'notes group-onenote-page-parent-section-parent-section-group',
+        notes_beta_group_onenote_page_parent_section_parent_section_group,
+        client_factory=cf_group_onenote_page_parent_section_parent_section_group,
     ) as g:
         g.custom_command(
-            'delete-parent-notebook',
-            'notes_groupsonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook',
+            'create-section', 'notes_group_onenote_page_parent_section_parent_section_group_create_section'
         )
         g.custom_command(
-            'delete-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
-        )
-        g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
-        )
-        g.custom_command(
-            'update-parent-notebook',
-            'notes_groupsonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook',
-        )
-        g.custom_command(
-            'update-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
-        )
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupssection',
-        notes_beta_groupsonenotesectiongroupssection,
-        client_factory=cf_groupsonenotesectiongroupssection,
-    ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotesectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotesectiongroupssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectiongroupssection_delete_parent_notebook')
-        g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotesectiongroupssection_delete_parent_section_group'
-        )
-        g.custom_command('list-page', 'notes_groupsonenotesectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_groupsonenotesectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_groupsonenotesectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenotesectiongroupssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroupssection_show_parent_notebook')
-        g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotesectiongroupssection_show_parent_section_group'
-        )
-        g.custom_command('update-page', 'notes_groupsonenotesectiongroupssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectiongroupssection_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotesectiongroupssection_update_parent_section_group'
-        )
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupssectionspage',
-        notes_beta_groupsonenotesectiongroupssectionspage,
-        client_factory=cf_groupsonenotesectiongroupssectionspage,
-    ) as g:
-        g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_delete_parent_notebook'
-        )
-        g.custom_command('delete-parent-section', 'notes_groupsonenotesectiongroupssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_groupsonenotesectiongroupssectionspage_show_parent_section')
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_update_parent_notebook'
-        )
-        g.custom_command('update-parent-section', 'notes_groupsonenotesectiongroupssectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupssectionspagesparentnotebook',
-        notes_beta_groupsonenotesectiongroupssectionspagesparentnotebook,
-        client_factory=cf_groupsonenotesectiongroupssectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes groupsonenotesectiongroupssectionsparentnotebook',
-        notes_beta_groupsonenotesectiongroupssectionsparentnotebook,
-        client_factory=cf_groupsonenotesectiongroupssectionsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes groupsonenotesection', notes_beta_groupsonenotesection, client_factory=cf_groupsonenotesection
-    ) as g:
-        g.custom_command('create-page', 'notes_groupsonenotesection_create_page')
-        g.custom_command('delete-page', 'notes_groupsonenotesection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesection_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_groupsonenotesection_delete_parent_section_group')
-        g.custom_command('list-page', 'notes_groupsonenotesection_list_page')
-        g.custom_command('set-page-content', 'notes_groupsonenotesection_set_page_content')
-        g.custom_command('show-page', 'notes_groupsonenotesection_show_page')
-        g.custom_command('show-page-content', 'notes_groupsonenotesection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_groupsonenotesection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_groupsonenotesection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotesection_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_groupsonenotesection_update_parent_section_group')
-
-    with self.command_group(
-        'notes groupsonenotesectionspage',
-        notes_beta_groupsonenotesectionspage,
-        client_factory=cf_groupsonenotesectionspage,
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_groupsonenotesectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_groupsonenotesectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_groupsonenotesectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes groupsonenotesectionspagesparentnotebook',
-        notes_beta_groupsonenotesectionspagesparentnotebook,
-        client_factory=cf_groupsonenotesectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionspagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotesectionspagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotesectionspagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotesectionspagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotesectionspagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotesectionspagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotesectionspagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotesectionspagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotesectionspagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotesectionspagesparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes groupsonenotesectionspagesparentnotebooksectiongroup',
-        notes_beta_groupsonenotesectionspagesparentnotebooksectiongroup,
-        client_factory=cf_groupsonenotesectionspagesparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_create_section_group'
+            'create-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_create_section_group'
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook',
+            'notes_group_onenote_page_parent_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+            'notes_group_onenote_page_parent_section_parent_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+            'delete-section', 'notes_group_onenote_page_parent_section_parent_section_group_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_page_parent_section_parent_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_group_onenote_page_parent_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+            'notes_group_onenote_page_parent_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section', 'notes_group_onenote_page_parent_section_parent_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_section_group'
+            'show-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_show_section_group'
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook',
+            'notes_group_onenote_page_parent_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
+            'notes_group_onenote_page_parent_section_parent_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_section')
         g.custom_command(
-            'update-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+            'update-section', 'notes_group_onenote_page_parent_section_parent_section_group_update_section'
+        )
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes groupsonenotesectionsparentnotebook',
-        notes_beta_groupsonenotesectionsparentnotebook,
-        client_factory=cf_groupsonenotesectionsparentnotebook,
+        'notes group-onenote-page-parent-section-parent-section-group-parent-notebook',
+        notes_beta_group_onenote_page_parent_section_parent_section_group_parent_notebook,
+        client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotesectionsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotesectionsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotesectionsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotesectionsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_groupsonenotesectionsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotesectionsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_groupsonenotesectionsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotesectionsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes groupsonenotesectionsparentnotebooksectiongroup',
-        notes_beta_groupsonenotesectionsparentnotebooksectiongroup,
-        client_factory=cf_groupsonenotesectionsparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_create_section')
         g.custom_command(
-            'create-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_create_section_group'
+            'create-section',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_create_section',
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+            'create-section-group',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_create_section_group',
+        )
+        g.custom_command(
+            'delete-section',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section',
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section_group',
+        )
+        g.custom_command(
+            'list-section', 'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_list_section_group',
+        )
+        g.custom_command(
+            'show-section', 'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_show_section_group',
+        )
+        g.custom_command(
+            'update-section',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_update_section',
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-group',
+        notes_beta_group_onenote_section_group,
+        client_factory=cf_group_onenote_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenote_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_section_group_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_group_onenote_section_group_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_group_onenote_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenote_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_group_onenote_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_group_onenote_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_group_onenote_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_section_group_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_group_onenote_section_group_update_parent_section_group')
+        g.custom_command('update-section', 'notes_group_onenote_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenote_section_group_update_section_group')
+
+    with self.command_group(
+        'notes group-onenote-section-group-parent-notebook',
+        notes_beta_group_onenote_section_group_parent_notebook,
+        client_factory=cf_group_onenote_section_group_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_group_parent_notebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenote_section_group_parent_notebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_group_onenote_section_group_parent_notebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_section_group_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_group_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_section_group_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_group_onenote_section_group_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_section_group_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_group_onenote_section_group_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_section_group_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-group-parent-notebook-section',
+        notes_beta_group_onenote_section_group_parent_notebook_section,
+        client_factory=cf_group_onenote_section_group_parent_notebook_section,
+    ) as g:
+        g.custom_command('create-page', 'notes_group_onenote_section_group_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_section_group_parent_notebook_section_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_group_onenote_section_group_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_group_onenote_section_group_parent_notebook_section_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_section')
+        g.custom_command('list-page', 'notes_group_onenote_section_group_parent_notebook_section_list_page')
         g.custom_command(
-            'delete-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_section_group'
+            'set-page-content', 'notes_group_onenote_section_group_parent_notebook_section_set_page_content'
         )
-        g.custom_command('list-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_list_section')
+        g.custom_command('show-page', 'notes_group_onenote_section_group_parent_notebook_section_show_page')
         g.custom_command(
-            'list-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_list_section_group'
+            'show-page-content', 'notes_group_onenote_section_group_parent_notebook_section_show_page_content'
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+            'show-parent-notebook', 'notes_group_onenote_section_group_parent_notebook_section_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_groupsonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+            'notes_group_onenote_section_group_parent_notebook_section_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command('update-page', 'notes_group_onenote_section_group_parent_notebook_section_update_page')
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_section_group'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_group_onenote_section_group_parent_notebook_section_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_groupsonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
-        )
-        g.custom_command('update-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_section_group'
+            'notes_group_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes groupsonenotesectionsparentsectiongroup',
-        notes_beta_groupsonenotesectionsparentsectiongroup,
-        client_factory=cf_groupsonenotesectionsparentsectiongroup,
+        'notes group-onenote-section-group-parent-notebook-section-page',
+        notes_beta_group_onenote_section_group_parent_notebook_section_page,
+        client_factory=cf_group_onenote_section_group_parent_notebook_section_page,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionsparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_groupsonenotesectionsparentsectiongroup_create_section_group')
         g.custom_command(
-            'delete-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_delete_parent_notebook'
+            'delete-parent-notebook',
+            'notes_group_onenote_section_group_parent_notebook_section_page_delete_parent_notebook',
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_delete_parent_section_group'
-        )
-        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_groupsonenotesectionsparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_groupsonenotesectionsparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_groupsonenotesectionsparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_show_parent_notebook')
-        g.custom_command(
-            'show-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_groupsonenotesectionsparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_groupsonenotesectionsparentsectiongroup_show_section_group')
-        g.custom_command(
-            'update-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_update_parent_notebook'
+            'delete-parent-section',
+            'notes_group_onenote_section_group_parent_notebook_section_page_delete_parent_section',
         )
         g.custom_command(
-            'update-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_update_parent_section_group'
+            'show-parent-notebook',
+            'notes_group_onenote_section_group_parent_notebook_section_page_show_parent_notebook',
         )
-        g.custom_command('update-section', 'notes_groupsonenotesectionsparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_groupsonenotesectionsparentsectiongroup_update_section_group')
+        g.custom_command(
+            'show-parent-section', 'notes_group_onenote_section_group_parent_notebook_section_page_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_group_onenote_section_group_parent_notebook_section_page_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section',
+            'notes_group_onenote_section_group_parent_notebook_section_page_update_parent_section',
+        )
 
     with self.command_group(
-        'notes groupsonenotesectionsparentsectiongroupparentnotebook',
-        notes_beta_groupsonenotesectionsparentsectiongroupparentnotebook,
-        client_factory=cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+        'notes group-onenote-section-group-section',
+        notes_beta_group_onenote_section_group_section,
+        client_factory=cf_group_onenote_section_group_section,
     ) as g:
-        g.custom_command('create-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command('create-page', 'notes_group_onenote_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_section_group_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_section_group_section_delete_parent_notebook')
         g.custom_command(
-            'create-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+            'delete-parent-section-group', 'notes_group_onenote_section_group_section_delete_parent_section_group'
         )
-        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_delete_section')
+        g.custom_command('list-page', 'notes_group_onenote_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_group_onenote_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_group_onenote_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_group_onenote_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_section_group_section_show_parent_notebook')
         g.custom_command(
-            'delete-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+            'show-parent-section-group', 'notes_group_onenote_section_group_section_show_parent_section_group'
         )
-        g.custom_command('list-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_list_section')
+        g.custom_command('update-page', 'notes_group_onenote_section_group_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_section_group_section_update_parent_notebook')
         g.custom_command(
-            'list-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+            'update-parent-section-group', 'notes_group_onenote_section_group_section_update_parent_section_group'
         )
-        g.custom_command('show-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_show_section')
+
+    with self.command_group(
+        'notes group-onenote-section-group-section-page',
+        notes_beta_group_onenote_section_group_section_page,
+        client_factory=cf_group_onenote_section_group_section_page,
+    ) as g:
         g.custom_command(
-            'show-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+            'delete-parent-notebook', 'notes_group_onenote_section_group_section_page_delete_parent_notebook'
         )
-        g.custom_command('update-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_update_section')
         g.custom_command(
-            'update-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+            'delete-parent-section', 'notes_group_onenote_section_group_section_page_delete_parent_section'
+        )
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_section_group_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_group_onenote_section_group_section_page_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenote_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_group_onenote_section_group_section_page_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-group-section-page-parent-notebook',
+        notes_beta_group_onenote_section_group_section_page_parent_notebook,
+        client_factory=cf_group_onenote_section_group_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_group_onenote_section_group_section_page_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_group_onenote_section_group_section_page_parent_notebook_create_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_group_onenote_section_group_section_page_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_group_onenote_section_group_section_page_parent_notebook_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_group_section_page_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_section_group_section_page_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_group_onenote_section_group_section_page_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_section_group_section_page_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_group_onenote_section_group_section_page_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_group_onenote_section_group_section_page_parent_notebook_update_section_group',
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-group-section-parent-notebook',
+        notes_beta_group_onenote_section_group_section_parent_notebook,
+        client_factory=cf_group_onenote_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_group_section_parent_notebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenote_section_group_section_parent_notebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_group_onenote_section_group_section_parent_notebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_section_group_section_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_group_section_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_section_group_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_group_onenote_section_group_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_section_group_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_group_onenote_section_group_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_section_group_section_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section', notes_beta_group_onenote_section, client_factory=cf_group_onenote_section
+    ) as g:
+        g.custom_command('create-page', 'notes_group_onenote_section_create_page')
+        g.custom_command('delete-page', 'notes_group_onenote_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_group_onenote_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_group_onenote_section_list_page')
+        g.custom_command('set-page-content', 'notes_group_onenote_section_set_page_content')
+        g.custom_command('show-page', 'notes_group_onenote_section_show_page')
+        g.custom_command('show-page-content', 'notes_group_onenote_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_group_onenote_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_group_onenote_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_group_onenote_section_update_parent_section_group')
+
+    with self.command_group(
+        'notes group-onenote-section-page',
+        notes_beta_group_onenote_section_page,
+        client_factory=cf_group_onenote_section_page,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_group_onenote_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_group_onenote_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_group_onenote_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_group_onenote_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_group_onenote_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_group_onenote_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes group-onenote-section-page-parent-notebook',
+        notes_beta_group_onenote_section_page_parent_notebook,
+        client_factory=cf_group_onenote_section_page_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_page_parent_notebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenote_section_page_parent_notebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_group_onenote_section_page_parent_notebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_section_page_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_section_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_group_onenote_section_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_section_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_group_onenote_section_page_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_section_page_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-page-parent-notebook-section-group',
+        notes_beta_group_onenote_section_page_parent_notebook_section_group,
+        client_factory=cf_group_onenote_section_page_parent_notebook_section_group,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_group_onenote_section_page_parent_notebook_section_group_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_group_onenote_section_page_parent_notebook_section_group_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_group_onenote_section_page_parent_notebook_section_group_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_page_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_section_page_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_group_onenote_section_page_parent_notebook_section_group_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_group_onenote_section_page_parent_notebook_section_group_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_section_page_parent_notebook_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_group_onenote_section_page_parent_notebook_section_group_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_group_onenote_section_page_parent_notebook_section_group_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_group_onenote_section_page_parent_notebook_section_group_update_section_group',
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-parent-notebook',
+        notes_beta_group_onenote_section_parent_notebook,
+        client_factory=cf_group_onenote_section_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_group_onenote_section_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_group_onenote_section_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_group_onenote_section_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_group_onenote_section_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_section_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_group_onenote_section_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_section_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_group_onenote_section_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_group_onenote_section_parent_notebook_update_section_group')
+
+    with self.command_group(
+        'notes group-onenote-section-parent-notebook-section-group',
+        notes_beta_group_onenote_section_parent_notebook_section_group,
+        client_factory=cf_group_onenote_section_parent_notebook_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_parent_notebook_section_group_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenote_section_parent_notebook_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_group_onenote_section_parent_notebook_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_group_onenote_section_parent_notebook_section_group_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_group_onenote_section_parent_notebook_section_group_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_section_parent_notebook_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_section_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_group_onenote_section_parent_notebook_section_group_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_group_onenote_section_parent_notebook_section_group_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_group_onenote_section_parent_notebook_section_group_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_section_parent_notebook_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenote_section_parent_notebook_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_group_onenote_section_parent_notebook_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_group_onenote_section_parent_notebook_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_section_parent_notebook_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-parent-section-group',
+        notes_beta_group_onenote_section_parent_section_group,
+        client_factory=cf_group_onenote_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_group_onenote_section_parent_section_group_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_group_onenote_section_parent_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_group_onenote_section_parent_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_group_onenote_section_parent_section_group_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_group_onenote_section_parent_section_group_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_group_onenote_section_parent_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_group_onenote_section_parent_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_group_onenote_section_parent_section_group_list_section_group')
+        g.custom_command(
+            'show-parent-notebook', 'notes_group_onenote_section_parent_section_group_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group', 'notes_group_onenote_section_parent_section_group_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_group_onenote_section_parent_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_group_onenote_section_parent_section_group_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_group_onenote_section_parent_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_group_onenote_section_parent_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_group_onenote_section_parent_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_group_onenote_section_parent_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes group-onenote-section-parent-section-group-parent-notebook',
+        notes_beta_group_onenote_section_parent_section_group_parent_notebook,
+        client_factory=cf_group_onenote_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_group_onenote_section_parent_section_group_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_group_onenote_section_parent_section_group_parent_notebook_create_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_group_onenote_section_parent_section_group_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_group_onenote_section_parent_section_group_parent_notebook_delete_section_group',
+        )
+        g.custom_command(
+            'list-section', 'notes_group_onenote_section_parent_section_group_parent_notebook_list_section'
+        )
+        g.custom_command(
+            'list-section-group', 'notes_group_onenote_section_parent_section_group_parent_notebook_list_section_group'
+        )
+        g.custom_command(
+            'show-section', 'notes_group_onenote_section_parent_section_group_parent_notebook_show_section'
+        )
+        g.custom_command(
+            'show-section-group', 'notes_group_onenote_section_parent_section_group_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_group_onenote_section_parent_section_group_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_group_onenote_section_parent_section_group_parent_notebook_update_section_group',
         )
 
     with self.command_group('notes site', notes_beta_site, client_factory=cf_site) as g:
@@ -1859,985 +1981,1077 @@ def load_command_table(self, _):
         g.custom_command('show-onenote', 'notes_site_show_onenote')
         g.custom_command('update-onenote', 'notes_site_update_onenote')
 
-    with self.command_group('notes sitesonenote', notes_beta_sitesonenote, client_factory=cf_sitesonenote) as g:
-        g.custom_command('create-notebook', 'notes_sitesonenote_create_notebook')
-        g.custom_command('create-operation', 'notes_sitesonenote_create_operation')
-        g.custom_command('create-page', 'notes_sitesonenote_create_page')
-        g.custom_command('create-resource', 'notes_sitesonenote_create_resource')
-        g.custom_command('create-section', 'notes_sitesonenote_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenote_create_section_group')
-        g.custom_command('delete-notebook', 'notes_sitesonenote_delete_notebook')
-        g.custom_command('delete-operation', 'notes_sitesonenote_delete_operation')
-        g.custom_command('delete-page', 'notes_sitesonenote_delete_page')
-        g.custom_command('delete-resource', 'notes_sitesonenote_delete_resource')
-        g.custom_command('delete-section', 'notes_sitesonenote_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenote_delete_section_group')
-        g.custom_command('list-notebook', 'notes_sitesonenote_list_notebook')
-        g.custom_command('list-operation', 'notes_sitesonenote_list_operation')
-        g.custom_command('list-page', 'notes_sitesonenote_list_page')
-        g.custom_command('list-resource', 'notes_sitesonenote_list_resource')
-        g.custom_command('list-section', 'notes_sitesonenote_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenote_list_section_group')
-        g.custom_command('set-page-content', 'notes_sitesonenote_set_page_content')
-        g.custom_command('set-resource-content', 'notes_sitesonenote_set_resource_content')
-        g.custom_command('show-notebook', 'notes_sitesonenote_show_notebook')
-        g.custom_command('show-operation', 'notes_sitesonenote_show_operation')
-        g.custom_command('show-page', 'notes_sitesonenote_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenote_show_page_content')
-        g.custom_command('show-resource', 'notes_sitesonenote_show_resource')
-        g.custom_command('show-resource-content', 'notes_sitesonenote_show_resource_content')
-        g.custom_command('show-section', 'notes_sitesonenote_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenote_show_section_group')
-        g.custom_command('update-notebook', 'notes_sitesonenote_update_notebook')
-        g.custom_command('update-operation', 'notes_sitesonenote_update_operation')
-        g.custom_command('update-page', 'notes_sitesonenote_update_page')
-        g.custom_command('update-resource', 'notes_sitesonenote_update_resource')
-        g.custom_command('update-section', 'notes_sitesonenote_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenote_update_section_group')
+    with self.command_group('notes site-onenote', notes_beta_site_onenote, client_factory=cf_site_onenote) as g:
+        g.custom_command('create-notebook', 'notes_site_onenote_create_notebook')
+        g.custom_command('create-operation', 'notes_site_onenote_create_operation')
+        g.custom_command('create-page', 'notes_site_onenote_create_page')
+        g.custom_command('create-resource', 'notes_site_onenote_create_resource')
+        g.custom_command('create-section', 'notes_site_onenote_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_site_onenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_site_onenote_delete_operation')
+        g.custom_command('delete-page', 'notes_site_onenote_delete_page')
+        g.custom_command('delete-resource', 'notes_site_onenote_delete_resource')
+        g.custom_command('delete-section', 'notes_site_onenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_site_onenote_list_notebook')
+        g.custom_command('list-operation', 'notes_site_onenote_list_operation')
+        g.custom_command('list-page', 'notes_site_onenote_list_page')
+        g.custom_command('list-resource', 'notes_site_onenote_list_resource')
+        g.custom_command('list-section', 'notes_site_onenote_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_list_section_group')
+        g.custom_command('set-page-content', 'notes_site_onenote_set_page_content')
+        g.custom_command('set-resource-content', 'notes_site_onenote_set_resource_content')
+        g.custom_command('show-notebook', 'notes_site_onenote_show_notebook')
+        g.custom_command('show-operation', 'notes_site_onenote_show_operation')
+        g.custom_command('show-page', 'notes_site_onenote_show_page')
+        g.custom_command('show-page-content', 'notes_site_onenote_show_page_content')
+        g.custom_command('show-resource', 'notes_site_onenote_show_resource')
+        g.custom_command('show-resource-content', 'notes_site_onenote_show_resource_content')
+        g.custom_command('show-section', 'notes_site_onenote_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_site_onenote_update_notebook')
+        g.custom_command('update-operation', 'notes_site_onenote_update_operation')
+        g.custom_command('update-page', 'notes_site_onenote_update_page')
+        g.custom_command('update-resource', 'notes_site_onenote_update_resource')
+        g.custom_command('update-section', 'notes_site_onenote_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_update_section_group')
 
     with self.command_group(
-        'notes sitesonenotenotebook', notes_beta_sitesonenotenotebook, client_factory=cf_sitesonenotenotebook
+        'notes site-onenotebook', notes_beta_site_onenote_notebook, client_factory=cf_site_onenote_notebook
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotenotebook_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotenotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotenotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotenotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotenotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotenotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotenotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotenotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotenotebook_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotenotebook_update_section_group')
+        g.custom_command('create-section', 'notes_site_onenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_site_onenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_site_onenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_site_onenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenotebook_update_section_group')
 
     with self.command_group(
-        'notes sitesonenotenotebookssectiongroup',
-        notes_beta_sitesonenotenotebookssectiongroup,
-        client_factory=cf_sitesonenotenotebookssectiongroup,
+        'notes site-onenotebook-section-group',
+        notes_beta_site_onenote_notebook_section_group,
+        client_factory=cf_site_onenote_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotenotebookssectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotenotebookssectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_site_onenotebook_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenotebook_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenotebook_section_group_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_site_onenotebook_section_group_delete_parent_section_group'
         )
-        g.custom_command('delete-section', 'notes_sitesonenotenotebookssectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotenotebookssectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotenotebookssectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotenotebookssectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command('delete-section', 'notes_site_onenotebook_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenotebook_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenotebook_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenotebook_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_site_onenotebook_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_site_onenotebook_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_site_onenotebook_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenotebook_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_site_onenotebook_section_group_update_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_show_parent_section_group'
+            'update-parent-section-group', 'notes_site_onenotebook_section_group_update_parent_section_group'
         )
-        g.custom_command('show-section', 'notes_sitesonenotenotebookssectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotenotebookssectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotenotebookssectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotenotebookssectiongroup_update_section_group')
+        g.custom_command('update-section', 'notes_site_onenotebook_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenotebook_section_group_update_section_group')
 
     with self.command_group(
-        'notes sitesonenotenotebookssectiongroupssection',
-        notes_beta_sitesonenotenotebookssectiongroupssection,
-        client_factory=cf_sitesonenotenotebookssectiongroupssection,
+        'notes site-onenotebook-section-group-section',
+        notes_beta_site_onenote_notebook_section_group_section,
+        client_factory=cf_site_onenote_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotenotebookssectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_site_onenotebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenotebook_section_group_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_site_onenotebook_section_group_section_delete_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_site_onenotebook_section_group_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_sitesonenotenotebookssectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_sitesonenotenotebookssectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_sitesonenotenotebookssectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenotenotebookssectiongroupssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_show_parent_notebook')
+        g.custom_command('list-page', 'notes_site_onenotebook_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_site_onenotebook_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_site_onenotebook_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_site_onenotebook_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_site_onenotebook_section_group_section_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_show_parent_section_group'
+            'show-parent-section-group', 'notes_site_onenotebook_section_group_section_show_parent_section_group'
         )
-        g.custom_command('update-page', 'notes_sitesonenotenotebookssectiongroupssection_update_page')
+        g.custom_command('update-page', 'notes_site_onenotebook_section_group_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_update_parent_section_group'
-        )
-
-    with self.command_group(
-        'notes sitesonenotenotebookssectiongroupssectionspage',
-        notes_beta_sitesonenotenotebookssectiongroupssectionspage,
-        client_factory=cf_sitesonenotenotebookssectiongroupssectionspage,
-    ) as g:
-        g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
+            'update-parent-notebook', 'notes_site_onenotebook_section_group_section_update_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_delete_parent_section'
-        )
-        g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_show_parent_section'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_update_parent_section'
+            'update-parent-section-group', 'notes_site_onenotebook_section_group_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotenotebookssection',
-        notes_beta_sitesonenotenotebookssection,
-        client_factory=cf_sitesonenotenotebookssection,
+        'notes site-onenotebook-section-group-section-page',
+        notes_beta_site_onenote_notebook_section_group_section_page,
+        client_factory=cf_site_onenote_notebook_section_group_section_page,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotenotebookssection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotenotebookssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssection_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotenotebookssection_delete_parent_section_group'
+            'delete-parent-notebook', 'notes_site_onenotebook_section_group_section_page_delete_parent_notebook'
         )
-        g.custom_command('list-page', 'notes_sitesonenotenotebookssection_list_page')
-        g.custom_command('set-page-content', 'notes_sitesonenotenotebookssection_set_page_content')
-        g.custom_command('show-page', 'notes_sitesonenotenotebookssection_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenotenotebookssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_sitesonenotenotebookssection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_sitesonenotenotebookssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssection_update_parent_notebook')
         g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotenotebookssection_update_parent_section_group'
+            'delete-parent-section', 'notes_site_onenotebook_section_group_section_page_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenotebook_section_group_section_page_show_parent_notebook'
+        )
+        g.custom_command('show-parent-section', 'notes_site_onenotebook_section_group_section_page_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_site_onenotebook_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_site_onenotebook_section_group_section_page_update_parent_section'
         )
 
     with self.command_group(
-        'notes sitesonenotenotebookssectionspage',
-        notes_beta_sitesonenotenotebookssectionspage,
-        client_factory=cf_sitesonenotenotebookssectionspage,
+        'notes site-onenotebook-section',
+        notes_beta_site_onenote_notebook_section,
+        client_factory=cf_site_onenote_notebook_section,
     ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_sitesonenotenotebookssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_sitesonenotenotebookssectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_sitesonenotenotebookssectionspage_update_parent_section')
+        g.custom_command('create-page', 'notes_site_onenotebook_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenotebook_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenotebook_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_site_onenotebook_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_site_onenotebook_section_list_page')
+        g.custom_command('set-page-content', 'notes_site_onenotebook_section_set_page_content')
+        g.custom_command('show-page', 'notes_site_onenotebook_section_show_page')
+        g.custom_command('show-page-content', 'notes_site_onenotebook_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_site_onenotebook_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_site_onenotebook_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_site_onenotebook_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_site_onenotebook_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_site_onenotebook_section_update_parent_section_group')
 
     with self.command_group(
-        'notes sitesonenotenotebookssectionsparentsectiongroup',
-        notes_beta_sitesonenotenotebookssectionsparentsectiongroup,
-        client_factory=cf_sitesonenotenotebookssectionsparentsectiongroup,
+        'notes site-onenotebook-section-page',
+        notes_beta_site_onenote_notebook_section_page,
+        client_factory=cf_site_onenote_notebook_section_page,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_create_section')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenotebook_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_site_onenotebook_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_site_onenotebook_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_site_onenotebook_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_site_onenotebook_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_site_onenotebook_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes site-onenotebook-section-parent-section-group',
+        notes_beta_site_onenote_notebook_section_parent_section_group,
+        client_factory=cf_site_onenote_notebook_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenotebook_section_parent_section_group_create_section')
         g.custom_command(
-            'create-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_create_section_group'
+            'create-section-group', 'notes_site_onenotebook_section_parent_section_group_create_section_group'
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_site_onenotebook_section_parent_section_group_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
+            'notes_site_onenotebook_section_parent_section_group_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_section')
+        g.custom_command('delete-section', 'notes_site_onenotebook_section_parent_section_group_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_section_group'
+            'delete-section-group', 'notes_site_onenotebook_section_parent_section_group_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_list_section')
+        g.custom_command('list-section', 'notes_site_onenotebook_section_parent_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenotebook_section_parent_section_group_list_section_group')
         g.custom_command(
-            'list-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_list_section_group'
+            'show-parent-notebook', 'notes_site_onenotebook_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+            'show-parent-section-group', 'notes_site_onenotebook_section_parent_section_group_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenotebook_section_parent_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenotebook_section_parent_section_group_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_site_onenotebook_section_parent_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_site_onenotebook_section_parent_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_site_onenotebook_section_parent_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_site_onenotebook_section_parent_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes site-onenote-page', notes_beta_site_onenote_page, client_factory=cf_site_onenote_page
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_site_onenote_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_site_onenote_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_site_onenote_page_update_parent_section')
+
+    with self.command_group(
+        'notes site-onenote-page-parent-notebook',
+        notes_beta_site_onenote_page_parent_notebook,
+        client_factory=cf_site_onenote_page_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_page_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_page_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_site_onenote_page_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_page_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenote_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_site_onenote_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_site_onenote_page_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_page_parent_notebook_update_section_group')
+
+    with self.command_group(
+        'notes site-onenote-page-parent-notebook-section-group',
+        notes_beta_site_onenote_page_parent_notebook_section_group,
+        client_factory=cf_site_onenote_page_parent_notebook_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_page_parent_notebook_section_group_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_site_onenote_page_parent_notebook_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_site_onenote_page_parent_notebook_section_group_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_site_onenote_page_parent_notebook_section_group_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_site_onenote_page_parent_notebook_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_site_onenote_page_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_page_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command('show-section', 'notes_site_onenote_page_parent_notebook_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_section_group'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+            'show-section-group', 'notes_site_onenote_page_parent_notebook_section_group_show_section_group'
         )
         g.custom_command(
-            'update-parent-section-group',
-            'notes_sitesonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
-        )
-        g.custom_command('update-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_section_group'
-        )
-
-    with self.command_group(
-        'notes sitesonenotepage', notes_beta_sitesonenotepage, client_factory=cf_sitesonenotepage
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_sitesonenotepage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotepage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_sitesonenotepage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotepage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_sitesonenotepage_update_parent_section')
-
-    with self.command_group(
-        'notes sitesonenotepagesparentnotebook',
-        notes_beta_sitesonenotepagesparentnotebook,
-        client_factory=cf_sitesonenotepagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotepagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotepagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotepagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotepagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotepagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotepagesparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotepagesparentnotebooksectiongroup',
-        notes_beta_sitesonenotepagesparentnotebooksectiongroup,
-        client_factory=cf_sitesonenotepagesparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_create_section_group'
-        )
-        g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_list_section_group')
-        g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_section_group')
-        g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_group_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command('update-section', 'notes_site_onenote_page_parent_notebook_section_group_update_section')
         g.custom_command(
-            'update-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_section_group'
+            'update-section-group', 'notes_site_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotepagesparentnotebooksectiongroupssection',
-        notes_beta_sitesonenotepagesparentnotebooksectiongroupssection,
-        client_factory=cf_sitesonenotepagesparentnotebooksectiongroupssection,
+        'notes site-onenote-page-parent-notebook-section-group-section',
+        notes_beta_site_onenote_page_parent_notebook_section_group_section,
+        client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_site_onenote_page_parent_notebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_page_parent_notebook_section_group_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook'
+            'delete-parent-notebook',
+            'notes_site_onenote_page_parent_notebook_section_group_section_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_group_section_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_list_page')
-        g.custom_command('show-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command('list-page', 'notes_site_onenote_page_parent_notebook_section_group_section_list_page')
+        g.custom_command('show-page', 'notes_site_onenote_page_parent_notebook_section_group_section_show_page')
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+            'show-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_group_section_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_group_section_show_parent_section_group',
         )
-        g.custom_command('update-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command('update-page', 'notes_site_onenote_page_parent_notebook_section_group_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_parent_notebook'
+            'update-parent-notebook',
+            'notes_site_onenote_page_parent_notebook_section_group_section_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes sitesonenoteparentnotebooksectiongroupssectionspage',
-        notes_beta_sitesonenoteparentnotebooksectiongroupssectionspage,
-        client_factory=cf_sitesonenoteparentnotebooksectiongroupssectionspage,
+        'notes site-onenote-parent-notebook-section-group-section-page',
+        notes_beta_site_onenote_parent_notebook_section_group_section_page,
+        client_factory=cf_site_onenote_parent_notebook_section_group_section_page,
     ) as g:
         g.custom_command(
-            'set-page-content', 'notes_sitesonenoteparentnotebooksectiongroupssectionspage_set_page_content'
+            'set-page-content', 'notes_site_onenote_parent_notebook_section_group_section_page_set_page_content'
         )
         g.custom_command(
-            'show-page-content', 'notes_sitesonenoteparentnotebooksectiongroupssectionspage_show_page_content'
+            'show-page-content', 'notes_site_onenote_parent_notebook_section_group_section_page_show_page_content'
         )
 
     with self.command_group(
-        'notes sitesonenotepagesparentnotebooksection',
-        notes_beta_sitesonenotepagesparentnotebooksection,
-        client_factory=cf_sitesonenotepagesparentnotebooksection,
+        'notes site-onenote-page-parent-notebook-section',
+        notes_beta_site_onenote_page_parent_notebook_section,
+        client_factory=cf_site_onenote_page_parent_notebook_section,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotepagesparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotepagesparentnotebooksection_delete_page')
+        g.custom_command('create-page', 'notes_site_onenote_page_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_page_parent_notebook_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_site_onenote_page_parent_notebook_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_sitesonenotepagesparentnotebooksection_list_page')
-        g.custom_command('show-page', 'notes_sitesonenotepagesparentnotebooksection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command('list-page', 'notes_site_onenote_page_parent_notebook_section_list_page')
+        g.custom_command('show-page', 'notes_site_onenote_page_parent_notebook_section_show_page')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_show_parent_section_group'
+            'show-parent-section-group', 'notes_site_onenote_page_parent_notebook_section_show_parent_section_group'
         )
-        g.custom_command('update-page', 'notes_sitesonenotepagesparentnotebooksection_update_page')
+        g.custom_command('update-page', 'notes_site_onenote_page_parent_notebook_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_update_parent_notebook'
+            'update-parent-notebook', 'notes_site_onenote_page_parent_notebook_section_update_parent_notebook'
         )
         g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_update_parent_section_group'
+            'update-parent-section-group', 'notes_site_onenote_page_parent_notebook_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenoteparentnotebooksectionspage',
-        notes_beta_sitesonenoteparentnotebooksectionspage,
-        client_factory=cf_sitesonenoteparentnotebooksectionspage,
+        'notes site-onenote-parent-notebook-section-page',
+        notes_beta_site_onenote_parent_notebook_section_page,
+        client_factory=cf_site_onenote_parent_notebook_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_sitesonenoteparentnotebooksectionspage_set_page_content')
-        g.custom_command('show-page-content', 'notes_sitesonenoteparentnotebooksectionspage_show_page_content')
+        g.custom_command('set-page-content', 'notes_site_onenote_parent_notebook_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_site_onenote_parent_notebook_section_page_show_page_content')
 
     with self.command_group(
-        'notes sitesonenotepagesparentnotebooksectionsparentsectiongroup',
-        notes_beta_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
-        client_factory=cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+        'notes site-onenote-page-parent-notebook-section-parent-section-group',
+        notes_beta_site_onenote_page_parent_notebook_section_parent_section_group,
+        client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+            'create-section', 'notes_site_onenote_page_parent_notebook_section_parent_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+            'delete-section', 'notes_site_onenote_page_parent_notebook_section_parent_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_delete_section_group',
         )
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_list_section')
         g.custom_command(
-            'list-section-group', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+            'list-section', 'notes_site_onenote_page_parent_notebook_section_parent_section_group_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_section')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+            'show-section', 'notes_site_onenote_page_parent_notebook_section_parent_section_group_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+            'update-section', 'notes_site_onenote_page_parent_notebook_section_parent_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+            'notes_site_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes sitesonenotepagesparentsection',
-        notes_beta_sitesonenotepagesparentsection,
-        client_factory=cf_sitesonenotepagesparentsection,
+        'notes site-onenote-page-parent-section',
+        notes_beta_site_onenote_page_parent_section,
+        client_factory=cf_site_onenote_page_parent_section,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotepagesparentsection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotepagesparentsection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command('create-page', 'notes_site_onenote_page_parent_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_page_parent_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_page_parent_section_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotepagesparentsection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_site_onenote_page_parent_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_sitesonenotepagesparentsection_list_page')
-        g.custom_command('show-page', 'notes_sitesonenotepagesparentsection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentsection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_sitesonenotepagesparentsection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_sitesonenotepagesparentsection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotepagesparentsection_update_parent_notebook')
+        g.custom_command('list-page', 'notes_site_onenote_page_parent_section_list_page')
+        g.custom_command('show-page', 'notes_site_onenote_page_parent_section_show_page')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_page_parent_section_show_parent_notebook')
         g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotepagesparentsection_update_parent_section_group'
+            'show-parent-section-group', 'notes_site_onenote_page_parent_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_site_onenote_page_parent_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_page_parent_section_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_site_onenote_page_parent_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenoteparentsectionpage',
-        notes_beta_sitesonenoteparentsectionpage,
-        client_factory=cf_sitesonenoteparentsectionpage,
+        'notes site-onenote-parent-section-page',
+        notes_beta_site_onenote_parent_section_page,
+        client_factory=cf_site_onenote_parent_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_sitesonenoteparentsectionpage_set_page_content')
-        g.custom_command('show-page-content', 'notes_sitesonenoteparentsectionpage_show_page_content')
+        g.custom_command('set-page-content', 'notes_site_onenote_parent_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_site_onenote_parent_section_page_show_page_content')
 
     with self.command_group(
-        'notes sitesonenotepagesparentsectionparentnotebook',
-        notes_beta_sitesonenotepagesparentsectionparentnotebook,
-        client_factory=cf_sitesonenotepagesparentsectionparentnotebook,
+        'notes site-onenote-page-parent-section-parent-notebook',
+        notes_beta_site_onenote_page_parent_section_parent_notebook,
+        client_factory=cf_site_onenote_page_parent_section_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command('create-section', 'notes_site_onenote_page_parent_section_parent_notebook_create_section')
         g.custom_command(
-            'create-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_create_section_group'
+            'create-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command('delete-section', 'notes_site_onenote_page_parent_section_parent_notebook_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_delete_section_group'
+            'delete-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectionparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectionparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command('list-section', 'notes_site_onenote_page_parent_section_parent_notebook_list_section')
         g.custom_command(
-            'update-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_update_section_group'
+            'list-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenote_page_parent_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_site_onenote_page_parent_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotepagesparentsectionparentnotebooksectiongroup',
-        notes_beta_sitesonenotepagesparentsectionparentnotebooksectiongroup,
-        client_factory=cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+        'notes site-onenote-page-parent-section-parent-notebook-section-group',
+        notes_beta_site_onenote_page_parent_section_parent_notebook_section_group,
+        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+            'create-section', 'notes_site_onenote_page_parent_section_parent_notebook_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+            'delete-section', 'notes_site_onenote_page_parent_section_parent_notebook_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_delete_section_group',
         )
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_list_section')
         g.custom_command(
-            'list-section-group', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+            'list-section', 'notes_site_onenote_page_parent_section_parent_notebook_section_group_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_section')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+            'show-section', 'notes_site_onenote_page_parent_section_parent_notebook_section_group_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+            'update-section', 'notes_site_onenote_page_parent_section_parent_notebook_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+            'notes_site_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes sitesonenotepagesparentsectiongroup',
-        notes_beta_sitesonenotepagesparentsectiongroup,
-        client_factory=cf_sitesonenotepagesparentsectiongroup,
+        'notes site-onenote-page-parent-section-parent-section-group',
+        notes_beta_site_onenote_page_parent_section_parent_section_group,
+        client_factory=cf_site_onenote_page_parent_section_parent_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotepagesparentsectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_site_onenote_page_parent_section_parent_section_group_create_section')
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_delete_parent_section_group'
+            'create-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotepagesparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentsectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotepagesparentsectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotepagesparentsectiongroupparentnotebook',
-        notes_beta_sitesonenotepagesparentsectiongroupparentnotebook,
-        client_factory=cf_sitesonenotepagesparentsectiongroupparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes sitesonenotesectiongroup',
-        notes_beta_sitesonenotesectiongroup,
-        client_factory=cf_sitesonenotesectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotesectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroup_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_sitesonenotesectiongroup_delete_parent_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotesectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotesectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotesectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotesectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroup_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_sitesonenotesectiongroup_show_parent_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotesectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotesectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroup_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_sitesonenotesectiongroup_update_parent_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotesectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotesectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotesectiongroupsparentnotebook',
-        notes_beta_sitesonenotesectiongroupsparentnotebook,
-        client_factory=cf_sitesonenotesectiongroupsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectiongroupsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotesectiongroupsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotesectiongroupsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotesectiongroupsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotesectiongroupsparentnotebooksection',
-        notes_beta_sitesonenotesectiongroupsparentnotebooksection,
-        client_factory=cf_sitesonenotesectiongroupsparentnotebooksection,
-    ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_delete_page')
-        g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
+            'delete-parent-notebook',
+            'notes_site_onenote_page_parent_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_section_group_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_list_page')
-        g.custom_command('set-page-content', 'notes_sitesonenotesectiongroupsparentnotebooksection_set_page_content')
-        g.custom_command('show-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenotesectiongroupsparentnotebooksection_show_page_content')
+        g.custom_command('delete-section', 'notes_site_onenote_page_parent_section_parent_section_group_delete_section')
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_show_parent_notebook'
+            'delete-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_site_onenote_page_parent_section_parent_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenote_page_parent_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotesectiongroupsparentnotebooksection_show_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('update-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_update_page')
+        g.custom_command('show-section', 'notes_site_onenote_page_parent_section_parent_section_group_show_section')
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_update_parent_notebook'
+            'show-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_site_onenote_page_parent_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotesectiongroupsparentnotebooksection_update_parent_section_group',
+            'notes_site_onenote_page_parent_section_parent_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_site_onenote_page_parent_section_parent_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotesectiongroupsparentnotebooksectionspage',
-        notes_beta_sitesonenotesectiongroupsparentnotebooksectionspage,
-        client_factory=cf_sitesonenotesectiongroupsparentnotebooksectionspage,
+        'notes site-onenote-page-parent-section-parent-section-group-parent-notebook',
+        notes_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+        client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
     ) as g:
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook'
+            'create-section',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_create_section',
         )
         g.custom_command(
-            'delete-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
+            'create-section-group',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_create_section_group',
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
+            'delete-section',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section',
         )
         g.custom_command(
-            'show-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
+            'delete-section-group',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section_group',
         )
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook'
+            'list-section', 'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_list_section'
         )
         g.custom_command(
-            'update-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
+            'list-section-group',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_list_section_group',
+        )
+        g.custom_command(
+            'show-section', 'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_show_section_group',
+        )
+        g.custom_command(
+            'update-section',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_update_section',
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
         )
 
     with self.command_group(
-        'notes sitesonenotesectiongroupssection',
-        notes_beta_sitesonenotesectiongroupssection,
-        client_factory=cf_sitesonenotesectiongroupssection,
+        'notes site-onenote-section-group',
+        notes_beta_site_onenote_section_group,
+        client_factory=cf_site_onenote_section_group,
     ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotesectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotesectiongroupssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroupssection_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_site_onenote_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_section_group_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_site_onenote_section_group_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_site_onenote_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenote_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_site_onenote_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_site_onenote_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_section_group_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_site_onenote_section_group_update_parent_section_group')
+        g.custom_command('update-section', 'notes_site_onenote_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_section_group_update_section_group')
+
+    with self.command_group(
+        'notes site-onenote-section-group-parent-notebook',
+        notes_beta_site_onenote_section_group_parent_notebook,
+        client_factory=cf_site_onenote_section_group_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_section_group_parent_notebook_create_section')
         g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotesectiongroupssection_delete_parent_section_group'
+            'create-section-group', 'notes_site_onenote_section_group_parent_notebook_create_section_group'
         )
-        g.custom_command('list-page', 'notes_sitesonenotesectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_sitesonenotesectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_sitesonenotesectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenotesectiongroupssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroupssection_show_parent_notebook')
+        g.custom_command('delete-section', 'notes_site_onenote_section_group_parent_notebook_delete_section')
         g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotesectiongroupssection_show_parent_section_group'
+            'delete-section-group', 'notes_site_onenote_section_group_parent_notebook_delete_section_group'
         )
-        g.custom_command('update-page', 'notes_sitesonenotesectiongroupssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroupssection_update_parent_notebook')
+        g.custom_command('list-section', 'notes_site_onenote_section_group_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_section_group_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_site_onenote_section_group_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_section_group_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_site_onenote_section_group_parent_notebook_update_section')
         g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotesectiongroupssection_update_parent_section_group'
+            'update-section-group', 'notes_site_onenote_section_group_parent_notebook_update_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotesectiongroupssectionspage',
-        notes_beta_sitesonenotesectiongroupssectionspage,
-        client_factory=cf_sitesonenotesectiongroupssectionspage,
+        'notes site-onenote-section-group-parent-notebook-section',
+        notes_beta_site_onenote_section_group_parent_notebook_section,
+        client_factory=cf_site_onenote_section_group_parent_notebook_section,
     ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_sitesonenotesectiongroupssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_sitesonenotesectiongroupssectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_sitesonenotesectiongroupssectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes sitesonenotesectiongroupssectionspagesparentnotebook',
-        notes_beta_sitesonenotesectiongroupssectionspagesparentnotebook,
-        client_factory=cf_sitesonenotesectiongroupssectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_create_section')
+        g.custom_command('create-page', 'notes_site_onenote_section_group_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_section_group_parent_notebook_section_delete_page')
         g.custom_command(
-            'create-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes sitesonenotesectiongroupssectionsparentnotebook',
-        notes_beta_sitesonenotesectiongroupssectionsparentnotebook,
-        client_factory=cf_sitesonenotesectiongroupssectionsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes sitesonenotesection', notes_beta_sitesonenotesection, client_factory=cf_sitesonenotesection
-    ) as g:
-        g.custom_command('create-page', 'notes_sitesonenotesection_create_page')
-        g.custom_command('delete-page', 'notes_sitesonenotesection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesection_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_sitesonenotesection_delete_parent_section_group')
-        g.custom_command('list-page', 'notes_sitesonenotesection_list_page')
-        g.custom_command('set-page-content', 'notes_sitesonenotesection_set_page_content')
-        g.custom_command('show-page', 'notes_sitesonenotesection_show_page')
-        g.custom_command('show-page-content', 'notes_sitesonenotesection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_sitesonenotesection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_sitesonenotesection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotesection_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_sitesonenotesection_update_parent_section_group')
-
-    with self.command_group(
-        'notes sitesonenotesectionspage',
-        notes_beta_sitesonenotesectionspage,
-        client_factory=cf_sitesonenotesectionspage,
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_sitesonenotesectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_sitesonenotesectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_sitesonenotesectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes sitesonenotesectionspagesparentnotebook',
-        notes_beta_sitesonenotesectionspagesparentnotebook,
-        client_factory=cf_sitesonenotesectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionspagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotesectionspagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotesectionspagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotesectionspagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotesectionspagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotesectionspagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotesectionspagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotesectionspagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotesectionspagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotesectionspagesparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotesectionspagesparentnotebooksectiongroup',
-        notes_beta_sitesonenotesectionspagesparentnotebooksectiongroup,
-        client_factory=cf_sitesonenotesectionspagesparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_create_section_group'
-        )
-        g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_site_onenote_section_group_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_site_onenote_section_group_parent_notebook_section_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_section')
+        g.custom_command('list-page', 'notes_site_onenote_section_group_parent_notebook_section_list_page')
         g.custom_command(
-            'delete-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
+            'set-page-content', 'notes_site_onenote_section_group_parent_notebook_section_set_page_content'
         )
-        g.custom_command('list-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_list_section')
+        g.custom_command('show-page', 'notes_site_onenote_section_group_parent_notebook_section_show_page')
         g.custom_command(
-            'list-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+            'show-page-content', 'notes_site_onenote_section_group_parent_notebook_section_show_page_content'
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+            'show-parent-notebook', 'notes_site_onenote_section_group_parent_notebook_section_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+            'notes_site_onenote_section_group_parent_notebook_section_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command('update-page', 'notes_site_onenote_section_group_parent_notebook_section_update_page')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_section_group'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_site_onenote_section_group_parent_notebook_section_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
-        )
-        g.custom_command('update-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+            'notes_site_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes sitesonenotesectionsparentnotebook',
-        notes_beta_sitesonenotesectionsparentnotebook,
-        client_factory=cf_sitesonenotesectionsparentnotebook,
+        'notes site-onenote-section-group-parent-notebook-section-page',
+        notes_beta_site_onenote_section_group_parent_notebook_section_page,
+        client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotesectionsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotesectionsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotesectionsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotesectionsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_sitesonenotesectionsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotesectionsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_sitesonenotesectionsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotesectionsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes sitesonenotesectionsparentnotebooksectiongroup',
-        notes_beta_sitesonenotesectionsparentnotebooksectiongroup,
-        client_factory=cf_sitesonenotesectionsparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_create_section')
         g.custom_command(
-            'create-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_create_section_group'
+            'delete-parent-notebook',
+            'notes_site_onenote_section_group_parent_notebook_section_page_delete_parent_notebook',
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+            'delete-parent-section',
+            'notes_site_onenote_section_group_parent_notebook_section_page_delete_parent_section',
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenote_section_group_parent_notebook_section_page_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_site_onenote_section_group_parent_notebook_section_page_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_site_onenote_section_group_parent_notebook_section_page_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section',
+            'notes_site_onenote_section_group_parent_notebook_section_page_update_parent_section',
+        )
+
+    with self.command_group(
+        'notes site-onenote-section-group-section',
+        notes_beta_site_onenote_section_group_section,
+        client_factory=cf_site_onenote_section_group_section,
+    ) as g:
+        g.custom_command('create-page', 'notes_site_onenote_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_section_group_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_section_group_section_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_site_onenote_section_group_section_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_site_onenote_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_site_onenote_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_site_onenote_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_site_onenote_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_group_section_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_site_onenote_section_group_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_site_onenote_section_group_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_section_group_section_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_site_onenote_section_group_section_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes site-onenote-section-group-section-page',
+        notes_beta_site_onenote_section_group_section_page,
+        client_factory=cf_site_onenote_section_group_section_page,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_site_onenote_section_group_section_page_delete_parent_notebook'
+        )
+        g.custom_command('delete-parent-section', 'notes_site_onenote_section_group_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_group_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_site_onenote_section_group_section_page_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_site_onenote_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command('update-parent-section', 'notes_site_onenote_section_group_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes site-onenote-section-group-section-page-parent-notebook',
+        notes_beta_site_onenote_section_group_section_page_parent_notebook,
+        client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_site_onenote_section_group_section_page_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_create_section_group'
+        )
+        g.custom_command(
+            'delete-section', 'notes_site_onenote_section_group_section_page_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_site_onenote_section_group_section_page_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenote_section_group_section_page_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_site_onenote_section_group_section_page_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes site-onenote-section-group-section-parent-notebook',
+        notes_beta_site_onenote_section_group_section_parent_notebook,
+        client_factory=cf_site_onenote_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_section_group_section_parent_notebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_site_onenote_section_group_section_parent_notebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_site_onenote_section_group_section_parent_notebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_site_onenote_section_group_section_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_site_onenote_section_group_section_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_section_group_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenote_section_group_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_site_onenote_section_group_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_site_onenote_section_group_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_section_group_section_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes site-onenote-section', notes_beta_site_onenote_section, client_factory=cf_site_onenote_section
+    ) as g:
+        g.custom_command('create-page', 'notes_site_onenote_section_create_page')
+        g.custom_command('delete-page', 'notes_site_onenote_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_site_onenote_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_site_onenote_section_list_page')
+        g.custom_command('set-page-content', 'notes_site_onenote_section_set_page_content')
+        g.custom_command('show-page', 'notes_site_onenote_section_show_page')
+        g.custom_command('show-page-content', 'notes_site_onenote_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_site_onenote_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_site_onenote_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_site_onenote_section_update_parent_section_group')
+
+    with self.command_group(
+        'notes site-onenote-section-page',
+        notes_beta_site_onenote_section_page,
+        client_factory=cf_site_onenote_section_page,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_site_onenote_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_site_onenote_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_site_onenote_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_site_onenote_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_site_onenote_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes site-onenote-section-page-parent-notebook',
+        notes_beta_site_onenote_section_page_parent_notebook,
+        client_factory=cf_site_onenote_section_page_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_section_page_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_section_page_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_site_onenote_section_page_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_section_page_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenote_section_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_section_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_site_onenote_section_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_section_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_site_onenote_section_page_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_section_page_parent_notebook_update_section_group')
+
+    with self.command_group(
+        'notes site-onenote-section-page-parent-notebook-section-group',
+        notes_beta_site_onenote_section_page_parent_notebook_section_group,
+        client_factory=cf_site_onenote_section_page_parent_notebook_section_group,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_site_onenote_section_page_parent_notebook_section_group_create_section'
+        )
+        g.custom_command(
+            'create-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_site_onenote_section_page_parent_notebook_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_list_section_group'
+            'notes_site_onenote_section_page_parent_notebook_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+            'delete-section', 'notes_site_onenote_section_page_parent_notebook_section_group_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_site_onenote_section_page_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenote_section_page_parent_notebook_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_sitesonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+            'notes_site_onenote_section_page_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section', 'notes_site_onenote_section_page_parent_notebook_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_section_group'
+            'show-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_show_section_group'
         )
         g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook',
+            'notes_site_onenote_section_page_parent_notebook_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_sitesonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
+            'notes_site_onenote_section_page_parent_notebook_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_section')
         g.custom_command(
-            'update-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_section_group'
+            'update-section', 'notes_site_onenote_section_page_parent_notebook_section_group_update_section'
+        )
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes sitesonenotesectionsparentsectiongroup',
-        notes_beta_sitesonenotesectionsparentsectiongroup,
-        client_factory=cf_sitesonenotesectionsparentsectiongroup,
+        'notes site-onenote-section-parent-notebook',
+        notes_beta_site_onenote_section_parent_notebook,
+        client_factory=cf_site_onenote_section_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionsparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_sitesonenotesectionsparentsectiongroup_create_section_group')
-        g.custom_command(
-            'delete-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_delete_parent_section_group'
-        )
-        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_sitesonenotesectionsparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_sitesonenotesectionsparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_sitesonenotesectionsparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_show_parent_notebook')
-        g.custom_command(
-            'show-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_sitesonenotesectionsparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_sitesonenotesectionsparentsectiongroup_show_section_group')
-        g.custom_command(
-            'update-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_sitesonenotesectionsparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_sitesonenotesectionsparentsectiongroup_update_section_group')
+        g.custom_command('create-section', 'notes_site_onenote_section_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_section_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_site_onenote_section_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_section_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenote_section_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_section_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_site_onenote_section_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_section_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_site_onenote_section_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_section_parent_notebook_update_section_group')
 
     with self.command_group(
-        'notes sitesonenotesectionsparentsectiongroupparentnotebook',
-        notes_beta_sitesonenotesectionsparentsectiongroupparentnotebook,
-        client_factory=cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+        'notes site-onenote-section-parent-notebook-section-group',
+        notes_beta_site_onenote_section_parent_notebook_section_group,
+        client_factory=cf_site_onenote_section_parent_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command('create-section', 'notes_site_onenote_section_parent_notebook_section_group_create_section')
         g.custom_command(
-            'create-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+            'create-section-group', 'notes_site_onenote_section_parent_notebook_section_group_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+            'delete-parent-notebook', 'notes_site_onenote_section_parent_notebook_section_group_delete_parent_notebook'
         )
-        g.custom_command('list-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_list_section')
         g.custom_command(
-            'list-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+            'delete-parent-section-group',
+            'notes_site_onenote_section_parent_notebook_section_group_delete_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_show_section')
+        g.custom_command('delete-section', 'notes_site_onenote_section_parent_notebook_section_group_delete_section')
         g.custom_command(
-            'show-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+            'delete-section-group', 'notes_site_onenote_section_parent_notebook_section_group_delete_section_group'
         )
-        g.custom_command('update-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_update_section')
+        g.custom_command('list-section', 'notes_site_onenote_section_parent_notebook_section_group_list_section')
         g.custom_command(
-            'update-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+            'list-section-group', 'notes_site_onenote_section_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_site_onenote_section_parent_notebook_section_group_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_site_onenote_section_parent_notebook_section_group_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_site_onenote_section_parent_notebook_section_group_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_site_onenote_section_parent_notebook_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_site_onenote_section_parent_notebook_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_site_onenote_section_parent_notebook_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_site_onenote_section_parent_notebook_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_site_onenote_section_parent_notebook_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes site-onenote-section-parent-section-group',
+        notes_beta_site_onenote_section_parent_section_group,
+        client_factory=cf_site_onenote_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_site_onenote_section_parent_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_site_onenote_section_parent_section_group_create_section_group')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_site_onenote_section_parent_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_site_onenote_section_parent_section_group_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_site_onenote_section_parent_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_site_onenote_section_parent_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_site_onenote_section_parent_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_site_onenote_section_parent_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_site_onenote_section_parent_section_group_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_site_onenote_section_parent_section_group_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenote_section_parent_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_site_onenote_section_parent_section_group_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_site_onenote_section_parent_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_site_onenote_section_parent_section_group_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_site_onenote_section_parent_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_site_onenote_section_parent_section_group_update_section_group')
+
+    with self.command_group(
+        'notes site-onenote-section-parent-section-group-parent-notebook',
+        notes_beta_site_onenote_section_parent_section_group_parent_notebook,
+        client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_site_onenote_section_parent_section_group_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_site_onenote_section_parent_section_group_parent_notebook_create_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_site_onenote_section_parent_section_group_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_site_onenote_section_parent_section_group_parent_notebook_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_site_onenote_section_parent_section_group_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_site_onenote_section_parent_section_group_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_site_onenote_section_parent_section_group_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_site_onenote_section_parent_section_group_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_site_onenote_section_parent_section_group_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_site_onenote_section_parent_section_group_parent_notebook_update_section_group',
         )
 
     with self.command_group('notes user', notes_beta_user, client_factory=cf_user) as g:
@@ -2845,985 +3059,1077 @@ def load_command_table(self, _):
         g.custom_command('show-onenote', 'notes_user_show_onenote')
         g.custom_command('update-onenote', 'notes_user_update_onenote')
 
-    with self.command_group('notes usersonenote', notes_beta_usersonenote, client_factory=cf_usersonenote) as g:
-        g.custom_command('create-notebook', 'notes_usersonenote_create_notebook')
-        g.custom_command('create-operation', 'notes_usersonenote_create_operation')
-        g.custom_command('create-page', 'notes_usersonenote_create_page')
-        g.custom_command('create-resource', 'notes_usersonenote_create_resource')
-        g.custom_command('create-section', 'notes_usersonenote_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenote_create_section_group')
-        g.custom_command('delete-notebook', 'notes_usersonenote_delete_notebook')
-        g.custom_command('delete-operation', 'notes_usersonenote_delete_operation')
-        g.custom_command('delete-page', 'notes_usersonenote_delete_page')
-        g.custom_command('delete-resource', 'notes_usersonenote_delete_resource')
-        g.custom_command('delete-section', 'notes_usersonenote_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenote_delete_section_group')
-        g.custom_command('list-notebook', 'notes_usersonenote_list_notebook')
-        g.custom_command('list-operation', 'notes_usersonenote_list_operation')
-        g.custom_command('list-page', 'notes_usersonenote_list_page')
-        g.custom_command('list-resource', 'notes_usersonenote_list_resource')
-        g.custom_command('list-section', 'notes_usersonenote_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenote_list_section_group')
-        g.custom_command('set-page-content', 'notes_usersonenote_set_page_content')
-        g.custom_command('set-resource-content', 'notes_usersonenote_set_resource_content')
-        g.custom_command('show-notebook', 'notes_usersonenote_show_notebook')
-        g.custom_command('show-operation', 'notes_usersonenote_show_operation')
-        g.custom_command('show-page', 'notes_usersonenote_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenote_show_page_content')
-        g.custom_command('show-resource', 'notes_usersonenote_show_resource')
-        g.custom_command('show-resource-content', 'notes_usersonenote_show_resource_content')
-        g.custom_command('show-section', 'notes_usersonenote_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenote_show_section_group')
-        g.custom_command('update-notebook', 'notes_usersonenote_update_notebook')
-        g.custom_command('update-operation', 'notes_usersonenote_update_operation')
-        g.custom_command('update-page', 'notes_usersonenote_update_page')
-        g.custom_command('update-resource', 'notes_usersonenote_update_resource')
-        g.custom_command('update-section', 'notes_usersonenote_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenote_update_section_group')
+    with self.command_group('notes user-onenote', notes_beta_user_onenote, client_factory=cf_user_onenote) as g:
+        g.custom_command('create-notebook', 'notes_user_onenote_create_notebook')
+        g.custom_command('create-operation', 'notes_user_onenote_create_operation')
+        g.custom_command('create-page', 'notes_user_onenote_create_page')
+        g.custom_command('create-resource', 'notes_user_onenote_create_resource')
+        g.custom_command('create-section', 'notes_user_onenote_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_user_onenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_user_onenote_delete_operation')
+        g.custom_command('delete-page', 'notes_user_onenote_delete_page')
+        g.custom_command('delete-resource', 'notes_user_onenote_delete_resource')
+        g.custom_command('delete-section', 'notes_user_onenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_user_onenote_list_notebook')
+        g.custom_command('list-operation', 'notes_user_onenote_list_operation')
+        g.custom_command('list-page', 'notes_user_onenote_list_page')
+        g.custom_command('list-resource', 'notes_user_onenote_list_resource')
+        g.custom_command('list-section', 'notes_user_onenote_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_list_section_group')
+        g.custom_command('set-page-content', 'notes_user_onenote_set_page_content')
+        g.custom_command('set-resource-content', 'notes_user_onenote_set_resource_content')
+        g.custom_command('show-notebook', 'notes_user_onenote_show_notebook')
+        g.custom_command('show-operation', 'notes_user_onenote_show_operation')
+        g.custom_command('show-page', 'notes_user_onenote_show_page')
+        g.custom_command('show-page-content', 'notes_user_onenote_show_page_content')
+        g.custom_command('show-resource', 'notes_user_onenote_show_resource')
+        g.custom_command('show-resource-content', 'notes_user_onenote_show_resource_content')
+        g.custom_command('show-section', 'notes_user_onenote_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_user_onenote_update_notebook')
+        g.custom_command('update-operation', 'notes_user_onenote_update_operation')
+        g.custom_command('update-page', 'notes_user_onenote_update_page')
+        g.custom_command('update-resource', 'notes_user_onenote_update_resource')
+        g.custom_command('update-section', 'notes_user_onenote_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_update_section_group')
 
     with self.command_group(
-        'notes usersonenotenotebook', notes_beta_usersonenotenotebook, client_factory=cf_usersonenotenotebook
+        'notes user-onenotebook', notes_beta_user_onenote_notebook, client_factory=cf_user_onenote_notebook
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotenotebook_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotenotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotenotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotenotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotenotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotenotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotenotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotenotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotenotebook_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotenotebook_update_section_group')
+        g.custom_command('create-section', 'notes_user_onenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_user_onenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_user_onenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_user_onenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenotebook_update_section_group')
 
     with self.command_group(
-        'notes usersonenotenotebookssectiongroup',
-        notes_beta_usersonenotenotebookssectiongroup,
-        client_factory=cf_usersonenotenotebookssectiongroup,
+        'notes user-onenotebook-section-group',
+        notes_beta_user_onenote_notebook_section_group,
+        client_factory=cf_user_onenote_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotenotebookssectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotenotebookssectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_user_onenotebook_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenotebook_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenotebook_section_group_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotenotebookssectiongroup_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_user_onenotebook_section_group_delete_parent_section_group'
         )
-        g.custom_command('delete-section', 'notes_usersonenotenotebookssectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotenotebookssectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotenotebookssectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotenotebookssectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command('delete-section', 'notes_user_onenotebook_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenotebook_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenotebook_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenotebook_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_user_onenotebook_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_user_onenotebook_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_user_onenotebook_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenotebook_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_user_onenotebook_section_group_update_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotenotebookssectiongroup_show_parent_section_group'
+            'update-parent-section-group', 'notes_user_onenotebook_section_group_update_parent_section_group'
         )
-        g.custom_command('show-section', 'notes_usersonenotenotebookssectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotenotebookssectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotenotebookssectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotenotebookssectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotenotebookssectiongroup_update_section_group')
+        g.custom_command('update-section', 'notes_user_onenotebook_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenotebook_section_group_update_section_group')
 
     with self.command_group(
-        'notes usersonenotenotebookssectiongroupssection',
-        notes_beta_usersonenotenotebookssectiongroupssection,
-        client_factory=cf_usersonenotenotebookssectiongroupssection,
+        'notes user-onenotebook-section-group-section',
+        notes_beta_user_onenote_notebook_section_group_section,
+        client_factory=cf_user_onenote_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotenotebookssectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_user_onenotebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenotebook_section_group_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_user_onenotebook_section_group_section_delete_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_user_onenotebook_section_group_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_usersonenotenotebookssectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_usersonenotenotebookssectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_usersonenotenotebookssectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenotenotebookssectiongroupssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_show_parent_notebook')
+        g.custom_command('list-page', 'notes_user_onenotebook_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_user_onenotebook_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_user_onenotebook_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_user_onenotebook_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_user_onenotebook_section_group_section_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_show_parent_section_group'
+            'show-parent-section-group', 'notes_user_onenotebook_section_group_section_show_parent_section_group'
         )
-        g.custom_command('update-page', 'notes_usersonenotenotebookssectiongroupssection_update_page')
+        g.custom_command('update-page', 'notes_user_onenotebook_section_group_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_update_parent_section_group'
-        )
-
-    with self.command_group(
-        'notes usersonenotenotebookssectiongroupssectionspage',
-        notes_beta_usersonenotenotebookssectiongroupssectionspage,
-        client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
-    ) as g:
-        g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
+            'update-parent-notebook', 'notes_user_onenotebook_section_group_section_update_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_delete_parent_section'
-        )
-        g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_show_parent_section'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_update_parent_section'
+            'update-parent-section-group', 'notes_user_onenotebook_section_group_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotenotebookssection',
-        notes_beta_usersonenotenotebookssection,
-        client_factory=cf_usersonenotenotebookssection,
+        'notes user-onenotebook-section-group-section-page',
+        notes_beta_user_onenote_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_notebook_section_group_section_page,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotenotebookssection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotenotebookssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssection_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotenotebookssection_delete_parent_section_group'
+            'delete-parent-notebook', 'notes_user_onenotebook_section_group_section_page_delete_parent_notebook'
         )
-        g.custom_command('list-page', 'notes_usersonenotenotebookssection_list_page')
-        g.custom_command('set-page-content', 'notes_usersonenotenotebookssection_set_page_content')
-        g.custom_command('show-page', 'notes_usersonenotenotebookssection_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenotenotebookssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_usersonenotenotebookssection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_usersonenotenotebookssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssection_update_parent_notebook')
         g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotenotebookssection_update_parent_section_group'
+            'delete-parent-section', 'notes_user_onenotebook_section_group_section_page_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenotebook_section_group_section_page_show_parent_notebook'
+        )
+        g.custom_command('show-parent-section', 'notes_user_onenotebook_section_group_section_page_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_user_onenotebook_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_user_onenotebook_section_group_section_page_update_parent_section'
         )
 
     with self.command_group(
-        'notes usersonenotenotebookssectionspage',
-        notes_beta_usersonenotenotebookssectionspage,
-        client_factory=cf_usersonenotenotebookssectionspage,
+        'notes user-onenotebook-section',
+        notes_beta_user_onenote_notebook_section,
+        client_factory=cf_user_onenote_notebook_section,
     ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_usersonenotenotebookssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_usersonenotenotebookssectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_usersonenotenotebookssectionspage_update_parent_section')
+        g.custom_command('create-page', 'notes_user_onenotebook_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenotebook_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenotebook_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_user_onenotebook_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_user_onenotebook_section_list_page')
+        g.custom_command('set-page-content', 'notes_user_onenotebook_section_set_page_content')
+        g.custom_command('show-page', 'notes_user_onenotebook_section_show_page')
+        g.custom_command('show-page-content', 'notes_user_onenotebook_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_user_onenotebook_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_user_onenotebook_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_user_onenotebook_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_user_onenotebook_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_user_onenotebook_section_update_parent_section_group')
 
     with self.command_group(
-        'notes usersonenotenotebookssectionsparentsectiongroup',
-        notes_beta_usersonenotenotebookssectionsparentsectiongroup,
-        client_factory=cf_usersonenotenotebookssectionsparentsectiongroup,
+        'notes user-onenotebook-section-page',
+        notes_beta_user_onenote_notebook_section_page,
+        client_factory=cf_user_onenote_notebook_section_page,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_create_section')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenotebook_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_user_onenotebook_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_user_onenotebook_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_user_onenotebook_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_user_onenotebook_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_user_onenotebook_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes user-onenotebook-section-parent-section-group',
+        notes_beta_user_onenote_notebook_section_parent_section_group,
+        client_factory=cf_user_onenote_notebook_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenotebook_section_parent_section_group_create_section')
         g.custom_command(
-            'create-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_create_section_group'
+            'create-section-group', 'notes_user_onenotebook_section_parent_section_group_create_section_group'
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_user_onenotebook_section_parent_section_group_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
+            'notes_user_onenotebook_section_parent_section_group_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_section')
+        g.custom_command('delete-section', 'notes_user_onenotebook_section_parent_section_group_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_section_group'
+            'delete-section-group', 'notes_user_onenotebook_section_parent_section_group_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_list_section')
+        g.custom_command('list-section', 'notes_user_onenotebook_section_parent_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenotebook_section_parent_section_group_list_section_group')
         g.custom_command(
-            'list-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_list_section_group'
+            'show-parent-notebook', 'notes_user_onenotebook_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+            'show-parent-section-group', 'notes_user_onenotebook_section_parent_section_group_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenotebook_section_parent_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenotebook_section_parent_section_group_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_user_onenotebook_section_parent_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_user_onenotebook_section_parent_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_user_onenotebook_section_parent_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_user_onenotebook_section_parent_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes user-onenote-page', notes_beta_user_onenote_page, client_factory=cf_user_onenote_page
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_user_onenote_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_user_onenote_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_user_onenote_page_update_parent_section')
+
+    with self.command_group(
+        'notes user-onenote-page-parent-notebook',
+        notes_beta_user_onenote_page_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_page_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_page_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_user_onenote_page_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_page_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenote_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_user_onenote_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_user_onenote_page_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_page_parent_notebook_update_section_group')
+
+    with self.command_group(
+        'notes user-onenote-page-parent-notebook-section-group',
+        notes_beta_user_onenote_page_parent_notebook_section_group,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_page_parent_notebook_section_group_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_user_onenote_page_parent_notebook_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_user_onenote_page_parent_notebook_section_group_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_user_onenote_page_parent_notebook_section_group_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_user_onenote_page_parent_notebook_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_user_onenote_page_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_page_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command('show-section', 'notes_user_onenote_page_parent_notebook_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_section_group'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+            'show-section-group', 'notes_user_onenote_page_parent_notebook_section_group_show_section_group'
         )
         g.custom_command(
-            'update-parent-section-group',
-            'notes_usersonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
-        )
-        g.custom_command('update-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_section_group'
-        )
-
-    with self.command_group(
-        'notes usersonenotepage', notes_beta_usersonenotepage, client_factory=cf_usersonenotepage
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotepage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_usersonenotepage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotepage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_usersonenotepage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotepage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_usersonenotepage_update_parent_section')
-
-    with self.command_group(
-        'notes usersonenotepagesparentnotebook',
-        notes_beta_usersonenotepagesparentnotebook,
-        client_factory=cf_usersonenotepagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotepagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotepagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotepagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotepagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotepagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotepagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotepagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotepagesparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotepagesparentnotebooksectiongroup',
-        notes_beta_usersonenotepagesparentnotebooksectiongroup,
-        client_factory=cf_usersonenotepagesparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotepagesparentnotebooksectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_create_section_group'
-        )
-        g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebooksectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_list_section_group')
-        g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_show_parent_notebook'
-        )
-        g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebooksectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_show_section_group')
-        g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_group_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_usersonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command('update-section', 'notes_user_onenote_page_parent_notebook_section_group_update_section')
         g.custom_command(
-            'update-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_update_section_group'
+            'update-section-group', 'notes_user_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotepagesparentnotebooksectiongroupssection',
-        notes_beta_usersonenotepagesparentnotebooksectiongroupssection,
-        client_factory=cf_usersonenotepagesparentnotebooksectiongroupssection,
+        'notes user-onenote-page-parent-notebook-section-group-section',
+        notes_beta_user_onenote_page_parent_notebook_section_group_section,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command('create-page', 'notes_user_onenote_page_parent_notebook_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_page_parent_notebook_section_group_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook'
+            'delete-parent-notebook',
+            'notes_user_onenote_page_parent_notebook_section_group_section_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_group_section_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_list_page')
-        g.custom_command('show-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command('list-page', 'notes_user_onenote_page_parent_notebook_section_group_section_list_page')
+        g.custom_command('show-page', 'notes_user_onenote_page_parent_notebook_section_group_section_show_page')
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+            'show-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_group_section_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_group_section_show_parent_section_group',
         )
-        g.custom_command('update-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command('update-page', 'notes_user_onenote_page_parent_notebook_section_group_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_update_parent_notebook'
+            'update-parent-notebook',
+            'notes_user_onenote_page_parent_notebook_section_group_section_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes usersonenoteparentnotebooksectiongroupssectionspage',
-        notes_beta_usersonenoteparentnotebooksectiongroupssectionspage,
-        client_factory=cf_usersonenoteparentnotebooksectiongroupssectionspage,
+        'notes user-onenote-parent-notebook-section-group-section-page',
+        notes_beta_user_onenote_parent_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_parent_notebook_section_group_section_page,
     ) as g:
         g.custom_command(
-            'set-page-content', 'notes_usersonenoteparentnotebooksectiongroupssectionspage_set_page_content'
+            'set-page-content', 'notes_user_onenote_parent_notebook_section_group_section_page_set_page_content'
         )
         g.custom_command(
-            'show-page-content', 'notes_usersonenoteparentnotebooksectiongroupssectionspage_show_page_content'
+            'show-page-content', 'notes_user_onenote_parent_notebook_section_group_section_page_show_page_content'
         )
 
     with self.command_group(
-        'notes usersonenotepagesparentnotebooksection',
-        notes_beta_usersonenotepagesparentnotebooksection,
-        client_factory=cf_usersonenotepagesparentnotebooksection,
+        'notes user-onenote-page-parent-notebook-section',
+        notes_beta_user_onenote_page_parent_notebook_section,
+        client_factory=cf_user_onenote_page_parent_notebook_section,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotepagesparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotepagesparentnotebooksection_delete_page')
+        g.custom_command('create-page', 'notes_user_onenote_page_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_page_parent_notebook_section_delete_page')
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_user_onenote_page_parent_notebook_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_usersonenotepagesparentnotebooksection_list_page')
-        g.custom_command('show-page', 'notes_usersonenotepagesparentnotebooksection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command('list-page', 'notes_user_onenote_page_parent_notebook_section_list_page')
+        g.custom_command('show-page', 'notes_user_onenote_page_parent_notebook_section_show_page')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_show_parent_section_group'
+            'show-parent-section-group', 'notes_user_onenote_page_parent_notebook_section_show_parent_section_group'
         )
-        g.custom_command('update-page', 'notes_usersonenotepagesparentnotebooksection_update_page')
+        g.custom_command('update-page', 'notes_user_onenote_page_parent_notebook_section_update_page')
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_update_parent_notebook'
+            'update-parent-notebook', 'notes_user_onenote_page_parent_notebook_section_update_parent_notebook'
         )
         g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_update_parent_section_group'
+            'update-parent-section-group', 'notes_user_onenote_page_parent_notebook_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes usersonenoteparentnotebooksectionspage',
-        notes_beta_usersonenoteparentnotebooksectionspage,
-        client_factory=cf_usersonenoteparentnotebooksectionspage,
+        'notes user-onenote-parent-notebook-section-page',
+        notes_beta_user_onenote_parent_notebook_section_page,
+        client_factory=cf_user_onenote_parent_notebook_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_usersonenoteparentnotebooksectionspage_set_page_content')
-        g.custom_command('show-page-content', 'notes_usersonenoteparentnotebooksectionspage_show_page_content')
+        g.custom_command('set-page-content', 'notes_user_onenote_parent_notebook_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_user_onenote_parent_notebook_section_page_show_page_content')
 
     with self.command_group(
-        'notes usersonenotepagesparentnotebooksectionsparentsectiongroup',
-        notes_beta_usersonenotepagesparentnotebooksectionsparentsectiongroup,
-        client_factory=cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+        'notes user-onenote-page-parent-notebook-section-parent-section-group',
+        notes_beta_user_onenote_page_parent_notebook_section_parent_section_group,
+        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+            'create-section', 'notes_user_onenote_page_parent_notebook_section_parent_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+            'delete-section', 'notes_user_onenote_page_parent_notebook_section_parent_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_delete_section_group',
         )
-        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_list_section')
         g.custom_command(
-            'list-section-group', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+            'list-section', 'notes_user_onenote_page_parent_notebook_section_parent_section_group_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_section')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+            'show-section', 'notes_user_onenote_page_parent_notebook_section_parent_section_group_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+            'update-section', 'notes_user_onenote_page_parent_notebook_section_parent_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+            'notes_user_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes usersonenotepagesparentsection',
-        notes_beta_usersonenotepagesparentsection,
-        client_factory=cf_usersonenotepagesparentsection,
+        'notes user-onenote-page-parent-section',
+        notes_beta_user_onenote_page_parent_section,
+        client_factory=cf_user_onenote_page_parent_section,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotepagesparentsection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotepagesparentsection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command('create-page', 'notes_user_onenote_page_parent_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_page_parent_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_page_parent_section_delete_parent_notebook')
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotepagesparentsection_delete_parent_section_group'
+            'delete-parent-section-group', 'notes_user_onenote_page_parent_section_delete_parent_section_group'
         )
-        g.custom_command('list-page', 'notes_usersonenotepagesparentsection_list_page')
-        g.custom_command('show-page', 'notes_usersonenotepagesparentsection_show_page')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentsection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_usersonenotepagesparentsection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_usersonenotepagesparentsection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotepagesparentsection_update_parent_notebook')
+        g.custom_command('list-page', 'notes_user_onenote_page_parent_section_list_page')
+        g.custom_command('show-page', 'notes_user_onenote_page_parent_section_show_page')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_page_parent_section_show_parent_notebook')
         g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotepagesparentsection_update_parent_section_group'
+            'show-parent-section-group', 'notes_user_onenote_page_parent_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_user_onenote_page_parent_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_page_parent_section_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_user_onenote_page_parent_section_update_parent_section_group'
         )
 
     with self.command_group(
-        'notes usersonenoteparentsectionpage',
-        notes_beta_usersonenoteparentsectionpage,
-        client_factory=cf_usersonenoteparentsectionpage,
+        'notes user-onenote-parent-section-page',
+        notes_beta_user_onenote_parent_section_page,
+        client_factory=cf_user_onenote_parent_section_page,
     ) as g:
-        g.custom_command('set-page-content', 'notes_usersonenoteparentsectionpage_set_page_content')
-        g.custom_command('show-page-content', 'notes_usersonenoteparentsectionpage_show_page_content')
+        g.custom_command('set-page-content', 'notes_user_onenote_parent_section_page_set_page_content')
+        g.custom_command('show-page-content', 'notes_user_onenote_parent_section_page_show_page_content')
 
     with self.command_group(
-        'notes usersonenotepagesparentsectionparentnotebook',
-        notes_beta_usersonenotepagesparentsectionparentnotebook,
-        client_factory=cf_usersonenotepagesparentsectionparentnotebook,
+        'notes user-onenote-page-parent-section-parent-notebook',
+        notes_beta_user_onenote_page_parent_section_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command('create-section', 'notes_user_onenote_page_parent_section_parent_notebook_create_section')
         g.custom_command(
-            'create-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_create_section_group'
+            'create-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command('delete-section', 'notes_user_onenote_page_parent_section_parent_notebook_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_delete_section_group'
+            'delete-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_delete_section_group'
         )
-        g.custom_command('list-section', 'notes_usersonenotepagesparentsectionparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotepagesparentsectionparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command('list-section', 'notes_user_onenote_page_parent_section_parent_notebook_list_section')
         g.custom_command(
-            'update-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_update_section_group'
+            'list-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenote_page_parent_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_user_onenote_page_parent_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotepagesparentsectionparentnotebooksectiongroup',
-        notes_beta_usersonenotepagesparentsectionparentnotebooksectiongroup,
-        client_factory=cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
+        'notes user-onenote-page-parent-section-parent-notebook-section-group',
+        notes_beta_user_onenote_page_parent_section_parent_notebook_section_group,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group,
     ) as g:
         g.custom_command(
-            'create-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+            'create-section', 'notes_user_onenote_page_parent_section_parent_notebook_section_group_create_section'
         )
         g.custom_command(
             'create-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_create_section_group',
         )
         g.custom_command(
             'delete-parent-notebook',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'delete-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+            'delete-section', 'notes_user_onenote_page_parent_section_parent_notebook_section_group_delete_section'
         )
         g.custom_command(
             'delete-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_delete_section_group',
         )
-        g.custom_command('list-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_list_section')
         g.custom_command(
-            'list-section-group', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+            'list-section', 'notes_user_onenote_page_parent_section_parent_notebook_section_group_list_section'
+        )
+        g.custom_command(
+            'list-section-group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_list_section_group',
         )
         g.custom_command(
             'show-parent-notebook',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_show_parent_notebook',
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_section')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+            'show-section', 'notes_user_onenote_page_parent_section_parent_notebook_section_group_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_show_section_group',
         )
         g.custom_command(
             'update-parent-notebook',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_update_parent_section_group',
         )
         g.custom_command(
-            'update-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+            'update-section', 'notes_user_onenote_page_parent_section_parent_notebook_section_group_update_section'
         )
         g.custom_command(
             'update-section-group',
-            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+            'notes_user_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
     with self.command_group(
-        'notes usersonenotepagesparentsectiongroup',
-        notes_beta_usersonenotepagesparentsectiongroup,
-        client_factory=cf_usersonenotepagesparentsectiongroup,
+        'notes user-onenote-page-parent-section-parent-section-group',
+        notes_beta_user_onenote_page_parent_section_parent_section_group,
+        client_factory=cf_user_onenote_page_parent_section_parent_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotepagesparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotepagesparentsectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_user_onenote_page_parent_section_parent_section_group_create_section')
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_delete_parent_section_group'
+            'create-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotepagesparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotepagesparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotepagesparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_show_parent_notebook')
         g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotepagesparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotepagesparentsectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_update_parent_notebook')
-        g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotepagesparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotepagesparentsectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotepagesparentsectiongroupparentnotebook',
-        notes_beta_usersonenotepagesparentsectiongroupparentnotebook,
-        client_factory=cf_usersonenotepagesparentsectiongroupparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes usersonenotesectiongroup',
-        notes_beta_usersonenotesectiongroup,
-        client_factory=cf_usersonenotesectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotesectiongroup_create_section_group')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroup_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_usersonenotesectiongroup_delete_parent_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotesectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotesectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotesectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotesectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroup_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_usersonenotesectiongroup_show_parent_section_group')
-        g.custom_command('show-section', 'notes_usersonenotesectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotesectiongroup_show_section_group')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroup_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_usersonenotesectiongroup_update_parent_section_group')
-        g.custom_command('update-section', 'notes_usersonenotesectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotesectiongroup_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotesectiongroupsparentnotebook',
-        notes_beta_usersonenotesectiongroupsparentnotebook,
-        client_factory=cf_usersonenotesectiongroupsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectiongroupsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotesectiongroupsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotesectiongroupsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotesectiongroupsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotesectiongroupsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotesectiongroupsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotesectiongroupsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotesectiongroupsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotesectiongroupsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotesectiongroupsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotesectiongroupsparentnotebooksection',
-        notes_beta_usersonenotesectiongroupsparentnotebooksection,
-        client_factory=cf_usersonenotesectiongroupsparentnotebooksection,
-    ) as g:
-        g.custom_command('create-page', 'notes_usersonenotesectiongroupsparentnotebooksection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotesectiongroupsparentnotebooksection_delete_page')
-        g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
+            'delete-parent-notebook',
+            'notes_user_onenote_page_parent_section_parent_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_section_group_delete_parent_section_group',
         )
-        g.custom_command('list-page', 'notes_usersonenotesectiongroupsparentnotebooksection_list_page')
-        g.custom_command('set-page-content', 'notes_usersonenotesectiongroupsparentnotebooksection_set_page_content')
-        g.custom_command('show-page', 'notes_usersonenotesectiongroupsparentnotebooksection_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenotesectiongroupsparentnotebooksection_show_page_content')
+        g.custom_command('delete-section', 'notes_user_onenote_page_parent_section_parent_section_group_delete_section')
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_show_parent_notebook'
+            'delete-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_user_onenote_page_parent_section_parent_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenote_page_parent_section_parent_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotesectiongroupsparentnotebooksection_show_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_section_group_show_parent_section_group',
         )
-        g.custom_command('update-page', 'notes_usersonenotesectiongroupsparentnotebooksection_update_page')
+        g.custom_command('show-section', 'notes_user_onenote_page_parent_section_parent_section_group_show_section')
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_update_parent_notebook'
+            'show-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_user_onenote_page_parent_section_parent_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotesectiongroupsparentnotebooksection_update_parent_section_group',
+            'notes_user_onenote_page_parent_section_parent_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_user_onenote_page_parent_section_parent_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotesectiongroupsparentnotebooksectionspage',
-        notes_beta_usersonenotesectiongroupsparentnotebooksectionspage,
-        client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+        'notes user-onenote-page-parent-section-parent-section-group-parent-notebook',
+        notes_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
     ) as g:
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook'
+            'create-section',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_create_section',
         )
         g.custom_command(
-            'delete-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
+            'create-section-group',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_create_section_group',
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
+            'delete-section',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section',
         )
         g.custom_command(
-            'show-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
+            'delete-section-group',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_delete_section_group',
         )
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook'
+            'list-section', 'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_list_section'
         )
         g.custom_command(
-            'update-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
+            'list-section-group',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_list_section_group',
+        )
+        g.custom_command(
+            'show-section', 'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_show_section'
+        )
+        g.custom_command(
+            'show-section-group',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_show_section_group',
+        )
+        g.custom_command(
+            'update-section',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_update_section',
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
         )
 
     with self.command_group(
-        'notes usersonenotesectiongroupssection',
-        notes_beta_usersonenotesectiongroupssection,
-        client_factory=cf_usersonenotesectiongroupssection,
+        'notes user-onenote-section-group',
+        notes_beta_user_onenote_section_group,
+        client_factory=cf_user_onenote_section_group,
     ) as g:
-        g.custom_command('create-page', 'notes_usersonenotesectiongroupssection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotesectiongroupssection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroupssection_delete_parent_notebook')
+        g.custom_command('create-section', 'notes_user_onenote_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_section_group_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_section_group_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_user_onenote_section_group_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_user_onenote_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenote_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_group_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_user_onenote_section_group_show_parent_section_group')
+        g.custom_command('show-section', 'notes_user_onenote_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_section_group_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_section_group_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_user_onenote_section_group_update_parent_section_group')
+        g.custom_command('update-section', 'notes_user_onenote_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_section_group_update_section_group')
+
+    with self.command_group(
+        'notes user-onenote-section-group-parent-notebook',
+        notes_beta_user_onenote_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_group_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_section_group_parent_notebook_create_section')
         g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotesectiongroupssection_delete_parent_section_group'
+            'create-section-group', 'notes_user_onenote_section_group_parent_notebook_create_section_group'
         )
-        g.custom_command('list-page', 'notes_usersonenotesectiongroupssection_list_page')
-        g.custom_command('set-page-content', 'notes_usersonenotesectiongroupssection_set_page_content')
-        g.custom_command('show-page', 'notes_usersonenotesectiongroupssection_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenotesectiongroupssection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroupssection_show_parent_notebook')
+        g.custom_command('delete-section', 'notes_user_onenote_section_group_parent_notebook_delete_section')
         g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotesectiongroupssection_show_parent_section_group'
+            'delete-section-group', 'notes_user_onenote_section_group_parent_notebook_delete_section_group'
         )
-        g.custom_command('update-page', 'notes_usersonenotesectiongroupssection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroupssection_update_parent_notebook')
+        g.custom_command('list-section', 'notes_user_onenote_section_group_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_section_group_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_user_onenote_section_group_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_section_group_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_user_onenote_section_group_parent_notebook_update_section')
         g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotesectiongroupssection_update_parent_section_group'
+            'update-section-group', 'notes_user_onenote_section_group_parent_notebook_update_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotesectiongroupssectionspage',
-        notes_beta_usersonenotesectiongroupssectionspage,
-        client_factory=cf_usersonenotesectiongroupssectionspage,
+        'notes user-onenote-section-group-parent-notebook-section',
+        notes_beta_user_onenote_section_group_parent_notebook_section,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section,
     ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_usersonenotesectiongroupssectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_usersonenotesectiongroupssectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_usersonenotesectiongroupssectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes usersonenotesectiongroupssectionspagesparentnotebook',
-        notes_beta_usersonenotesectiongroupssectionspagesparentnotebook,
-        client_factory=cf_usersonenotesectiongroupssectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_create_section')
+        g.custom_command('create-page', 'notes_user_onenote_section_group_parent_notebook_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_section_group_parent_notebook_section_delete_page')
         g.custom_command(
-            'create-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes usersonenotesectiongroupssectionsparentnotebook',
-        notes_beta_usersonenotesectiongroupssectionsparentnotebook,
-        client_factory=cf_usersonenotesectiongroupssectionsparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_create_section_group'
-        )
-        g.custom_command('delete-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_list_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_show_section')
-        g.custom_command(
-            'show-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_show_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_update_section_group'
-        )
-
-    with self.command_group(
-        'notes usersonenotesection', notes_beta_usersonenotesection, client_factory=cf_usersonenotesection
-    ) as g:
-        g.custom_command('create-page', 'notes_usersonenotesection_create_page')
-        g.custom_command('delete-page', 'notes_usersonenotesection_delete_page')
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotesection_delete_parent_notebook')
-        g.custom_command('delete-parent-section-group', 'notes_usersonenotesection_delete_parent_section_group')
-        g.custom_command('list-page', 'notes_usersonenotesection_list_page')
-        g.custom_command('set-page-content', 'notes_usersonenotesection_set_page_content')
-        g.custom_command('show-page', 'notes_usersonenotesection_show_page')
-        g.custom_command('show-page-content', 'notes_usersonenotesection_show_page_content')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesection_show_parent_notebook')
-        g.custom_command('show-parent-section-group', 'notes_usersonenotesection_show_parent_section_group')
-        g.custom_command('update-page', 'notes_usersonenotesection_update_page')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotesection_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_usersonenotesection_update_parent_section_group')
-
-    with self.command_group(
-        'notes usersonenotesectionspage',
-        notes_beta_usersonenotesectionspage,
-        client_factory=cf_usersonenotesectionspage,
-    ) as g:
-        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectionspage_delete_parent_notebook')
-        g.custom_command('delete-parent-section', 'notes_usersonenotesectionspage_delete_parent_section')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesectionspage_show_parent_notebook')
-        g.custom_command('show-parent-section', 'notes_usersonenotesectionspage_show_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_usersonenotesectionspage_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_usersonenotesectionspage_update_parent_section')
-
-    with self.command_group(
-        'notes usersonenotesectionspagesparentnotebook',
-        notes_beta_usersonenotesectionspagesparentnotebook,
-        client_factory=cf_usersonenotesectionspagesparentnotebook,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionspagesparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotesectionspagesparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotesectionspagesparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotesectionspagesparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotesectionspagesparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotesectionspagesparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotesectionspagesparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotesectionspagesparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotesectionspagesparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotesectionspagesparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotesectionspagesparentnotebooksectiongroup',
-        notes_beta_usersonenotesectionspagesparentnotebooksectiongroup,
-        client_factory=cf_usersonenotesectionspagesparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_create_section')
-        g.custom_command(
-            'create-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_create_section_group'
-        )
-        g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook'
+            'delete-parent-notebook', 'notes_user_onenote_section_group_parent_notebook_section_delete_parent_notebook'
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
+            'notes_user_onenote_section_group_parent_notebook_section_delete_parent_section_group',
         )
-        g.custom_command('delete-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_section')
+        g.custom_command('list-page', 'notes_user_onenote_section_group_parent_notebook_section_list_page')
         g.custom_command(
-            'delete-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
+            'set-page-content', 'notes_user_onenote_section_group_parent_notebook_section_set_page_content'
         )
-        g.custom_command('list-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_list_section')
+        g.custom_command('show-page', 'notes_user_onenote_section_group_parent_notebook_section_show_page')
         g.custom_command(
-            'list-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+            'show-page-content', 'notes_user_onenote_section_group_parent_notebook_section_show_page_content'
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+            'show-parent-notebook', 'notes_user_onenote_section_group_parent_notebook_section_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+            'notes_user_onenote_section_group_parent_notebook_section_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command('update-page', 'notes_user_onenote_section_group_parent_notebook_section_update_page')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_section_group'
-        )
-        g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook', 'notes_user_onenote_section_group_parent_notebook_section_update_parent_notebook'
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
-        )
-        g.custom_command('update-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_section')
-        g.custom_command(
-            'update-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+            'notes_user_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
     with self.command_group(
-        'notes usersonenotesectionsparentnotebook',
-        notes_beta_usersonenotesectionsparentnotebook,
-        client_factory=cf_usersonenotesectionsparentnotebook,
+        'notes user-onenote-section-group-parent-notebook-section-page',
+        notes_beta_user_onenote_section_group_parent_notebook_section_page,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionsparentnotebook_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotesectionsparentnotebook_create_section_group')
-        g.custom_command('delete-section', 'notes_usersonenotesectionsparentnotebook_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotesectionsparentnotebook_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotesectionsparentnotebook_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotesectionsparentnotebook_list_section_group')
-        g.custom_command('show-section', 'notes_usersonenotesectionsparentnotebook_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotesectionsparentnotebook_show_section_group')
-        g.custom_command('update-section', 'notes_usersonenotesectionsparentnotebook_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotesectionsparentnotebook_update_section_group')
-
-    with self.command_group(
-        'notes usersonenotesectionsparentnotebooksectiongroup',
-        notes_beta_usersonenotesectionsparentnotebooksectiongroup,
-        client_factory=cf_usersonenotesectionsparentnotebooksectiongroup,
-    ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_create_section')
         g.custom_command(
-            'create-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_create_section_group'
+            'delete-parent-notebook',
+            'notes_user_onenote_section_group_parent_notebook_section_page_delete_parent_notebook',
         )
         g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+            'delete-parent-section',
+            'notes_user_onenote_section_group_parent_notebook_section_page_delete_parent_section',
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenote_section_group_parent_notebook_section_page_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_user_onenote_section_group_parent_notebook_section_page_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_user_onenote_section_group_parent_notebook_section_page_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section',
+            'notes_user_onenote_section_group_parent_notebook_section_page_update_parent_section',
+        )
+
+    with self.command_group(
+        'notes user-onenote-section-group-section',
+        notes_beta_user_onenote_section_group_section,
+        client_factory=cf_user_onenote_section_group_section,
+    ) as g:
+        g.custom_command('create-page', 'notes_user_onenote_section_group_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_section_group_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_section_group_section_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_user_onenote_section_group_section_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_user_onenote_section_group_section_list_page')
+        g.custom_command('set-page-content', 'notes_user_onenote_section_group_section_set_page_content')
+        g.custom_command('show-page', 'notes_user_onenote_section_group_section_show_page')
+        g.custom_command('show-page-content', 'notes_user_onenote_section_group_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_group_section_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_user_onenote_section_group_section_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_user_onenote_section_group_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_section_group_section_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_user_onenote_section_group_section_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes user-onenote-section-group-section-page',
+        notes_beta_user_onenote_section_group_section_page,
+        client_factory=cf_user_onenote_section_group_section_page,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_user_onenote_section_group_section_page_delete_parent_notebook'
+        )
+        g.custom_command('delete-parent-section', 'notes_user_onenote_section_group_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_group_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_user_onenote_section_group_section_page_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_user_onenote_section_group_section_page_update_parent_notebook'
+        )
+        g.custom_command('update-parent-section', 'notes_user_onenote_section_group_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes user-onenote-section-group-section-page-parent-notebook',
+        notes_beta_user_onenote_section_group_section_page_parent_notebook,
+        client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_user_onenote_section_group_section_page_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_create_section_group'
+        )
+        g.custom_command(
+            'delete-section', 'notes_user_onenote_section_group_section_page_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_user_onenote_section_group_section_page_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenote_section_group_section_page_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_user_onenote_section_group_section_page_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes user-onenote-section-group-section-parent-notebook',
+        notes_beta_user_onenote_section_group_section_parent_notebook,
+        client_factory=cf_user_onenote_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_section_group_section_parent_notebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_user_onenote_section_group_section_parent_notebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_user_onenote_section_group_section_parent_notebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_user_onenote_section_group_section_parent_notebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_user_onenote_section_group_section_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_section_group_section_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenote_section_group_section_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_user_onenote_section_group_section_parent_notebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_user_onenote_section_group_section_parent_notebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_section_group_section_parent_notebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes user-onenote-section', notes_beta_user_onenote_section, client_factory=cf_user_onenote_section
+    ) as g:
+        g.custom_command('create-page', 'notes_user_onenote_section_create_page')
+        g.custom_command('delete-page', 'notes_user_onenote_section_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_section_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_user_onenote_section_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_user_onenote_section_list_page')
+        g.custom_command('set-page-content', 'notes_user_onenote_section_set_page_content')
+        g.custom_command('show-page', 'notes_user_onenote_section_show_page')
+        g.custom_command('show-page-content', 'notes_user_onenote_section_show_page_content')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_user_onenote_section_show_parent_section_group')
+        g.custom_command('update-page', 'notes_user_onenote_section_update_page')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_section_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_user_onenote_section_update_parent_section_group')
+
+    with self.command_group(
+        'notes user-onenote-section-page',
+        notes_beta_user_onenote_section_page,
+        client_factory=cf_user_onenote_section_page,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_user_onenote_section_page_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_user_onenote_section_page_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_page_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_user_onenote_section_page_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_user_onenote_section_page_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_user_onenote_section_page_update_parent_section')
+
+    with self.command_group(
+        'notes user-onenote-section-page-parent-notebook',
+        notes_beta_user_onenote_section_page_parent_notebook,
+        client_factory=cf_user_onenote_section_page_parent_notebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_section_page_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_section_page_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_user_onenote_section_page_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_section_page_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenote_section_page_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_section_page_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_user_onenote_section_page_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_section_page_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_user_onenote_section_page_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_section_page_parent_notebook_update_section_group')
+
+    with self.command_group(
+        'notes user-onenote-section-page-parent-notebook-section-group',
+        notes_beta_user_onenote_section_page_parent_notebook_section_group,
+        client_factory=cf_user_onenote_section_page_parent_notebook_section_group,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_user_onenote_section_page_parent_notebook_section_group_create_section'
+        )
+        g.custom_command(
+            'create-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_user_onenote_section_page_parent_notebook_section_group_delete_parent_notebook',
         )
         g.custom_command(
             'delete-parent-section-group',
-            'notes_usersonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
-        )
-        g.custom_command('delete-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_section')
-        g.custom_command(
-            'delete-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_section_group'
-        )
-        g.custom_command('list-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_list_section')
-        g.custom_command(
-            'list-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_list_section_group'
+            'notes_user_onenote_section_page_parent_notebook_section_group_delete_parent_section_group',
         )
         g.custom_command(
-            'show-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+            'delete-section', 'notes_user_onenote_section_page_parent_notebook_section_group_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_user_onenote_section_page_parent_notebook_section_group_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenote_section_page_parent_notebook_section_group_show_parent_notebook'
         )
         g.custom_command(
             'show-parent-section-group',
-            'notes_usersonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+            'notes_user_onenote_section_page_parent_notebook_section_group_show_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section', 'notes_user_onenote_section_page_parent_notebook_section_group_show_section')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_section_group'
+            'show-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_show_section_group'
         )
         g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+            'update-parent-notebook',
+            'notes_user_onenote_section_page_parent_notebook_section_group_update_parent_notebook',
         )
         g.custom_command(
             'update-parent-section-group',
-            'notes_usersonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
+            'notes_user_onenote_section_page_parent_notebook_section_group_update_parent_section_group',
         )
-        g.custom_command('update-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_section')
         g.custom_command(
-            'update-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_section_group'
+            'update-section', 'notes_user_onenote_section_page_parent_notebook_section_group_update_section'
+        )
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_update_section_group'
         )
 
     with self.command_group(
-        'notes usersonenotesectionsparentsectiongroup',
-        notes_beta_usersonenotesectionsparentsectiongroup,
-        client_factory=cf_usersonenotesectionsparentsectiongroup,
+        'notes user-onenote-section-parent-notebook',
+        notes_beta_user_onenote_section_parent_notebook,
+        client_factory=cf_user_onenote_section_parent_notebook,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionsparentsectiongroup_create_section')
-        g.custom_command('create-section-group', 'notes_usersonenotesectionsparentsectiongroup_create_section_group')
-        g.custom_command(
-            'delete-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_delete_parent_notebook'
-        )
-        g.custom_command(
-            'delete-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_delete_parent_section_group'
-        )
-        g.custom_command('delete-section', 'notes_usersonenotesectionsparentsectiongroup_delete_section')
-        g.custom_command('delete-section-group', 'notes_usersonenotesectionsparentsectiongroup_delete_section_group')
-        g.custom_command('list-section', 'notes_usersonenotesectionsparentsectiongroup_list_section')
-        g.custom_command('list-section-group', 'notes_usersonenotesectionsparentsectiongroup_list_section_group')
-        g.custom_command('show-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_show_parent_notebook')
-        g.custom_command(
-            'show-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_show_parent_section_group'
-        )
-        g.custom_command('show-section', 'notes_usersonenotesectionsparentsectiongroup_show_section')
-        g.custom_command('show-section-group', 'notes_usersonenotesectionsparentsectiongroup_show_section_group')
-        g.custom_command(
-            'update-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_update_parent_notebook'
-        )
-        g.custom_command(
-            'update-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_update_parent_section_group'
-        )
-        g.custom_command('update-section', 'notes_usersonenotesectionsparentsectiongroup_update_section')
-        g.custom_command('update-section-group', 'notes_usersonenotesectionsparentsectiongroup_update_section_group')
+        g.custom_command('create-section', 'notes_user_onenote_section_parent_notebook_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_section_parent_notebook_create_section_group')
+        g.custom_command('delete-section', 'notes_user_onenote_section_parent_notebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_section_parent_notebook_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenote_section_parent_notebook_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_section_parent_notebook_list_section_group')
+        g.custom_command('show-section', 'notes_user_onenote_section_parent_notebook_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_section_parent_notebook_show_section_group')
+        g.custom_command('update-section', 'notes_user_onenote_section_parent_notebook_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_section_parent_notebook_update_section_group')
 
     with self.command_group(
-        'notes usersonenotesectionsparentsectiongroupparentnotebook',
-        notes_beta_usersonenotesectionsparentsectiongroupparentnotebook,
-        client_factory=cf_usersonenotesectionsparentsectiongroupparentnotebook,
+        'notes user-onenote-section-parent-notebook-section-group',
+        notes_beta_user_onenote_section_parent_notebook_section_group,
+        client_factory=cf_user_onenote_section_parent_notebook_section_group,
     ) as g:
-        g.custom_command('create-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command('create-section', 'notes_user_onenote_section_parent_notebook_section_group_create_section')
         g.custom_command(
-            'create-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+            'create-section-group', 'notes_user_onenote_section_parent_notebook_section_group_create_section_group'
         )
-        g.custom_command('delete-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_delete_section')
         g.custom_command(
-            'delete-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+            'delete-parent-notebook', 'notes_user_onenote_section_parent_notebook_section_group_delete_parent_notebook'
         )
-        g.custom_command('list-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_list_section')
         g.custom_command(
-            'list-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+            'delete-parent-section-group',
+            'notes_user_onenote_section_parent_notebook_section_group_delete_parent_section_group',
         )
-        g.custom_command('show-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_show_section')
+        g.custom_command('delete-section', 'notes_user_onenote_section_parent_notebook_section_group_delete_section')
         g.custom_command(
-            'show-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+            'delete-section-group', 'notes_user_onenote_section_parent_notebook_section_group_delete_section_group'
         )
-        g.custom_command('update-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_update_section')
+        g.custom_command('list-section', 'notes_user_onenote_section_parent_notebook_section_group_list_section')
         g.custom_command(
-            'update-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+            'list-section-group', 'notes_user_onenote_section_parent_notebook_section_group_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_user_onenote_section_parent_notebook_section_group_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_user_onenote_section_parent_notebook_section_group_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_user_onenote_section_parent_notebook_section_group_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_user_onenote_section_parent_notebook_section_group_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_user_onenote_section_parent_notebook_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_user_onenote_section_parent_notebook_section_group_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_user_onenote_section_parent_notebook_section_group_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_user_onenote_section_parent_notebook_section_group_update_section_group'
+        )
+
+    with self.command_group(
+        'notes user-onenote-section-parent-section-group',
+        notes_beta_user_onenote_section_parent_section_group,
+        client_factory=cf_user_onenote_section_parent_section_group,
+    ) as g:
+        g.custom_command('create-section', 'notes_user_onenote_section_parent_section_group_create_section')
+        g.custom_command('create-section-group', 'notes_user_onenote_section_parent_section_group_create_section_group')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_user_onenote_section_parent_section_group_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_user_onenote_section_parent_section_group_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_user_onenote_section_parent_section_group_delete_section')
+        g.custom_command('delete-section-group', 'notes_user_onenote_section_parent_section_group_delete_section_group')
+        g.custom_command('list-section', 'notes_user_onenote_section_parent_section_group_list_section')
+        g.custom_command('list-section-group', 'notes_user_onenote_section_parent_section_group_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_user_onenote_section_parent_section_group_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_user_onenote_section_parent_section_group_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenote_section_parent_section_group_show_section')
+        g.custom_command('show-section-group', 'notes_user_onenote_section_parent_section_group_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_user_onenote_section_parent_section_group_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_user_onenote_section_parent_section_group_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_user_onenote_section_parent_section_group_update_section')
+        g.custom_command('update-section-group', 'notes_user_onenote_section_parent_section_group_update_section_group')
+
+    with self.command_group(
+        'notes user-onenote-section-parent-section-group-parent-notebook',
+        notes_beta_user_onenote_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_user_onenote_section_parent_section_group_parent_notebook_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_user_onenote_section_parent_section_group_parent_notebook_create_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_user_onenote_section_parent_section_group_parent_notebook_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_user_onenote_section_parent_section_group_parent_notebook_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_user_onenote_section_parent_section_group_parent_notebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_user_onenote_section_parent_section_group_parent_notebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_user_onenote_section_parent_section_group_parent_notebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_user_onenote_section_parent_section_group_parent_notebook_show_section_group'
+        )
+        g.custom_command(
+            'update-section', 'notes_user_onenote_section_parent_section_group_parent_notebook_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_user_onenote_section_parent_section_group_parent_notebook_update_section_group',
         )
 
     with self.command_group('notes_beta', is_experimental=True):

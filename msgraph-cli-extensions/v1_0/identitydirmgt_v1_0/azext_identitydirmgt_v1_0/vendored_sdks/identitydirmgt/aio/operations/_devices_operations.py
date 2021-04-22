@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class devicesOperations:
-    """devicesOperations async operations.
+class DevicesOperations:
+    """DevicesOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,7 +48,7 @@ class devicesOperations:
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofextension"]:
+    ) -> AsyncIterable["models.CollectionOfExtension"]:
         """Get extensions from devices.
 
         Get extensions from devices.
@@ -61,11 +62,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofextension or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofextension]
+        :return: An iterator like instance of either CollectionOfExtension or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfExtension]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofextension"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtension"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -111,7 +112,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofextension', pipeline_response)
+            deserialized = self._deserialize('CollectionOfExtension', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -124,9 +125,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -138,9 +139,9 @@ class devicesOperations:
     async def create_extensions(
         self,
         device_id: str,
-        body: "models.microsoftgraphextension",
+        body: "models.MicrosoftGraphExtension",
         **kwargs
-    ) -> "models.microsoftgraphextension":
+    ) -> "models.MicrosoftGraphExtension":
         """Create new navigation property to extensions for devices.
 
         Create new navigation property to extensions for devices.
@@ -148,13 +149,13 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphextension
+        :type body: ~identity_directory_management.models.MicrosoftGraphExtension
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphextension, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphextension
+        :return: MicrosoftGraphExtension, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphExtension
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphextension"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -178,7 +179,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphextension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -186,10 +187,10 @@ class devicesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphextension', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExtension', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -204,7 +205,7 @@ class devicesOperations:
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphextension":
+    ) -> "models.MicrosoftGraphExtension":
         """Get extensions from devices.
 
         Get extensions from devices.
@@ -218,11 +219,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphextension, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphextension
+        :return: MicrosoftGraphExtension, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphExtension
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphextension"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -254,10 +255,10 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphextension', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExtension', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -269,7 +270,7 @@ class devicesOperations:
         self,
         device_id: str,
         extension_id: str,
-        body: "models.microsoftgraphextension",
+        body: "models.MicrosoftGraphExtension",
         **kwargs
     ) -> None:
         """Update the navigation property extensions in devices.
@@ -281,7 +282,7 @@ class devicesOperations:
         :param extension_id: key: id of extension.
         :type extension_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphextension
+        :type body: ~identity_directory_management.models.MicrosoftGraphExtension
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -312,7 +313,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphextension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -320,8 +321,8 @@ class devicesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -380,8 +381,8 @@ class devicesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -395,7 +396,7 @@ class devicesOperations:
         select: Optional[List[Union[str, "models.Enum26"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdirectoryobject2"]:
+    ) -> AsyncIterable["models.CollectionOfDirectoryObject2"]:
         """Get memberOf from devices.
 
         Get memberOf from devices.
@@ -409,11 +410,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject2 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofdirectoryobject2]
+        :return: An iterator like instance of either CollectionOfDirectoryObject2 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -459,7 +460,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -472,9 +473,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -488,7 +489,7 @@ class devicesOperations:
         device_id: str,
         orderby: Optional[List[Union[str, "models.Enum27"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflinksofdirectoryobject2"]:
+    ) -> AsyncIterable["models.CollectionOfLinksOfDirectoryObject2"]:
         """Get ref of memberOf from devices.
 
         Get ref of memberOf from devices.
@@ -498,11 +499,11 @@ class devicesOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum27]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject2 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionoflinksofdirectoryobject2]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject2 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfLinksOfDirectoryObject2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -544,7 +545,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -557,9 +558,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -619,8 +620,8 @@ class devicesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -633,7 +634,7 @@ class devicesOperations:
     async def check_member_groups(
         self,
         device_id: str,
-        body: "models.pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema",
+        body: "models.PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action checkMemberGroups.
@@ -643,7 +644,7 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -673,7 +674,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -681,8 +682,8 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -695,7 +696,7 @@ class devicesOperations:
     async def check_member_objects(
         self,
         device_id: str,
-        body: "models.paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action checkMemberObjects.
@@ -705,7 +706,7 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -735,7 +736,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -743,8 +744,8 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -757,7 +758,7 @@ class devicesOperations:
     async def get_member_groups(
         self,
         device_id: str,
-        body: "models.pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema",
+        body: "models.PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action getMemberGroups.
@@ -767,7 +768,7 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -797,7 +798,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -805,8 +806,8 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -819,7 +820,7 @@ class devicesOperations:
     async def get_member_objects(
         self,
         device_id: str,
-        body: "models.paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action getMemberObjects.
@@ -829,7 +830,7 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -859,7 +860,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -867,8 +868,8 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -882,7 +883,7 @@ class devicesOperations:
         self,
         device_id: str,
         **kwargs
-    ) -> "models.microsoftgraphdirectoryobject":
+    ) -> "models.MicrosoftGraphDirectoryObject":
         """Invoke action restore.
 
         Invoke action restore.
@@ -890,11 +891,11 @@ class devicesOperations:
         :param device_id: key: id of device.
         :type device_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -921,10 +922,10 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -939,7 +940,7 @@ class devicesOperations:
         select: Optional[List[Union[str, "models.Enum29"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdirectoryobject3"]:
+    ) -> AsyncIterable["models.CollectionOfDirectoryObject3"]:
         """Get registeredOwners from devices.
 
         Get registeredOwners from devices.
@@ -953,11 +954,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject3 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofdirectoryobject3]
+        :return: An iterator like instance of either CollectionOfDirectoryObject3 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject3]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject3"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject3"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1003,7 +1004,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject3', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject3', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1016,9 +1017,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1032,7 +1033,7 @@ class devicesOperations:
         device_id: str,
         orderby: Optional[List[Union[str, "models.Enum30"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflinksofdirectoryobject3"]:
+    ) -> AsyncIterable["models.CollectionOfLinksOfDirectoryObject3"]:
         """Get ref of registeredOwners from devices.
 
         Get ref of registeredOwners from devices.
@@ -1042,11 +1043,11 @@ class devicesOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum30]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject3 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionoflinksofdirectoryobject3]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject3 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfLinksOfDirectoryObject3]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject3"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject3"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1088,7 +1089,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject3', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject3', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1101,9 +1102,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1163,8 +1164,8 @@ class devicesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -1181,7 +1182,7 @@ class devicesOperations:
         select: Optional[List[Union[str, "models.Enum32"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdirectoryobject4"]:
+    ) -> AsyncIterable["models.CollectionOfDirectoryObject4"]:
         """Get registeredUsers from devices.
 
         Get registeredUsers from devices.
@@ -1195,11 +1196,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject4 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofdirectoryobject4]
+        :return: An iterator like instance of either CollectionOfDirectoryObject4 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject4]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject4"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject4"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1245,7 +1246,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject4', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject4', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1258,9 +1259,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1274,7 +1275,7 @@ class devicesOperations:
         device_id: str,
         orderby: Optional[List[Union[str, "models.Enum33"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflinksofdirectoryobject4"]:
+    ) -> AsyncIterable["models.CollectionOfLinksOfDirectoryObject4"]:
         """Get ref of registeredUsers from devices.
 
         Get ref of registeredUsers from devices.
@@ -1284,11 +1285,11 @@ class devicesOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum33]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject4 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionoflinksofdirectoryobject4]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject4 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfLinksOfDirectoryObject4]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject4"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject4"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1330,7 +1331,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject4', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject4', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1343,9 +1344,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1405,8 +1406,8 @@ class devicesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -1423,7 +1424,7 @@ class devicesOperations:
         select: Optional[List[Union[str, "models.Enum35"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdirectoryobject5"]:
+    ) -> AsyncIterable["models.CollectionOfDirectoryObject5"]:
         """Get transitiveMemberOf from devices.
 
         Get transitiveMemberOf from devices.
@@ -1437,11 +1438,11 @@ class devicesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject5 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionofdirectoryobject5]
+        :return: An iterator like instance of either CollectionOfDirectoryObject5 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject5]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject5"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject5"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1487,7 +1488,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject5', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject5', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1500,9 +1501,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1516,7 +1517,7 @@ class devicesOperations:
         device_id: str,
         orderby: Optional[List[Union[str, "models.Enum36"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflinksofdirectoryobject5"]:
+    ) -> AsyncIterable["models.CollectionOfLinksOfDirectoryObject5"]:
         """Get ref of transitiveMemberOf from devices.
 
         Get ref of transitiveMemberOf from devices.
@@ -1526,11 +1527,11 @@ class devicesOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum36]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject5 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.collectionoflinksofdirectoryobject5]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject5 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfLinksOfDirectoryObject5]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject5"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject5"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1572,7 +1573,7 @@ class devicesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject5', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject5', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1585,9 +1586,9 @@ class devicesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1647,8 +1648,8 @@ class devicesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -1660,21 +1661,21 @@ class devicesOperations:
 
     async def get_available_extension_properties(
         self,
-        body: "models.paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema",
         **kwargs
-    ) -> List["models.microsoftgraphextensionproperty"]:
+    ) -> List["models.MicrosoftGraphExtensionProperty"]:
         """Invoke action getAvailableExtensionProperties.
 
         Invoke action getAvailableExtensionProperties.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphextensionproperty, or the result of cls(response)
-        :rtype: list[~identity_directory_management.models.microsoftgraphextensionproperty]
+        :return: list of MicrosoftGraphExtensionProperty, or the result of cls(response)
+        :rtype: list[~identity_directory_management.models.MicrosoftGraphExtensionProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphextensionproperty"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphExtensionProperty"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1694,7 +1695,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1702,10 +1703,10 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphextensionproperty]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphExtensionProperty]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1715,21 +1716,21 @@ class devicesOperations:
 
     async def get_by_ids(
         self,
-        body: "models.paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
-    ) -> List["models.microsoftgraphdirectoryobject"]:
+    ) -> List["models.MicrosoftGraphDirectoryObject"]:
         """Invoke action getByIds.
 
         Invoke action getByIds.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: list[~identity_directory_management.models.microsoftgraphdirectoryobject]
+        :return: list of MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: list[~identity_directory_management.models.MicrosoftGraphDirectoryObject]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdirectoryobject"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDirectoryObject"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1749,7 +1750,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1757,10 +1758,10 @@ class devicesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdirectoryobject]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDirectoryObject]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1770,7 +1771,7 @@ class devicesOperations:
 
     async def validate_properties(
         self,
-        body: "models.paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> None:
         """Invoke action validateProperties.
@@ -1778,7 +1779,7 @@ class devicesOperations:
         Invoke action validateProperties.
 
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1804,7 +1805,7 @@ class devicesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1812,8 +1813,8 @@ class devicesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

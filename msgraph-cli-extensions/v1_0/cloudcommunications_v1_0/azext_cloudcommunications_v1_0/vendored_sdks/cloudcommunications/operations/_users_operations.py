@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,12 +48,12 @@ class usersOperations(object):
     def list_online_meetings(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofonlinemeeting"]
+        # type: (...) -> Iterable["models.CollectionOfOnlineMeeting"]
         """Get onlineMeetings from users.
 
         Get onlineMeetings from users.
@@ -60,17 +61,17 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Get6itemsitem]
+        :type orderby: list[str or ~cloud_communications.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Get7itemsitem]
+        :type select: list[str or ~cloud_communications.models.Get7ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofonlinemeeting or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.collectionofonlinemeeting]
+        :return: An iterator like instance of either CollectionOfOnlineMeeting or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfOnlineMeeting]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofonlinemeeting', pipeline_response)
+            deserialized = self._deserialize('CollectionOfOnlineMeeting', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -143,10 +144,10 @@ class usersOperations(object):
     def create_online_meetings(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphonlinemeeting"
+        body,  # type: "models.MicrosoftGraphOnlineMeeting"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphonlinemeeting"
+        # type: (...) -> "models.MicrosoftGraphOnlineMeeting"
         """Create new navigation property to onlineMeetings for users.
 
         Create new navigation property to onlineMeetings for users.
@@ -154,13 +155,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :type body: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphonlinemeeting, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :return: MicrosoftGraphOnlineMeeting, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,7 +185,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphonlinemeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -192,10 +193,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphonlinemeeting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphOnlineMeeting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -207,11 +208,11 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         online_meeting_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphonlinemeeting"
+        # type: (...) -> "models.MicrosoftGraphOnlineMeeting"
         """Get onlineMeetings from users.
 
         Get onlineMeetings from users.
@@ -221,15 +222,15 @@ class usersOperations(object):
         :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Get2itemsitem]
+        :type select: list[str or ~cloud_communications.models.Get2ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphonlinemeeting, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :return: MicrosoftGraphOnlineMeeting, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -261,10 +262,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphonlinemeeting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphOnlineMeeting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -276,7 +277,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         online_meeting_id,  # type: str
-        body,  # type: "models.microsoftgraphonlinemeeting"
+        body,  # type: "models.MicrosoftGraphOnlineMeeting"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -289,7 +290,7 @@ class usersOperations(object):
         :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param body: New navigation property values.
-        :type body: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :type body: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -320,7 +321,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphonlinemeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -328,8 +329,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -389,8 +390,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

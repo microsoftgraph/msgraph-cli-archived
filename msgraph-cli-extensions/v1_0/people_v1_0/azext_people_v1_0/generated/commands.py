@@ -15,44 +15,42 @@
 from msgraph.cli.core.commands import CliCommandType
 from azext_people_v1_0.generated._client_factory import (
     cf_user,
-    cf_usersinsight,
-    cf_usersinsightsshared,
-    cf_usersinsightstrending,
-    cf_usersinsightsused,
+    cf_user_insight,
+    cf_user_insight_shared,
+    cf_user_insight_trending,
+    cf_user_insight_used,
 )
 
 
 people_v1_0_user = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-people_v1_0_usersinsight = CliCommandType(
+people_v1_0_user_insight = CliCommandType(
     operations_tmpl=(
-        'azext_people_v1_0.vendored_sdks.people.operations._usersinsights_operations#usersinsightsOperations.{}'
+        'azext_people_v1_0.vendored_sdks.people.operations._users_insights_operations#UsersInsightsOperations.{}'
     ),
-    client_factory=cf_usersinsight,
+    client_factory=cf_user_insight,
 )
 
 
-people_v1_0_usersinsightsshared = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._usersinsightsshared_operations#usersinsightssharedOperations.{}',
-    client_factory=cf_usersinsightsshared,
+people_v1_0_user_insight_shared = CliCommandType(
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_shared_operations#UsersInsightsSharedOperations.{}',
+    client_factory=cf_user_insight_shared,
 )
 
 
-people_v1_0_usersinsightstrending = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._usersinsightstrending_operations#usersinsightstrendingOperations.{}',
-    client_factory=cf_usersinsightstrending,
+people_v1_0_user_insight_trending = CliCommandType(
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_trending_operations#UsersInsightsTrendingOperations.{}',
+    client_factory=cf_user_insight_trending,
 )
 
 
-people_v1_0_usersinsightsused = CliCommandType(
-    operations_tmpl=(
-        'azext_people_v1_0.vendored_sdks.people.operations._usersinsightsused_operations#usersinsightsusedOperations.{}'
-    ),
-    client_factory=cf_usersinsightsused,
+people_v1_0_user_insight_used = CliCommandType(
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_used_operations#UsersInsightsUsedOperations.{}',
+    client_factory=cf_user_insight_used,
 )
 
 
@@ -68,50 +66,50 @@ def load_command_table(self, _):
         g.custom_command('update-insight', 'people_user_update_insight')
         g.custom_command('update-person', 'people_user_update_person')
 
-    with self.command_group('people usersinsight', people_v1_0_usersinsight, client_factory=cf_usersinsight) as g:
-        g.custom_command('create-shared', 'people_usersinsight_create_shared')
-        g.custom_command('create-trending', 'people_usersinsight_create_trending')
-        g.custom_command('create-used', 'people_usersinsight_create_used')
-        g.custom_command('delete-shared', 'people_usersinsight_delete_shared')
-        g.custom_command('delete-trending', 'people_usersinsight_delete_trending')
-        g.custom_command('delete-used', 'people_usersinsight_delete_used')
-        g.custom_command('list-shared', 'people_usersinsight_list_shared')
-        g.custom_command('list-trending', 'people_usersinsight_list_trending')
-        g.custom_command('list-used', 'people_usersinsight_list_used')
-        g.custom_command('show-shared', 'people_usersinsight_show_shared')
-        g.custom_command('show-trending', 'people_usersinsight_show_trending')
-        g.custom_command('show-used', 'people_usersinsight_show_used')
-        g.custom_command('update-shared', 'people_usersinsight_update_shared')
-        g.custom_command('update-trending', 'people_usersinsight_update_trending')
-        g.custom_command('update-used', 'people_usersinsight_update_used')
+    with self.command_group('people user-insight', people_v1_0_user_insight, client_factory=cf_user_insight) as g:
+        g.custom_command('create-shared', 'people_user_insight_create_shared')
+        g.custom_command('create-trending', 'people_user_insight_create_trending')
+        g.custom_command('create-used', 'people_user_insight_create_used')
+        g.custom_command('delete-shared', 'people_user_insight_delete_shared')
+        g.custom_command('delete-trending', 'people_user_insight_delete_trending')
+        g.custom_command('delete-used', 'people_user_insight_delete_used')
+        g.custom_command('list-shared', 'people_user_insight_list_shared')
+        g.custom_command('list-trending', 'people_user_insight_list_trending')
+        g.custom_command('list-used', 'people_user_insight_list_used')
+        g.custom_command('show-shared', 'people_user_insight_show_shared')
+        g.custom_command('show-trending', 'people_user_insight_show_trending')
+        g.custom_command('show-used', 'people_user_insight_show_used')
+        g.custom_command('update-shared', 'people_user_insight_update_shared')
+        g.custom_command('update-trending', 'people_user_insight_update_trending')
+        g.custom_command('update-used', 'people_user_insight_update_used')
 
     with self.command_group(
-        'people usersinsightsshared', people_v1_0_usersinsightsshared, client_factory=cf_usersinsightsshared
+        'people user-insight-shared', people_v1_0_user_insight_shared, client_factory=cf_user_insight_shared
     ) as g:
-        g.custom_command('delete-ref-last-shared-method', 'people_usersinsightsshared_delete_ref_last_shared_method')
-        g.custom_command('delete-ref-resource', 'people_usersinsightsshared_delete_ref_resource')
-        g.custom_command('set-ref-last-shared-method', 'people_usersinsightsshared_set_ref_last_shared_method')
-        g.custom_command('set-ref-resource', 'people_usersinsightsshared_set_ref_resource')
-        g.custom_command('show-last-shared-method', 'people_usersinsightsshared_show_last_shared_method')
-        g.custom_command('show-ref-last-shared-method', 'people_usersinsightsshared_show_ref_last_shared_method')
-        g.custom_command('show-ref-resource', 'people_usersinsightsshared_show_ref_resource')
-        g.custom_command('show-resource', 'people_usersinsightsshared_show_resource')
+        g.custom_command('delete-ref-last-shared-method', 'people_user_insight_shared_delete_ref_last_shared_method')
+        g.custom_command('delete-ref-resource', 'people_user_insight_shared_delete_ref_resource')
+        g.custom_command('set-ref-last-shared-method', 'people_user_insight_shared_set_ref_last_shared_method')
+        g.custom_command('set-ref-resource', 'people_user_insight_shared_set_ref_resource')
+        g.custom_command('show-last-shared-method', 'people_user_insight_shared_show_last_shared_method')
+        g.custom_command('show-ref-last-shared-method', 'people_user_insight_shared_show_ref_last_shared_method')
+        g.custom_command('show-ref-resource', 'people_user_insight_shared_show_ref_resource')
+        g.custom_command('show-resource', 'people_user_insight_shared_show_resource')
 
     with self.command_group(
-        'people usersinsightstrending', people_v1_0_usersinsightstrending, client_factory=cf_usersinsightstrending
+        'people user-insight-trending', people_v1_0_user_insight_trending, client_factory=cf_user_insight_trending
     ) as g:
-        g.custom_command('delete-ref-resource', 'people_usersinsightstrending_delete_ref_resource')
-        g.custom_command('set-ref-resource', 'people_usersinsightstrending_set_ref_resource')
-        g.custom_command('show-ref-resource', 'people_usersinsightstrending_show_ref_resource')
-        g.custom_command('show-resource', 'people_usersinsightstrending_show_resource')
+        g.custom_command('delete-ref-resource', 'people_user_insight_trending_delete_ref_resource')
+        g.custom_command('set-ref-resource', 'people_user_insight_trending_set_ref_resource')
+        g.custom_command('show-ref-resource', 'people_user_insight_trending_show_ref_resource')
+        g.custom_command('show-resource', 'people_user_insight_trending_show_resource')
 
     with self.command_group(
-        'people usersinsightsused', people_v1_0_usersinsightsused, client_factory=cf_usersinsightsused
+        'people user-insight-used', people_v1_0_user_insight_used, client_factory=cf_user_insight_used
     ) as g:
-        g.custom_command('delete-ref-resource', 'people_usersinsightsused_delete_ref_resource')
-        g.custom_command('set-ref-resource', 'people_usersinsightsused_set_ref_resource')
-        g.custom_command('show-ref-resource', 'people_usersinsightsused_show_ref_resource')
-        g.custom_command('show-resource', 'people_usersinsightsused_show_resource')
+        g.custom_command('delete-ref-resource', 'people_user_insight_used_delete_ref_resource')
+        g.custom_command('set-ref-resource', 'people_user_insight_used_set_ref_resource')
+        g.custom_command('show-ref-resource', 'people_user_insight_used_show_ref_resource')
+        g.custom_command('show-resource', 'people_user_insight_used_show_resource')
 
     with self.command_group('people_v1_0', is_experimental=True):
         pass

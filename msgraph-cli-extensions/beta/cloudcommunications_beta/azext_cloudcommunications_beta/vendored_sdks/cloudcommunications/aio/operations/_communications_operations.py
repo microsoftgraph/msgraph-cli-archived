@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class communicationsOperations:
-    """communicationsOperations async operations.
+class CommunicationsOperations:
+    """CommunicationsOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -42,27 +43,27 @@ class communicationsOperations:
 
     def list_call_records(
         self,
-        orderby: Optional[List[Union[str, "models.Get5itemsitem"]]] = None,
-        select: Optional[List[Union[str, "models.Get6itemsitem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get7itemsitem"]]] = None,
+        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcallrecord"]:
+    ) -> AsyncIterable["models.CollectionOfCallRecord"]:
         """Get callRecords from communications.
 
         Get callRecords from communications.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Get5itemsitem]
+        :type orderby: list[str or ~cloud_communications.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Get6itemsitem]
+        :type select: list[str or ~cloud_communications.models.Get6ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~cloud_communications.models.Get7itemsitem]
+        :type expand: list[str or ~cloud_communications.models.Get7ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcallrecord or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.collectionofcallrecord]
+        :return: An iterator like instance of either CollectionOfCallRecord or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfCallRecord]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcallrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCallRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -104,7 +105,7 @@ class communicationsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcallrecord', pipeline_response)
+            deserialized = self._deserialize('CollectionOfCallRecord', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -117,9 +118,9 @@ class communicationsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -130,21 +131,21 @@ class communicationsOperations:
 
     async def create_call_records(
         self,
-        body: "models.microsoftgraphcallrecordscallrecord",
+        body: "models.MicrosoftGraphCallRecordsCallRecord",
         **kwargs
-    ) -> "models.microsoftgraphcallrecordscallrecord":
+    ) -> "models.MicrosoftGraphCallRecordsCallRecord":
         """Create new navigation property to callRecords for communications.
 
         Create new navigation property to callRecords for communications.
 
         :param body: New navigation property.
-        :type body: ~cloud_communications.models.microsoftgraphcallrecordscallrecord
+        :type body: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcallrecordscallrecord, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphcallrecordscallrecord
+        :return: MicrosoftGraphCallRecordsCallRecord, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcallrecordscallrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCallRecordsCallRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -164,7 +165,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcallrecordscallrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCallRecordsCallRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -172,10 +173,10 @@ class communicationsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcallrecordscallrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCallRecordsCallRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -187,9 +188,9 @@ class communicationsOperations:
         self,
         call_record_id: str,
         select: Optional[List[Union[str, "models.Enum32"]]] = None,
-        expand: Optional[List[Union[str, "models.Get2itemsitem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcallrecordscallrecord":
+    ) -> "models.MicrosoftGraphCallRecordsCallRecord":
         """Get callRecords from communications.
 
         Get callRecords from communications.
@@ -199,13 +200,13 @@ class communicationsOperations:
         :param select: Select properties to be returned.
         :type select: list[str or ~cloud_communications.models.Enum32]
         :param expand: Expand related entities.
-        :type expand: list[str or ~cloud_communications.models.Get2itemsitem]
+        :type expand: list[str or ~cloud_communications.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcallrecordscallrecord, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphcallrecordscallrecord
+        :return: MicrosoftGraphCallRecordsCallRecord, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcallrecordscallrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCallRecordsCallRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -236,10 +237,10 @@ class communicationsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcallrecordscallrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCallRecordsCallRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -250,7 +251,7 @@ class communicationsOperations:
     async def update_call_records(
         self,
         call_record_id: str,
-        body: "models.microsoftgraphcallrecordscallrecord",
+        body: "models.MicrosoftGraphCallRecordsCallRecord",
         **kwargs
     ) -> None:
         """Update the navigation property callRecords in communications.
@@ -260,7 +261,7 @@ class communicationsOperations:
         :param call_record_id: key: id of callRecord.
         :type call_record_id: str
         :param body: New navigation property values.
-        :type body: ~cloud_communications.models.microsoftgraphcallrecordscallrecord
+        :type body: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -290,7 +291,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcallrecordscallrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCallRecordsCallRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -298,8 +299,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -354,8 +355,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -368,7 +369,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum43"]]] = None,
         expand: Optional[List[Union[str, "models.Enum44"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcall"]:
+    ) -> AsyncIterable["models.CollectionOfCall"]:
         """Get calls from communications.
 
         Get calls from communications.
@@ -380,11 +381,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Enum44]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcall or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.collectionofcall]
+        :return: An iterator like instance of either CollectionOfCall or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfCall]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcall"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCall"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -426,7 +427,7 @@ class communicationsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcall', pipeline_response)
+            deserialized = self._deserialize('CollectionOfCall', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -439,9 +440,9 @@ class communicationsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -452,21 +453,21 @@ class communicationsOperations:
 
     async def create_calls(
         self,
-        body: "models.microsoftgraphcall",
+        body: "models.MicrosoftGraphCall",
         **kwargs
-    ) -> "models.microsoftgraphcall":
+    ) -> "models.MicrosoftGraphCall":
         """Create new navigation property to calls for communications.
 
         Create new navigation property to calls for communications.
 
         :param body: New navigation property.
-        :type body: ~cloud_communications.models.microsoftgraphcall
+        :type body: ~cloud_communications.models.MicrosoftGraphCall
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcall, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphcall
+        :return: MicrosoftGraphCall, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphCall
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcall"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCall"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -486,7 +487,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcall')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCall')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -494,10 +495,10 @@ class communicationsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcall', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCall', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -511,7 +512,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum45"]]] = None,
         expand: Optional[List[Union[str, "models.Enum46"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcall":
+    ) -> "models.MicrosoftGraphCall":
         """Get calls from communications.
 
         Get calls from communications.
@@ -523,11 +524,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Enum46]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcall, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphcall
+        :return: MicrosoftGraphCall, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphCall
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcall"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCall"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -558,10 +559,10 @@ class communicationsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcall', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCall', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -572,7 +573,7 @@ class communicationsOperations:
     async def update_calls(
         self,
         call_id: str,
-        body: "models.microsoftgraphcall",
+        body: "models.MicrosoftGraphCall",
         **kwargs
     ) -> None:
         """Update the navigation property calls in communications.
@@ -582,7 +583,7 @@ class communicationsOperations:
         :param call_id: key: id of call.
         :type call_id: str
         :param body: New navigation property values.
-        :type body: ~cloud_communications.models.microsoftgraphcall
+        :type body: ~cloud_communications.models.MicrosoftGraphCall
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -612,7 +613,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcall')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCall')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -620,8 +621,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -676,8 +677,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -686,21 +687,21 @@ class communicationsOperations:
 
     async def get_presences_by_user_id(
         self,
-        body: "models.paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema",
         **kwargs
-    ) -> List["models.microsoftgraphpresence"]:
+    ) -> List["models.MicrosoftGraphPresence"]:
         """Invoke action getPresencesByUserId.
 
         Invoke action getPresencesByUserId.
 
         :param body: Action parameters.
-        :type body: ~cloud_communications.models.paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema
+        :type body: ~cloud_communications.models.Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphpresence, or the result of cls(response)
-        :rtype: list[~cloud_communications.models.microsoftgraphpresence]
+        :return: list of MicrosoftGraphPresence, or the result of cls(response)
+        :rtype: list[~cloud_communications.models.MicrosoftGraphPresence]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphpresence"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphPresence"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -720,7 +721,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths10wpgkzcommunicationsmicrosoftgraphgetpresencesbyuseridpostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -728,10 +729,10 @@ class communicationsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphpresence]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphPresence]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -745,7 +746,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum62"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofonlinemeeting"]:
+    ) -> AsyncIterable["models.CollectionOfOnlineMeeting"]:
         """Get onlineMeetings from communications.
 
         Get onlineMeetings from communications.
@@ -757,11 +758,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofonlinemeeting or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.collectionofonlinemeeting]
+        :return: An iterator like instance of either CollectionOfOnlineMeeting or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfOnlineMeeting]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -803,7 +804,7 @@ class communicationsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofonlinemeeting', pipeline_response)
+            deserialized = self._deserialize('CollectionOfOnlineMeeting', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -816,9 +817,9 @@ class communicationsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -829,21 +830,21 @@ class communicationsOperations:
 
     async def create_online_meetings(
         self,
-        body: "models.microsoftgraphonlinemeeting",
+        body: "models.MicrosoftGraphOnlineMeeting",
         **kwargs
-    ) -> "models.microsoftgraphonlinemeeting":
+    ) -> "models.MicrosoftGraphOnlineMeeting":
         """Create new navigation property to onlineMeetings for communications.
 
         Create new navigation property to onlineMeetings for communications.
 
         :param body: New navigation property.
-        :type body: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :type body: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphonlinemeeting, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :return: MicrosoftGraphOnlineMeeting, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -863,7 +864,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphonlinemeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -871,10 +872,10 @@ class communicationsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphonlinemeeting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphOnlineMeeting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -888,7 +889,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum63"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphonlinemeeting":
+    ) -> "models.MicrosoftGraphOnlineMeeting":
         """Get onlineMeetings from communications.
 
         Get onlineMeetings from communications.
@@ -900,11 +901,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphonlinemeeting, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :return: MicrosoftGraphOnlineMeeting, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphonlinemeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -935,10 +936,10 @@ class communicationsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphonlinemeeting', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphOnlineMeeting', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -949,7 +950,7 @@ class communicationsOperations:
     async def update_online_meetings(
         self,
         online_meeting_id: str,
-        body: "models.microsoftgraphonlinemeeting",
+        body: "models.MicrosoftGraphOnlineMeeting",
         **kwargs
     ) -> None:
         """Update the navigation property onlineMeetings in communications.
@@ -959,7 +960,7 @@ class communicationsOperations:
         :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param body: New navigation property values.
-        :type body: ~cloud_communications.models.microsoftgraphonlinemeeting
+        :type body: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -989,7 +990,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphonlinemeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -997,8 +998,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1053,8 +1054,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1067,7 +1068,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum65"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofpresence"]:
+    ) -> AsyncIterable["models.CollectionOfPresence"]:
         """Get presences from communications.
 
         Get presences from communications.
@@ -1079,11 +1080,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofpresence or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.collectionofpresence]
+        :return: An iterator like instance of either CollectionOfPresence or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfPresence]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofpresence"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPresence"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1125,7 +1126,7 @@ class communicationsOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofpresence', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPresence', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1138,9 +1139,9 @@ class communicationsOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1151,21 +1152,21 @@ class communicationsOperations:
 
     async def create_presences(
         self,
-        body: "models.microsoftgraphpresence",
+        body: "models.MicrosoftGraphPresence",
         **kwargs
-    ) -> "models.microsoftgraphpresence":
+    ) -> "models.MicrosoftGraphPresence":
         """Create new navigation property to presences for communications.
 
         Create new navigation property to presences for communications.
 
         :param body: New navigation property.
-        :type body: ~cloud_communications.models.microsoftgraphpresence
+        :type body: ~cloud_communications.models.MicrosoftGraphPresence
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpresence, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphpresence
+        :return: MicrosoftGraphPresence, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphPresence
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpresence"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1185,7 +1186,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphpresence')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPresence')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1193,10 +1194,10 @@ class communicationsOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpresence', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPresence', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1210,7 +1211,7 @@ class communicationsOperations:
         select: Optional[List[Union[str, "models.Enum66"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphpresence":
+    ) -> "models.MicrosoftGraphPresence":
         """Get presences from communications.
 
         Get presences from communications.
@@ -1222,11 +1223,11 @@ class communicationsOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpresence, or the result of cls(response)
-        :rtype: ~cloud_communications.models.microsoftgraphpresence
+        :return: MicrosoftGraphPresence, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphPresence
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpresence"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1257,10 +1258,10 @@ class communicationsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpresence', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPresence', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1271,7 +1272,7 @@ class communicationsOperations:
     async def update_presences(
         self,
         presence_id: str,
-        body: "models.microsoftgraphpresence",
+        body: "models.MicrosoftGraphPresence",
         **kwargs
     ) -> None:
         """Update the navigation property presences in communications.
@@ -1281,7 +1282,7 @@ class communicationsOperations:
         :param presence_id: key: id of presence.
         :type presence_id: str
         :param body: New navigation property values.
-        :type body: ~cloud_communications.models.microsoftgraphpresence
+        :type body: ~cloud_communications.models.MicrosoftGraphPresence
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1311,7 +1312,7 @@ class communicationsOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphpresence')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPresence')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1319,8 +1320,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1375,8 +1376,8 @@ class communicationsOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

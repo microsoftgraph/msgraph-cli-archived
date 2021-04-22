@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class applicationsOperations(object):
-    """applicationsOperations operations.
+class ApplicationsOperations(object):
+    """ApplicationsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -51,7 +52,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdirectoryobject"
+        # type: (...) -> "models.MicrosoftGraphDirectoryObject"
         """Get createdOnBehalfOf from applications.
 
         Get createdOnBehalfOf from applications.
@@ -63,11 +64,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -98,10 +99,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -153,8 +154,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('str', pipeline_response)
 
@@ -216,8 +217,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -273,8 +274,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -289,7 +290,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofextensionproperty"]
+        # type: (...) -> Iterable["models.CollectionOfExtensionProperty"]
         """Get extensionProperties from applications.
 
         Get extensionProperties from applications.
@@ -303,11 +304,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofextensionproperty or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionofextensionproperty]
+        :return: An iterator like instance of either CollectionOfExtensionProperty or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfExtensionProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofextensionproperty"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtensionProperty"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -353,7 +354,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofextensionproperty', pipeline_response)
+            deserialized = self._deserialize('CollectionOfExtensionProperty', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -366,9 +367,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -380,10 +381,10 @@ class applicationsOperations(object):
     def create_extension_properties(
         self,
         application_id,  # type: str
-        body,  # type: "models.microsoftgraphextensionproperty"
+        body,  # type: "models.MicrosoftGraphExtensionProperty"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphextensionproperty"
+        # type: (...) -> "models.MicrosoftGraphExtensionProperty"
         """Create new navigation property to extensionProperties for applications.
 
         Create new navigation property to extensionProperties for applications.
@@ -391,13 +392,13 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: New navigation property.
-        :type body: ~applications.models.microsoftgraphextensionproperty
+        :type body: ~applications.models.MicrosoftGraphExtensionProperty
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphextensionproperty, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphextensionproperty
+        :return: MicrosoftGraphExtensionProperty, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphExtensionProperty
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphextensionproperty"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtensionProperty"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -421,7 +422,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphextensionproperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtensionProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -429,10 +430,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphextensionproperty', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExtensionProperty', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -448,7 +449,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphextensionproperty"
+        # type: (...) -> "models.MicrosoftGraphExtensionProperty"
         """Get extensionProperties from applications.
 
         Get extensionProperties from applications.
@@ -462,11 +463,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphextensionproperty, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphextensionproperty
+        :return: MicrosoftGraphExtensionProperty, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphExtensionProperty
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphextensionproperty"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtensionProperty"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -498,10 +499,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphextensionproperty', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExtensionProperty', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -513,7 +514,7 @@ class applicationsOperations(object):
         self,
         application_id,  # type: str
         extension_property_id,  # type: str
-        body,  # type: "models.microsoftgraphextensionproperty"
+        body,  # type: "models.MicrosoftGraphExtensionProperty"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -526,7 +527,7 @@ class applicationsOperations(object):
         :param extension_property_id: key: id of extensionProperty.
         :type extension_property_id: str
         :param body: New navigation property values.
-        :type body: ~applications.models.microsoftgraphextensionproperty
+        :type body: ~applications.models.MicrosoftGraphExtensionProperty
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -557,7 +558,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphextensionproperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtensionProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -565,8 +566,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -626,8 +627,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -642,7 +643,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum11"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofhomerealmdiscoverypolicy"]
+        # type: (...) -> Iterable["models.CollectionOfHomeRealmDiscoveryPolicy"]
         """Get homeRealmDiscoveryPolicies from applications.
 
         Get homeRealmDiscoveryPolicies from applications.
@@ -656,11 +657,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~applications.models.Enum11]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofhomerealmdiscoverypolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionofhomerealmdiscoverypolicy]
+        :return: An iterator like instance of either CollectionOfHomeRealmDiscoveryPolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfHomeRealmDiscoveryPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofhomerealmdiscoverypolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfHomeRealmDiscoveryPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -706,7 +707,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofhomerealmdiscoverypolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfHomeRealmDiscoveryPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -719,9 +720,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -736,7 +737,7 @@ class applicationsOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum12"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksofhomerealmdiscoverypolicy"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfHomeRealmDiscoveryPolicy"]
         """Get ref of homeRealmDiscoveryPolicies from applications.
 
         Get ref of homeRealmDiscoveryPolicies from applications.
@@ -746,11 +747,11 @@ class applicationsOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~applications.models.Enum12]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofhomerealmdiscoverypolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoflinksofhomerealmdiscoverypolicy]
+        :return: An iterator like instance of either CollectionOfLinksOfHomeRealmDiscoveryPolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfHomeRealmDiscoveryPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofhomerealmdiscoverypolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfHomeRealmDiscoveryPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -792,7 +793,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofhomerealmdiscoverypolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfHomeRealmDiscoveryPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -805,9 +806,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -868,8 +869,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -882,10 +883,10 @@ class applicationsOperations(object):
     def add_key(
         self,
         application_id,  # type: str
-        body,  # type: "models.paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphkeycredential"
+        # type: (...) -> "models.MicrosoftGraphKeyCredential"
         """Invoke action addKey.
 
         Invoke action addKey.
@@ -893,13 +894,13 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphkeycredential, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphkeycredential
+        :return: MicrosoftGraphKeyCredential, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphKeyCredential
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphkeycredential"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphKeyCredential"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -923,7 +924,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths17crvdcapplicationsapplicationidmicrosoftgraphaddkeypostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths17CrvdcApplicationsApplicationIdMicrosoftGraphAddkeyPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -931,10 +932,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphkeycredential', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphKeyCredential', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -945,10 +946,10 @@ class applicationsOperations(object):
     def add_password(
         self,
         application_id,  # type: str
-        body,  # type: "models.paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphpasswordcredential"
+        # type: (...) -> "models.MicrosoftGraphPasswordCredential"
         """Invoke action addPassword.
 
         Invoke action addPassword.
@@ -956,13 +957,13 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpasswordcredential, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphpasswordcredential
+        :return: MicrosoftGraphPasswordCredential, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphPasswordCredential
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpasswordcredential"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPasswordCredential"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -986,7 +987,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths141ryo0applicationsapplicationidmicrosoftgraphaddpasswordpostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths141Ryo0ApplicationsApplicationIdMicrosoftGraphAddpasswordPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -994,10 +995,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpasswordcredential', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPasswordCredential', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1008,7 +1009,7 @@ class applicationsOperations(object):
     def check_member_groups(
         self,
         application_id,  # type: str
-        body,  # type: "models.paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -1019,7 +1020,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -1049,7 +1050,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1hnzvnpapplicationsapplicationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1HnzvnpApplicationsApplicationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1057,8 +1058,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -1071,7 +1072,7 @@ class applicationsOperations(object):
     def check_member_objects(
         self,
         application_id,  # type: str
-        body,  # type: "models.paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -1082,7 +1083,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -1112,7 +1113,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1lkksh4applicationsapplicationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1Lkksh4ApplicationsApplicationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1120,8 +1121,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -1134,7 +1135,7 @@ class applicationsOperations(object):
     def get_member_groups(
         self,
         application_id,  # type: str
-        body,  # type: "models.paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -1145,7 +1146,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -1175,7 +1176,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1ezr0xyapplicationsapplicationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1Ezr0XyApplicationsApplicationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1183,8 +1184,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -1197,7 +1198,7 @@ class applicationsOperations(object):
     def get_member_objects(
         self,
         application_id,  # type: str
-        body,  # type: "models.pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> List[str]
@@ -1208,7 +1209,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -1238,7 +1239,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathslcqfowapplicationsapplicationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsLcqfowApplicationsApplicationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1246,8 +1247,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('[str]', pipeline_response)
 
@@ -1260,7 +1261,7 @@ class applicationsOperations(object):
     def remove_key(
         self,
         application_id,  # type: str
-        body,  # type: "models.pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1271,7 +1272,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1301,7 +1302,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathshxlydaapplicationsapplicationidmicrosoftgraphremovekeypostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsHxlydaApplicationsApplicationIdMicrosoftGraphRemovekeyPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1309,8 +1310,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1320,7 +1321,7 @@ class applicationsOperations(object):
     def remove_password(
         self,
         application_id,  # type: str
-        body,  # type: "models.pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1331,7 +1332,7 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param body: Action parameters.
-        :type body: ~applications.models.pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1361,7 +1362,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathshv033bapplicationsapplicationidmicrosoftgraphremovepasswordpostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsHv033BApplicationsApplicationIdMicrosoftGraphRemovepasswordPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1369,8 +1370,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1382,7 +1383,7 @@ class applicationsOperations(object):
         application_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdirectoryobject"
+        # type: (...) -> "models.MicrosoftGraphDirectoryObject"
         """Invoke action restore.
 
         Invoke action restore.
@@ -1390,11 +1391,11 @@ class applicationsOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: ~applications.models.microsoftgraphdirectoryobject
+        :return: MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphDirectoryObject
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1421,10 +1422,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryobject', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryObject', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1440,7 +1441,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdirectoryobject"]
+        # type: (...) -> Iterable["models.CollectionOfDirectoryObject"]
         """Get owners from applications.
 
         Get owners from applications.
@@ -1454,11 +1455,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionofdirectoryobject]
+        :return: An iterator like instance of either CollectionOfDirectoryObject or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfDirectoryObject]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1504,7 +1505,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1517,9 +1518,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1534,7 +1535,7 @@ class applicationsOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum15"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksofdirectoryobject"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject"]
         """Get ref of owners from applications.
 
         Get ref of owners from applications.
@@ -1544,11 +1545,11 @@ class applicationsOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~applications.models.Enum15]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoflinksofdirectoryobject]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1590,7 +1591,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1603,9 +1604,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1666,8 +1667,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -1685,7 +1686,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum18"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoftokenissuancepolicy"]
+        # type: (...) -> Iterable["models.CollectionOfTokenIssuancePolicy"]
         """Get tokenIssuancePolicies from applications.
 
         Get tokenIssuancePolicies from applications.
@@ -1699,11 +1700,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~applications.models.Enum18]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoftokenissuancepolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoftokenissuancepolicy]
+        :return: An iterator like instance of either CollectionOfTokenIssuancePolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfTokenIssuancePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoftokenissuancepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTokenIssuancePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1749,7 +1750,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoftokenissuancepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTokenIssuancePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1762,9 +1763,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1779,7 +1780,7 @@ class applicationsOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum19"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksoftokenissuancepolicy"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfTokenIssuancePolicy"]
         """Get ref of tokenIssuancePolicies from applications.
 
         Get ref of tokenIssuancePolicies from applications.
@@ -1789,11 +1790,11 @@ class applicationsOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~applications.models.Enum19]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksoftokenissuancepolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoflinksoftokenissuancepolicy]
+        :return: An iterator like instance of either CollectionOfLinksOfTokenIssuancePolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfTokenIssuancePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksoftokenissuancepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfTokenIssuancePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1835,7 +1836,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksoftokenissuancepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfTokenIssuancePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1848,9 +1849,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1911,8 +1912,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -1930,7 +1931,7 @@ class applicationsOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum22"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoftokenlifetimepolicy"]
+        # type: (...) -> Iterable["models.CollectionOfTokenLifetimePolicy"]
         """Get tokenLifetimePolicies from applications.
 
         Get tokenLifetimePolicies from applications.
@@ -1944,11 +1945,11 @@ class applicationsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~applications.models.Enum22]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoftokenlifetimepolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoftokenlifetimepolicy]
+        :return: An iterator like instance of either CollectionOfTokenLifetimePolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfTokenLifetimePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoftokenlifetimepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTokenLifetimePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1994,7 +1995,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoftokenlifetimepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTokenLifetimePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2007,9 +2008,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2024,7 +2025,7 @@ class applicationsOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum23"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksoftokenlifetimepolicy"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfTokenLifetimePolicy"]
         """Get ref of tokenLifetimePolicies from applications.
 
         Get ref of tokenLifetimePolicies from applications.
@@ -2034,11 +2035,11 @@ class applicationsOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~applications.models.Enum23]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksoftokenlifetimepolicy or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~applications.models.collectionoflinksoftokenlifetimepolicy]
+        :return: An iterator like instance of either CollectionOfLinksOfTokenLifetimePolicy or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfTokenLifetimePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksoftokenlifetimepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfTokenLifetimePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2080,7 +2081,7 @@ class applicationsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksoftokenlifetimepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfTokenLifetimePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2093,9 +2094,9 @@ class applicationsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2156,8 +2157,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -2171,17 +2172,17 @@ class applicationsOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphapplication"]
+        # type: (...) -> List["models.MicrosoftGraphApplication"]
         """Invoke function delta.
 
         Invoke function delta.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphapplication, or the result of cls(response)
-        :rtype: list[~applications.models.microsoftgraphapplication]
+        :return: list of MicrosoftGraphApplication, or the result of cls(response)
+        :rtype: list[~applications.models.MicrosoftGraphApplication]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphapplication"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphApplication"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2204,10 +2205,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphapplication]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphApplication]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2217,22 +2218,22 @@ class applicationsOperations(object):
 
     def get_available_extension_properties(
         self,
-        body,  # type: "models.paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphextensionproperty"]
+        # type: (...) -> List["models.MicrosoftGraphExtensionProperty"]
         """Invoke action getAvailableExtensionProperties.
 
         Invoke action getAvailableExtensionProperties.
 
         :param body: Action parameters.
-        :type body: ~applications.models.paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphextensionproperty, or the result of cls(response)
-        :rtype: list[~applications.models.microsoftgraphextensionproperty]
+        :return: list of MicrosoftGraphExtensionProperty, or the result of cls(response)
+        :rtype: list[~applications.models.MicrosoftGraphExtensionProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphextensionproperty"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphExtensionProperty"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2252,7 +2253,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1omt14capplicationsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1Omt14CApplicationsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2260,10 +2261,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphextensionproperty]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphExtensionProperty]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2273,22 +2274,22 @@ class applicationsOperations(object):
 
     def get_by_ids(
         self,
-        body,  # type: "models.paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.microsoftgraphdirectoryobject"]
+        # type: (...) -> List["models.MicrosoftGraphDirectoryObject"]
         """Invoke action getByIds.
 
         Invoke action getByIds.
 
         :param body: Action parameters.
-        :type body: ~applications.models.paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphdirectoryobject, or the result of cls(response)
-        :rtype: list[~applications.models.microsoftgraphdirectoryobject]
+        :return: list of MicrosoftGraphDirectoryObject, or the result of cls(response)
+        :rtype: list[~applications.models.MicrosoftGraphDirectoryObject]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphdirectoryobject"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDirectoryObject"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2308,7 +2309,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths1hl8ameapplicationsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths1Hl8AmeApplicationsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2316,10 +2317,10 @@ class applicationsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphdirectoryobject]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphDirectoryObject]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2329,7 +2330,7 @@ class applicationsOperations(object):
 
     def validate_properties(
         self,
-        body,  # type: "models.pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -2338,7 +2339,7 @@ class applicationsOperations(object):
         Invoke action validateProperties.
 
         :param body: Action parameters.
-        :type body: ~applications.models.pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+        :type body: ~applications.models.PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2364,7 +2365,7 @@ class applicationsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsw28mefapplicationsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsW28MefApplicationsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2372,8 +2373,8 @@ class applicationsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

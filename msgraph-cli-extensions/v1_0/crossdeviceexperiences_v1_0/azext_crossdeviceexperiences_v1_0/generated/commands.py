@@ -15,26 +15,26 @@
 from msgraph.cli.core.commands import CliCommandType
 from azext_crossdeviceexperiences_v1_0.generated._client_factory import (
     cf_user,
-    cf_usersactivity,
-    cf_usersactivitieshistoryitem,
+    cf_user_activity,
+    cf_user_activity_history_item,
 )
 
 
 crossdeviceexperiences_v1_0_user = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-crossdeviceexperiences_v1_0_usersactivity = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._usersactivities_operations#usersactivitiesOperations.{}',
-    client_factory=cf_usersactivity,
+crossdeviceexperiences_v1_0_user_activity = CliCommandType(
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_activities_operations#UsersActivitiesOperations.{}',
+    client_factory=cf_user_activity,
 )
 
 
-crossdeviceexperiences_v1_0_usersactivitieshistoryitem = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._usersactivitieshistoryitems_operations#usersactivitieshistoryitemsOperations.{}',
-    client_factory=cf_usersactivitieshistoryitem,
+crossdeviceexperiences_v1_0_user_activity_history_item = CliCommandType(
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_activities_history_items_operations#UsersActivitiesHistoryItemsOperations.{}',
+    client_factory=cf_user_activity_history_item,
 )
 
 
@@ -50,25 +50,25 @@ def load_command_table(self, _):
         g.custom_command('update-activity', 'crossdeviceexperiences_user_update_activity')
 
     with self.command_group(
-        'crossdeviceexperiences usersactivity',
-        crossdeviceexperiences_v1_0_usersactivity,
-        client_factory=cf_usersactivity,
+        'crossdeviceexperiences user-activity',
+        crossdeviceexperiences_v1_0_user_activity,
+        client_factory=cf_user_activity,
     ) as g:
-        g.custom_command('create-history-item', 'crossdeviceexperiences_usersactivity_create_history_item')
-        g.custom_command('delete-history-item', 'crossdeviceexperiences_usersactivity_delete_history_item')
-        g.custom_command('list-history-item', 'crossdeviceexperiences_usersactivity_list_history_item')
-        g.custom_command('show-history-item', 'crossdeviceexperiences_usersactivity_show_history_item')
-        g.custom_command('update-history-item', 'crossdeviceexperiences_usersactivity_update_history_item')
+        g.custom_command('create-history-item', 'crossdeviceexperiences_user_activity_create_history_item')
+        g.custom_command('delete-history-item', 'crossdeviceexperiences_user_activity_delete_history_item')
+        g.custom_command('list-history-item', 'crossdeviceexperiences_user_activity_list_history_item')
+        g.custom_command('show-history-item', 'crossdeviceexperiences_user_activity_show_history_item')
+        g.custom_command('update-history-item', 'crossdeviceexperiences_user_activity_update_history_item')
 
     with self.command_group(
-        'crossdeviceexperiences usersactivitieshistoryitem',
-        crossdeviceexperiences_v1_0_usersactivitieshistoryitem,
-        client_factory=cf_usersactivitieshistoryitem,
+        'crossdeviceexperiences user-activity-history-item',
+        crossdeviceexperiences_v1_0_user_activity_history_item,
+        client_factory=cf_user_activity_history_item,
     ) as g:
-        g.custom_command('delete-ref-activity', 'crossdeviceexperiences_usersactivitieshistoryitem_delete_ref_activity')
-        g.custom_command('set-ref-activity', 'crossdeviceexperiences_usersactivitieshistoryitem_set_ref_activity')
-        g.custom_command('show-activity', 'crossdeviceexperiences_usersactivitieshistoryitem_show_activity')
-        g.custom_command('show-ref-activity', 'crossdeviceexperiences_usersactivitieshistoryitem_show_ref_activity')
+        g.custom_command('delete-ref-activity', 'crossdeviceexperiences_user_activity_history_item_delete_ref_activity')
+        g.custom_command('set-ref-activity', 'crossdeviceexperiences_user_activity_history_item_set_ref_activity')
+        g.custom_command('show-activity', 'crossdeviceexperiences_user_activity_history_item_show_activity')
+        g.custom_command('show-ref-activity', 'crossdeviceexperiences_user_activity_history_item_show_ref_activity')
 
     with self.command_group('crossdeviceexperiences_v1_0', is_experimental=True):
         pass

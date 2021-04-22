@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -16,9 +17,17 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_mail_v1_0.action import (
-    AddMultiValueExtendedProperties,
-    AddSingleValueExtendedProperties,
-    AddSenderEmailAddress
+    AddMailUserCreateMailFolderMultiValueExtendedProperties,
+    AddMailUserCreateMailFolderSingleValueExtendedProperties,
+    AddBody,
+    AddInternetMessageHeaders,
+    AddAttachments,
+    AddExtensions,
+    AddMailUserCreateMessageMultiValueExtendedProperties,
+    AddMailUserCreateMessageSingleValueExtendedProperties,
+    AddEmailAddress,
+    AddCompletedDateTime,
+    AddWithinSizeRange
 )
 
 
@@ -40,15 +49,90 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail user create-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='+', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', type=validate_file_or_dict, help='The email addresses to use when replying. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook Web App.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook Web App review pane.The message will open '
+                   'in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to '
+                   'login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='+', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMessageMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMessageSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('email_address', action=AddEmailAddress, nargs='+', help='emailAddress', arg_group='Sender')
+        c.argument('microsoft_graph_email_address', action=AddEmailAddress, nargs='+', help='emailAddress',
+                   arg_group='From')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone', arg_group='Flag')
+        c.argument('flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='',
+                   arg_group='Flag')
+        c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
 
     with self.argument_context('mail user delete-inference-classification') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -117,51 +201,126 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail user update-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='+', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', type=validate_file_or_dict, help='The email addresses to use when replying. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook Web App.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook Web App review pane.The message will open '
+                   'in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to '
+                   'login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='+', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMessageMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMessageSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('email_address', action=AddEmailAddress, nargs='+', help='emailAddress', arg_group='Sender')
+        c.argument('microsoft_graph_email_address', action=AddEmailAddress, nargs='+', help='emailAddress',
+                   arg_group='From')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone', arg_group='Flag')
+        c.argument('flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='',
+                   arg_group='Flag')
+        c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
 
-    with self.argument_context('mail usersinferenceclassification create-override') as c:
+    with self.argument_context('mail user-inference-classification create-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('sender_email_address', action=AddSenderEmailAddress, nargs='+', help='emailAddress')
+        c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
 
-    with self.argument_context('mail usersinferenceclassification delete-override') as c:
+    with self.argument_context('mail user-inference-classification delete-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('inference_classification_override_id', type=str,
                    help='key: id of inferenceClassificationOverride')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersinferenceclassification list-override') as c:
+    with self.argument_context('mail user-inference-classification list-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersinferenceclassification show-override') as c:
+    with self.argument_context('mail user-inference-classification show-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('inference_classification_override_id', type=str,
                    help='key: id of inferenceClassificationOverride')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersinferenceclassification update-override') as c:
+    with self.argument_context('mail user-inference-classification update-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('inference_classification_override_id', type=str,
                    help='key: id of inferenceClassificationOverride')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('sender_email_address', action=AddSenderEmailAddress, nargs='+', help='emailAddress')
+        c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
 
-    with self.argument_context('mail usersmailfolder create-child-folder') as c:
+    with self.argument_context('mail user-mail-folder create-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -178,124 +337,399 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
-    with self.argument_context('mail usersmailfolder create-message') as c:
+    with self.argument_context('mail user-mail-folder create-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='+', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', type=validate_file_or_dict, help='The email addresses to use when replying. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook Web App.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook Web App review pane.The message will open '
+                   'in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to '
+                   'login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='+', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMessageMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMessageSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('email_address', action=AddEmailAddress, nargs='+', help='emailAddress', arg_group='Sender')
+        c.argument('microsoft_graph_email_address', action=AddEmailAddress, nargs='+', help='emailAddress',
+                   arg_group='From')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone', arg_group='Flag')
+        c.argument('flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='',
+                   arg_group='Flag')
+        c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
 
-    with self.argument_context('mail usersmailfolder create-message-rule') as c:
+    with self.argument_context('mail user-mail-folder create-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The display name of the rule.')
+        c.argument('has_error', arg_type=get_three_state_flag(), help='Indicates whether the rule is in an error '
+                   'condition. Read-only.')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='Indicates whether the rule is enabled to be '
+                   'applied to messages.')
+        c.argument('is_read_only', arg_type=get_three_state_flag(), help='Indicates if the rule is read-only and '
+                   'cannot be modified or deleted by the rules REST API.')
+        c.argument('sequence', type=int, help='Indicates the order in which the rule is executed, among other rules.')
+        c.argument('body_contains', nargs='+', help='Represents the strings that should appear in the body of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('body_or_subject_contains', nargs='+', help='Represents the strings that should appear in the body '
+                   'or subject of an incoming message in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('categories', nargs='+', help='Represents the categories that an incoming message should be labeled '
+                   'with in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('from_addresses', type=validate_file_or_dict, help='Represents the specific sender email addresses '
+                   'of an incoming message in order for the condition or exception to apply. Expected value: '
+                   'json-string/@json-file.', arg_group='Exceptions')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must have attachments in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
+                                                                  'forward', 'noResponseNecessary', 'read', 'reply',
+                                                                  'replyToAll', 'review']), help='',
+                   arg_group='Exceptions')
+        c.argument('not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must not be a recipient of an incoming message in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('recipient_contains', nargs='+', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sender_contains', nargs='+', help='Represents the strings that appear in the from property of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='',
+                   arg_group='Exceptions')
+        c.argument('sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be the only recipient in an incoming message in order for the condition or exception '
+                   'to apply.', arg_group='Exceptions')
+        c.argument('sent_to_addresses', type=validate_file_or_dict, help='Represents the email addresses that an '
+                   'incoming message must have been sent to in order for the condition or exception to apply. Expected '
+                   'value: json-string/@json-file.', arg_group='Exceptions')
+        c.argument('sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order '
+                   'for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('subject_contains', nargs='+', help='Represents the strings that appear in the subject of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('within_size_range', action=AddWithinSizeRange, nargs='+', help='sizeRange',
+                   arg_group='Exceptions')
+        c.argument('microsoft_graph_message_rule_predicates_body_contains', nargs='+', help='Represents the strings '
+                   'that should appear in the body of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains',
+                   nargs='+', help='Represents the strings that should appear in the body or subject of an incoming '
+                   'message in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_categories', nargs='+', help='Represents the categories '
+                   'that an incoming message should be labeled with in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_from_addresses', type=validate_file_or_dict,
+                   help='Represents the specific sender email addresses of an incoming message in order for the '
+                   'condition or exception to apply. Expected value: json-string/@json-file.', arg_group='Conditions')
+        c.argument('boolean_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_header_contains', nargs='+', help='Represents the strings '
+                   'that appear in the headers of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
+                   arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
+                                                                                                      'doNotForward',
+                                                                                                      'followUp',
+                                                                                                      'fyi', 'forward',
+                                                                                                      'noResponseNecessary',
+                                                                                                      'read', 'reply',
+                                                                                                      'replyToAll',
+                                                                                                      'review']),
+                   help='', arg_group='Conditions')
+        c.argument('boolean_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must not be a recipient of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_recipient_contains', nargs='+', help='Represents the '
+                   'strings that appear in either the toRecipients or ccRecipients properties of an incoming message '
+                   'in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_sender_contains', nargs='+', help='Represents the strings '
+                   'that appear in the from property of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private',
+                                                                          'confidential']), help='',
+                   arg_group='Conditions')
+        c.argument('boolean_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('boolean_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses',
+                   type=validate_file_or_dict, help='Represents the email addresses that an incoming message must have '
+                   'been sent to in order for the condition or exception to apply. Expected value: '
+                   'json-string/@json-file.', arg_group='Conditions')
+        c.argument('boolean_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('boolean_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_subject_contains', nargs='+', help='Represents the strings '
+                   'that appear in the subject of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_size_range_within_size_range', action=AddWithinSizeRange, nargs='+',
+                   help='sizeRange', arg_group='Conditions')
+        c.argument('assign_categories', nargs='+', help='A list of categories to be assigned to a message.',
+                   arg_group='Actions')
+        c.argument('copy_to_folder', type=str, help='The ID of a folder that a message is to be copied to.',
+                   arg_group='Actions')
+        c.argument('delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be moved to the '
+                   'Deleted Items folder.', arg_group='Actions')
+        c.argument('forward_as_attachment_to', type=validate_file_or_dict, help='The email addresses of the recipients '
+                   'to which a message should be forwarded as an attachment. Expected value: json-string/@json-file.',
+                   arg_group='Actions')
+        c.argument('forward_to', type=validate_file_or_dict, help='The email addresses of the recipients to which a '
+                   'message should be forwarded. Expected value: json-string/@json-file.', arg_group='Actions')
+        c.argument('mark_as_read', arg_type=get_three_state_flag(), help='Indicates whether a message should be marked '
+                   'as read.', arg_group='Actions')
+        c.argument('mark_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Actions')
+        c.argument('move_to_folder', type=str, help='The ID of the folder that a message will be moved to.',
+                   arg_group='Actions')
+        c.argument('permanent_delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be '
+                   'permanently deleted and not saved to the Deleted Items folder.', arg_group='Actions')
+        c.argument('redirect_to', type=validate_file_or_dict, help='The email addresses to which a message should be '
+                   'redirected. Expected value: json-string/@json-file.', arg_group='Actions')
+        c.argument('stop_processing_rules', arg_type=get_three_state_flag(), help='Indicates whether subsequent rules '
+                   'should be evaluated.', arg_group='Actions')
 
-    with self.argument_context('mail usersmailfolder create-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmailfolder create-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail usersmailfolder delete-child-folder') as c:
+    with self.argument_context('mail user-mail-folder delete-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfolder delete-message') as c:
+    with self.argument_context('mail user-mail-folder delete-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfolder delete-message-rule') as c:
+    with self.argument_context('mail user-mail-folder delete-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_rule_id', type=str, help='key: id of messageRule')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfolder delete-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfolder delete-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfolder list-child-folder') as c:
+    with self.argument_context('mail user-mail-folder list-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder list-message') as c:
+    with self.argument_context('mail user-mail-folder list-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder list-message-rule') as c:
+    with self.argument_context('mail user-mail-folder list-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder list-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder list-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder show-child-folder') as c:
+    with self.argument_context('mail user-mail-folder show-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder show-message') as c:
+    with self.argument_context('mail user-mail-folder show-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder show-message-rule') as c:
+    with self.argument_context('mail user-mail-folder show-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_rule_id', type=str, help='key: id of messageRule')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder show-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -303,7 +737,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder show-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -311,7 +745,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfolder update-child-folder') as c:
+    with self.argument_context('mail user-mail-folder update-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
@@ -329,26 +763,301 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMailFolderMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMailFolderSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
-    with self.argument_context('mail usersmailfolder update-message') as c:
+    with self.argument_context('mail user-mail-folder update-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='+', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', type=validate_file_or_dict, help='The email addresses to use when replying. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook Web App.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook Web App review pane.The message will open '
+                   'in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to '
+                   'login if you are not already logged in with the browser.This URL can be accessed from within an '
+                   'iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='+', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailUserCreateMessageMultiValueExtendedProperties,
+                   nargs='+', help='The collection of multi-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailUserCreateMessageSingleValueExtendedProperties,
+                   nargs='+', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('email_address', action=AddEmailAddress, nargs='+', help='emailAddress', arg_group='Sender')
+        c.argument('microsoft_graph_email_address', action=AddEmailAddress, nargs='+', help='emailAddress',
+                   arg_group='From')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone', arg_group='Flag')
+        c.argument('flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='',
+                   arg_group='Flag')
+        c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
+                   arg_group='Flag')
 
-    with self.argument_context('mail usersmailfolder update-message-rule') as c:
+    with self.argument_context('mail user-mail-folder update-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_rule_id', type=str, help='key: id of messageRule')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The display name of the rule.')
+        c.argument('has_error', arg_type=get_three_state_flag(), help='Indicates whether the rule is in an error '
+                   'condition. Read-only.')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='Indicates whether the rule is enabled to be '
+                   'applied to messages.')
+        c.argument('is_read_only', arg_type=get_three_state_flag(), help='Indicates if the rule is read-only and '
+                   'cannot be modified or deleted by the rules REST API.')
+        c.argument('sequence', type=int, help='Indicates the order in which the rule is executed, among other rules.')
+        c.argument('body_contains', nargs='+', help='Represents the strings that should appear in the body of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('body_or_subject_contains', nargs='+', help='Represents the strings that should appear in the body '
+                   'or subject of an incoming message in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('categories', nargs='+', help='Represents the categories that an incoming message should be labeled '
+                   'with in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('from_addresses', type=validate_file_or_dict, help='Represents the specific sender email addresses '
+                   'of an incoming message in order for the condition or exception to apply. Expected value: '
+                   'json-string/@json-file.', arg_group='Exceptions')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must have attachments in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
+                                                                  'forward', 'noResponseNecessary', 'read', 'reply',
+                                                                  'replyToAll', 'review']), help='',
+                   arg_group='Exceptions')
+        c.argument('not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must not be a recipient of an incoming message in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('recipient_contains', nargs='+', help='Represents the strings that appear in either the '
+                   'toRecipients or ccRecipients properties of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sender_contains', nargs='+', help='Represents the strings that appear in the from property of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='',
+                   arg_group='Exceptions')
+        c.argument('sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be the only recipient in an incoming message in order for the condition or exception '
+                   'to apply.', arg_group='Exceptions')
+        c.argument('sent_to_addresses', type=validate_file_or_dict, help='Represents the email addresses that an '
+                   'incoming message must have been sent to in order for the condition or exception to apply. Expected '
+                   'value: json-string/@json-file.', arg_group='Exceptions')
+        c.argument('sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the mailbox '
+                   'must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order '
+                   'for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('subject_contains', nargs='+', help='Represents the strings that appear in the subject of an '
+                   'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('within_size_range', action=AddWithinSizeRange, nargs='+', help='sizeRange',
+                   arg_group='Exceptions')
+        c.argument('microsoft_graph_message_rule_predicates_body_contains', nargs='+', help='Represents the strings '
+                   'that should appear in the body of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains',
+                   nargs='+', help='Represents the strings that should appear in the body or subject of an incoming '
+                   'message in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_categories', nargs='+', help='Represents the categories '
+                   'that an incoming message should be labeled with in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_from_addresses', type=validate_file_or_dict,
+                   help='Represents the specific sender email addresses of an incoming message in order for the '
+                   'condition or exception to apply. Expected value: json-string/@json-file.', arg_group='Conditions')
+        c.argument('boolean_has_attachments', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must have attachments in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_header_contains', nargs='+', help='Represents the strings '
+                   'that appear in the headers of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
+                   arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
+                                                                                                      'doNotForward',
+                                                                                                      'followUp',
+                                                                                                      'fyi', 'forward',
+                                                                                                      'noResponseNecessary',
+                                                                                                      'read', 'reply',
+                                                                                                      'replyToAll',
+                                                                                                      'review']),
+                   help='', arg_group='Conditions')
+        c.argument('boolean_not_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must not be a recipient of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_recipient_contains', nargs='+', help='Represents the '
+                   'strings that appear in either the toRecipients or ccRecipients properties of an incoming message '
+                   'in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_sender_contains', nargs='+', help='Represents the strings '
+                   'that appear in the from property of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private',
+                                                                          'confidential']), help='',
+                   arg_group='Conditions')
+        c.argument('boolean_sent_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the ccRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('boolean_sent_only_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be the only recipient in an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses',
+                   type=validate_file_or_dict, help='Represents the email addresses that an incoming message must have '
+                   'been sent to in order for the condition or exception to apply. Expected value: '
+                   'json-string/@json-file.', arg_group='Conditions')
+        c.argument('boolean_sent_to_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of the '
+                   'mailbox must be in the toRecipients property of an incoming message in order for the condition or '
+                   'exception to apply.', arg_group='Conditions')
+        c.argument('boolean_sent_to_or_cc_me', arg_type=get_three_state_flag(), help='Indicates whether the owner of '
+                   'the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in '
+                   'order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_message_rule_predicates_subject_contains', nargs='+', help='Represents the strings '
+                   'that appear in the subject of an incoming message in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('microsoft_graph_size_range_within_size_range', action=AddWithinSizeRange, nargs='+',
+                   help='sizeRange', arg_group='Conditions')
+        c.argument('assign_categories', nargs='+', help='A list of categories to be assigned to a message.',
+                   arg_group='Actions')
+        c.argument('copy_to_folder', type=str, help='The ID of a folder that a message is to be copied to.',
+                   arg_group='Actions')
+        c.argument('delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be moved to the '
+                   'Deleted Items folder.', arg_group='Actions')
+        c.argument('forward_as_attachment_to', type=validate_file_or_dict, help='The email addresses of the recipients '
+                   'to which a message should be forwarded as an attachment. Expected value: json-string/@json-file.',
+                   arg_group='Actions')
+        c.argument('forward_to', type=validate_file_or_dict, help='The email addresses of the recipients to which a '
+                   'message should be forwarded. Expected value: json-string/@json-file.', arg_group='Actions')
+        c.argument('mark_as_read', arg_type=get_three_state_flag(), help='Indicates whether a message should be marked '
+                   'as read.', arg_group='Actions')
+        c.argument('mark_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Actions')
+        c.argument('move_to_folder', type=str, help='The ID of the folder that a message will be moved to.',
+                   arg_group='Actions')
+        c.argument('permanent_delete', arg_type=get_three_state_flag(), help='Indicates whether a message should be '
+                   'permanently deleted and not saved to the Deleted Items folder.', arg_group='Actions')
+        c.argument('redirect_to', type=validate_file_or_dict, help='The email addresses to which a message should be '
+                   'redirected. Expected value: json-string/@json-file.', arg_group='Actions')
+        c.argument('stop_processing_rules', arg_type=get_three_state_flag(), help='Indicates whether subsequent rules '
+                   'should be evaluated.', arg_group='Actions')
 
-    with self.argument_context('mail usersmailfolder update-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -356,7 +1065,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmailfolder update-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -364,7 +1073,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail usersmailfoldersmessage create-attachment') as c:
+    with self.argument_context('mail user-mail-folder-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -378,41 +1087,41 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('mail usersmailfoldersmessage create-extension') as c:
+    with self.argument_context('mail user-mail-folder-message create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('mail usersmailfoldersmessage create-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmailfoldersmessage create-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail usersmailfoldersmessage delete-attachment') as c:
+    with self.argument_context('mail user-mail-folder-message delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfoldersmessage delete-extension') as c:
+    with self.argument_context('mail user-mail-folder-message delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfoldersmessage delete-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -420,7 +1129,7 @@ def load_arguments(self, _):
                    'multiValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfoldersmessage delete-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -428,7 +1137,7 @@ def load_arguments(self, _):
                    'singleValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmailfoldersmessage list-attachment') as c:
+    with self.argument_context('mail user-mail-folder-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -436,7 +1145,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage list-extension') as c:
+    with self.argument_context('mail user-mail-folder-message list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -444,7 +1153,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage list-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -452,7 +1161,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage list-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -460,7 +1169,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage show-attachment') as c:
+    with self.argument_context('mail user-mail-folder-message show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -468,7 +1177,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage show-extension') as c:
+    with self.argument_context('mail user-mail-folder-message show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -476,7 +1185,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage show-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -485,7 +1194,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage show-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -494,7 +1203,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmailfoldersmessage update-attachment') as c:
+    with self.argument_context('mail user-mail-folder-message update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -509,14 +1218,14 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('mail usersmailfoldersmessage update-extension') as c:
+    with self.argument_context('mail user-mail-folder-message update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('mail usersmailfoldersmessage update-multi-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -525,7 +1234,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmailfoldersmessage update-single-value-extended-property') as c:
+    with self.argument_context('mail user-mail-folder-message update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
@@ -534,7 +1243,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail usersmessage create-attachment') as c:
+    with self.argument_context('mail user-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -547,92 +1256,92 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('mail usersmessage create-extension') as c:
+    with self.argument_context('mail user-message create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('mail usersmessage create-multi-value-extended-property') as c:
+    with self.argument_context('mail user-message create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmessage create-single-value-extended-property') as c:
+    with self.argument_context('mail user-message create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail usersmessage delete-attachment') as c:
+    with self.argument_context('mail user-message delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmessage delete-extension') as c:
+    with self.argument_context('mail user-message delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmessage delete-multi-value-extended-property') as c:
+    with self.argument_context('mail user-message delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmessage delete-single-value-extended-property') as c:
+    with self.argument_context('mail user-message delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('mail usersmessage list-attachment') as c:
+    with self.argument_context('mail user-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage list-extension') as c:
+    with self.argument_context('mail user-message list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage list-multi-value-extended-property') as c:
+    with self.argument_context('mail user-message list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage list-single-value-extended-property') as c:
+    with self.argument_context('mail user-message list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage show-attachment') as c:
+    with self.argument_context('mail user-message show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage show-extension') as c:
+    with self.argument_context('mail user-message show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage show-multi-value-extended-property') as c:
+    with self.argument_context('mail user-message show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -640,7 +1349,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage show-single-value-extended-property') as c:
+    with self.argument_context('mail user-message show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -648,7 +1357,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('mail usersmessage update-attachment') as c:
+    with self.argument_context('mail user-message update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -662,13 +1371,13 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('mail usersmessage update-extension') as c:
+    with self.argument_context('mail user-message update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('mail usersmessage update-multi-value-extended-property') as c:
+    with self.argument_context('mail user-message update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -676,7 +1385,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('mail usersmessage update-single-value-extended-property') as c:
+    with self.argument_context('mail user-message update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '

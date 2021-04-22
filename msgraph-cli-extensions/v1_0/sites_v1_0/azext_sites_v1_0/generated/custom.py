@@ -266,271 +266,23 @@ def sites_group_update_site(client,
                                body=body)
 
 
-def sites_sitessite_create_site(client,
-                                id_=None,
-                                created_date_time=None,
-                                description=None,
-                                e_tag=None,
-                                last_modified_date_time=None,
-                                name=None,
-                                web_url=None,
-                                created_by_user=None,
-                                last_modified_by_user=None,
-                                drive_id=None,
-                                drive_type=None,
-                                microsoft_graph_item_reference_id=None,
-                                microsoft_graph_item_reference_name=None,
-                                path=None,
-                                share_id=None,
-                                sharepoint_ids=None,
-                                site_id=None,
-                                application=None,
-                                device=None,
-                                user=None,
-                                microsoft_graph_identity_application=None,
-                                microsoft_graph_identity_device=None,
-                                microsoft_graph_identity_user=None,
-                                display_name=None,
-                                root=None,
-                                microsoft_graph_sharepoint_ids=None,
-                                analytics=None,
-                                columns=None,
-                                content_types=None,
-                                drive=None,
-                                drives=None,
-                                items=None,
-                                lists=None,
-                                sites=None,
-                                microsoft_graph_entity_id=None,
-                                notebooks=None,
-                                operations=None,
-                                pages=None,
-                                resources=None,
-                                section_groups=None,
-                                sections=None,
-                                data_location_code=None,
-                                hostname=None,
-                                microsoft_graph_root=None,
-                                code=None,
-                                details=None,
-                                inner_error=None,
-                                message=None,
-                                target=None):
-    body = {}
-    body['id'] = id_
-    body['created_date_time'] = created_date_time
-    body['description'] = description
-    body['e_tag'] = e_tag
-    body['last_modified_date_time'] = last_modified_date_time
-    body['name'] = name
-    body['web_url'] = web_url
-    body['created_by_user'] = created_by_user
-    body['last_modified_by_user'] = last_modified_by_user
-    body['parent_reference'] = {}
-    body['parent_reference']['drive_id'] = drive_id
-    body['parent_reference']['drive_type'] = drive_type
-    body['parent_reference']['id'] = microsoft_graph_item_reference_id
-    body['parent_reference']['name'] = microsoft_graph_item_reference_name
-    body['parent_reference']['path'] = path
-    body['parent_reference']['share_id'] = share_id
-    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
-    body['parent_reference']['site_id'] = site_id
-    body['last_modified_by'] = {}
-    body['last_modified_by']['application'] = application
-    body['last_modified_by']['device'] = device
-    body['last_modified_by']['user'] = user
-    body['created_by'] = {}
-    body['created_by']['application'] = microsoft_graph_identity_application
-    body['created_by']['device'] = microsoft_graph_identity_device
-    body['created_by']['user'] = microsoft_graph_identity_user
-    body['display_name'] = display_name
-    body['root'] = root
-    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
-    body['analytics'] = analytics
-    body['columns'] = columns
-    body['content_types'] = content_types
-    body['drive'] = drive
-    body['drives'] = drives
-    body['items'] = items
-    body['lists'] = lists
-    body['sites'] = sites
-    body['onenote'] = {}
-    body['onenote']['id'] = microsoft_graph_entity_id
-    body['onenote']['notebooks'] = notebooks
-    body['onenote']['operations'] = operations
-    body['onenote']['pages'] = pages
-    body['onenote']['resources'] = resources
-    body['onenote']['section_groups'] = section_groups
-    body['onenote']['sections'] = sections
-    body['site_collection'] = {}
-    body['site_collection']['data_location_code'] = data_location_code
-    body['site_collection']['hostname'] = hostname
-    body['site_collection']['root'] = microsoft_graph_root
-    body['error'] = {}
-    body['error']['code'] = code
-    body['error']['details'] = details
-    body['error']['inner_error'] = inner_error
-    body['error']['message'] = message
-    body['error']['target'] = target
-    return client.create_site(body=body)
-
-
-def sites_sitessite_delete_site(client,
-                                site_id,
-                                if_match=None):
-    return client.delete_site(site_id=site_id,
-                              if_match=if_match)
-
-
-def sites_sitessite_list_site(client,
-                              orderby=None,
-                              select=None,
-                              expand=None):
+def sites_site_list(client,
+                    site_id=None,
+                    orderby=None,
+                    select=None,
+                    expand=None):
+    if site_id is not None:
+        return client.list_sites(site_id=site_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
     return client.list_site(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def sites_sitessite_show_site(client,
-                              site_id,
-                              select=None,
-                              expand=None):
-    return client.get_site(site_id=site_id,
-                           select=select,
-                           expand=expand)
-
-
-def sites_sitessite_update_site(client,
-                                site_id,
-                                id_=None,
-                                created_date_time=None,
-                                description=None,
-                                e_tag=None,
-                                last_modified_date_time=None,
-                                name=None,
-                                web_url=None,
-                                created_by_user=None,
-                                last_modified_by_user=None,
-                                drive_id=None,
-                                drive_type=None,
-                                microsoft_graph_item_reference_id=None,
-                                microsoft_graph_item_reference_name=None,
-                                path=None,
-                                share_id=None,
-                                sharepoint_ids=None,
-                                microsoft_graph_item_reference_site_id=None,
-                                application=None,
-                                device=None,
-                                user=None,
-                                microsoft_graph_identity_application=None,
-                                microsoft_graph_identity_device=None,
-                                microsoft_graph_identity_user=None,
-                                display_name=None,
-                                root=None,
-                                microsoft_graph_sharepoint_ids=None,
-                                analytics=None,
-                                columns=None,
-                                content_types=None,
-                                drive=None,
-                                drives=None,
-                                items=None,
-                                lists=None,
-                                sites=None,
-                                microsoft_graph_entity_id=None,
-                                notebooks=None,
-                                operations=None,
-                                pages=None,
-                                resources=None,
-                                section_groups=None,
-                                sections=None,
-                                data_location_code=None,
-                                hostname=None,
-                                microsoft_graph_root=None,
-                                code=None,
-                                details=None,
-                                inner_error=None,
-                                message=None,
-                                target=None):
-    body = {}
-    body['id'] = id_
-    body['created_date_time'] = created_date_time
-    body['description'] = description
-    body['e_tag'] = e_tag
-    body['last_modified_date_time'] = last_modified_date_time
-    body['name'] = name
-    body['web_url'] = web_url
-    body['created_by_user'] = created_by_user
-    body['last_modified_by_user'] = last_modified_by_user
-    body['parent_reference'] = {}
-    body['parent_reference']['drive_id'] = drive_id
-    body['parent_reference']['drive_type'] = drive_type
-    body['parent_reference']['id'] = microsoft_graph_item_reference_id
-    body['parent_reference']['name'] = microsoft_graph_item_reference_name
-    body['parent_reference']['path'] = path
-    body['parent_reference']['share_id'] = share_id
-    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
-    body['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
-    body['last_modified_by'] = {}
-    body['last_modified_by']['application'] = application
-    body['last_modified_by']['device'] = device
-    body['last_modified_by']['user'] = user
-    body['created_by'] = {}
-    body['created_by']['application'] = microsoft_graph_identity_application
-    body['created_by']['device'] = microsoft_graph_identity_device
-    body['created_by']['user'] = microsoft_graph_identity_user
-    body['display_name'] = display_name
-    body['root'] = root
-    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
-    body['analytics'] = analytics
-    body['columns'] = columns
-    body['content_types'] = content_types
-    body['drive'] = drive
-    body['drives'] = drives
-    body['items'] = items
-    body['lists'] = lists
-    body['sites'] = sites
-    body['onenote'] = {}
-    body['onenote']['id'] = microsoft_graph_entity_id
-    body['onenote']['notebooks'] = notebooks
-    body['onenote']['operations'] = operations
-    body['onenote']['pages'] = pages
-    body['onenote']['resources'] = resources
-    body['onenote']['section_groups'] = section_groups
-    body['onenote']['sections'] = sections
-    body['site_collection'] = {}
-    body['site_collection']['data_location_code'] = data_location_code
-    body['site_collection']['hostname'] = hostname
-    body['site_collection']['root'] = microsoft_graph_root
-    body['error'] = {}
-    body['error']['code'] = code
-    body['error']['details'] = details
-    body['error']['inner_error'] = inner_error
-    body['error']['message'] = message
-    body['error']['target'] = target
-    return client.update_site(site_id=site_id,
-                              body=body)
-
-
-def sites_site_list(client,
-                    site_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
-    return client.list_sites(site_id=site_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def sites_site_show(client,
-                    site_id,
-                    path):
-    return client.get_by_path(site_id=site_id,
-                              path=path)
-
-
 def sites_site_create(client,
-                      site_id,
+                      site_id=None,
                       site_id1=None,
                       id_=None,
                       created_date_time=None,
@@ -641,8 +393,36 @@ def sites_site_create(client,
         return client.update_sites(site_id=site_id,
                                    site_id1=site_id1,
                                    body=body)
-    return client.create_sites(site_id=site_id,
-                               body=body)
+    elif site_id is not None:
+        return client.update_site(site_id=site_id,
+                                  body=body)
+    elif site_id is not None:
+        return client.create_sites(site_id=site_id,
+                                   body=body)
+    return client.create_site(body=body)
+
+
+def sites_site_delete_site(client,
+                           site_id,
+                           if_match=None):
+    return client.delete_site(site_id=site_id,
+                              if_match=if_match)
+
+
+def sites_site_show_site(client,
+                         site_id,
+                         select=None,
+                         expand=None):
+    return client.get_site(site_id=site_id,
+                           select=select,
+                           expand=expand)
+
+
+def sites_site_show(client,
+                    site_id,
+                    path):
+    return client.get_by_path(site_id=site_id,
+                              path=path)
 
 
 def sites_site_add(client,
@@ -1382,11 +1162,11 @@ def sites_site_update_list(client,
                                body=body)
 
 
-def sites_sitescontenttype_create_column_link(client,
-                                              site_id,
-                                              content_type_id,
-                                              id_=None,
-                                              name=None):
+def sites_site_content_type_create_column_link(client,
+                                               site_id,
+                                               content_type_id,
+                                               id_=None,
+                                               name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -1395,23 +1175,23 @@ def sites_sitescontenttype_create_column_link(client,
                                       body=body)
 
 
-def sites_sitescontenttype_delete_column_link(client,
-                                              site_id,
-                                              content_type_id,
-                                              column_link_id,
-                                              if_match=None):
+def sites_site_content_type_delete_column_link(client,
+                                               site_id,
+                                               content_type_id,
+                                               column_link_id,
+                                               if_match=None):
     return client.delete_column_links(site_id=site_id,
                                       content_type_id=content_type_id,
                                       column_link_id=column_link_id,
                                       if_match=if_match)
 
 
-def sites_sitescontenttype_list_column_link(client,
-                                            site_id,
-                                            content_type_id,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
+def sites_site_content_type_list_column_link(client,
+                                             site_id,
+                                             content_type_id,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
     return client.list_column_links(site_id=site_id,
                                     content_type_id=content_type_id,
                                     orderby=orderby,
@@ -1419,12 +1199,12 @@ def sites_sitescontenttype_list_column_link(client,
                                     expand=expand)
 
 
-def sites_sitescontenttype_show_column_link(client,
-                                            site_id,
-                                            content_type_id,
-                                            column_link_id,
-                                            select=None,
-                                            expand=None):
+def sites_site_content_type_show_column_link(client,
+                                             site_id,
+                                             content_type_id,
+                                             column_link_id,
+                                             select=None,
+                                             expand=None):
     return client.get_column_links(site_id=site_id,
                                    content_type_id=content_type_id,
                                    column_link_id=column_link_id,
@@ -1432,12 +1212,12 @@ def sites_sitescontenttype_show_column_link(client,
                                    expand=expand)
 
 
-def sites_sitescontenttype_update_column_link(client,
-                                              site_id,
-                                              content_type_id,
-                                              column_link_id,
-                                              id_=None,
-                                              name=None):
+def sites_site_content_type_update_column_link(client,
+                                               site_id,
+                                               content_type_id,
+                                               column_link_id,
+                                               id_=None,
+                                               name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -1447,7 +1227,7 @@ def sites_sitescontenttype_update_column_link(client,
                                       body=body)
 
 
-def sites_siteslist_create_column(client,
+def sites_site_list_create_column(client,
                                   site_id,
                                   list_id,
                                   id_=None,
@@ -1499,7 +1279,7 @@ def sites_siteslist_create_column(client,
                                  body=body)
 
 
-def sites_siteslist_create_content_type(client,
+def sites_site_list_create_content_type(client,
                                         site_id,
                                         list_id,
                                         id_=None,
@@ -1545,7 +1325,7 @@ def sites_siteslist_create_content_type(client,
                                        body=body)
 
 
-def sites_siteslist_create_item(client,
+def sites_site_list_create_item(client,
                                 site_id,
                                 list_id,
                                 content_type,
@@ -1616,7 +1396,7 @@ def sites_siteslist_create_item(client,
                                body=body)
 
 
-def sites_siteslist_create_subscription(client,
+def sites_site_list_create_subscription(client,
                                         site_id,
                                         list_id,
                                         id_=None,
@@ -1651,7 +1431,7 @@ def sites_siteslist_create_subscription(client,
                                        body=body)
 
 
-def sites_siteslist_delete_column(client,
+def sites_site_list_delete_column(client,
                                   site_id,
                                   list_id,
                                   column_definition_id,
@@ -1662,7 +1442,7 @@ def sites_siteslist_delete_column(client,
                                  if_match=if_match)
 
 
-def sites_siteslist_delete_content_type(client,
+def sites_site_list_delete_content_type(client,
                                         site_id,
                                         list_id,
                                         content_type_id,
@@ -1673,7 +1453,7 @@ def sites_siteslist_delete_content_type(client,
                                        if_match=if_match)
 
 
-def sites_siteslist_delete_drive(client,
+def sites_site_list_delete_drive(client,
                                  site_id,
                                  list_id,
                                  if_match=None):
@@ -1682,7 +1462,7 @@ def sites_siteslist_delete_drive(client,
                                if_match=if_match)
 
 
-def sites_siteslist_delete_item(client,
+def sites_site_list_delete_item(client,
                                 site_id,
                                 list_id,
                                 list_item_id,
@@ -1693,7 +1473,7 @@ def sites_siteslist_delete_item(client,
                                if_match=if_match)
 
 
-def sites_siteslist_delete_subscription(client,
+def sites_site_list_delete_subscription(client,
                                         site_id,
                                         list_id,
                                         subscription_id,
@@ -1704,7 +1484,7 @@ def sites_siteslist_delete_subscription(client,
                                        if_match=if_match)
 
 
-def sites_siteslist_list_column(client,
+def sites_site_list_list_column(client,
                                 site_id,
                                 list_id,
                                 orderby=None,
@@ -1717,7 +1497,7 @@ def sites_siteslist_list_column(client,
                                expand=expand)
 
 
-def sites_siteslist_list_content_type(client,
+def sites_site_list_list_content_type(client,
                                       site_id,
                                       list_id,
                                       orderby=None,
@@ -1730,7 +1510,7 @@ def sites_siteslist_list_content_type(client,
                                      expand=expand)
 
 
-def sites_siteslist_list_item(client,
+def sites_site_list_list_item(client,
                               site_id,
                               list_id,
                               orderby=None,
@@ -1743,7 +1523,7 @@ def sites_siteslist_list_item(client,
                              expand=expand)
 
 
-def sites_siteslist_list_subscription(client,
+def sites_site_list_list_subscription(client,
                                       site_id,
                                       list_id,
                                       orderby=None,
@@ -1756,7 +1536,7 @@ def sites_siteslist_list_subscription(client,
                                      expand=expand)
 
 
-def sites_siteslist_show_column(client,
+def sites_site_list_show_column(client,
                                 site_id,
                                 list_id,
                                 column_definition_id,
@@ -1769,7 +1549,7 @@ def sites_siteslist_show_column(client,
                               expand=expand)
 
 
-def sites_siteslist_show_content_type(client,
+def sites_site_list_show_content_type(client,
                                       site_id,
                                       list_id,
                                       content_type_id,
@@ -1782,7 +1562,7 @@ def sites_siteslist_show_content_type(client,
                                     expand=expand)
 
 
-def sites_siteslist_show_drive(client,
+def sites_site_list_show_drive(client,
                                site_id,
                                list_id,
                                select=None,
@@ -1793,7 +1573,7 @@ def sites_siteslist_show_drive(client,
                             expand=expand)
 
 
-def sites_siteslist_show_item(client,
+def sites_site_list_show_item(client,
                               site_id,
                               list_id,
                               list_item_id,
@@ -1806,7 +1586,7 @@ def sites_siteslist_show_item(client,
                             expand=expand)
 
 
-def sites_siteslist_show_subscription(client,
+def sites_site_list_show_subscription(client,
                                       site_id,
                                       list_id,
                                       subscription_id,
@@ -1819,7 +1599,7 @@ def sites_siteslist_show_subscription(client,
                                     expand=expand)
 
 
-def sites_siteslist_update_column(client,
+def sites_site_list_update_column(client,
                                   site_id,
                                   list_id,
                                   column_definition_id,
@@ -1873,7 +1653,7 @@ def sites_siteslist_update_column(client,
                                  body=body)
 
 
-def sites_siteslist_update_content_type(client,
+def sites_site_list_update_content_type(client,
                                         site_id,
                                         list_id,
                                         content_type_id,
@@ -1921,7 +1701,7 @@ def sites_siteslist_update_content_type(client,
                                        body=body)
 
 
-def sites_siteslist_update_drive(client,
+def sites_site_list_update_drive(client,
                                  site_id,
                                  list_id,
                                  id_=None,
@@ -2015,7 +1795,7 @@ def sites_siteslist_update_drive(client,
                                body=body)
 
 
-def sites_siteslist_update_item(client,
+def sites_site_list_update_item(client,
                                 site_id,
                                 list_id,
                                 list_item_id,
@@ -2088,7 +1868,7 @@ def sites_siteslist_update_item(client,
                                body=body)
 
 
-def sites_siteslist_update_subscription(client,
+def sites_site_list_update_subscription(client,
                                         site_id,
                                         list_id,
                                         subscription_id,
@@ -2125,12 +1905,12 @@ def sites_siteslist_update_subscription(client,
                                        body=body)
 
 
-def sites_siteslistscontenttype_create_column_link(client,
-                                                   site_id,
-                                                   list_id,
-                                                   content_type_id,
-                                                   id_=None,
-                                                   name=None):
+def sites_site_list_content_type_create_column_link(client,
+                                                    site_id,
+                                                    list_id,
+                                                    content_type_id,
+                                                    id_=None,
+                                                    name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -2140,12 +1920,12 @@ def sites_siteslistscontenttype_create_column_link(client,
                                       body=body)
 
 
-def sites_siteslistscontenttype_delete_column_link(client,
-                                                   site_id,
-                                                   list_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   if_match=None):
+def sites_site_list_content_type_delete_column_link(client,
+                                                    site_id,
+                                                    list_id,
+                                                    content_type_id,
+                                                    column_link_id,
+                                                    if_match=None):
     return client.delete_column_links(site_id=site_id,
                                       list_id=list_id,
                                       content_type_id=content_type_id,
@@ -2153,13 +1933,13 @@ def sites_siteslistscontenttype_delete_column_link(client,
                                       if_match=if_match)
 
 
-def sites_siteslistscontenttype_list_column_link(client,
-                                                 site_id,
-                                                 list_id,
-                                                 content_type_id,
-                                                 orderby=None,
-                                                 select=None,
-                                                 expand=None):
+def sites_site_list_content_type_list_column_link(client,
+                                                  site_id,
+                                                  list_id,
+                                                  content_type_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
     return client.list_column_links(site_id=site_id,
                                     list_id=list_id,
                                     content_type_id=content_type_id,
@@ -2168,13 +1948,13 @@ def sites_siteslistscontenttype_list_column_link(client,
                                     expand=expand)
 
 
-def sites_siteslistscontenttype_show_column_link(client,
-                                                 site_id,
-                                                 list_id,
-                                                 content_type_id,
-                                                 column_link_id,
-                                                 select=None,
-                                                 expand=None):
+def sites_site_list_content_type_show_column_link(client,
+                                                  site_id,
+                                                  list_id,
+                                                  content_type_id,
+                                                  column_link_id,
+                                                  select=None,
+                                                  expand=None):
     return client.get_column_links(site_id=site_id,
                                    list_id=list_id,
                                    content_type_id=content_type_id,
@@ -2183,13 +1963,13 @@ def sites_siteslistscontenttype_show_column_link(client,
                                    expand=expand)
 
 
-def sites_siteslistscontenttype_update_column_link(client,
-                                                   site_id,
-                                                   list_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   id_=None,
-                                                   name=None):
+def sites_site_list_content_type_update_column_link(client,
+                                                    site_id,
+                                                    list_id,
+                                                    content_type_id,
+                                                    column_link_id,
+                                                    id_=None,
+                                                    name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -2200,7 +1980,7 @@ def sites_siteslistscontenttype_update_column_link(client,
                                       body=body)
 
 
-def sites_siteslistsitem_create_version(client,
+def sites_site_list_item_create_version(client,
                                         site_id,
                                         list_id,
                                         list_item_id,
@@ -2227,7 +2007,7 @@ def sites_siteslistsitem_create_version(client,
                                   body=body)
 
 
-def sites_siteslistsitem_delete_drive_item(client,
+def sites_site_list_item_delete_drive_item(client,
                                            site_id,
                                            list_id,
                                            list_item_id,
@@ -2238,7 +2018,7 @@ def sites_siteslistsitem_delete_drive_item(client,
                                     if_match=if_match)
 
 
-def sites_siteslistsitem_delete_field(client,
+def sites_site_list_item_delete_field(client,
                                       site_id,
                                       list_id,
                                       list_item_id,
@@ -2249,7 +2029,7 @@ def sites_siteslistsitem_delete_field(client,
                                 if_match=if_match)
 
 
-def sites_siteslistsitem_delete_ref_analytic(client,
+def sites_site_list_item_delete_ref_analytic(client,
                                              site_id,
                                              list_id,
                                              list_item_id,
@@ -2260,7 +2040,7 @@ def sites_siteslistsitem_delete_ref_analytic(client,
                                        if_match=if_match)
 
 
-def sites_siteslistsitem_delete_version(client,
+def sites_site_list_item_delete_version(client,
                                         site_id,
                                         list_id,
                                         list_item_id,
@@ -2273,7 +2053,7 @@ def sites_siteslistsitem_delete_version(client,
                                   if_match=if_match)
 
 
-def sites_siteslistsitem_list_version(client,
+def sites_site_list_item_list_version(client,
                                       site_id,
                                       list_id,
                                       list_item_id,
@@ -2288,7 +2068,7 @@ def sites_siteslistsitem_list_version(client,
                                 expand=expand)
 
 
-def sites_siteslistsitem_set_ref_analytic(client,
+def sites_site_list_item_set_ref_analytic(client,
                                           site_id,
                                           list_id,
                                           list_item_id,
@@ -2299,7 +2079,7 @@ def sites_siteslistsitem_set_ref_analytic(client,
                                     body=body)
 
 
-def sites_siteslistsitem_show_activity(client,
+def sites_site_list_item_show_activity(client,
                                        site_id,
                                        list_id,
                                        list_item_id,
@@ -2318,7 +2098,7 @@ def sites_siteslistsitem_show_activity(client,
                                                   list_item_id=list_item_id)
 
 
-def sites_siteslistsitem_show_analytic(client,
+def sites_site_list_item_show_analytic(client,
                                        site_id,
                                        list_id,
                                        list_item_id,
@@ -2331,7 +2111,7 @@ def sites_siteslistsitem_show_analytic(client,
                                 expand=expand)
 
 
-def sites_siteslistsitem_show_drive_item(client,
+def sites_site_list_item_show_drive_item(client,
                                          site_id,
                                          list_id,
                                          list_item_id,
@@ -2344,7 +2124,7 @@ def sites_siteslistsitem_show_drive_item(client,
                                  expand=expand)
 
 
-def sites_siteslistsitem_show_field(client,
+def sites_site_list_item_show_field(client,
                                     site_id,
                                     list_id,
                                     list_item_id,
@@ -2357,7 +2137,7 @@ def sites_siteslistsitem_show_field(client,
                              expand=expand)
 
 
-def sites_siteslistsitem_show_ref_analytic(client,
+def sites_site_list_item_show_ref_analytic(client,
                                            site_id,
                                            list_id,
                                            list_item_id):
@@ -2366,7 +2146,7 @@ def sites_siteslistsitem_show_ref_analytic(client,
                                     list_item_id=list_item_id)
 
 
-def sites_siteslistsitem_show_version(client,
+def sites_site_list_item_show_version(client,
                                       site_id,
                                       list_id,
                                       list_item_id,
@@ -2381,18 +2161,260 @@ def sites_siteslistsitem_show_version(client,
                                expand=expand)
 
 
-def sites_siteslistsitem_update_drive_item(client,
+def sites_site_list_item_update_drive_item(client,
                                            site_id,
                                            list_id,
                                            list_item_id,
-                                           body):
+                                           content_type,
+                                           id_=None,
+                                           created_date_time=None,
+                                           description=None,
+                                           e_tag=None,
+                                           last_modified_date_time=None,
+                                           name=None,
+                                           web_url=None,
+                                           created_by_user=None,
+                                           last_modified_by_user=None,
+                                           drive_id=None,
+                                           drive_type=None,
+                                           microsoft_graph_item_reference_id=None,
+                                           microsoft_graph_item_reference_name=None,
+                                           path=None,
+                                           share_id=None,
+                                           sharepoint_ids=None,
+                                           microsoft_graph_item_reference_site_id=None,
+                                           application=None,
+                                           device=None,
+                                           user=None,
+                                           microsoft_graph_identity_application=None,
+                                           microsoft_graph_identity_device=None,
+                                           microsoft_graph_identity_user=None,
+                                           audio=None,
+                                           content=None,
+                                           c_tag=None,
+                                           file_system_info=None,
+                                           image=None,
+                                           location=None,
+                                           photo=None,
+                                           publication=None,
+                                           root=None,
+                                           microsoft_graph_sharepoint_ids=None,
+                                           size=None,
+                                           video=None,
+                                           web_dav_url=None,
+                                           analytics=None,
+                                           children=None,
+                                           permissions=None,
+                                           subscriptions=None,
+                                           thumbnails=None,
+                                           versions=None,
+                                           microsoft_graph_entity_id=None,
+                                           microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                           microsoft_graph_base_item_description=None,
+                                           microsoft_graph_base_item_e_tag=None,
+                                           microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                           microsoft_graph_base_item_name=None,
+                                           microsoft_graph_base_item_web_url=None,
+                                           microsoft_graph_user_created_by_user=None,
+                                           microsoft_graph_user_last_modified_by_user=None,
+                                           microsoft_graph_item_reference_drive_id=None,
+                                           microsoft_graph_item_reference_drive_type=None,
+                                           id1=None,
+                                           name1=None,
+                                           microsoft_graph_item_reference_path=None,
+                                           microsoft_graph_item_reference_share_id=None,
+                                           sharepoint_ids1=None,
+                                           site_id1=None,
+                                           application1=None,
+                                           device1=None,
+                                           user1=None,
+                                           application2=None,
+                                           device2=None,
+                                           user2=None,
+                                           sharepoint_ids2=None,
+                                           microsoft_graph_item_analytics=None,
+                                           drive_item=None,
+                                           microsoft_graph_list_item_versions=None,
+                                           id2=None,
+                                           id3=None,
+                                           microsoft_graph_workbook_application=None,
+                                           comments=None,
+                                           functions=None,
+                                           names=None,
+                                           operations=None,
+                                           tables=None,
+                                           worksheets=None,
+                                           microsoft_graph_special_folder_name=None,
+                                           owner=None,
+                                           scope=None,
+                                           shared_by=None,
+                                           shared_date_time=None,
+                                           on_click_telemetry_url=None,
+                                           created_by=None,
+                                           microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                           file=None,
+                                           microsoft_graph_file_system_info_file_system_info=None,
+                                           folder=None,
+                                           microsoft_graph_remote_item_id=None,
+                                           microsoft_graph_image=None,
+                                           last_modified_by=None,
+                                           microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                           microsoft_graph_remote_item_name=None,
+                                           package=None,
+                                           parent_reference=None,
+                                           shared=None,
+                                           sharepoint_ids3=None,
+                                           integer_size=None,
+                                           special_folder=None,
+                                           microsoft_graph_video=None,
+                                           microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                           microsoft_graph_remote_item_web_url=None,
+                                           queued_date_time=None,
+                                           type_=None,
+                                           child_count=None,
+                                           view=None,
+                                           hashes=None,
+                                           mime_type=None,
+                                           processing_metadata=None,
+                                           state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = site_id1
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_drive_item(site_id=site_id,
                                     list_id=list_id,
                                     list_item_id=list_item_id,
                                     body=body)
 
 
-def sites_siteslistsitem_update_field(client,
+def sites_site_list_item_update_field(client,
                                       site_id,
                                       list_id,
                                       list_item_id,
@@ -2405,7 +2427,7 @@ def sites_siteslistsitem_update_field(client,
                                 body=body)
 
 
-def sites_siteslistsitem_update_version(client,
+def sites_site_list_item_update_version(client,
                                         site_id,
                                         list_id,
                                         list_item_id,
@@ -2434,7 +2456,7 @@ def sites_siteslistsitem_update_version(client,
                                   body=body)
 
 
-def sites_siteslistsitemsversion_delete_field(client,
+def sites_site_list_item_version_delete_field(client,
                                               site_id,
                                               list_id,
                                               list_item_id,
@@ -2447,7 +2469,7 @@ def sites_siteslistsitemsversion_delete_field(client,
                                 if_match=if_match)
 
 
-def sites_siteslistsitemsversion_restore_version(client,
+def sites_site_list_item_version_restore_version(client,
                                                  site_id,
                                                  list_id,
                                                  list_item_id,
@@ -2458,7 +2480,7 @@ def sites_siteslistsitemsversion_restore_version(client,
                                   list_item_version_id=list_item_version_id)
 
 
-def sites_siteslistsitemsversion_show_field(client,
+def sites_site_list_item_version_show_field(client,
                                             site_id,
                                             list_id,
                                             list_item_id,
@@ -2473,7 +2495,7 @@ def sites_siteslistsitemsversion_show_field(client,
                              expand=expand)
 
 
-def sites_siteslistsitemsversion_update_field(client,
+def sites_site_list_item_version_update_field(client,
                                               site_id,
                                               list_id,
                                               list_item_id,
@@ -2488,14 +2510,14 @@ def sites_siteslistsitemsversion_update_field(client,
                                 body=body)
 
 
-def sites_sitesonenotenotebook_copy_notebook(client,
-                                             site_id,
-                                             notebook_id,
-                                             group_id=None,
-                                             rename_as=None,
-                                             notebook_folder=None,
-                                             site_collection_id=None,
-                                             post_content_schema_site_id=None):
+def sites_site_onenote_notebook_copy_notebook(client,
+                                              site_id,
+                                              notebook_id,
+                                              group_id=None,
+                                              rename_as=None,
+                                              notebook_folder=None,
+                                              site_collection_id=None,
+                                              post_content_schema_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -2507,33 +2529,33 @@ def sites_sitesonenotenotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotenotebook_get_notebook_from_web_url(client,
-                                                         site_id,
-                                                         web_url=None):
+def sites_site_onenote_notebook_get_notebook_from_web_url(client,
+                                                          site_id,
+                                                          web_url=None):
     body = {}
     body['web_url'] = web_url
     return client.get_notebook_from_web_url(site_id=site_id,
                                             body=body)
 
 
-def sites_sitesonenotenotebook_show_recent_notebook(client,
-                                                    site_id,
-                                                    include_personal_notebooks):
+def sites_site_onenote_notebook_show_recent_notebook(client,
+                                                     site_id,
+                                                     include_personal_notebooks):
     if include_personal_notebooks is None:
         include_personal_notebooks = False
     return client.get_recent_notebooks(site_id=site_id,
                                        include_personal_notebooks=include_personal_notebooks)
 
 
-def sites_sitesonenotenotebookssectiongroupsparentnotebook_copy_notebook(client,
-                                                                         site_id,
-                                                                         notebook_id,
-                                                                         section_group_id,
-                                                                         group_id=None,
-                                                                         rename_as=None,
-                                                                         notebook_folder=None,
-                                                                         site_collection_id=None,
-                                                                         string_site_id=None):
+def sites_site_onenote_notebook_section_group_parent_notebook_copy_notebook(client,
+                                                                            site_id,
+                                                                            notebook_id,
+                                                                            section_group_id,
+                                                                            group_id=None,
+                                                                            rename_as=None,
+                                                                            notebook_folder=None,
+                                                                            site_collection_id=None,
+                                                                            string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -2546,16 +2568,16 @@ def sites_sitesonenotenotebookssectiongroupsparentnotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssection_copy_to_notebook(client,
-                                                                     site_id,
-                                                                     notebook_id,
-                                                                     section_group_id,
-                                                                     onenote_section_id,
-                                                                     id_=None,
-                                                                     group_id=None,
-                                                                     rename_as=None,
-                                                                     site_collection_id=None,
-                                                                     string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_copy_to_notebook(client,
+                                                                       site_id,
+                                                                       notebook_id,
+                                                                       section_group_id,
+                                                                       onenote_section_id,
+                                                                       id_=None,
+                                                                       group_id=None,
+                                                                       rename_as=None,
+                                                                       site_collection_id=None,
+                                                                       string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2569,16 +2591,16 @@ def sites_sitesonenotenotebookssectiongroupssection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssection_copy_to_section_group(client,
-                                                                          site_id,
-                                                                          notebook_id,
-                                                                          section_group_id,
-                                                                          onenote_section_id,
-                                                                          id_=None,
-                                                                          group_id=None,
-                                                                          rename_as=None,
-                                                                          site_collection_id=None,
-                                                                          string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_copy_to_section_group(client,
+                                                                            site_id,
+                                                                            notebook_id,
+                                                                            section_group_id,
+                                                                            onenote_section_id,
+                                                                            id_=None,
+                                                                            group_id=None,
+                                                                            rename_as=None,
+                                                                            site_collection_id=None,
+                                                                            string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2592,16 +2614,16 @@ def sites_sitesonenotenotebookssectiongroupssection_copy_to_section_group(client
                                         body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspage_copy_to_section(client,
-                                                                         site_id,
-                                                                         notebook_id,
-                                                                         section_group_id,
-                                                                         onenote_section_id,
-                                                                         onenote_page_id,
-                                                                         id_=None,
-                                                                         group_id=None,
-                                                                         site_collection_id=None,
-                                                                         string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_page_copy_to_section(client,
+                                                                           site_id,
+                                                                           notebook_id,
+                                                                           section_group_id,
+                                                                           onenote_section_id,
+                                                                           onenote_page_id,
+                                                                           id_=None,
+                                                                           group_id=None,
+                                                                           site_collection_id=None,
+                                                                           string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2615,13 +2637,13 @@ def sites_sitesonenotenotebookssectiongroupssectionspage_copy_to_section(client,
                                   body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspage_onenote_patch_content(client,
-                                                                               site_id,
-                                                                               notebook_id,
-                                                                               section_group_id,
-                                                                               onenote_section_id,
-                                                                               onenote_page_id,
-                                                                               commands=None):
+def sites_site_onenote_notebook_section_group_section_page_onenote_patch_content(client,
+                                                                                 site_id,
+                                                                                 notebook_id,
+                                                                                 section_group_id,
+                                                                                 onenote_section_id,
+                                                                                 onenote_page_id,
+                                                                                 commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -2632,12 +2654,12 @@ def sites_sitesonenotenotebookssectiongroupssectionspage_onenote_patch_content(c
                                         body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspage_preview(client,
-                                                                 site_id,
-                                                                 notebook_id,
-                                                                 section_group_id,
-                                                                 onenote_section_id,
-                                                                 onenote_page_id):
+def sites_site_onenote_notebook_section_group_section_page_preview(client,
+                                                                   site_id,
+                                                                   notebook_id,
+                                                                   section_group_id,
+                                                                   onenote_section_id,
+                                                                   onenote_page_id):
     return client.preview(site_id=site_id,
                           notebook_id=notebook_id,
                           section_group_id=section_group_id,
@@ -2645,17 +2667,17 @@ def sites_sitesonenotenotebookssectiongroupssectionspage_preview(client,
                           onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspagesparentnotebook_copy_notebook(client,
-                                                                                      site_id,
-                                                                                      notebook_id,
-                                                                                      section_group_id,
-                                                                                      onenote_section_id,
-                                                                                      onenote_page_id,
-                                                                                      group_id=None,
-                                                                                      rename_as=None,
-                                                                                      notebook_folder=None,
-                                                                                      site_collection_id=None,
-                                                                                      string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_page_parent_notebook_copy_notebook(client,
+                                                                                         site_id,
+                                                                                         notebook_id,
+                                                                                         section_group_id,
+                                                                                         onenote_section_id,
+                                                                                         onenote_page_id,
+                                                                                         group_id=None,
+                                                                                         rename_as=None,
+                                                                                         notebook_folder=None,
+                                                                                         site_collection_id=None,
+                                                                                         string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -2670,17 +2692,17 @@ def sites_sitesonenotenotebookssectiongroupssectionspagesparentnotebook_copy_not
                                 body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspagesparentsection_copy_to_notebook(client,
-                                                                                        site_id,
-                                                                                        notebook_id,
-                                                                                        section_group_id,
-                                                                                        onenote_section_id,
-                                                                                        onenote_page_id,
-                                                                                        id_=None,
-                                                                                        group_id=None,
-                                                                                        rename_as=None,
-                                                                                        site_collection_id=None,
-                                                                                        string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_page_parent_section_copy_to_notebook(client,
+                                                                                           site_id,
+                                                                                           notebook_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_page_id,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2695,17 +2717,17 @@ def sites_sitesonenotenotebookssectiongroupssectionspagesparentsection_copy_to_n
                                    body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionspagesparentsection_copy_to_section_group(client,
-                                                                                             site_id,
-                                                                                             notebook_id,
-                                                                                             section_group_id,
-                                                                                             onenote_section_id,
-                                                                                             onenote_page_id,
-                                                                                             id_=None,
-                                                                                             group_id=None,
-                                                                                             rename_as=None,
-                                                                                             site_collection_id=None,
-                                                                                             string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_page_parent_section_copy_to_section_group(client,
+                                                                                                site_id,
+                                                                                                notebook_id,
+                                                                                                section_group_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id,
+                                                                                                id_=None,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                site_collection_id=None,
+                                                                                                string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2720,16 +2742,16 @@ def sites_sitesonenotenotebookssectiongroupssectionspagesparentsection_copy_to_s
                                         body=body)
 
 
-def sites_sitesonenotenotebookssectiongroupssectionsparentnotebook_copy_notebook(client,
-                                                                                 site_id,
-                                                                                 notebook_id,
-                                                                                 section_group_id,
-                                                                                 onenote_section_id,
-                                                                                 group_id=None,
-                                                                                 rename_as=None,
-                                                                                 notebook_folder=None,
-                                                                                 site_collection_id=None,
-                                                                                 string_site_id=None):
+def sites_site_onenote_notebook_section_group_section_parent_notebook_copy_notebook(client,
+                                                                                    site_id,
+                                                                                    notebook_id,
+                                                                                    section_group_id,
+                                                                                    onenote_section_id,
+                                                                                    group_id=None,
+                                                                                    rename_as=None,
+                                                                                    notebook_folder=None,
+                                                                                    site_collection_id=None,
+                                                                                    string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -2743,15 +2765,15 @@ def sites_sitesonenotenotebookssectiongroupssectionsparentnotebook_copy_notebook
                                 body=body)
 
 
-def sites_sitesonenotenotebookssection_copy_to_notebook(client,
-                                                        site_id,
-                                                        notebook_id,
-                                                        onenote_section_id,
-                                                        id_=None,
-                                                        group_id=None,
-                                                        rename_as=None,
-                                                        site_collection_id=None,
-                                                        string_site_id=None):
+def sites_site_onenote_notebook_section_copy_to_notebook(client,
+                                                         site_id,
+                                                         notebook_id,
+                                                         onenote_section_id,
+                                                         id_=None,
+                                                         group_id=None,
+                                                         rename_as=None,
+                                                         site_collection_id=None,
+                                                         string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2764,15 +2786,15 @@ def sites_sitesonenotenotebookssection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotenotebookssection_copy_to_section_group(client,
-                                                             site_id,
-                                                             notebook_id,
-                                                             onenote_section_id,
-                                                             id_=None,
-                                                             group_id=None,
-                                                             rename_as=None,
-                                                             site_collection_id=None,
-                                                             string_site_id=None):
+def sites_site_onenote_notebook_section_copy_to_section_group(client,
+                                                              site_id,
+                                                              notebook_id,
+                                                              onenote_section_id,
+                                                              id_=None,
+                                                              group_id=None,
+                                                              rename_as=None,
+                                                              site_collection_id=None,
+                                                              string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2785,15 +2807,15 @@ def sites_sitesonenotenotebookssection_copy_to_section_group(client,
                                         body=body)
 
 
-def sites_sitesonenotenotebookssectionspage_copy_to_section(client,
-                                                            site_id,
-                                                            notebook_id,
-                                                            onenote_section_id,
-                                                            onenote_page_id,
-                                                            id_=None,
-                                                            group_id=None,
-                                                            site_collection_id=None,
-                                                            string_site_id=None):
+def sites_site_onenote_notebook_section_page_copy_to_section(client,
+                                                             site_id,
+                                                             notebook_id,
+                                                             onenote_section_id,
+                                                             onenote_page_id,
+                                                             id_=None,
+                                                             group_id=None,
+                                                             site_collection_id=None,
+                                                             string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2806,12 +2828,12 @@ def sites_sitesonenotenotebookssectionspage_copy_to_section(client,
                                   body=body)
 
 
-def sites_sitesonenotenotebookssectionspage_onenote_patch_content(client,
-                                                                  site_id,
-                                                                  notebook_id,
-                                                                  onenote_section_id,
-                                                                  onenote_page_id,
-                                                                  commands=None):
+def sites_site_onenote_notebook_section_page_onenote_patch_content(client,
+                                                                   site_id,
+                                                                   notebook_id,
+                                                                   onenote_section_id,
+                                                                   onenote_page_id,
+                                                                   commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -2821,27 +2843,27 @@ def sites_sitesonenotenotebookssectionspage_onenote_patch_content(client,
                                         body=body)
 
 
-def sites_sitesonenotenotebookssectionspage_preview(client,
-                                                    site_id,
-                                                    notebook_id,
-                                                    onenote_section_id,
-                                                    onenote_page_id):
+def sites_site_onenote_notebook_section_page_preview(client,
+                                                     site_id,
+                                                     notebook_id,
+                                                     onenote_section_id,
+                                                     onenote_page_id):
     return client.preview(site_id=site_id,
                           notebook_id=notebook_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotenotebookssectionspagesparentnotebook_copy_notebook(client,
-                                                                         site_id,
-                                                                         notebook_id,
-                                                                         onenote_section_id,
-                                                                         onenote_page_id,
-                                                                         group_id=None,
-                                                                         rename_as=None,
-                                                                         notebook_folder=None,
-                                                                         site_collection_id=None,
-                                                                         string_site_id=None):
+def sites_site_onenote_notebook_section_page_parent_notebook_copy_notebook(client,
+                                                                           site_id,
+                                                                           notebook_id,
+                                                                           onenote_section_id,
+                                                                           onenote_page_id,
+                                                                           group_id=None,
+                                                                           rename_as=None,
+                                                                           notebook_folder=None,
+                                                                           site_collection_id=None,
+                                                                           string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -2855,16 +2877,16 @@ def sites_sitesonenotenotebookssectionspagesparentnotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotenotebookssectionspagesparentsection_copy_to_notebook(client,
-                                                                           site_id,
-                                                                           notebook_id,
-                                                                           onenote_section_id,
-                                                                           onenote_page_id,
-                                                                           id_=None,
-                                                                           group_id=None,
-                                                                           rename_as=None,
-                                                                           site_collection_id=None,
-                                                                           string_site_id=None):
+def sites_site_onenote_notebook_section_page_parent_section_copy_to_notebook(client,
+                                                                             site_id,
+                                                                             notebook_id,
+                                                                             onenote_section_id,
+                                                                             onenote_page_id,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             rename_as=None,
+                                                                             site_collection_id=None,
+                                                                             string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -2878,76 +2900,11 @@ def sites_sitesonenotenotebookssectionspagesparentsection_copy_to_notebook(clien
                                    body=body)
 
 
-def sites_sitesonenotenotebookssectionspagesparentsection_copy_to_section_group(client,
-                                                                                site_id,
-                                                                                notebook_id,
-                                                                                onenote_section_id,
-                                                                                onenote_page_id,
-                                                                                id_=None,
-                                                                                group_id=None,
-                                                                                rename_as=None,
-                                                                                site_collection_id=None,
-                                                                                string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        notebook_id=notebook_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_page_id=onenote_page_id,
-                                        body=body)
-
-
-def sites_sitesonenotenotebookssectionsparentnotebook_copy_notebook(client,
-                                                                    site_id,
-                                                                    notebook_id,
-                                                                    onenote_section_id,
-                                                                    group_id=None,
-                                                                    rename_as=None,
-                                                                    notebook_folder=None,
-                                                                    site_collection_id=None,
-                                                                    string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                notebook_id=notebook_id,
-                                onenote_section_id=onenote_section_id,
-                                body=body)
-
-
-def sites_sitesonenotenotebookssectionsparentsectiongroupparentnotebook_copy_notebook(client,
-                                                                                      site_id,
-                                                                                      notebook_id,
-                                                                                      onenote_section_id,
-                                                                                      group_id=None,
-                                                                                      rename_as=None,
-                                                                                      notebook_folder=None,
-                                                                                      site_collection_id=None,
-                                                                                      string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                notebook_id=notebook_id,
-                                onenote_section_id=onenote_section_id,
-                                body=body)
-
-
-def sites_sitesonenotenotebookssectionsparentsectiongroupsection_copy_to_notebook(client,
+def sites_site_onenote_notebook_section_page_parent_section_copy_to_section_group(client,
                                                                                   site_id,
                                                                                   notebook_id,
                                                                                   onenote_section_id,
-                                                                                  onenote_section_id1,
+                                                                                  onenote_page_id,
                                                                                   id_=None,
                                                                                   group_id=None,
                                                                                   rename_as=None,
@@ -2959,79 +2916,22 @@ def sites_sitesonenotenotebookssectionsparentsectiongroupsection_copy_to_noteboo
     body['rename_as'] = rename_as
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   notebook_id=notebook_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_section_id1=onenote_section_id1,
-                                   body=body)
-
-
-def sites_sitesonenotenotebookssectionsparentsectiongroupsection_copy_to_section_group(client,
-                                                                                       site_id,
-                                                                                       notebook_id,
-                                                                                       onenote_section_id,
-                                                                                       onenote_section_id1,
-                                                                                       id_=None,
-                                                                                       group_id=None,
-                                                                                       rename_as=None,
-                                                                                       site_collection_id=None,
-                                                                                       string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
                                         notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
-                                        onenote_section_id1=onenote_section_id1,
-                                        body=body)
-
-
-def sites_sitesonenotepage_copy_to_section(client,
-                                           site_id,
-                                           onenote_page_id,
-                                           id_=None,
-                                           group_id=None,
-                                           site_collection_id=None,
-                                           string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section(site_id=site_id,
-                                  onenote_page_id=onenote_page_id,
-                                  body=body)
-
-
-def sites_sitesonenotepage_onenote_patch_content(client,
-                                                 site_id,
-                                                 onenote_page_id,
-                                                 commands=None):
-    body = {}
-    body['commands'] = commands
-    return client.onenote_patch_content(site_id=site_id,
                                         onenote_page_id=onenote_page_id,
                                         body=body)
 
 
-def sites_sitesonenotepage_preview(client,
-                                   site_id,
-                                   onenote_page_id):
-    return client.preview(site_id=site_id,
-                          onenote_page_id=onenote_page_id)
-
-
-def sites_sitesonenotepagesparentnotebook_copy_notebook(client,
-                                                        site_id,
-                                                        onenote_page_id,
-                                                        group_id=None,
-                                                        rename_as=None,
-                                                        notebook_folder=None,
-                                                        site_collection_id=None,
-                                                        string_site_id=None):
+def sites_site_onenote_notebook_section_parent_notebook_copy_notebook(client,
+                                                                      site_id,
+                                                                      notebook_id,
+                                                                      onenote_section_id,
+                                                                      group_id=None,
+                                                                      rename_as=None,
+                                                                      notebook_folder=None,
+                                                                      site_collection_id=None,
+                                                                      string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3039,134 +2939,14 @@ def sites_sitesonenotepagesparentnotebook_copy_notebook(client,
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
     return client.copy_notebook(site_id=site_id,
-                                onenote_page_id=onenote_page_id,
+                                notebook_id=notebook_id,
+                                onenote_section_id=onenote_section_id,
                                 body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
-                                                                                   site_id,
-                                                                                   onenote_page_id,
-                                                                                   section_group_id,
-                                                                                   group_id=None,
-                                                                                   rename_as=None,
-                                                                                   notebook_folder=None,
-                                                                                   site_collection_id=None,
-                                                                                   string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                onenote_page_id=onenote_page_id,
-                                section_group_id=section_group_id,
-                                body=body)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssection_copy_to_notebook(client,
-                                                                               site_id,
-                                                                               onenote_page_id,
-                                                                               section_group_id,
-                                                                               onenote_section_id,
-                                                                               id_=None,
-                                                                               group_id=None,
-                                                                               rename_as=None,
-                                                                               site_collection_id=None,
-                                                                               string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_page_id=onenote_page_id,
-                                   section_group_id=section_group_id,
-                                   onenote_section_id=onenote_section_id,
-                                   body=body)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssection_copy_to_section_group(client,
-                                                                                    site_id,
-                                                                                    onenote_page_id,
-                                                                                    section_group_id,
-                                                                                    onenote_section_id,
-                                                                                    id_=None,
-                                                                                    group_id=None,
-                                                                                    rename_as=None,
-                                                                                    site_collection_id=None,
-                                                                                    string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        onenote_page_id=onenote_page_id,
-                                        section_group_id=section_group_id,
-                                        onenote_section_id=onenote_section_id,
-                                        body=body)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssectionspage_copy_to_section(client,
-                                                                                   site_id,
-                                                                                   onenote_page_id,
-                                                                                   section_group_id,
-                                                                                   onenote_section_id,
-                                                                                   onenote_page_id1,
-                                                                                   id_=None,
-                                                                                   group_id=None,
-                                                                                   site_collection_id=None,
-                                                                                   string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section(site_id=site_id,
-                                  onenote_page_id=onenote_page_id,
-                                  section_group_id=section_group_id,
-                                  onenote_section_id=onenote_section_id,
-                                  onenote_page_id1=onenote_page_id1,
-                                  body=body)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssectionspage_onenote_patch_content(client,
-                                                                                         site_id,
-                                                                                         onenote_page_id,
-                                                                                         section_group_id,
-                                                                                         onenote_section_id,
-                                                                                         onenote_page_id1,
-                                                                                         commands=None):
-    body = {}
-    body['commands'] = commands
-    return client.onenote_patch_content(site_id=site_id,
-                                        onenote_page_id=onenote_page_id,
-                                        section_group_id=section_group_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_page_id1=onenote_page_id1,
-                                        body=body)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssectionspage_preview(client,
-                                                                           site_id,
-                                                                           onenote_page_id,
-                                                                           section_group_id,
-                                                                           onenote_section_id,
-                                                                           onenote_page_id1):
-    return client.preview(site_id=site_id,
-                          onenote_page_id=onenote_page_id,
-                          section_group_id=section_group_id,
-                          onenote_section_id=onenote_section_id,
-                          onenote_page_id1=onenote_page_id1)
-
-
-def sites_sitesonenotepagesparentnotebooksectiongroupssectionsparentnotebook_copy_notebook(client,
+def sites_site_onenote_notebook_section_parent_section_group_parent_notebook_copy_notebook(client,
                                                                                            site_id,
-                                                                                           onenote_page_id,
-                                                                                           section_group_id,
+                                                                                           notebook_id,
                                                                                            onenote_section_id,
                                                                                            group_id=None,
                                                                                            rename_as=None,
@@ -3180,21 +2960,21 @@ def sites_sitesonenotepagesparentnotebooksectiongroupssectionsparentnotebook_cop
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
     return client.copy_notebook(site_id=site_id,
-                                onenote_page_id=onenote_page_id,
-                                section_group_id=section_group_id,
+                                notebook_id=notebook_id,
                                 onenote_section_id=onenote_section_id,
                                 body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksection_copy_to_notebook(client,
-                                                                  site_id,
-                                                                  onenote_page_id,
-                                                                  onenote_section_id,
-                                                                  id_=None,
-                                                                  group_id=None,
-                                                                  rename_as=None,
-                                                                  site_collection_id=None,
-                                                                  string_site_id=None):
+def sites_site_onenote_notebook_section_parent_section_group_section_copy_to_notebook(client,
+                                                                                      site_id,
+                                                                                      notebook_id,
+                                                                                      onenote_section_id,
+                                                                                      onenote_section_id1,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3202,20 +2982,22 @@ def sites_sitesonenotepagesparentnotebooksection_copy_to_notebook(client,
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
     return client.copy_to_notebook(site_id=site_id,
-                                   onenote_page_id=onenote_page_id,
+                                   notebook_id=notebook_id,
                                    onenote_section_id=onenote_section_id,
+                                   onenote_section_id1=onenote_section_id1,
                                    body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksection_copy_to_section_group(client,
-                                                                       site_id,
-                                                                       onenote_page_id,
-                                                                       onenote_section_id,
-                                                                       id_=None,
-                                                                       group_id=None,
-                                                                       rename_as=None,
-                                                                       site_collection_id=None,
-                                                                       string_site_id=None):
+def sites_site_onenote_notebook_section_parent_section_group_section_copy_to_section_group(client,
+                                                                                           site_id,
+                                                                                           notebook_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_section_id1,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3223,20 +3005,19 @@ def sites_sitesonenotepagesparentnotebooksection_copy_to_section_group(client,
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
-                                        onenote_page_id=onenote_page_id,
+                                        notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
+                                        onenote_section_id1=onenote_section_id1,
                                         body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionspage_copy_to_section(client,
-                                                                      site_id,
-                                                                      onenote_page_id,
-                                                                      onenote_section_id,
-                                                                      onenote_page_id1,
-                                                                      id_=None,
-                                                                      group_id=None,
-                                                                      site_collection_id=None,
-                                                                      string_site_id=None):
+def sites_site_onenote_page_copy_to_section(client,
+                                            site_id,
+                                            onenote_page_id,
+                                            id_=None,
+                                            group_id=None,
+                                            site_collection_id=None,
+                                            string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3244,46 +3025,35 @@ def sites_sitesonenotepagesparentnotebooksectionspage_copy_to_section(client,
     body['site_id'] = string_site_id
     return client.copy_to_section(site_id=site_id,
                                   onenote_page_id=onenote_page_id,
-                                  onenote_section_id=onenote_section_id,
-                                  onenote_page_id1=onenote_page_id1,
                                   body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionspage_onenote_patch_content(client,
-                                                                            site_id,
-                                                                            onenote_page_id,
-                                                                            onenote_section_id,
-                                                                            onenote_page_id1,
-                                                                            commands=None):
+def sites_site_onenote_page_onenote_patch_content(client,
+                                                  site_id,
+                                                  onenote_page_id,
+                                                  commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
                                         onenote_page_id=onenote_page_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_page_id1=onenote_page_id1,
                                         body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionspage_preview(client,
-                                                              site_id,
-                                                              onenote_page_id,
-                                                              onenote_section_id,
-                                                              onenote_page_id1):
+def sites_site_onenote_page_preview(client,
+                                    site_id,
+                                    onenote_page_id):
     return client.preview(site_id=site_id,
-                          onenote_page_id=onenote_page_id,
-                          onenote_section_id=onenote_section_id,
-                          onenote_page_id1=onenote_page_id1)
+                          onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotepagesparentnotebooksectionsparentnotebook_copy_notebook(client,
-                                                                              site_id,
-                                                                              onenote_page_id,
-                                                                              onenote_section_id,
-                                                                              group_id=None,
-                                                                              rename_as=None,
-                                                                              notebook_folder=None,
-                                                                              site_collection_id=None,
-                                                                              string_site_id=None):
+def sites_site_onenote_page_parent_notebook_copy_notebook(client,
+                                                          site_id,
+                                                          onenote_page_id,
+                                                          group_id=None,
+                                                          rename_as=None,
+                                                          notebook_folder=None,
+                                                          site_collection_id=None,
+                                                          string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3292,13 +3062,133 @@ def sites_sitesonenotepagesparentnotebooksectionsparentnotebook_copy_notebook(cl
     body['site_id'] = string_site_id
     return client.copy_notebook(site_id=site_id,
                                 onenote_page_id=onenote_page_id,
-                                onenote_section_id=onenote_section_id,
                                 body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook_copy_notebook(client,
+def sites_site_onenote_page_parent_notebook_section_group_parent_notebook_copy_notebook(client,
+                                                                                        site_id,
+                                                                                        onenote_page_id,
+                                                                                        section_group_id,
+                                                                                        group_id=None,
+                                                                                        rename_as=None,
+                                                                                        notebook_folder=None,
+                                                                                        site_collection_id=None,
+                                                                                        string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_page_id=onenote_page_id,
+                                section_group_id=section_group_id,
+                                body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_copy_to_notebook(client,
+                                                                                   site_id,
+                                                                                   onenote_page_id,
+                                                                                   section_group_id,
+                                                                                   onenote_section_id,
+                                                                                   id_=None,
+                                                                                   group_id=None,
+                                                                                   rename_as=None,
+                                                                                   site_collection_id=None,
+                                                                                   string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_page_id=onenote_page_id,
+                                   section_group_id=section_group_id,
+                                   onenote_section_id=onenote_section_id,
+                                   body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_copy_to_section_group(client,
+                                                                                        site_id,
+                                                                                        onenote_page_id,
+                                                                                        section_group_id,
+                                                                                        onenote_section_id,
+                                                                                        id_=None,
+                                                                                        group_id=None,
+                                                                                        rename_as=None,
+                                                                                        site_collection_id=None,
+                                                                                        string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_page_id=onenote_page_id,
+                                        section_group_id=section_group_id,
+                                        onenote_section_id=onenote_section_id,
+                                        body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_page_copy_to_section(client,
+                                                                                       site_id,
+                                                                                       onenote_page_id,
+                                                                                       section_group_id,
+                                                                                       onenote_section_id,
+                                                                                       onenote_page_id1,
+                                                                                       id_=None,
+                                                                                       group_id=None,
+                                                                                       site_collection_id=None,
+                                                                                       string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section(site_id=site_id,
+                                  onenote_page_id=onenote_page_id,
+                                  section_group_id=section_group_id,
+                                  onenote_section_id=onenote_section_id,
+                                  onenote_page_id1=onenote_page_id1,
+                                  body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_page_onenote_patch_content(client,
+                                                                                             site_id,
+                                                                                             onenote_page_id,
+                                                                                             section_group_id,
+                                                                                             onenote_section_id,
+                                                                                             onenote_page_id1,
+                                                                                             commands=None):
+    body = {}
+    body['commands'] = commands
+    return client.onenote_patch_content(site_id=site_id,
+                                        onenote_page_id=onenote_page_id,
+                                        section_group_id=section_group_id,
+                                        onenote_section_id=onenote_section_id,
+                                        onenote_page_id1=onenote_page_id1,
+                                        body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_page_preview(client,
+                                                                               site_id,
+                                                                               onenote_page_id,
+                                                                               section_group_id,
+                                                                               onenote_section_id,
+                                                                               onenote_page_id1):
+    return client.preview(site_id=site_id,
+                          onenote_page_id=onenote_page_id,
+                          section_group_id=section_group_id,
+                          onenote_section_id=onenote_section_id,
+                          onenote_page_id1=onenote_page_id1)
+
+
+def sites_site_onenote_page_parent_notebook_section_group_section_parent_notebook_copy_notebook(client,
                                                                                                 site_id,
                                                                                                 onenote_page_id,
+                                                                                                section_group_id,
                                                                                                 onenote_section_id,
                                                                                                 group_id=None,
                                                                                                 rename_as=None,
@@ -3313,20 +3203,152 @@ def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupparentnoteboo
     body['site_id'] = string_site_id
     return client.copy_notebook(site_id=site_id,
                                 onenote_page_id=onenote_page_id,
+                                section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
                                 body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_to_notebook(client,
-                                                                                            site_id,
-                                                                                            onenote_page_id,
-                                                                                            onenote_section_id,
-                                                                                            onenote_section_id1,
-                                                                                            id_=None,
-                                                                                            group_id=None,
-                                                                                            rename_as=None,
-                                                                                            site_collection_id=None,
-                                                                                            string_site_id=None):
+def sites_site_onenote_page_parent_notebook_section_copy_to_notebook(client,
+                                                                     site_id,
+                                                                     onenote_page_id,
+                                                                     onenote_section_id,
+                                                                     id_=None,
+                                                                     group_id=None,
+                                                                     rename_as=None,
+                                                                     site_collection_id=None,
+                                                                     string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_page_id=onenote_page_id,
+                                   onenote_section_id=onenote_section_id,
+                                   body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_copy_to_section_group(client,
+                                                                          site_id,
+                                                                          onenote_page_id,
+                                                                          onenote_section_id,
+                                                                          id_=None,
+                                                                          group_id=None,
+                                                                          rename_as=None,
+                                                                          site_collection_id=None,
+                                                                          string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_page_id=onenote_page_id,
+                                        onenote_section_id=onenote_section_id,
+                                        body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_page_copy_to_section(client,
+                                                                         site_id,
+                                                                         onenote_page_id,
+                                                                         onenote_section_id,
+                                                                         onenote_page_id1,
+                                                                         id_=None,
+                                                                         group_id=None,
+                                                                         site_collection_id=None,
+                                                                         string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section(site_id=site_id,
+                                  onenote_page_id=onenote_page_id,
+                                  onenote_section_id=onenote_section_id,
+                                  onenote_page_id1=onenote_page_id1,
+                                  body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_page_onenote_patch_content(client,
+                                                                               site_id,
+                                                                               onenote_page_id,
+                                                                               onenote_section_id,
+                                                                               onenote_page_id1,
+                                                                               commands=None):
+    body = {}
+    body['commands'] = commands
+    return client.onenote_patch_content(site_id=site_id,
+                                        onenote_page_id=onenote_page_id,
+                                        onenote_section_id=onenote_section_id,
+                                        onenote_page_id1=onenote_page_id1,
+                                        body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_page_preview(client,
+                                                                 site_id,
+                                                                 onenote_page_id,
+                                                                 onenote_section_id,
+                                                                 onenote_page_id1):
+    return client.preview(site_id=site_id,
+                          onenote_page_id=onenote_page_id,
+                          onenote_section_id=onenote_section_id,
+                          onenote_page_id1=onenote_page_id1)
+
+
+def sites_site_onenote_page_parent_notebook_section_parent_notebook_copy_notebook(client,
+                                                                                  site_id,
+                                                                                  onenote_page_id,
+                                                                                  onenote_section_id,
+                                                                                  group_id=None,
+                                                                                  rename_as=None,
+                                                                                  notebook_folder=None,
+                                                                                  site_collection_id=None,
+                                                                                  string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_page_id=onenote_page_id,
+                                onenote_section_id=onenote_section_id,
+                                body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_copy_notebook(client,
+                                                                                                       site_id,
+                                                                                                       onenote_page_id,
+                                                                                                       onenote_section_id,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       notebook_folder=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_page_id=onenote_page_id,
+                                onenote_section_id=onenote_section_id,
+                                body=body)
+
+
+def sites_site_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_notebook(client,
+                                                                                                  site_id,
+                                                                                                  onenote_page_id,
+                                                                                                  onenote_section_id,
+                                                                                                  onenote_section_id1,
+                                                                                                  id_=None,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3340,16 +3362,16 @@ def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_
                                    body=body)
 
 
-def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_to_section_group(client,
-                                                                                                 site_id,
-                                                                                                 onenote_page_id,
-                                                                                                 onenote_section_id,
-                                                                                                 onenote_section_id1,
-                                                                                                 id_=None,
-                                                                                                 group_id=None,
-                                                                                                 rename_as=None,
-                                                                                                 site_collection_id=None,
-                                                                                                 string_site_id=None):
+def sites_site_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_section_group(client,
+                                                                                                       site_id,
+                                                                                                       onenote_page_id,
+                                                                                                       onenote_section_id,
+                                                                                                       onenote_section_id1,
+                                                                                                       id_=None,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3363,14 +3385,14 @@ def sites_sitesonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_
                                         body=body)
 
 
-def sites_sitesonenotepagesparentsection_copy_to_notebook(client,
-                                                          site_id,
-                                                          onenote_page_id,
-                                                          id_=None,
-                                                          group_id=None,
-                                                          rename_as=None,
-                                                          site_collection_id=None,
-                                                          string_site_id=None):
+def sites_site_onenote_page_parent_section_copy_to_notebook(client,
+                                                            site_id,
+                                                            onenote_page_id,
+                                                            id_=None,
+                                                            group_id=None,
+                                                            rename_as=None,
+                                                            site_collection_id=None,
+                                                            string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3382,14 +3404,14 @@ def sites_sitesonenotepagesparentsection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotepagesparentsection_copy_to_section_group(client,
-                                                               site_id,
-                                                               onenote_page_id,
-                                                               id_=None,
-                                                               group_id=None,
-                                                               rename_as=None,
-                                                               site_collection_id=None,
-                                                               string_site_id=None):
+def sites_site_onenote_page_parent_section_copy_to_section_group(client,
+                                                                 site_id,
+                                                                 onenote_page_id,
+                                                                 id_=None,
+                                                                 group_id=None,
+                                                                 rename_as=None,
+                                                                 site_collection_id=None,
+                                                                 string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3401,14 +3423,14 @@ def sites_sitesonenotepagesparentsection_copy_to_section_group(client,
                                         body=body)
 
 
-def sites_sitesonenotepagesparentsectionpage_copy_to_section(client,
-                                                             site_id,
-                                                             onenote_page_id,
-                                                             onenote_page_id1,
-                                                             id_=None,
-                                                             group_id=None,
-                                                             site_collection_id=None,
-                                                             string_site_id=None):
+def sites_site_onenote_page_parent_section_page_copy_to_section(client,
+                                                                site_id,
+                                                                onenote_page_id,
+                                                                onenote_page_id1,
+                                                                id_=None,
+                                                                group_id=None,
+                                                                site_collection_id=None,
+                                                                string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3420,11 +3442,11 @@ def sites_sitesonenotepagesparentsectionpage_copy_to_section(client,
                                   body=body)
 
 
-def sites_sitesonenotepagesparentsectionpage_onenote_patch_content(client,
-                                                                   site_id,
-                                                                   onenote_page_id,
-                                                                   onenote_page_id1,
-                                                                   commands=None):
+def sites_site_onenote_page_parent_section_page_onenote_patch_content(client,
+                                                                      site_id,
+                                                                      onenote_page_id,
+                                                                      onenote_page_id1,
+                                                                      commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -3433,23 +3455,23 @@ def sites_sitesonenotepagesparentsectionpage_onenote_patch_content(client,
                                         body=body)
 
 
-def sites_sitesonenotepagesparentsectionpage_preview(client,
-                                                     site_id,
-                                                     onenote_page_id,
-                                                     onenote_page_id1):
+def sites_site_onenote_page_parent_section_page_preview(client,
+                                                        site_id,
+                                                        onenote_page_id,
+                                                        onenote_page_id1):
     return client.preview(site_id=site_id,
                           onenote_page_id=onenote_page_id,
                           onenote_page_id1=onenote_page_id1)
 
 
-def sites_sitesonenotepagesparentsectionparentnotebook_copy_notebook(client,
-                                                                     site_id,
-                                                                     onenote_page_id,
-                                                                     group_id=None,
-                                                                     rename_as=None,
-                                                                     notebook_folder=None,
-                                                                     site_collection_id=None,
-                                                                     string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_notebook_copy_notebook(client,
+                                                                         site_id,
+                                                                         onenote_page_id,
+                                                                         group_id=None,
+                                                                         rename_as=None,
+                                                                         notebook_folder=None,
+                                                                         site_collection_id=None,
+                                                                         string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3461,15 +3483,15 @@ def sites_sitesonenotepagesparentsectionparentnotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
-                                                                                                site_id,
-                                                                                                onenote_page_id,
-                                                                                                section_group_id,
-                                                                                                group_id=None,
-                                                                                                rename_as=None,
-                                                                                                notebook_folder=None,
-                                                                                                site_collection_id=None,
-                                                                                                string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_copy_notebook(client,
+                                                                                                       site_id,
+                                                                                                       onenote_page_id,
+                                                                                                       section_group_id,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       notebook_folder=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3482,16 +3504,16 @@ def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupsparentnoteboo
                                 body=body)
 
 
-def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupssection_copy_to_notebook(client,
-                                                                                            site_id,
-                                                                                            onenote_page_id,
-                                                                                            section_group_id,
-                                                                                            onenote_section_id,
-                                                                                            id_=None,
-                                                                                            group_id=None,
-                                                                                            rename_as=None,
-                                                                                            site_collection_id=None,
-                                                                                            string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_notebook(client,
+                                                                                                  site_id,
+                                                                                                  onenote_page_id,
+                                                                                                  section_group_id,
+                                                                                                  onenote_section_id,
+                                                                                                  id_=None,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3505,16 +3527,16 @@ def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupssection_copy_
                                    body=body)
 
 
-def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupssection_copy_to_section_group(client,
-                                                                                                 site_id,
-                                                                                                 onenote_page_id,
-                                                                                                 section_group_id,
-                                                                                                 onenote_section_id,
-                                                                                                 id_=None,
-                                                                                                 group_id=None,
-                                                                                                 rename_as=None,
-                                                                                                 site_collection_id=None,
-                                                                                                 string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_section_group(client,
+                                                                                                       site_id,
+                                                                                                       onenote_page_id,
+                                                                                                       section_group_id,
+                                                                                                       onenote_section_id,
+                                                                                                       id_=None,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3528,68 +3550,7 @@ def sites_sitesonenotepagesparentsectionparentnotebooksectiongroupssection_copy_
                                         body=body)
 
 
-def sites_sitesonenotepagesparentsectionparentnotebooksection_copy_to_notebook(client,
-                                                                               site_id,
-                                                                               onenote_page_id,
-                                                                               onenote_section_id,
-                                                                               id_=None,
-                                                                               group_id=None,
-                                                                               rename_as=None,
-                                                                               site_collection_id=None,
-                                                                               string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_page_id=onenote_page_id,
-                                   onenote_section_id=onenote_section_id,
-                                   body=body)
-
-
-def sites_sitesonenotepagesparentsectionparentnotebooksection_copy_to_section_group(client,
-                                                                                    site_id,
-                                                                                    onenote_page_id,
-                                                                                    onenote_section_id,
-                                                                                    id_=None,
-                                                                                    group_id=None,
-                                                                                    rename_as=None,
-                                                                                    site_collection_id=None,
-                                                                                    string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        onenote_page_id=onenote_page_id,
-                                        onenote_section_id=onenote_section_id,
-                                        body=body)
-
-
-def sites_sitesonenotepagesparentsectiongroupparentnotebook_copy_notebook(client,
-                                                                          site_id,
-                                                                          onenote_page_id,
-                                                                          group_id=None,
-                                                                          rename_as=None,
-                                                                          notebook_folder=None,
-                                                                          site_collection_id=None,
-                                                                          string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                onenote_page_id=onenote_page_id,
-                                body=body)
-
-
-def sites_sitesonenotepagesparentsectiongroupparentnotebooksection_copy_to_notebook(client,
+def sites_site_onenote_page_parent_section_parent_notebook_section_copy_to_notebook(client,
                                                                                     site_id,
                                                                                     onenote_page_id,
                                                                                     onenote_section_id,
@@ -3610,7 +3571,7 @@ def sites_sitesonenotepagesparentsectiongroupparentnotebooksection_copy_to_noteb
                                    body=body)
 
 
-def sites_sitesonenotepagesparentsectiongroupparentnotebooksection_copy_to_section_group(client,
+def sites_site_onenote_page_parent_section_parent_notebook_section_copy_to_section_group(client,
                                                                                          site_id,
                                                                                          onenote_page_id,
                                                                                          onenote_section_id,
@@ -3631,15 +3592,34 @@ def sites_sitesonenotepagesparentsectiongroupparentnotebooksection_copy_to_secti
                                         body=body)
 
 
-def sites_sitesonenotepagesparentsectiongroupsection_copy_to_notebook(client,
-                                                                      site_id,
-                                                                      onenote_page_id,
-                                                                      onenote_section_id,
-                                                                      id_=None,
-                                                                      group_id=None,
-                                                                      rename_as=None,
-                                                                      site_collection_id=None,
-                                                                      string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_copy_notebook(client,
+                                                                                              site_id,
+                                                                                              onenote_page_id,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              notebook_folder=None,
+                                                                                              site_collection_id=None,
+                                                                                              string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_page_id=onenote_page_id,
+                                body=body)
+
+
+def sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_notebook(client,
+                                                                                                         site_id,
+                                                                                                         onenote_page_id,
+                                                                                                         onenote_section_id,
+                                                                                                         id_=None,
+                                                                                                         group_id=None,
+                                                                                                         rename_as=None,
+                                                                                                         site_collection_id=None,
+                                                                                                         string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3652,15 +3632,15 @@ def sites_sitesonenotepagesparentsectiongroupsection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotepagesparentsectiongroupsection_copy_to_section_group(client,
-                                                                           site_id,
-                                                                           onenote_page_id,
-                                                                           onenote_section_id,
-                                                                           id_=None,
-                                                                           group_id=None,
-                                                                           rename_as=None,
-                                                                           site_collection_id=None,
-                                                                           string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_section_group(client,
+                                                                                                              site_id,
+                                                                                                              onenote_page_id,
+                                                                                                              onenote_section_id,
+                                                                                                              id_=None,
+                                                                                                              group_id=None,
+                                                                                                              rename_as=None,
+                                                                                                              site_collection_id=None,
+                                                                                                              string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3673,14 +3653,56 @@ def sites_sitesonenotepagesparentsectiongroupsection_copy_to_section_group(clien
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebook_copy_notebook(client,
-                                                                site_id,
-                                                                section_group_id,
-                                                                group_id=None,
-                                                                rename_as=None,
-                                                                notebook_folder=None,
-                                                                site_collection_id=None,
-                                                                string_site_id=None):
+def sites_site_onenote_page_parent_section_parent_section_group_section_copy_to_notebook(client,
+                                                                                         site_id,
+                                                                                         onenote_page_id,
+                                                                                         onenote_section_id,
+                                                                                         id_=None,
+                                                                                         group_id=None,
+                                                                                         rename_as=None,
+                                                                                         site_collection_id=None,
+                                                                                         string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_page_id=onenote_page_id,
+                                   onenote_section_id=onenote_section_id,
+                                   body=body)
+
+
+def sites_site_onenote_page_parent_section_parent_section_group_section_copy_to_section_group(client,
+                                                                                              site_id,
+                                                                                              onenote_page_id,
+                                                                                              onenote_section_id,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_page_id=onenote_page_id,
+                                        onenote_section_id=onenote_section_id,
+                                        body=body)
+
+
+def sites_site_onenote_section_group_parent_notebook_copy_notebook(client,
+                                                                   site_id,
+                                                                   section_group_id,
+                                                                   group_id=None,
+                                                                   rename_as=None,
+                                                                   notebook_folder=None,
+                                                                   site_collection_id=None,
+                                                                   string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3692,15 +3714,15 @@ def sites_sitesonenotesectiongroupsparentnotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksection_copy_to_notebook(client,
-                                                                          site_id,
-                                                                          section_group_id,
-                                                                          onenote_section_id,
-                                                                          id_=None,
-                                                                          group_id=None,
-                                                                          rename_as=None,
-                                                                          site_collection_id=None,
-                                                                          string_site_id=None):
+def sites_site_onenote_section_group_parent_notebook_section_copy_to_notebook(client,
+                                                                              site_id,
+                                                                              section_group_id,
+                                                                              onenote_section_id,
+                                                                              id_=None,
+                                                                              group_id=None,
+                                                                              rename_as=None,
+                                                                              site_collection_id=None,
+                                                                              string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3713,15 +3735,15 @@ def sites_sitesonenotesectiongroupsparentnotebooksection_copy_to_notebook(client
                                    body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksection_copy_to_section_group(client,
-                                                                               site_id,
-                                                                               section_group_id,
-                                                                               onenote_section_id,
-                                                                               id_=None,
-                                                                               group_id=None,
-                                                                               rename_as=None,
-                                                                               site_collection_id=None,
-                                                                               string_site_id=None):
+def sites_site_onenote_section_group_parent_notebook_section_copy_to_section_group(client,
+                                                                                   site_id,
+                                                                                   section_group_id,
+                                                                                   onenote_section_id,
+                                                                                   id_=None,
+                                                                                   group_id=None,
+                                                                                   rename_as=None,
+                                                                                   site_collection_id=None,
+                                                                                   string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3734,15 +3756,15 @@ def sites_sitesonenotesectiongroupsparentnotebooksection_copy_to_section_group(c
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionspage_copy_to_section(client,
-                                                                              site_id,
-                                                                              section_group_id,
-                                                                              onenote_section_id,
-                                                                              onenote_page_id,
-                                                                              id_=None,
-                                                                              group_id=None,
-                                                                              site_collection_id=None,
-                                                                              string_site_id=None):
+def sites_site_onenote_section_group_parent_notebook_section_page_copy_to_section(client,
+                                                                                  site_id,
+                                                                                  section_group_id,
+                                                                                  onenote_section_id,
+                                                                                  onenote_page_id,
+                                                                                  id_=None,
+                                                                                  group_id=None,
+                                                                                  site_collection_id=None,
+                                                                                  string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3755,12 +3777,12 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionspage_copy_to_section(cl
                                   body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionspage_onenote_patch_content(client,
-                                                                                    site_id,
-                                                                                    section_group_id,
-                                                                                    onenote_section_id,
-                                                                                    onenote_page_id,
-                                                                                    commands=None):
+def sites_site_onenote_section_group_parent_notebook_section_page_onenote_patch_content(client,
+                                                                                        site_id,
+                                                                                        section_group_id,
+                                                                                        onenote_section_id,
+                                                                                        onenote_page_id,
+                                                                                        commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -3770,27 +3792,27 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionspage_onenote_patch_cont
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionspage_preview(client,
-                                                                      site_id,
-                                                                      section_group_id,
-                                                                      onenote_section_id,
-                                                                      onenote_page_id):
+def sites_site_onenote_section_group_parent_notebook_section_page_preview(client,
+                                                                          site_id,
+                                                                          section_group_id,
+                                                                          onenote_section_id,
+                                                                          onenote_page_id):
     return client.preview(site_id=site_id,
                           section_group_id=section_group_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentnotebook_copy_notebook(client,
-                                                                                           site_id,
-                                                                                           section_group_id,
-                                                                                           onenote_section_id,
-                                                                                           onenote_page_id,
-                                                                                           group_id=None,
-                                                                                           rename_as=None,
-                                                                                           notebook_folder=None,
-                                                                                           site_collection_id=None,
-                                                                                           string_site_id=None):
+def sites_site_onenote_section_group_parent_notebook_section_page_parent_notebook_copy_notebook(client,
+                                                                                                site_id,
+                                                                                                section_group_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                notebook_folder=None,
+                                                                                                site_collection_id=None,
+                                                                                                string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3804,30 +3826,7 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentnotebook_cop
                                 body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentsection_copy_to_notebook(client,
-                                                                                             site_id,
-                                                                                             section_group_id,
-                                                                                             onenote_section_id,
-                                                                                             onenote_page_id,
-                                                                                             id_=None,
-                                                                                             group_id=None,
-                                                                                             rename_as=None,
-                                                                                             site_collection_id=None,
-                                                                                             string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   section_group_id=section_group_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_page_id=onenote_page_id,
-                                   body=body)
-
-
-def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentsection_copy_to_section_group(client,
+def sites_site_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_notebook(client,
                                                                                                   site_id,
                                                                                                   section_group_id,
                                                                                                   onenote_section_id,
@@ -3843,6 +3842,29 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentsection_copy
     body['rename_as'] = rename_as
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   section_group_id=section_group_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_page_id=onenote_page_id,
+                                   body=body)
+
+
+def sites_site_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_section_group(client,
+                                                                                                       site_id,
+                                                                                                       section_group_id,
+                                                                                                       onenote_section_id,
+                                                                                                       onenote_page_id,
+                                                                                                       id_=None,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
@@ -3850,15 +3872,15 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionspagesparentsection_copy
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupsparentnotebooksectionsparentnotebook_copy_notebook(client,
-                                                                                      site_id,
-                                                                                      section_group_id,
-                                                                                      onenote_section_id,
-                                                                                      group_id=None,
-                                                                                      rename_as=None,
-                                                                                      notebook_folder=None,
-                                                                                      site_collection_id=None,
-                                                                                      string_site_id=None):
+def sites_site_onenote_section_group_parent_notebook_section_parent_notebook_copy_notebook(client,
+                                                                                           site_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           notebook_folder=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3871,15 +3893,15 @@ def sites_sitesonenotesectiongroupsparentnotebooksectionsparentnotebook_copy_not
                                 body=body)
 
 
-def sites_sitesonenotesectiongroupssection_copy_to_notebook(client,
-                                                            site_id,
-                                                            section_group_id,
-                                                            onenote_section_id,
-                                                            id_=None,
-                                                            group_id=None,
-                                                            rename_as=None,
-                                                            site_collection_id=None,
-                                                            string_site_id=None):
+def sites_site_onenote_section_group_section_copy_to_notebook(client,
+                                                              site_id,
+                                                              section_group_id,
+                                                              onenote_section_id,
+                                                              id_=None,
+                                                              group_id=None,
+                                                              rename_as=None,
+                                                              site_collection_id=None,
+                                                              string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3892,15 +3914,15 @@ def sites_sitesonenotesectiongroupssection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotesectiongroupssection_copy_to_section_group(client,
-                                                                 site_id,
-                                                                 section_group_id,
-                                                                 onenote_section_id,
-                                                                 id_=None,
-                                                                 group_id=None,
-                                                                 rename_as=None,
-                                                                 site_collection_id=None,
-                                                                 string_site_id=None):
+def sites_site_onenote_section_group_section_copy_to_section_group(client,
+                                                                   site_id,
+                                                                   section_group_id,
+                                                                   onenote_section_id,
+                                                                   id_=None,
+                                                                   group_id=None,
+                                                                   rename_as=None,
+                                                                   site_collection_id=None,
+                                                                   string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3913,15 +3935,15 @@ def sites_sitesonenotesectiongroupssection_copy_to_section_group(client,
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspage_copy_to_section(client,
-                                                                site_id,
-                                                                section_group_id,
-                                                                onenote_section_id,
-                                                                onenote_page_id,
-                                                                id_=None,
-                                                                group_id=None,
-                                                                site_collection_id=None,
-                                                                string_site_id=None):
+def sites_site_onenote_section_group_section_page_copy_to_section(client,
+                                                                  site_id,
+                                                                  section_group_id,
+                                                                  onenote_section_id,
+                                                                  onenote_page_id,
+                                                                  id_=None,
+                                                                  group_id=None,
+                                                                  site_collection_id=None,
+                                                                  string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -3934,12 +3956,12 @@ def sites_sitesonenotesectiongroupssectionspage_copy_to_section(client,
                                   body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspage_onenote_patch_content(client,
-                                                                      site_id,
-                                                                      section_group_id,
-                                                                      onenote_section_id,
-                                                                      onenote_page_id,
-                                                                      commands=None):
+def sites_site_onenote_section_group_section_page_onenote_patch_content(client,
+                                                                        site_id,
+                                                                        section_group_id,
+                                                                        onenote_section_id,
+                                                                        onenote_page_id,
+                                                                        commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -3949,27 +3971,27 @@ def sites_sitesonenotesectiongroupssectionspage_onenote_patch_content(client,
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspage_preview(client,
-                                                        site_id,
-                                                        section_group_id,
-                                                        onenote_section_id,
-                                                        onenote_page_id):
+def sites_site_onenote_section_group_section_page_preview(client,
+                                                          site_id,
+                                                          section_group_id,
+                                                          onenote_section_id,
+                                                          onenote_page_id):
     return client.preview(site_id=site_id,
                           section_group_id=section_group_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotesectiongroupssectionspagesparentnotebook_copy_notebook(client,
-                                                                             site_id,
-                                                                             section_group_id,
-                                                                             onenote_section_id,
-                                                                             onenote_page_id,
-                                                                             group_id=None,
-                                                                             rename_as=None,
-                                                                             notebook_folder=None,
-                                                                             site_collection_id=None,
-                                                                             string_site_id=None):
+def sites_site_onenote_section_group_section_page_parent_notebook_copy_notebook(client,
+                                                                                site_id,
+                                                                                section_group_id,
+                                                                                onenote_section_id,
+                                                                                onenote_page_id,
+                                                                                group_id=None,
+                                                                                rename_as=None,
+                                                                                notebook_folder=None,
+                                                                                site_collection_id=None,
+                                                                                string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -3983,17 +4005,17 @@ def sites_sitesonenotesectiongroupssectionspagesparentnotebook_copy_notebook(cli
                                 body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspagesparentnotebooksection_copy_to_notebook(client,
-                                                                                       site_id,
-                                                                                       section_group_id,
-                                                                                       onenote_section_id,
-                                                                                       onenote_page_id,
-                                                                                       onenote_section_id1,
-                                                                                       id_=None,
-                                                                                       group_id=None,
-                                                                                       rename_as=None,
-                                                                                       site_collection_id=None,
-                                                                                       string_site_id=None):
+def sites_site_onenote_section_group_section_page_parent_notebook_section_copy_to_notebook(client,
+                                                                                           site_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_page_id,
+                                                                                           onenote_section_id1,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4008,17 +4030,17 @@ def sites_sitesonenotesectiongroupssectionspagesparentnotebooksection_copy_to_no
                                    body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspagesparentnotebooksection_copy_to_section_group(client,
-                                                                                            site_id,
-                                                                                            section_group_id,
-                                                                                            onenote_section_id,
-                                                                                            onenote_page_id,
-                                                                                            onenote_section_id1,
-                                                                                            id_=None,
-                                                                                            group_id=None,
-                                                                                            rename_as=None,
-                                                                                            site_collection_id=None,
-                                                                                            string_site_id=None):
+def sites_site_onenote_section_group_section_page_parent_notebook_section_copy_to_section_group(client,
+                                                                                                site_id,
+                                                                                                section_group_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id,
+                                                                                                onenote_section_id1,
+                                                                                                id_=None,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                site_collection_id=None,
+                                                                                                string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4033,78 +4055,11 @@ def sites_sitesonenotesectiongroupssectionspagesparentnotebooksection_copy_to_se
                                         body=body)
 
 
-def sites_sitesonenotesectiongroupssectionspagesparentsection_copy_to_notebook(client,
-                                                                               site_id,
-                                                                               section_group_id,
-                                                                               onenote_section_id,
-                                                                               onenote_page_id,
-                                                                               id_=None,
-                                                                               group_id=None,
-                                                                               rename_as=None,
-                                                                               site_collection_id=None,
-                                                                               string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   section_group_id=section_group_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_page_id=onenote_page_id,
-                                   body=body)
-
-
-def sites_sitesonenotesectiongroupssectionspagesparentsection_copy_to_section_group(client,
-                                                                                    site_id,
-                                                                                    section_group_id,
-                                                                                    onenote_section_id,
-                                                                                    onenote_page_id,
-                                                                                    id_=None,
-                                                                                    group_id=None,
-                                                                                    rename_as=None,
-                                                                                    site_collection_id=None,
-                                                                                    string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        section_group_id=section_group_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_page_id=onenote_page_id,
-                                        body=body)
-
-
-def sites_sitesonenotesectiongroupssectionsparentnotebook_copy_notebook(client,
-                                                                        site_id,
-                                                                        section_group_id,
-                                                                        onenote_section_id,
-                                                                        group_id=None,
-                                                                        rename_as=None,
-                                                                        notebook_folder=None,
-                                                                        site_collection_id=None,
-                                                                        string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                section_group_id=section_group_id,
-                                onenote_section_id=onenote_section_id,
-                                body=body)
-
-
-def sites_sitesonenotesectiongroupssectionsparentnotebooksection_copy_to_notebook(client,
+def sites_site_onenote_section_group_section_page_parent_section_copy_to_notebook(client,
                                                                                   site_id,
                                                                                   section_group_id,
                                                                                   onenote_section_id,
-                                                                                  onenote_section_id1,
+                                                                                  onenote_page_id,
                                                                                   id_=None,
                                                                                   group_id=None,
                                                                                   rename_as=None,
@@ -4119,15 +4074,15 @@ def sites_sitesonenotesectiongroupssectionsparentnotebooksection_copy_to_noteboo
     return client.copy_to_notebook(site_id=site_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   onenote_section_id1=onenote_section_id1,
+                                   onenote_page_id=onenote_page_id,
                                    body=body)
 
 
-def sites_sitesonenotesectiongroupssectionsparentnotebooksection_copy_to_section_group(client,
+def sites_site_onenote_section_group_section_page_parent_section_copy_to_section_group(client,
                                                                                        site_id,
                                                                                        section_group_id,
                                                                                        onenote_section_id,
-                                                                                       onenote_section_id1,
+                                                                                       onenote_page_id,
                                                                                        id_=None,
                                                                                        group_id=None,
                                                                                        rename_as=None,
@@ -4142,18 +4097,85 @@ def sites_sitesonenotesectiongroupssectionsparentnotebooksection_copy_to_section
     return client.copy_to_section_group(site_id=site_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
+                                        onenote_page_id=onenote_page_id,
+                                        body=body)
+
+
+def sites_site_onenote_section_group_section_parent_notebook_copy_notebook(client,
+                                                                           site_id,
+                                                                           section_group_id,
+                                                                           onenote_section_id,
+                                                                           group_id=None,
+                                                                           rename_as=None,
+                                                                           notebook_folder=None,
+                                                                           site_collection_id=None,
+                                                                           string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                section_group_id=section_group_id,
+                                onenote_section_id=onenote_section_id,
+                                body=body)
+
+
+def sites_site_onenote_section_group_section_parent_notebook_section_copy_to_notebook(client,
+                                                                                      site_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id,
+                                                                                      onenote_section_id1,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   section_group_id=section_group_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_section_id1=onenote_section_id1,
+                                   body=body)
+
+
+def sites_site_onenote_section_group_section_parent_notebook_section_copy_to_section_group(client,
+                                                                                           site_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_section_id1,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        section_group_id=section_group_id,
+                                        onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
                                         body=body)
 
 
-def sites_sitesonenotesection_copy_to_notebook(client,
-                                               site_id,
-                                               onenote_section_id,
-                                               id_=None,
-                                               group_id=None,
-                                               rename_as=None,
-                                               site_collection_id=None,
-                                               string_site_id=None):
+def sites_site_onenote_section_copy_to_notebook(client,
+                                                site_id,
+                                                onenote_section_id,
+                                                id_=None,
+                                                group_id=None,
+                                                rename_as=None,
+                                                site_collection_id=None,
+                                                string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4165,14 +4187,14 @@ def sites_sitesonenotesection_copy_to_notebook(client,
                                    body=body)
 
 
-def sites_sitesonenotesection_copy_to_section_group(client,
-                                                    site_id,
-                                                    onenote_section_id,
-                                                    id_=None,
-                                                    group_id=None,
-                                                    rename_as=None,
-                                                    site_collection_id=None,
-                                                    string_site_id=None):
+def sites_site_onenote_section_copy_to_section_group(client,
+                                                     site_id,
+                                                     onenote_section_id,
+                                                     id_=None,
+                                                     group_id=None,
+                                                     rename_as=None,
+                                                     site_collection_id=None,
+                                                     string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4184,14 +4206,14 @@ def sites_sitesonenotesection_copy_to_section_group(client,
                                         body=body)
 
 
-def sites_sitesonenotesectionspage_copy_to_section(client,
-                                                   site_id,
-                                                   onenote_section_id,
-                                                   onenote_page_id,
-                                                   id_=None,
-                                                   group_id=None,
-                                                   site_collection_id=None,
-                                                   string_site_id=None):
+def sites_site_onenote_section_page_copy_to_section(client,
+                                                    site_id,
+                                                    onenote_section_id,
+                                                    onenote_page_id,
+                                                    id_=None,
+                                                    group_id=None,
+                                                    site_collection_id=None,
+                                                    string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4203,11 +4225,11 @@ def sites_sitesonenotesectionspage_copy_to_section(client,
                                   body=body)
 
 
-def sites_sitesonenotesectionspage_onenote_patch_content(client,
-                                                         site_id,
-                                                         onenote_section_id,
-                                                         onenote_page_id,
-                                                         commands=None):
+def sites_site_onenote_section_page_onenote_patch_content(client,
+                                                          site_id,
+                                                          onenote_section_id,
+                                                          onenote_page_id,
+                                                          commands=None):
     body = {}
     body['commands'] = commands
     return client.onenote_patch_content(site_id=site_id,
@@ -4216,24 +4238,24 @@ def sites_sitesonenotesectionspage_onenote_patch_content(client,
                                         body=body)
 
 
-def sites_sitesonenotesectionspage_preview(client,
-                                           site_id,
-                                           onenote_section_id,
-                                           onenote_page_id):
+def sites_site_onenote_section_page_preview(client,
+                                            site_id,
+                                            onenote_section_id,
+                                            onenote_page_id):
     return client.preview(site_id=site_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def sites_sitesonenotesectionspagesparentnotebook_copy_notebook(client,
-                                                                site_id,
-                                                                onenote_section_id,
-                                                                onenote_page_id,
-                                                                group_id=None,
-                                                                rename_as=None,
-                                                                notebook_folder=None,
-                                                                site_collection_id=None,
-                                                                string_site_id=None):
+def sites_site_onenote_section_page_parent_notebook_copy_notebook(client,
+                                                                  site_id,
+                                                                  onenote_section_id,
+                                                                  onenote_page_id,
+                                                                  group_id=None,
+                                                                  rename_as=None,
+                                                                  notebook_folder=None,
+                                                                  site_collection_id=None,
+                                                                  string_site_id=None):
     body = {}
     body['group_id'] = group_id
     body['rename_as'] = rename_as
@@ -4246,10 +4268,189 @@ def sites_sitesonenotesectionspagesparentnotebook_copy_notebook(client,
                                 body=body)
 
 
-def sites_sitesonenotesectionspagesparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
+def sites_site_onenote_section_page_parent_notebook_section_group_parent_notebook_copy_notebook(client,
+                                                                                                site_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id,
+                                                                                                section_group_id,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                notebook_folder=None,
+                                                                                                site_collection_id=None,
+                                                                                                string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_section_id=onenote_section_id,
+                                onenote_page_id=onenote_page_id,
+                                section_group_id=section_group_id,
+                                body=body)
+
+
+def sites_site_onenote_section_page_parent_notebook_section_group_section_copy_to_notebook(client,
                                                                                            site_id,
                                                                                            onenote_section_id,
                                                                                            onenote_page_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id1,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_page_id=onenote_page_id,
+                                   section_group_id=section_group_id,
+                                   onenote_section_id1=onenote_section_id1,
+                                   body=body)
+
+
+def sites_site_onenote_section_page_parent_notebook_section_group_section_copy_to_section_group(client,
+                                                                                                site_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id,
+                                                                                                section_group_id,
+                                                                                                onenote_section_id1,
+                                                                                                id_=None,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                site_collection_id=None,
+                                                                                                string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_section_id=onenote_section_id,
+                                        onenote_page_id=onenote_page_id,
+                                        section_group_id=section_group_id,
+                                        onenote_section_id1=onenote_section_id1,
+                                        body=body)
+
+
+def sites_site_onenote_section_page_parent_notebook_section_copy_to_notebook(client,
+                                                                             site_id,
+                                                                             onenote_section_id,
+                                                                             onenote_page_id,
+                                                                             onenote_section_id1,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             rename_as=None,
+                                                                             site_collection_id=None,
+                                                                             string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_page_id=onenote_page_id,
+                                   onenote_section_id1=onenote_section_id1,
+                                   body=body)
+
+
+def sites_site_onenote_section_page_parent_notebook_section_copy_to_section_group(client,
+                                                                                  site_id,
+                                                                                  onenote_section_id,
+                                                                                  onenote_page_id,
+                                                                                  onenote_section_id1,
+                                                                                  id_=None,
+                                                                                  group_id=None,
+                                                                                  rename_as=None,
+                                                                                  site_collection_id=None,
+                                                                                  string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_section_id=onenote_section_id,
+                                        onenote_page_id=onenote_page_id,
+                                        onenote_section_id1=onenote_section_id1,
+                                        body=body)
+
+
+def sites_site_onenote_section_page_parent_section_copy_to_notebook(client,
+                                                                    site_id,
+                                                                    onenote_section_id,
+                                                                    onenote_page_id,
+                                                                    id_=None,
+                                                                    group_id=None,
+                                                                    rename_as=None,
+                                                                    site_collection_id=None,
+                                                                    string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_page_id=onenote_page_id,
+                                   body=body)
+
+
+def sites_site_onenote_section_page_parent_section_copy_to_section_group(client,
+                                                                         site_id,
+                                                                         onenote_section_id,
+                                                                         onenote_page_id,
+                                                                         id_=None,
+                                                                         group_id=None,
+                                                                         rename_as=None,
+                                                                         site_collection_id=None,
+                                                                         string_site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_to_section_group(site_id=site_id,
+                                        onenote_section_id=onenote_section_id,
+                                        onenote_page_id=onenote_page_id,
+                                        body=body)
+
+
+def sites_site_onenote_section_parent_notebook_copy_notebook(client,
+                                                             site_id,
+                                                             onenote_section_id,
+                                                             group_id=None,
+                                                             rename_as=None,
+                                                             notebook_folder=None,
+                                                             site_collection_id=None,
+                                                             string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_section_id=onenote_section_id,
+                                body=body)
+
+
+def sites_site_onenote_section_parent_notebook_section_group_parent_notebook_copy_notebook(client,
+                                                                                           site_id,
+                                                                                           onenote_section_id,
                                                                                            section_group_id,
                                                                                            group_id=None,
                                                                                            rename_as=None,
@@ -4264,22 +4465,20 @@ def sites_sitesonenotesectionspagesparentnotebooksectiongroupsparentnotebook_cop
     body['site_id'] = string_site_id
     return client.copy_notebook(site_id=site_id,
                                 onenote_section_id=onenote_section_id,
-                                onenote_page_id=onenote_page_id,
                                 section_group_id=section_group_id,
                                 body=body)
 
 
-def sites_sitesonenotesectionspagesparentnotebooksectiongroupssection_copy_to_notebook(client,
-                                                                                       site_id,
-                                                                                       onenote_section_id,
-                                                                                       onenote_page_id,
-                                                                                       section_group_id,
-                                                                                       onenote_section_id1,
-                                                                                       id_=None,
-                                                                                       group_id=None,
-                                                                                       rename_as=None,
-                                                                                       site_collection_id=None,
-                                                                                       string_site_id=None):
+def sites_site_onenote_section_parent_notebook_section_group_section_copy_to_notebook(client,
+                                                                                      site_id,
+                                                                                      onenote_section_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id1,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4288,23 +4487,21 @@ def sites_sitesonenotesectionspagesparentnotebooksectiongroupssection_copy_to_no
     body['site_id'] = string_site_id
     return client.copy_to_notebook(site_id=site_id,
                                    onenote_section_id=onenote_section_id,
-                                   onenote_page_id=onenote_page_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id1=onenote_section_id1,
                                    body=body)
 
 
-def sites_sitesonenotesectionspagesparentnotebooksectiongroupssection_copy_to_section_group(client,
-                                                                                            site_id,
-                                                                                            onenote_section_id,
-                                                                                            onenote_page_id,
-                                                                                            section_group_id,
-                                                                                            onenote_section_id1,
-                                                                                            id_=None,
-                                                                                            group_id=None,
-                                                                                            rename_as=None,
-                                                                                            site_collection_id=None,
-                                                                                            string_site_id=None):
+def sites_site_onenote_section_parent_notebook_section_group_section_copy_to_section_group(client,
+                                                                                           site_id,
+                                                                                           onenote_section_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id1,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4313,22 +4510,20 @@ def sites_sitesonenotesectionspagesparentnotebooksectiongroupssection_copy_to_se
     body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
                                         onenote_section_id=onenote_section_id,
-                                        onenote_page_id=onenote_page_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id1=onenote_section_id1,
                                         body=body)
 
 
-def sites_sitesonenotesectionspagesparentnotebooksection_copy_to_notebook(client,
-                                                                          site_id,
-                                                                          onenote_section_id,
-                                                                          onenote_page_id,
-                                                                          onenote_section_id1,
-                                                                          id_=None,
-                                                                          group_id=None,
-                                                                          rename_as=None,
-                                                                          site_collection_id=None,
-                                                                          string_site_id=None):
+def sites_site_onenote_section_parent_notebook_section_copy_to_notebook(client,
+                                                                        site_id,
+                                                                        onenote_section_id,
+                                                                        onenote_section_id1,
+                                                                        id_=None,
+                                                                        group_id=None,
+                                                                        rename_as=None,
+                                                                        site_collection_id=None,
+                                                                        string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4337,21 +4532,19 @@ def sites_sitesonenotesectionspagesparentnotebooksection_copy_to_notebook(client
     body['site_id'] = string_site_id
     return client.copy_to_notebook(site_id=site_id,
                                    onenote_section_id=onenote_section_id,
-                                   onenote_page_id=onenote_page_id,
                                    onenote_section_id1=onenote_section_id1,
                                    body=body)
 
 
-def sites_sitesonenotesectionspagesparentnotebooksection_copy_to_section_group(client,
-                                                                               site_id,
-                                                                               onenote_section_id,
-                                                                               onenote_page_id,
-                                                                               onenote_section_id1,
-                                                                               id_=None,
-                                                                               group_id=None,
-                                                                               rename_as=None,
-                                                                               site_collection_id=None,
-                                                                               string_site_id=None):
+def sites_site_onenote_section_parent_notebook_section_copy_to_section_group(client,
+                                                                             site_id,
+                                                                             onenote_section_id,
+                                                                             onenote_section_id1,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             rename_as=None,
+                                                                             site_collection_id=None,
+                                                                             string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4360,20 +4553,38 @@ def sites_sitesonenotesectionspagesparentnotebooksection_copy_to_section_group(c
     body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
                                         onenote_section_id=onenote_section_id,
-                                        onenote_page_id=onenote_page_id,
                                         onenote_section_id1=onenote_section_id1,
                                         body=body)
 
 
-def sites_sitesonenotesectionspagesparentsection_copy_to_notebook(client,
-                                                                  site_id,
-                                                                  onenote_section_id,
-                                                                  onenote_page_id,
-                                                                  id_=None,
-                                                                  group_id=None,
-                                                                  rename_as=None,
-                                                                  site_collection_id=None,
-                                                                  string_site_id=None):
+def sites_site_onenote_section_parent_section_group_parent_notebook_copy_notebook(client,
+                                                                                  site_id,
+                                                                                  onenote_section_id,
+                                                                                  group_id=None,
+                                                                                  rename_as=None,
+                                                                                  notebook_folder=None,
+                                                                                  site_collection_id=None,
+                                                                                  string_site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = string_site_id
+    return client.copy_notebook(site_id=site_id,
+                                onenote_section_id=onenote_section_id,
+                                body=body)
+
+
+def sites_site_onenote_section_parent_section_group_parent_notebook_section_copy_to_notebook(client,
+                                                                                             site_id,
+                                                                                             onenote_section_id,
+                                                                                             onenote_section_id1,
+                                                                                             id_=None,
+                                                                                             group_id=None,
+                                                                                             rename_as=None,
+                                                                                             site_collection_id=None,
+                                                                                             string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4382,19 +4593,19 @@ def sites_sitesonenotesectionspagesparentsection_copy_to_notebook(client,
     body['site_id'] = string_site_id
     return client.copy_to_notebook(site_id=site_id,
                                    onenote_section_id=onenote_section_id,
-                                   onenote_page_id=onenote_page_id,
+                                   onenote_section_id1=onenote_section_id1,
                                    body=body)
 
 
-def sites_sitesonenotesectionspagesparentsection_copy_to_section_group(client,
-                                                                       site_id,
-                                                                       onenote_section_id,
-                                                                       onenote_page_id,
-                                                                       id_=None,
-                                                                       group_id=None,
-                                                                       rename_as=None,
-                                                                       site_collection_id=None,
-                                                                       string_site_id=None):
+def sites_site_onenote_section_parent_section_group_parent_notebook_section_copy_to_section_group(client,
+                                                                                                  site_id,
+                                                                                                  onenote_section_id,
+                                                                                                  onenote_section_id1,
+                                                                                                  id_=None,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id
@@ -4403,229 +4614,40 @@ def sites_sitesonenotesectionspagesparentsection_copy_to_section_group(client,
     body['site_id'] = string_site_id
     return client.copy_to_section_group(site_id=site_id,
                                         onenote_section_id=onenote_section_id,
-                                        onenote_page_id=onenote_page_id,
+                                        onenote_section_id1=onenote_section_id1,
                                         body=body)
 
 
-def sites_sitesonenotesectionsparentnotebook_copy_notebook(client,
-                                                           site_id,
-                                                           onenote_section_id,
-                                                           group_id=None,
-                                                           rename_as=None,
-                                                           notebook_folder=None,
-                                                           site_collection_id=None,
-                                                           string_site_id=None):
+def sites_site_onenote_section_parent_section_group_section_copy_to_notebook(client,
+                                                                             site_id,
+                                                                             onenote_section_id,
+                                                                             onenote_section_id1,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             rename_as=None,
+                                                                             site_collection_id=None,
+                                                                             string_site_id=None):
     body = {}
+    body['id'] = id_
     body['group_id'] = group_id
     body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
     body['site_collection_id'] = site_collection_id
     body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                onenote_section_id=onenote_section_id,
-                                body=body)
+    return client.copy_to_notebook(site_id=site_id,
+                                   onenote_section_id=onenote_section_id,
+                                   onenote_section_id1=onenote_section_id1,
+                                   body=body)
 
 
-def sites_sitesonenotesectionsparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
-                                                                                      site_id,
-                                                                                      onenote_section_id,
-                                                                                      section_group_id,
-                                                                                      group_id=None,
-                                                                                      rename_as=None,
-                                                                                      notebook_folder=None,
-                                                                                      site_collection_id=None,
-                                                                                      string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                onenote_section_id=onenote_section_id,
-                                section_group_id=section_group_id,
-                                body=body)
-
-
-def sites_sitesonenotesectionsparentnotebooksectiongroupssection_copy_to_notebook(client,
+def sites_site_onenote_section_parent_section_group_section_copy_to_section_group(client,
                                                                                   site_id,
                                                                                   onenote_section_id,
-                                                                                  section_group_id,
                                                                                   onenote_section_id1,
                                                                                   id_=None,
                                                                                   group_id=None,
                                                                                   rename_as=None,
                                                                                   site_collection_id=None,
                                                                                   string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_section_id=onenote_section_id,
-                                   section_group_id=section_group_id,
-                                   onenote_section_id1=onenote_section_id1,
-                                   body=body)
-
-
-def sites_sitesonenotesectionsparentnotebooksectiongroupssection_copy_to_section_group(client,
-                                                                                       site_id,
-                                                                                       onenote_section_id,
-                                                                                       section_group_id,
-                                                                                       onenote_section_id1,
-                                                                                       id_=None,
-                                                                                       group_id=None,
-                                                                                       rename_as=None,
-                                                                                       site_collection_id=None,
-                                                                                       string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        onenote_section_id=onenote_section_id,
-                                        section_group_id=section_group_id,
-                                        onenote_section_id1=onenote_section_id1,
-                                        body=body)
-
-
-def sites_sitesonenotesectionsparentnotebooksection_copy_to_notebook(client,
-                                                                     site_id,
-                                                                     onenote_section_id,
-                                                                     onenote_section_id1,
-                                                                     id_=None,
-                                                                     group_id=None,
-                                                                     rename_as=None,
-                                                                     site_collection_id=None,
-                                                                     string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_section_id1=onenote_section_id1,
-                                   body=body)
-
-
-def sites_sitesonenotesectionsparentnotebooksection_copy_to_section_group(client,
-                                                                          site_id,
-                                                                          onenote_section_id,
-                                                                          onenote_section_id1,
-                                                                          id_=None,
-                                                                          group_id=None,
-                                                                          rename_as=None,
-                                                                          site_collection_id=None,
-                                                                          string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_section_id1=onenote_section_id1,
-                                        body=body)
-
-
-def sites_sitesonenotesectionsparentsectiongroupparentnotebook_copy_notebook(client,
-                                                                             site_id,
-                                                                             onenote_section_id,
-                                                                             group_id=None,
-                                                                             rename_as=None,
-                                                                             notebook_folder=None,
-                                                                             site_collection_id=None,
-                                                                             string_site_id=None):
-    body = {}
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['notebook_folder'] = notebook_folder
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_notebook(site_id=site_id,
-                                onenote_section_id=onenote_section_id,
-                                body=body)
-
-
-def sites_sitesonenotesectionsparentsectiongroupparentnotebooksection_copy_to_notebook(client,
-                                                                                       site_id,
-                                                                                       onenote_section_id,
-                                                                                       onenote_section_id1,
-                                                                                       id_=None,
-                                                                                       group_id=None,
-                                                                                       rename_as=None,
-                                                                                       site_collection_id=None,
-                                                                                       string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_section_id1=onenote_section_id1,
-                                   body=body)
-
-
-def sites_sitesonenotesectionsparentsectiongroupparentnotebooksection_copy_to_section_group(client,
-                                                                                            site_id,
-                                                                                            onenote_section_id,
-                                                                                            onenote_section_id1,
-                                                                                            id_=None,
-                                                                                            group_id=None,
-                                                                                            rename_as=None,
-                                                                                            site_collection_id=None,
-                                                                                            string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_section_group(site_id=site_id,
-                                        onenote_section_id=onenote_section_id,
-                                        onenote_section_id1=onenote_section_id1,
-                                        body=body)
-
-
-def sites_sitesonenotesectionsparentsectiongroupsection_copy_to_notebook(client,
-                                                                         site_id,
-                                                                         onenote_section_id,
-                                                                         onenote_section_id1,
-                                                                         id_=None,
-                                                                         group_id=None,
-                                                                         rename_as=None,
-                                                                         site_collection_id=None,
-                                                                         string_site_id=None):
-    body = {}
-    body['id'] = id_
-    body['group_id'] = group_id
-    body['rename_as'] = rename_as
-    body['site_collection_id'] = site_collection_id
-    body['site_id'] = string_site_id
-    return client.copy_to_notebook(site_id=site_id,
-                                   onenote_section_id=onenote_section_id,
-                                   onenote_section_id1=onenote_section_id1,
-                                   body=body)
-
-
-def sites_sitesonenotesectionsparentsectiongroupsection_copy_to_section_group(client,
-                                                                              site_id,
-                                                                              onenote_section_id,
-                                                                              onenote_section_id1,
-                                                                              id_=None,
-                                                                              group_id=None,
-                                                                              rename_as=None,
-                                                                              site_collection_id=None,
-                                                                              string_site_id=None):
     body = {}
     body['id'] = id_
     body['group_id'] = group_id

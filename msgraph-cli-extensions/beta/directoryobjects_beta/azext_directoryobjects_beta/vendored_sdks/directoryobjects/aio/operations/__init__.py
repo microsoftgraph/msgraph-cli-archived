@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._directoryobjectsdirectoryobject_operations import directoryobjectsdirectoryobjectOperations
-from ._directoryobjects_operations import directoryobjectsOperations
+from ._directory_objects_directory_object_operations import DirectoryObjectsDirectoryObjectOperations
+from ._directory_objects_operations import DirectoryObjectsOperations
 
 __all__ = [
-    'directoryobjectsdirectoryobjectOperations',
-    'directoryobjectsOperations',
+    'DirectoryObjectsDirectoryObjectOperations',
+    'DirectoryObjectsOperations',
 ]

@@ -22,93 +22,93 @@ def cf_group(cli_ctx, *_):
     return cf_calendar_beta_cl(cli_ctx).groups
 
 
-def cf_groupscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupscalendar
+def cf_group_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_calendar
 
 
-def cf_groupscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupscalendarcalendarview
+def cf_group_calendar_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_calendar_calendar_view
 
 
-def cf_groupscalendarevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupscalendarevents
+def cf_group_calendar_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_calendar_events
 
 
-def cf_groupscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupscalendarview
+def cf_group_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_calendar_view
 
 
-def cf_groupscalendarviewcalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupscalendarviewcalendar
+def cf_group_calendar_view_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_calendar_view_calendar
 
 
-def cf_groupsevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupsevents
+def cf_group_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_events
 
 
-def cf_groupseventscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).groupseventscalendar
+def cf_group_event_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).groups_events_calendar
 
 
-def cf_placesplace(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).placesplace
+def cf_place_place(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).places_place
 
 
 def cf_user(cli_ctx, *_):
     return cf_calendar_beta_cl(cli_ctx).users
 
 
-def cf_userscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendar
+def cf_user_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar
 
 
-def cf_userscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarcalendarview
+def cf_user_calendar_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_calendar_view
 
 
-def cf_userscalendarevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarevents
+def cf_user_calendar_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_events
 
 
-def cf_userscalendargroup(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendargroups
+def cf_user_calendar_group(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_groups
 
 
-def cf_userscalendargroupscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendargroupscalendars
+def cf_user_calendar_group_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_groups_calendars
 
 
-def cf_userscalendargroupscalendarscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendargroupscalendarscalendarview
+def cf_user_calendar_group_calendar_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_groups_calendars_calendar_view
 
 
-def cf_userscalendargroupscalendarsevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendargroupscalendarsevents
+def cf_user_calendar_group_calendar_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_groups_calendars_events
 
 
-def cf_userscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendars
+def cf_user_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendars
 
 
-def cf_userscalendarscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarscalendarview
+def cf_user_calendar_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendars_calendar_view
 
 
-def cf_userscalendarsevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarsevents
+def cf_user_calendar_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendars_events
 
 
-def cf_userscalendarview(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarview
+def cf_user_calendar_view(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_view
 
 
-def cf_userscalendarviewcalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userscalendarviewcalendar
+def cf_user_calendar_view_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_calendar_view_calendar
 
 
-def cf_usersevent(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).usersevents
+def cf_user_event(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_events
 
 
-def cf_userseventscalendar(cli_ctx, *_):
-    return cf_calendar_beta_cl(cli_ctx).userseventscalendar
+def cf_user_event_calendar(cli_ctx, *_):
+    return cf_calendar_beta_cl(cli_ctx).users_events_calendar

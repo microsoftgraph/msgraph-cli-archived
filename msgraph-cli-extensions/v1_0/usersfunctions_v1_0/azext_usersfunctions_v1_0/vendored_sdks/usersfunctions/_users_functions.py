@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,171 +18,171 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import UsersFunctionsConfiguration
-from .operations import usersactivitiesOperations
-from .operations import userscalendarcalendarviewcalendarOperations
-from .operations import userscalendarcalendarviewinstancesOperations
-from .operations import userscalendarcalendarviewOperations
-from .operations import userscalendareventscalendarOperations
-from .operations import userscalendareventsinstancesOperations
-from .operations import userscalendareventsOperations
-from .operations import userscalendarOperations
-from .operations import userscalendargroupscalendarscalendarviewcalendarOperations
-from .operations import userscalendargroupscalendarscalendarviewinstancesOperations
-from .operations import userscalendargroupscalendarscalendarviewOperations
-from .operations import userscalendargroupscalendarseventscalendarOperations
-from .operations import userscalendargroupscalendarseventsinstancesOperations
-from .operations import userscalendargroupscalendarseventsOperations
-from .operations import userscalendargroupscalendarsOperations
-from .operations import userscalendarscalendarviewcalendarOperations
-from .operations import userscalendarscalendarviewinstancesOperations
-from .operations import userscalendarscalendarviewOperations
-from .operations import userscalendarseventscalendarOperations
-from .operations import userscalendarseventsinstancesOperations
-from .operations import userscalendarseventsOperations
-from .operations import userscalendarsOperations
-from .operations import userscalendarviewcalendarcalendarviewOperations
-from .operations import userscalendarviewcalendareventsOperations
-from .operations import userscalendarviewcalendarOperations
-from .operations import userscalendarviewinstancesOperations
-from .operations import userscalendarviewOperations
-from .operations import userscontactfolderschildfoldersOperations
-from .operations import userscontactfolderscontactsOperations
-from .operations import userscontactfoldersOperations
-from .operations import userscontactsOperations
-from .operations import userseventscalendarcalendarviewOperations
-from .operations import userseventscalendareventsOperations
-from .operations import userseventscalendarOperations
-from .operations import userseventsinstancesOperations
-from .operations import userseventsOperations
-from .operations import usersmailfolderschildfoldersOperations
-from .operations import usersmailfoldersmessagesOperations
-from .operations import usersmailfoldersOperations
-from .operations import usersmanagedappregistrationsOperations
-from .operations import usersmessagesOperations
-from .operations import usersOperations
-from .operations import usersonenotenotebookssectiongroupssectionspagesOperations
-from .operations import usersonenotenotebookssectionspagesOperations
-from .operations import usersonenotenotebooksOperations
-from .operations import usersonenotepagesOperations
-from .operations import usersonenotepagesparentnotebooksectiongroupssectionspagesOperations
-from .operations import usersonenotepagesparentnotebooksectionspagesOperations
-from .operations import usersonenotepagesparentsectionpagesOperations
-from .operations import usersonenotesectiongroupsparentnotebooksectionspagesOperations
-from .operations import usersonenotesectiongroupssectionspagesOperations
-from .operations import usersonenotesectionspagesOperations
-from .operations import usersoutlookOperations
+from .operations import UsersActivitiesOperations
+from .operations import UsersCalendarCalendarViewCalendarOperations
+from .operations import UsersCalendarCalendarViewInstancesOperations
+from .operations import UsersCalendarCalendarViewOperations
+from .operations import UsersCalendarEventsCalendarOperations
+from .operations import UsersCalendarEventsInstancesOperations
+from .operations import UsersCalendarEventsOperations
+from .operations import UsersCalendarOperations
+from .operations import UsersCalendarGroupsCalendarsCalendarViewCalendarOperations
+from .operations import UsersCalendarGroupsCalendarsCalendarViewInstancesOperations
+from .operations import UsersCalendarGroupsCalendarsCalendarViewOperations
+from .operations import UsersCalendarGroupsCalendarsEventsCalendarOperations
+from .operations import UsersCalendarGroupsCalendarsEventsInstancesOperations
+from .operations import UsersCalendarGroupsCalendarsEventsOperations
+from .operations import UsersCalendarGroupsCalendarsOperations
+from .operations import UsersCalendarsCalendarViewCalendarOperations
+from .operations import UsersCalendarsCalendarViewInstancesOperations
+from .operations import UsersCalendarsCalendarViewOperations
+from .operations import UsersCalendarsEventsCalendarOperations
+from .operations import UsersCalendarsEventsInstancesOperations
+from .operations import UsersCalendarsEventsOperations
+from .operations import UsersCalendarsOperations
+from .operations import UsersCalendarViewCalendarCalendarViewOperations
+from .operations import UsersCalendarViewCalendarEventsOperations
+from .operations import UsersCalendarViewCalendarOperations
+from .operations import UsersCalendarViewInstancesOperations
+from .operations import UsersCalendarViewOperations
+from .operations import UsersContactFoldersChildFoldersOperations
+from .operations import UsersContactFoldersContactsOperations
+from .operations import UsersContactFoldersOperations
+from .operations import UsersContactsOperations
+from .operations import UsersEventsCalendarCalendarViewOperations
+from .operations import UsersEventsCalendarEventsOperations
+from .operations import UsersEventsCalendarOperations
+from .operations import UsersEventsInstancesOperations
+from .operations import UsersEventsOperations
+from .operations import UsersMailFoldersChildFoldersOperations
+from .operations import UsersMailFoldersMessagesOperations
+from .operations import UsersMailFoldersOperations
+from .operations import UsersManagedAppRegistrationsOperations
+from .operations import UsersMessagesOperations
+from .operations import UsersOperations
+from .operations import UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations
+from .operations import UsersOnenoteNotebooksSectionsPagesOperations
+from .operations import UsersOnenoteNotebooksOperations
+from .operations import UsersOnenotePagesOperations
+from .operations import UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations
+from .operations import UsersOnenotePagesParentNotebookSectionsPagesOperations
+from .operations import UsersOnenotePagesParentSectionPagesOperations
+from .operations import UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations
+from .operations import UsersOnenoteSectionGroupsSectionsPagesOperations
+from .operations import UsersOnenoteSectionsPagesOperations
+from .operations import UsersOutlookOperations
 from . import models
 
 
 class UsersFunctions(object):
     """UsersFunctions.
 
-    :ivar usersactivities: usersactivitiesOperations operations
-    :vartype usersactivities: users_functions.operations.usersactivitiesOperations
-    :ivar userscalendarcalendarviewcalendar: userscalendarcalendarviewcalendarOperations operations
-    :vartype userscalendarcalendarviewcalendar: users_functions.operations.userscalendarcalendarviewcalendarOperations
-    :ivar userscalendarcalendarviewinstances: userscalendarcalendarviewinstancesOperations operations
-    :vartype userscalendarcalendarviewinstances: users_functions.operations.userscalendarcalendarviewinstancesOperations
-    :ivar userscalendarcalendarview: userscalendarcalendarviewOperations operations
-    :vartype userscalendarcalendarview: users_functions.operations.userscalendarcalendarviewOperations
-    :ivar userscalendareventscalendar: userscalendareventscalendarOperations operations
-    :vartype userscalendareventscalendar: users_functions.operations.userscalendareventscalendarOperations
-    :ivar userscalendareventsinstances: userscalendareventsinstancesOperations operations
-    :vartype userscalendareventsinstances: users_functions.operations.userscalendareventsinstancesOperations
-    :ivar userscalendarevents: userscalendareventsOperations operations
-    :vartype userscalendarevents: users_functions.operations.userscalendareventsOperations
-    :ivar userscalendar: userscalendarOperations operations
-    :vartype userscalendar: users_functions.operations.userscalendarOperations
-    :ivar userscalendargroupscalendarscalendarviewcalendar: userscalendargroupscalendarscalendarviewcalendarOperations operations
-    :vartype userscalendargroupscalendarscalendarviewcalendar: users_functions.operations.userscalendargroupscalendarscalendarviewcalendarOperations
-    :ivar userscalendargroupscalendarscalendarviewinstances: userscalendargroupscalendarscalendarviewinstancesOperations operations
-    :vartype userscalendargroupscalendarscalendarviewinstances: users_functions.operations.userscalendargroupscalendarscalendarviewinstancesOperations
-    :ivar userscalendargroupscalendarscalendarview: userscalendargroupscalendarscalendarviewOperations operations
-    :vartype userscalendargroupscalendarscalendarview: users_functions.operations.userscalendargroupscalendarscalendarviewOperations
-    :ivar userscalendargroupscalendarseventscalendar: userscalendargroupscalendarseventscalendarOperations operations
-    :vartype userscalendargroupscalendarseventscalendar: users_functions.operations.userscalendargroupscalendarseventscalendarOperations
-    :ivar userscalendargroupscalendarseventsinstances: userscalendargroupscalendarseventsinstancesOperations operations
-    :vartype userscalendargroupscalendarseventsinstances: users_functions.operations.userscalendargroupscalendarseventsinstancesOperations
-    :ivar userscalendargroupscalendarsevents: userscalendargroupscalendarseventsOperations operations
-    :vartype userscalendargroupscalendarsevents: users_functions.operations.userscalendargroupscalendarseventsOperations
-    :ivar userscalendargroupscalendars: userscalendargroupscalendarsOperations operations
-    :vartype userscalendargroupscalendars: users_functions.operations.userscalendargroupscalendarsOperations
-    :ivar userscalendarscalendarviewcalendar: userscalendarscalendarviewcalendarOperations operations
-    :vartype userscalendarscalendarviewcalendar: users_functions.operations.userscalendarscalendarviewcalendarOperations
-    :ivar userscalendarscalendarviewinstances: userscalendarscalendarviewinstancesOperations operations
-    :vartype userscalendarscalendarviewinstances: users_functions.operations.userscalendarscalendarviewinstancesOperations
-    :ivar userscalendarscalendarview: userscalendarscalendarviewOperations operations
-    :vartype userscalendarscalendarview: users_functions.operations.userscalendarscalendarviewOperations
-    :ivar userscalendarseventscalendar: userscalendarseventscalendarOperations operations
-    :vartype userscalendarseventscalendar: users_functions.operations.userscalendarseventscalendarOperations
-    :ivar userscalendarseventsinstances: userscalendarseventsinstancesOperations operations
-    :vartype userscalendarseventsinstances: users_functions.operations.userscalendarseventsinstancesOperations
-    :ivar userscalendarsevents: userscalendarseventsOperations operations
-    :vartype userscalendarsevents: users_functions.operations.userscalendarseventsOperations
-    :ivar userscalendars: userscalendarsOperations operations
-    :vartype userscalendars: users_functions.operations.userscalendarsOperations
-    :ivar userscalendarviewcalendarcalendarview: userscalendarviewcalendarcalendarviewOperations operations
-    :vartype userscalendarviewcalendarcalendarview: users_functions.operations.userscalendarviewcalendarcalendarviewOperations
-    :ivar userscalendarviewcalendarevents: userscalendarviewcalendareventsOperations operations
-    :vartype userscalendarviewcalendarevents: users_functions.operations.userscalendarviewcalendareventsOperations
-    :ivar userscalendarviewcalendar: userscalendarviewcalendarOperations operations
-    :vartype userscalendarviewcalendar: users_functions.operations.userscalendarviewcalendarOperations
-    :ivar userscalendarviewinstances: userscalendarviewinstancesOperations operations
-    :vartype userscalendarviewinstances: users_functions.operations.userscalendarviewinstancesOperations
-    :ivar userscalendarview: userscalendarviewOperations operations
-    :vartype userscalendarview: users_functions.operations.userscalendarviewOperations
-    :ivar userscontactfolderschildfolders: userscontactfolderschildfoldersOperations operations
-    :vartype userscontactfolderschildfolders: users_functions.operations.userscontactfolderschildfoldersOperations
-    :ivar userscontactfolderscontacts: userscontactfolderscontactsOperations operations
-    :vartype userscontactfolderscontacts: users_functions.operations.userscontactfolderscontactsOperations
-    :ivar userscontactfolders: userscontactfoldersOperations operations
-    :vartype userscontactfolders: users_functions.operations.userscontactfoldersOperations
-    :ivar userscontacts: userscontactsOperations operations
-    :vartype userscontacts: users_functions.operations.userscontactsOperations
-    :ivar userseventscalendarcalendarview: userseventscalendarcalendarviewOperations operations
-    :vartype userseventscalendarcalendarview: users_functions.operations.userseventscalendarcalendarviewOperations
-    :ivar userseventscalendarevents: userseventscalendareventsOperations operations
-    :vartype userseventscalendarevents: users_functions.operations.userseventscalendareventsOperations
-    :ivar userseventscalendar: userseventscalendarOperations operations
-    :vartype userseventscalendar: users_functions.operations.userseventscalendarOperations
-    :ivar userseventsinstances: userseventsinstancesOperations operations
-    :vartype userseventsinstances: users_functions.operations.userseventsinstancesOperations
-    :ivar usersevents: userseventsOperations operations
-    :vartype usersevents: users_functions.operations.userseventsOperations
-    :ivar usersmailfolderschildfolders: usersmailfolderschildfoldersOperations operations
-    :vartype usersmailfolderschildfolders: users_functions.operations.usersmailfolderschildfoldersOperations
-    :ivar usersmailfoldersmessages: usersmailfoldersmessagesOperations operations
-    :vartype usersmailfoldersmessages: users_functions.operations.usersmailfoldersmessagesOperations
-    :ivar usersmailfolders: usersmailfoldersOperations operations
-    :vartype usersmailfolders: users_functions.operations.usersmailfoldersOperations
-    :ivar usersmanagedappregistrations: usersmanagedappregistrationsOperations operations
-    :vartype usersmanagedappregistrations: users_functions.operations.usersmanagedappregistrationsOperations
-    :ivar usersmessages: usersmessagesOperations operations
-    :vartype usersmessages: users_functions.operations.usersmessagesOperations
-    :ivar users: usersOperations operations
-    :vartype users: users_functions.operations.usersOperations
-    :ivar usersonenotenotebookssectiongroupssectionspages: usersonenotenotebookssectiongroupssectionspagesOperations operations
-    :vartype usersonenotenotebookssectiongroupssectionspages: users_functions.operations.usersonenotenotebookssectiongroupssectionspagesOperations
-    :ivar usersonenotenotebookssectionspages: usersonenotenotebookssectionspagesOperations operations
-    :vartype usersonenotenotebookssectionspages: users_functions.operations.usersonenotenotebookssectionspagesOperations
-    :ivar usersonenotenotebooks: usersonenotenotebooksOperations operations
-    :vartype usersonenotenotebooks: users_functions.operations.usersonenotenotebooksOperations
-    :ivar usersonenotepages: usersonenotepagesOperations operations
-    :vartype usersonenotepages: users_functions.operations.usersonenotepagesOperations
-    :ivar usersonenotepagesparentnotebooksectiongroupssectionspages: usersonenotepagesparentnotebooksectiongroupssectionspagesOperations operations
-    :vartype usersonenotepagesparentnotebooksectiongroupssectionspages: users_functions.operations.usersonenotepagesparentnotebooksectiongroupssectionspagesOperations
-    :ivar usersonenotepagesparentnotebooksectionspages: usersonenotepagesparentnotebooksectionspagesOperations operations
-    :vartype usersonenotepagesparentnotebooksectionspages: users_functions.operations.usersonenotepagesparentnotebooksectionspagesOperations
-    :ivar usersonenotepagesparentsectionpages: usersonenotepagesparentsectionpagesOperations operations
-    :vartype usersonenotepagesparentsectionpages: users_functions.operations.usersonenotepagesparentsectionpagesOperations
-    :ivar usersonenotesectiongroupsparentnotebooksectionspages: usersonenotesectiongroupsparentnotebooksectionspagesOperations operations
-    :vartype usersonenotesectiongroupsparentnotebooksectionspages: users_functions.operations.usersonenotesectiongroupsparentnotebooksectionspagesOperations
-    :ivar usersonenotesectiongroupssectionspages: usersonenotesectiongroupssectionspagesOperations operations
-    :vartype usersonenotesectiongroupssectionspages: users_functions.operations.usersonenotesectiongroupssectionspagesOperations
-    :ivar usersonenotesectionspages: usersonenotesectionspagesOperations operations
-    :vartype usersonenotesectionspages: users_functions.operations.usersonenotesectionspagesOperations
-    :ivar usersoutlook: usersoutlookOperations operations
-    :vartype usersoutlook: users_functions.operations.usersoutlookOperations
+    :ivar users_activities: UsersActivitiesOperations operations
+    :vartype users_activities: users_functions.operations.UsersActivitiesOperations
+    :ivar users_calendar_calendar_view_calendar: UsersCalendarCalendarViewCalendarOperations operations
+    :vartype users_calendar_calendar_view_calendar: users_functions.operations.UsersCalendarCalendarViewCalendarOperations
+    :ivar users_calendar_calendar_view_instances: UsersCalendarCalendarViewInstancesOperations operations
+    :vartype users_calendar_calendar_view_instances: users_functions.operations.UsersCalendarCalendarViewInstancesOperations
+    :ivar users_calendar_calendar_view: UsersCalendarCalendarViewOperations operations
+    :vartype users_calendar_calendar_view: users_functions.operations.UsersCalendarCalendarViewOperations
+    :ivar users_calendar_events_calendar: UsersCalendarEventsCalendarOperations operations
+    :vartype users_calendar_events_calendar: users_functions.operations.UsersCalendarEventsCalendarOperations
+    :ivar users_calendar_events_instances: UsersCalendarEventsInstancesOperations operations
+    :vartype users_calendar_events_instances: users_functions.operations.UsersCalendarEventsInstancesOperations
+    :ivar users_calendar_events: UsersCalendarEventsOperations operations
+    :vartype users_calendar_events: users_functions.operations.UsersCalendarEventsOperations
+    :ivar users_calendar: UsersCalendarOperations operations
+    :vartype users_calendar: users_functions.operations.UsersCalendarOperations
+    :ivar users_calendar_groups_calendars_calendar_view_calendar: UsersCalendarGroupsCalendarsCalendarViewCalendarOperations operations
+    :vartype users_calendar_groups_calendars_calendar_view_calendar: users_functions.operations.UsersCalendarGroupsCalendarsCalendarViewCalendarOperations
+    :ivar users_calendar_groups_calendars_calendar_view_instances: UsersCalendarGroupsCalendarsCalendarViewInstancesOperations operations
+    :vartype users_calendar_groups_calendars_calendar_view_instances: users_functions.operations.UsersCalendarGroupsCalendarsCalendarViewInstancesOperations
+    :ivar users_calendar_groups_calendars_calendar_view: UsersCalendarGroupsCalendarsCalendarViewOperations operations
+    :vartype users_calendar_groups_calendars_calendar_view: users_functions.operations.UsersCalendarGroupsCalendarsCalendarViewOperations
+    :ivar users_calendar_groups_calendars_events_calendar: UsersCalendarGroupsCalendarsEventsCalendarOperations operations
+    :vartype users_calendar_groups_calendars_events_calendar: users_functions.operations.UsersCalendarGroupsCalendarsEventsCalendarOperations
+    :ivar users_calendar_groups_calendars_events_instances: UsersCalendarGroupsCalendarsEventsInstancesOperations operations
+    :vartype users_calendar_groups_calendars_events_instances: users_functions.operations.UsersCalendarGroupsCalendarsEventsInstancesOperations
+    :ivar users_calendar_groups_calendars_events: UsersCalendarGroupsCalendarsEventsOperations operations
+    :vartype users_calendar_groups_calendars_events: users_functions.operations.UsersCalendarGroupsCalendarsEventsOperations
+    :ivar users_calendar_groups_calendars: UsersCalendarGroupsCalendarsOperations operations
+    :vartype users_calendar_groups_calendars: users_functions.operations.UsersCalendarGroupsCalendarsOperations
+    :ivar users_calendars_calendar_view_calendar: UsersCalendarsCalendarViewCalendarOperations operations
+    :vartype users_calendars_calendar_view_calendar: users_functions.operations.UsersCalendarsCalendarViewCalendarOperations
+    :ivar users_calendars_calendar_view_instances: UsersCalendarsCalendarViewInstancesOperations operations
+    :vartype users_calendars_calendar_view_instances: users_functions.operations.UsersCalendarsCalendarViewInstancesOperations
+    :ivar users_calendars_calendar_view: UsersCalendarsCalendarViewOperations operations
+    :vartype users_calendars_calendar_view: users_functions.operations.UsersCalendarsCalendarViewOperations
+    :ivar users_calendars_events_calendar: UsersCalendarsEventsCalendarOperations operations
+    :vartype users_calendars_events_calendar: users_functions.operations.UsersCalendarsEventsCalendarOperations
+    :ivar users_calendars_events_instances: UsersCalendarsEventsInstancesOperations operations
+    :vartype users_calendars_events_instances: users_functions.operations.UsersCalendarsEventsInstancesOperations
+    :ivar users_calendars_events: UsersCalendarsEventsOperations operations
+    :vartype users_calendars_events: users_functions.operations.UsersCalendarsEventsOperations
+    :ivar users_calendars: UsersCalendarsOperations operations
+    :vartype users_calendars: users_functions.operations.UsersCalendarsOperations
+    :ivar users_calendar_view_calendar_calendar_view: UsersCalendarViewCalendarCalendarViewOperations operations
+    :vartype users_calendar_view_calendar_calendar_view: users_functions.operations.UsersCalendarViewCalendarCalendarViewOperations
+    :ivar users_calendar_view_calendar_events: UsersCalendarViewCalendarEventsOperations operations
+    :vartype users_calendar_view_calendar_events: users_functions.operations.UsersCalendarViewCalendarEventsOperations
+    :ivar users_calendar_view_calendar: UsersCalendarViewCalendarOperations operations
+    :vartype users_calendar_view_calendar: users_functions.operations.UsersCalendarViewCalendarOperations
+    :ivar users_calendar_view_instances: UsersCalendarViewInstancesOperations operations
+    :vartype users_calendar_view_instances: users_functions.operations.UsersCalendarViewInstancesOperations
+    :ivar users_calendar_view: UsersCalendarViewOperations operations
+    :vartype users_calendar_view: users_functions.operations.UsersCalendarViewOperations
+    :ivar users_contact_folders_child_folders: UsersContactFoldersChildFoldersOperations operations
+    :vartype users_contact_folders_child_folders: users_functions.operations.UsersContactFoldersChildFoldersOperations
+    :ivar users_contact_folders_contacts: UsersContactFoldersContactsOperations operations
+    :vartype users_contact_folders_contacts: users_functions.operations.UsersContactFoldersContactsOperations
+    :ivar users_contact_folders: UsersContactFoldersOperations operations
+    :vartype users_contact_folders: users_functions.operations.UsersContactFoldersOperations
+    :ivar users_contacts: UsersContactsOperations operations
+    :vartype users_contacts: users_functions.operations.UsersContactsOperations
+    :ivar users_events_calendar_calendar_view: UsersEventsCalendarCalendarViewOperations operations
+    :vartype users_events_calendar_calendar_view: users_functions.operations.UsersEventsCalendarCalendarViewOperations
+    :ivar users_events_calendar_events: UsersEventsCalendarEventsOperations operations
+    :vartype users_events_calendar_events: users_functions.operations.UsersEventsCalendarEventsOperations
+    :ivar users_events_calendar: UsersEventsCalendarOperations operations
+    :vartype users_events_calendar: users_functions.operations.UsersEventsCalendarOperations
+    :ivar users_events_instances: UsersEventsInstancesOperations operations
+    :vartype users_events_instances: users_functions.operations.UsersEventsInstancesOperations
+    :ivar users_events: UsersEventsOperations operations
+    :vartype users_events: users_functions.operations.UsersEventsOperations
+    :ivar users_mail_folders_child_folders: UsersMailFoldersChildFoldersOperations operations
+    :vartype users_mail_folders_child_folders: users_functions.operations.UsersMailFoldersChildFoldersOperations
+    :ivar users_mail_folders_messages: UsersMailFoldersMessagesOperations operations
+    :vartype users_mail_folders_messages: users_functions.operations.UsersMailFoldersMessagesOperations
+    :ivar users_mail_folders: UsersMailFoldersOperations operations
+    :vartype users_mail_folders: users_functions.operations.UsersMailFoldersOperations
+    :ivar users_managed_app_registrations: UsersManagedAppRegistrationsOperations operations
+    :vartype users_managed_app_registrations: users_functions.operations.UsersManagedAppRegistrationsOperations
+    :ivar users_messages: UsersMessagesOperations operations
+    :vartype users_messages: users_functions.operations.UsersMessagesOperations
+    :ivar users: UsersOperations operations
+    :vartype users: users_functions.operations.UsersOperations
+    :ivar users_onenote_notebooks_section_groups_sections_pages: UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations operations
+    :vartype users_onenote_notebooks_section_groups_sections_pages: users_functions.operations.UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations
+    :ivar users_onenote_notebooks_sections_pages: UsersOnenoteNotebooksSectionsPagesOperations operations
+    :vartype users_onenote_notebooks_sections_pages: users_functions.operations.UsersOnenoteNotebooksSectionsPagesOperations
+    :ivar users_onenote_notebooks: UsersOnenoteNotebooksOperations operations
+    :vartype users_onenote_notebooks: users_functions.operations.UsersOnenoteNotebooksOperations
+    :ivar users_onenote_pages: UsersOnenotePagesOperations operations
+    :vartype users_onenote_pages: users_functions.operations.UsersOnenotePagesOperations
+    :ivar users_onenote_pages_parent_notebook_section_groups_sections_pages: UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations operations
+    :vartype users_onenote_pages_parent_notebook_section_groups_sections_pages: users_functions.operations.UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations
+    :ivar users_onenote_pages_parent_notebook_sections_pages: UsersOnenotePagesParentNotebookSectionsPagesOperations operations
+    :vartype users_onenote_pages_parent_notebook_sections_pages: users_functions.operations.UsersOnenotePagesParentNotebookSectionsPagesOperations
+    :ivar users_onenote_pages_parent_section_pages: UsersOnenotePagesParentSectionPagesOperations operations
+    :vartype users_onenote_pages_parent_section_pages: users_functions.operations.UsersOnenotePagesParentSectionPagesOperations
+    :ivar users_onenote_section_groups_parent_notebook_sections_pages: UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations operations
+    :vartype users_onenote_section_groups_parent_notebook_sections_pages: users_functions.operations.UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations
+    :ivar users_onenote_section_groups_sections_pages: UsersOnenoteSectionGroupsSectionsPagesOperations operations
+    :vartype users_onenote_section_groups_sections_pages: users_functions.operations.UsersOnenoteSectionGroupsSectionsPagesOperations
+    :ivar users_onenote_sections_pages: UsersOnenoteSectionsPagesOperations operations
+    :vartype users_onenote_sections_pages: users_functions.operations.UsersOnenoteSectionsPagesOperations
+    :ivar users_outlook: UsersOutlookOperations operations
+    :vartype users_outlook: users_functions.operations.UsersOutlookOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param str base_url: Service URL
@@ -198,118 +198,118 @@ class UsersFunctions(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = UsersFunctionsConfiguration(credential, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.usersactivities = usersactivitiesOperations(
+        self.users_activities = UsersActivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarcalendarviewcalendar = userscalendarcalendarviewcalendarOperations(
+        self.users_calendar_calendar_view_calendar = UsersCalendarCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarcalendarviewinstances = userscalendarcalendarviewinstancesOperations(
+        self.users_calendar_calendar_view_instances = UsersCalendarCalendarViewInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarcalendarview = userscalendarcalendarviewOperations(
+        self.users_calendar_calendar_view = UsersCalendarCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendareventscalendar = userscalendareventscalendarOperations(
+        self.users_calendar_events_calendar = UsersCalendarEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendareventsinstances = userscalendareventsinstancesOperations(
+        self.users_calendar_events_instances = UsersCalendarEventsInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarevents = userscalendareventsOperations(
+        self.users_calendar_events = UsersCalendarEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendar = userscalendarOperations(
+        self.users_calendar = UsersCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarscalendarviewcalendar = userscalendargroupscalendarscalendarviewcalendarOperations(
+        self.users_calendar_groups_calendars_calendar_view_calendar = UsersCalendarGroupsCalendarsCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarscalendarviewinstances = userscalendargroupscalendarscalendarviewinstancesOperations(
+        self.users_calendar_groups_calendars_calendar_view_instances = UsersCalendarGroupsCalendarsCalendarViewInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarscalendarview = userscalendargroupscalendarscalendarviewOperations(
+        self.users_calendar_groups_calendars_calendar_view = UsersCalendarGroupsCalendarsCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarseventscalendar = userscalendargroupscalendarseventscalendarOperations(
+        self.users_calendar_groups_calendars_events_calendar = UsersCalendarGroupsCalendarsEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarseventsinstances = userscalendargroupscalendarseventsinstancesOperations(
+        self.users_calendar_groups_calendars_events_instances = UsersCalendarGroupsCalendarsEventsInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendarsevents = userscalendargroupscalendarseventsOperations(
+        self.users_calendar_groups_calendars_events = UsersCalendarGroupsCalendarsEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendargroupscalendars = userscalendargroupscalendarsOperations(
+        self.users_calendar_groups_calendars = UsersCalendarGroupsCalendarsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarscalendarviewcalendar = userscalendarscalendarviewcalendarOperations(
+        self.users_calendars_calendar_view_calendar = UsersCalendarsCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarscalendarviewinstances = userscalendarscalendarviewinstancesOperations(
+        self.users_calendars_calendar_view_instances = UsersCalendarsCalendarViewInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarscalendarview = userscalendarscalendarviewOperations(
+        self.users_calendars_calendar_view = UsersCalendarsCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarseventscalendar = userscalendarseventscalendarOperations(
+        self.users_calendars_events_calendar = UsersCalendarsEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarseventsinstances = userscalendarseventsinstancesOperations(
+        self.users_calendars_events_instances = UsersCalendarsEventsInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarsevents = userscalendarseventsOperations(
+        self.users_calendars_events = UsersCalendarsEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendars = userscalendarsOperations(
+        self.users_calendars = UsersCalendarsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarviewcalendarcalendarview = userscalendarviewcalendarcalendarviewOperations(
+        self.users_calendar_view_calendar_calendar_view = UsersCalendarViewCalendarCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarviewcalendarevents = userscalendarviewcalendareventsOperations(
+        self.users_calendar_view_calendar_events = UsersCalendarViewCalendarEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarviewcalendar = userscalendarviewcalendarOperations(
+        self.users_calendar_view_calendar = UsersCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarviewinstances = userscalendarviewinstancesOperations(
+        self.users_calendar_view_instances = UsersCalendarViewInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscalendarview = userscalendarviewOperations(
+        self.users_calendar_view = UsersCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscontactfolderschildfolders = userscontactfolderschildfoldersOperations(
+        self.users_contact_folders_child_folders = UsersContactFoldersChildFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscontactfolderscontacts = userscontactfolderscontactsOperations(
+        self.users_contact_folders_contacts = UsersContactFoldersContactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscontactfolders = userscontactfoldersOperations(
+        self.users_contact_folders = UsersContactFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userscontacts = userscontactsOperations(
+        self.users_contacts = UsersContactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userseventscalendarcalendarview = userseventscalendarcalendarviewOperations(
+        self.users_events_calendar_calendar_view = UsersEventsCalendarCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userseventscalendarevents = userseventscalendareventsOperations(
+        self.users_events_calendar_events = UsersEventsCalendarEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userseventscalendar = userseventscalendarOperations(
+        self.users_events_calendar = UsersEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.userseventsinstances = userseventsinstancesOperations(
+        self.users_events_instances = UsersEventsInstancesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersevents = userseventsOperations(
+        self.users_events = UsersEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersmailfolderschildfolders = usersmailfolderschildfoldersOperations(
+        self.users_mail_folders_child_folders = UsersMailFoldersChildFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersmailfoldersmessages = usersmailfoldersmessagesOperations(
+        self.users_mail_folders_messages = UsersMailFoldersMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersmailfolders = usersmailfoldersOperations(
+        self.users_mail_folders = UsersMailFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersmanagedappregistrations = usersmanagedappregistrationsOperations(
+        self.users_managed_app_registrations = UsersManagedAppRegistrationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersmessages = usersmessagesOperations(
+        self.users_messages = UsersMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.users = usersOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotenotebookssectiongroupssectionspages = usersonenotenotebookssectiongroupssectionspagesOperations(
+        self.users_onenote_notebooks_section_groups_sections_pages = UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotenotebookssectionspages = usersonenotenotebookssectionspagesOperations(
+        self.users_onenote_notebooks_sections_pages = UsersOnenoteNotebooksSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotenotebooks = usersonenotenotebooksOperations(
+        self.users_onenote_notebooks = UsersOnenoteNotebooksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotepages = usersonenotepagesOperations(
+        self.users_onenote_pages = UsersOnenotePagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotepagesparentnotebooksectiongroupssectionspages = usersonenotepagesparentnotebooksectiongroupssectionspagesOperations(
+        self.users_onenote_pages_parent_notebook_section_groups_sections_pages = UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotepagesparentnotebooksectionspages = usersonenotepagesparentnotebooksectionspagesOperations(
+        self.users_onenote_pages_parent_notebook_sections_pages = UsersOnenotePagesParentNotebookSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotepagesparentsectionpages = usersonenotepagesparentsectionpagesOperations(
+        self.users_onenote_pages_parent_section_pages = UsersOnenotePagesParentSectionPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotesectiongroupsparentnotebooksectionspages = usersonenotesectiongroupsparentnotebooksectionspagesOperations(
+        self.users_onenote_section_groups_parent_notebook_sections_pages = UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotesectiongroupssectionspages = usersonenotesectiongroupssectionspagesOperations(
+        self.users_onenote_section_groups_sections_pages = UsersOnenoteSectionGroupsSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersonenotesectionspages = usersonenotesectionspagesOperations(
+        self.users_onenote_sections_pages = UsersOnenoteSectionsPagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersoutlook = usersoutlookOperations(
+        self.users_outlook = UsersOutlookOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

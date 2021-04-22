@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class educationOperations(object):
-    """educationOperations operations.
+class EducationOperations(object):
+    """EducationOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,28 +47,28 @@ class educationOperations(object):
 
     def list_classes(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofeducationclass"]
+        # type: (...) -> Iterable["models.CollectionOfEducationClass"]
         """Get classes from education.
 
         Get classes from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Get5itemsitem]
+        :type orderby: list[str or ~education.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Get6itemsitem]
+        :type select: list[str or ~education.models.Get6ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Get7itemsitem]
+        :type expand: list[str or ~education.models.Get7ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofeducationclass or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationclass]
+        :return: An iterator like instance of either CollectionOfEducationClass or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationClass]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationclass"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class educationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofeducationclass', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEducationClass', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class educationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class educationOperations(object):
 
     def create_classes(
         self,
-        body,  # type: "models.microsoftgrapheducationclass"
+        body,  # type: "models.MicrosoftGraphEducationClass"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationclass"
+        # type: (...) -> "models.MicrosoftGraphEducationClass"
         """Create new navigation property to classes for education.
 
         Create new navigation property to classes for education.
 
         :param body: New navigation property.
-        :type body: ~education.models.microsoftgrapheducationclass
+        :type body: ~education.models.MicrosoftGraphEducationClass
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationclass, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationclass
+        :return: MicrosoftGraphEducationClass, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationClass
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationclass"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationclass')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationClass')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class educationOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationclass', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationClass', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -193,10 +194,10 @@ class educationOperations(object):
         self,
         education_class_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationclass"
+        # type: (...) -> "models.MicrosoftGraphEducationClass"
         """Get classes from education.
 
         Get classes from education.
@@ -206,13 +207,13 @@ class educationOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~education.models.Enum67]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Get2itemsitem]
+        :type expand: list[str or ~education.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationclass, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationclass
+        :return: MicrosoftGraphEducationClass, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationClass
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationclass"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class educationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationclass', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationClass', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class educationOperations(object):
     def update_classes(
         self,
         education_class_id,  # type: str
-        body,  # type: "models.microsoftgrapheducationclass"
+        body,  # type: "models.MicrosoftGraphEducationClass"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class educationOperations(object):
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param body: New navigation property values.
-        :type body: ~education.models.microsoftgrapheducationclass
+        :type body: ~education.models.MicrosoftGraphEducationClass
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationclass')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationClass')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -377,7 +378,7 @@ class educationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationuser"
+        # type: (...) -> "models.MicrosoftGraphEducationUser"
         """Get me from education.
 
         Get me from education.
@@ -387,11 +388,11 @@ class educationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum84]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationuser, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationuser
+        :return: MicrosoftGraphEducationUser, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationUser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -418,10 +419,10 @@ class educationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -431,7 +432,7 @@ class educationOperations(object):
 
     def update_me(
         self,
-        body,  # type: "models.microsoftgrapheducationuser"
+        body,  # type: "models.MicrosoftGraphEducationUser"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -440,7 +441,7 @@ class educationOperations(object):
         Update the navigation property me in education.
 
         :param body: New navigation property values.
-        :type body: ~education.models.microsoftgrapheducationuser
+        :type body: ~education.models.MicrosoftGraphEducationUser
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -466,7 +467,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -474,8 +475,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -524,8 +525,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -539,7 +540,7 @@ class educationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofeducationschool1"]
+        # type: (...) -> Iterable["models.CollectionOfEducationSchool1"]
         """Get schools from education.
 
         Get schools from education.
@@ -551,11 +552,11 @@ class educationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum97]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofeducationschool1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationschool1]
+        :return: An iterator like instance of either CollectionOfEducationSchool1 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationSchool1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationschool1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationSchool1"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -597,7 +598,7 @@ class educationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofeducationschool1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEducationSchool1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -610,9 +611,9 @@ class educationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -623,22 +624,22 @@ class educationOperations(object):
 
     def create_schools(
         self,
-        body,  # type: "models.microsoftgrapheducationschool"
+        body,  # type: "models.MicrosoftGraphEducationSchool"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationschool"
+        # type: (...) -> "models.MicrosoftGraphEducationSchool"
         """Create new navigation property to schools for education.
 
         Create new navigation property to schools for education.
 
         :param body: New navigation property.
-        :type body: ~education.models.microsoftgrapheducationschool
+        :type body: ~education.models.MicrosoftGraphEducationSchool
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationschool, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationschool
+        :return: MicrosoftGraphEducationSchool, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationSchool
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationschool"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -658,7 +659,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationschool')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationSchool')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -666,10 +667,10 @@ class educationOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationschool', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationSchool', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -684,7 +685,7 @@ class educationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationschool"
+        # type: (...) -> "models.MicrosoftGraphEducationSchool"
         """Get schools from education.
 
         Get schools from education.
@@ -696,11 +697,11 @@ class educationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum99]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationschool, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationschool
+        :return: MicrosoftGraphEducationSchool, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationSchool
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationschool"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -731,10 +732,10 @@ class educationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationschool', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationSchool', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -745,7 +746,7 @@ class educationOperations(object):
     def update_schools(
         self,
         education_school_id,  # type: str
-        body,  # type: "models.microsoftgrapheducationschool"
+        body,  # type: "models.MicrosoftGraphEducationSchool"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -756,7 +757,7 @@ class educationOperations(object):
         :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
         :param body: New navigation property values.
-        :type body: ~education.models.microsoftgrapheducationschool
+        :type body: ~education.models.MicrosoftGraphEducationSchool
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -786,7 +787,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationschool')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationSchool')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -794,8 +795,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -851,8 +852,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -866,7 +867,7 @@ class educationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofeducationuser2"]
+        # type: (...) -> Iterable["models.CollectionOfEducationUser2"]
         """Get users from education.
 
         Get users from education.
@@ -878,11 +879,11 @@ class educationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum110]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofeducationuser2 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationuser2]
+        :return: An iterator like instance of either CollectionOfEducationUser2 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationUser2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationuser2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationUser2"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -924,7 +925,7 @@ class educationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofeducationuser2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEducationUser2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -937,9 +938,9 @@ class educationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -950,22 +951,22 @@ class educationOperations(object):
 
     def create_users(
         self,
-        body,  # type: "models.microsoftgrapheducationuser"
+        body,  # type: "models.MicrosoftGraphEducationUser"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationuser"
+        # type: (...) -> "models.MicrosoftGraphEducationUser"
         """Create new navigation property to users for education.
 
         Create new navigation property to users for education.
 
         :param body: New navigation property.
-        :type body: ~education.models.microsoftgrapheducationuser
+        :type body: ~education.models.MicrosoftGraphEducationUser
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationuser, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationuser
+        :return: MicrosoftGraphEducationUser, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationUser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -985,7 +986,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -993,10 +994,10 @@ class educationOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1011,7 +1012,7 @@ class educationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgrapheducationuser"
+        # type: (...) -> "models.MicrosoftGraphEducationUser"
         """Get users from education.
 
         Get users from education.
@@ -1023,11 +1024,11 @@ class educationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum112]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgrapheducationuser, or the result of cls(response)
-        :rtype: ~education.models.microsoftgrapheducationuser
+        :return: MicrosoftGraphEducationUser, or the result of cls(response)
+        :rtype: ~education.models.MicrosoftGraphEducationUser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1058,10 +1059,10 @@ class educationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1072,7 +1073,7 @@ class educationOperations(object):
     def update_users(
         self,
         education_user_id,  # type: str
-        body,  # type: "models.microsoftgrapheducationuser"
+        body,  # type: "models.MicrosoftGraphEducationUser"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1083,7 +1084,7 @@ class educationOperations(object):
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param body: New navigation property values.
-        :type body: ~education.models.microsoftgrapheducationuser
+        :type body: ~education.models.MicrosoftGraphEducationUser
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1113,7 +1114,7 @@ class educationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1121,8 +1122,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1178,8 +1179,8 @@ class educationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

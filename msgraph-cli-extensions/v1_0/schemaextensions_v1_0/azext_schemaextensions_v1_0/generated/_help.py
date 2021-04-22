@@ -17,12 +17,12 @@ helps['schemaextensions_v1_0'] = '''
     short-summary: Manage Schema Extensions
 '''
 
-helps['schemaextensions schemaextensionsschemaextension'] = """
+helps['schemaextensions schema-extension-schema-extension'] = """
     type: group
-    short-summary: Manage schemaextensionsschemaextension with schemaextensions_v1_0
+    short-summary: Manage schema extension schema extension with schemaextensions_v1_0
 """
 
-helps['schemaextensions schemaextensionsschemaextension create-schema-extension'] = """
+helps['schemaextensions schema-extension-schema-extension create-schema-extension'] = """
     type: command
     short-summary: "Add new entity to schemaExtensions."
     parameters:
@@ -38,22 +38,22 @@ Boolean, DateTime, Integer or String.  See the table below for more details.
             Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['schemaextensions schemaextensionsschemaextension delete-schema-extension'] = """
+helps['schemaextensions schema-extension-schema-extension delete-schema-extension'] = """
     type: command
     short-summary: "Delete entity from schemaExtensions."
 """
 
-helps['schemaextensions schemaextensionsschemaextension list-schema-extension'] = """
+helps['schemaextensions schema-extension-schema-extension list-schema-extension'] = """
     type: command
     short-summary: "Get entities from schemaExtensions."
 """
 
-helps['schemaextensions schemaextensionsschemaextension show-schema-extension'] = """
+helps['schemaextensions schema-extension-schema-extension show-schema-extension'] = """
     type: command
     short-summary: "Get entity from schemaExtensions by key."
 """
 
-helps['schemaextensions schemaextensionsschemaextension update-schema-extension'] = """
+helps['schemaextensions schema-extension-schema-extension update-schema-extension'] = """
     type: command
     short-summary: "Update entity in schemaExtensions."
     parameters:

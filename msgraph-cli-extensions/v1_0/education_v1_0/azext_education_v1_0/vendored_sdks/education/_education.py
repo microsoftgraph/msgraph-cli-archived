@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,30 +18,30 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import EducationConfiguration
-from .operations import educationeducationrootOperations
-from .operations import educationOperations
-from .operations import educationclassesOperations
-from .operations import educationmeOperations
-from .operations import educationschoolsOperations
-from .operations import educationusersOperations
+from .operations import EducationEducationRootOperations
+from .operations import EducationOperations
+from .operations import EducationClassesOperations
+from .operations import EducationMeOperations
+from .operations import EducationSchoolsOperations
+from .operations import EducationUsersOperations
 from . import models
 
 
 class Education(object):
     """Education.
 
-    :ivar educationeducationroot: educationeducationrootOperations operations
-    :vartype educationeducationroot: education.operations.educationeducationrootOperations
-    :ivar education: educationOperations operations
-    :vartype education: education.operations.educationOperations
-    :ivar educationclasses: educationclassesOperations operations
-    :vartype educationclasses: education.operations.educationclassesOperations
-    :ivar educationme: educationmeOperations operations
-    :vartype educationme: education.operations.educationmeOperations
-    :ivar educationschools: educationschoolsOperations operations
-    :vartype educationschools: education.operations.educationschoolsOperations
-    :ivar educationusers: educationusersOperations operations
-    :vartype educationusers: education.operations.educationusersOperations
+    :ivar education_education_root: EducationEducationRootOperations operations
+    :vartype education_education_root: education.operations.EducationEducationRootOperations
+    :ivar education: EducationOperations operations
+    :vartype education: education.operations.EducationOperations
+    :ivar education_classes: EducationClassesOperations operations
+    :vartype education_classes: education.operations.EducationClassesOperations
+    :ivar education_me: EducationMeOperations operations
+    :vartype education_me: education.operations.EducationMeOperations
+    :ivar education_schools: EducationSchoolsOperations operations
+    :vartype education_schools: education.operations.EducationSchoolsOperations
+    :ivar education_users: EducationUsersOperations operations
+    :vartype education_users: education.operations.EducationUsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -72,24 +72,24 @@ class Education(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = EducationConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.educationeducationroot = educationeducationrootOperations(
+        self.education_education_root = EducationEducationRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education = educationOperations(
+        self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclasses = educationclassesOperations(
+        self.education_classes = EducationClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationme = educationmeOperations(
+        self.education_me = EducationMeOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationschools = educationschoolsOperations(
+        self.education_schools = EducationSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusers = educationusersOperations(
+        self.education_users = EducationUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

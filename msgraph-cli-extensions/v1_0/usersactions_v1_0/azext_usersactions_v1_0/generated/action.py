@@ -242,6 +242,31 @@ class AddSingleValueExtendedProperties(argparse._AppendAction):
         return d
 
 
+class AddDeviceAccount(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.device_account = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'password':
+                d['password'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_account. All possible keys are: '
+                               'password'.format(k))
+        return d
+
+
 class AddAddLicenses(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -266,6 +291,75 @@ class AddAddLicenses(argparse._AppendAction):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter add_licenses. All possible keys are: '
                                'disabled-plans, sku-id'.format(k))
+        return d
+
+
+class AddAttendees(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAttendees, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'type':
+                d['type'] = v[0]
+            elif kl == 'email-address':
+                d['email_address'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attendees. All possible keys are: type, '
+                               'email-address'.format(k))
+        return d
+
+
+class AddLocations(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddLocations, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'resolve-availability':
+                d['resolve_availability'] = v[0]
+            elif kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'coordinates':
+                d['coordinates'] = v[0]
+            elif kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'location-email-address':
+                d['location_email_address'] = v[0]
+            elif kl == 'location-type':
+                d['location_type'] = v[0]
+            elif kl == 'location-uri':
+                d['location_uri'] = v[0]
+            elif kl == 'unique-id':
+                d['unique_id'] = v[0]
+            elif kl == 'unique-id-type':
+                d['unique_id_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter locations. All possible keys are: '
+                               'resolve-availability, address, coordinates, display-name, location-email-address, '
+                               'location-type, location-uri, unique-id, unique-id-type'.format(k))
         return d
 
 

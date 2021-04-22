@@ -10,15 +10,15 @@
 # pylint: disable=too-many-lines
 
 
-def search_external_show_external(client,
-                                  select=None,
-                                  expand=None):
+def search_external_external_show_external(client,
+                                           select=None,
+                                           expand=None):
     return client.get_external(select=select,
                                expand=expand)
 
 
-def search_external_update_external(client,
-                                    connections=None):
+def search_external_external_update_external(client,
+                                             connections=None):
     body = {}
     body['connections'] = connections
     return client.update_external(body=body)
@@ -107,15 +107,15 @@ def search_external_update_connection(client,
                                      body=body)
 
 
-def search_searchentity_show_search_entity(client,
-                                           select=None,
-                                           expand=None):
+def search_search_entity_show_search_entity(client,
+                                            select=None,
+                                            expand=None):
     return client.get_search_entity(select=select,
                                     expand=expand)
 
 
-def search_searchentity_update_search_entity(client,
-                                             id_=None):
+def search_search_entity_update_search_entity(client,
+                                              id_=None):
     body = {}
     body['id'] = id_
     return client.update_search_entity(body=body)

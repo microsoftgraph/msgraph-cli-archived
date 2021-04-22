@@ -15,21 +15,21 @@ import msrest.serialization
 from ._teams_enums import *
 
 
-class collectionofchannel(msrest.serialization.Model):
+class CollectionOfChannel(msrest.serialization.Model):
     """Collection of channel.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchannel]
+    :type value: list[~teams.models.MicrosoftGraphChannel]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchannel]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChannel]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -37,31 +37,31 @@ class collectionofchannel(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchannel"]] = None,
+        value: Optional[List["MicrosoftGraphChannel"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchannel, self).__init__(**kwargs)
+        super(CollectionOfChannel, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchat(msrest.serialization.Model):
+class CollectionOfChat(msrest.serialization.Model):
     """Collection of chat.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchat]
+    :type value: list[~teams.models.MicrosoftGraphChat]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchat]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChat]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -69,31 +69,31 @@ class collectionofchat(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchat"]] = None,
+        value: Optional[List["MicrosoftGraphChat"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchat, self).__init__(**kwargs)
+        super(CollectionOfChat, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessage(msrest.serialization.Model):
+class CollectionOfChatMessage(msrest.serialization.Model):
     """Collection of chatMessage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessage]
+    :type value: list[~teams.models.MicrosoftGraphChatMessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessage]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,31 +101,31 @@ class collectionofchatmessage(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessage"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessage"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessage, self).__init__(**kwargs)
+        super(CollectionOfChatMessage, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessage0(msrest.serialization.Model):
+class CollectionOfChatMessage0(msrest.serialization.Model):
     """Collection of chatMessage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessage]
+    :type value: list[~teams.models.MicrosoftGraphChatMessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessage]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -133,31 +133,31 @@ class collectionofchatmessage0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessage"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessage"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessage0, self).__init__(**kwargs)
+        super(CollectionOfChatMessage0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessage1(msrest.serialization.Model):
+class CollectionOfChatMessage1(msrest.serialization.Model):
     """Collection of chatMessage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessage]
+    :type value: list[~teams.models.MicrosoftGraphChatMessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessage]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -165,31 +165,31 @@ class collectionofchatmessage1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessage"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessage"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessage1, self).__init__(**kwargs)
+        super(CollectionOfChatMessage1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessage2(msrest.serialization.Model):
+class CollectionOfChatMessage2(msrest.serialization.Model):
     """Collection of chatMessage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessage]
+    :type value: list[~teams.models.MicrosoftGraphChatMessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessage]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -197,31 +197,31 @@ class collectionofchatmessage2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessage"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessage"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessage2, self).__init__(**kwargs)
+        super(CollectionOfChatMessage2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessagehostedcontent(msrest.serialization.Model):
+class CollectionOfChatMessageHostedContent(msrest.serialization.Model):
     """Collection of chatMessageHostedContent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessagehostedcontent]
+    :type value: list[~teams.models.MicrosoftGraphChatMessageHostedContent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessagehostedcontent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessageHostedContent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -229,31 +229,31 @@ class collectionofchatmessagehostedcontent(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessagehostedcontent"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessageHostedContent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessagehostedcontent, self).__init__(**kwargs)
+        super(CollectionOfChatMessageHostedContent, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofchatmessagehostedcontent0(msrest.serialization.Model):
+class CollectionOfChatMessageHostedContent0(msrest.serialization.Model):
     """Collection of chatMessageHostedContent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphchatmessagehostedcontent]
+    :type value: list[~teams.models.MicrosoftGraphChatMessageHostedContent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphchatmessagehostedcontent]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphChatMessageHostedContent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -261,31 +261,31 @@ class collectionofchatmessagehostedcontent0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphchatmessagehostedcontent"]] = None,
+        value: Optional[List["MicrosoftGraphChatMessageHostedContent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofchatmessagehostedcontent0, self).__init__(**kwargs)
+        super(CollectionOfChatMessageHostedContent0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofconversationmember(msrest.serialization.Model):
+class CollectionOfConversationMember(msrest.serialization.Model):
     """Collection of conversationMember.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphconversationmember]
+    :type value: list[~teams.models.MicrosoftGraphConversationMember]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphconversationmember]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphConversationMember]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -293,31 +293,31 @@ class collectionofconversationmember(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphconversationmember"]] = None,
+        value: Optional[List["MicrosoftGraphConversationMember"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofconversationmember, self).__init__(**kwargs)
+        super(CollectionOfConversationMember, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofconversationmember0(msrest.serialization.Model):
+class CollectionOfConversationMember0(msrest.serialization.Model):
     """Collection of conversationMember.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphconversationmember]
+    :type value: list[~teams.models.MicrosoftGraphConversationMember]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphconversationmember]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphConversationMember]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -325,31 +325,31 @@ class collectionofconversationmember0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphconversationmember"]] = None,
+        value: Optional[List["MicrosoftGraphConversationMember"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofconversationmember0, self).__init__(**kwargs)
+        super(CollectionOfConversationMember0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofconversationmember1(msrest.serialization.Model):
+class CollectionOfConversationMember1(msrest.serialization.Model):
     """Collection of conversationMember.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphconversationmember]
+    :type value: list[~teams.models.MicrosoftGraphConversationMember]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphconversationmember]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphConversationMember]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -357,31 +357,31 @@ class collectionofconversationmember1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphconversationmember"]] = None,
+        value: Optional[List["MicrosoftGraphConversationMember"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofconversationmember1, self).__init__(**kwargs)
+        super(CollectionOfConversationMember1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofoffershiftrequest(msrest.serialization.Model):
+class CollectionOfOfferShiftRequest(msrest.serialization.Model):
     """Collection of offerShiftRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphoffershiftrequest]
+    :type value: list[~teams.models.MicrosoftGraphOfferShiftRequest]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphoffershiftrequest]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOfferShiftRequest]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -389,31 +389,31 @@ class collectionofoffershiftrequest(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphoffershiftrequest"]] = None,
+        value: Optional[List["MicrosoftGraphOfferShiftRequest"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofoffershiftrequest, self).__init__(**kwargs)
+        super(CollectionOfOfferShiftRequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofopenshift(msrest.serialization.Model):
+class CollectionOfOpenShift(msrest.serialization.Model):
     """Collection of openShift.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphopenshift]
+    :type value: list[~teams.models.MicrosoftGraphOpenShift]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphopenshift]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOpenShift]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -421,31 +421,31 @@ class collectionofopenshift(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphopenshift"]] = None,
+        value: Optional[List["MicrosoftGraphOpenShift"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofopenshift, self).__init__(**kwargs)
+        super(CollectionOfOpenShift, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofopenshiftchangerequest(msrest.serialization.Model):
+class CollectionOfOpenShiftChangeRequest(msrest.serialization.Model):
     """Collection of openShiftChangeRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphopenshiftchangerequest]
+    :type value: list[~teams.models.MicrosoftGraphOpenShiftChangeRequest]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphopenshiftchangerequest]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOpenShiftChangeRequest]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -453,31 +453,31 @@ class collectionofopenshiftchangerequest(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphopenshiftchangerequest"]] = None,
+        value: Optional[List["MicrosoftGraphOpenShiftChangeRequest"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofopenshiftchangerequest, self).__init__(**kwargs)
+        super(CollectionOfOpenShiftChangeRequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofschedulinggroup(msrest.serialization.Model):
+class CollectionOfSchedulingGroup(msrest.serialization.Model):
     """Collection of schedulingGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphschedulinggroup]
+    :type value: list[~teams.models.MicrosoftGraphSchedulingGroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphschedulinggroup]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSchedulingGroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -485,31 +485,31 @@ class collectionofschedulinggroup(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphschedulinggroup"]] = None,
+        value: Optional[List["MicrosoftGraphSchedulingGroup"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofschedulinggroup, self).__init__(**kwargs)
+        super(CollectionOfSchedulingGroup, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofshift(msrest.serialization.Model):
+class CollectionOfShift(msrest.serialization.Model):
     """Collection of shift.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphshift]
+    :type value: list[~teams.models.MicrosoftGraphShift]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphshift]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphShift]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -517,31 +517,31 @@ class collectionofshift(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphshift"]] = None,
+        value: Optional[List["MicrosoftGraphShift"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofshift, self).__init__(**kwargs)
+        super(CollectionOfShift, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofswapshiftschangerequest(msrest.serialization.Model):
+class CollectionOfSwapShiftsChangeRequest(msrest.serialization.Model):
     """Collection of swapShiftsChangeRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphswapshiftschangerequest]
+    :type value: list[~teams.models.MicrosoftGraphSwapShiftsChangeRequest]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphswapshiftschangerequest]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSwapShiftsChangeRequest]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -549,31 +549,31 @@ class collectionofswapshiftschangerequest(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphswapshiftschangerequest"]] = None,
+        value: Optional[List["MicrosoftGraphSwapShiftsChangeRequest"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofswapshiftschangerequest, self).__init__(**kwargs)
+        super(CollectionOfSwapShiftsChangeRequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteam(msrest.serialization.Model):
+class CollectionOfTeam(msrest.serialization.Model):
     """Collection of team.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteam]
+    :type value: list[~teams.models.MicrosoftGraphTeam]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteam]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeam]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -581,31 +581,31 @@ class collectionofteam(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteam"]] = None,
+        value: Optional[List["MicrosoftGraphTeam"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteam, self).__init__(**kwargs)
+        super(CollectionOfTeam, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteam0(msrest.serialization.Model):
+class CollectionOfTeam0(msrest.serialization.Model):
     """Collection of team.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteam]
+    :type value: list[~teams.models.MicrosoftGraphTeam]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteam]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeam]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -613,31 +613,31 @@ class collectionofteam0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteam"]] = None,
+        value: Optional[List["MicrosoftGraphTeam"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteam0, self).__init__(**kwargs)
+        super(CollectionOfTeam0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteamsappinstallation(msrest.serialization.Model):
+class CollectionOfTeamsAppInstallation(msrest.serialization.Model):
     """Collection of teamsAppInstallation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteamsappinstallation]
+    :type value: list[~teams.models.MicrosoftGraphTeamsAppInstallation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteamsappinstallation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeamsAppInstallation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -645,31 +645,31 @@ class collectionofteamsappinstallation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteamsappinstallation"]] = None,
+        value: Optional[List["MicrosoftGraphTeamsAppInstallation"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteamsappinstallation, self).__init__(**kwargs)
+        super(CollectionOfTeamsAppInstallation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteamsasyncoperation(msrest.serialization.Model):
+class CollectionOfTeamsAsyncOperation(msrest.serialization.Model):
     """Collection of teamsAsyncOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteamsasyncoperation]
+    :type value: list[~teams.models.MicrosoftGraphTeamsAsyncOperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteamsasyncoperation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeamsAsyncOperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -677,31 +677,31 @@ class collectionofteamsasyncoperation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteamsasyncoperation"]] = None,
+        value: Optional[List["MicrosoftGraphTeamsAsyncOperation"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteamsasyncoperation, self).__init__(**kwargs)
+        super(CollectionOfTeamsAsyncOperation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteamstab(msrest.serialization.Model):
+class CollectionOfTeamsTab(msrest.serialization.Model):
     """Collection of teamsTab.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteamstab]
+    :type value: list[~teams.models.MicrosoftGraphTeamsTab]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteamstab]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeamsTab]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -709,31 +709,31 @@ class collectionofteamstab(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteamstab"]] = None,
+        value: Optional[List["MicrosoftGraphTeamsTab"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteamstab, self).__init__(**kwargs)
+        super(CollectionOfTeamsTab, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofteamstab0(msrest.serialization.Model):
+class CollectionOfTeamsTab0(msrest.serialization.Model):
     """Collection of teamsTab.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphteamstab]
+    :type value: list[~teams.models.MicrosoftGraphTeamsTab]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphteamstab]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTeamsTab]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -741,31 +741,31 @@ class collectionofteamstab0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphteamstab"]] = None,
+        value: Optional[List["MicrosoftGraphTeamsTab"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofteamstab0, self).__init__(**kwargs)
+        super(CollectionOfTeamsTab0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftimeoff(msrest.serialization.Model):
+class CollectionOfTimeOff(msrest.serialization.Model):
     """Collection of timeOff.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphtimeoff]
+    :type value: list[~teams.models.MicrosoftGraphTimeOff]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtimeoff]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTimeOff]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -773,31 +773,31 @@ class collectionoftimeoff(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtimeoff"]] = None,
+        value: Optional[List["MicrosoftGraphTimeOff"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftimeoff, self).__init__(**kwargs)
+        super(CollectionOfTimeOff, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftimeoffreason(msrest.serialization.Model):
+class CollectionOfTimeOffReason(msrest.serialization.Model):
     """Collection of timeOffReason.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphtimeoffreason]
+    :type value: list[~teams.models.MicrosoftGraphTimeOffReason]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtimeoffreason]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTimeOffReason]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -805,31 +805,31 @@ class collectionoftimeoffreason(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtimeoffreason"]] = None,
+        value: Optional[List["MicrosoftGraphTimeOffReason"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftimeoffreason, self).__init__(**kwargs)
+        super(CollectionOfTimeOffReason, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftimeoffrequest(msrest.serialization.Model):
+class CollectionOfTimeOffRequest(msrest.serialization.Model):
     """Collection of timeOffRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphtimeoffrequest]
+    :type value: list[~teams.models.MicrosoftGraphTimeOffRequest]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtimeoffrequest]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTimeOffRequest]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -837,31 +837,31 @@ class collectionoftimeoffrequest(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtimeoffrequest"]] = None,
+        value: Optional[List["MicrosoftGraphTimeOffRequest"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftimeoffrequest, self).__init__(**kwargs)
+        super(CollectionOfTimeOffRequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofworkforceintegration(msrest.serialization.Model):
+class CollectionOfWorkforceIntegration(msrest.serialization.Model):
     """Collection of workforceIntegration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~teams.models.microsoftgraphworkforceintegration]
+    :type value: list[~teams.models.MicrosoftGraphWorkforceIntegration]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphworkforceintegration]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphWorkforceIntegration]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -869,17 +869,17 @@ class collectionofworkforceintegration(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphworkforceintegration"]] = None,
+        value: Optional[List["MicrosoftGraphWorkforceIntegration"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofworkforceintegration, self).__init__(**kwargs)
+        super(CollectionOfWorkforceIntegration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -901,12 +901,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphactivityhistoryitem(microsoftgraphentity):
+class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
     """activityHistoryItem.
 
     :param id: Read-only.
@@ -934,13 +934,13 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
     :type started_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~teams.models.Microsoftgraphstatus
+    :type status: str or ~teams.models.MicrosoftGraphStatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time. Values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
     :param activity: userActivity.
-    :type activity: ~teams.models.microsoftgraphuseractivity
+    :type activity: ~teams.models.MicrosoftGraphUserActivity
     """
 
     _validation = {
@@ -958,7 +958,7 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         'started_date_time': {'key': 'startedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'activity': {'key': 'activity', 'type': 'microsoftgraphuseractivity'},
+        'activity': {'key': 'activity', 'type': 'MicrosoftGraphUserActivity'},
     }
 
     def __init__(
@@ -972,12 +972,12 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         last_active_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         started_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphStatus"]] = None,
         user_timezone: Optional[str] = None,
-        activity: Optional["microsoftgraphuseractivity"] = None,
+        activity: Optional["MicrosoftGraphUserActivity"] = None,
         **kwargs
     ):
-        super(microsoftgraphactivityhistoryitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphActivityHistoryItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.active_duration_seconds = active_duration_seconds
         self.created_date_time = created_date_time
@@ -990,7 +990,7 @@ class microsoftgraphactivityhistoryitem(microsoftgraphentity):
         self.activity = activity
 
 
-class microsoftgraphdirectoryobject(microsoftgraphentity):
+class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1016,12 +1016,12 @@ class microsoftgraphdirectoryobject(microsoftgraphentity):
         deleted_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphdirectoryobject, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDirectoryObject, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.deleted_date_time = deleted_date_time
 
 
-class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
+class MicrosoftGraphAppRoleAssignment(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1085,7 +1085,7 @@ class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
         resource_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphapproleassignment, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
+        super(MicrosoftGraphAppRoleAssignment, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.app_role_id = app_role_id
         self.created_date_time = created_date_time
@@ -1096,7 +1096,7 @@ class microsoftgraphapproleassignment(microsoftgraphdirectoryobject):
         self.resource_id = resource_id
 
 
-class microsoftgraphassignedlabel(msrest.serialization.Model):
+class MicrosoftGraphAssignedLabel(msrest.serialization.Model):
     """assignedLabel.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1122,13 +1122,13 @@ class microsoftgraphassignedlabel(msrest.serialization.Model):
         label_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphassignedlabel, self).__init__(**kwargs)
+        super(MicrosoftGraphAssignedLabel, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.label_id = label_id
 
 
-class microsoftgraphassignedlicense(msrest.serialization.Model):
+class MicrosoftGraphAssignedLicense(msrest.serialization.Model):
     """assignedLicense.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1155,13 +1155,13 @@ class microsoftgraphassignedlicense(msrest.serialization.Model):
         sku_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphassignedlicense, self).__init__(**kwargs)
+        super(MicrosoftGraphAssignedLicense, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.disabled_plans = disabled_plans
         self.sku_id = sku_id
 
 
-class microsoftgraphassignedplan(msrest.serialization.Model):
+class MicrosoftGraphAssignedPlan(msrest.serialization.Model):
     """assignedPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1198,7 +1198,7 @@ class microsoftgraphassignedplan(msrest.serialization.Model):
         service_plan_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphassignedplan, self).__init__(**kwargs)
+        super(MicrosoftGraphAssignedPlan, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.assigned_date_time = assigned_date_time
         self.capability_status = capability_status
@@ -1206,7 +1206,7 @@ class microsoftgraphassignedplan(msrest.serialization.Model):
         self.service_plan_id = service_plan_id
 
 
-class microsoftgraphattachment(microsoftgraphentity):
+class MicrosoftGraphAttachment(MicrosoftGraphEntity):
     """attachment.
 
     :param id: Read-only.
@@ -1254,7 +1254,7 @@ class microsoftgraphattachment(microsoftgraphentity):
         size: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphattachment, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAttachment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.content_type = content_type
         self.is_inline = is_inline
@@ -1263,47 +1263,47 @@ class microsoftgraphattachment(microsoftgraphentity):
         self.size = size
 
 
-class microsoftgraphrecipient(msrest.serialization.Model):
+class MicrosoftGraphRecipient(msrest.serialization.Model):
     """recipient.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param email_address: emailAddress.
-    :type email_address: ~teams.models.microsoftgraphemailaddress
+    :type email_address: ~teams.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         **kwargs
     ):
-        super(microsoftgraphrecipient, self).__init__(**kwargs)
+        super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.email_address = email_address
 
 
-class microsoftgraphattendeebase(microsoftgraphrecipient):
+class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
     """attendeeBase.
 
     :param email_address: emailAddress.
-    :type email_address: ~teams.models.microsoftgraphemailaddress
+    :type email_address: ~teams.models.MicrosoftGraphEmailAddress
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param type:  Possible values include: "required", "optional", "resource".
-    :type type: str or ~teams.models.Microsoftgraphattendeetype
+    :type type: str or ~teams.models.MicrosoftGraphAttendeeType
     """
 
     _attribute_map = {
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'type': {'key': 'type', 'type': 'str'},
     }
@@ -1311,57 +1311,57 @@ class microsoftgraphattendeebase(microsoftgraphrecipient):
     def __init__(
         self,
         *,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        type: Optional[Union[str, "Microsoftgraphattendeetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphAttendeeType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphattendeebase, self).__init__(email_address=email_address, **kwargs)
+        super(MicrosoftGraphAttendeeBase, self).__init__(email_address=email_address, **kwargs)
         self.additional_properties = additional_properties
         self.type = type
 
 
-class microsoftgraphattendee(microsoftgraphattendeebase):
+class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """attendee.
 
     :param email_address: emailAddress.
-    :type email_address: ~teams.models.microsoftgraphemailaddress
+    :type email_address: ~teams.models.MicrosoftGraphEmailAddress
     :param type:  Possible values include: "required", "optional", "resource".
-    :type type: str or ~teams.models.Microsoftgraphattendeetype
+    :type type: str or ~teams.models.MicrosoftGraphAttendeeType
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param proposed_new_time: timeSlot.
-    :type proposed_new_time: ~teams.models.microsoftgraphtimeslot
+    :type proposed_new_time: ~teams.models.MicrosoftGraphTimeSlot
     :param status: responseStatus.
-    :type status: ~teams.models.microsoftgraphresponsestatus
+    :type status: ~teams.models.MicrosoftGraphResponseStatus
     """
 
     _attribute_map = {
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'type': {'key': 'type', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'proposed_new_time': {'key': 'proposedNewTime', 'type': 'microsoftgraphtimeslot'},
-        'status': {'key': 'status', 'type': 'microsoftgraphresponsestatus'},
+        'proposed_new_time': {'key': 'proposedNewTime', 'type': 'MicrosoftGraphTimeSlot'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphResponseStatus'},
     }
 
     def __init__(
         self,
         *,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
-        type: Optional[Union[str, "Microsoftgraphattendeetype"]] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
+        type: Optional[Union[str, "MicrosoftGraphAttendeeType"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        proposed_new_time: Optional["microsoftgraphtimeslot"] = None,
-        status: Optional["microsoftgraphresponsestatus"] = None,
+        proposed_new_time: Optional["MicrosoftGraphTimeSlot"] = None,
+        status: Optional["MicrosoftGraphResponseStatus"] = None,
         **kwargs
     ):
-        super(microsoftgraphattendee, self).__init__(email_address=email_address, type=type, **kwargs)
+        super(MicrosoftGraphAttendee, self).__init__(email_address=email_address, type=type, **kwargs)
         self.additional_properties = additional_properties
         self.proposed_new_time = proposed_new_time
         self.status = status
 
 
-class microsoftgraphaudio(msrest.serialization.Model):
+class MicrosoftGraphAudio(msrest.serialization.Model):
     """audio.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1451,7 +1451,7 @@ class microsoftgraphaudio(msrest.serialization.Model):
         year: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphaudio, self).__init__(**kwargs)
+        super(MicrosoftGraphAudio, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.album = album
         self.album_artist = album_artist
@@ -1471,7 +1471,7 @@ class microsoftgraphaudio(msrest.serialization.Model):
         self.year = year
 
 
-class microsoftgraphaudioconferencing(msrest.serialization.Model):
+class MicrosoftGraphAudioConferencing(msrest.serialization.Model):
     """audioConferencing.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1506,7 +1506,7 @@ class microsoftgraphaudioconferencing(msrest.serialization.Model):
         toll_number: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphaudioconferencing, self).__init__(**kwargs)
+        super(MicrosoftGraphAudioConferencing, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.conference_id = conference_id
         self.dialin_url = dialin_url
@@ -1514,14 +1514,14 @@ class microsoftgraphaudioconferencing(msrest.serialization.Model):
         self.toll_number = toll_number
 
 
-class microsoftgraphautomaticrepliessetting(msrest.serialization.Model):
+class MicrosoftGraphAutomaticRepliesSetting(msrest.serialization.Model):
     """automaticRepliesSetting.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param external_audience:  Possible values include: "none", "contactsOnly", "all".
-    :type external_audience: str or ~teams.models.Microsoftgraphexternalaudiencescope
+    :type external_audience: str or ~teams.models.MicrosoftGraphExternalAudienceScope
     :param external_reply_message: The automatic reply to send to the specified external audience,
      if Status is AlwaysEnabled or Scheduled.
     :type external_reply_message: str
@@ -1529,11 +1529,11 @@ class microsoftgraphautomaticrepliessetting(msrest.serialization.Model):
      signed-in user's organization, if Status is AlwaysEnabled or Scheduled.
     :type internal_reply_message: str
     :param scheduled_end_date_time: dateTimeTimeZone.
-    :type scheduled_end_date_time: ~teams.models.microsoftgraphdatetimezone
+    :type scheduled_end_date_time: ~teams.models.MicrosoftGraphDateTimeZone
     :param scheduled_start_date_time: dateTimeTimeZone.
-    :type scheduled_start_date_time: ~teams.models.microsoftgraphdatetimezone
+    :type scheduled_start_date_time: ~teams.models.MicrosoftGraphDateTimeZone
     :param status:  Possible values include: "disabled", "alwaysEnabled", "scheduled".
-    :type status: str or ~teams.models.Microsoftgraphautomaticrepliesstatus
+    :type status: str or ~teams.models.MicrosoftGraphAutomaticRepliesStatus
     """
 
     _attribute_map = {
@@ -1541,8 +1541,8 @@ class microsoftgraphautomaticrepliessetting(msrest.serialization.Model):
         'external_audience': {'key': 'externalAudience', 'type': 'str'},
         'external_reply_message': {'key': 'externalReplyMessage', 'type': 'str'},
         'internal_reply_message': {'key': 'internalReplyMessage', 'type': 'str'},
-        'scheduled_end_date_time': {'key': 'scheduledEndDateTime', 'type': 'microsoftgraphdatetimezone'},
-        'scheduled_start_date_time': {'key': 'scheduledStartDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'scheduled_end_date_time': {'key': 'scheduledEndDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'scheduled_start_date_time': {'key': 'scheduledStartDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
         'status': {'key': 'status', 'type': 'str'},
     }
 
@@ -1550,15 +1550,15 @@ class microsoftgraphautomaticrepliessetting(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        external_audience: Optional[Union[str, "Microsoftgraphexternalaudiencescope"]] = None,
+        external_audience: Optional[Union[str, "MicrosoftGraphExternalAudienceScope"]] = None,
         external_reply_message: Optional[str] = None,
         internal_reply_message: Optional[str] = None,
-        scheduled_end_date_time: Optional["microsoftgraphdatetimezone"] = None,
-        scheduled_start_date_time: Optional["microsoftgraphdatetimezone"] = None,
-        status: Optional[Union[str, "Microsoftgraphautomaticrepliesstatus"]] = None,
+        scheduled_end_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        scheduled_start_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        status: Optional[Union[str, "MicrosoftGraphAutomaticRepliesStatus"]] = None,
         **kwargs
     ):
-        super(microsoftgraphautomaticrepliessetting, self).__init__(**kwargs)
+        super(MicrosoftGraphAutomaticRepliesSetting, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.external_audience = external_audience
         self.external_reply_message = external_reply_message
@@ -1568,7 +1568,7 @@ class microsoftgraphautomaticrepliessetting(msrest.serialization.Model):
         self.status = status
 
 
-class microsoftgraphbaseitem(microsoftgraphentity):
+class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     """baseItem.
 
     :param id: Read-only.
@@ -1577,7 +1577,7 @@ class microsoftgraphbaseitem(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -1585,35 +1585,35 @@ class microsoftgraphbaseitem(microsoftgraphentity):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
     }
 
     def __init__(
@@ -1621,20 +1621,20 @@ class microsoftgraphbaseitem(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         **kwargs
     ):
-        super(microsoftgraphbaseitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphBaseItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_by = created_by
         self.created_date_time = created_date_time
@@ -1649,7 +1649,7 @@ class microsoftgraphbaseitem(microsoftgraphentity):
         self.last_modified_by_user = last_modified_by_user
 
 
-class microsoftgraphbaseitemversion(microsoftgraphentity):
+class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
     """baseItemVersion.
 
     :param id: Read-only.
@@ -1658,19 +1658,19 @@ class microsoftgraphbaseitemversion(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
-    :type publication: ~teams.models.microsoftgraphpublicationfacet
+    :type publication: ~teams.models.MicrosoftGraphPublicationFacet
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'publication': {'key': 'publication', 'type': 'microsoftgraphpublicationfacet'},
+        'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
     }
 
     def __init__(
@@ -1678,19 +1678,19 @@ class microsoftgraphbaseitemversion(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        publication: Optional["microsoftgraphpublicationfacet"] = None,
+        publication: Optional["MicrosoftGraphPublicationFacet"] = None,
         **kwargs
     ):
-        super(microsoftgraphbaseitemversion, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphBaseItemVersion, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
         self.publication = publication
 
 
-class microsoftgraphcalculatedcolumn(msrest.serialization.Model):
+class MicrosoftGraphCalculatedColumn(msrest.serialization.Model):
     """calculatedColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1722,14 +1722,14 @@ class microsoftgraphcalculatedcolumn(msrest.serialization.Model):
         output_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcalculatedcolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphCalculatedColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.format = format
         self.formula = formula
         self.output_type = output_type
 
 
-class microsoftgraphcalendar(microsoftgraphentity):
+class MicrosoftGraphCalendar(MicrosoftGraphEntity):
     """calendar.
 
     :param id: Read-only.
@@ -1741,7 +1741,7 @@ class microsoftgraphcalendar(microsoftgraphentity):
      can be used to create online meetings in this calendar. Possible values are: unknown,
      skypeForBusiness, skypeForConsumer, teamsForBusiness.
     :type allowed_online_meeting_providers: list[str or
-     ~teams.models.Microsoftgraphonlinemeetingprovidertype]
+     ~teams.models.MicrosoftGraphOnlineMeetingProviderType]
     :param can_edit: True if the user can write to the calendar, false otherwise. This property is
      true for the user who created the calendar. This property is also true for a user who has been
      shared a calendar and granted write access.
@@ -1758,11 +1758,11 @@ class microsoftgraphcalendar(microsoftgraphentity):
     :type change_key: str
     :param color:  Possible values include: "lightBlue", "lightGreen", "auto", "lightOrange",
      "lightGray", "lightYellow", "lightTeal", "lightPink", "lightBrown", "lightRed", "maxColor".
-    :type color: str or ~teams.models.Microsoftgraphcalendarcolor
+    :type color: str or ~teams.models.MicrosoftGraphCalendarColor
     :param default_online_meeting_provider:  Possible values include: "unknown",
      "skypeForBusiness", "skypeForConsumer", "teamsForBusiness".
     :type default_online_meeting_provider: str or
-     ~teams.models.Microsoftgraphonlinemeetingprovidertype
+     ~teams.models.MicrosoftGraphOnlineMeetingProviderType
     :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
     :type is_removable: bool
     :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -1772,21 +1772,21 @@ class microsoftgraphcalendar(microsoftgraphentity):
     :param name: The calendar name.
     :type name: str
     :param owner: emailAddress.
-    :type owner: ~teams.models.microsoftgraphemailaddress
+    :type owner: ~teams.models.MicrosoftGraphEmailAddress
     :param calendar_permissions: The permissions of the users with whom the calendar is shared.
-    :type calendar_permissions: list[~teams.models.microsoftgraphcalendarpermission]
+    :type calendar_permissions: list[~teams.models.MicrosoftGraphCalendarPermission]
     :param calendar_view: The calendar view for the calendar. Navigation property. Read-only.
-    :type calendar_view: list[~teams.models.microsoftgraphevent]
+    :type calendar_view: list[~teams.models.MicrosoftGraphEvent]
     :param events: The events in the calendar. Navigation property. Read-only.
-    :type events: list[~teams.models.microsoftgraphevent]
+    :type events: list[~teams.models.MicrosoftGraphEvent]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the calendar. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the calendar. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -1802,12 +1802,12 @@ class microsoftgraphcalendar(microsoftgraphentity):
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'is_tallying_responses': {'key': 'isTallyingResponses', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
-        'owner': {'key': 'owner', 'type': 'microsoftgraphemailaddress'},
-        'calendar_permissions': {'key': 'calendarPermissions', 'type': '[microsoftgraphcalendarpermission]'},
-        'calendar_view': {'key': 'calendarView', 'type': '[microsoftgraphevent]'},
-        'events': {'key': 'events', 'type': '[microsoftgraphevent]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphEmailAddress'},
+        'calendar_permissions': {'key': 'calendarPermissions', 'type': '[MicrosoftGraphCalendarPermission]'},
+        'calendar_view': {'key': 'calendarView', 'type': '[MicrosoftGraphEvent]'},
+        'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -1815,25 +1815,25 @@ class microsoftgraphcalendar(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        allowed_online_meeting_providers: Optional[List[Union[str, "Microsoftgraphonlinemeetingprovidertype"]]] = None,
+        allowed_online_meeting_providers: Optional[List[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]]] = None,
         can_edit: Optional[bool] = None,
         can_share: Optional[bool] = None,
         can_view_private_items: Optional[bool] = None,
         change_key: Optional[str] = None,
-        color: Optional[Union[str, "Microsoftgraphcalendarcolor"]] = None,
-        default_online_meeting_provider: Optional[Union[str, "Microsoftgraphonlinemeetingprovidertype"]] = None,
+        color: Optional[Union[str, "MicrosoftGraphCalendarColor"]] = None,
+        default_online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
         is_removable: Optional[bool] = None,
         is_tallying_responses: Optional[bool] = None,
         name: Optional[str] = None,
-        owner: Optional["microsoftgraphemailaddress"] = None,
-        calendar_permissions: Optional[List["microsoftgraphcalendarpermission"]] = None,
-        calendar_view: Optional[List["microsoftgraphevent"]] = None,
-        events: Optional[List["microsoftgraphevent"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        owner: Optional["MicrosoftGraphEmailAddress"] = None,
+        calendar_permissions: Optional[List["MicrosoftGraphCalendarPermission"]] = None,
+        calendar_view: Optional[List["MicrosoftGraphEvent"]] = None,
+        events: Optional[List["MicrosoftGraphEvent"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendar, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendar, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_online_meeting_providers = allowed_online_meeting_providers
         self.can_edit = can_edit
@@ -1853,7 +1853,7 @@ class microsoftgraphcalendar(microsoftgraphentity):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphcalendargroup(microsoftgraphentity):
+class MicrosoftGraphCalendarGroup(MicrosoftGraphEntity):
     """calendarGroup.
 
     :param id: Read-only.
@@ -1871,7 +1871,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
     :type name: str
     :param calendars: The calendars in the calendar group. Navigation property. Read-only.
      Nullable.
-    :type calendars: list[~teams.models.microsoftgraphcalendar]
+    :type calendars: list[~teams.models.MicrosoftGraphCalendar]
     """
 
     _attribute_map = {
@@ -1880,7 +1880,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         'change_key': {'key': 'changeKey', 'type': 'str'},
         'class_id': {'key': 'classId', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'calendars': {'key': 'calendars', 'type': '[microsoftgraphcalendar]'},
+        'calendars': {'key': 'calendars', 'type': '[MicrosoftGraphCalendar]'},
     }
 
     def __init__(
@@ -1891,10 +1891,10 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         change_key: Optional[str] = None,
         class_id: Optional[str] = None,
         name: Optional[str] = None,
-        calendars: Optional[List["microsoftgraphcalendar"]] = None,
+        calendars: Optional[List["MicrosoftGraphCalendar"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendargroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendarGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.change_key = change_key
         self.class_id = class_id
@@ -1902,7 +1902,7 @@ class microsoftgraphcalendargroup(microsoftgraphentity):
         self.calendars = calendars
 
 
-class microsoftgraphcalendarpermission(microsoftgraphentity):
+class MicrosoftGraphCalendarPermission(MicrosoftGraphEntity):
     """calendarPermission.
 
     :param id: Read-only.
@@ -1913,9 +1913,9 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
     :param allowed_roles: List of allowed sharing or delegating permission levels for the calendar.
      Possible values are: none, freeBusyRead, limitedRead, read, write,
      delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-    :type allowed_roles: list[str or ~teams.models.Microsoftgraphcalendarroletype]
+    :type allowed_roles: list[str or ~teams.models.MicrosoftGraphCalendarRoleType]
     :param email_address: emailAddress.
-    :type email_address: ~teams.models.microsoftgraphemailaddress
+    :type email_address: ~teams.models.MicrosoftGraphEmailAddress
     :param is_inside_organization: True if the user in context (sharee or delegate) is inside the
      same organization as the calendar owner.
     :type is_inside_organization: bool
@@ -1926,14 +1926,14 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
     :type is_removable: bool
     :param role:  Possible values include: "none", "freeBusyRead", "limitedRead", "read", "write",
      "delegateWithoutPrivateEventAccess", "delegateWithPrivateEventAccess", "custom".
-    :type role: str or ~teams.models.Microsoftgraphcalendarroletype
+    :type role: str or ~teams.models.MicrosoftGraphCalendarRoleType
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_roles': {'key': 'allowedRoles', 'type': '[str]'},
-        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'is_inside_organization': {'key': 'isInsideOrganization', 'type': 'bool'},
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'role': {'key': 'role', 'type': 'str'},
@@ -1944,14 +1944,14 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        allowed_roles: Optional[List[Union[str, "Microsoftgraphcalendarroletype"]]] = None,
-        email_address: Optional["microsoftgraphemailaddress"] = None,
+        allowed_roles: Optional[List[Union[str, "MicrosoftGraphCalendarRoleType"]]] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         is_inside_organization: Optional[bool] = None,
         is_removable: Optional[bool] = None,
-        role: Optional[Union[str, "Microsoftgraphcalendarroletype"]] = None,
+        role: Optional[Union[str, "MicrosoftGraphCalendarRoleType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcalendarpermission, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCalendarPermission, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_roles = allowed_roles
         self.email_address = email_address
@@ -1960,7 +1960,7 @@ class microsoftgraphcalendarpermission(microsoftgraphentity):
         self.role = role
 
 
-class microsoftgraphchangetrackedentity(microsoftgraphentity):
+class MicrosoftGraphChangeTrackedEntity(MicrosoftGraphEntity):
     """changeTrackedEntity.
 
     :param id: Read-only.
@@ -1973,7 +1973,7 @@ class microsoftgraphchangetrackedentity(microsoftgraphentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -1984,7 +1984,7 @@ class microsoftgraphchangetrackedentity(microsoftgraphentity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
     }
 
@@ -1994,18 +1994,18 @@ class microsoftgraphchangetrackedentity(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphchangetrackedentity, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphChangeTrackedEntity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphchannel(microsoftgraphentity):
+class MicrosoftGraphChannel(MicrosoftGraphEntity):
     """channel.
 
     :param id: Read-only.
@@ -2020,20 +2020,20 @@ class microsoftgraphchannel(microsoftgraphentity):
     :param email: The email address for sending messages to the channel. Read-only.
     :type email: str
     :param membership_type:  Possible values include: "standard", "private", "unknownFutureValue".
-    :type membership_type: str or ~teams.models.Microsoftgraphchannelmembershiptype
+    :type membership_type: str or ~teams.models.MicrosoftGraphChannelMembershipType
     :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
      URL that you get when you right-click a channel in Microsoft Teams and select Get link to
      channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
     :type web_url: str
     :param files_folder: driveItem.
-    :type files_folder: ~teams.models.microsoftgraphdriveitem
+    :type files_folder: ~teams.models.MicrosoftGraphDriveItem
     :param members:
-    :type members: list[~teams.models.microsoftgraphconversationmember]
+    :type members: list[~teams.models.MicrosoftGraphConversationMember]
     :param messages: A collection of all the messages in the channel. A navigation property.
      Nullable.
-    :type messages: list[~teams.models.microsoftgraphchatmessage]
+    :type messages: list[~teams.models.MicrosoftGraphChatMessage]
     :param tabs: A collection of all the tabs in the channel. A navigation property.
-    :type tabs: list[~teams.models.microsoftgraphteamstab]
+    :type tabs: list[~teams.models.MicrosoftGraphTeamsTab]
     """
 
     _attribute_map = {
@@ -2044,10 +2044,10 @@ class microsoftgraphchannel(microsoftgraphentity):
         'email': {'key': 'email', 'type': 'str'},
         'membership_type': {'key': 'membershipType', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'files_folder': {'key': 'filesFolder', 'type': 'microsoftgraphdriveitem'},
-        'members': {'key': 'members', 'type': '[microsoftgraphconversationmember]'},
-        'messages': {'key': 'messages', 'type': '[microsoftgraphchatmessage]'},
-        'tabs': {'key': 'tabs', 'type': '[microsoftgraphteamstab]'},
+        'files_folder': {'key': 'filesFolder', 'type': 'MicrosoftGraphDriveItem'},
+        'members': {'key': 'members', 'type': '[MicrosoftGraphConversationMember]'},
+        'messages': {'key': 'messages', 'type': '[MicrosoftGraphChatMessage]'},
+        'tabs': {'key': 'tabs', 'type': '[MicrosoftGraphTeamsTab]'},
     }
 
     def __init__(
@@ -2058,15 +2058,15 @@ class microsoftgraphchannel(microsoftgraphentity):
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         email: Optional[str] = None,
-        membership_type: Optional[Union[str, "Microsoftgraphchannelmembershiptype"]] = None,
+        membership_type: Optional[Union[str, "MicrosoftGraphChannelMembershipType"]] = None,
         web_url: Optional[str] = None,
-        files_folder: Optional["microsoftgraphdriveitem"] = None,
-        members: Optional[List["microsoftgraphconversationmember"]] = None,
-        messages: Optional[List["microsoftgraphchatmessage"]] = None,
-        tabs: Optional[List["microsoftgraphteamstab"]] = None,
+        files_folder: Optional["MicrosoftGraphDriveItem"] = None,
+        members: Optional[List["MicrosoftGraphConversationMember"]] = None,
+        messages: Optional[List["MicrosoftGraphChatMessage"]] = None,
+        tabs: Optional[List["MicrosoftGraphTeamsTab"]] = None,
         **kwargs
     ):
-        super(microsoftgraphchannel, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphChannel, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
@@ -2079,7 +2079,7 @@ class microsoftgraphchannel(microsoftgraphentity):
         self.tabs = tabs
 
 
-class microsoftgraphchat(microsoftgraphentity):
+class MicrosoftGraphChat(MicrosoftGraphEntity):
     """chat.
 
     :param id: Read-only.
@@ -2101,11 +2101,11 @@ class microsoftgraphchat(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphchat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphChat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphchatinfo(msrest.serialization.Model):
+class MicrosoftGraphChatInfo(msrest.serialization.Model):
     """chatInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2135,14 +2135,14 @@ class microsoftgraphchatinfo(msrest.serialization.Model):
         thread_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphchatinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphChatInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.message_id = message_id
         self.reply_chain_message_id = reply_chain_message_id
         self.thread_id = thread_id
 
 
-class microsoftgraphchatmessage(microsoftgraphentity):
+class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
     """chatMessage.
 
     :param id: Read-only.
@@ -2152,9 +2152,9 @@ class microsoftgraphchatmessage(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param attachments: Attached files. Attachments are currently read-only – sending attachments
      is not supported.
-    :type attachments: list[~teams.models.microsoftgraphchatmessageattachment]
+    :type attachments: list[~teams.models.MicrosoftGraphChatMessageAttachment]
     :param body: itemBody.
-    :type body: ~teams.models.microsoftgraphitembody
+    :type body: ~teams.models.MicrosoftGraphItemBody
     :param created_date_time: Read only. Timestamp of when the chat message was created.
     :type created_date_time: ~datetime.datetime
     :param deleted_date_time: Read only. Timestamp at which the chat message was deleted, or null
@@ -2163,9 +2163,9 @@ class microsoftgraphchatmessage(microsoftgraphentity):
     :param etag: Read-only. Version number of the chat message.
     :type etag: str
     :param from_property: identitySet.
-    :type from_property: ~teams.models.microsoftgraphidentityset
+    :type from_property: ~teams.models.MicrosoftGraphIdentitySet
     :param importance:  Possible values include: "normal", "high", "urgent", "unknownFutureValue".
-    :type importance: str or ~teams.models.Microsoftgraphchatmessageimportance
+    :type importance: str or ~teams.models.MicrosoftGraphChatMessageImportance
     :param last_edited_date_time: Read only. Timestamp when edits to the chat message were made.
      Triggers an 'Edited' flag in the Microsoft Teams UI. If no edits are made the value is null.
     :type last_edited_date_time: ~datetime.datetime
@@ -2176,14 +2176,14 @@ class microsoftgraphchatmessage(microsoftgraphentity):
     :type locale: str
     :param mentions: List of entities mentioned in the chat message. Currently supports user, bot,
      team, channel.
-    :type mentions: list[~teams.models.microsoftgraphchatmessagemention]
+    :type mentions: list[~teams.models.MicrosoftGraphChatMessageMention]
     :param message_type:  Possible values include: "message", "chatEvent", "typing",
      "unknownFutureValue".
-    :type message_type: str or ~teams.models.Microsoftgraphchatmessagetype
+    :type message_type: str or ~teams.models.MicrosoftGraphChatMessageType
     :param policy_violation: chatMessagePolicyViolation.
-    :type policy_violation: ~teams.models.microsoftgraphchatmessagepolicyviolation
+    :type policy_violation: ~teams.models.MicrosoftGraphChatMessagePolicyViolation
     :param reactions:
-    :type reactions: list[~teams.models.microsoftgraphchatmessagereaction]
+    :type reactions: list[~teams.models.MicrosoftGraphChatMessageReaction]
     :param reply_to_id: Read-only. Id of the parent chat message or root chat message of the
      thread. (Only applies to chat messages in channels not chats).
     :type reply_to_id: str
@@ -2196,34 +2196,34 @@ class microsoftgraphchatmessage(microsoftgraphentity):
     :param web_url:
     :type web_url: str
     :param hosted_contents:
-    :type hosted_contents: list[~teams.models.microsoftgraphchatmessagehostedcontent]
+    :type hosted_contents: list[~teams.models.MicrosoftGraphChatMessageHostedContent]
     :param replies:
-    :type replies: list[~teams.models.microsoftgraphchatmessage]
+    :type replies: list[~teams.models.MicrosoftGraphChatMessage]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attachments': {'key': 'attachments', 'type': '[microsoftgraphchatmessageattachment]'},
-        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
+        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphChatMessageAttachment]'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'etag': {'key': 'etag', 'type': 'str'},
-        'from_property': {'key': 'from', 'type': 'microsoftgraphidentityset'},
+        'from_property': {'key': 'from', 'type': 'MicrosoftGraphIdentitySet'},
         'importance': {'key': 'importance', 'type': 'str'},
         'last_edited_date_time': {'key': 'lastEditedDateTime', 'type': 'iso-8601'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'locale': {'key': 'locale', 'type': 'str'},
-        'mentions': {'key': 'mentions', 'type': '[microsoftgraphchatmessagemention]'},
+        'mentions': {'key': 'mentions', 'type': '[MicrosoftGraphChatMessageMention]'},
         'message_type': {'key': 'messageType', 'type': 'str'},
-        'policy_violation': {'key': 'policyViolation', 'type': 'microsoftgraphchatmessagepolicyviolation'},
-        'reactions': {'key': 'reactions', 'type': '[microsoftgraphchatmessagereaction]'},
+        'policy_violation': {'key': 'policyViolation', 'type': 'MicrosoftGraphChatMessagePolicyViolation'},
+        'reactions': {'key': 'reactions', 'type': '[MicrosoftGraphChatMessageReaction]'},
         'reply_to_id': {'key': 'replyToId', 'type': 'str'},
         'subject': {'key': 'subject', 'type': 'str'},
         'summary': {'key': 'summary', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'hosted_contents': {'key': 'hostedContents', 'type': '[microsoftgraphchatmessagehostedcontent]'},
-        'replies': {'key': 'replies', 'type': '[microsoftgraphchatmessage]'},
+        'hosted_contents': {'key': 'hostedContents', 'type': '[MicrosoftGraphChatMessageHostedContent]'},
+        'replies': {'key': 'replies', 'type': '[MicrosoftGraphChatMessage]'},
     }
 
     def __init__(
@@ -2231,29 +2231,29 @@ class microsoftgraphchatmessage(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        attachments: Optional[List["microsoftgraphchatmessageattachment"]] = None,
-        body: Optional["microsoftgraphitembody"] = None,
+        attachments: Optional[List["MicrosoftGraphChatMessageAttachment"]] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         deleted_date_time: Optional[datetime.datetime] = None,
         etag: Optional[str] = None,
-        from_property: Optional["microsoftgraphidentityset"] = None,
-        importance: Optional[Union[str, "Microsoftgraphchatmessageimportance"]] = None,
+        from_property: Optional["MicrosoftGraphIdentitySet"] = None,
+        importance: Optional[Union[str, "MicrosoftGraphChatMessageImportance"]] = None,
         last_edited_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         locale: Optional[str] = None,
-        mentions: Optional[List["microsoftgraphchatmessagemention"]] = None,
-        message_type: Optional[Union[str, "Microsoftgraphchatmessagetype"]] = None,
-        policy_violation: Optional["microsoftgraphchatmessagepolicyviolation"] = None,
-        reactions: Optional[List["microsoftgraphchatmessagereaction"]] = None,
+        mentions: Optional[List["MicrosoftGraphChatMessageMention"]] = None,
+        message_type: Optional[Union[str, "MicrosoftGraphChatMessageType"]] = None,
+        policy_violation: Optional["MicrosoftGraphChatMessagePolicyViolation"] = None,
+        reactions: Optional[List["MicrosoftGraphChatMessageReaction"]] = None,
         reply_to_id: Optional[str] = None,
         subject: Optional[str] = None,
         summary: Optional[str] = None,
         web_url: Optional[str] = None,
-        hosted_contents: Optional[List["microsoftgraphchatmessagehostedcontent"]] = None,
-        replies: Optional[List["microsoftgraphchatmessage"]] = None,
+        hosted_contents: Optional[List["MicrosoftGraphChatMessageHostedContent"]] = None,
+        replies: Optional[List["MicrosoftGraphChatMessage"]] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessage, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphChatMessage, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.attachments = attachments
         self.body = body
@@ -2277,7 +2277,7 @@ class microsoftgraphchatmessage(microsoftgraphentity):
         self.replies = replies
 
 
-class microsoftgraphchatmessageattachment(msrest.serialization.Model):
+class MicrosoftGraphChatMessageAttachment(msrest.serialization.Model):
     """chatMessageAttachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2346,7 +2346,7 @@ class microsoftgraphchatmessageattachment(msrest.serialization.Model):
         thumbnail_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessageattachment, self).__init__(**kwargs)
+        super(MicrosoftGraphChatMessageAttachment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
@@ -2356,7 +2356,7 @@ class microsoftgraphchatmessageattachment(msrest.serialization.Model):
         self.thumbnail_url = thumbnail_url
 
 
-class microsoftgraphchatmessagehostedcontent(microsoftgraphentity):
+class MicrosoftGraphChatMessageHostedContent(MicrosoftGraphEntity):
     """chatMessageHostedContent.
 
     :param id: Read-only.
@@ -2378,11 +2378,11 @@ class microsoftgraphchatmessagehostedcontent(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessagehostedcontent, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphChatMessageHostedContent, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphchatmessagemention(msrest.serialization.Model):
+class MicrosoftGraphChatMessageMention(msrest.serialization.Model):
     """chatMessageMention.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2392,7 +2392,7 @@ class microsoftgraphchatmessagemention(msrest.serialization.Model):
      value in the corresponding :code:`<at id='{index}'>` tag in the message body.
     :type id: int
     :param mentioned: identitySet.
-    :type mentioned: ~teams.models.microsoftgraphidentityset
+    :type mentioned: ~teams.models.MicrosoftGraphIdentitySet
     :param mention_text: String used to represent the mention. For example, a user's display name,
      a team name.
     :type mention_text: str
@@ -2405,7 +2405,7 @@ class microsoftgraphchatmessagemention(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'int'},
-        'mentioned': {'key': 'mentioned', 'type': 'microsoftgraphidentityset'},
+        'mentioned': {'key': 'mentioned', 'type': 'MicrosoftGraphIdentitySet'},
         'mention_text': {'key': 'mentionText', 'type': 'str'},
     }
 
@@ -2414,18 +2414,18 @@ class microsoftgraphchatmessagemention(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[int] = None,
-        mentioned: Optional["microsoftgraphidentityset"] = None,
+        mentioned: Optional["MicrosoftGraphIdentitySet"] = None,
         mention_text: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessagemention, self).__init__(**kwargs)
+        super(MicrosoftGraphChatMessageMention, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
         self.mentioned = mentioned
         self.mention_text = mention_text
 
 
-class microsoftgraphchatmessagepolicyviolation(msrest.serialization.Model):
+class MicrosoftGraphChatMessagePolicyViolation(msrest.serialization.Model):
     """chatMessagePolicyViolation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2433,24 +2433,24 @@ class microsoftgraphchatmessagepolicyviolation(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param dlp_action:  Possible values include: "none", "notifySender", "blockAccess",
      "blockAccessExternal".
-    :type dlp_action: str or ~teams.models.Microsoftgraphchatmessagepolicyviolationdlpactiontypes
+    :type dlp_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
     :param justification_text:
     :type justification_text: str
     :param policy_tip: chatMessagePolicyViolationPolicyTip.
-    :type policy_tip: ~teams.models.microsoftgraphchatmessagepolicyviolationpolicytip
+    :type policy_tip: ~teams.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip
     :param user_action:  Possible values include: "none", "override", "reportFalsePositive".
-    :type user_action: str or ~teams.models.Microsoftgraphchatmessagepolicyviolationuseractiontypes
+    :type user_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationUserActionTypes
     :param verdict_details:  Possible values include: "none", "allowFalsePositiveOverride",
      "allowOverrideWithoutJustification", "allowOverrideWithJustification".
     :type verdict_details: str or
-     ~teams.models.Microsoftgraphchatmessagepolicyviolationverdictdetailstypes
+     ~teams.models.MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'dlp_action': {'key': 'dlpAction', 'type': 'str'},
         'justification_text': {'key': 'justificationText', 'type': 'str'},
-        'policy_tip': {'key': 'policyTip', 'type': 'microsoftgraphchatmessagepolicyviolationpolicytip'},
+        'policy_tip': {'key': 'policyTip', 'type': 'MicrosoftGraphChatMessagePolicyViolationPolicyTip'},
         'user_action': {'key': 'userAction', 'type': 'str'},
         'verdict_details': {'key': 'verdictDetails', 'type': 'str'},
     }
@@ -2459,14 +2459,14 @@ class microsoftgraphchatmessagepolicyviolation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        dlp_action: Optional[Union[str, "Microsoftgraphchatmessagepolicyviolationdlpactiontypes"]] = None,
+        dlp_action: Optional[Union[str, "MicrosoftGraphChatMessagePolicyViolationDlpActionTypes"]] = None,
         justification_text: Optional[str] = None,
-        policy_tip: Optional["microsoftgraphchatmessagepolicyviolationpolicytip"] = None,
-        user_action: Optional[Union[str, "Microsoftgraphchatmessagepolicyviolationuseractiontypes"]] = None,
-        verdict_details: Optional[Union[str, "Microsoftgraphchatmessagepolicyviolationverdictdetailstypes"]] = None,
+        policy_tip: Optional["MicrosoftGraphChatMessagePolicyViolationPolicyTip"] = None,
+        user_action: Optional[Union[str, "MicrosoftGraphChatMessagePolicyViolationUserActionTypes"]] = None,
+        verdict_details: Optional[Union[str, "MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes"]] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessagepolicyviolation, self).__init__(**kwargs)
+        super(MicrosoftGraphChatMessagePolicyViolation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.dlp_action = dlp_action
         self.justification_text = justification_text
@@ -2475,7 +2475,7 @@ class microsoftgraphchatmessagepolicyviolation(msrest.serialization.Model):
         self.verdict_details = verdict_details
 
 
-class microsoftgraphchatmessagepolicyviolationpolicytip(msrest.serialization.Model):
+class MicrosoftGraphChatMessagePolicyViolationPolicyTip(msrest.serialization.Model):
     """chatMessagePolicyViolationPolicyTip.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2505,14 +2505,14 @@ class microsoftgraphchatmessagepolicyviolationpolicytip(msrest.serialization.Mod
         matched_condition_descriptions: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessagepolicyviolationpolicytip, self).__init__(**kwargs)
+        super(MicrosoftGraphChatMessagePolicyViolationPolicyTip, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.compliance_url = compliance_url
         self.general_text = general_text
         self.matched_condition_descriptions = matched_condition_descriptions
 
 
-class microsoftgraphchatmessagereaction(msrest.serialization.Model):
+class MicrosoftGraphChatMessageReaction(msrest.serialization.Model):
     """chatMessageReaction.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2523,14 +2523,14 @@ class microsoftgraphchatmessagereaction(msrest.serialization.Model):
     :param reaction_type:
     :type reaction_type: str
     :param user: identitySet.
-    :type user: ~teams.models.microsoftgraphidentityset
+    :type user: ~teams.models.MicrosoftGraphIdentitySet
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'reaction_type': {'key': 'reactionType', 'type': 'str'},
-        'user': {'key': 'user', 'type': 'microsoftgraphidentityset'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentitySet'},
     }
 
     def __init__(
@@ -2539,17 +2539,17 @@ class microsoftgraphchatmessagereaction(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         reaction_type: Optional[str] = None,
-        user: Optional["microsoftgraphidentityset"] = None,
+        user: Optional["MicrosoftGraphIdentitySet"] = None,
         **kwargs
     ):
-        super(microsoftgraphchatmessagereaction, self).__init__(**kwargs)
+        super(MicrosoftGraphChatMessageReaction, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.reaction_type = reaction_type
         self.user = user
 
 
-class microsoftgraphchoicecolumn(msrest.serialization.Model):
+class MicrosoftGraphChoiceColumn(msrest.serialization.Model):
     """choiceColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2580,14 +2580,14 @@ class microsoftgraphchoicecolumn(msrest.serialization.Model):
         display_as: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphchoicecolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphChoiceColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_text_entry = allow_text_entry
         self.choices = choices
         self.display_as = display_as
 
 
-class microsoftgraphcolumndefinition(microsoftgraphentity):
+class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
     """columnDefinition.
 
     :param id: Read-only.
@@ -2598,18 +2598,18 @@ class microsoftgraphcolumndefinition(microsoftgraphentity):
     :param boolean: booleanColumn.
     :type boolean: dict[str, object]
     :param calculated: calculatedColumn.
-    :type calculated: ~teams.models.microsoftgraphcalculatedcolumn
+    :type calculated: ~teams.models.MicrosoftGraphCalculatedColumn
     :param choice: choiceColumn.
-    :type choice: ~teams.models.microsoftgraphchoicecolumn
+    :type choice: ~teams.models.MicrosoftGraphChoiceColumn
     :param column_group: For site columns, the name of the group this column belongs to. Helps
      organize related columns.
     :type column_group: str
     :param currency: currencyColumn.
-    :type currency: ~teams.models.microsoftgraphcurrencycolumn
+    :type currency: ~teams.models.MicrosoftGraphCurrencyColumn
     :param date_time: dateTimeColumn.
-    :type date_time: ~teams.models.microsoftgraphdatetimecolumn
+    :type date_time: ~teams.models.MicrosoftGraphDateTimeColumn
     :param default_value: defaultColumnValue.
-    :type default_value: ~teams.models.microsoftgraphdefaultcolumnvalue
+    :type default_value: ~teams.models.MicrosoftGraphDefaultColumnValue
     :param description: The user-facing description of the column.
     :type description: str
     :param display_name: The user-facing name of the column.
@@ -2624,45 +2624,45 @@ class microsoftgraphcolumndefinition(microsoftgraphentity):
     :param indexed: Specifies whether the column values can used for sorting and searching.
     :type indexed: bool
     :param lookup: lookupColumn.
-    :type lookup: ~teams.models.microsoftgraphlookupcolumn
+    :type lookup: ~teams.models.MicrosoftGraphLookupColumn
     :param name: The API-facing name of the column as it appears in the [fields][] on a
      [listItem][]. For the user-facing name, see displayName.
     :type name: str
     :param number: numberColumn.
-    :type number: ~teams.models.microsoftgraphnumbercolumn
+    :type number: ~teams.models.MicrosoftGraphNumberColumn
     :param person_or_group: personOrGroupColumn.
-    :type person_or_group: ~teams.models.microsoftgraphpersonorgroupcolumn
+    :type person_or_group: ~teams.models.MicrosoftGraphPersonOrGroupColumn
     :param read_only: Specifies whether the column values can be modified.
     :type read_only: bool
     :param required: Specifies whether the column value is not optional.
     :type required: bool
     :param text: textColumn.
-    :type text: ~teams.models.microsoftgraphtextcolumn
+    :type text: ~teams.models.MicrosoftGraphTextColumn
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'boolean': {'key': 'boolean', 'type': '{object}'},
-        'calculated': {'key': 'calculated', 'type': 'microsoftgraphcalculatedcolumn'},
-        'choice': {'key': 'choice', 'type': 'microsoftgraphchoicecolumn'},
+        'calculated': {'key': 'calculated', 'type': 'MicrosoftGraphCalculatedColumn'},
+        'choice': {'key': 'choice', 'type': 'MicrosoftGraphChoiceColumn'},
         'column_group': {'key': 'columnGroup', 'type': 'str'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrencycolumn'},
-        'date_time': {'key': 'dateTime', 'type': 'microsoftgraphdatetimecolumn'},
-        'default_value': {'key': 'defaultValue', 'type': 'microsoftgraphdefaultcolumnvalue'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrencyColumn'},
+        'date_time': {'key': 'dateTime', 'type': 'MicrosoftGraphDateTimeColumn'},
+        'default_value': {'key': 'defaultValue', 'type': 'MicrosoftGraphDefaultColumnValue'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'enforce_unique_values': {'key': 'enforceUniqueValues', 'type': 'bool'},
         'geolocation': {'key': 'geolocation', 'type': '{object}'},
         'hidden': {'key': 'hidden', 'type': 'bool'},
         'indexed': {'key': 'indexed', 'type': 'bool'},
-        'lookup': {'key': 'lookup', 'type': 'microsoftgraphlookupcolumn'},
+        'lookup': {'key': 'lookup', 'type': 'MicrosoftGraphLookupColumn'},
         'name': {'key': 'name', 'type': 'str'},
-        'number': {'key': 'number', 'type': 'microsoftgraphnumbercolumn'},
-        'person_or_group': {'key': 'personOrGroup', 'type': 'microsoftgraphpersonorgroupcolumn'},
+        'number': {'key': 'number', 'type': 'MicrosoftGraphNumberColumn'},
+        'person_or_group': {'key': 'personOrGroup', 'type': 'MicrosoftGraphPersonOrGroupColumn'},
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'required': {'key': 'required', 'type': 'bool'},
-        'text': {'key': 'text', 'type': 'microsoftgraphtextcolumn'},
+        'text': {'key': 'text', 'type': 'MicrosoftGraphTextColumn'},
     }
 
     def __init__(
@@ -2671,28 +2671,28 @@ class microsoftgraphcolumndefinition(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         boolean: Optional[Dict[str, object]] = None,
-        calculated: Optional["microsoftgraphcalculatedcolumn"] = None,
-        choice: Optional["microsoftgraphchoicecolumn"] = None,
+        calculated: Optional["MicrosoftGraphCalculatedColumn"] = None,
+        choice: Optional["MicrosoftGraphChoiceColumn"] = None,
         column_group: Optional[str] = None,
-        currency: Optional["microsoftgraphcurrencycolumn"] = None,
-        date_time: Optional["microsoftgraphdatetimecolumn"] = None,
-        default_value: Optional["microsoftgraphdefaultcolumnvalue"] = None,
+        currency: Optional["MicrosoftGraphCurrencyColumn"] = None,
+        date_time: Optional["MicrosoftGraphDateTimeColumn"] = None,
+        default_value: Optional["MicrosoftGraphDefaultColumnValue"] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         enforce_unique_values: Optional[bool] = None,
         geolocation: Optional[Dict[str, object]] = None,
         hidden: Optional[bool] = None,
         indexed: Optional[bool] = None,
-        lookup: Optional["microsoftgraphlookupcolumn"] = None,
+        lookup: Optional["MicrosoftGraphLookupColumn"] = None,
         name: Optional[str] = None,
-        number: Optional["microsoftgraphnumbercolumn"] = None,
-        person_or_group: Optional["microsoftgraphpersonorgroupcolumn"] = None,
+        number: Optional["MicrosoftGraphNumberColumn"] = None,
+        person_or_group: Optional["MicrosoftGraphPersonOrGroupColumn"] = None,
         read_only: Optional[bool] = None,
         required: Optional[bool] = None,
-        text: Optional["microsoftgraphtextcolumn"] = None,
+        text: Optional["MicrosoftGraphTextColumn"] = None,
         **kwargs
     ):
-        super(microsoftgraphcolumndefinition, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphColumnDefinition, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.boolean = boolean
         self.calculated = calculated
@@ -2716,7 +2716,7 @@ class microsoftgraphcolumndefinition(microsoftgraphentity):
         self.text = text
 
 
-class microsoftgraphcolumnlink(microsoftgraphentity):
+class MicrosoftGraphColumnLink(MicrosoftGraphEntity):
     """columnLink.
 
     :param id: Read-only.
@@ -2742,12 +2742,12 @@ class microsoftgraphcolumnlink(microsoftgraphentity):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcolumnlink, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphColumnLink, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
 
 
-class microsoftgraphconfigurationmanagerclientenabledfeatures(msrest.serialization.Model):
+class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serialization.Model):
     """configuration Manager client enabled features.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2789,7 +2789,7 @@ class microsoftgraphconfigurationmanagerclientenabledfeatures(msrest.serializati
         windows_update_for_business: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphconfigurationmanagerclientenabledfeatures, self).__init__(**kwargs)
+        super(MicrosoftGraphConfigurationManagerClientEnabledFeatures, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.compliance_policy = compliance_policy
         self.device_configuration = device_configuration
@@ -2799,7 +2799,7 @@ class microsoftgraphconfigurationmanagerclientenabledfeatures(msrest.serializati
         self.windows_update_for_business = windows_update_for_business
 
 
-class microsoftgraphoutlookitem(microsoftgraphentity):
+class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
     """outlookItem.
 
     :param id: Read-only.
@@ -2843,7 +2843,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOutlookItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.change_key = change_key
@@ -2851,7 +2851,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphcontact(microsoftgraphoutlookitem):
+class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
     :param id: Read-only.
@@ -2880,7 +2880,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
      1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type birthday: ~datetime.datetime
     :param business_address: physicalAddress.
-    :type business_address: ~teams.models.microsoftgraphphysicaladdress
+    :type business_address: ~teams.models.MicrosoftGraphPhysicalAddress
     :param business_home_page: The business home page of the contact.
     :type business_home_page: str
     :param business_phones: The contact's business phone numbers.
@@ -2897,7 +2897,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
      existing value, always include it as displayName in an update operation.
     :type display_name: str
     :param email_addresses: The contact's email addresses.
-    :type email_addresses: list[~teams.models.microsoftgraphemailaddress]
+    :type email_addresses: list[~teams.models.MicrosoftGraphEmailAddress]
     :param file_as: The name the contact is filed under.
     :type file_as: str
     :param generation: The contact's generation.
@@ -2905,7 +2905,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :param given_name: The contact's given name.
     :type given_name: str
     :param home_address: physicalAddress.
-    :type home_address: ~teams.models.microsoftgraphphysicaladdress
+    :type home_address: ~teams.models.MicrosoftGraphPhysicalAddress
     :param home_phones: The contact's home phone numbers.
     :type home_phones: list[str]
     :param im_addresses: The contact's instant messaging (IM) addresses.
@@ -2925,7 +2925,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :param office_location: The location of the contact's office.
     :type office_location: str
     :param other_address: physicalAddress.
-    :type other_address: ~teams.models.microsoftgraphphysicaladdress
+    :type other_address: ~teams.models.MicrosoftGraphPhysicalAddress
     :param parent_folder_id: The ID of the contact's parent folder.
     :type parent_folder_id: str
     :param personal_notes: The user's notes about the contact.
@@ -2946,17 +2946,17 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :type yomi_surname: str
     :param extensions: The collection of open extensions defined for the contact. Read-only.
      Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the contact. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param photo: profilePhoto.
-    :type photo: ~teams.models.microsoftgraphprofilephoto
+    :type photo: ~teams.models.MicrosoftGraphProfilePhoto
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the contact. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -2968,18 +2968,18 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         'additional_properties': {'key': '', 'type': '{object}'},
         'assistant_name': {'key': 'assistantName', 'type': 'str'},
         'birthday': {'key': 'birthday', 'type': 'iso-8601'},
-        'business_address': {'key': 'businessAddress', 'type': 'microsoftgraphphysicaladdress'},
+        'business_address': {'key': 'businessAddress', 'type': 'MicrosoftGraphPhysicalAddress'},
         'business_home_page': {'key': 'businessHomePage', 'type': 'str'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
         'children': {'key': 'children', 'type': '[str]'},
         'company_name': {'key': 'companyName', 'type': 'str'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'email_addresses': {'key': 'emailAddresses', 'type': '[microsoftgraphemailaddress]'},
+        'email_addresses': {'key': 'emailAddresses', 'type': '[MicrosoftGraphEmailAddress]'},
         'file_as': {'key': 'fileAs', 'type': 'str'},
         'generation': {'key': 'generation', 'type': 'str'},
         'given_name': {'key': 'givenName', 'type': 'str'},
-        'home_address': {'key': 'homeAddress', 'type': 'microsoftgraphphysicaladdress'},
+        'home_address': {'key': 'homeAddress', 'type': 'MicrosoftGraphPhysicalAddress'},
         'home_phones': {'key': 'homePhones', 'type': '[str]'},
         'im_addresses': {'key': 'imAddresses', 'type': '[str]'},
         'initials': {'key': 'initials', 'type': 'str'},
@@ -2989,7 +2989,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         'mobile_phone': {'key': 'mobilePhone', 'type': 'str'},
         'nick_name': {'key': 'nickName', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
-        'other_address': {'key': 'otherAddress', 'type': 'microsoftgraphphysicaladdress'},
+        'other_address': {'key': 'otherAddress', 'type': 'MicrosoftGraphPhysicalAddress'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'personal_notes': {'key': 'personalNotes', 'type': 'str'},
         'profession': {'key': 'profession', 'type': 'str'},
@@ -2999,10 +2999,10 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         'yomi_company_name': {'key': 'yomiCompanyName', 'type': 'str'},
         'yomi_given_name': {'key': 'yomiGivenName', 'type': 'str'},
         'yomi_surname': {'key': 'yomiSurname', 'type': 'str'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'photo': {'key': 'photo', 'type': 'microsoftgraphprofilephoto'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -3016,18 +3016,18 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         additional_properties: Optional[Dict[str, object]] = None,
         assistant_name: Optional[str] = None,
         birthday: Optional[datetime.datetime] = None,
-        business_address: Optional["microsoftgraphphysicaladdress"] = None,
+        business_address: Optional["MicrosoftGraphPhysicalAddress"] = None,
         business_home_page: Optional[str] = None,
         business_phones: Optional[List[str]] = None,
         children: Optional[List[str]] = None,
         company_name: Optional[str] = None,
         department: Optional[str] = None,
         display_name: Optional[str] = None,
-        email_addresses: Optional[List["microsoftgraphemailaddress"]] = None,
+        email_addresses: Optional[List["MicrosoftGraphEmailAddress"]] = None,
         file_as: Optional[str] = None,
         generation: Optional[str] = None,
         given_name: Optional[str] = None,
-        home_address: Optional["microsoftgraphphysicaladdress"] = None,
+        home_address: Optional["MicrosoftGraphPhysicalAddress"] = None,
         home_phones: Optional[List[str]] = None,
         im_addresses: Optional[List[str]] = None,
         initials: Optional[str] = None,
@@ -3037,7 +3037,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         mobile_phone: Optional[str] = None,
         nick_name: Optional[str] = None,
         office_location: Optional[str] = None,
-        other_address: Optional["microsoftgraphphysicaladdress"] = None,
+        other_address: Optional["MicrosoftGraphPhysicalAddress"] = None,
         parent_folder_id: Optional[str] = None,
         personal_notes: Optional[str] = None,
         profession: Optional[str] = None,
@@ -3047,13 +3047,13 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         yomi_company_name: Optional[str] = None,
         yomi_given_name: Optional[str] = None,
         yomi_surname: Optional[str] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        photo: Optional["microsoftgraphprofilephoto"] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        photo: Optional["MicrosoftGraphProfilePhoto"] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcontact, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphContact, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.assistant_name = assistant_name
         self.birthday = birthday
@@ -3094,7 +3094,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphcontactfolder(microsoftgraphentity):
+class MicrosoftGraphContactFolder(MicrosoftGraphEntity):
     """contactFolder.
 
     :param id: Read-only.
@@ -3108,17 +3108,17 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
     :type parent_folder_id: str
     :param child_folders: The collection of child folders in the folder. Navigation property. Read-
      only. Nullable.
-    :type child_folders: list[~teams.models.microsoftgraphcontactfolder]
+    :type child_folders: list[~teams.models.MicrosoftGraphContactFolder]
     :param contacts: The contacts in the folder. Navigation property. Read-only. Nullable.
-    :type contacts: list[~teams.models.microsoftgraphcontact]
+    :type contacts: list[~teams.models.MicrosoftGraphContact]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the contactFolder. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the contactFolder. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -3126,10 +3126,10 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
-        'child_folders': {'key': 'childFolders', 'type': '[microsoftgraphcontactfolder]'},
-        'contacts': {'key': 'contacts', 'type': '[microsoftgraphcontact]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'child_folders': {'key': 'childFolders', 'type': '[MicrosoftGraphContactFolder]'},
+        'contacts': {'key': 'contacts', 'type': '[MicrosoftGraphContact]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -3139,13 +3139,13 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         parent_folder_id: Optional[str] = None,
-        child_folders: Optional[List["microsoftgraphcontactfolder"]] = None,
-        contacts: Optional[List["microsoftgraphcontact"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        child_folders: Optional[List["MicrosoftGraphContactFolder"]] = None,
+        contacts: Optional[List["MicrosoftGraphContact"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcontactfolder, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphContactFolder, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.parent_folder_id = parent_folder_id
@@ -3155,7 +3155,7 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphcontenttype(microsoftgraphentity):
+class MicrosoftGraphContentType(MicrosoftGraphEntity):
     """contentType.
 
     :param id: Read-only.
@@ -3171,11 +3171,11 @@ class microsoftgraphcontenttype(microsoftgraphentity):
     :param hidden: Indicates whether the content type is hidden in the list's 'New' menu.
     :type hidden: bool
     :param inherited_from: itemReference.
-    :type inherited_from: ~teams.models.microsoftgraphitemreference
+    :type inherited_from: ~teams.models.MicrosoftGraphItemReference
     :param name: The name of the content type.
     :type name: str
     :param order: contentTypeOrder.
-    :type order: ~teams.models.microsoftgraphcontenttypeorder
+    :type order: ~teams.models.MicrosoftGraphContentTypeOrder
     :param parent_id: The unique identifier of the content type.
     :type parent_id: str
     :param read_only: If true, the content type cannot be modified unless this value is first set
@@ -3185,7 +3185,7 @@ class microsoftgraphcontenttype(microsoftgraphentity):
      operations. Only site collection administrators can seal or unseal content types.
     :type sealed: bool
     :param column_links: The collection of columns that are required by this content type.
-    :type column_links: list[~teams.models.microsoftgraphcolumnlink]
+    :type column_links: list[~teams.models.MicrosoftGraphColumnLink]
     """
 
     _attribute_map = {
@@ -3194,13 +3194,13 @@ class microsoftgraphcontenttype(microsoftgraphentity):
         'description': {'key': 'description', 'type': 'str'},
         'group': {'key': 'group', 'type': 'str'},
         'hidden': {'key': 'hidden', 'type': 'bool'},
-        'inherited_from': {'key': 'inheritedFrom', 'type': 'microsoftgraphitemreference'},
+        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
         'name': {'key': 'name', 'type': 'str'},
-        'order': {'key': 'order', 'type': 'microsoftgraphcontenttypeorder'},
+        'order': {'key': 'order', 'type': 'MicrosoftGraphContentTypeOrder'},
         'parent_id': {'key': 'parentId', 'type': 'str'},
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'sealed': {'key': 'sealed', 'type': 'bool'},
-        'column_links': {'key': 'columnLinks', 'type': '[microsoftgraphcolumnlink]'},
+        'column_links': {'key': 'columnLinks', 'type': '[MicrosoftGraphColumnLink]'},
     }
 
     def __init__(
@@ -3211,16 +3211,16 @@ class microsoftgraphcontenttype(microsoftgraphentity):
         description: Optional[str] = None,
         group: Optional[str] = None,
         hidden: Optional[bool] = None,
-        inherited_from: Optional["microsoftgraphitemreference"] = None,
+        inherited_from: Optional["MicrosoftGraphItemReference"] = None,
         name: Optional[str] = None,
-        order: Optional["microsoftgraphcontenttypeorder"] = None,
+        order: Optional["MicrosoftGraphContentTypeOrder"] = None,
         parent_id: Optional[str] = None,
         read_only: Optional[bool] = None,
         sealed: Optional[bool] = None,
-        column_links: Optional[List["microsoftgraphcolumnlink"]] = None,
+        column_links: Optional[List["MicrosoftGraphColumnLink"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcontenttype, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphContentType, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.group = group
@@ -3234,7 +3234,7 @@ class microsoftgraphcontenttype(microsoftgraphentity):
         self.column_links = column_links
 
 
-class microsoftgraphcontenttypeinfo(msrest.serialization.Model):
+class MicrosoftGraphContentTypeInfo(msrest.serialization.Model):
     """contentTypeInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3260,13 +3260,13 @@ class microsoftgraphcontenttypeinfo(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcontenttypeinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphContentTypeInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
         self.name = name
 
 
-class microsoftgraphcontenttypeorder(msrest.serialization.Model):
+class MicrosoftGraphContentTypeOrder(msrest.serialization.Model):
     """contentTypeOrder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3296,13 +3296,13 @@ class microsoftgraphcontenttypeorder(msrest.serialization.Model):
         position: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphcontenttypeorder, self).__init__(**kwargs)
+        super(MicrosoftGraphContentTypeOrder, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.default = default
         self.position = position
 
 
-class microsoftgraphconversation(microsoftgraphentity):
+class MicrosoftGraphConversation(MicrosoftGraphEntity):
     """conversation.
 
     :param id: Read-only.
@@ -3326,7 +3326,7 @@ class microsoftgraphconversation(microsoftgraphentity):
     :type unique_senders: list[str]
     :param threads: A collection of all the conversation threads in the conversation. A navigation
      property. Read-only. Nullable.
-    :type threads: list[~teams.models.microsoftgraphconversationthread]
+    :type threads: list[~teams.models.MicrosoftGraphConversationThread]
     """
 
     _attribute_map = {
@@ -3337,7 +3337,7 @@ class microsoftgraphconversation(microsoftgraphentity):
         'preview': {'key': 'preview', 'type': 'str'},
         'topic': {'key': 'topic', 'type': 'str'},
         'unique_senders': {'key': 'uniqueSenders', 'type': '[str]'},
-        'threads': {'key': 'threads', 'type': '[microsoftgraphconversationthread]'},
+        'threads': {'key': 'threads', 'type': '[MicrosoftGraphConversationThread]'},
     }
 
     def __init__(
@@ -3350,10 +3350,10 @@ class microsoftgraphconversation(microsoftgraphentity):
         preview: Optional[str] = None,
         topic: Optional[str] = None,
         unique_senders: Optional[List[str]] = None,
-        threads: Optional[List["microsoftgraphconversationthread"]] = None,
+        threads: Optional[List["MicrosoftGraphConversationThread"]] = None,
         **kwargs
     ):
-        super(microsoftgraphconversation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphConversation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.has_attachments = has_attachments
         self.last_delivered_date_time = last_delivered_date_time
@@ -3363,7 +3363,7 @@ class microsoftgraphconversation(microsoftgraphentity):
         self.threads = threads
 
 
-class microsoftgraphconversationmember(microsoftgraphentity):
+class MicrosoftGraphConversationMember(MicrosoftGraphEntity):
     """conversationMember.
 
     :param id: Read-only.
@@ -3393,13 +3393,13 @@ class microsoftgraphconversationmember(microsoftgraphentity):
         roles: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphconversationmember, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphConversationMember, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.roles = roles
 
 
-class microsoftgraphconversationthread(microsoftgraphentity):
+class MicrosoftGraphConversationThread(MicrosoftGraphEntity):
     """conversationThread.
 
     :param id: Read-only.
@@ -3408,7 +3408,7 @@ class microsoftgraphconversationthread(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param cc_recipients: The Cc: recipients for the thread.
-    :type cc_recipients: list[~teams.models.microsoftgraphrecipient]
+    :type cc_recipients: list[~teams.models.MicrosoftGraphRecipient]
     :param has_attachments: Indicates whether any of the posts within this thread has at least one
      attachment.
     :type has_attachments: bool
@@ -3424,25 +3424,25 @@ class microsoftgraphconversationthread(microsoftgraphentity):
      created, but it cannot be updated.
     :type topic: str
     :param to_recipients: The To: recipients for the thread.
-    :type to_recipients: list[~teams.models.microsoftgraphrecipient]
+    :type to_recipients: list[~teams.models.MicrosoftGraphRecipient]
     :param unique_senders: All the users that sent a message to this thread.
     :type unique_senders: list[str]
     :param posts: Read-only. Nullable.
-    :type posts: list[~teams.models.microsoftgraphpost]
+    :type posts: list[~teams.models.MicrosoftGraphPost]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'cc_recipients': {'key': 'ccRecipients', 'type': '[microsoftgraphrecipient]'},
+        'cc_recipients': {'key': 'ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'is_locked': {'key': 'isLocked', 'type': 'bool'},
         'last_delivered_date_time': {'key': 'lastDeliveredDateTime', 'type': 'iso-8601'},
         'preview': {'key': 'preview', 'type': 'str'},
         'topic': {'key': 'topic', 'type': 'str'},
-        'to_recipients': {'key': 'toRecipients', 'type': '[microsoftgraphrecipient]'},
+        'to_recipients': {'key': 'toRecipients', 'type': '[MicrosoftGraphRecipient]'},
         'unique_senders': {'key': 'uniqueSenders', 'type': '[str]'},
-        'posts': {'key': 'posts', 'type': '[microsoftgraphpost]'},
+        'posts': {'key': 'posts', 'type': '[MicrosoftGraphPost]'},
     }
 
     def __init__(
@@ -3450,18 +3450,18 @@ class microsoftgraphconversationthread(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        cc_recipients: Optional[List["microsoftgraphrecipient"]] = None,
+        cc_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
         has_attachments: Optional[bool] = None,
         is_locked: Optional[bool] = None,
         last_delivered_date_time: Optional[datetime.datetime] = None,
         preview: Optional[str] = None,
         topic: Optional[str] = None,
-        to_recipients: Optional[List["microsoftgraphrecipient"]] = None,
+        to_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
         unique_senders: Optional[List[str]] = None,
-        posts: Optional[List["microsoftgraphpost"]] = None,
+        posts: Optional[List["MicrosoftGraphPost"]] = None,
         **kwargs
     ):
-        super(microsoftgraphconversationthread, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphConversationThread, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.cc_recipients = cc_recipients
         self.has_attachments = has_attachments
@@ -3474,7 +3474,7 @@ class microsoftgraphconversationthread(microsoftgraphentity):
         self.posts = posts
 
 
-class microsoftgraphcurrencycolumn(msrest.serialization.Model):
+class MicrosoftGraphCurrencyColumn(msrest.serialization.Model):
     """currencyColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3496,12 +3496,12 @@ class microsoftgraphcurrencycolumn(msrest.serialization.Model):
         locale: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcurrencycolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphCurrencyColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.locale = locale
 
 
-class microsoftgraphdatetimecolumn(msrest.serialization.Model):
+class MicrosoftGraphDateTimeColumn(msrest.serialization.Model):
     """dateTimeColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3529,13 +3529,13 @@ class microsoftgraphdatetimecolumn(msrest.serialization.Model):
         format: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdatetimecolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphDateTimeColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_as = display_as
         self.format = format
 
 
-class microsoftgraphdatetimezone(msrest.serialization.Model):
+class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
     """dateTimeTimeZone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3563,13 +3563,13 @@ class microsoftgraphdatetimezone(msrest.serialization.Model):
         time_zone: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdatetimezone, self).__init__(**kwargs)
+        super(MicrosoftGraphDateTimeZone, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.date_time = date_time
         self.time_zone = time_zone
 
 
-class microsoftgraphdefaultcolumnvalue(msrest.serialization.Model):
+class MicrosoftGraphDefaultColumnValue(msrest.serialization.Model):
     """defaultColumnValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3595,13 +3595,13 @@ class microsoftgraphdefaultcolumnvalue(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdefaultcolumnvalue, self).__init__(**kwargs)
+        super(MicrosoftGraphDefaultColumnValue, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.formula = formula
         self.value = value
 
 
-class microsoftgraphdeleted(msrest.serialization.Model):
+class MicrosoftGraphDeleted(msrest.serialization.Model):
     """deleted.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3623,12 +3623,12 @@ class microsoftgraphdeleted(msrest.serialization.Model):
         state: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdeleted, self).__init__(**kwargs)
+        super(MicrosoftGraphDeleted, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.state = state
 
 
-class microsoftgraphdeviceactionresult(msrest.serialization.Model):
+class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
     """Device action result.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3638,7 +3638,7 @@ class microsoftgraphdeviceactionresult(msrest.serialization.Model):
     :type action_name: str
     :param action_state:  Possible values include: "none", "pending", "canceled", "active", "done",
      "failed", "notSupported".
-    :type action_state: str or ~teams.models.Microsoftgraphactionstate
+    :type action_state: str or ~teams.models.MicrosoftGraphActionState
     :param last_updated_date_time: Time the action state was last updated.
     :type last_updated_date_time: ~datetime.datetime
     :param start_date_time: Time the action was initiated.
@@ -3658,12 +3658,12 @@ class microsoftgraphdeviceactionresult(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         action_name: Optional[str] = None,
-        action_state: Optional[Union[str, "Microsoftgraphactionstate"]] = None,
+        action_state: Optional[Union[str, "MicrosoftGraphActionState"]] = None,
         last_updated_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphdeviceactionresult, self).__init__(**kwargs)
+        super(MicrosoftGraphDeviceActionResult, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.action_name = action_name
         self.action_state = action_state
@@ -3671,7 +3671,7 @@ class microsoftgraphdeviceactionresult(msrest.serialization.Model):
         self.start_date_time = start_date_time
 
 
-class microsoftgraphdevicecategory(microsoftgraphentity):
+class MicrosoftGraphDeviceCategory(MicrosoftGraphEntity):
     """Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
 
     :param id: Read-only.
@@ -3701,13 +3701,13 @@ class microsoftgraphdevicecategory(microsoftgraphentity):
         display_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicecategory, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDeviceCategory, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
 
 
-class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Model):
+class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Model):
     """Device Compilance Policy Setting State for a given device.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3726,10 +3726,10 @@ class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Mode
     :param setting_name: Localized/user friendly setting name that is being reported.
     :type setting_name: str
     :param sources: Contributing policies.
-    :type sources: list[~teams.models.microsoftgraphsettingsource]
+    :type sources: list[~teams.models.MicrosoftGraphSettingSource]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~teams.models.Microsoftgraphcompliancestatus
+    :type state: str or ~teams.models.MicrosoftGraphComplianceStatus
     :param user_email: UserEmail.
     :type user_email: str
     :param user_id: UserId.
@@ -3748,7 +3748,7 @@ class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Mode
         'instance_display_name': {'key': 'instanceDisplayName', 'type': 'str'},
         'setting': {'key': 'setting', 'type': 'str'},
         'setting_name': {'key': 'settingName', 'type': 'str'},
-        'sources': {'key': 'sources', 'type': '[microsoftgraphsettingsource]'},
+        'sources': {'key': 'sources', 'type': '[MicrosoftGraphSettingSource]'},
         'state': {'key': 'state', 'type': 'str'},
         'user_email': {'key': 'userEmail', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
@@ -3766,15 +3766,15 @@ class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Mode
         instance_display_name: Optional[str] = None,
         setting: Optional[str] = None,
         setting_name: Optional[str] = None,
-        sources: Optional[List["microsoftgraphsettingsource"]] = None,
-        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
+        sources: Optional[List["MicrosoftGraphSettingSource"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
         user_email: Optional[str] = None,
         user_id: Optional[str] = None,
         user_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicecompliancepolicysettingstate, self).__init__(**kwargs)
+        super(MicrosoftGraphDeviceCompliancePolicySettingState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.current_value = current_value
         self.error_code = error_code
@@ -3790,7 +3790,7 @@ class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Mode
         self.user_principal_name = user_principal_name
 
 
-class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
+class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
     """Device Compliance Policy State for a given device.
 
     :param id: Read-only.
@@ -3802,14 +3802,14 @@ class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
     :type display_name: str
     :param platform_type:  Possible values include: "android", "iOS", "macOS", "windowsPhone81",
      "windows81AndLater", "windows10AndLater", "androidWorkProfile", "all".
-    :type platform_type: str or ~teams.models.Microsoftgraphpolicyplatformtype
+    :type platform_type: str or ~teams.models.MicrosoftGraphPolicyPlatformType
     :param setting_count: Count of how many setting a policy holds.
     :type setting_count: int
     :param setting_states:
-    :type setting_states: list[~teams.models.microsoftgraphdevicecompliancepolicysettingstate]
+    :type setting_states: list[~teams.models.MicrosoftGraphDeviceCompliancePolicySettingState]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~teams.models.Microsoftgraphcompliancestatus
+    :type state: str or ~teams.models.MicrosoftGraphComplianceStatus
     :param version: The version of the policy.
     :type version: int
     """
@@ -3825,7 +3825,7 @@ class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'platform_type': {'key': 'platformType', 'type': 'str'},
         'setting_count': {'key': 'settingCount', 'type': 'int'},
-        'setting_states': {'key': 'settingStates', 'type': '[microsoftgraphdevicecompliancepolicysettingstate]'},
+        'setting_states': {'key': 'settingStates', 'type': '[MicrosoftGraphDeviceCompliancePolicySettingState]'},
         'state': {'key': 'state', 'type': 'str'},
         'version': {'key': 'version', 'type': 'int'},
     }
@@ -3836,14 +3836,14 @@ class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        platform_type: Optional[Union[str, "Microsoftgraphpolicyplatformtype"]] = None,
+        platform_type: Optional[Union[str, "MicrosoftGraphPolicyPlatformType"]] = None,
         setting_count: Optional[int] = None,
-        setting_states: Optional[List["microsoftgraphdevicecompliancepolicysettingstate"]] = None,
-        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
+        setting_states: Optional[List["MicrosoftGraphDeviceCompliancePolicySettingState"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
         version: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicecompliancepolicystate, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDeviceCompliancePolicyState, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.platform_type = platform_type
@@ -3853,7 +3853,7 @@ class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
         self.version = version
 
 
-class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
+class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
     """Device Configuration Setting State for a given device.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3872,10 +3872,10 @@ class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
     :param setting_name: Localized/user friendly setting name that is being reported.
     :type setting_name: str
     :param sources: Contributing policies.
-    :type sources: list[~teams.models.microsoftgraphsettingsource]
+    :type sources: list[~teams.models.MicrosoftGraphSettingSource]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~teams.models.Microsoftgraphcompliancestatus
+    :type state: str or ~teams.models.MicrosoftGraphComplianceStatus
     :param user_email: UserEmail.
     :type user_email: str
     :param user_id: UserId.
@@ -3894,7 +3894,7 @@ class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
         'instance_display_name': {'key': 'instanceDisplayName', 'type': 'str'},
         'setting': {'key': 'setting', 'type': 'str'},
         'setting_name': {'key': 'settingName', 'type': 'str'},
-        'sources': {'key': 'sources', 'type': '[microsoftgraphsettingsource]'},
+        'sources': {'key': 'sources', 'type': '[MicrosoftGraphSettingSource]'},
         'state': {'key': 'state', 'type': 'str'},
         'user_email': {'key': 'userEmail', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
@@ -3912,15 +3912,15 @@ class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
         instance_display_name: Optional[str] = None,
         setting: Optional[str] = None,
         setting_name: Optional[str] = None,
-        sources: Optional[List["microsoftgraphsettingsource"]] = None,
-        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
+        sources: Optional[List["MicrosoftGraphSettingSource"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
         user_email: Optional[str] = None,
         user_id: Optional[str] = None,
         user_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdeviceconfigurationsettingstate, self).__init__(**kwargs)
+        super(MicrosoftGraphDeviceConfigurationSettingState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.current_value = current_value
         self.error_code = error_code
@@ -3936,7 +3936,7 @@ class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
         self.user_principal_name = user_principal_name
 
 
-class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
+class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
     """Device Configuration State for a given device.
 
     :param id: Read-only.
@@ -3948,14 +3948,14 @@ class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
     :type display_name: str
     :param platform_type:  Possible values include: "android", "iOS", "macOS", "windowsPhone81",
      "windows81AndLater", "windows10AndLater", "androidWorkProfile", "all".
-    :type platform_type: str or ~teams.models.Microsoftgraphpolicyplatformtype
+    :type platform_type: str or ~teams.models.MicrosoftGraphPolicyPlatformType
     :param setting_count: Count of how many setting a policy holds.
     :type setting_count: int
     :param setting_states:
-    :type setting_states: list[~teams.models.microsoftgraphdeviceconfigurationsettingstate]
+    :type setting_states: list[~teams.models.MicrosoftGraphDeviceConfigurationSettingState]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~teams.models.Microsoftgraphcompliancestatus
+    :type state: str or ~teams.models.MicrosoftGraphComplianceStatus
     :param version: The version of the policy.
     :type version: int
     """
@@ -3971,7 +3971,7 @@ class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'platform_type': {'key': 'platformType', 'type': 'str'},
         'setting_count': {'key': 'settingCount', 'type': 'int'},
-        'setting_states': {'key': 'settingStates', 'type': '[microsoftgraphdeviceconfigurationsettingstate]'},
+        'setting_states': {'key': 'settingStates', 'type': '[MicrosoftGraphDeviceConfigurationSettingState]'},
         'state': {'key': 'state', 'type': 'str'},
         'version': {'key': 'version', 'type': 'int'},
     }
@@ -3982,14 +3982,14 @@ class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        platform_type: Optional[Union[str, "Microsoftgraphpolicyplatformtype"]] = None,
+        platform_type: Optional[Union[str, "MicrosoftGraphPolicyPlatformType"]] = None,
         setting_count: Optional[int] = None,
-        setting_states: Optional[List["microsoftgraphdeviceconfigurationsettingstate"]] = None,
-        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
+        setting_states: Optional[List["MicrosoftGraphDeviceConfigurationSettingState"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
         version: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphdeviceconfigurationstate, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDeviceConfigurationState, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.platform_type = platform_type
@@ -3999,7 +3999,7 @@ class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
         self.version = version
 
 
-class microsoftgraphdevicehealthattestationstate(msrest.serialization.Model):
+class MicrosoftGraphDeviceHealthAttestationState(msrest.serialization.Model):
     """deviceHealthAttestationState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4163,7 +4163,7 @@ class microsoftgraphdevicehealthattestationstate(msrest.serialization.Model):
         windows_pe: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicehealthattestationstate, self).__init__(**kwargs)
+        super(MicrosoftGraphDeviceHealthAttestationState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attestation_identity_key = attestation_identity_key
         self.bit_locker_status = bit_locker_status
@@ -4199,7 +4199,7 @@ class microsoftgraphdevicehealthattestationstate(msrest.serialization.Model):
         self.windows_pe = windows_pe
 
 
-class microsoftgraphdevicemanagementtroubleshootingevent(microsoftgraphentity):
+class MicrosoftGraphDeviceManagementTroubleshootingEvent(MicrosoftGraphEntity):
     """Event representing an general failure.
 
     :param id: Read-only.
@@ -4229,19 +4229,19 @@ class microsoftgraphdevicemanagementtroubleshootingevent(microsoftgraphentity):
         event_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphdevicemanagementtroubleshootingevent, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDeviceManagementTroubleshootingEvent, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.correlation_id = correlation_id
         self.event_date_time = event_date_time
 
 
-class microsoftgraphdrive(microsoftgraphbaseitem):
+class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """drive.
 
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -4249,19 +4249,19 @@ class microsoftgraphdrive(microsoftgraphbaseitem):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -4270,80 +4270,80 @@ class microsoftgraphdrive(microsoftgraphbaseitem):
      libraries will return documentLibrary. Read-only.
     :type drive_type: str
     :param owner: identitySet.
-    :type owner: ~teams.models.microsoftgraphidentityset
+    :type owner: ~teams.models.MicrosoftGraphIdentitySet
     :param quota: quota.
-    :type quota: ~teams.models.microsoftgraphquota
+    :type quota: ~teams.models.MicrosoftGraphQuota
     :param share_point_ids: sharepointIds.
-    :type share_point_ids: ~teams.models.microsoftgraphsharepointids
+    :type share_point_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param system: systemFacet.
     :type system: dict[str, object]
     :param following: The list of items the user is following. Only in OneDrive for Business.
-    :type following: list[~teams.models.microsoftgraphdriveitem]
+    :type following: list[~teams.models.MicrosoftGraphDriveItem]
     :param items: All items contained in the drive. Read-only. Nullable.
-    :type items: list[~teams.models.microsoftgraphdriveitem]
+    :type items: list[~teams.models.MicrosoftGraphDriveItem]
     :param list: list.
-    :type list: ~teams.models.microsoftgraphlist
+    :type list: ~teams.models.MicrosoftGraphList
     :param root: driveItem.
-    :type root: ~teams.models.microsoftgraphdriveitem
+    :type root: ~teams.models.MicrosoftGraphDriveItem
     :param special: Collection of common folders available in OneDrive. Read-only. Nullable.
-    :type special: list[~teams.models.microsoftgraphdriveitem]
+    :type special: list[~teams.models.MicrosoftGraphDriveItem]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'drive_type': {'key': 'driveType', 'type': 'str'},
-        'owner': {'key': 'owner', 'type': 'microsoftgraphidentityset'},
-        'quota': {'key': 'quota', 'type': 'microsoftgraphquota'},
-        'share_point_ids': {'key': 'sharePointIds', 'type': 'microsoftgraphsharepointids'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
+        'quota': {'key': 'quota', 'type': 'MicrosoftGraphQuota'},
+        'share_point_ids': {'key': 'sharePointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'system': {'key': 'system', 'type': '{object}'},
-        'following': {'key': 'following', 'type': '[microsoftgraphdriveitem]'},
-        'items': {'key': 'items', 'type': '[microsoftgraphdriveitem]'},
-        'list': {'key': 'list', 'type': 'microsoftgraphlist'},
-        'root': {'key': 'root', 'type': 'microsoftgraphdriveitem'},
-        'special': {'key': 'special', 'type': '[microsoftgraphdriveitem]'},
+        'following': {'key': 'following', 'type': '[MicrosoftGraphDriveItem]'},
+        'items': {'key': 'items', 'type': '[MicrosoftGraphDriveItem]'},
+        'list': {'key': 'list', 'type': 'MicrosoftGraphList'},
+        'root': {'key': 'root', 'type': 'MicrosoftGraphDriveItem'},
+        'special': {'key': 'special', 'type': '[MicrosoftGraphDriveItem]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         drive_type: Optional[str] = None,
-        owner: Optional["microsoftgraphidentityset"] = None,
-        quota: Optional["microsoftgraphquota"] = None,
-        share_point_ids: Optional["microsoftgraphsharepointids"] = None,
+        owner: Optional["MicrosoftGraphIdentitySet"] = None,
+        quota: Optional["MicrosoftGraphQuota"] = None,
+        share_point_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         system: Optional[Dict[str, object]] = None,
-        following: Optional[List["microsoftgraphdriveitem"]] = None,
-        items: Optional[List["microsoftgraphdriveitem"]] = None,
-        list: Optional["microsoftgraphlist"] = None,
-        root: Optional["microsoftgraphdriveitem"] = None,
-        special: Optional[List["microsoftgraphdriveitem"]] = None,
+        following: Optional[List["MicrosoftGraphDriveItem"]] = None,
+        items: Optional[List["MicrosoftGraphDriveItem"]] = None,
+        list: Optional["MicrosoftGraphList"] = None,
+        root: Optional["MicrosoftGraphDriveItem"] = None,
+        special: Optional[List["MicrosoftGraphDriveItem"]] = None,
         **kwargs
     ):
-        super(microsoftgraphdrive, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
+        super(MicrosoftGraphDrive, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.drive_type = drive_type
         self.owner = owner
@@ -4357,13 +4357,13 @@ class microsoftgraphdrive(microsoftgraphbaseitem):
         self.special = special
 
 
-class microsoftgraphdriveitem(microsoftgraphbaseitem):
+class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """driveItem.
 
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -4371,184 +4371,184 @@ class microsoftgraphdriveitem(microsoftgraphbaseitem):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param audio: audio.
-    :type audio: ~teams.models.microsoftgraphaudio
+    :type audio: ~teams.models.MicrosoftGraphAudio
     :param content: The content stream, if the item represents a file.
     :type content: bytes
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
     :param deleted: deleted.
-    :type deleted: ~teams.models.microsoftgraphdeleted
+    :type deleted: ~teams.models.MicrosoftGraphDeleted
     :param file: file.
-    :type file: ~teams.models.microsoftgraphfile
+    :type file: ~teams.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
-    :type file_system_info: ~teams.models.microsoftgraphfilesysteminfo
+    :type file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
     :param folder: folder.
-    :type folder: ~teams.models.microsoftgraphfolder
+    :type folder: ~teams.models.MicrosoftGraphFolder
     :param image: image.
-    :type image: ~teams.models.microsoftgraphimage
+    :type image: ~teams.models.MicrosoftGraphImage
     :param location: geoCoordinates.
-    :type location: ~teams.models.microsoftgraphgeocoordinates
+    :type location: ~teams.models.MicrosoftGraphGeoCoordinates
     :param package: package.
-    :type package: ~teams.models.microsoftgraphpackage
+    :type package: ~teams.models.MicrosoftGraphPackage
     :param pending_operations: pendingOperations.
-    :type pending_operations: ~teams.models.microsoftgraphpendingoperations
+    :type pending_operations: ~teams.models.MicrosoftGraphPendingOperations
     :param photo: photo.
-    :type photo: ~teams.models.microsoftgraphphoto
+    :type photo: ~teams.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
-    :type publication: ~teams.models.microsoftgraphpublicationfacet
+    :type publication: ~teams.models.MicrosoftGraphPublicationFacet
     :param remote_item: remoteItem.
-    :type remote_item: ~teams.models.microsoftgraphremoteitem
+    :type remote_item: ~teams.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
     :param search_result: searchResult.
-    :type search_result: ~teams.models.microsoftgraphsearchresult
+    :type search_result: ~teams.models.MicrosoftGraphSearchResult
     :param shared: shared.
-    :type shared: ~teams.models.microsoftgraphshared
+    :type shared: ~teams.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
     :param special_folder: specialFolder.
-    :type special_folder: ~teams.models.microsoftgraphspecialfolder
+    :type special_folder: ~teams.models.MicrosoftGraphSpecialFolder
     :param video: video.
-    :type video: ~teams.models.microsoftgraphvideo
+    :type video: ~teams.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
     :param workbook: workbook.
-    :type workbook: ~teams.models.microsoftgraphworkbook
+    :type workbook: ~teams.models.MicrosoftGraphWorkbook
     :param analytics: itemAnalytics.
-    :type analytics: ~teams.models.microsoftgraphitemanalytics
+    :type analytics: ~teams.models.MicrosoftGraphItemAnalytics
     :param children: Collection containing Item objects for the immediate children of Item. Only
      items representing folders have children. Read-only. Nullable.
-    :type children: list[~teams.models.microsoftgraphdriveitem]
+    :type children: list[~teams.models.MicrosoftGraphDriveItem]
     :param list_item: listItem.
-    :type list_item: ~teams.models.microsoftgraphlistitem
+    :type list_item: ~teams.models.MicrosoftGraphListItem
     :param permissions: The set of permissions for the item. Read-only. Nullable.
-    :type permissions: list[~teams.models.microsoftgraphpermission]
+    :type permissions: list[~teams.models.MicrosoftGraphPermission]
     :param subscriptions: The set of subscriptions on the item. Only supported on the root of a
      drive.
-    :type subscriptions: list[~teams.models.microsoftgraphsubscription]
+    :type subscriptions: list[~teams.models.MicrosoftGraphSubscription]
     :param thumbnails: Collection containing [ThumbnailSet][] objects associated with the item. For
      more info, see [getting thumbnails][]. Read-only. Nullable.
-    :type thumbnails: list[~teams.models.microsoftgraphthumbnailset]
+    :type thumbnails: list[~teams.models.MicrosoftGraphThumbnailSet]
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
-    :type versions: list[~teams.models.microsoftgraphdriveitemversion]
+    :type versions: list[~teams.models.MicrosoftGraphDriveItemVersion]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'audio': {'key': 'audio', 'type': 'microsoftgraphaudio'},
+        'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
-        'deleted': {'key': 'deleted', 'type': 'microsoftgraphdeleted'},
-        'file': {'key': 'file', 'type': 'microsoftgraphfile'},
-        'file_system_info': {'key': 'fileSystemInfo', 'type': 'microsoftgraphfilesysteminfo'},
-        'folder': {'key': 'folder', 'type': 'microsoftgraphfolder'},
-        'image': {'key': 'image', 'type': 'microsoftgraphimage'},
-        'location': {'key': 'location', 'type': 'microsoftgraphgeocoordinates'},
-        'package': {'key': 'package', 'type': 'microsoftgraphpackage'},
-        'pending_operations': {'key': 'pendingOperations', 'type': 'microsoftgraphpendingoperations'},
-        'photo': {'key': 'photo', 'type': 'microsoftgraphphoto'},
-        'publication': {'key': 'publication', 'type': 'microsoftgraphpublicationfacet'},
-        'remote_item': {'key': 'remoteItem', 'type': 'microsoftgraphremoteitem'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
+        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
+        'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
+        'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
+        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
+        'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
+        'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
+        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
-        'search_result': {'key': 'searchResult', 'type': 'microsoftgraphsearchresult'},
-        'shared': {'key': 'shared', 'type': 'microsoftgraphshared'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
+        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
+        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
-        'special_folder': {'key': 'specialFolder', 'type': 'microsoftgraphspecialfolder'},
-        'video': {'key': 'video', 'type': 'microsoftgraphvideo'},
+        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
+        'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
-        'workbook': {'key': 'workbook', 'type': 'microsoftgraphworkbook'},
-        'analytics': {'key': 'analytics', 'type': 'microsoftgraphitemanalytics'},
-        'children': {'key': 'children', 'type': '[microsoftgraphdriveitem]'},
-        'list_item': {'key': 'listItem', 'type': 'microsoftgraphlistitem'},
-        'permissions': {'key': 'permissions', 'type': '[microsoftgraphpermission]'},
-        'subscriptions': {'key': 'subscriptions', 'type': '[microsoftgraphsubscription]'},
-        'thumbnails': {'key': 'thumbnails', 'type': '[microsoftgraphthumbnailset]'},
-        'versions': {'key': 'versions', 'type': '[microsoftgraphdriveitemversion]'},
+        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
+        'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
+        'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
+        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
+        'permissions': {'key': 'permissions', 'type': '[MicrosoftGraphPermission]'},
+        'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
+        'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
+        'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        audio: Optional["microsoftgraphaudio"] = None,
+        audio: Optional["MicrosoftGraphAudio"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
-        deleted: Optional["microsoftgraphdeleted"] = None,
-        file: Optional["microsoftgraphfile"] = None,
-        file_system_info: Optional["microsoftgraphfilesysteminfo"] = None,
-        folder: Optional["microsoftgraphfolder"] = None,
-        image: Optional["microsoftgraphimage"] = None,
-        location: Optional["microsoftgraphgeocoordinates"] = None,
-        package: Optional["microsoftgraphpackage"] = None,
-        pending_operations: Optional["microsoftgraphpendingoperations"] = None,
-        photo: Optional["microsoftgraphphoto"] = None,
-        publication: Optional["microsoftgraphpublicationfacet"] = None,
-        remote_item: Optional["microsoftgraphremoteitem"] = None,
+        deleted: Optional["MicrosoftGraphDeleted"] = None,
+        file: Optional["MicrosoftGraphFile"] = None,
+        file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
+        folder: Optional["MicrosoftGraphFolder"] = None,
+        image: Optional["MicrosoftGraphImage"] = None,
+        location: Optional["MicrosoftGraphGeoCoordinates"] = None,
+        package: Optional["MicrosoftGraphPackage"] = None,
+        pending_operations: Optional["MicrosoftGraphPendingOperations"] = None,
+        photo: Optional["MicrosoftGraphPhoto"] = None,
+        publication: Optional["MicrosoftGraphPublicationFacet"] = None,
+        remote_item: Optional["MicrosoftGraphRemoteItem"] = None,
         root: Optional[Dict[str, object]] = None,
-        search_result: Optional["microsoftgraphsearchresult"] = None,
-        shared: Optional["microsoftgraphshared"] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
+        search_result: Optional["MicrosoftGraphSearchResult"] = None,
+        shared: Optional["MicrosoftGraphShared"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         size: Optional[int] = None,
-        special_folder: Optional["microsoftgraphspecialfolder"] = None,
-        video: Optional["microsoftgraphvideo"] = None,
+        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
+        video: Optional["MicrosoftGraphVideo"] = None,
         web_dav_url: Optional[str] = None,
-        workbook: Optional["microsoftgraphworkbook"] = None,
-        analytics: Optional["microsoftgraphitemanalytics"] = None,
-        children: Optional[List["microsoftgraphdriveitem"]] = None,
-        list_item: Optional["microsoftgraphlistitem"] = None,
-        permissions: Optional[List["microsoftgraphpermission"]] = None,
-        subscriptions: Optional[List["microsoftgraphsubscription"]] = None,
-        thumbnails: Optional[List["microsoftgraphthumbnailset"]] = None,
-        versions: Optional[List["microsoftgraphdriveitemversion"]] = None,
+        workbook: Optional["MicrosoftGraphWorkbook"] = None,
+        analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
+        children: Optional[List["MicrosoftGraphDriveItem"]] = None,
+        list_item: Optional["MicrosoftGraphListItem"] = None,
+        permissions: Optional[List["MicrosoftGraphPermission"]] = None,
+        subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
+        thumbnails: Optional[List["MicrosoftGraphThumbnailSet"]] = None,
+        versions: Optional[List["MicrosoftGraphDriveItemVersion"]] = None,
         **kwargs
     ):
-        super(microsoftgraphdriveitem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
+        super(MicrosoftGraphDriveItem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.audio = audio
         self.content = content
@@ -4582,17 +4582,17 @@ class microsoftgraphdriveitem(microsoftgraphbaseitem):
         self.versions = versions
 
 
-class microsoftgraphdriveitemversion(microsoftgraphbaseitemversion):
+class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """driveItemVersion.
 
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
-    :type publication: ~teams.models.microsoftgraphpublicationfacet
+    :type publication: ~teams.models.MicrosoftGraphPublicationFacet
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -4604,9 +4604,9 @@ class microsoftgraphdriveitemversion(microsoftgraphbaseitemversion):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'publication': {'key': 'publication', 'type': 'microsoftgraphpublicationfacet'},
+        'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'base64'},
         'size': {'key': 'size', 'type': 'long'},
@@ -4616,21 +4616,21 @@ class microsoftgraphdriveitemversion(microsoftgraphbaseitemversion):
         self,
         *,
         id: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        publication: Optional["microsoftgraphpublicationfacet"] = None,
+        publication: Optional["MicrosoftGraphPublicationFacet"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         content: Optional[bytes] = None,
         size: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphdriveitemversion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
+        super(MicrosoftGraphDriveItemVersion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.size = size
 
 
-class microsoftgraphemailaddress(msrest.serialization.Model):
+class MicrosoftGraphEmailAddress(msrest.serialization.Model):
     """emailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4656,13 +4656,13 @@ class microsoftgraphemailaddress(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphEmailAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.name = name
 
 
-class microsoftgraphevent(microsoftgraphoutlookitem):
+class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     """event.
 
     :param id: Read-only.
@@ -4688,21 +4688,21 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      time when responding, false otherwise. Optional. Default is true.
     :type allow_new_time_proposals: bool
     :param attendees: The collection of attendees for the event.
-    :type attendees: list[~teams.models.microsoftgraphattendee]
+    :type attendees: list[~teams.models.MicrosoftGraphAttendee]
     :param body: itemBody.
-    :type body: ~teams.models.microsoftgraphitembody
+    :type body: ~teams.models.MicrosoftGraphItemBody
     :param body_preview: The preview of the message associated with the event. It is in text
      format.
     :type body_preview: str
     :param end: dateTimeTimeZone.
-    :type end: ~teams.models.microsoftgraphdatetimezone
+    :type end: ~teams.models.MicrosoftGraphDateTimeZone
     :param has_attachments: Set to true if the event has attachments.
     :type has_attachments: bool
     :param i_cal_u_id: A unique identifier that is shared by all instances of an event across
      different calendars. Read-only.
     :type i_cal_u_id: str
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~teams.models.Microsoftgraphimportance
+    :type importance: str or ~teams.models.MicrosoftGraphImportance
     :param is_all_day: Set to true if the event lasts all day.
     :type is_all_day: bool
     :param is_cancelled: Set to true if the event has been canceled.
@@ -4717,22 +4717,22 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
     :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
     :type is_reminder_on: bool
     :param location: location.
-    :type location: ~teams.models.microsoftgraphlocation
+    :type location: ~teams.models.MicrosoftGraphLocation
     :param locations: The locations where the event is held or attended from. The location and
      locations properties always correspond with each other. If you update the location property,
      any prior locations in the locations collection would be removed and replaced by the new
      location value.
-    :type locations: list[~teams.models.microsoftgraphlocation]
+    :type locations: list[~teams.models.MicrosoftGraphLocation]
     :param online_meeting: onlineMeetingInfo.
-    :type online_meeting: ~teams.models.microsoftgraphonlinemeetinginfo
+    :type online_meeting: ~teams.models.MicrosoftGraphOnlineMeetingInfo
     :param online_meeting_provider:  Possible values include: "unknown", "skypeForBusiness",
      "skypeForConsumer", "teamsForBusiness".
-    :type online_meeting_provider: str or ~teams.models.Microsoftgraphonlinemeetingprovidertype
+    :type online_meeting_provider: str or ~teams.models.MicrosoftGraphOnlineMeetingProviderType
     :param online_meeting_url: A URL for an online meeting. The property is set only when an
      organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
     :type online_meeting_url: str
     :param organizer: recipient.
-    :type organizer: ~teams.models.microsoftgraphrecipient
+    :type organizer: ~teams.models.MicrosoftGraphRecipient
     :param original_end_time_zone: The end time zone that was set when the event was created. A
      value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
      Outlook.
@@ -4746,7 +4746,7 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      Outlook.
     :type original_start_time_zone: str
     :param recurrence: patternedRecurrence.
-    :type recurrence: ~teams.models.microsoftgraphpatternedrecurrence
+    :type recurrence: ~teams.models.MicrosoftGraphPatternedRecurrence
     :param reminder_minutes_before_start: The number of minutes before the event start time that
      the reminder alert occurs.
     :type reminder_minutes_before_start: int
@@ -4754,17 +4754,17 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
      invitee to send a response to the event.
     :type response_requested: bool
     :param response_status: responseStatus.
-    :type response_status: ~teams.models.microsoftgraphresponsestatus
+    :type response_status: ~teams.models.MicrosoftGraphResponseStatus
     :param sensitivity:  Possible values include: "normal", "personal", "private", "confidential".
-    :type sensitivity: str or ~teams.models.Microsoftgraphsensitivity
+    :type sensitivity: str or ~teams.models.MicrosoftGraphSensitivity
     :param series_master_id: The ID for the recurring series master item, if this event is part of
      a recurring series.
     :type series_master_id: str
     :param show_as:  Possible values include: "free", "tentative", "unknown", "busy", "oof",
      "workingElsewhere".
-    :type show_as: str or ~teams.models.Microsoftgraphfreebusystatus
+    :type show_as: str or ~teams.models.MicrosoftGraphFreeBusyStatus
     :param start: dateTimeTimeZone.
-    :type start: ~teams.models.microsoftgraphdatetimezone
+    :type start: ~teams.models.MicrosoftGraphDateTimeZone
     :param subject: The text of the event's subject line.
     :type subject: str
     :param transaction_id: A custom identifier specified by a client app for the server to avoid
@@ -4776,29 +4776,29 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
     :type transaction_id: str
     :param type:  Possible values include: "singleInstance", "occurrence", "exception",
      "seriesMaster".
-    :type type: str or ~teams.models.Microsoftgrapheventtype
+    :type type: str or ~teams.models.MicrosoftGraphEventType
     :param web_link: The URL to open the event in Outlook on the web.Outlook on the web opens the
      event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web
      prompts you to sign in.This URL can be accessed from within an iFrame.
     :type web_link: str
     :param attachments: The collection of fileAttachment and itemAttachment attachments for the
      event. Navigation property. Read-only. Nullable.
-    :type attachments: list[~teams.models.microsoftgraphattachment]
+    :type attachments: list[~teams.models.MicrosoftGraphAttachment]
     :param calendar: calendar.
-    :type calendar: ~teams.models.microsoftgraphcalendar
+    :type calendar: ~teams.models.MicrosoftGraphCalendar
     :param extensions: The collection of open extensions defined for the event. Read-only.
      Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param instances: The instances of the event. Navigation property. Read-only. Nullable.
-    :type instances: list[~teams.models.microsoftgraphevent]
+    :type instances: list[~teams.models.MicrosoftGraphEvent]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the event. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the event. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _validation = {
@@ -4813,10 +4813,10 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allow_new_time_proposals': {'key': 'allowNewTimeProposals', 'type': 'bool'},
-        'attendees': {'key': 'attendees', 'type': '[microsoftgraphattendee]'},
-        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
+        'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphAttendee]'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
         'body_preview': {'key': 'bodyPreview', 'type': 'str'},
-        'end': {'key': 'end', 'type': 'microsoftgraphdatetimezone'},
+        'end': {'key': 'end', 'type': 'MicrosoftGraphDateTimeZone'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'i_cal_u_id': {'key': 'iCalUId', 'type': 'str'},
         'importance': {'key': 'importance', 'type': 'str'},
@@ -4825,33 +4825,33 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         'is_online_meeting': {'key': 'isOnlineMeeting', 'type': 'bool'},
         'is_organizer': {'key': 'isOrganizer', 'type': 'bool'},
         'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'microsoftgraphlocation'},
-        'locations': {'key': 'locations', 'type': '[microsoftgraphlocation]'},
-        'online_meeting': {'key': 'onlineMeeting', 'type': 'microsoftgraphonlinemeetinginfo'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphLocation'},
+        'locations': {'key': 'locations', 'type': '[MicrosoftGraphLocation]'},
+        'online_meeting': {'key': 'onlineMeeting', 'type': 'MicrosoftGraphOnlineMeetingInfo'},
         'online_meeting_provider': {'key': 'onlineMeetingProvider', 'type': 'str'},
         'online_meeting_url': {'key': 'onlineMeetingUrl', 'type': 'str'},
-        'organizer': {'key': 'organizer', 'type': 'microsoftgraphrecipient'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphRecipient'},
         'original_end_time_zone': {'key': 'originalEndTimeZone', 'type': 'str'},
         'original_start': {'key': 'originalStart', 'type': 'iso-8601'},
         'original_start_time_zone': {'key': 'originalStartTimeZone', 'type': 'str'},
-        'recurrence': {'key': 'recurrence', 'type': 'microsoftgraphpatternedrecurrence'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_minutes_before_start': {'key': 'reminderMinutesBeforeStart', 'type': 'int'},
         'response_requested': {'key': 'responseRequested', 'type': 'bool'},
-        'response_status': {'key': 'responseStatus', 'type': 'microsoftgraphresponsestatus'},
+        'response_status': {'key': 'responseStatus', 'type': 'MicrosoftGraphResponseStatus'},
         'sensitivity': {'key': 'sensitivity', 'type': 'str'},
         'series_master_id': {'key': 'seriesMasterId', 'type': 'str'},
         'show_as': {'key': 'showAs', 'type': 'str'},
-        'start': {'key': 'start', 'type': 'microsoftgraphdatetimezone'},
+        'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
         'subject': {'key': 'subject', 'type': 'str'},
         'transaction_id': {'key': 'transactionId', 'type': 'str'},
         'type': {'key': 'type', 'type': 'str'},
         'web_link': {'key': 'webLink', 'type': 'str'},
-        'attachments': {'key': 'attachments', 'type': '[microsoftgraphattachment]'},
-        'calendar': {'key': 'calendar', 'type': 'microsoftgraphcalendar'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'instances': {'key': 'instances', 'type': '[microsoftgraphevent]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphAttachment]'},
+        'calendar': {'key': 'calendar', 'type': 'MicrosoftGraphCalendar'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'instances': {'key': 'instances', 'type': '[MicrosoftGraphEvent]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -4864,48 +4864,48 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         allow_new_time_proposals: Optional[bool] = None,
-        attendees: Optional[List["microsoftgraphattendee"]] = None,
-        body: Optional["microsoftgraphitembody"] = None,
+        attendees: Optional[List["MicrosoftGraphAttendee"]] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
         body_preview: Optional[str] = None,
-        end: Optional["microsoftgraphdatetimezone"] = None,
+        end: Optional["MicrosoftGraphDateTimeZone"] = None,
         has_attachments: Optional[bool] = None,
         i_cal_u_id: Optional[str] = None,
-        importance: Optional[Union[str, "Microsoftgraphimportance"]] = None,
+        importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         is_all_day: Optional[bool] = None,
         is_cancelled: Optional[bool] = None,
         is_online_meeting: Optional[bool] = None,
         is_organizer: Optional[bool] = None,
         is_reminder_on: Optional[bool] = None,
-        location: Optional["microsoftgraphlocation"] = None,
-        locations: Optional[List["microsoftgraphlocation"]] = None,
-        online_meeting: Optional["microsoftgraphonlinemeetinginfo"] = None,
-        online_meeting_provider: Optional[Union[str, "Microsoftgraphonlinemeetingprovidertype"]] = None,
+        location: Optional["MicrosoftGraphLocation"] = None,
+        locations: Optional[List["MicrosoftGraphLocation"]] = None,
+        online_meeting: Optional["MicrosoftGraphOnlineMeetingInfo"] = None,
+        online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
         online_meeting_url: Optional[str] = None,
-        organizer: Optional["microsoftgraphrecipient"] = None,
+        organizer: Optional["MicrosoftGraphRecipient"] = None,
         original_end_time_zone: Optional[str] = None,
         original_start: Optional[datetime.datetime] = None,
         original_start_time_zone: Optional[str] = None,
-        recurrence: Optional["microsoftgraphpatternedrecurrence"] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_minutes_before_start: Optional[int] = None,
         response_requested: Optional[bool] = None,
-        response_status: Optional["microsoftgraphresponsestatus"] = None,
-        sensitivity: Optional[Union[str, "Microsoftgraphsensitivity"]] = None,
+        response_status: Optional["MicrosoftGraphResponseStatus"] = None,
+        sensitivity: Optional[Union[str, "MicrosoftGraphSensitivity"]] = None,
         series_master_id: Optional[str] = None,
-        show_as: Optional[Union[str, "Microsoftgraphfreebusystatus"]] = None,
-        start: Optional["microsoftgraphdatetimezone"] = None,
+        show_as: Optional[Union[str, "MicrosoftGraphFreeBusyStatus"]] = None,
+        start: Optional["MicrosoftGraphDateTimeZone"] = None,
         subject: Optional[str] = None,
         transaction_id: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgrapheventtype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphEventType"]] = None,
         web_link: Optional[str] = None,
-        attachments: Optional[List["microsoftgraphattachment"]] = None,
-        calendar: Optional["microsoftgraphcalendar"] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        instances: Optional[List["microsoftgraphevent"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        attachments: Optional[List["MicrosoftGraphAttachment"]] = None,
+        calendar: Optional["MicrosoftGraphCalendar"] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        instances: Optional[List["MicrosoftGraphEvent"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphevent, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphEvent, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.allow_new_time_proposals = allow_new_time_proposals
         self.attendees = attendees
@@ -4949,7 +4949,7 @@ class microsoftgraphevent(microsoftgraphoutlookitem):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphextension(microsoftgraphentity):
+class MicrosoftGraphExtension(MicrosoftGraphEntity):
     """extension.
 
     :param id: Read-only.
@@ -4971,11 +4971,11 @@ class microsoftgraphextension(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphextension, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphExtension, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphexternallink(msrest.serialization.Model):
+class MicrosoftGraphExternalLink(msrest.serialization.Model):
     """externalLink.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4997,12 +4997,12 @@ class microsoftgraphexternallink(msrest.serialization.Model):
         href: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphexternallink, self).__init__(**kwargs)
+        super(MicrosoftGraphExternalLink, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.href = href
 
 
-class microsoftgraphfieldvalueset(microsoftgraphentity):
+class MicrosoftGraphFieldValueSet(MicrosoftGraphEntity):
     """fieldValueSet.
 
     :param id: Read-only.
@@ -5024,18 +5024,18 @@ class microsoftgraphfieldvalueset(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphfieldvalueset, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphFieldValueSet, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphfile(msrest.serialization.Model):
+class MicrosoftGraphFile(msrest.serialization.Model):
     """file.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param hashes: hashes.
-    :type hashes: ~teams.models.microsoftgraphhashes
+    :type hashes: ~teams.models.MicrosoftGraphHashes
     :param mime_type: The MIME type for the file. This is determined by logic on the server and
      might not be the value provided when the file was uploaded. Read-only.
     :type mime_type: str
@@ -5045,7 +5045,7 @@ class microsoftgraphfile(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'hashes': {'key': 'hashes', 'type': 'microsoftgraphhashes'},
+        'hashes': {'key': 'hashes', 'type': 'MicrosoftGraphHashes'},
         'mime_type': {'key': 'mimeType', 'type': 'str'},
         'processing_metadata': {'key': 'processingMetadata', 'type': 'bool'},
     }
@@ -5054,19 +5054,19 @@ class microsoftgraphfile(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        hashes: Optional["microsoftgraphhashes"] = None,
+        hashes: Optional["MicrosoftGraphHashes"] = None,
         mime_type: Optional[str] = None,
         processing_metadata: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphfile, self).__init__(**kwargs)
+        super(MicrosoftGraphFile, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.hashes = hashes
         self.mime_type = mime_type
         self.processing_metadata = processing_metadata
 
 
-class microsoftgraphfilesysteminfo(msrest.serialization.Model):
+class MicrosoftGraphFileSystemInfo(msrest.serialization.Model):
     """fileSystemInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5097,14 +5097,14 @@ class microsoftgraphfilesysteminfo(msrest.serialization.Model):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphfilesysteminfo, self).__init__(**kwargs)
+        super(MicrosoftGraphFileSystemInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.last_accessed_date_time = last_accessed_date_time
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphfolder(msrest.serialization.Model):
+class MicrosoftGraphFolder(msrest.serialization.Model):
     """folder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5113,7 +5113,7 @@ class microsoftgraphfolder(msrest.serialization.Model):
     :param child_count: Number of children contained immediately within this container.
     :type child_count: int
     :param view: folderView.
-    :type view: ~teams.models.microsoftgraphfolderview
+    :type view: ~teams.models.MicrosoftGraphFolderView
     """
 
     _validation = {
@@ -5123,7 +5123,7 @@ class microsoftgraphfolder(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'child_count': {'key': 'childCount', 'type': 'int'},
-        'view': {'key': 'view', 'type': 'microsoftgraphfolderview'},
+        'view': {'key': 'view', 'type': 'MicrosoftGraphFolderView'},
     }
 
     def __init__(
@@ -5131,16 +5131,16 @@ class microsoftgraphfolder(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         child_count: Optional[int] = None,
-        view: Optional["microsoftgraphfolderview"] = None,
+        view: Optional["MicrosoftGraphFolderView"] = None,
         **kwargs
     ):
-        super(microsoftgraphfolder, self).__init__(**kwargs)
+        super(MicrosoftGraphFolder, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.child_count = child_count
         self.view = view
 
 
-class microsoftgraphfolderview(msrest.serialization.Model):
+class MicrosoftGraphFolderView(msrest.serialization.Model):
     """folderView.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5171,48 +5171,48 @@ class microsoftgraphfolderview(msrest.serialization.Model):
         view_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphfolderview, self).__init__(**kwargs)
+        super(MicrosoftGraphFolderView, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.sort_by = sort_by
         self.sort_order = sort_order
         self.view_type = view_type
 
 
-class microsoftgraphfollowupflag(msrest.serialization.Model):
+class MicrosoftGraphFollowupFlag(msrest.serialization.Model):
     """followupFlag.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~teams.models.microsoftgraphdatetimezone
+    :type completed_date_time: ~teams.models.MicrosoftGraphDateTimeZone
     :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~teams.models.microsoftgraphdatetimezone
+    :type due_date_time: ~teams.models.MicrosoftGraphDateTimeZone
     :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~teams.models.Microsoftgraphfollowupflagstatus
+    :type flag_status: str or ~teams.models.MicrosoftGraphFollowupFlagStatus
     :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~teams.models.microsoftgraphdatetimezone
+    :type start_date_time: ~teams.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'completed_date_time': {'key': 'completedDateTime', 'type': 'microsoftgraphdatetimezone'},
-        'due_date_time': {'key': 'dueDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'completed_date_time': {'key': 'completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'due_date_time': {'key': 'dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
         'flag_status': {'key': 'flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'startDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        completed_date_time: Optional["microsoftgraphdatetimezone"] = None,
-        due_date_time: Optional["microsoftgraphdatetimezone"] = None,
-        flag_status: Optional[Union[str, "Microsoftgraphfollowupflagstatus"]] = None,
-        start_date_time: Optional["microsoftgraphdatetimezone"] = None,
+        completed_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        due_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        flag_status: Optional[Union[str, "MicrosoftGraphFollowupFlagStatus"]] = None,
+        start_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
         **kwargs
     ):
-        super(microsoftgraphfollowupflag, self).__init__(**kwargs)
+        super(MicrosoftGraphFollowupFlag, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.completed_date_time = completed_date_time
         self.due_date_time = due_date_time
@@ -5220,7 +5220,7 @@ class microsoftgraphfollowupflag(msrest.serialization.Model):
         self.start_date_time = start_date_time
 
 
-class microsoftgraphgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
     """geoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5251,14 +5251,14 @@ class microsoftgraphgeocoordinates(msrest.serialization.Model):
         longitude: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.altitude = altitude
         self.latitude = latitude
         self.longitude = longitude
 
 
-class microsoftgraphgroup(microsoftgraphdirectoryobject):
+class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -5270,10 +5270,10 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
     :type additional_properties: dict[str, object]
     :param assigned_labels: The list of sensitivity label pairs (label ID, label name) associated
      with an Microsoft 365 group. Returned only on $select. Read-only.
-    :type assigned_labels: list[~teams.models.microsoftgraphassignedlabel]
+    :type assigned_labels: list[~teams.models.MicrosoftGraphAssignedLabel]
     :param assigned_licenses: The licenses that are assigned to the group. Returned only on
      $select. Read-only.
-    :type assigned_licenses: list[~teams.models.microsoftgraphassignedlicense]
+    :type assigned_licenses: list[~teams.models.MicrosoftGraphAssignedLicense]
     :param classification: Describes a classification for the group (such as low, medium or high
      business impact). Valid values for this property are defined by creating a ClassificationList
      setting value, based on the template definition.Returned by default.
@@ -5307,7 +5307,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
      license errors (that is, filter for this property being true). See an example.
     :type has_members_with_license_errors: bool
     :param license_processing_state: licenseProcessingState.
-    :type license_processing_state: ~teams.models.microsoftgraphlicenseprocessingstate
+    :type license_processing_state: ~teams.models.MicrosoftGraphLicenseProcessingState
     :param mail: The SMTP address for the group, for example,
      'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.
     :type mail: str
@@ -5341,7 +5341,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
     :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
      during provisioning. Returned by default.
     :type on_premises_provisioning_errors:
-     list[~teams.models.microsoftgraphonpremisesprovisioningerror]
+     list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
     :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
      from the on-premises directory. The property is only populated for customers who are
      synchronizing their on-premises directory to Azure Active Directory via Azure AD
@@ -5412,71 +5412,71 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
     :param is_archived:
     :type is_archived: bool
     :param app_role_assignments:
-    :type app_role_assignments: list[~teams.models.microsoftgraphapproleassignment]
+    :type app_role_assignments: list[~teams.models.MicrosoftGraphAppRoleAssignment]
     :param created_on_behalf_of: Represents an Azure Active Directory object. The directoryObject
      type is the base type for many other directory entity types.
-    :type created_on_behalf_of: ~teams.models.microsoftgraphdirectoryobject
+    :type created_on_behalf_of: ~teams.models.MicrosoftGraphDirectoryObject
     :param member_of: Groups that this group is a member of. HTTP Methods: GET (supported for all
      groups). Read-only. Nullable.
-    :type member_of: list[~teams.models.microsoftgraphdirectoryobject]
+    :type member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param members: Users and groups that are members of this group. HTTP Methods: GET (supported
      for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled
      security groups), DELETE (supported for Microsoft 365 groups and security groups) Nullable.
-    :type members: list[~teams.models.microsoftgraphdirectoryobject]
+    :type members: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param members_with_license_errors: A list of group members with license errors from this
      group-based license assignment. Read-only.
-    :type members_with_license_errors: list[~teams.models.microsoftgraphdirectoryobject]
+    :type members_with_license_errors: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param owners: The owners of the group. The owners are a set of non-admin users who are allowed
      to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups),
      POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups),
      DELETE (supported for Microsoft 365 groups and security groups). Nullable.
-    :type owners: list[~teams.models.microsoftgraphdirectoryobject]
+    :type owners: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param settings: Read-only. Nullable.
-    :type settings: list[~teams.models.microsoftgraphgroupsetting]
+    :type settings: list[~teams.models.MicrosoftGraphGroupSetting]
     :param transitive_member_of:
-    :type transitive_member_of: list[~teams.models.microsoftgraphdirectoryobject]
+    :type transitive_member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param transitive_members:
-    :type transitive_members: list[~teams.models.microsoftgraphdirectoryobject]
+    :type transitive_members: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param accepted_senders: The list of users or groups that are allowed to create post's or
      calendar events in this group. If this list is non-empty then only users or groups listed here
      are allowed to post.
-    :type accepted_senders: list[~teams.models.microsoftgraphdirectoryobject]
+    :type accepted_senders: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param calendar: calendar.
-    :type calendar: ~teams.models.microsoftgraphcalendar
+    :type calendar: ~teams.models.MicrosoftGraphCalendar
     :param calendar_view: The calendar view for the calendar. Read-only.
-    :type calendar_view: list[~teams.models.microsoftgraphevent]
+    :type calendar_view: list[~teams.models.MicrosoftGraphEvent]
     :param conversations: The group's conversations.
-    :type conversations: list[~teams.models.microsoftgraphconversation]
+    :type conversations: list[~teams.models.MicrosoftGraphConversation]
     :param events: The group's calendar events.
-    :type events: list[~teams.models.microsoftgraphevent]
+    :type events: list[~teams.models.MicrosoftGraphEvent]
     :param photo: profilePhoto.
-    :type photo: ~teams.models.microsoftgraphprofilephoto
+    :type photo: ~teams.models.MicrosoftGraphProfilePhoto
     :param photos: The profile photos owned by the group. Read-only. Nullable.
-    :type photos: list[~teams.models.microsoftgraphprofilephoto]
+    :type photos: list[~teams.models.MicrosoftGraphProfilePhoto]
     :param rejected_senders: The list of users or groups that are not allowed to create posts or
      calendar events in this group. Nullable.
-    :type rejected_senders: list[~teams.models.microsoftgraphdirectoryobject]
+    :type rejected_senders: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param threads: The group's conversation threads. Nullable.
-    :type threads: list[~teams.models.microsoftgraphconversationthread]
+    :type threads: list[~teams.models.MicrosoftGraphConversationThread]
     :param drive: drive.
-    :type drive: ~teams.models.microsoftgraphdrive
+    :type drive: ~teams.models.MicrosoftGraphDrive
     :param drives: The group's drives. Read-only.
-    :type drives: list[~teams.models.microsoftgraphdrive]
+    :type drives: list[~teams.models.MicrosoftGraphDrive]
     :param sites: The list of SharePoint sites in this group. Access the default site with
      /sites/root.
-    :type sites: list[~teams.models.microsoftgraphsite]
+    :type sites: list[~teams.models.MicrosoftGraphSite]
     :param extensions: The collection of open extensions defined for the group. Read-only.
      Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param group_lifecycle_policies: The collection of lifecycle policies for this group. Read-
      only. Nullable.
-    :type group_lifecycle_policies: list[~teams.models.microsoftgraphgrouplifecyclepolicy]
+    :type group_lifecycle_policies: list[~teams.models.MicrosoftGraphGroupLifecyclePolicy]
     :param planner: plannerGroup.
-    :type planner: ~teams.models.microsoftgraphplannergroup
+    :type planner: ~teams.models.MicrosoftGraphPlannerGroup
     :param onenote: onenote.
-    :type onenote: ~teams.models.microsoftgraphonenote
+    :type onenote: ~teams.models.MicrosoftGraphOnenote
     :param team: team.
-    :type team: ~teams.models.microsoftgraphteam
+    :type team: ~teams.models.MicrosoftGraphTeam
     """
 
     _validation = {
@@ -5487,8 +5487,8 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'assigned_labels': {'key': 'assignedLabels', 'type': '[microsoftgraphassignedlabel]'},
-        'assigned_licenses': {'key': 'assignedLicenses', 'type': '[microsoftgraphassignedlicense]'},
+        'assigned_labels': {'key': 'assignedLabels', 'type': '[MicrosoftGraphAssignedLabel]'},
+        'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'classification': {'key': 'classification', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -5496,7 +5496,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         'expiration_date_time': {'key': 'expirationDateTime', 'type': 'iso-8601'},
         'group_types': {'key': 'groupTypes', 'type': '[str]'},
         'has_members_with_license_errors': {'key': 'hasMembersWithLicenseErrors', 'type': 'bool'},
-        'license_processing_state': {'key': 'licenseProcessingState', 'type': 'microsoftgraphlicenseprocessingstate'},
+        'license_processing_state': {'key': 'licenseProcessingState', 'type': 'MicrosoftGraphLicenseProcessingState'},
         'mail': {'key': 'mail', 'type': 'str'},
         'mail_enabled': {'key': 'mailEnabled', 'type': 'bool'},
         'mail_nickname': {'key': 'mailNickname', 'type': 'str'},
@@ -5505,7 +5505,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         'on_premises_domain_name': {'key': 'onPremisesDomainName', 'type': 'str'},
         'on_premises_last_sync_date_time': {'key': 'onPremisesLastSyncDateTime', 'type': 'iso-8601'},
         'on_premises_net_bios_name': {'key': 'onPremisesNetBiosName', 'type': 'str'},
-        'on_premises_provisioning_errors': {'key': 'onPremisesProvisioningErrors', 'type': '[microsoftgraphonpremisesprovisioningerror]'},
+        'on_premises_provisioning_errors': {'key': 'onPremisesProvisioningErrors', 'type': '[MicrosoftGraphOnPremisesProvisioningError]'},
         'on_premises_sam_account_name': {'key': 'onPremisesSamAccountName', 'type': 'str'},
         'on_premises_security_identifier': {'key': 'onPremisesSecurityIdentifier', 'type': 'str'},
         'on_premises_sync_enabled': {'key': 'onPremisesSyncEnabled', 'type': 'bool'},
@@ -5524,32 +5524,32 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         'is_subscribed_by_mail': {'key': 'isSubscribedByMail', 'type': 'bool'},
         'unseen_count': {'key': 'unseenCount', 'type': 'int'},
         'is_archived': {'key': 'isArchived', 'type': 'bool'},
-        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[microsoftgraphapproleassignment]'},
-        'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'microsoftgraphdirectoryobject'},
-        'member_of': {'key': 'memberOf', 'type': '[microsoftgraphdirectoryobject]'},
-        'members': {'key': 'members', 'type': '[microsoftgraphdirectoryobject]'},
-        'members_with_license_errors': {'key': 'membersWithLicenseErrors', 'type': '[microsoftgraphdirectoryobject]'},
-        'owners': {'key': 'owners', 'type': '[microsoftgraphdirectoryobject]'},
-        'settings': {'key': 'settings', 'type': '[microsoftgraphgroupsetting]'},
-        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[microsoftgraphdirectoryobject]'},
-        'transitive_members': {'key': 'transitiveMembers', 'type': '[microsoftgraphdirectoryobject]'},
-        'accepted_senders': {'key': 'acceptedSenders', 'type': '[microsoftgraphdirectoryobject]'},
-        'calendar': {'key': 'calendar', 'type': 'microsoftgraphcalendar'},
-        'calendar_view': {'key': 'calendarView', 'type': '[microsoftgraphevent]'},
-        'conversations': {'key': 'conversations', 'type': '[microsoftgraphconversation]'},
-        'events': {'key': 'events', 'type': '[microsoftgraphevent]'},
-        'photo': {'key': 'photo', 'type': 'microsoftgraphprofilephoto'},
-        'photos': {'key': 'photos', 'type': '[microsoftgraphprofilephoto]'},
-        'rejected_senders': {'key': 'rejectedSenders', 'type': '[microsoftgraphdirectoryobject]'},
-        'threads': {'key': 'threads', 'type': '[microsoftgraphconversationthread]'},
-        'drive': {'key': 'drive', 'type': 'microsoftgraphdrive'},
-        'drives': {'key': 'drives', 'type': '[microsoftgraphdrive]'},
-        'sites': {'key': 'sites', 'type': '[microsoftgraphsite]'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'group_lifecycle_policies': {'key': 'groupLifecyclePolicies', 'type': '[microsoftgraphgrouplifecyclepolicy]'},
-        'planner': {'key': 'planner', 'type': 'microsoftgraphplannergroup'},
-        'onenote': {'key': 'onenote', 'type': 'microsoftgraphonenote'},
-        'team': {'key': 'team', 'type': 'microsoftgraphteam'},
+        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
+        'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'MicrosoftGraphDirectoryObject'},
+        'member_of': {'key': 'memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'members': {'key': 'members', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'members_with_license_errors': {'key': 'membersWithLicenseErrors', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'owners': {'key': 'owners', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'settings': {'key': 'settings', 'type': '[MicrosoftGraphGroupSetting]'},
+        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'transitive_members': {'key': 'transitiveMembers', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'accepted_senders': {'key': 'acceptedSenders', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'calendar': {'key': 'calendar', 'type': 'MicrosoftGraphCalendar'},
+        'calendar_view': {'key': 'calendarView', 'type': '[MicrosoftGraphEvent]'},
+        'conversations': {'key': 'conversations', 'type': '[MicrosoftGraphConversation]'},
+        'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
+        'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
+        'photos': {'key': 'photos', 'type': '[MicrosoftGraphProfilePhoto]'},
+        'rejected_senders': {'key': 'rejectedSenders', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'threads': {'key': 'threads', 'type': '[MicrosoftGraphConversationThread]'},
+        'drive': {'key': 'drive', 'type': 'MicrosoftGraphDrive'},
+        'drives': {'key': 'drives', 'type': '[MicrosoftGraphDrive]'},
+        'sites': {'key': 'sites', 'type': '[MicrosoftGraphSite]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'group_lifecycle_policies': {'key': 'groupLifecyclePolicies', 'type': '[MicrosoftGraphGroupLifecyclePolicy]'},
+        'planner': {'key': 'planner', 'type': 'MicrosoftGraphPlannerGroup'},
+        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
+        'team': {'key': 'team', 'type': 'MicrosoftGraphTeam'},
     }
 
     def __init__(
@@ -5558,8 +5558,8 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         id: Optional[str] = None,
         deleted_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        assigned_labels: Optional[List["microsoftgraphassignedlabel"]] = None,
-        assigned_licenses: Optional[List["microsoftgraphassignedlicense"]] = None,
+        assigned_labels: Optional[List["MicrosoftGraphAssignedLabel"]] = None,
+        assigned_licenses: Optional[List["MicrosoftGraphAssignedLicense"]] = None,
         classification: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -5567,7 +5567,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         expiration_date_time: Optional[datetime.datetime] = None,
         group_types: Optional[List[str]] = None,
         has_members_with_license_errors: Optional[bool] = None,
-        license_processing_state: Optional["microsoftgraphlicenseprocessingstate"] = None,
+        license_processing_state: Optional["MicrosoftGraphLicenseProcessingState"] = None,
         mail: Optional[str] = None,
         mail_enabled: Optional[bool] = None,
         mail_nickname: Optional[str] = None,
@@ -5576,7 +5576,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         on_premises_domain_name: Optional[str] = None,
         on_premises_last_sync_date_time: Optional[datetime.datetime] = None,
         on_premises_net_bios_name: Optional[str] = None,
-        on_premises_provisioning_errors: Optional[List["microsoftgraphonpremisesprovisioningerror"]] = None,
+        on_premises_provisioning_errors: Optional[List["MicrosoftGraphOnPremisesProvisioningError"]] = None,
         on_premises_sam_account_name: Optional[str] = None,
         on_premises_security_identifier: Optional[str] = None,
         on_premises_sync_enabled: Optional[bool] = None,
@@ -5595,35 +5595,35 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         is_subscribed_by_mail: Optional[bool] = None,
         unseen_count: Optional[int] = None,
         is_archived: Optional[bool] = None,
-        app_role_assignments: Optional[List["microsoftgraphapproleassignment"]] = None,
-        created_on_behalf_of: Optional["microsoftgraphdirectoryobject"] = None,
-        member_of: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        members: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        members_with_license_errors: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        owners: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        settings: Optional[List["microsoftgraphgroupsetting"]] = None,
-        transitive_member_of: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        transitive_members: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        accepted_senders: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        calendar: Optional["microsoftgraphcalendar"] = None,
-        calendar_view: Optional[List["microsoftgraphevent"]] = None,
-        conversations: Optional[List["microsoftgraphconversation"]] = None,
-        events: Optional[List["microsoftgraphevent"]] = None,
-        photo: Optional["microsoftgraphprofilephoto"] = None,
-        photos: Optional[List["microsoftgraphprofilephoto"]] = None,
-        rejected_senders: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        threads: Optional[List["microsoftgraphconversationthread"]] = None,
-        drive: Optional["microsoftgraphdrive"] = None,
-        drives: Optional[List["microsoftgraphdrive"]] = None,
-        sites: Optional[List["microsoftgraphsite"]] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        group_lifecycle_policies: Optional[List["microsoftgraphgrouplifecyclepolicy"]] = None,
-        planner: Optional["microsoftgraphplannergroup"] = None,
-        onenote: Optional["microsoftgraphonenote"] = None,
-        team: Optional["microsoftgraphteam"] = None,
+        app_role_assignments: Optional[List["MicrosoftGraphAppRoleAssignment"]] = None,
+        created_on_behalf_of: Optional["MicrosoftGraphDirectoryObject"] = None,
+        member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        members: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        members_with_license_errors: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        owners: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        settings: Optional[List["MicrosoftGraphGroupSetting"]] = None,
+        transitive_member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        transitive_members: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        accepted_senders: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        calendar: Optional["MicrosoftGraphCalendar"] = None,
+        calendar_view: Optional[List["MicrosoftGraphEvent"]] = None,
+        conversations: Optional[List["MicrosoftGraphConversation"]] = None,
+        events: Optional[List["MicrosoftGraphEvent"]] = None,
+        photo: Optional["MicrosoftGraphProfilePhoto"] = None,
+        photos: Optional[List["MicrosoftGraphProfilePhoto"]] = None,
+        rejected_senders: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        threads: Optional[List["MicrosoftGraphConversationThread"]] = None,
+        drive: Optional["MicrosoftGraphDrive"] = None,
+        drives: Optional[List["MicrosoftGraphDrive"]] = None,
+        sites: Optional[List["MicrosoftGraphSite"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        group_lifecycle_policies: Optional[List["MicrosoftGraphGroupLifecyclePolicy"]] = None,
+        planner: Optional["MicrosoftGraphPlannerGroup"] = None,
+        onenote: Optional["MicrosoftGraphOnenote"] = None,
+        team: Optional["MicrosoftGraphTeam"] = None,
         **kwargs
     ):
-        super(microsoftgraphgroup, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
+        super(MicrosoftGraphGroup, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.assigned_labels = assigned_labels
         self.assigned_licenses = assigned_licenses
@@ -5690,7 +5690,7 @@ class microsoftgraphgroup(microsoftgraphdirectoryobject):
         self.team = team
 
 
-class microsoftgraphgrouplifecyclepolicy(microsoftgraphentity):
+class MicrosoftGraphGroupLifecyclePolicy(MicrosoftGraphEntity):
     """groupLifecyclePolicy.
 
     :param id: Read-only.
@@ -5732,14 +5732,14 @@ class microsoftgraphgrouplifecyclepolicy(microsoftgraphentity):
         managed_group_types: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphgrouplifecyclepolicy, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphGroupLifecyclePolicy, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.alternate_notification_emails = alternate_notification_emails
         self.group_lifetime_in_days = group_lifetime_in_days
         self.managed_group_types = managed_group_types
 
 
-class microsoftgraphgroupsetting(microsoftgraphentity):
+class MicrosoftGraphGroupSetting(MicrosoftGraphEntity):
     """groupSetting.
 
     :param id: Read-only.
@@ -5755,7 +5755,7 @@ class microsoftgraphgroupsetting(microsoftgraphentity):
     :type template_id: str
     :param values: Collection of name value pairs. Must contain and set all the settings defined in
      the template.
-    :type values: list[~teams.models.microsoftgraphsettingvalue]
+    :type values: list[~teams.models.MicrosoftGraphSettingValue]
     """
 
     _attribute_map = {
@@ -5763,7 +5763,7 @@ class microsoftgraphgroupsetting(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'template_id': {'key': 'templateId', 'type': 'str'},
-        'values': {'key': 'values', 'type': '[microsoftgraphsettingvalue]'},
+        'values': {'key': 'values', 'type': '[MicrosoftGraphSettingValue]'},
     }
 
     def __init__(
@@ -5773,17 +5773,17 @@ class microsoftgraphgroupsetting(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         template_id: Optional[str] = None,
-        values: Optional[List["microsoftgraphsettingvalue"]] = None,
+        values: Optional[List["MicrosoftGraphSettingValue"]] = None,
         **kwargs
     ):
-        super(microsoftgraphgroupsetting, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphGroupSetting, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.template_id = template_id
         self.values = values
 
 
-class microsoftgraphhashes(msrest.serialization.Model):
+class MicrosoftGraphHashes(msrest.serialization.Model):
     """hashes.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5818,7 +5818,7 @@ class microsoftgraphhashes(msrest.serialization.Model):
         sha256_hash: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphhashes, self).__init__(**kwargs)
+        super(MicrosoftGraphHashes, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.crc32_hash = crc32_hash
         self.quick_xor_hash = quick_xor_hash
@@ -5826,7 +5826,7 @@ class microsoftgraphhashes(msrest.serialization.Model):
         self.sha256_hash = sha256_hash
 
 
-class microsoftgraphidentity(msrest.serialization.Model):
+class MicrosoftGraphIdentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5855,50 +5855,50 @@ class microsoftgraphidentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
 
 
-class microsoftgraphidentityset(msrest.serialization.Model):
+class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     """identitySet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~teams.models.microsoftgraphidentity
+    :type application: ~teams.models.MicrosoftGraphIdentity
     :param device: identity.
-    :type device: ~teams.models.microsoftgraphidentity
+    :type device: ~teams.models.MicrosoftGraphIdentity
     :param user: identity.
-    :type user: ~teams.models.microsoftgraphidentity
+    :type user: ~teams.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
-        'device': {'key': 'device', 'type': 'microsoftgraphidentity'},
-        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        application: Optional["microsoftgraphidentity"] = None,
-        device: Optional["microsoftgraphidentity"] = None,
-        user: Optional["microsoftgraphidentity"] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
-        super(microsoftgraphidentityset, self).__init__(**kwargs)
+        super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.application = application
         self.device = device
         self.user = user
 
 
-class microsoftgraphimage(msrest.serialization.Model):
+class MicrosoftGraphImage(msrest.serialization.Model):
     """image.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5929,13 +5929,13 @@ class microsoftgraphimage(msrest.serialization.Model):
         width: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphimage, self).__init__(**kwargs)
+        super(MicrosoftGraphImage, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.height = height
         self.width = width
 
 
-class microsoftgraphimageinfo(msrest.serialization.Model):
+class MicrosoftGraphImageInfo(msrest.serialization.Model):
     """imageInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5971,7 +5971,7 @@ class microsoftgraphimageinfo(msrest.serialization.Model):
         icon_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphimageinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphImageInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.add_image_query = add_image_query
         self.alternate_text = alternate_text
@@ -5979,7 +5979,7 @@ class microsoftgraphimageinfo(msrest.serialization.Model):
         self.icon_url = icon_url
 
 
-class microsoftgraphincompletedata(msrest.serialization.Model):
+class MicrosoftGraphIncompleteData(msrest.serialization.Model):
     """incompleteData.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6006,13 +6006,13 @@ class microsoftgraphincompletedata(msrest.serialization.Model):
         was_throttled: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphincompletedata, self).__init__(**kwargs)
+        super(MicrosoftGraphIncompleteData, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.missing_data_before_date_time = missing_data_before_date_time
         self.was_throttled = was_throttled
 
 
-class microsoftgraphinferenceclassification(microsoftgraphentity):
+class MicrosoftGraphInferenceClassification(MicrosoftGraphEntity):
     """inferenceClassification.
 
     :param id: Read-only.
@@ -6022,13 +6022,13 @@ class microsoftgraphinferenceclassification(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param overrides: A set of overrides for a user to always classify messages from specific
      senders in certain ways: focused, or other. Read-only. Nullable.
-    :type overrides: list[~teams.models.microsoftgraphinferenceclassificationoverride]
+    :type overrides: list[~teams.models.MicrosoftGraphInferenceClassificationOverride]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'overrides': {'key': 'overrides', 'type': '[microsoftgraphinferenceclassificationoverride]'},
+        'overrides': {'key': 'overrides', 'type': '[MicrosoftGraphInferenceClassificationOverride]'},
     }
 
     def __init__(
@@ -6036,15 +6036,15 @@ class microsoftgraphinferenceclassification(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        overrides: Optional[List["microsoftgraphinferenceclassificationoverride"]] = None,
+        overrides: Optional[List["MicrosoftGraphInferenceClassificationOverride"]] = None,
         **kwargs
     ):
-        super(microsoftgraphinferenceclassification, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphInferenceClassification, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.overrides = overrides
 
 
-class microsoftgraphinferenceclassificationoverride(microsoftgraphentity):
+class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
     """inferenceClassificationOverride.
 
     :param id: Read-only.
@@ -6053,16 +6053,16 @@ class microsoftgraphinferenceclassificationoverride(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param classify_as:  Possible values include: "focused", "other".
-    :type classify_as: str or ~teams.models.Microsoftgraphinferenceclassificationtype
+    :type classify_as: str or ~teams.models.MicrosoftGraphInferenceClassificationType
     :param sender_email_address: emailAddress.
-    :type sender_email_address: ~teams.models.microsoftgraphemailaddress
+    :type sender_email_address: ~teams.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'classify_as': {'key': 'classifyAs', 'type': 'str'},
-        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'microsoftgraphemailaddress'},
+        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
@@ -6070,17 +6070,17 @@ class microsoftgraphinferenceclassificationoverride(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        classify_as: Optional[Union[str, "Microsoftgraphinferenceclassificationtype"]] = None,
-        sender_email_address: Optional["microsoftgraphemailaddress"] = None,
+        classify_as: Optional[Union[str, "MicrosoftGraphInferenceClassificationType"]] = None,
+        sender_email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         **kwargs
     ):
-        super(microsoftgraphinferenceclassificationoverride, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphInferenceClassificationOverride, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.classify_as = classify_as
         self.sender_email_address = sender_email_address
 
 
-class microsoftgraphinsightidentity(msrest.serialization.Model):
+class MicrosoftGraphInsightIdentity(msrest.serialization.Model):
     """insightIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6110,14 +6110,14 @@ class microsoftgraphinsightidentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphinsightidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphInsightIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
         self.id = id
 
 
-class microsoftgraphinternetmessageheader(msrest.serialization.Model):
+class MicrosoftGraphInternetMessageHeader(msrest.serialization.Model):
     """internetMessageHeader.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6143,13 +6143,13 @@ class microsoftgraphinternetmessageheader(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphinternetmessageheader, self).__init__(**kwargs)
+        super(MicrosoftGraphInternetMessageHeader, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.value = value
 
 
-class microsoftgraphitemactionstat(msrest.serialization.Model):
+class MicrosoftGraphItemActionStat(msrest.serialization.Model):
     """itemActionStat.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6180,13 +6180,13 @@ class microsoftgraphitemactionstat(msrest.serialization.Model):
         actor_count: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphitemactionstat, self).__init__(**kwargs)
+        super(MicrosoftGraphItemActionStat, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.action_count = action_count
         self.actor_count = actor_count
 
 
-class microsoftgraphitemactivity(microsoftgraphentity):
+class MicrosoftGraphItemActivity(MicrosoftGraphEntity):
     """itemActivity.
 
     :param id: Read-only.
@@ -6199,9 +6199,9 @@ class microsoftgraphitemactivity(microsoftgraphentity):
     :param activity_date_time: Details about when the activity took place. Read-only.
     :type activity_date_time: ~datetime.datetime
     :param actor: identitySet.
-    :type actor: ~teams.models.microsoftgraphidentityset
+    :type actor: ~teams.models.MicrosoftGraphIdentitySet
     :param drive_item: driveItem.
-    :type drive_item: ~teams.models.microsoftgraphdriveitem
+    :type drive_item: ~teams.models.MicrosoftGraphDriveItem
     """
 
     _attribute_map = {
@@ -6209,8 +6209,8 @@ class microsoftgraphitemactivity(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'access': {'key': 'access', 'type': '{object}'},
         'activity_date_time': {'key': 'activityDateTime', 'type': 'iso-8601'},
-        'actor': {'key': 'actor', 'type': 'microsoftgraphidentityset'},
-        'drive_item': {'key': 'driveItem', 'type': 'microsoftgraphdriveitem'},
+        'actor': {'key': 'actor', 'type': 'MicrosoftGraphIdentitySet'},
+        'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
     }
 
     def __init__(
@@ -6220,11 +6220,11 @@ class microsoftgraphitemactivity(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         access: Optional[Dict[str, object]] = None,
         activity_date_time: Optional[datetime.datetime] = None,
-        actor: Optional["microsoftgraphidentityset"] = None,
-        drive_item: Optional["microsoftgraphdriveitem"] = None,
+        actor: Optional["MicrosoftGraphIdentitySet"] = None,
+        drive_item: Optional["MicrosoftGraphDriveItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphitemactivity, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphItemActivity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.access = access
         self.activity_date_time = activity_date_time
@@ -6232,7 +6232,7 @@ class microsoftgraphitemactivity(microsoftgraphentity):
         self.drive_item = drive_item
 
 
-class microsoftgraphitemactivitystat(microsoftgraphentity):
+class MicrosoftGraphItemActivityStat(MicrosoftGraphEntity):
     """itemActivityStat.
 
     :param id: Read-only.
@@ -6241,40 +6241,40 @@ class microsoftgraphitemactivitystat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param access: itemActionStat.
-    :type access: ~teams.models.microsoftgraphitemactionstat
+    :type access: ~teams.models.MicrosoftGraphItemActionStat
     :param create: itemActionStat.
-    :type create: ~teams.models.microsoftgraphitemactionstat
+    :type create: ~teams.models.MicrosoftGraphItemActionStat
     :param delete: itemActionStat.
-    :type delete: ~teams.models.microsoftgraphitemactionstat
+    :type delete: ~teams.models.MicrosoftGraphItemActionStat
     :param edit: itemActionStat.
-    :type edit: ~teams.models.microsoftgraphitemactionstat
+    :type edit: ~teams.models.MicrosoftGraphItemActionStat
     :param end_date_time: When the interval ends. Read-only.
     :type end_date_time: ~datetime.datetime
     :param incomplete_data: incompleteData.
-    :type incomplete_data: ~teams.models.microsoftgraphincompletedata
+    :type incomplete_data: ~teams.models.MicrosoftGraphIncompleteData
     :param is_trending: Indicates whether the item is 'trending.' Read-only.
     :type is_trending: bool
     :param move: itemActionStat.
-    :type move: ~teams.models.microsoftgraphitemactionstat
+    :type move: ~teams.models.MicrosoftGraphItemActionStat
     :param start_date_time: When the interval starts. Read-only.
     :type start_date_time: ~datetime.datetime
     :param activities: Exposes the itemActivities represented in this itemActivityStat resource.
-    :type activities: list[~teams.models.microsoftgraphitemactivity]
+    :type activities: list[~teams.models.MicrosoftGraphItemActivity]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'access': {'key': 'access', 'type': 'microsoftgraphitemactionstat'},
-        'create': {'key': 'create', 'type': 'microsoftgraphitemactionstat'},
-        'delete': {'key': 'delete', 'type': 'microsoftgraphitemactionstat'},
-        'edit': {'key': 'edit', 'type': 'microsoftgraphitemactionstat'},
+        'access': {'key': 'access', 'type': 'MicrosoftGraphItemActionStat'},
+        'create': {'key': 'create', 'type': 'MicrosoftGraphItemActionStat'},
+        'delete': {'key': 'delete', 'type': 'MicrosoftGraphItemActionStat'},
+        'edit': {'key': 'edit', 'type': 'MicrosoftGraphItemActionStat'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
-        'incomplete_data': {'key': 'incompleteData', 'type': 'microsoftgraphincompletedata'},
+        'incomplete_data': {'key': 'incompleteData', 'type': 'MicrosoftGraphIncompleteData'},
         'is_trending': {'key': 'isTrending', 'type': 'bool'},
-        'move': {'key': 'move', 'type': 'microsoftgraphitemactionstat'},
+        'move': {'key': 'move', 'type': 'MicrosoftGraphItemActionStat'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
-        'activities': {'key': 'activities', 'type': '[microsoftgraphitemactivity]'},
+        'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivity]'},
     }
 
     def __init__(
@@ -6282,19 +6282,19 @@ class microsoftgraphitemactivitystat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        access: Optional["microsoftgraphitemactionstat"] = None,
-        create: Optional["microsoftgraphitemactionstat"] = None,
-        delete: Optional["microsoftgraphitemactionstat"] = None,
-        edit: Optional["microsoftgraphitemactionstat"] = None,
+        access: Optional["MicrosoftGraphItemActionStat"] = None,
+        create: Optional["MicrosoftGraphItemActionStat"] = None,
+        delete: Optional["MicrosoftGraphItemActionStat"] = None,
+        edit: Optional["MicrosoftGraphItemActionStat"] = None,
         end_date_time: Optional[datetime.datetime] = None,
-        incomplete_data: Optional["microsoftgraphincompletedata"] = None,
+        incomplete_data: Optional["MicrosoftGraphIncompleteData"] = None,
         is_trending: Optional[bool] = None,
-        move: Optional["microsoftgraphitemactionstat"] = None,
+        move: Optional["MicrosoftGraphItemActionStat"] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        activities: Optional[List["microsoftgraphitemactivity"]] = None,
+        activities: Optional[List["MicrosoftGraphItemActivity"]] = None,
         **kwargs
     ):
-        super(microsoftgraphitemactivitystat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphItemActivityStat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.access = access
         self.create = create
@@ -6308,7 +6308,7 @@ class microsoftgraphitemactivitystat(microsoftgraphentity):
         self.activities = activities
 
 
-class microsoftgraphitemanalytics(microsoftgraphentity):
+class MicrosoftGraphItemAnalytics(MicrosoftGraphEntity):
     """itemAnalytics.
 
     :param id: Read-only.
@@ -6317,19 +6317,19 @@ class microsoftgraphitemanalytics(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param all_time: itemActivityStat.
-    :type all_time: ~teams.models.microsoftgraphitemactivitystat
+    :type all_time: ~teams.models.MicrosoftGraphItemActivityStat
     :param item_activity_stats:
-    :type item_activity_stats: list[~teams.models.microsoftgraphitemactivitystat]
+    :type item_activity_stats: list[~teams.models.MicrosoftGraphItemActivityStat]
     :param last_seven_days: itemActivityStat.
-    :type last_seven_days: ~teams.models.microsoftgraphitemactivitystat
+    :type last_seven_days: ~teams.models.MicrosoftGraphItemActivityStat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'all_time': {'key': 'allTime', 'type': 'microsoftgraphitemactivitystat'},
-        'item_activity_stats': {'key': 'itemActivityStats', 'type': '[microsoftgraphitemactivitystat]'},
-        'last_seven_days': {'key': 'lastSevenDays', 'type': 'microsoftgraphitemactivitystat'},
+        'all_time': {'key': 'allTime', 'type': 'MicrosoftGraphItemActivityStat'},
+        'item_activity_stats': {'key': 'itemActivityStats', 'type': '[MicrosoftGraphItemActivityStat]'},
+        'last_seven_days': {'key': 'lastSevenDays', 'type': 'MicrosoftGraphItemActivityStat'},
     }
 
     def __init__(
@@ -6337,19 +6337,19 @@ class microsoftgraphitemanalytics(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        all_time: Optional["microsoftgraphitemactivitystat"] = None,
-        item_activity_stats: Optional[List["microsoftgraphitemactivitystat"]] = None,
-        last_seven_days: Optional["microsoftgraphitemactivitystat"] = None,
+        all_time: Optional["MicrosoftGraphItemActivityStat"] = None,
+        item_activity_stats: Optional[List["MicrosoftGraphItemActivityStat"]] = None,
+        last_seven_days: Optional["MicrosoftGraphItemActivityStat"] = None,
         **kwargs
     ):
-        super(microsoftgraphitemanalytics, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphItemAnalytics, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.all_time = all_time
         self.item_activity_stats = item_activity_stats
         self.last_seven_days = last_seven_days
 
 
-class microsoftgraphitembody(msrest.serialization.Model):
+class MicrosoftGraphItemBody(msrest.serialization.Model):
     """itemBody.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6358,7 +6358,7 @@ class microsoftgraphitembody(msrest.serialization.Model):
     :param content: The content of the item.
     :type content: str
     :param content_type:  Possible values include: "text", "html".
-    :type content_type: str or ~teams.models.Microsoftgraphbodytype
+    :type content_type: str or ~teams.models.MicrosoftGraphBodyType
     """
 
     _attribute_map = {
@@ -6372,16 +6372,16 @@ class microsoftgraphitembody(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         content: Optional[str] = None,
-        content_type: Optional[Union[str, "Microsoftgraphbodytype"]] = None,
+        content_type: Optional[Union[str, "MicrosoftGraphBodyType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphitembody, self).__init__(**kwargs)
+        super(MicrosoftGraphItemBody, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
 
 
-class microsoftgraphitemreference(msrest.serialization.Model):
+class MicrosoftGraphItemReference(msrest.serialization.Model):
     """itemReference.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6401,7 +6401,7 @@ class microsoftgraphitemreference(msrest.serialization.Model):
      [Shares][] API.
     :type share_id: str
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param site_id:
     :type site_id: str
     """
@@ -6414,7 +6414,7 @@ class microsoftgraphitemreference(msrest.serialization.Model):
         'name': {'key': 'name', 'type': 'str'},
         'path': {'key': 'path', 'type': 'str'},
         'share_id': {'key': 'shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'site_id': {'key': 'siteId', 'type': 'str'},
     }
 
@@ -6428,11 +6428,11 @@ class microsoftgraphitemreference(msrest.serialization.Model):
         name: Optional[str] = None,
         path: Optional[str] = None,
         share_id: Optional[str] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         site_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphitemreference, self).__init__(**kwargs)
+        super(MicrosoftGraphItemReference, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.drive_id = drive_id
         self.drive_type = drive_type
@@ -6444,7 +6444,7 @@ class microsoftgraphitemreference(msrest.serialization.Model):
         self.site_id = site_id
 
 
-class microsoftgraphlicenseassignmentstate(msrest.serialization.Model):
+class MicrosoftGraphLicenseAssignmentState(msrest.serialization.Model):
     """licenseAssignmentState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6482,7 +6482,7 @@ class microsoftgraphlicenseassignmentstate(msrest.serialization.Model):
         state: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlicenseassignmentstate, self).__init__(**kwargs)
+        super(MicrosoftGraphLicenseAssignmentState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.assigned_by_group = assigned_by_group
         self.disabled_plans = disabled_plans
@@ -6491,7 +6491,7 @@ class microsoftgraphlicenseassignmentstate(msrest.serialization.Model):
         self.state = state
 
 
-class microsoftgraphlicensedetails(microsoftgraphentity):
+class MicrosoftGraphLicenseDetails(MicrosoftGraphEntity):
     """licenseDetails.
 
     :param id: Read-only.
@@ -6501,7 +6501,7 @@ class microsoftgraphlicensedetails(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param service_plans: Information about the service plans assigned with the license. Read-only,
      Not nullable.
-    :type service_plans: list[~teams.models.microsoftgraphserviceplaninfo]
+    :type service_plans: list[~teams.models.MicrosoftGraphServicePlanInfo]
     :param sku_id: Unique identifier (GUID) for the service SKU. Equal to the skuId property on the
      related SubscribedSku object. Read-only.
     :type sku_id: str
@@ -6513,7 +6513,7 @@ class microsoftgraphlicensedetails(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'service_plans': {'key': 'servicePlans', 'type': '[microsoftgraphserviceplaninfo]'},
+        'service_plans': {'key': 'servicePlans', 'type': '[MicrosoftGraphServicePlanInfo]'},
         'sku_id': {'key': 'skuId', 'type': 'str'},
         'sku_part_number': {'key': 'skuPartNumber', 'type': 'str'},
     }
@@ -6523,19 +6523,19 @@ class microsoftgraphlicensedetails(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        service_plans: Optional[List["microsoftgraphserviceplaninfo"]] = None,
+        service_plans: Optional[List["MicrosoftGraphServicePlanInfo"]] = None,
         sku_id: Optional[str] = None,
         sku_part_number: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlicensedetails, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphLicenseDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.service_plans = service_plans
         self.sku_id = sku_id
         self.sku_part_number = sku_part_number
 
 
-class microsoftgraphlicenseprocessingstate(msrest.serialization.Model):
+class MicrosoftGraphLicenseProcessingState(msrest.serialization.Model):
     """licenseProcessingState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6557,18 +6557,18 @@ class microsoftgraphlicenseprocessingstate(msrest.serialization.Model):
         state: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlicenseprocessingstate, self).__init__(**kwargs)
+        super(MicrosoftGraphLicenseProcessingState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.state = state
 
 
-class microsoftgraphlist(microsoftgraphbaseitem):
+class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """list.
 
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -6576,95 +6576,95 @@ class microsoftgraphlist(microsoftgraphbaseitem):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param display_name: The displayable title of the list.
     :type display_name: str
     :param list: listInfo.
-    :type list: ~teams.models.microsoftgraphlistinfo
+    :type list: ~teams.models.MicrosoftGraphListInfo
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param system: systemFacet.
     :type system: dict[str, object]
     :param columns: The collection of field definitions for this list.
-    :type columns: list[~teams.models.microsoftgraphcolumndefinition]
+    :type columns: list[~teams.models.MicrosoftGraphColumnDefinition]
     :param content_types: The collection of content types present in this list.
-    :type content_types: list[~teams.models.microsoftgraphcontenttype]
+    :type content_types: list[~teams.models.MicrosoftGraphContentType]
     :param drive: drive.
-    :type drive: ~teams.models.microsoftgraphdrive
+    :type drive: ~teams.models.MicrosoftGraphDrive
     :param items: All items contained in the list.
-    :type items: list[~teams.models.microsoftgraphlistitem]
+    :type items: list[~teams.models.MicrosoftGraphListItem]
     :param subscriptions: The set of subscriptions on the list.
-    :type subscriptions: list[~teams.models.microsoftgraphsubscription]
+    :type subscriptions: list[~teams.models.MicrosoftGraphSubscription]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'list': {'key': 'list', 'type': 'microsoftgraphlistinfo'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
+        'list': {'key': 'list', 'type': 'MicrosoftGraphListInfo'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'system': {'key': 'system', 'type': '{object}'},
-        'columns': {'key': 'columns', 'type': '[microsoftgraphcolumndefinition]'},
-        'content_types': {'key': 'contentTypes', 'type': '[microsoftgraphcontenttype]'},
-        'drive': {'key': 'drive', 'type': 'microsoftgraphdrive'},
-        'items': {'key': 'items', 'type': '[microsoftgraphlistitem]'},
-        'subscriptions': {'key': 'subscriptions', 'type': '[microsoftgraphsubscription]'},
+        'columns': {'key': 'columns', 'type': '[MicrosoftGraphColumnDefinition]'},
+        'content_types': {'key': 'contentTypes', 'type': '[MicrosoftGraphContentType]'},
+        'drive': {'key': 'drive', 'type': 'MicrosoftGraphDrive'},
+        'items': {'key': 'items', 'type': '[MicrosoftGraphListItem]'},
+        'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        list: Optional["microsoftgraphlistinfo"] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
+        list: Optional["MicrosoftGraphListInfo"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         system: Optional[Dict[str, object]] = None,
-        columns: Optional[List["microsoftgraphcolumndefinition"]] = None,
-        content_types: Optional[List["microsoftgraphcontenttype"]] = None,
-        drive: Optional["microsoftgraphdrive"] = None,
-        items: Optional[List["microsoftgraphlistitem"]] = None,
-        subscriptions: Optional[List["microsoftgraphsubscription"]] = None,
+        columns: Optional[List["MicrosoftGraphColumnDefinition"]] = None,
+        content_types: Optional[List["MicrosoftGraphContentType"]] = None,
+        drive: Optional["MicrosoftGraphDrive"] = None,
+        items: Optional[List["MicrosoftGraphListItem"]] = None,
+        subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
         **kwargs
     ):
-        super(microsoftgraphlist, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
+        super(MicrosoftGraphList, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.list = list
@@ -6677,7 +6677,7 @@ class microsoftgraphlist(microsoftgraphbaseitem):
         self.subscriptions = subscriptions
 
 
-class microsoftgraphlistinfo(msrest.serialization.Model):
+class MicrosoftGraphListInfo(msrest.serialization.Model):
     """listInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6710,20 +6710,20 @@ class microsoftgraphlistinfo(msrest.serialization.Model):
         template: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlistinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphListInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content_types_enabled = content_types_enabled
         self.hidden = hidden
         self.template = template
 
 
-class microsoftgraphlistitem(microsoftgraphbaseitem):
+class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """listItem.
 
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -6731,83 +6731,83 @@ class microsoftgraphlistitem(microsoftgraphbaseitem):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param content_type: contentTypeInfo.
-    :type content_type: ~teams.models.microsoftgraphcontenttypeinfo
+    :type content_type: ~teams.models.MicrosoftGraphContentTypeInfo
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param analytics: itemAnalytics.
-    :type analytics: ~teams.models.microsoftgraphitemanalytics
+    :type analytics: ~teams.models.MicrosoftGraphItemAnalytics
     :param drive_item: driveItem.
-    :type drive_item: ~teams.models.microsoftgraphdriveitem
+    :type drive_item: ~teams.models.MicrosoftGraphDriveItem
     :param fields: fieldValueSet.
-    :type fields: ~teams.models.microsoftgraphfieldvalueset
+    :type fields: ~teams.models.MicrosoftGraphFieldValueSet
     :param versions: The list of previous versions of the list item.
-    :type versions: list[~teams.models.microsoftgraphlistitemversion]
+    :type versions: list[~teams.models.MicrosoftGraphListItemVersion]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'content_type': {'key': 'contentType', 'type': 'microsoftgraphcontenttypeinfo'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
-        'analytics': {'key': 'analytics', 'type': 'microsoftgraphitemanalytics'},
-        'drive_item': {'key': 'driveItem', 'type': 'microsoftgraphdriveitem'},
-        'fields': {'key': 'fields', 'type': 'microsoftgraphfieldvalueset'},
-        'versions': {'key': 'versions', 'type': '[microsoftgraphlistitemversion]'},
+        'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
+        'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
+        'versions': {'key': 'versions', 'type': '[MicrosoftGraphListItemVersion]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        content_type: Optional["microsoftgraphcontenttypeinfo"] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
-        analytics: Optional["microsoftgraphitemanalytics"] = None,
-        drive_item: Optional["microsoftgraphdriveitem"] = None,
-        fields: Optional["microsoftgraphfieldvalueset"] = None,
-        versions: Optional[List["microsoftgraphlistitemversion"]] = None,
+        content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
+        drive_item: Optional["MicrosoftGraphDriveItem"] = None,
+        fields: Optional["MicrosoftGraphFieldValueSet"] = None,
+        versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
         **kwargs
     ):
-        super(microsoftgraphlistitem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
+        super(MicrosoftGraphListItem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.content_type = content_type
         self.sharepoint_ids = sharepoint_ids
@@ -6817,50 +6817,50 @@ class microsoftgraphlistitem(microsoftgraphbaseitem):
         self.versions = versions
 
 
-class microsoftgraphlistitemversion(microsoftgraphbaseitemversion):
+class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """listItemVersion.
 
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
-    :type publication: ~teams.models.microsoftgraphpublicationfacet
+    :type publication: ~teams.models.MicrosoftGraphPublicationFacet
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param fields: fieldValueSet.
-    :type fields: ~teams.models.microsoftgraphfieldvalueset
+    :type fields: ~teams.models.MicrosoftGraphFieldValueSet
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'publication': {'key': 'publication', 'type': 'microsoftgraphpublicationfacet'},
+        'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fields': {'key': 'fields', 'type': 'microsoftgraphfieldvalueset'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        publication: Optional["microsoftgraphpublicationfacet"] = None,
+        publication: Optional["MicrosoftGraphPublicationFacet"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fields: Optional["microsoftgraphfieldvalueset"] = None,
+        fields: Optional["MicrosoftGraphFieldValueSet"] = None,
         **kwargs
     ):
-        super(microsoftgraphlistitemversion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
+        super(MicrosoftGraphListItemVersion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
         self.additional_properties = additional_properties
         self.fields = fields
 
 
-class microsoftgraphlocaleinfo(msrest.serialization.Model):
+class MicrosoftGraphLocaleInfo(msrest.serialization.Model):
     """localeInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6890,22 +6890,22 @@ class microsoftgraphlocaleinfo(msrest.serialization.Model):
         locale: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlocaleinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphLocaleInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.locale = locale
 
 
-class microsoftgraphlocation(msrest.serialization.Model):
+class MicrosoftGraphLocation(msrest.serialization.Model):
     """location.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
-    :type address: ~teams.models.microsoftgraphphysicaladdress
+    :type address: ~teams.models.MicrosoftGraphPhysicalAddress
     :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~teams.models.microsoftgraphoutlookgeocoordinates
+    :type coordinates: ~teams.models.MicrosoftGraphOutlookGeoCoordinates
     :param display_name: The name associated with the location.
     :type display_name: str
     :param location_email_address: Optional email address of the location.
@@ -6913,20 +6913,20 @@ class microsoftgraphlocation(msrest.serialization.Model):
     :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
      "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
      "postalAddress".
-    :type location_type: str or ~teams.models.Microsoftgraphlocationtype
+    :type location_type: str or ~teams.models.MicrosoftGraphLocationType
     :param location_uri: Optional URI representing the location.
     :type location_uri: str
     :param unique_id: For internal use only.
     :type unique_id: str
     :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
      "private", "bing".
-    :type unique_id_type: str or ~teams.models.Microsoftgraphlocationuniqueidtype
+    :type unique_id_type: str or ~teams.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphphysicaladdress'},
-        'coordinates': {'key': 'coordinates', 'type': 'microsoftgraphoutlookgeocoordinates'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'coordinates': {'key': 'coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'location_email_address': {'key': 'locationEmailAddress', 'type': 'str'},
         'location_type': {'key': 'locationType', 'type': 'str'},
@@ -6939,17 +6939,17 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphphysicaladdress"] = None,
-        coordinates: Optional["microsoftgraphoutlookgeocoordinates"] = None,
+        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
+        coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
         display_name: Optional[str] = None,
         location_email_address: Optional[str] = None,
-        location_type: Optional[Union[str, "Microsoftgraphlocationtype"]] = None,
+        location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
         location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
-        unique_id_type: Optional[Union[str, "Microsoftgraphlocationuniqueidtype"]] = None,
+        unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphlocation, self).__init__(**kwargs)
+        super(MicrosoftGraphLocation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.coordinates = coordinates
@@ -6961,7 +6961,7 @@ class microsoftgraphlocation(msrest.serialization.Model):
         self.unique_id_type = unique_id_type
 
 
-class microsoftgraphlookupcolumn(msrest.serialization.Model):
+class MicrosoftGraphLookupColumn(msrest.serialization.Model):
     """lookupColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -7003,7 +7003,7 @@ class microsoftgraphlookupcolumn(msrest.serialization.Model):
         primary_lookup_column_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphlookupcolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphLookupColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_multiple_values = allow_multiple_values
         self.allow_unlimited_length = allow_unlimited_length
@@ -7012,7 +7012,7 @@ class microsoftgraphlookupcolumn(msrest.serialization.Model):
         self.primary_lookup_column_id = primary_lookup_column_id
 
 
-class microsoftgraphmailboxsettings(msrest.serialization.Model):
+class MicrosoftGraphMailboxSettings(msrest.serialization.Model):
     """mailboxSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -7021,33 +7021,33 @@ class microsoftgraphmailboxsettings(msrest.serialization.Model):
     :param archive_folder: Folder ID of an archive folder for the user.
     :type archive_folder: str
     :param automatic_replies_setting: automaticRepliesSetting.
-    :type automatic_replies_setting: ~teams.models.microsoftgraphautomaticrepliessetting
+    :type automatic_replies_setting: ~teams.models.MicrosoftGraphAutomaticRepliesSetting
     :param date_format: The date format for the user's mailbox.
     :type date_format: str
     :param delegate_meeting_message_delivery_options:  Possible values include:
      "sendToDelegateAndInformationToPrincipal", "sendToDelegateAndPrincipal", "sendToDelegateOnly".
     :type delegate_meeting_message_delivery_options: str or
-     ~teams.models.Microsoftgraphdelegatemeetingmessagedeliveryoptions
+     ~teams.models.MicrosoftGraphDelegateMeetingMessageDeliveryOptions
     :param language: localeInfo.
-    :type language: ~teams.models.microsoftgraphlocaleinfo
+    :type language: ~teams.models.MicrosoftGraphLocaleInfo
     :param time_format: The time format for the user's mailbox.
     :type time_format: str
     :param time_zone: The default time zone for the user's mailbox.
     :type time_zone: str
     :param working_hours: workingHours.
-    :type working_hours: ~teams.models.microsoftgraphworkinghours
+    :type working_hours: ~teams.models.MicrosoftGraphWorkingHours
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'archive_folder': {'key': 'archiveFolder', 'type': 'str'},
-        'automatic_replies_setting': {'key': 'automaticRepliesSetting', 'type': 'microsoftgraphautomaticrepliessetting'},
+        'automatic_replies_setting': {'key': 'automaticRepliesSetting', 'type': 'MicrosoftGraphAutomaticRepliesSetting'},
         'date_format': {'key': 'dateFormat', 'type': 'str'},
         'delegate_meeting_message_delivery_options': {'key': 'delegateMeetingMessageDeliveryOptions', 'type': 'str'},
-        'language': {'key': 'language', 'type': 'microsoftgraphlocaleinfo'},
+        'language': {'key': 'language', 'type': 'MicrosoftGraphLocaleInfo'},
         'time_format': {'key': 'timeFormat', 'type': 'str'},
         'time_zone': {'key': 'timeZone', 'type': 'str'},
-        'working_hours': {'key': 'workingHours', 'type': 'microsoftgraphworkinghours'},
+        'working_hours': {'key': 'workingHours', 'type': 'MicrosoftGraphWorkingHours'},
     }
 
     def __init__(
@@ -7055,16 +7055,16 @@ class microsoftgraphmailboxsettings(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         archive_folder: Optional[str] = None,
-        automatic_replies_setting: Optional["microsoftgraphautomaticrepliessetting"] = None,
+        automatic_replies_setting: Optional["MicrosoftGraphAutomaticRepliesSetting"] = None,
         date_format: Optional[str] = None,
-        delegate_meeting_message_delivery_options: Optional[Union[str, "Microsoftgraphdelegatemeetingmessagedeliveryoptions"]] = None,
-        language: Optional["microsoftgraphlocaleinfo"] = None,
+        delegate_meeting_message_delivery_options: Optional[Union[str, "MicrosoftGraphDelegateMeetingMessageDeliveryOptions"]] = None,
+        language: Optional["MicrosoftGraphLocaleInfo"] = None,
         time_format: Optional[str] = None,
         time_zone: Optional[str] = None,
-        working_hours: Optional["microsoftgraphworkinghours"] = None,
+        working_hours: Optional["MicrosoftGraphWorkingHours"] = None,
         **kwargs
     ):
-        super(microsoftgraphmailboxsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphMailboxSettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.archive_folder = archive_folder
         self.automatic_replies_setting = automatic_replies_setting
@@ -7076,7 +7076,7 @@ class microsoftgraphmailboxsettings(msrest.serialization.Model):
         self.working_hours = working_hours
 
 
-class microsoftgraphmailfolder(microsoftgraphentity):
+class MicrosoftGraphMailFolder(MicrosoftGraphEntity):
     """mailFolder.
 
     :param id: Read-only.
@@ -7095,19 +7095,19 @@ class microsoftgraphmailfolder(microsoftgraphentity):
     :param unread_item_count: The number of items in the mailFolder marked as unread.
     :type unread_item_count: int
     :param child_folders: The collection of child folders in the mailFolder.
-    :type child_folders: list[~teams.models.microsoftgraphmailfolder]
+    :type child_folders: list[~teams.models.MicrosoftGraphMailFolder]
     :param message_rules: The collection of rules that apply to the user's Inbox folder.
-    :type message_rules: list[~teams.models.microsoftgraphmessagerule]
+    :type message_rules: list[~teams.models.MicrosoftGraphMessageRule]
     :param messages: The collection of messages in the mailFolder.
-    :type messages: list[~teams.models.microsoftgraphmessage]
+    :type messages: list[~teams.models.MicrosoftGraphMessage]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the mailFolder. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the mailFolder. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _validation = {
@@ -7124,11 +7124,11 @@ class microsoftgraphmailfolder(microsoftgraphentity):
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'total_item_count': {'key': 'totalItemCount', 'type': 'int'},
         'unread_item_count': {'key': 'unreadItemCount', 'type': 'int'},
-        'child_folders': {'key': 'childFolders', 'type': '[microsoftgraphmailfolder]'},
-        'message_rules': {'key': 'messageRules', 'type': '[microsoftgraphmessagerule]'},
-        'messages': {'key': 'messages', 'type': '[microsoftgraphmessage]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'child_folders': {'key': 'childFolders', 'type': '[MicrosoftGraphMailFolder]'},
+        'message_rules': {'key': 'messageRules', 'type': '[MicrosoftGraphMessageRule]'},
+        'messages': {'key': 'messages', 'type': '[MicrosoftGraphMessage]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -7141,14 +7141,14 @@ class microsoftgraphmailfolder(microsoftgraphentity):
         parent_folder_id: Optional[str] = None,
         total_item_count: Optional[int] = None,
         unread_item_count: Optional[int] = None,
-        child_folders: Optional[List["microsoftgraphmailfolder"]] = None,
-        message_rules: Optional[List["microsoftgraphmessagerule"]] = None,
-        messages: Optional[List["microsoftgraphmessage"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        child_folders: Optional[List["MicrosoftGraphMailFolder"]] = None,
+        message_rules: Optional[List["MicrosoftGraphMessageRule"]] = None,
+        messages: Optional[List["MicrosoftGraphMessage"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphmailfolder, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphMailFolder, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.child_folder_count = child_folder_count
         self.display_name = display_name
@@ -7162,7 +7162,7 @@ class microsoftgraphmailfolder(microsoftgraphentity):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphmanagedappoperation(microsoftgraphentity):
+class MicrosoftGraphManagedAppOperation(MicrosoftGraphEntity):
     """Represents an operation applied against an app registration.
 
     :param id: Read-only.
@@ -7200,7 +7200,7 @@ class microsoftgraphmanagedappoperation(microsoftgraphentity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphmanagedappoperation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphManagedAppOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
@@ -7208,7 +7208,7 @@ class microsoftgraphmanagedappoperation(microsoftgraphentity):
         self.version = version
 
 
-class microsoftgraphmanagedapppolicy(microsoftgraphentity):
+class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
     """The ManagedAppPolicy resource represents a base type for platform specific policies.
 
     :param id: Read-only.
@@ -7250,7 +7250,7 @@ class microsoftgraphmanagedapppolicy(microsoftgraphentity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphmanagedapppolicy, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphManagedAppPolicy, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.description = description
@@ -7259,7 +7259,7 @@ class microsoftgraphmanagedapppolicy(microsoftgraphentity):
         self.version = version
 
 
-class microsoftgraphmanagedappregistration(microsoftgraphentity):
+class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
     """The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
 
     :param id: Read-only.
@@ -7282,7 +7282,7 @@ class microsoftgraphmanagedappregistration(microsoftgraphentity):
     :type device_type: str
     :param flagged_reasons: Zero or more reasons an app registration is flagged. E.g. app running
      on rooted device.
-    :type flagged_reasons: list[str or ~teams.models.Microsoftgraphmanagedappflaggedreason]
+    :type flagged_reasons: list[str or ~teams.models.MicrosoftGraphManagedAppFlaggedReason]
     :param last_sync_date_time: Date and time of last the app synced with management service.
     :type last_sync_date_time: ~datetime.datetime
     :param management_sdk_version: App management SDK version.
@@ -7295,11 +7295,11 @@ class microsoftgraphmanagedappregistration(microsoftgraphentity):
     :type version: str
     :param applied_policies: Zero or more policys already applied on the registered app when it
      last synchronized with managment service.
-    :type applied_policies: list[~teams.models.microsoftgraphmanagedapppolicy]
+    :type applied_policies: list[~teams.models.MicrosoftGraphManagedAppPolicy]
     :param intended_policies: Zero or more policies admin intended for the app as of now.
-    :type intended_policies: list[~teams.models.microsoftgraphmanagedapppolicy]
+    :type intended_policies: list[~teams.models.MicrosoftGraphManagedAppPolicy]
     :param operations: Zero or more long running operations triggered on the app registration.
-    :type operations: list[~teams.models.microsoftgraphmanagedappoperation]
+    :type operations: list[~teams.models.MicrosoftGraphManagedAppOperation]
     """
 
     _attribute_map = {
@@ -7317,9 +7317,9 @@ class microsoftgraphmanagedappregistration(microsoftgraphentity):
         'platform_version': {'key': 'platformVersion', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'version': {'key': 'version', 'type': 'str'},
-        'applied_policies': {'key': 'appliedPolicies', 'type': '[microsoftgraphmanagedapppolicy]'},
-        'intended_policies': {'key': 'intendedPolicies', 'type': '[microsoftgraphmanagedapppolicy]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphmanagedappoperation]'},
+        'applied_policies': {'key': 'appliedPolicies', 'type': '[MicrosoftGraphManagedAppPolicy]'},
+        'intended_policies': {'key': 'intendedPolicies', 'type': '[MicrosoftGraphManagedAppPolicy]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphManagedAppOperation]'},
     }
 
     def __init__(
@@ -7333,18 +7333,18 @@ class microsoftgraphmanagedappregistration(microsoftgraphentity):
         device_name: Optional[str] = None,
         device_tag: Optional[str] = None,
         device_type: Optional[str] = None,
-        flagged_reasons: Optional[List[Union[str, "Microsoftgraphmanagedappflaggedreason"]]] = None,
+        flagged_reasons: Optional[List[Union[str, "MicrosoftGraphManagedAppFlaggedReason"]]] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
         management_sdk_version: Optional[str] = None,
         platform_version: Optional[str] = None,
         user_id: Optional[str] = None,
         version: Optional[str] = None,
-        applied_policies: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
-        intended_policies: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
-        operations: Optional[List["microsoftgraphmanagedappoperation"]] = None,
+        applied_policies: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
+        intended_policies: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
+        operations: Optional[List["MicrosoftGraphManagedAppOperation"]] = None,
         **kwargs
     ):
-        super(microsoftgraphmanagedappregistration, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphManagedAppRegistration, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.app_identifier = app_identifier
         self.application_version = application_version
@@ -7363,7 +7363,7 @@ class microsoftgraphmanagedappregistration(microsoftgraphentity):
         self.operations = operations
 
 
-class microsoftgraphmanageddevice(microsoftgraphentity):
+class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
     """Devices that are managed or pre-enrolled through Intune.
 
     :param id: Read-only.
@@ -7386,28 +7386,28 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
     :type compliance_grace_period_expiration_date_time: ~datetime.datetime
     :param compliance_state:  Possible values include: "unknown", "compliant", "noncompliant",
      "conflict", "error", "inGracePeriod", "configManager".
-    :type compliance_state: str or ~teams.models.Microsoftgraphcompliancestate
+    :type compliance_state: str or ~teams.models.MicrosoftGraphComplianceState
     :param configuration_manager_client_enabled_features: configuration Manager client enabled
      features.
     :type configuration_manager_client_enabled_features:
-     ~teams.models.microsoftgraphconfigurationmanagerclientenabledfeatures
+     ~teams.models.MicrosoftGraphConfigurationManagerClientEnabledFeatures
     :param device_action_results: List of ComplexType deviceActionResult objects.
-    :type device_action_results: list[~teams.models.microsoftgraphdeviceactionresult]
+    :type device_action_results: list[~teams.models.MicrosoftGraphDeviceActionResult]
     :param device_category_display_name: Device category display name.
     :type device_category_display_name: str
     :param device_enrollment_type:  Possible values include: "unknown", "userEnrollment",
      "deviceEnrollmentManager", "appleBulkWithUser", "appleBulkWithoutUser", "windowsAzureADJoin",
      "windowsBulkUserless", "windowsAutoEnrollment", "windowsBulkAzureDomainJoin",
      "windowsCoManagement".
-    :type device_enrollment_type: str or ~teams.models.Microsoftgraphdeviceenrollmenttype
+    :type device_enrollment_type: str or ~teams.models.MicrosoftGraphDeviceEnrollmentType
     :param device_health_attestation_state: deviceHealthAttestationState.
-    :type device_health_attestation_state: ~teams.models.microsoftgraphdevicehealthattestationstate
+    :type device_health_attestation_state: ~teams.models.MicrosoftGraphDeviceHealthAttestationState
     :param device_name: Name of the device.
     :type device_name: str
     :param device_registration_state:  Possible values include: "notRegistered", "registered",
      "revoked", "keyConflict", "approvalPending", "certificateReset",
      "notRegisteredPendingEnrollment", "unknown".
-    :type device_registration_state: str or ~teams.models.Microsoftgraphdeviceregistrationstate
+    :type device_registration_state: str or ~teams.models.MicrosoftGraphDeviceRegistrationState
     :param eas_activated: Whether the device is Exchange ActiveSync activated.
     :type eas_activated: bool
     :param eas_activation_date_time: Exchange ActivationSync activation time of the device.
@@ -7421,14 +7421,14 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
     :param exchange_access_state:  Possible values include: "none", "unknown", "allowed",
      "blocked", "quarantined".
     :type exchange_access_state: str or
-     ~teams.models.Microsoftgraphdevicemanagementexchangeaccessstate
+     ~teams.models.MicrosoftGraphDeviceManagementExchangeAccessState
     :param exchange_access_state_reason:  Possible values include: "none", "unknown",
      "exchangeGlobalRule", "exchangeIndividualRule", "exchangeDeviceRule", "exchangeUpgrade",
      "exchangeMailboxPolicy", "other", "compliant", "notCompliant", "notEnrolled",
      "unknownLocation", "mfaRequired", "azureADBlockDueToAccessPolicy", "compromisedPassword",
      "deviceNotKnownWithManagedApp".
     :type exchange_access_state_reason: str or
-     ~teams.models.Microsoftgraphdevicemanagementexchangeaccessstatereason
+     ~teams.models.MicrosoftGraphDeviceManagementExchangeAccessStateReason
     :param exchange_last_successful_sync_date_time: Last time the device contacted Exchange.
     :type exchange_last_successful_sync_date_time: ~datetime.datetime
     :param free_storage_space_in_bytes: Free Storage in Bytes.
@@ -7448,11 +7448,11 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
      overwritten to a user friendly name.
     :type managed_device_name: str
     :param managed_device_owner_type:  Possible values include: "unknown", "company", "personal".
-    :type managed_device_owner_type: str or ~teams.models.Microsoftgraphmanageddeviceownertype
+    :type managed_device_owner_type: str or ~teams.models.MicrosoftGraphManagedDeviceOwnerType
     :param management_agent:  Possible values include: "eas", "mdm", "easMdm", "intuneClient",
      "easIntuneClient", "configurationManagerClient", "configurationManagerClientMdm",
      "configurationManagerClientMdmEas", "unknown", "jamf", "googleCloudDevicePolicyController".
-    :type management_agent: str or ~teams.models.Microsoftgraphmanagementagenttype
+    :type management_agent: str or ~teams.models.MicrosoftGraphManagementAgentType
     :param manufacturer: Manufacturer of the device.
     :type manufacturer: str
     :param meid: MEID.
@@ -7467,7 +7467,7 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
      "deactivated", "secured", "lowSeverity", "mediumSeverity", "highSeverity", "unresponsive",
      "compromised", "misconfigured".
     :type partner_reported_threat_state: str or
-     ~teams.models.Microsoftgraphmanageddevicepartnerreportedhealthstate
+     ~teams.models.MicrosoftGraphManagedDevicePartnerReportedHealthState
     :param phone_number: Phone number of the device.
     :type phone_number: str
     :param remote_assistance_session_error_details: An error string that identifies issues when
@@ -7492,15 +7492,15 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
     :type wi_fi_mac_address: str
     :param device_compliance_policy_states: Device compliance policy states for this device.
     :type device_compliance_policy_states:
-     list[~teams.models.microsoftgraphdevicecompliancepolicystate]
+     list[~teams.models.MicrosoftGraphDeviceCompliancePolicyState]
     :param device_configuration_states: Device configuration states for this device.
-    :type device_configuration_states: list[~teams.models.microsoftgraphdeviceconfigurationstate]
+    :type device_configuration_states: list[~teams.models.MicrosoftGraphDeviceConfigurationState]
     :param device_category: Device categories provides a way to organize your devices. Using device
      categories, company administrators can define their own categories that make sense to their
      company. These categories can then be applied to a device in the Intune Azure console or
      selected by a user during device enrollment. You can filter reports and create dynamic Azure
      Active Directory device groups based on device categories.
-    :type device_category: ~teams.models.microsoftgraphdevicecategory
+    :type device_category: ~teams.models.MicrosoftGraphDeviceCategory
     """
 
     _attribute_map = {
@@ -7512,11 +7512,11 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         'azure_ad_registered': {'key': 'azureADRegistered', 'type': 'bool'},
         'compliance_grace_period_expiration_date_time': {'key': 'complianceGracePeriodExpirationDateTime', 'type': 'iso-8601'},
         'compliance_state': {'key': 'complianceState', 'type': 'str'},
-        'configuration_manager_client_enabled_features': {'key': 'configurationManagerClientEnabledFeatures', 'type': 'microsoftgraphconfigurationmanagerclientenabledfeatures'},
-        'device_action_results': {'key': 'deviceActionResults', 'type': '[microsoftgraphdeviceactionresult]'},
+        'configuration_manager_client_enabled_features': {'key': 'configurationManagerClientEnabledFeatures', 'type': 'MicrosoftGraphConfigurationManagerClientEnabledFeatures'},
+        'device_action_results': {'key': 'deviceActionResults', 'type': '[MicrosoftGraphDeviceActionResult]'},
         'device_category_display_name': {'key': 'deviceCategoryDisplayName', 'type': 'str'},
         'device_enrollment_type': {'key': 'deviceEnrollmentType', 'type': 'str'},
-        'device_health_attestation_state': {'key': 'deviceHealthAttestationState', 'type': 'microsoftgraphdevicehealthattestationstate'},
+        'device_health_attestation_state': {'key': 'deviceHealthAttestationState', 'type': 'MicrosoftGraphDeviceHealthAttestationState'},
         'device_name': {'key': 'deviceName', 'type': 'str'},
         'device_registration_state': {'key': 'deviceRegistrationState', 'type': 'str'},
         'eas_activated': {'key': 'easActivated', 'type': 'bool'},
@@ -7552,9 +7552,9 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
         'wi_fi_mac_address': {'key': 'wiFiMacAddress', 'type': 'str'},
-        'device_compliance_policy_states': {'key': 'deviceCompliancePolicyStates', 'type': '[microsoftgraphdevicecompliancepolicystate]'},
-        'device_configuration_states': {'key': 'deviceConfigurationStates', 'type': '[microsoftgraphdeviceconfigurationstate]'},
-        'device_category': {'key': 'deviceCategory', 'type': 'microsoftgraphdevicecategory'},
+        'device_compliance_policy_states': {'key': 'deviceCompliancePolicyStates', 'type': '[MicrosoftGraphDeviceCompliancePolicyState]'},
+        'device_configuration_states': {'key': 'deviceConfigurationStates', 'type': '[MicrosoftGraphDeviceConfigurationState]'},
+        'device_category': {'key': 'deviceCategory', 'type': 'MicrosoftGraphDeviceCategory'},
     }
 
     def __init__(
@@ -7567,21 +7567,21 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         azure_ad_device_id: Optional[str] = None,
         azure_ad_registered: Optional[bool] = None,
         compliance_grace_period_expiration_date_time: Optional[datetime.datetime] = None,
-        compliance_state: Optional[Union[str, "Microsoftgraphcompliancestate"]] = None,
-        configuration_manager_client_enabled_features: Optional["microsoftgraphconfigurationmanagerclientenabledfeatures"] = None,
-        device_action_results: Optional[List["microsoftgraphdeviceactionresult"]] = None,
+        compliance_state: Optional[Union[str, "MicrosoftGraphComplianceState"]] = None,
+        configuration_manager_client_enabled_features: Optional["MicrosoftGraphConfigurationManagerClientEnabledFeatures"] = None,
+        device_action_results: Optional[List["MicrosoftGraphDeviceActionResult"]] = None,
         device_category_display_name: Optional[str] = None,
-        device_enrollment_type: Optional[Union[str, "Microsoftgraphdeviceenrollmenttype"]] = None,
-        device_health_attestation_state: Optional["microsoftgraphdevicehealthattestationstate"] = None,
+        device_enrollment_type: Optional[Union[str, "MicrosoftGraphDeviceEnrollmentType"]] = None,
+        device_health_attestation_state: Optional["MicrosoftGraphDeviceHealthAttestationState"] = None,
         device_name: Optional[str] = None,
-        device_registration_state: Optional[Union[str, "Microsoftgraphdeviceregistrationstate"]] = None,
+        device_registration_state: Optional[Union[str, "MicrosoftGraphDeviceRegistrationState"]] = None,
         eas_activated: Optional[bool] = None,
         eas_activation_date_time: Optional[datetime.datetime] = None,
         eas_device_id: Optional[str] = None,
         email_address: Optional[str] = None,
         enrolled_date_time: Optional[datetime.datetime] = None,
-        exchange_access_state: Optional[Union[str, "Microsoftgraphdevicemanagementexchangeaccessstate"]] = None,
-        exchange_access_state_reason: Optional[Union[str, "Microsoftgraphdevicemanagementexchangeaccessstatereason"]] = None,
+        exchange_access_state: Optional[Union[str, "MicrosoftGraphDeviceManagementExchangeAccessState"]] = None,
+        exchange_access_state_reason: Optional[Union[str, "MicrosoftGraphDeviceManagementExchangeAccessStateReason"]] = None,
         exchange_last_successful_sync_date_time: Optional[datetime.datetime] = None,
         free_storage_space_in_bytes: Optional[int] = None,
         imei: Optional[str] = None,
@@ -7590,14 +7590,14 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         jail_broken: Optional[str] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
         managed_device_name: Optional[str] = None,
-        managed_device_owner_type: Optional[Union[str, "Microsoftgraphmanageddeviceownertype"]] = None,
-        management_agent: Optional[Union[str, "Microsoftgraphmanagementagenttype"]] = None,
+        managed_device_owner_type: Optional[Union[str, "MicrosoftGraphManagedDeviceOwnerType"]] = None,
+        management_agent: Optional[Union[str, "MicrosoftGraphManagementAgentType"]] = None,
         manufacturer: Optional[str] = None,
         meid: Optional[str] = None,
         model: Optional[str] = None,
         operating_system: Optional[str] = None,
         os_version: Optional[str] = None,
-        partner_reported_threat_state: Optional[Union[str, "Microsoftgraphmanageddevicepartnerreportedhealthstate"]] = None,
+        partner_reported_threat_state: Optional[Union[str, "MicrosoftGraphManagedDevicePartnerReportedHealthState"]] = None,
         phone_number: Optional[str] = None,
         remote_assistance_session_error_details: Optional[str] = None,
         remote_assistance_session_url: Optional[str] = None,
@@ -7608,12 +7608,12 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         wi_fi_mac_address: Optional[str] = None,
-        device_compliance_policy_states: Optional[List["microsoftgraphdevicecompliancepolicystate"]] = None,
-        device_configuration_states: Optional[List["microsoftgraphdeviceconfigurationstate"]] = None,
-        device_category: Optional["microsoftgraphdevicecategory"] = None,
+        device_compliance_policy_states: Optional[List["MicrosoftGraphDeviceCompliancePolicyState"]] = None,
+        device_configuration_states: Optional[List["MicrosoftGraphDeviceConfigurationState"]] = None,
+        device_category: Optional["MicrosoftGraphDeviceCategory"] = None,
         **kwargs
     ):
-        super(microsoftgraphmanageddevice, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphManagedDevice, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.activation_lock_bypass_code = activation_lock_bypass_code
         self.android_security_patch_level = android_security_patch_level
@@ -7666,21 +7666,21 @@ class microsoftgraphmanageddevice(microsoftgraphentity):
         self.device_category = device_category
 
 
-class microsoftgraphmeetingparticipantinfo(msrest.serialization.Model):
+class MicrosoftGraphMeetingParticipantInfo(msrest.serialization.Model):
     """meetingParticipantInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param identity: identitySet.
-    :type identity: ~teams.models.microsoftgraphidentityset
+    :type identity: ~teams.models.MicrosoftGraphIdentitySet
     :param upn: User principal name of the participant.
     :type upn: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'identity': {'key': 'identity', 'type': 'microsoftgraphidentityset'},
+        'identity': {'key': 'identity', 'type': 'MicrosoftGraphIdentitySet'},
         'upn': {'key': 'upn', 'type': 'str'},
     }
 
@@ -7688,49 +7688,49 @@ class microsoftgraphmeetingparticipantinfo(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        identity: Optional["microsoftgraphidentityset"] = None,
+        identity: Optional["MicrosoftGraphIdentitySet"] = None,
         upn: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphmeetingparticipantinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingParticipantInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.identity = identity
         self.upn = upn
 
 
-class microsoftgraphmeetingparticipants(msrest.serialization.Model):
+class MicrosoftGraphMeetingParticipants(msrest.serialization.Model):
     """meetingParticipants.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param attendees:
-    :type attendees: list[~teams.models.microsoftgraphmeetingparticipantinfo]
+    :type attendees: list[~teams.models.MicrosoftGraphMeetingParticipantInfo]
     :param organizer: meetingParticipantInfo.
-    :type organizer: ~teams.models.microsoftgraphmeetingparticipantinfo
+    :type organizer: ~teams.models.MicrosoftGraphMeetingParticipantInfo
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attendees': {'key': 'attendees', 'type': '[microsoftgraphmeetingparticipantinfo]'},
-        'organizer': {'key': 'organizer', 'type': 'microsoftgraphmeetingparticipantinfo'},
+        'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        attendees: Optional[List["microsoftgraphmeetingparticipantinfo"]] = None,
-        organizer: Optional["microsoftgraphmeetingparticipantinfo"] = None,
+        attendees: Optional[List["MicrosoftGraphMeetingParticipantInfo"]] = None,
+        organizer: Optional["MicrosoftGraphMeetingParticipantInfo"] = None,
         **kwargs
     ):
-        super(microsoftgraphmeetingparticipants, self).__init__(**kwargs)
+        super(MicrosoftGraphMeetingParticipants, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attendees = attendees
         self.organizer = organizer
 
 
-class microsoftgraphmessage(microsoftgraphoutlookitem):
+class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
     :param id: Read-only.
@@ -7753,35 +7753,35 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
      collection.
     :type additional_properties: dict[str, object]
     :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~teams.models.microsoftgraphrecipient]
+    :type bcc_recipients: list[~teams.models.MicrosoftGraphRecipient]
     :param body: itemBody.
-    :type body: ~teams.models.microsoftgraphitembody
+    :type body: ~teams.models.MicrosoftGraphItemBody
     :param body_preview: The first 255 characters of the message body. It is in text format.
     :type body_preview: str
     :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~teams.models.microsoftgraphrecipient]
+    :type cc_recipients: list[~teams.models.MicrosoftGraphRecipient]
     :param conversation_id: The ID of the conversation the email belongs to.
     :type conversation_id: str
     :param conversation_index: Indicates the position of the message within the conversation.
     :type conversation_index: bytes
     :param flag: followupFlag.
-    :type flag: ~teams.models.microsoftgraphfollowupflag
+    :type flag: ~teams.models.MicrosoftGraphFollowupFlag
     :param from_property: recipient.
-    :type from_property: ~teams.models.microsoftgraphrecipient
+    :type from_property: ~teams.models.MicrosoftGraphRecipient
     :param has_attachments: Indicates whether the message has attachments. This property doesn't
      include inline attachments, so if a message contains only inline attachments, this property is
      false. To verify the existence of inline attachments, parse the body property to look for a src
      attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
     :type has_attachments: bool
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~teams.models.Microsoftgraphimportance
+    :type importance: str or ~teams.models.MicrosoftGraphImportance
     :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or ~teams.models.Microsoftgraphinferenceclassificationtype
+    :type inference_classification: str or ~teams.models.MicrosoftGraphInferenceClassificationType
     :param internet_message_headers: A collection of message headers defined by RFC5322. The set
      includes message headers indicating the network path taken by a message from the sender to the
      recipient. It can also contain custom message headers that hold app data for the message.
      Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~teams.models.microsoftgraphinternetmessageheader]
+    :type internet_message_headers: list[~teams.models.MicrosoftGraphInternetMessageHeader]
     :param internet_message_id: The message ID in the format specified by RFC2822.
     :type internet_message_id: str
     :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
@@ -7800,17 +7800,17 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
     :param received_date_time: The date and time the message was received.
     :type received_date_time: ~datetime.datetime
     :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~teams.models.microsoftgraphrecipient]
+    :type reply_to: list[~teams.models.MicrosoftGraphRecipient]
     :param sender: recipient.
-    :type sender: ~teams.models.microsoftgraphrecipient
+    :type sender: ~teams.models.MicrosoftGraphRecipient
     :param sent_date_time: The date and time the message was sent.
     :type sent_date_time: ~datetime.datetime
     :param subject: The subject of the message.
     :type subject: str
     :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~teams.models.microsoftgraphrecipient]
+    :type to_recipients: list[~teams.models.MicrosoftGraphRecipient]
     :param unique_body: itemBody.
-    :type unique_body: ~teams.models.microsoftgraphitembody
+    :type unique_body: ~teams.models.MicrosoftGraphItemBody
     :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
      argument to the end of the URL to change how the message is displayed. If ispopout is not
      present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
@@ -7820,17 +7820,17 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
      from within an iFrame.
     :type web_link: str
     :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~teams.models.microsoftgraphattachment]
+    :type attachments: list[~teams.models.MicrosoftGraphAttachment]
     :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the message. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the message. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -7840,18 +7840,18 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'bcc_recipients': {'key': 'bccRecipients', 'type': '[microsoftgraphrecipient]'},
-        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
+        'bcc_recipients': {'key': 'bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
         'body_preview': {'key': 'bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'ccRecipients', 'type': '[microsoftgraphrecipient]'},
+        'cc_recipients': {'key': 'ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
         'conversation_id': {'key': 'conversationId', 'type': 'str'},
         'conversation_index': {'key': 'conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'flag', 'type': 'microsoftgraphfollowupflag'},
-        'from_property': {'key': 'from', 'type': 'microsoftgraphrecipient'},
+        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
+        'from_property': {'key': 'from', 'type': 'MicrosoftGraphRecipient'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'importance': {'key': 'importance', 'type': 'str'},
         'inference_classification': {'key': 'inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'internetMessageHeaders', 'type': '[microsoftgraphinternetmessageheader]'},
+        'internet_message_headers': {'key': 'internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
         'internet_message_id': {'key': 'internetMessageId', 'type': 'str'},
         'is_delivery_receipt_requested': {'key': 'isDeliveryReceiptRequested', 'type': 'bool'},
         'is_draft': {'key': 'isDraft', 'type': 'bool'},
@@ -7859,17 +7859,17 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
         'is_read_receipt_requested': {'key': 'isReadReceiptRequested', 'type': 'bool'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'received_date_time': {'key': 'receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'replyTo', 'type': '[microsoftgraphrecipient]'},
-        'sender': {'key': 'sender', 'type': 'microsoftgraphrecipient'},
+        'reply_to': {'key': 'replyTo', 'type': '[MicrosoftGraphRecipient]'},
+        'sender': {'key': 'sender', 'type': 'MicrosoftGraphRecipient'},
         'sent_date_time': {'key': 'sentDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
-        'to_recipients': {'key': 'toRecipients', 'type': '[microsoftgraphrecipient]'},
-        'unique_body': {'key': 'uniqueBody', 'type': 'microsoftgraphitembody'},
+        'to_recipients': {'key': 'toRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'unique_body': {'key': 'uniqueBody', 'type': 'MicrosoftGraphItemBody'},
         'web_link': {'key': 'webLink', 'type': 'str'},
-        'attachments': {'key': 'attachments', 'type': '[microsoftgraphattachment]'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphAttachment]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -7881,18 +7881,18 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
         created_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        bcc_recipients: Optional[List["microsoftgraphrecipient"]] = None,
-        body: Optional["microsoftgraphitembody"] = None,
+        bcc_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
         body_preview: Optional[str] = None,
-        cc_recipients: Optional[List["microsoftgraphrecipient"]] = None,
+        cc_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
         conversation_id: Optional[str] = None,
         conversation_index: Optional[bytes] = None,
-        flag: Optional["microsoftgraphfollowupflag"] = None,
-        from_property: Optional["microsoftgraphrecipient"] = None,
+        flag: Optional["MicrosoftGraphFollowupFlag"] = None,
+        from_property: Optional["MicrosoftGraphRecipient"] = None,
         has_attachments: Optional[bool] = None,
-        importance: Optional[Union[str, "Microsoftgraphimportance"]] = None,
-        inference_classification: Optional[Union[str, "Microsoftgraphinferenceclassificationtype"]] = None,
-        internet_message_headers: Optional[List["microsoftgraphinternetmessageheader"]] = None,
+        importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
+        inference_classification: Optional[Union[str, "MicrosoftGraphInferenceClassificationType"]] = None,
+        internet_message_headers: Optional[List["MicrosoftGraphInternetMessageHeader"]] = None,
         internet_message_id: Optional[str] = None,
         is_delivery_receipt_requested: Optional[bool] = None,
         is_draft: Optional[bool] = None,
@@ -7900,20 +7900,20 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
         is_read_receipt_requested: Optional[bool] = None,
         parent_folder_id: Optional[str] = None,
         received_date_time: Optional[datetime.datetime] = None,
-        reply_to: Optional[List["microsoftgraphrecipient"]] = None,
-        sender: Optional["microsoftgraphrecipient"] = None,
+        reply_to: Optional[List["MicrosoftGraphRecipient"]] = None,
+        sender: Optional["MicrosoftGraphRecipient"] = None,
         sent_date_time: Optional[datetime.datetime] = None,
         subject: Optional[str] = None,
-        to_recipients: Optional[List["microsoftgraphrecipient"]] = None,
-        unique_body: Optional["microsoftgraphitembody"] = None,
+        to_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
+        unique_body: Optional["MicrosoftGraphItemBody"] = None,
         web_link: Optional[str] = None,
-        attachments: Optional[List["microsoftgraphattachment"]] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        attachments: Optional[List["MicrosoftGraphAttachment"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphmessage, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphMessage, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.bcc_recipients = bcc_recipients
         self.body = body
@@ -7947,7 +7947,7 @@ class microsoftgraphmessage(microsoftgraphoutlookitem):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphmessagerule(microsoftgraphentity):
+class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     """messageRule.
 
     :param id: Read-only.
@@ -7956,13 +7956,13 @@ class microsoftgraphmessagerule(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param actions: messageRuleActions.
-    :type actions: ~teams.models.microsoftgraphmessageruleactions
+    :type actions: ~teams.models.MicrosoftGraphMessageRuleActions
     :param conditions: messageRulePredicates.
-    :type conditions: ~teams.models.microsoftgraphmessagerulepredicates
+    :type conditions: ~teams.models.MicrosoftGraphMessageRulePredicates
     :param display_name: The display name of the rule.
     :type display_name: str
     :param exceptions: messageRulePredicates.
-    :type exceptions: ~teams.models.microsoftgraphmessagerulepredicates
+    :type exceptions: ~teams.models.MicrosoftGraphMessageRulePredicates
     :param has_error: Indicates whether the rule is in an error condition. Read-only.
     :type has_error: bool
     :param is_enabled: Indicates whether the rule is enabled to be applied to messages.
@@ -7981,10 +7981,10 @@ class microsoftgraphmessagerule(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'actions': {'key': 'actions', 'type': 'microsoftgraphmessageruleactions'},
-        'conditions': {'key': 'conditions', 'type': 'microsoftgraphmessagerulepredicates'},
+        'actions': {'key': 'actions', 'type': 'MicrosoftGraphMessageRuleActions'},
+        'conditions': {'key': 'conditions', 'type': 'MicrosoftGraphMessageRulePredicates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'exceptions': {'key': 'exceptions', 'type': 'microsoftgraphmessagerulepredicates'},
+        'exceptions': {'key': 'exceptions', 'type': 'MicrosoftGraphMessageRulePredicates'},
         'has_error': {'key': 'hasError', 'type': 'bool'},
         'is_enabled': {'key': 'isEnabled', 'type': 'bool'},
         'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
@@ -7996,17 +7996,17 @@ class microsoftgraphmessagerule(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        actions: Optional["microsoftgraphmessageruleactions"] = None,
-        conditions: Optional["microsoftgraphmessagerulepredicates"] = None,
+        actions: Optional["MicrosoftGraphMessageRuleActions"] = None,
+        conditions: Optional["MicrosoftGraphMessageRulePredicates"] = None,
         display_name: Optional[str] = None,
-        exceptions: Optional["microsoftgraphmessagerulepredicates"] = None,
+        exceptions: Optional["MicrosoftGraphMessageRulePredicates"] = None,
         has_error: Optional[bool] = None,
         is_enabled: Optional[bool] = None,
         is_read_only: Optional[bool] = None,
         sequence: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphmessagerule, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphMessageRule, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.actions = actions
         self.conditions = conditions
@@ -8018,7 +8018,7 @@ class microsoftgraphmessagerule(microsoftgraphentity):
         self.sequence = sequence
 
 
-class microsoftgraphmessageruleactions(msrest.serialization.Model):
+class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
     """messageRuleActions.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -8032,21 +8032,21 @@ class microsoftgraphmessageruleactions(msrest.serialization.Model):
     :type delete: bool
     :param forward_as_attachment_to: The email addresses of the recipients to which a message
      should be forwarded as an attachment.
-    :type forward_as_attachment_to: list[~teams.models.microsoftgraphrecipient]
+    :type forward_as_attachment_to: list[~teams.models.MicrosoftGraphRecipient]
     :param forward_to: The email addresses of the recipients to which a message should be
      forwarded.
-    :type forward_to: list[~teams.models.microsoftgraphrecipient]
+    :type forward_to: list[~teams.models.MicrosoftGraphRecipient]
     :param mark_as_read: Indicates whether a message should be marked as read.
     :type mark_as_read: bool
     :param mark_importance:  Possible values include: "low", "normal", "high".
-    :type mark_importance: str or ~teams.models.Microsoftgraphimportance
+    :type mark_importance: str or ~teams.models.MicrosoftGraphImportance
     :param move_to_folder: The ID of the folder that a message will be moved to.
     :type move_to_folder: str
     :param permanent_delete: Indicates whether a message should be permanently deleted and not
      saved to the Deleted Items folder.
     :type permanent_delete: bool
     :param redirect_to: The email addresses to which a message should be redirected.
-    :type redirect_to: list[~teams.models.microsoftgraphrecipient]
+    :type redirect_to: list[~teams.models.MicrosoftGraphRecipient]
     :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
     :type stop_processing_rules: bool
     """
@@ -8056,13 +8056,13 @@ class microsoftgraphmessageruleactions(msrest.serialization.Model):
         'assign_categories': {'key': 'assignCategories', 'type': '[str]'},
         'copy_to_folder': {'key': 'copyToFolder', 'type': 'str'},
         'delete': {'key': 'delete', 'type': 'bool'},
-        'forward_as_attachment_to': {'key': 'forwardAsAttachmentTo', 'type': '[microsoftgraphrecipient]'},
-        'forward_to': {'key': 'forwardTo', 'type': '[microsoftgraphrecipient]'},
+        'forward_as_attachment_to': {'key': 'forwardAsAttachmentTo', 'type': '[MicrosoftGraphRecipient]'},
+        'forward_to': {'key': 'forwardTo', 'type': '[MicrosoftGraphRecipient]'},
         'mark_as_read': {'key': 'markAsRead', 'type': 'bool'},
         'mark_importance': {'key': 'markImportance', 'type': 'str'},
         'move_to_folder': {'key': 'moveToFolder', 'type': 'str'},
         'permanent_delete': {'key': 'permanentDelete', 'type': 'bool'},
-        'redirect_to': {'key': 'redirectTo', 'type': '[microsoftgraphrecipient]'},
+        'redirect_to': {'key': 'redirectTo', 'type': '[MicrosoftGraphRecipient]'},
         'stop_processing_rules': {'key': 'stopProcessingRules', 'type': 'bool'},
     }
 
@@ -8073,17 +8073,17 @@ class microsoftgraphmessageruleactions(msrest.serialization.Model):
         assign_categories: Optional[List[str]] = None,
         copy_to_folder: Optional[str] = None,
         delete: Optional[bool] = None,
-        forward_as_attachment_to: Optional[List["microsoftgraphrecipient"]] = None,
-        forward_to: Optional[List["microsoftgraphrecipient"]] = None,
+        forward_as_attachment_to: Optional[List["MicrosoftGraphRecipient"]] = None,
+        forward_to: Optional[List["MicrosoftGraphRecipient"]] = None,
         mark_as_read: Optional[bool] = None,
-        mark_importance: Optional[Union[str, "Microsoftgraphimportance"]] = None,
+        mark_importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         move_to_folder: Optional[str] = None,
         permanent_delete: Optional[bool] = None,
-        redirect_to: Optional[List["microsoftgraphrecipient"]] = None,
+        redirect_to: Optional[List["MicrosoftGraphRecipient"]] = None,
         stop_processing_rules: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphmessageruleactions, self).__init__(**kwargs)
+        super(MicrosoftGraphMessageRuleActions, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.assign_categories = assign_categories
         self.copy_to_folder = copy_to_folder
@@ -8098,7 +8098,7 @@ class microsoftgraphmessageruleactions(msrest.serialization.Model):
         self.stop_processing_rules = stop_processing_rules
 
 
-class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
+class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
     """messageRulePredicates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -8115,7 +8115,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
     :type categories: list[str]
     :param from_addresses: Represents the specific sender email addresses of an incoming message in
      order for the condition or exception to apply.
-    :type from_addresses: list[~teams.models.microsoftgraphrecipient]
+    :type from_addresses: list[~teams.models.MicrosoftGraphRecipient]
     :param has_attachments: Indicates whether an incoming message must have attachments in order
      for the condition or exception to apply.
     :type has_attachments: bool
@@ -8123,7 +8123,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type header_contains: list[str]
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~teams.models.Microsoftgraphimportance
+    :type importance: str or ~teams.models.MicrosoftGraphImportance
     :param is_approval_request: Indicates whether an incoming message must be an approval request
      in order for the condition or exception to apply.
     :type is_approval_request: bool
@@ -8159,7 +8159,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
     :type is_voicemail: bool
     :param message_action_flag:  Possible values include: "any", "call", "doNotForward",
      "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply", "replyToAll", "review".
-    :type message_action_flag: str or ~teams.models.Microsoftgraphmessageactionflag
+    :type message_action_flag: str or ~teams.models.MicrosoftGraphMessageActionFlag
     :param not_sent_to_me: Indicates whether the owner of the mailbox must not be a recipient of an
      incoming message in order for the condition or exception to apply.
     :type not_sent_to_me: bool
@@ -8171,7 +8171,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type sender_contains: list[str]
     :param sensitivity:  Possible values include: "normal", "personal", "private", "confidential".
-    :type sensitivity: str or ~teams.models.Microsoftgraphsensitivity
+    :type sensitivity: str or ~teams.models.MicrosoftGraphSensitivity
     :param sent_cc_me: Indicates whether the owner of the mailbox must be in the ccRecipients
      property of an incoming message in order for the condition or exception to apply.
     :type sent_cc_me: bool
@@ -8180,7 +8180,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
     :type sent_only_to_me: bool
     :param sent_to_addresses: Represents the email addresses that an incoming message must have
      been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses: list[~teams.models.microsoftgraphrecipient]
+    :type sent_to_addresses: list[~teams.models.MicrosoftGraphRecipient]
     :param sent_to_me: Indicates whether the owner of the mailbox must be in the toRecipients
      property of an incoming message in order for the condition or exception to apply.
     :type sent_to_me: bool
@@ -8192,7 +8192,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type subject_contains: list[str]
     :param within_size_range: sizeRange.
-    :type within_size_range: ~teams.models.microsoftgraphsizerange
+    :type within_size_range: ~teams.models.MicrosoftGraphSizeRange
     """
 
     _attribute_map = {
@@ -8200,7 +8200,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
         'body_contains': {'key': 'bodyContains', 'type': '[str]'},
         'body_or_subject_contains': {'key': 'bodyOrSubjectContains', 'type': '[str]'},
         'categories': {'key': 'categories', 'type': '[str]'},
-        'from_addresses': {'key': 'fromAddresses', 'type': '[microsoftgraphrecipient]'},
+        'from_addresses': {'key': 'fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'header_contains': {'key': 'headerContains', 'type': '[str]'},
         'importance': {'key': 'importance', 'type': 'str'},
@@ -8222,11 +8222,11 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
         'sensitivity': {'key': 'sensitivity', 'type': 'str'},
         'sent_cc_me': {'key': 'sentCcMe', 'type': 'bool'},
         'sent_only_to_me': {'key': 'sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses': {'key': 'sentToAddresses', 'type': '[microsoftgraphrecipient]'},
+        'sent_to_addresses': {'key': 'sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
         'sent_to_me': {'key': 'sentToMe', 'type': 'bool'},
         'sent_to_or_cc_me': {'key': 'sentToOrCcMe', 'type': 'bool'},
         'subject_contains': {'key': 'subjectContains', 'type': '[str]'},
-        'within_size_range': {'key': 'withinSizeRange', 'type': 'microsoftgraphsizerange'},
+        'within_size_range': {'key': 'withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
     }
 
     def __init__(
@@ -8236,10 +8236,10 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
         body_contains: Optional[List[str]] = None,
         body_or_subject_contains: Optional[List[str]] = None,
         categories: Optional[List[str]] = None,
-        from_addresses: Optional[List["microsoftgraphrecipient"]] = None,
+        from_addresses: Optional[List["MicrosoftGraphRecipient"]] = None,
         has_attachments: Optional[bool] = None,
         header_contains: Optional[List[str]] = None,
-        importance: Optional[Union[str, "Microsoftgraphimportance"]] = None,
+        importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         is_approval_request: Optional[bool] = None,
         is_automatic_forward: Optional[bool] = None,
         is_automatic_reply: Optional[bool] = None,
@@ -8251,21 +8251,21 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
         is_read_receipt: Optional[bool] = None,
         is_signed: Optional[bool] = None,
         is_voicemail: Optional[bool] = None,
-        message_action_flag: Optional[Union[str, "Microsoftgraphmessageactionflag"]] = None,
+        message_action_flag: Optional[Union[str, "MicrosoftGraphMessageActionFlag"]] = None,
         not_sent_to_me: Optional[bool] = None,
         recipient_contains: Optional[List[str]] = None,
         sender_contains: Optional[List[str]] = None,
-        sensitivity: Optional[Union[str, "Microsoftgraphsensitivity"]] = None,
+        sensitivity: Optional[Union[str, "MicrosoftGraphSensitivity"]] = None,
         sent_cc_me: Optional[bool] = None,
         sent_only_to_me: Optional[bool] = None,
-        sent_to_addresses: Optional[List["microsoftgraphrecipient"]] = None,
+        sent_to_addresses: Optional[List["MicrosoftGraphRecipient"]] = None,
         sent_to_me: Optional[bool] = None,
         sent_to_or_cc_me: Optional[bool] = None,
         subject_contains: Optional[List[str]] = None,
-        within_size_range: Optional["microsoftgraphsizerange"] = None,
+        within_size_range: Optional["MicrosoftGraphSizeRange"] = None,
         **kwargs
     ):
-        super(microsoftgraphmessagerulepredicates, self).__init__(**kwargs)
+        super(MicrosoftGraphMessageRulePredicates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.body_contains = body_contains
         self.body_or_subject_contains = body_or_subject_contains
@@ -8299,7 +8299,7 @@ class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
         self.within_size_range = within_size_range
 
 
-class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphMultiValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """multiValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -8325,12 +8325,12 @@ class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
         value: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphmultivaluelegacyextendedproperty, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphMultiValueLegacyExtendedProperty, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.value = value
 
 
-class microsoftgraphonenoteentitybasemodel(microsoftgraphentity):
+class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
     """onenoteEntityBaseModel.
 
     :param id: Read-only.
@@ -8356,12 +8356,12 @@ class microsoftgraphonenoteentitybasemodel(microsoftgraphentity):
         self_property: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteentitybasemodel, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOnenoteEntityBaseModel, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.self_property = self_property
 
 
-class microsoftgraphonenoteentityschemaobjectmodel(microsoftgraphonenoteentitybasemodel):
+class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteEntitySchemaObjectModel.
 
     :param id: Read-only.
@@ -8393,12 +8393,12 @@ class microsoftgraphonenoteentityschemaobjectmodel(microsoftgraphonenoteentityba
         created_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteentityschemaobjectmodel, self).__init__(id=id, self_property=self_property, **kwargs)
+        super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(id=id, self_property=self_property, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
 
 
-class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschemaobjectmodel):
+class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     """onenoteEntityHierarchyModel.
 
     :param id: Read-only.
@@ -8413,11 +8413,11 @@ class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschem
      collection.
     :type additional_properties: dict[str, object]
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
@@ -8430,9 +8430,9 @@ class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschem
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
     }
 
@@ -8443,13 +8443,13 @@ class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschem
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteentityhierarchymodel, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
+        super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.created_by = created_by
         self.display_name = display_name
@@ -8457,7 +8457,7 @@ class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschem
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
+class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """notebook.
 
     :param id: Read-only.
@@ -8469,11 +8469,11 @@ class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
@@ -8488,7 +8488,7 @@ class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
      notebook can be seen by people other than the owner. Read-only.
     :type is_shared: bool
     :param links: notebookLinks.
-    :type links: ~teams.models.microsoftgraphnotebooklinks
+    :type links: ~teams.models.MicrosoftGraphNotebookLinks
     :param section_groups_url: The URL for the sectionGroups navigation property, which returns all
      the section groups in the notebook. Read-only.
     :type section_groups_url: str
@@ -8496,30 +8496,30 @@ class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
      sections in the notebook. Read-only.
     :type sections_url: str
     :param user_role:  Possible values include: "Owner", "Contributor", "None", "Reader".
-    :type user_role: str or ~teams.models.Microsoftgraphonenoteuserrole
+    :type user_role: str or ~teams.models.MicrosoftGraphOnenoteUserRole
     :param section_groups: The section groups in the notebook. Read-only. Nullable.
-    :type section_groups: list[~teams.models.microsoftgraphsectiongroup]
+    :type section_groups: list[~teams.models.MicrosoftGraphSectionGroup]
     :param sections: The sections in the notebook. Read-only. Nullable.
-    :type sections: list[~teams.models.microsoftgraphonenotesection]
+    :type sections: list[~teams.models.MicrosoftGraphOnenoteSection]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
         'is_shared': {'key': 'isShared', 'type': 'bool'},
-        'links': {'key': 'links', 'type': 'microsoftgraphnotebooklinks'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphNotebookLinks'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
         'user_role': {'key': 'userRole', 'type': 'str'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
-        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
+        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
     }
 
     def __init__(
@@ -8528,22 +8528,22 @@ class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
         id: Optional[str] = None,
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         is_default: Optional[bool] = None,
         is_shared: Optional[bool] = None,
-        links: Optional["microsoftgraphnotebooklinks"] = None,
+        links: Optional["MicrosoftGraphNotebookLinks"] = None,
         section_groups_url: Optional[str] = None,
         sections_url: Optional[str] = None,
-        user_role: Optional[Union[str, "Microsoftgraphonenoteuserrole"]] = None,
-        section_groups: Optional[List["microsoftgraphsectiongroup"]] = None,
-        sections: Optional[List["microsoftgraphonenotesection"]] = None,
+        user_role: Optional[Union[str, "MicrosoftGraphOnenoteUserRole"]] = None,
+        section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
+        sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
         **kwargs
     ):
-        super(microsoftgraphnotebook, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphNotebook, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.is_default = is_default
         self.is_shared = is_shared
@@ -8555,39 +8555,39 @@ class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
         self.sections = sections
 
 
-class microsoftgraphnotebooklinks(msrest.serialization.Model):
+class MicrosoftGraphNotebookLinks(msrest.serialization.Model):
     """notebookLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_client_url: ~teams.models.MicrosoftGraphExternalLink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_web_url: ~teams.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        one_note_client_url: Optional["microsoftgraphexternallink"] = None,
-        one_note_web_url: Optional["microsoftgraphexternallink"] = None,
+        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
+        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
-        super(microsoftgraphnotebooklinks, self).__init__(**kwargs)
+        super(MicrosoftGraphNotebookLinks, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.one_note_client_url = one_note_client_url
         self.one_note_web_url = one_note_web_url
 
 
-class microsoftgraphnumbercolumn(msrest.serialization.Model):
+class MicrosoftGraphNumberColumn(msrest.serialization.Model):
     """numberColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -8623,7 +8623,7 @@ class microsoftgraphnumbercolumn(msrest.serialization.Model):
         minimum: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphnumbercolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphNumberColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.decimal_places = decimal_places
         self.display_as = display_as
@@ -8631,7 +8631,7 @@ class microsoftgraphnumbercolumn(msrest.serialization.Model):
         self.minimum = minimum
 
 
-class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
+class MicrosoftGraphOAuth2PermissionGrant(MicrosoftGraphEntity):
     """oAuth2PermissionGrant.
 
     :param id: Read-only.
@@ -8688,7 +8688,7 @@ class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
         scope: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphoauth2permissiongrant, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOAuth2PermissionGrant, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.client_id = client_id
         self.consent_type = consent_type
@@ -8697,7 +8697,7 @@ class microsoftgraphoauth2permissiongrant(microsoftgraphentity):
         self.scope = scope
 
 
-class microsoftgraphobjectidentity(msrest.serialization.Model):
+class MicrosoftGraphObjectIdentity(msrest.serialization.Model):
     """objectIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -8741,14 +8741,14 @@ class microsoftgraphobjectidentity(msrest.serialization.Model):
         sign_in_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphobjectidentity, self).__init__(**kwargs)
+        super(MicrosoftGraphObjectIdentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.issuer = issuer
         self.issuer_assigned_id = issuer_assigned_id
         self.sign_in_type = sign_in_type
 
 
-class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
+class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """scheduleChangeRequest.
 
     :param id: Read-only.
@@ -8758,7 +8758,7 @@ class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -8768,7 +8768,7 @@ class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
     :type additional_properties: dict[str, object]
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
-    :type assigned_to: str or ~teams.models.Microsoftgraphschedulechangerequestactor
+    :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
     :param manager_action_date_time:
     :type manager_action_date_time: ~datetime.datetime
     :param manager_action_message:
@@ -8783,13 +8783,13 @@ class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
     :type sender_user_id: str
     :param state:  Possible values include: "pending", "approved", "declined",
      "unknownFutureValue".
-    :type state: str or ~teams.models.Microsoftgraphschedulechangestate
+    :type state: str or ~teams.models.MicrosoftGraphScheduleChangeState
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
@@ -8807,20 +8807,20 @@ class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        assigned_to: Optional[Union[str, "Microsoftgraphschedulechangerequestactor"]] = None,
+        assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
         manager_user_id: Optional[str] = None,
         sender_date_time: Optional[datetime.datetime] = None,
         sender_message: Optional[str] = None,
         sender_user_id: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphschedulechangestate"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         **kwargs
     ):
-        super(microsoftgraphschedulechangerequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphScheduleChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.assigned_to = assigned_to
         self.manager_action_date_time = manager_action_date_time
@@ -8832,7 +8832,7 @@ class microsoftgraphschedulechangerequest(microsoftgraphchangetrackedentity):
         self.state = state
 
 
-class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
+class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
     """offerShiftRequest.
 
     :param id: Read-only.
@@ -8842,14 +8842,14 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
-    :type assigned_to: str or ~teams.models.Microsoftgraphschedulechangerequestactor
+    :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
     :param manager_action_date_time:
     :type manager_action_date_time: ~datetime.datetime
     :param manager_action_message:
@@ -8864,7 +8864,7 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
     :type sender_user_id: str
     :param state:  Possible values include: "pending", "approved", "declined",
      "unknownFutureValue".
-    :type state: str or ~teams.models.Microsoftgraphschedulechangestate
+    :type state: str or ~teams.models.MicrosoftGraphScheduleChangeState
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -8883,7 +8883,7 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -8905,16 +8905,16 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        assigned_to: Optional[Union[str, "Microsoftgraphschedulechangerequestactor"]] = None,
+        assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
         manager_user_id: Optional[str] = None,
         sender_date_time: Optional[datetime.datetime] = None,
         sender_message: Optional[str] = None,
         sender_user_id: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphschedulechangestate"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         recipient_action_date_time: Optional[datetime.datetime] = None,
         recipient_action_message: Optional[str] = None,
@@ -8922,7 +8922,7 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
         sender_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphoffershiftrequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphOfferShiftRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.recipient_action_date_time = recipient_action_date_time
         self.recipient_action_message = recipient_action_message
@@ -8930,7 +8930,7 @@ class microsoftgraphoffershiftrequest(microsoftgraphschedulechangerequest):
         self.sender_shift_id = sender_shift_id
 
 
-class microsoftgraphofficegraphinsights(microsoftgraphentity):
+class MicrosoftGraphOfficeGraphInsights(MicrosoftGraphEntity):
     """officeGraphInsights.
 
     :param id: Read-only.
@@ -8942,23 +8942,23 @@ class microsoftgraphofficegraphinsights(microsoftgraphentity):
      includes URLs, file attachments, and reference attachments to OneDrive for Business and
      SharePoint files found in Outlook messages and meetings. This also includes URLs and reference
      attachments to Teams conversations. Ordered by recency of share.
-    :type shared: list[~teams.models.microsoftgraphsharedinsight]
+    :type shared: list[~teams.models.MicrosoftGraphSharedInsight]
     :param trending: Calculated relationship identifying documents trending around a user. Trending
      documents are calculated based on activity of the user's closest network of people and include
      files stored in OneDrive for Business and SharePoint. Trending insights help the user to
      discover potentially useful content that the user has access to, but has never viewed before.
-    :type trending: list[~teams.models.microsoftgraphtrending]
+    :type trending: list[~teams.models.MicrosoftGraphTrending]
     :param used: Calculated relationship identifying the latest documents viewed or modified by a
      user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
-    :type used: list[~teams.models.microsoftgraphusedinsight]
+    :type used: list[~teams.models.MicrosoftGraphUsedInsight]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'shared': {'key': 'shared', 'type': '[microsoftgraphsharedinsight]'},
-        'trending': {'key': 'trending', 'type': '[microsoftgraphtrending]'},
-        'used': {'key': 'used', 'type': '[microsoftgraphusedinsight]'},
+        'shared': {'key': 'shared', 'type': '[MicrosoftGraphSharedInsight]'},
+        'trending': {'key': 'trending', 'type': '[MicrosoftGraphTrending]'},
+        'used': {'key': 'used', 'type': '[MicrosoftGraphUsedInsight]'},
     }
 
     def __init__(
@@ -8966,19 +8966,19 @@ class microsoftgraphofficegraphinsights(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        shared: Optional[List["microsoftgraphsharedinsight"]] = None,
-        trending: Optional[List["microsoftgraphtrending"]] = None,
-        used: Optional[List["microsoftgraphusedinsight"]] = None,
+        shared: Optional[List["MicrosoftGraphSharedInsight"]] = None,
+        trending: Optional[List["MicrosoftGraphTrending"]] = None,
+        used: Optional[List["MicrosoftGraphUsedInsight"]] = None,
         **kwargs
     ):
-        super(microsoftgraphofficegraphinsights, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOfficeGraphInsights, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.shared = shared
         self.trending = trending
         self.used = used
 
 
-class microsoftgraphonenote(microsoftgraphentity):
+class MicrosoftGraphOnenote(MicrosoftGraphEntity):
     """onenote.
 
     :param id: Read-only.
@@ -8988,35 +8988,35 @@ class microsoftgraphonenote(microsoftgraphentity):
     :type additional_properties: dict[str, object]
     :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
      Read-only. Nullable.
-    :type notebooks: list[~teams.models.microsoftgraphnotebook]
+    :type notebooks: list[~teams.models.MicrosoftGraphNotebook]
     :param operations: The status of OneNote operations. Getting an operations collection is not
      supported, but you can get the status of long-running operations if the Operation-Location
      header is returned in the response. Read-only. Nullable.
-    :type operations: list[~teams.models.microsoftgraphonenoteoperation]
+    :type operations: list[~teams.models.MicrosoftGraphOnenoteOperation]
     :param pages: The pages in all OneNote notebooks that are owned by the user or group.  Read-
      only. Nullable.
-    :type pages: list[~teams.models.microsoftgraphonenotepage]
+    :type pages: list[~teams.models.MicrosoftGraphOnenotePage]
     :param resources: The image and other file resources in OneNote pages. Getting a resources
      collection is not supported, but you can get the binary content of a specific resource. Read-
      only. Nullable.
-    :type resources: list[~teams.models.microsoftgraphonenoteresource]
+    :type resources: list[~teams.models.MicrosoftGraphOnenoteResource]
     :param section_groups: The section groups in all OneNote notebooks that are owned by the user
      or group.  Read-only. Nullable.
-    :type section_groups: list[~teams.models.microsoftgraphsectiongroup]
+    :type section_groups: list[~teams.models.MicrosoftGraphSectionGroup]
     :param sections: The sections in all OneNote notebooks that are owned by the user or group.
      Read-only. Nullable.
-    :type sections: list[~teams.models.microsoftgraphonenotesection]
+    :type sections: list[~teams.models.MicrosoftGraphOnenoteSection]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'notebooks': {'key': 'notebooks', 'type': '[microsoftgraphnotebook]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphonenoteoperation]'},
-        'pages': {'key': 'pages', 'type': '[microsoftgraphonenotepage]'},
-        'resources': {'key': 'resources', 'type': '[microsoftgraphonenoteresource]'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
-        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
+        'notebooks': {'key': 'notebooks', 'type': '[MicrosoftGraphNotebook]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
+        'resources': {'key': 'resources', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
+        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
     }
 
     def __init__(
@@ -9024,15 +9024,15 @@ class microsoftgraphonenote(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        notebooks: Optional[List["microsoftgraphnotebook"]] = None,
-        operations: Optional[List["microsoftgraphonenoteoperation"]] = None,
-        pages: Optional[List["microsoftgraphonenotepage"]] = None,
-        resources: Optional[List["microsoftgraphonenoteresource"]] = None,
-        section_groups: Optional[List["microsoftgraphsectiongroup"]] = None,
-        sections: Optional[List["microsoftgraphonenotesection"]] = None,
+        notebooks: Optional[List["MicrosoftGraphNotebook"]] = None,
+        operations: Optional[List["MicrosoftGraphOnenoteOperation"]] = None,
+        pages: Optional[List["MicrosoftGraphOnenotePage"]] = None,
+        resources: Optional[List["MicrosoftGraphOnenoteResource"]] = None,
+        section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
+        sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
         **kwargs
     ):
-        super(microsoftgraphonenote, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOnenote, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.notebooks = notebooks
         self.operations = operations
@@ -9042,7 +9042,7 @@ class microsoftgraphonenote(microsoftgraphentity):
         self.sections = sections
 
 
-class microsoftgraphoperation(microsoftgraphentity):
+class MicrosoftGraphOperation(MicrosoftGraphEntity):
     """operation.
 
     :param id: Read-only.
@@ -9055,7 +9055,7 @@ class microsoftgraphoperation(microsoftgraphentity):
     :param last_action_date_time: The time of the last action of the operation.
     :type last_action_date_time: ~datetime.datetime
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~teams.models.Microsoftgraphoperationstatus
+    :type status: str or ~teams.models.MicrosoftGraphOperationStatus
     """
 
     _attribute_map = {
@@ -9073,17 +9073,17 @@ class microsoftgraphoperation(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         last_action_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphoperationstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
         **kwargs
     ):
-        super(microsoftgraphoperation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.last_action_date_time = last_action_date_time
         self.status = status
 
 
-class microsoftgraphonenoteoperation(microsoftgraphoperation):
+class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """onenoteOperation.
 
     :param id: Read-only.
@@ -9093,12 +9093,12 @@ class microsoftgraphonenoteoperation(microsoftgraphoperation):
     :param last_action_date_time: The time of the last action of the operation.
     :type last_action_date_time: ~datetime.datetime
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~teams.models.Microsoftgraphoperationstatus
+    :type status: str or ~teams.models.MicrosoftGraphOperationStatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param error: onenoteOperationError.
-    :type error: ~teams.models.microsoftgraphonenoteoperationerror
+    :type error: ~teams.models.MicrosoftGraphOnenoteOperationError
     :param percent_complete: The operation percent complete if the operation is still in running
      status.
     :type percent_complete: str
@@ -9115,7 +9115,7 @@ class microsoftgraphonenoteoperation(microsoftgraphoperation):
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'microsoftgraphonenoteoperationerror'},
+        'error': {'key': 'error', 'type': 'MicrosoftGraphOnenoteOperationError'},
         'percent_complete': {'key': 'percentComplete', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'resource_location': {'key': 'resourceLocation', 'type': 'str'},
@@ -9127,15 +9127,15 @@ class microsoftgraphonenoteoperation(microsoftgraphoperation):
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         last_action_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphoperationstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        error: Optional["microsoftgraphonenoteoperationerror"] = None,
+        error: Optional["MicrosoftGraphOnenoteOperationError"] = None,
         percent_complete: Optional[str] = None,
         resource_id: Optional[str] = None,
         resource_location: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteoperation, self).__init__(id=id, created_date_time=created_date_time, last_action_date_time=last_action_date_time, status=status, **kwargs)
+        super(MicrosoftGraphOnenoteOperation, self).__init__(id=id, created_date_time=created_date_time, last_action_date_time=last_action_date_time, status=status, **kwargs)
         self.additional_properties = additional_properties
         self.error = error
         self.percent_complete = percent_complete
@@ -9143,7 +9143,7 @@ class microsoftgraphonenoteoperation(microsoftgraphoperation):
         self.resource_location = resource_location
 
 
-class microsoftgraphonenoteoperationerror(msrest.serialization.Model):
+class MicrosoftGraphOnenoteOperationError(msrest.serialization.Model):
     """onenoteOperationError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9169,13 +9169,13 @@ class microsoftgraphonenoteoperationerror(msrest.serialization.Model):
         message: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteoperationerror, self).__init__(**kwargs)
+        super(MicrosoftGraphOnenoteOperationError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
 
 
-class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
+class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     """onenotePage.
 
     :param id: Read-only.
@@ -9204,7 +9204,7 @@ class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
     :param level: The indentation level of the page. Read-only.
     :type level: int
     :param links: pageLinks.
-    :type links: ~teams.models.microsoftgraphpagelinks
+    :type links: ~teams.models.MicrosoftGraphPageLinks
     :param order: The order of the page within its parent section. Read-only.
     :type order: int
     :param title: The title of the page.
@@ -9212,9 +9212,9 @@ class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
     :param user_tags:
     :type user_tags: list[str]
     :param parent_notebook: notebook.
-    :type parent_notebook: ~teams.models.microsoftgraphnotebook
+    :type parent_notebook: ~teams.models.MicrosoftGraphNotebook
     :param parent_section: onenoteSection.
-    :type parent_section: ~teams.models.microsoftgraphonenotesection
+    :type parent_section: ~teams.models.MicrosoftGraphOnenoteSection
     """
 
     _validation = {
@@ -9232,12 +9232,12 @@ class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
         'created_by_app_id': {'key': 'createdByAppId', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'level': {'key': 'level', 'type': 'int'},
-        'links': {'key': 'links', 'type': 'microsoftgraphpagelinks'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphPageLinks'},
         'order': {'key': 'order', 'type': 'int'},
         'title': {'key': 'title', 'type': 'str'},
         'user_tags': {'key': 'userTags', 'type': '[str]'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
-        'parent_section': {'key': 'parentSection', 'type': 'microsoftgraphonenotesection'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
+        'parent_section': {'key': 'parentSection', 'type': 'MicrosoftGraphOnenoteSection'},
     }
 
     def __init__(
@@ -9252,15 +9252,15 @@ class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
         created_by_app_id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         level: Optional[int] = None,
-        links: Optional["microsoftgraphpagelinks"] = None,
+        links: Optional["MicrosoftGraphPageLinks"] = None,
         order: Optional[int] = None,
         title: Optional[str] = None,
         user_tags: Optional[List[str]] = None,
-        parent_notebook: Optional["microsoftgraphnotebook"] = None,
-        parent_section: Optional["microsoftgraphonenotesection"] = None,
+        parent_notebook: Optional["MicrosoftGraphNotebook"] = None,
+        parent_section: Optional["MicrosoftGraphOnenoteSection"] = None,
         **kwargs
     ):
-        super(microsoftgraphonenotepage, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
+        super(MicrosoftGraphOnenotePage, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_url = content_url
@@ -9275,7 +9275,7 @@ class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
         self.parent_section = parent_section
 
 
-class microsoftgraphonenoteresource(microsoftgraphonenoteentitybasemodel):
+class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteResource.
 
     :param id: Read-only.
@@ -9309,13 +9309,13 @@ class microsoftgraphonenoteresource(microsoftgraphonenoteentitybasemodel):
         content_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonenoteresource, self).__init__(id=id, self_property=self_property, **kwargs)
+        super(MicrosoftGraphOnenoteResource, self).__init__(id=id, self_property=self_property, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_url = content_url
 
 
-class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
+class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """onenoteSection.
 
     :param id: Read-only.
@@ -9327,11 +9327,11 @@ class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
@@ -9343,33 +9343,33 @@ class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
     :param is_default: Indicates whether this is the user's default section. Read-only.
     :type is_default: bool
     :param links: sectionLinks.
-    :type links: ~teams.models.microsoftgraphsectionlinks
+    :type links: ~teams.models.MicrosoftGraphSectionLinks
     :param pages_url: The pages endpoint where you can get details for all the pages in the
      section. Read-only.
     :type pages_url: str
     :param pages: The collection of pages in the section.  Read-only. Nullable.
-    :type pages: list[~teams.models.microsoftgraphonenotepage]
+    :type pages: list[~teams.models.MicrosoftGraphOnenotePage]
     :param parent_notebook: notebook.
-    :type parent_notebook: ~teams.models.microsoftgraphnotebook
+    :type parent_notebook: ~teams.models.MicrosoftGraphNotebook
     :param parent_section_group: sectionGroup.
-    :type parent_section_group: ~teams.models.microsoftgraphsectiongroup
+    :type parent_section_group: ~teams.models.MicrosoftGraphSectionGroup
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
-        'links': {'key': 'links', 'type': 'microsoftgraphsectionlinks'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphSectionLinks'},
         'pages_url': {'key': 'pagesUrl', 'type': 'str'},
-        'pages': {'key': 'pages', 'type': '[microsoftgraphonenotepage]'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
-        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'microsoftgraphsectiongroup'},
+        'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
+        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
     }
 
     def __init__(
@@ -9378,20 +9378,20 @@ class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
         id: Optional[str] = None,
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         is_default: Optional[bool] = None,
-        links: Optional["microsoftgraphsectionlinks"] = None,
+        links: Optional["MicrosoftGraphSectionLinks"] = None,
         pages_url: Optional[str] = None,
-        pages: Optional[List["microsoftgraphonenotepage"]] = None,
-        parent_notebook: Optional["microsoftgraphnotebook"] = None,
-        parent_section_group: Optional["microsoftgraphsectiongroup"] = None,
+        pages: Optional[List["MicrosoftGraphOnenotePage"]] = None,
+        parent_notebook: Optional["MicrosoftGraphNotebook"] = None,
+        parent_section_group: Optional["MicrosoftGraphSectionGroup"] = None,
         **kwargs
     ):
-        super(microsoftgraphonenotesection, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphOnenoteSection, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.is_default = is_default
         self.links = links
@@ -9401,7 +9401,7 @@ class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
         self.parent_section_group = parent_section_group
 
 
-class microsoftgraphonlinemeeting(microsoftgraphentity):
+class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
     """onlineMeeting.
 
     :param id: Read-only.
@@ -9410,9 +9410,9 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param audio_conferencing: audioConferencing.
-    :type audio_conferencing: ~teams.models.microsoftgraphaudioconferencing
+    :type audio_conferencing: ~teams.models.MicrosoftGraphAudioConferencing
     :param chat_info: chatInfo.
-    :type chat_info: ~teams.models.microsoftgraphchatinfo
+    :type chat_info: ~teams.models.MicrosoftGraphChatInfo
     :param creation_date_time: The meeting creation time in UTC. Read-only.
     :type creation_date_time: ~datetime.datetime
     :param end_date_time: The meeting end time in UTC.
@@ -9420,11 +9420,11 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
     :param external_id:
     :type external_id: str
     :param join_information: itemBody.
-    :type join_information: ~teams.models.microsoftgraphitembody
+    :type join_information: ~teams.models.MicrosoftGraphItemBody
     :param join_web_url: The join URL of the online meeting. Read-only.
     :type join_web_url: str
     :param participants: meetingParticipants.
-    :type participants: ~teams.models.microsoftgraphmeetingparticipants
+    :type participants: ~teams.models.MicrosoftGraphMeetingParticipants
     :param start_date_time: The meeting start time in UTC.
     :type start_date_time: ~datetime.datetime
     :param subject: The subject of the online meeting.
@@ -9436,14 +9436,14 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'audio_conferencing': {'key': 'audioConferencing', 'type': 'microsoftgraphaudioconferencing'},
-        'chat_info': {'key': 'chatInfo', 'type': 'microsoftgraphchatinfo'},
+        'audio_conferencing': {'key': 'audioConferencing', 'type': 'MicrosoftGraphAudioConferencing'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'creation_date_time': {'key': 'creationDateTime', 'type': 'iso-8601'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'external_id': {'key': 'externalId', 'type': 'str'},
-        'join_information': {'key': 'joinInformation', 'type': 'microsoftgraphitembody'},
+        'join_information': {'key': 'joinInformation', 'type': 'MicrosoftGraphItemBody'},
         'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
-        'participants': {'key': 'participants', 'type': 'microsoftgraphmeetingparticipants'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'video_teleconference_id': {'key': 'videoTeleconferenceId', 'type': 'str'},
@@ -9454,20 +9454,20 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        audio_conferencing: Optional["microsoftgraphaudioconferencing"] = None,
-        chat_info: Optional["microsoftgraphchatinfo"] = None,
+        audio_conferencing: Optional["MicrosoftGraphAudioConferencing"] = None,
+        chat_info: Optional["MicrosoftGraphChatInfo"] = None,
         creation_date_time: Optional[datetime.datetime] = None,
         end_date_time: Optional[datetime.datetime] = None,
         external_id: Optional[str] = None,
-        join_information: Optional["microsoftgraphitembody"] = None,
+        join_information: Optional["MicrosoftGraphItemBody"] = None,
         join_web_url: Optional[str] = None,
-        participants: Optional["microsoftgraphmeetingparticipants"] = None,
+        participants: Optional["MicrosoftGraphMeetingParticipants"] = None,
         start_date_time: Optional[datetime.datetime] = None,
         subject: Optional[str] = None,
         video_teleconference_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonlinemeeting, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOnlineMeeting, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.audio_conferencing = audio_conferencing
         self.chat_info = chat_info
@@ -9482,7 +9482,7 @@ class microsoftgraphonlinemeeting(microsoftgraphentity):
         self.video_teleconference_id = video_teleconference_id
 
 
-class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
+class MicrosoftGraphOnlineMeetingInfo(msrest.serialization.Model):
     """onlineMeetingInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9494,7 +9494,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
      will launch into a browser and will redirect the user to join the meeting.
     :type join_url: str
     :param phones: All of the phone numbers associated with this conference.
-    :type phones: list[~teams.models.microsoftgraphphone]
+    :type phones: list[~teams.models.MicrosoftGraphPhone]
     :param quick_dial: The pre-formatted quickdial for this call.
     :type quick_dial: str
     :param toll_free_numbers: The toll free numbers that can be used to join the conference.
@@ -9507,7 +9507,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'conference_id': {'key': 'conferenceId', 'type': 'str'},
         'join_url': {'key': 'joinUrl', 'type': 'str'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
         'quick_dial': {'key': 'quickDial', 'type': 'str'},
         'toll_free_numbers': {'key': 'tollFreeNumbers', 'type': '[str]'},
         'toll_number': {'key': 'tollNumber', 'type': 'str'},
@@ -9519,13 +9519,13 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         conference_id: Optional[str] = None,
         join_url: Optional[str] = None,
-        phones: Optional[List["microsoftgraphphone"]] = None,
+        phones: Optional[List["MicrosoftGraphPhone"]] = None,
         quick_dial: Optional[str] = None,
         toll_free_numbers: Optional[List[str]] = None,
         toll_number: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonlinemeetinginfo, self).__init__(**kwargs)
+        super(MicrosoftGraphOnlineMeetingInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.conference_id = conference_id
         self.join_url = join_url
@@ -9535,7 +9535,7 @@ class microsoftgraphonlinemeetinginfo(msrest.serialization.Model):
         self.toll_number = toll_number
 
 
-class microsoftgraphonpremisesextensionattributes(msrest.serialization.Model):
+class MicrosoftGraphOnPremisesExtensionAttributes(msrest.serialization.Model):
     """onPremisesExtensionAttributes.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9613,7 +9613,7 @@ class microsoftgraphonpremisesextensionattributes(msrest.serialization.Model):
         extension_attribute9: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonpremisesextensionattributes, self).__init__(**kwargs)
+        super(MicrosoftGraphOnPremisesExtensionAttributes, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.extension_attribute1 = extension_attribute1
         self.extension_attribute10 = extension_attribute10
@@ -9632,7 +9632,7 @@ class microsoftgraphonpremisesextensionattributes(msrest.serialization.Model):
         self.extension_attribute9 = extension_attribute9
 
 
-class microsoftgraphonpremisesprovisioningerror(msrest.serialization.Model):
+class MicrosoftGraphOnPremisesProvisioningError(msrest.serialization.Model):
     """onPremisesProvisioningError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9669,7 +9669,7 @@ class microsoftgraphonpremisesprovisioningerror(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphonpremisesprovisioningerror, self).__init__(**kwargs)
+        super(MicrosoftGraphOnPremisesProvisioningError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.category = category
         self.occurred_date_time = occurred_date_time
@@ -9677,7 +9677,7 @@ class microsoftgraphonpremisesprovisioningerror(msrest.serialization.Model):
         self.value = value
 
 
-class microsoftgraphopenshift(microsoftgraphchangetrackedentity):
+class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """openShift.
 
     :param id: Read-only.
@@ -9687,7 +9687,7 @@ class microsoftgraphopenshift(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -9696,22 +9696,22 @@ class microsoftgraphopenshift(microsoftgraphchangetrackedentity):
      collection.
     :type additional_properties: dict[str, object]
     :param draft_open_shift: openShiftItem.
-    :type draft_open_shift: ~teams.models.microsoftgraphopenshiftitem
+    :type draft_open_shift: ~teams.models.MicrosoftGraphOpenShiftItem
     :param scheduling_group_id: ID for the scheduling group that the open shift belongs to.
     :type scheduling_group_id: str
     :param shared_open_shift: openShiftItem.
-    :type shared_open_shift: ~teams.models.microsoftgraphopenshiftitem
+    :type shared_open_shift: ~teams.models.MicrosoftGraphOpenShiftItem
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'draft_open_shift': {'key': 'draftOpenShift', 'type': 'microsoftgraphopenshiftitem'},
+        'draft_open_shift': {'key': 'draftOpenShift', 'type': 'MicrosoftGraphOpenShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
-        'shared_open_shift': {'key': 'sharedOpenShift', 'type': 'microsoftgraphopenshiftitem'},
+        'shared_open_shift': {'key': 'sharedOpenShift', 'type': 'MicrosoftGraphOpenShiftItem'},
     }
 
     def __init__(
@@ -9719,22 +9719,22 @@ class microsoftgraphopenshift(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        draft_open_shift: Optional["microsoftgraphopenshiftitem"] = None,
+        draft_open_shift: Optional["MicrosoftGraphOpenShiftItem"] = None,
         scheduling_group_id: Optional[str] = None,
-        shared_open_shift: Optional["microsoftgraphopenshiftitem"] = None,
+        shared_open_shift: Optional["MicrosoftGraphOpenShiftItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphopenshift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphOpenShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.draft_open_shift = draft_open_shift
         self.scheduling_group_id = scheduling_group_id
         self.shared_open_shift = shared_open_shift
 
 
-class microsoftgraphopenshiftchangerequest(microsoftgraphschedulechangerequest):
+class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
     """openShiftChangeRequest.
 
     :param id: Read-only.
@@ -9744,14 +9744,14 @@ class microsoftgraphopenshiftchangerequest(microsoftgraphschedulechangerequest):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
-    :type assigned_to: str or ~teams.models.Microsoftgraphschedulechangerequestactor
+    :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
     :param manager_action_date_time:
     :type manager_action_date_time: ~datetime.datetime
     :param manager_action_message:
@@ -9766,7 +9766,7 @@ class microsoftgraphopenshiftchangerequest(microsoftgraphschedulechangerequest):
     :type sender_user_id: str
     :param state:  Possible values include: "pending", "approved", "declined",
      "unknownFutureValue".
-    :type state: str or ~teams.models.Microsoftgraphschedulechangestate
+    :type state: str or ~teams.models.MicrosoftGraphScheduleChangeState
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -9777,7 +9777,7 @@ class microsoftgraphopenshiftchangerequest(microsoftgraphschedulechangerequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -9796,26 +9796,26 @@ class microsoftgraphopenshiftchangerequest(microsoftgraphschedulechangerequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        assigned_to: Optional[Union[str, "Microsoftgraphschedulechangerequestactor"]] = None,
+        assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
         manager_user_id: Optional[str] = None,
         sender_date_time: Optional[datetime.datetime] = None,
         sender_message: Optional[str] = None,
         sender_user_id: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphschedulechangestate"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         open_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphopenshiftchangerequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.open_shift_id = open_shift_id
 
 
-class microsoftgraphscheduleentity(msrest.serialization.Model):
+class MicrosoftGraphScheduleEntity(msrest.serialization.Model):
     """scheduleEntity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9827,7 +9827,7 @@ class microsoftgraphscheduleentity(msrest.serialization.Model):
     :type start_date_time: ~datetime.datetime
     :param theme:  Possible values include: "white", "blue", "green", "purple", "pink", "yellow",
      "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow", "unknownFutureValue".
-    :type theme: str or ~teams.models.Microsoftgraphscheduleentitytheme
+    :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
     """
 
     _attribute_map = {
@@ -9843,17 +9843,17 @@ class microsoftgraphscheduleentity(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         end_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        theme: Optional[Union[str, "Microsoftgraphscheduleentitytheme"]] = None,
+        theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
         **kwargs
     ):
-        super(microsoftgraphscheduleentity, self).__init__(**kwargs)
+        super(MicrosoftGraphScheduleEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end_date_time = end_date_time
         self.start_date_time = start_date_time
         self.theme = theme
 
 
-class microsoftgraphshiftitem(microsoftgraphscheduleentity):
+class MicrosoftGraphShiftItem(MicrosoftGraphScheduleEntity):
     """shiftItem.
 
     :param end_date_time:
@@ -9862,14 +9862,14 @@ class microsoftgraphshiftitem(microsoftgraphscheduleentity):
     :type start_date_time: ~datetime.datetime
     :param theme:  Possible values include: "white", "blue", "green", "purple", "pink", "yellow",
      "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow", "unknownFutureValue".
-    :type theme: str or ~teams.models.Microsoftgraphscheduleentitytheme
+    :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param activities: An incremental part of a shift which can cover details of when and where an
      employee is during their shift. For example, an assignment or a scheduled break or lunch.
      Required.
-    :type activities: list[~teams.models.microsoftgraphshiftactivity]
+    :type activities: list[~teams.models.MicrosoftGraphShiftActivity]
     :param display_name: The shift label of the shiftItem.
     :type display_name: str
     :param notes: The shift notes for the shiftItem.
@@ -9881,7 +9881,7 @@ class microsoftgraphshiftitem(microsoftgraphscheduleentity):
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'theme': {'key': 'theme', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'activities': {'key': 'activities', 'type': '[microsoftgraphshiftactivity]'},
+        'activities': {'key': 'activities', 'type': '[MicrosoftGraphShiftActivity]'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'notes': {'key': 'notes', 'type': 'str'},
     }
@@ -9891,21 +9891,21 @@ class microsoftgraphshiftitem(microsoftgraphscheduleentity):
         *,
         end_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        theme: Optional[Union[str, "Microsoftgraphscheduleentitytheme"]] = None,
+        theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        activities: Optional[List["microsoftgraphshiftactivity"]] = None,
+        activities: Optional[List["MicrosoftGraphShiftActivity"]] = None,
         display_name: Optional[str] = None,
         notes: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphshiftitem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, **kwargs)
+        super(MicrosoftGraphShiftItem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, **kwargs)
         self.additional_properties = additional_properties
         self.activities = activities
         self.display_name = display_name
         self.notes = notes
 
 
-class microsoftgraphopenshiftitem(microsoftgraphshiftitem):
+class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     """openShiftItem.
 
     :param end_date_time:
@@ -9914,11 +9914,11 @@ class microsoftgraphopenshiftitem(microsoftgraphshiftitem):
     :type start_date_time: ~datetime.datetime
     :param theme:  Possible values include: "white", "blue", "green", "purple", "pink", "yellow",
      "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow", "unknownFutureValue".
-    :type theme: str or ~teams.models.Microsoftgraphscheduleentitytheme
+    :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
     :param activities: An incremental part of a shift which can cover details of when and where an
      employee is during their shift. For example, an assignment or a scheduled break or lunch.
      Required.
-    :type activities: list[~teams.models.microsoftgraphshiftactivity]
+    :type activities: list[~teams.models.MicrosoftGraphShiftActivity]
     :param display_name: The shift label of the shiftItem.
     :type display_name: str
     :param notes: The shift notes for the shiftItem.
@@ -9938,7 +9938,7 @@ class microsoftgraphopenshiftitem(microsoftgraphshiftitem):
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'theme': {'key': 'theme', 'type': 'str'},
-        'activities': {'key': 'activities', 'type': '[microsoftgraphshiftactivity]'},
+        'activities': {'key': 'activities', 'type': '[MicrosoftGraphShiftActivity]'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'notes': {'key': 'notes', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -9950,20 +9950,20 @@ class microsoftgraphopenshiftitem(microsoftgraphshiftitem):
         *,
         end_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        theme: Optional[Union[str, "Microsoftgraphscheduleentitytheme"]] = None,
-        activities: Optional[List["microsoftgraphshiftactivity"]] = None,
+        theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
+        activities: Optional[List["MicrosoftGraphShiftActivity"]] = None,
         display_name: Optional[str] = None,
         notes: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         open_slot_count: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphopenshiftitem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, activities=activities, display_name=display_name, notes=notes, **kwargs)
+        super(MicrosoftGraphOpenShiftItem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, activities=activities, display_name=display_name, notes=notes, **kwargs)
         self.additional_properties = additional_properties
         self.open_slot_count = open_slot_count
 
 
-class microsoftgraphoperationerror(msrest.serialization.Model):
+class MicrosoftGraphOperationError(msrest.serialization.Model):
     """operationError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9989,13 +9989,13 @@ class microsoftgraphoperationerror(msrest.serialization.Model):
         message: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphoperationerror, self).__init__(**kwargs)
+        super(MicrosoftGraphOperationError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
 
 
-class microsoftgraphoutlookcategory(microsoftgraphentity):
+class MicrosoftGraphOutlookCategory(MicrosoftGraphEntity):
     """outlookCategory.
 
     :param id: Read-only.
@@ -10007,7 +10007,7 @@ class microsoftgraphoutlookcategory(microsoftgraphentity):
      "preset4", "preset5", "preset6", "preset7", "preset8", "preset9", "preset10", "preset11",
      "preset12", "preset13", "preset14", "preset15", "preset16", "preset17", "preset18", "preset19",
      "preset20", "preset21", "preset22", "preset23", "preset24".
-    :type color: str or ~teams.models.Microsoftgraphcategorycolor
+    :type color: str or ~teams.models.MicrosoftGraphCategoryColor
     :param display_name: A unique name that identifies a category in the user's mailbox. After a
      category is created, the name cannot be changed. Read-only.
     :type display_name: str
@@ -10025,17 +10025,17 @@ class microsoftgraphoutlookcategory(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        color: Optional[Union[str, "Microsoftgraphcategorycolor"]] = None,
+        color: Optional[Union[str, "MicrosoftGraphCategoryColor"]] = None,
         display_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookcategory, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOutlookCategory, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.color = color
         self.display_name = display_name
 
 
-class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
+class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
     """outlookGeoCoordinates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10074,7 +10074,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         longitude: Optional[float] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookgeocoordinates, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookGeoCoordinates, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.accuracy = accuracy
         self.altitude = altitude
@@ -10083,7 +10083,7 @@ class microsoftgraphoutlookgeocoordinates(msrest.serialization.Model):
         self.longitude = longitude
 
 
-class microsoftgraphoutlookuser(microsoftgraphentity):
+class MicrosoftGraphOutlookUser(MicrosoftGraphEntity):
     """outlookUser.
 
     :param id: Read-only.
@@ -10092,13 +10092,13 @@ class microsoftgraphoutlookuser(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param master_categories: A list of categories defined for the user.
-    :type master_categories: list[~teams.models.microsoftgraphoutlookcategory]
+    :type master_categories: list[~teams.models.MicrosoftGraphOutlookCategory]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'master_categories': {'key': 'masterCategories', 'type': '[microsoftgraphoutlookcategory]'},
+        'master_categories': {'key': 'masterCategories', 'type': '[MicrosoftGraphOutlookCategory]'},
     }
 
     def __init__(
@@ -10106,15 +10106,15 @@ class microsoftgraphoutlookuser(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        master_categories: Optional[List["microsoftgraphoutlookcategory"]] = None,
+        master_categories: Optional[List["MicrosoftGraphOutlookCategory"]] = None,
         **kwargs
     ):
-        super(microsoftgraphoutlookuser, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphOutlookUser, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.master_categories = master_categories
 
 
-class microsoftgraphpackage(msrest.serialization.Model):
+class MicrosoftGraphPackage(msrest.serialization.Model):
     """package.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10138,44 +10138,44 @@ class microsoftgraphpackage(msrest.serialization.Model):
         type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpackage, self).__init__(**kwargs)
+        super(MicrosoftGraphPackage, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.type = type
 
 
-class microsoftgraphpagelinks(msrest.serialization.Model):
+class MicrosoftGraphPageLinks(msrest.serialization.Model):
     """pageLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_client_url: ~teams.models.MicrosoftGraphExternalLink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_web_url: ~teams.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        one_note_client_url: Optional["microsoftgraphexternallink"] = None,
-        one_note_web_url: Optional["microsoftgraphexternallink"] = None,
+        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
+        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
-        super(microsoftgraphpagelinks, self).__init__(**kwargs)
+        super(MicrosoftGraphPageLinks, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.one_note_client_url = one_note_client_url
         self.one_note_web_url = one_note_web_url
 
 
-class microsoftgraphpasswordprofile(msrest.serialization.Model):
+class MicrosoftGraphPasswordProfile(msrest.serialization.Model):
     """passwordProfile.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10213,46 +10213,46 @@ class microsoftgraphpasswordprofile(msrest.serialization.Model):
         password: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpasswordprofile, self).__init__(**kwargs)
+        super(MicrosoftGraphPasswordProfile, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.force_change_password_next_sign_in = force_change_password_next_sign_in
         self.force_change_password_next_sign_in_with_mfa = force_change_password_next_sign_in_with_mfa
         self.password = password
 
 
-class microsoftgraphpatternedrecurrence(msrest.serialization.Model):
+class MicrosoftGraphPatternedRecurrence(msrest.serialization.Model):
     """patternedRecurrence.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param pattern: recurrencePattern.
-    :type pattern: ~teams.models.microsoftgraphrecurrencepattern
+    :type pattern: ~teams.models.MicrosoftGraphRecurrencePattern
     :param range: recurrenceRange.
-    :type range: ~teams.models.microsoftgraphrecurrencerange
+    :type range: ~teams.models.MicrosoftGraphRecurrenceRange
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'pattern': {'key': 'pattern', 'type': 'microsoftgraphrecurrencepattern'},
-        'range': {'key': 'range', 'type': 'microsoftgraphrecurrencerange'},
+        'pattern': {'key': 'pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
+        'range': {'key': 'range', 'type': 'MicrosoftGraphRecurrenceRange'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        pattern: Optional["microsoftgraphrecurrencepattern"] = None,
-        range: Optional["microsoftgraphrecurrencerange"] = None,
+        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
+        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
         **kwargs
     ):
-        super(microsoftgraphpatternedrecurrence, self).__init__(**kwargs)
+        super(MicrosoftGraphPatternedRecurrence, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.pattern = pattern
         self.range = range
 
 
-class microsoftgraphpendingcontentupdate(msrest.serialization.Model):
+class MicrosoftGraphPendingContentUpdate(msrest.serialization.Model):
     """pendingContentUpdate.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10275,39 +10275,39 @@ class microsoftgraphpendingcontentupdate(msrest.serialization.Model):
         queued_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphpendingcontentupdate, self).__init__(**kwargs)
+        super(MicrosoftGraphPendingContentUpdate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.queued_date_time = queued_date_time
 
 
-class microsoftgraphpendingoperations(msrest.serialization.Model):
+class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     """pendingOperations.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param pending_content_update: pendingContentUpdate.
-    :type pending_content_update: ~teams.models.microsoftgraphpendingcontentupdate
+    :type pending_content_update: ~teams.models.MicrosoftGraphPendingContentUpdate
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'microsoftgraphpendingcontentupdate'},
+        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        pending_content_update: Optional["microsoftgraphpendingcontentupdate"] = None,
+        pending_content_update: Optional["MicrosoftGraphPendingContentUpdate"] = None,
         **kwargs
     ):
-        super(microsoftgraphpendingoperations, self).__init__(**kwargs)
+        super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.pending_content_update = pending_content_update
 
 
-class microsoftgraphpermission(microsoftgraphentity):
+class MicrosoftGraphPermission(MicrosoftGraphEntity):
     """permission.
 
     :param id: Read-only.
@@ -10320,19 +10320,19 @@ class microsoftgraphpermission(microsoftgraphentity):
      this permission. Optional.
     :type expiration_date_time: ~datetime.datetime
     :param granted_to: identitySet.
-    :type granted_to: ~teams.models.microsoftgraphidentityset
+    :type granted_to: ~teams.models.MicrosoftGraphIdentitySet
     :param granted_to_identities: For link type permissions, the details of the users to whom
      permission was granted. Read-only.
-    :type granted_to_identities: list[~teams.models.microsoftgraphidentityset]
+    :type granted_to_identities: list[~teams.models.MicrosoftGraphIdentitySet]
     :param has_password: This indicates whether password is set for this permission, it's only
      showing in response. Optional and Read-only and for OneDrive Personal only.
     :type has_password: bool
     :param inherited_from: itemReference.
-    :type inherited_from: ~teams.models.microsoftgraphitemreference
+    :type inherited_from: ~teams.models.MicrosoftGraphItemReference
     :param invitation: sharingInvitation.
-    :type invitation: ~teams.models.microsoftgraphsharinginvitation
+    :type invitation: ~teams.models.MicrosoftGraphSharingInvitation
     :param link: sharingLink.
-    :type link: ~teams.models.microsoftgraphsharinglink
+    :type link: ~teams.models.MicrosoftGraphSharingLink
     :param roles: The type of permission, e.g. read. See below for the full list of roles. Read-
      only.
     :type roles: list[str]
@@ -10345,12 +10345,12 @@ class microsoftgraphpermission(microsoftgraphentity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'expiration_date_time': {'key': 'expirationDateTime', 'type': 'iso-8601'},
-        'granted_to': {'key': 'grantedTo', 'type': 'microsoftgraphidentityset'},
-        'granted_to_identities': {'key': 'grantedToIdentities', 'type': '[microsoftgraphidentityset]'},
+        'granted_to': {'key': 'grantedTo', 'type': 'MicrosoftGraphIdentitySet'},
+        'granted_to_identities': {'key': 'grantedToIdentities', 'type': '[MicrosoftGraphIdentitySet]'},
         'has_password': {'key': 'hasPassword', 'type': 'bool'},
-        'inherited_from': {'key': 'inheritedFrom', 'type': 'microsoftgraphitemreference'},
-        'invitation': {'key': 'invitation', 'type': 'microsoftgraphsharinginvitation'},
-        'link': {'key': 'link', 'type': 'microsoftgraphsharinglink'},
+        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
+        'invitation': {'key': 'invitation', 'type': 'MicrosoftGraphSharingInvitation'},
+        'link': {'key': 'link', 'type': 'MicrosoftGraphSharingLink'},
         'roles': {'key': 'roles', 'type': '[str]'},
         'share_id': {'key': 'shareId', 'type': 'str'},
     }
@@ -10361,17 +10361,17 @@ class microsoftgraphpermission(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         expiration_date_time: Optional[datetime.datetime] = None,
-        granted_to: Optional["microsoftgraphidentityset"] = None,
-        granted_to_identities: Optional[List["microsoftgraphidentityset"]] = None,
+        granted_to: Optional["MicrosoftGraphIdentitySet"] = None,
+        granted_to_identities: Optional[List["MicrosoftGraphIdentitySet"]] = None,
         has_password: Optional[bool] = None,
-        inherited_from: Optional["microsoftgraphitemreference"] = None,
-        invitation: Optional["microsoftgraphsharinginvitation"] = None,
-        link: Optional["microsoftgraphsharinglink"] = None,
+        inherited_from: Optional["MicrosoftGraphItemReference"] = None,
+        invitation: Optional["MicrosoftGraphSharingInvitation"] = None,
+        link: Optional["MicrosoftGraphSharingLink"] = None,
         roles: Optional[List[str]] = None,
         share_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpermission, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPermission, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.expiration_date_time = expiration_date_time
         self.granted_to = granted_to
@@ -10384,7 +10384,7 @@ class microsoftgraphpermission(microsoftgraphentity):
         self.share_id = share_id
 
 
-class microsoftgraphperson(microsoftgraphentity):
+class MicrosoftGraphPerson(MicrosoftGraphEntity):
     """person.
 
     :param id: Read-only.
@@ -10414,15 +10414,15 @@ class microsoftgraphperson(microsoftgraphentity):
     :param person_notes: Free-form notes that the user has taken about this person.
     :type person_notes: str
     :param person_type: personType.
-    :type person_type: ~teams.models.microsoftgraphpersontype
+    :type person_type: ~teams.models.MicrosoftGraphPersonType
     :param phones: The person's phone numbers.
-    :type phones: list[~teams.models.microsoftgraphphone]
+    :type phones: list[~teams.models.MicrosoftGraphPhone]
     :param postal_addresses: The person's addresses.
-    :type postal_addresses: list[~teams.models.microsoftgraphlocation]
+    :type postal_addresses: list[~teams.models.MicrosoftGraphLocation]
     :param profession: The person's profession.
     :type profession: str
     :param scored_email_addresses: The person's email addresses.
-    :type scored_email_addresses: list[~teams.models.microsoftgraphscoredemailaddress]
+    :type scored_email_addresses: list[~teams.models.MicrosoftGraphScoredEmailAddress]
     :param surname: The person's surname.
     :type surname: str
     :param user_principal_name: The user principal name (UPN) of the person. The UPN is an
@@ -10430,7 +10430,7 @@ class microsoftgraphperson(microsoftgraphentity):
      this should map to the person's email name. The general format is alias@domain.
     :type user_principal_name: str
     :param websites: The person's websites.
-    :type websites: list[~teams.models.microsoftgraphwebsite]
+    :type websites: list[~teams.models.MicrosoftGraphWebsite]
     :param yomi_company: The phonetic Japanese name of the person's company.
     :type yomi_company: str
     """
@@ -10448,14 +10448,14 @@ class microsoftgraphperson(microsoftgraphentity):
         'job_title': {'key': 'jobTitle', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
         'person_notes': {'key': 'personNotes', 'type': 'str'},
-        'person_type': {'key': 'personType', 'type': 'microsoftgraphpersontype'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
-        'postal_addresses': {'key': 'postalAddresses', 'type': '[microsoftgraphlocation]'},
+        'person_type': {'key': 'personType', 'type': 'MicrosoftGraphPersonType'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
+        'postal_addresses': {'key': 'postalAddresses', 'type': '[MicrosoftGraphLocation]'},
         'profession': {'key': 'profession', 'type': 'str'},
-        'scored_email_addresses': {'key': 'scoredEmailAddresses', 'type': '[microsoftgraphscoredemailaddress]'},
+        'scored_email_addresses': {'key': 'scoredEmailAddresses', 'type': '[MicrosoftGraphScoredEmailAddress]'},
         'surname': {'key': 'surname', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'websites': {'key': 'websites', 'type': '[microsoftgraphwebsite]'},
+        'websites': {'key': 'websites', 'type': '[MicrosoftGraphWebsite]'},
         'yomi_company': {'key': 'yomiCompany', 'type': 'str'},
     }
 
@@ -10474,18 +10474,18 @@ class microsoftgraphperson(microsoftgraphentity):
         job_title: Optional[str] = None,
         office_location: Optional[str] = None,
         person_notes: Optional[str] = None,
-        person_type: Optional["microsoftgraphpersontype"] = None,
-        phones: Optional[List["microsoftgraphphone"]] = None,
-        postal_addresses: Optional[List["microsoftgraphlocation"]] = None,
+        person_type: Optional["MicrosoftGraphPersonType"] = None,
+        phones: Optional[List["MicrosoftGraphPhone"]] = None,
+        postal_addresses: Optional[List["MicrosoftGraphLocation"]] = None,
         profession: Optional[str] = None,
-        scored_email_addresses: Optional[List["microsoftgraphscoredemailaddress"]] = None,
+        scored_email_addresses: Optional[List["MicrosoftGraphScoredEmailAddress"]] = None,
         surname: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        websites: Optional[List["microsoftgraphwebsite"]] = None,
+        websites: Optional[List["MicrosoftGraphWebsite"]] = None,
         yomi_company: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphperson, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPerson, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.birthday = birthday
         self.company_name = company_name
@@ -10508,7 +10508,7 @@ class microsoftgraphperson(microsoftgraphentity):
         self.yomi_company = yomi_company
 
 
-class microsoftgraphpersonorgroupcolumn(msrest.serialization.Model):
+class MicrosoftGraphPersonOrGroupColumn(msrest.serialization.Model):
     """personOrGroupColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10540,14 +10540,14 @@ class microsoftgraphpersonorgroupcolumn(msrest.serialization.Model):
         display_as: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpersonorgroupcolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonOrGroupColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_multiple_selection = allow_multiple_selection
         self.choose_from_type = choose_from_type
         self.display_as = display_as
 
 
-class microsoftgraphpersontype(msrest.serialization.Model):
+class MicrosoftGraphPersonType(msrest.serialization.Model):
     """personType.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10573,13 +10573,13 @@ class microsoftgraphpersontype(msrest.serialization.Model):
         subclass: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpersontype, self).__init__(**kwargs)
+        super(MicrosoftGraphPersonType, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.class_property = class_property
         self.subclass = subclass
 
 
-class microsoftgraphphone(msrest.serialization.Model):
+class MicrosoftGraphPhone(msrest.serialization.Model):
     """phone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10593,7 +10593,7 @@ class microsoftgraphphone(msrest.serialization.Model):
     :type region: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~teams.models.Microsoftgraphphonetype
+    :type type: str or ~teams.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
@@ -10611,10 +10611,10 @@ class microsoftgraphphone(msrest.serialization.Model):
         language: Optional[str] = None,
         number: Optional[str] = None,
         region: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphphonetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphPhoneType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphphone, self).__init__(**kwargs)
+        super(MicrosoftGraphPhone, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.language = language
         self.number = number
@@ -10622,7 +10622,7 @@ class microsoftgraphphone(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphphoto(msrest.serialization.Model):
+class MicrosoftGraphPhoto(msrest.serialization.Model):
     """photo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10683,7 +10683,7 @@ class microsoftgraphphoto(msrest.serialization.Model):
         taken_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphphoto, self).__init__(**kwargs)
+        super(MicrosoftGraphPhoto, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.camera_make = camera_make
         self.camera_model = camera_model
@@ -10696,7 +10696,7 @@ class microsoftgraphphoto(msrest.serialization.Model):
         self.taken_date_time = taken_date_time
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10735,7 +10735,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         street: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.city = city
         self.country_or_region = country_or_region
@@ -10744,7 +10744,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.street = street
 
 
-class microsoftgraphplannerassignedtotaskboardtaskformat(microsoftgraphentity):
+class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphEntity):
     """plannerAssignedToTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -10777,13 +10777,13 @@ class microsoftgraphplannerassignedtotaskboardtaskformat(microsoftgraphentity):
         unassigned_order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerassignedtotaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hints_by_assignee = order_hints_by_assignee
         self.unassigned_order_hint = unassigned_order_hint
 
 
-class microsoftgraphplannerbucket(microsoftgraphentity):
+class MicrosoftGraphPlannerBucket(MicrosoftGraphEntity):
     """plannerBucket.
 
     :param id: Read-only.
@@ -10799,7 +10799,7 @@ class microsoftgraphplannerbucket(microsoftgraphentity):
     :param plan_id: Plan ID to which the bucket belongs.
     :type plan_id: str
     :param tasks: Read-only. Nullable. The collection of tasks in the bucket.
-    :type tasks: list[~teams.models.microsoftgraphplannertask]
+    :type tasks: list[~teams.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
@@ -10808,7 +10808,7 @@ class microsoftgraphplannerbucket(microsoftgraphentity):
         'name': {'key': 'name', 'type': 'str'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
         'plan_id': {'key': 'planId', 'type': 'str'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -10819,10 +10819,10 @@ class microsoftgraphplannerbucket(microsoftgraphentity):
         name: Optional[str] = None,
         order_hint: Optional[str] = None,
         plan_id: Optional[str] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerbucket, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerBucket, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.order_hint = order_hint
@@ -10830,7 +10830,7 @@ class microsoftgraphplannerbucket(microsoftgraphentity):
         self.tasks = tasks
 
 
-class microsoftgraphplannerbuckettaskboardtaskformat(microsoftgraphentity):
+class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphEntity):
     """plannerBucketTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -10857,12 +10857,12 @@ class microsoftgraphplannerbuckettaskboardtaskformat(microsoftgraphentity):
         order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerbuckettaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerBucketTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hint = order_hint
 
 
-class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
+class MicrosoftGraphPlannerCategoryDescriptions(msrest.serialization.Model):
     """plannerCategoryDescriptions.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -10904,7 +10904,7 @@ class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
         category6: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannercategorydescriptions, self).__init__(**kwargs)
+        super(MicrosoftGraphPlannerCategoryDescriptions, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.category1 = category1
         self.category2 = category2
@@ -10914,7 +10914,7 @@ class microsoftgraphplannercategorydescriptions(msrest.serialization.Model):
         self.category6 = category6
 
 
-class microsoftgraphplannergroup(microsoftgraphentity):
+class MicrosoftGraphPlannerGroup(MicrosoftGraphEntity):
     """plannerGroup.
 
     :param id: Read-only.
@@ -10923,13 +10923,13 @@ class microsoftgraphplannergroup(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param plans: Read-only. Nullable. Returns the plannerPlans owned by the group.
-    :type plans: list[~teams.models.microsoftgraphplannerplan]
+    :type plans: list[~teams.models.MicrosoftGraphPlannerPlan]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'plans': {'key': 'plans', 'type': '[microsoftgraphplannerplan]'},
+        'plans': {'key': 'plans', 'type': '[MicrosoftGraphPlannerPlan]'},
     }
 
     def __init__(
@@ -10937,15 +10937,15 @@ class microsoftgraphplannergroup(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        plans: Optional[List["microsoftgraphplannerplan"]] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannergroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.plans = plans
 
 
-class microsoftgraphplannerplan(microsoftgraphentity):
+class MicrosoftGraphPlannerPlan(MicrosoftGraphEntity):
     """plannerPlan.
 
     :param id: Read-only.
@@ -10954,7 +10954,7 @@ class microsoftgraphplannerplan(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the plan is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -10965,23 +10965,23 @@ class microsoftgraphplannerplan(microsoftgraphentity):
     :param title: Required. Title of the plan.
     :type title: str
     :param buckets: Read-only. Nullable. Collection of buckets in the plan.
-    :type buckets: list[~teams.models.microsoftgraphplannerbucket]
+    :type buckets: list[~teams.models.MicrosoftGraphPlannerBucket]
     :param details: plannerPlanDetails.
-    :type details: ~teams.models.microsoftgraphplannerplandetails
+    :type details: ~teams.models.MicrosoftGraphPlannerPlanDetails
     :param tasks: Read-only. Nullable. Collection of tasks in the plan.
-    :type tasks: list[~teams.models.microsoftgraphplannertask]
+    :type tasks: list[~teams.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'owner': {'key': 'owner', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
-        'buckets': {'key': 'buckets', 'type': '[microsoftgraphplannerbucket]'},
-        'details': {'key': 'details', 'type': 'microsoftgraphplannerplandetails'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'buckets': {'key': 'buckets', 'type': '[MicrosoftGraphPlannerBucket]'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerPlanDetails'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -10989,16 +10989,16 @@ class microsoftgraphplannerplan(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         owner: Optional[str] = None,
         title: Optional[str] = None,
-        buckets: Optional[List["microsoftgraphplannerbucket"]] = None,
-        details: Optional["microsoftgraphplannerplandetails"] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        buckets: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
+        details: Optional["MicrosoftGraphPlannerPlanDetails"] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerplan, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerPlan, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_by = created_by
         self.created_date_time = created_date_time
@@ -11009,7 +11009,7 @@ class microsoftgraphplannerplan(microsoftgraphentity):
         self.tasks = tasks
 
 
-class microsoftgraphplannerplandetails(microsoftgraphentity):
+class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphEntity):
     """plannerPlanDetails.
 
     :param id: Read-only.
@@ -11018,7 +11018,7 @@ class microsoftgraphplannerplandetails(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param category_descriptions: plannerCategoryDescriptions.
-    :type category_descriptions: ~teams.models.microsoftgraphplannercategorydescriptions
+    :type category_descriptions: ~teams.models.MicrosoftGraphPlannerCategoryDescriptions
     :param shared_with: plannerUserIds.
     :type shared_with: dict[str, object]
     """
@@ -11026,7 +11026,7 @@ class microsoftgraphplannerplandetails(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'category_descriptions': {'key': 'categoryDescriptions', 'type': 'microsoftgraphplannercategorydescriptions'},
+        'category_descriptions': {'key': 'categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
         'shared_with': {'key': 'sharedWith', 'type': '{object}'},
     }
 
@@ -11035,17 +11035,17 @@ class microsoftgraphplannerplandetails(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        category_descriptions: Optional["microsoftgraphplannercategorydescriptions"] = None,
+        category_descriptions: Optional["MicrosoftGraphPlannerCategoryDescriptions"] = None,
         shared_with: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerplandetails, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerPlanDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.category_descriptions = category_descriptions
         self.shared_with = shared_with
 
 
-class microsoftgraphplannerprogresstaskboardtaskformat(microsoftgraphentity):
+class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphEntity):
     """plannerProgressTaskBoardTaskFormat.
 
     :param id: Read-only.
@@ -11072,12 +11072,12 @@ class microsoftgraphplannerprogresstaskboardtaskformat(microsoftgraphentity):
         order_hint: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphplannerprogresstaskboardtaskformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerProgressTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.order_hint = order_hint
 
 
-class microsoftgraphplannertask(microsoftgraphentity):
+class MicrosoftGraphPlannerTask(MicrosoftGraphEntity):
     """plannerTask.
 
     :param id: Read-only.
@@ -11102,7 +11102,7 @@ class microsoftgraphplannertask(microsoftgraphentity):
     :param checklist_item_count: Number of checklist items that are present on the task.
     :type checklist_item_count: int
     :param completed_by: identitySet.
-    :type completed_by: ~teams.models.microsoftgraphidentityset
+    :type completed_by: ~teams.models.MicrosoftGraphIdentitySet
     :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
      is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
      and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
@@ -11112,7 +11112,7 @@ class microsoftgraphplannertask(microsoftgraphentity):
      conversation thread object created in the group.
     :type conversation_thread_id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -11134,7 +11134,7 @@ class microsoftgraphplannertask(microsoftgraphentity):
     :type plan_id: str
     :param preview_type:  Possible values include: "automatic", "noPreview", "checklist",
      "description", "reference".
-    :type preview_type: str or ~teams.models.Microsoftgraphplannerpreviewtype
+    :type preview_type: str or ~teams.models.MicrosoftGraphPlannerPreviewType
     :param reference_count: Number of external references that exist on the task.
     :type reference_count: int
     :param start_date_time: Date and time at which the task starts. The Timestamp type represents
@@ -11145,14 +11145,14 @@ class microsoftgraphplannertask(microsoftgraphentity):
     :type title: str
     :param assigned_to_task_board_format: plannerAssignedToTaskBoardTaskFormat.
     :type assigned_to_task_board_format:
-     ~teams.models.microsoftgraphplannerassignedtotaskboardtaskformat
+     ~teams.models.MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
     :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
-    :type bucket_task_board_format: ~teams.models.microsoftgraphplannerbuckettaskboardtaskformat
+    :type bucket_task_board_format: ~teams.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
     :param details: plannerTaskDetails.
-    :type details: ~teams.models.microsoftgraphplannertaskdetails
+    :type details: ~teams.models.MicrosoftGraphPlannerTaskDetails
     :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
     :type progress_task_board_format:
-     ~teams.models.microsoftgraphplannerprogresstaskboardtaskformat
+     ~teams.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
     """
 
     _validation = {
@@ -11171,10 +11171,10 @@ class microsoftgraphplannertask(microsoftgraphentity):
         'assignments': {'key': 'assignments', 'type': '{object}'},
         'bucket_id': {'key': 'bucketId', 'type': 'str'},
         'checklist_item_count': {'key': 'checklistItemCount', 'type': 'int'},
-        'completed_by': {'key': 'completedBy', 'type': 'microsoftgraphidentityset'},
+        'completed_by': {'key': 'completedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'completed_date_time': {'key': 'completedDateTime', 'type': 'iso-8601'},
         'conversation_thread_id': {'key': 'conversationThreadId', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'has_description': {'key': 'hasDescription', 'type': 'bool'},
@@ -11185,10 +11185,10 @@ class microsoftgraphplannertask(microsoftgraphentity):
         'reference_count': {'key': 'referenceCount', 'type': 'int'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'title': {'key': 'title', 'type': 'str'},
-        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'microsoftgraphplannerassignedtotaskboardtaskformat'},
-        'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'microsoftgraphplannerbuckettaskboardtaskformat'},
-        'details': {'key': 'details', 'type': 'microsoftgraphplannertaskdetails'},
-        'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'microsoftgraphplannerprogresstaskboardtaskformat'},
+        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat'},
+        'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'MicrosoftGraphPlannerBucketTaskBoardTaskFormat'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerTaskDetails'},
+        'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'MicrosoftGraphPlannerProgressTaskBoardTaskFormat'},
     }
 
     def __init__(
@@ -11202,27 +11202,27 @@ class microsoftgraphplannertask(microsoftgraphentity):
         assignments: Optional[Dict[str, object]] = None,
         bucket_id: Optional[str] = None,
         checklist_item_count: Optional[int] = None,
-        completed_by: Optional["microsoftgraphidentityset"] = None,
+        completed_by: Optional["MicrosoftGraphIdentitySet"] = None,
         completed_date_time: Optional[datetime.datetime] = None,
         conversation_thread_id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         due_date_time: Optional[datetime.datetime] = None,
         has_description: Optional[bool] = None,
         order_hint: Optional[str] = None,
         percent_complete: Optional[int] = None,
         plan_id: Optional[str] = None,
-        preview_type: Optional[Union[str, "Microsoftgraphplannerpreviewtype"]] = None,
+        preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
         reference_count: Optional[int] = None,
         start_date_time: Optional[datetime.datetime] = None,
         title: Optional[str] = None,
-        assigned_to_task_board_format: Optional["microsoftgraphplannerassignedtotaskboardtaskformat"] = None,
-        bucket_task_board_format: Optional["microsoftgraphplannerbuckettaskboardtaskformat"] = None,
-        details: Optional["microsoftgraphplannertaskdetails"] = None,
-        progress_task_board_format: Optional["microsoftgraphplannerprogresstaskboardtaskformat"] = None,
+        assigned_to_task_board_format: Optional["MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat"] = None,
+        bucket_task_board_format: Optional["MicrosoftGraphPlannerBucketTaskBoardTaskFormat"] = None,
+        details: Optional["MicrosoftGraphPlannerTaskDetails"] = None,
+        progress_task_board_format: Optional["MicrosoftGraphPlannerProgressTaskBoardTaskFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphplannertask, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerTask, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.active_checklist_item_count = active_checklist_item_count
         self.applied_categories = applied_categories
@@ -11250,7 +11250,7 @@ class microsoftgraphplannertask(microsoftgraphentity):
         self.progress_task_board_format = progress_task_board_format
 
 
-class microsoftgraphplannertaskdetails(microsoftgraphentity):
+class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphEntity):
     """plannerTaskDetails.
 
     :param id: Read-only.
@@ -11264,7 +11264,7 @@ class microsoftgraphplannertaskdetails(microsoftgraphentity):
     :type description: str
     :param preview_type:  Possible values include: "automatic", "noPreview", "checklist",
      "description", "reference".
-    :type preview_type: str or ~teams.models.Microsoftgraphplannerpreviewtype
+    :type preview_type: str or ~teams.models.MicrosoftGraphPlannerPreviewType
     :param references: plannerExternalReferences.
     :type references: dict[str, object]
     """
@@ -11285,11 +11285,11 @@ class microsoftgraphplannertaskdetails(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         checklist: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
-        preview_type: Optional[Union[str, "Microsoftgraphplannerpreviewtype"]] = None,
+        preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
         references: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphplannertaskdetails, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerTaskDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.checklist = checklist
         self.description = description
@@ -11297,7 +11297,7 @@ class microsoftgraphplannertaskdetails(microsoftgraphentity):
         self.references = references
 
 
-class microsoftgraphplanneruser(microsoftgraphentity):
+class MicrosoftGraphPlannerUser(MicrosoftGraphEntity):
     """plannerUser.
 
     :param id: Read-only.
@@ -11306,16 +11306,16 @@ class microsoftgraphplanneruser(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param plans: Read-only. Nullable. Returns the plannerTasks assigned to the user.
-    :type plans: list[~teams.models.microsoftgraphplannerplan]
+    :type plans: list[~teams.models.MicrosoftGraphPlannerPlan]
     :param tasks: Read-only. Nullable. Returns the plannerPlans shared with the user.
-    :type tasks: list[~teams.models.microsoftgraphplannertask]
+    :type tasks: list[~teams.models.MicrosoftGraphPlannerTask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'plans': {'key': 'plans', 'type': '[microsoftgraphplannerplan]'},
-        'tasks': {'key': 'tasks', 'type': '[microsoftgraphplannertask]'},
+        'plans': {'key': 'plans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
     }
 
     def __init__(
@@ -11323,17 +11323,17 @@ class microsoftgraphplanneruser(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        plans: Optional[List["microsoftgraphplannerplan"]] = None,
-        tasks: Optional[List["microsoftgraphplannertask"]] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
         **kwargs
     ):
-        super(microsoftgraphplanneruser, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPlannerUser, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.plans = plans
         self.tasks = tasks
 
 
-class microsoftgraphpost(microsoftgraphoutlookitem):
+class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """post.
 
     :param id: Read-only.
@@ -11356,39 +11356,39 @@ class microsoftgraphpost(microsoftgraphoutlookitem):
      collection.
     :type additional_properties: dict[str, object]
     :param body: itemBody.
-    :type body: ~teams.models.microsoftgraphitembody
+    :type body: ~teams.models.MicrosoftGraphItemBody
     :param conversation_id: Unique ID of the conversation. Read-only.
     :type conversation_id: str
     :param conversation_thread_id: Unique ID of the conversation thread. Read-only.
     :type conversation_thread_id: str
     :param from_property: recipient.
-    :type from_property: ~teams.models.microsoftgraphrecipient
+    :type from_property: ~teams.models.MicrosoftGraphRecipient
     :param has_attachments: Indicates whether the post has at least one attachment. This is a
      default property.
     :type has_attachments: bool
     :param new_participants: Conversation participants that were added to the thread as part of
      this post.
-    :type new_participants: list[~teams.models.microsoftgraphrecipient]
+    :type new_participants: list[~teams.models.MicrosoftGraphRecipient]
     :param received_date_time: Specifies when the post was received. The DateTimeOffset type
      represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type received_date_time: ~datetime.datetime
     :param sender: recipient.
-    :type sender: ~teams.models.microsoftgraphrecipient
+    :type sender: ~teams.models.MicrosoftGraphRecipient
     :param attachments: Read-only. Nullable.
-    :type attachments: list[~teams.models.microsoftgraphattachment]
+    :type attachments: list[~teams.models.MicrosoftGraphAttachment]
     :param extensions: The collection of open extensions defined for the post. Read-only. Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param in_reply_to: post.
-    :type in_reply_to: ~teams.models.microsoftgraphpost
+    :type in_reply_to: ~teams.models.MicrosoftGraphPost
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the post. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~teams.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the post. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~teams.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~teams.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -11398,19 +11398,19 @@ class microsoftgraphpost(microsoftgraphoutlookitem):
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
         'conversation_id': {'key': 'conversationId', 'type': 'str'},
         'conversation_thread_id': {'key': 'conversationThreadId', 'type': 'str'},
-        'from_property': {'key': 'from', 'type': 'microsoftgraphrecipient'},
+        'from_property': {'key': 'from', 'type': 'MicrosoftGraphRecipient'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
-        'new_participants': {'key': 'newParticipants', 'type': '[microsoftgraphrecipient]'},
+        'new_participants': {'key': 'newParticipants', 'type': '[MicrosoftGraphRecipient]'},
         'received_date_time': {'key': 'receivedDateTime', 'type': 'iso-8601'},
-        'sender': {'key': 'sender', 'type': 'microsoftgraphrecipient'},
-        'attachments': {'key': 'attachments', 'type': '[microsoftgraphattachment]'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'in_reply_to': {'key': 'inReplyTo', 'type': 'microsoftgraphpost'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'sender': {'key': 'sender', 'type': 'MicrosoftGraphRecipient'},
+        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphAttachment]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'in_reply_to': {'key': 'inReplyTo', 'type': 'MicrosoftGraphPost'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -11422,22 +11422,22 @@ class microsoftgraphpost(microsoftgraphoutlookitem):
         created_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        body: Optional["microsoftgraphitembody"] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
         conversation_id: Optional[str] = None,
         conversation_thread_id: Optional[str] = None,
-        from_property: Optional["microsoftgraphrecipient"] = None,
+        from_property: Optional["MicrosoftGraphRecipient"] = None,
         has_attachments: Optional[bool] = None,
-        new_participants: Optional[List["microsoftgraphrecipient"]] = None,
+        new_participants: Optional[List["MicrosoftGraphRecipient"]] = None,
         received_date_time: Optional[datetime.datetime] = None,
-        sender: Optional["microsoftgraphrecipient"] = None,
-        attachments: Optional[List["microsoftgraphattachment"]] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        in_reply_to: Optional["microsoftgraphpost"] = None,
-        multi_value_extended_properties: Optional[List["microsoftgraphmultivaluelegacyextendedproperty"]] = None,
-        single_value_extended_properties: Optional[List["microsoftgraphsinglevaluelegacyextendedproperty"]] = None,
+        sender: Optional["MicrosoftGraphRecipient"] = None,
+        attachments: Optional[List["MicrosoftGraphAttachment"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        in_reply_to: Optional["MicrosoftGraphPost"] = None,
+        multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
+        single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
         **kwargs
     ):
-        super(microsoftgraphpost, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphPost, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.body = body
         self.conversation_id = conversation_id
@@ -11454,7 +11454,7 @@ class microsoftgraphpost(microsoftgraphoutlookitem):
         self.single_value_extended_properties = single_value_extended_properties
 
 
-class microsoftgraphprofilephoto(microsoftgraphentity):
+class MicrosoftGraphProfilePhoto(MicrosoftGraphEntity):
     """profilePhoto.
 
     :param id: Read-only.
@@ -11489,13 +11489,13 @@ class microsoftgraphprofilephoto(microsoftgraphentity):
         width: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphprofilephoto, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphProfilePhoto, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.height = height
         self.width = width
 
 
-class microsoftgraphprovisionedplan(msrest.serialization.Model):
+class MicrosoftGraphProvisionedPlan(msrest.serialization.Model):
     """provisionedPlan.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11525,14 +11525,14 @@ class microsoftgraphprovisionedplan(msrest.serialization.Model):
         service: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphprovisionedplan, self).__init__(**kwargs)
+        super(MicrosoftGraphProvisionedPlan, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.capability_status = capability_status
         self.provisioning_status = provisioning_status
         self.service = service
 
 
-class microsoftgraphpublicationfacet(msrest.serialization.Model):
+class MicrosoftGraphPublicationFacet(msrest.serialization.Model):
     """publicationFacet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11560,13 +11560,13 @@ class microsoftgraphpublicationfacet(msrest.serialization.Model):
         version_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpublicationfacet, self).__init__(**kwargs)
+        super(MicrosoftGraphPublicationFacet, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.level = level
         self.version_id = version_id
 
 
-class microsoftgraphpublicerror(msrest.serialization.Model):
+class MicrosoftGraphPublicError(msrest.serialization.Model):
     """publicError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11575,9 +11575,9 @@ class microsoftgraphpublicerror(msrest.serialization.Model):
     :param code:
     :type code: str
     :param details:
-    :type details: list[~teams.models.microsoftgraphpublicerrordetail]
+    :type details: list[~teams.models.MicrosoftGraphPublicErrorDetail]
     :param inner_error: publicInnerError.
-    :type inner_error: ~teams.models.microsoftgraphpublicinnererror
+    :type inner_error: ~teams.models.MicrosoftGraphPublicInnerError
     :param message:
     :type message: str
     :param target:
@@ -11587,8 +11587,8 @@ class microsoftgraphpublicerror(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'code': {'key': 'code', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[microsoftgraphpublicerrordetail]'},
-        'inner_error': {'key': 'innerError', 'type': 'microsoftgraphpublicinnererror'},
+        'details': {'key': 'details', 'type': '[MicrosoftGraphPublicErrorDetail]'},
+        'inner_error': {'key': 'innerError', 'type': 'MicrosoftGraphPublicInnerError'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
     }
@@ -11598,13 +11598,13 @@ class microsoftgraphpublicerror(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         code: Optional[str] = None,
-        details: Optional[List["microsoftgraphpublicerrordetail"]] = None,
-        inner_error: Optional["microsoftgraphpublicinnererror"] = None,
+        details: Optional[List["MicrosoftGraphPublicErrorDetail"]] = None,
+        inner_error: Optional["MicrosoftGraphPublicInnerError"] = None,
         message: Optional[str] = None,
         target: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpublicerror, self).__init__(**kwargs)
+        super(MicrosoftGraphPublicError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.details = details
@@ -11613,7 +11613,7 @@ class microsoftgraphpublicerror(msrest.serialization.Model):
         self.target = target
 
 
-class microsoftgraphpublicerrordetail(msrest.serialization.Model):
+class MicrosoftGraphPublicErrorDetail(msrest.serialization.Model):
     """publicErrorDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11643,14 +11643,14 @@ class microsoftgraphpublicerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpublicerrordetail, self).__init__(**kwargs)
+        super(MicrosoftGraphPublicErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class microsoftgraphpublicinnererror(msrest.serialization.Model):
+class MicrosoftGraphPublicInnerError(msrest.serialization.Model):
     """publicInnerError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11659,7 +11659,7 @@ class microsoftgraphpublicinnererror(msrest.serialization.Model):
     :param code:
     :type code: str
     :param details:
-    :type details: list[~teams.models.microsoftgraphpublicerrordetail]
+    :type details: list[~teams.models.MicrosoftGraphPublicErrorDetail]
     :param message:
     :type message: str
     :param target:
@@ -11669,7 +11669,7 @@ class microsoftgraphpublicinnererror(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'code': {'key': 'code', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[microsoftgraphpublicerrordetail]'},
+        'details': {'key': 'details', 'type': '[MicrosoftGraphPublicErrorDetail]'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
     }
@@ -11679,12 +11679,12 @@ class microsoftgraphpublicinnererror(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         code: Optional[str] = None,
-        details: Optional[List["microsoftgraphpublicerrordetail"]] = None,
+        details: Optional[List["MicrosoftGraphPublicErrorDetail"]] = None,
         message: Optional[str] = None,
         target: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpublicinnererror, self).__init__(**kwargs)
+        super(MicrosoftGraphPublicInnerError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.details = details
@@ -11692,7 +11692,7 @@ class microsoftgraphpublicinnererror(msrest.serialization.Model):
         self.target = target
 
 
-class microsoftgraphquota(msrest.serialization.Model):
+class MicrosoftGraphQuota(msrest.serialization.Model):
     """quota.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11705,7 +11705,7 @@ class microsoftgraphquota(msrest.serialization.Model):
     :param state: Enumeration value that indicates the state of the storage space. Read-only.
     :type state: str
     :param storage_plan_information: storagePlanInformation.
-    :type storage_plan_information: ~teams.models.microsoftgraphstorageplaninformation
+    :type storage_plan_information: ~teams.models.MicrosoftGraphStoragePlanInformation
     :param total: Total allowed storage space, in bytes. Read-only.
     :type total: long
     :param used: Total space used, in bytes. Read-only.
@@ -11717,7 +11717,7 @@ class microsoftgraphquota(msrest.serialization.Model):
         'deleted': {'key': 'deleted', 'type': 'long'},
         'remaining': {'key': 'remaining', 'type': 'long'},
         'state': {'key': 'state', 'type': 'str'},
-        'storage_plan_information': {'key': 'storagePlanInformation', 'type': 'microsoftgraphstorageplaninformation'},
+        'storage_plan_information': {'key': 'storagePlanInformation', 'type': 'MicrosoftGraphStoragePlanInformation'},
         'total': {'key': 'total', 'type': 'long'},
         'used': {'key': 'used', 'type': 'long'},
     }
@@ -11729,12 +11729,12 @@ class microsoftgraphquota(msrest.serialization.Model):
         deleted: Optional[int] = None,
         remaining: Optional[int] = None,
         state: Optional[str] = None,
-        storage_plan_information: Optional["microsoftgraphstorageplaninformation"] = None,
+        storage_plan_information: Optional["MicrosoftGraphStoragePlanInformation"] = None,
         total: Optional[int] = None,
         used: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphquota, self).__init__(**kwargs)
+        super(MicrosoftGraphQuota, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.deleted = deleted
         self.remaining = remaining
@@ -11744,7 +11744,7 @@ class microsoftgraphquota(msrest.serialization.Model):
         self.used = used
 
 
-class microsoftgraphrecurrencepattern(msrest.serialization.Model):
+class MicrosoftGraphRecurrencePattern(msrest.serialization.Model):
     """recurrencePattern.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11758,12 +11758,12 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
      relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls
      on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or
      relativeYearly.
-    :type days_of_week: list[str or ~teams.models.Microsoftgraphdayofweek]
+    :type days_of_week: list[str or ~teams.models.MicrosoftGraphDayOfWeek]
     :param first_day_of_week:  Possible values include: "sunday", "monday", "tuesday", "wednesday",
      "thursday", "friday", "saturday".
-    :type first_day_of_week: str or ~teams.models.Microsoftgraphdayofweek
+    :type first_day_of_week: str or ~teams.models.MicrosoftGraphDayOfWeek
     :param index:  Possible values include: "first", "second", "third", "fourth", "last".
-    :type index: str or ~teams.models.Microsoftgraphweekindex
+    :type index: str or ~teams.models.MicrosoftGraphWeekIndex
     :param interval: The number of units between occurrences, where units can be in days, weeks,
      months, or years, depending on the type. Required.
     :type interval: int
@@ -11771,7 +11771,7 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
     :type month: int
     :param type:  Possible values include: "daily", "weekly", "absoluteMonthly", "relativeMonthly",
      "absoluteYearly", "relativeYearly".
-    :type type: str or ~teams.models.Microsoftgraphrecurrencepatterntype
+    :type type: str or ~teams.models.MicrosoftGraphRecurrencePatternType
     """
 
     _validation = {
@@ -11796,15 +11796,15 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         day_of_month: Optional[int] = None,
-        days_of_week: Optional[List[Union[str, "Microsoftgraphdayofweek"]]] = None,
-        first_day_of_week: Optional[Union[str, "Microsoftgraphdayofweek"]] = None,
-        index: Optional[Union[str, "Microsoftgraphweekindex"]] = None,
+        days_of_week: Optional[List[Union[str, "MicrosoftGraphDayOfWeek"]]] = None,
+        first_day_of_week: Optional[Union[str, "MicrosoftGraphDayOfWeek"]] = None,
+        index: Optional[Union[str, "MicrosoftGraphWeekIndex"]] = None,
         interval: Optional[int] = None,
         month: Optional[int] = None,
-        type: Optional[Union[str, "Microsoftgraphrecurrencepatterntype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphRecurrencePatternType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphrecurrencepattern, self).__init__(**kwargs)
+        super(MicrosoftGraphRecurrencePattern, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.day_of_month = day_of_month
         self.days_of_week = days_of_week
@@ -11815,7 +11815,7 @@ class microsoftgraphrecurrencepattern(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphrecurrencerange(msrest.serialization.Model):
+class MicrosoftGraphRecurrenceRange(msrest.serialization.Model):
     """recurrenceRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -11836,7 +11836,7 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
      be the same value as the start property of the recurring event. Required.
     :type start_date: ~datetime.date
     :param type:  Possible values include: "endDate", "noEnd", "numbered".
-    :type type: str or ~teams.models.Microsoftgraphrecurrencerangetype
+    :type type: str or ~teams.models.MicrosoftGraphRecurrenceRangeType
     """
 
     _validation = {
@@ -11860,10 +11860,10 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
         number_of_occurrences: Optional[int] = None,
         recurrence_time_zone: Optional[str] = None,
         start_date: Optional[datetime.date] = None,
-        type: Optional[Union[str, "Microsoftgraphrecurrencerangetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphRecurrenceRangeType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphrecurrencerange, self).__init__(**kwargs)
+        super(MicrosoftGraphRecurrenceRange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end_date = end_date
         self.number_of_occurrences = number_of_occurrences
@@ -11872,46 +11872,46 @@ class microsoftgraphrecurrencerange(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphremoteitem(msrest.serialization.Model):
+class MicrosoftGraphRemoteItem(msrest.serialization.Model):
     """remoteItem.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param file: file.
-    :type file: ~teams.models.microsoftgraphfile
+    :type file: ~teams.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
-    :type file_system_info: ~teams.models.microsoftgraphfilesysteminfo
+    :type file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
     :param folder: folder.
-    :type folder: ~teams.models.microsoftgraphfolder
+    :type folder: ~teams.models.MicrosoftGraphFolder
     :param id: Unique identifier for the remote item in its drive. Read-only.
     :type id: str
     :param image: image.
-    :type image: ~teams.models.microsoftgraphimage
+    :type image: ~teams.models.MicrosoftGraphImage
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: Optional. Filename of the remote item. Read-only.
     :type name: str
     :param package: package.
-    :type package: ~teams.models.microsoftgraphpackage
+    :type package: ~teams.models.MicrosoftGraphPackage
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param shared: shared.
-    :type shared: ~teams.models.microsoftgraphshared
+    :type shared: ~teams.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param size: Size of the remote item. Read-only.
     :type size: long
     :param special_folder: specialFolder.
-    :type special_folder: ~teams.models.microsoftgraphspecialfolder
+    :type special_folder: ~teams.models.MicrosoftGraphSpecialFolder
     :param video: video.
-    :type video: ~teams.models.microsoftgraphvideo
+    :type video: ~teams.models.MicrosoftGraphVideo
     :param web_dav_url: DAV compatible URL for the item.
     :type web_dav_url: str
     :param web_url: URL that displays the resource in the browser. Read-only.
@@ -11920,23 +11920,23 @@ class microsoftgraphremoteitem(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'file': {'key': 'file', 'type': 'microsoftgraphfile'},
-        'file_system_info': {'key': 'fileSystemInfo', 'type': 'microsoftgraphfilesysteminfo'},
-        'folder': {'key': 'folder', 'type': 'microsoftgraphfolder'},
+        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
+        'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'id': {'key': 'id', 'type': 'str'},
-        'image': {'key': 'image', 'type': 'microsoftgraphimage'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'package': {'key': 'package', 'type': 'microsoftgraphpackage'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
-        'shared': {'key': 'shared', 'type': 'microsoftgraphshared'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
+        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
+        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
-        'special_folder': {'key': 'specialFolder', 'type': 'microsoftgraphspecialfolder'},
-        'video': {'key': 'video', 'type': 'microsoftgraphvideo'},
+        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
+        'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
     }
@@ -11945,28 +11945,28 @@ class microsoftgraphremoteitem(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        file: Optional["microsoftgraphfile"] = None,
-        file_system_info: Optional["microsoftgraphfilesysteminfo"] = None,
-        folder: Optional["microsoftgraphfolder"] = None,
+        file: Optional["MicrosoftGraphFile"] = None,
+        file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
+        folder: Optional["MicrosoftGraphFolder"] = None,
         id: Optional[str] = None,
-        image: Optional["microsoftgraphimage"] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        image: Optional["MicrosoftGraphImage"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        package: Optional["microsoftgraphpackage"] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
-        shared: Optional["microsoftgraphshared"] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
+        package: Optional["MicrosoftGraphPackage"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
+        shared: Optional["MicrosoftGraphShared"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         size: Optional[int] = None,
-        special_folder: Optional["microsoftgraphspecialfolder"] = None,
-        video: Optional["microsoftgraphvideo"] = None,
+        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
+        video: Optional["MicrosoftGraphVideo"] = None,
         web_dav_url: Optional[str] = None,
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphremoteitem, self).__init__(**kwargs)
+        super(MicrosoftGraphRemoteItem, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.created_by = created_by
         self.created_date_time = created_date_time
@@ -11989,7 +11989,7 @@ class microsoftgraphremoteitem(msrest.serialization.Model):
         self.web_url = web_url
 
 
-class microsoftgraphresourcereference(msrest.serialization.Model):
+class MicrosoftGraphResourceReference(msrest.serialization.Model):
     """resourceReference.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12020,14 +12020,14 @@ class microsoftgraphresourcereference(msrest.serialization.Model):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphresourcereference, self).__init__(**kwargs)
+        super(MicrosoftGraphResourceReference, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
         self.type = type
         self.web_url = web_url
 
 
-class microsoftgraphresourcevisualization(msrest.serialization.Model):
+class MicrosoftGraphResourceVisualization(msrest.serialization.Model):
     """resourceVisualization.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12082,7 +12082,7 @@ class microsoftgraphresourcevisualization(msrest.serialization.Model):
         type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphresourcevisualization, self).__init__(**kwargs)
+        super(MicrosoftGraphResourceVisualization, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.container_display_name = container_display_name
         self.container_type = container_type
@@ -12094,7 +12094,7 @@ class microsoftgraphresourcevisualization(msrest.serialization.Model):
         self.type = type
 
 
-class microsoftgraphresponsestatus(msrest.serialization.Model):
+class MicrosoftGraphResponseStatus(msrest.serialization.Model):
     """responseStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12102,7 +12102,7 @@ class microsoftgraphresponsestatus(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param response:  Possible values include: "none", "organizer", "tentativelyAccepted",
      "accepted", "declined", "notResponded".
-    :type response: str or ~teams.models.Microsoftgraphresponsetype
+    :type response: str or ~teams.models.MicrosoftGraphResponseType
     :param time: The date and time that the response was returned. It uses ISO 8601 format and is
      always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
      '2014-01-01T00:00:00Z'.
@@ -12119,17 +12119,17 @@ class microsoftgraphresponsestatus(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        response: Optional[Union[str, "Microsoftgraphresponsetype"]] = None,
+        response: Optional[Union[str, "MicrosoftGraphResponseType"]] = None,
         time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphresponsestatus, self).__init__(**kwargs)
+        super(MicrosoftGraphResponseStatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.response = response
         self.time = time
 
 
-class microsoftgraphschedule(microsoftgraphentity):
+class MicrosoftGraphSchedule(MicrosoftGraphEntity):
     """schedule.
 
     :param id: Read-only.
@@ -12146,7 +12146,7 @@ class microsoftgraphschedule(microsoftgraphentity):
     :type open_shifts_enabled: bool
     :param provision_status:  Possible values include: "NotStarted", "Running", "Completed",
      "Failed".
-    :type provision_status: str or ~teams.models.Microsoftgraphoperationstatus
+    :type provision_status: str or ~teams.models.MicrosoftGraphOperationStatus
     :param provision_status_code: Additional information about why schedule provisioning failed.
     :type provision_status_code: str
     :param swap_shifts_requests_enabled: Indicates whether swap shifts requests are enabled for the
@@ -12163,23 +12163,23 @@ class microsoftgraphschedule(microsoftgraphentity):
     :param workforce_integration_ids:
     :type workforce_integration_ids: list[str]
     :param offer_shift_requests:
-    :type offer_shift_requests: list[~teams.models.microsoftgraphoffershiftrequest]
+    :type offer_shift_requests: list[~teams.models.MicrosoftGraphOfferShiftRequest]
     :param open_shift_change_requests:
-    :type open_shift_change_requests: list[~teams.models.microsoftgraphopenshiftchangerequest]
+    :type open_shift_change_requests: list[~teams.models.MicrosoftGraphOpenShiftChangeRequest]
     :param open_shifts:
-    :type open_shifts: list[~teams.models.microsoftgraphopenshift]
+    :type open_shifts: list[~teams.models.MicrosoftGraphOpenShift]
     :param scheduling_groups: The logical grouping of users in the schedule (usually by role).
-    :type scheduling_groups: list[~teams.models.microsoftgraphschedulinggroup]
+    :type scheduling_groups: list[~teams.models.MicrosoftGraphSchedulingGroup]
     :param shifts: The shifts in the schedule.
-    :type shifts: list[~teams.models.microsoftgraphshift]
+    :type shifts: list[~teams.models.MicrosoftGraphShift]
     :param swap_shifts_change_requests:
-    :type swap_shifts_change_requests: list[~teams.models.microsoftgraphswapshiftschangerequest]
+    :type swap_shifts_change_requests: list[~teams.models.MicrosoftGraphSwapShiftsChangeRequest]
     :param time_off_reasons: The set of reasons for a time off in the schedule.
-    :type time_off_reasons: list[~teams.models.microsoftgraphtimeoffreason]
+    :type time_off_reasons: list[~teams.models.MicrosoftGraphTimeOffReason]
     :param time_off_requests:
-    :type time_off_requests: list[~teams.models.microsoftgraphtimeoffrequest]
+    :type time_off_requests: list[~teams.models.MicrosoftGraphTimeOffRequest]
     :param times_off: The instances of times off in the schedule.
-    :type times_off: list[~teams.models.microsoftgraphtimeoff]
+    :type times_off: list[~teams.models.MicrosoftGraphTimeOff]
     """
 
     _attribute_map = {
@@ -12195,15 +12195,15 @@ class microsoftgraphschedule(microsoftgraphentity):
         'time_off_requests_enabled': {'key': 'timeOffRequestsEnabled', 'type': 'bool'},
         'time_zone': {'key': 'timeZone', 'type': 'str'},
         'workforce_integration_ids': {'key': 'workforceIntegrationIds', 'type': '[str]'},
-        'offer_shift_requests': {'key': 'offerShiftRequests', 'type': '[microsoftgraphoffershiftrequest]'},
-        'open_shift_change_requests': {'key': 'openShiftChangeRequests', 'type': '[microsoftgraphopenshiftchangerequest]'},
-        'open_shifts': {'key': 'openShifts', 'type': '[microsoftgraphopenshift]'},
-        'scheduling_groups': {'key': 'schedulingGroups', 'type': '[microsoftgraphschedulinggroup]'},
-        'shifts': {'key': 'shifts', 'type': '[microsoftgraphshift]'},
-        'swap_shifts_change_requests': {'key': 'swapShiftsChangeRequests', 'type': '[microsoftgraphswapshiftschangerequest]'},
-        'time_off_reasons': {'key': 'timeOffReasons', 'type': '[microsoftgraphtimeoffreason]'},
-        'time_off_requests': {'key': 'timeOffRequests', 'type': '[microsoftgraphtimeoffrequest]'},
-        'times_off': {'key': 'timesOff', 'type': '[microsoftgraphtimeoff]'},
+        'offer_shift_requests': {'key': 'offerShiftRequests', 'type': '[MicrosoftGraphOfferShiftRequest]'},
+        'open_shift_change_requests': {'key': 'openShiftChangeRequests', 'type': '[MicrosoftGraphOpenShiftChangeRequest]'},
+        'open_shifts': {'key': 'openShifts', 'type': '[MicrosoftGraphOpenShift]'},
+        'scheduling_groups': {'key': 'schedulingGroups', 'type': '[MicrosoftGraphSchedulingGroup]'},
+        'shifts': {'key': 'shifts', 'type': '[MicrosoftGraphShift]'},
+        'swap_shifts_change_requests': {'key': 'swapShiftsChangeRequests', 'type': '[MicrosoftGraphSwapShiftsChangeRequest]'},
+        'time_off_reasons': {'key': 'timeOffReasons', 'type': '[MicrosoftGraphTimeOffReason]'},
+        'time_off_requests': {'key': 'timeOffRequests', 'type': '[MicrosoftGraphTimeOffRequest]'},
+        'times_off': {'key': 'timesOff', 'type': '[MicrosoftGraphTimeOff]'},
     }
 
     def __init__(
@@ -12214,25 +12214,25 @@ class microsoftgraphschedule(microsoftgraphentity):
         enabled: Optional[bool] = None,
         offer_shift_requests_enabled: Optional[bool] = None,
         open_shifts_enabled: Optional[bool] = None,
-        provision_status: Optional[Union[str, "Microsoftgraphoperationstatus"]] = None,
+        provision_status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
         provision_status_code: Optional[str] = None,
         swap_shifts_requests_enabled: Optional[bool] = None,
         time_clock_enabled: Optional[bool] = None,
         time_off_requests_enabled: Optional[bool] = None,
         time_zone: Optional[str] = None,
         workforce_integration_ids: Optional[List[str]] = None,
-        offer_shift_requests: Optional[List["microsoftgraphoffershiftrequest"]] = None,
-        open_shift_change_requests: Optional[List["microsoftgraphopenshiftchangerequest"]] = None,
-        open_shifts: Optional[List["microsoftgraphopenshift"]] = None,
-        scheduling_groups: Optional[List["microsoftgraphschedulinggroup"]] = None,
-        shifts: Optional[List["microsoftgraphshift"]] = None,
-        swap_shifts_change_requests: Optional[List["microsoftgraphswapshiftschangerequest"]] = None,
-        time_off_reasons: Optional[List["microsoftgraphtimeoffreason"]] = None,
-        time_off_requests: Optional[List["microsoftgraphtimeoffrequest"]] = None,
-        times_off: Optional[List["microsoftgraphtimeoff"]] = None,
+        offer_shift_requests: Optional[List["MicrosoftGraphOfferShiftRequest"]] = None,
+        open_shift_change_requests: Optional[List["MicrosoftGraphOpenShiftChangeRequest"]] = None,
+        open_shifts: Optional[List["MicrosoftGraphOpenShift"]] = None,
+        scheduling_groups: Optional[List["MicrosoftGraphSchedulingGroup"]] = None,
+        shifts: Optional[List["MicrosoftGraphShift"]] = None,
+        swap_shifts_change_requests: Optional[List["MicrosoftGraphSwapShiftsChangeRequest"]] = None,
+        time_off_reasons: Optional[List["MicrosoftGraphTimeOffReason"]] = None,
+        time_off_requests: Optional[List["MicrosoftGraphTimeOffRequest"]] = None,
+        times_off: Optional[List["MicrosoftGraphTimeOff"]] = None,
         **kwargs
     ):
-        super(microsoftgraphschedule, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSchedule, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.enabled = enabled
         self.offer_shift_requests_enabled = offer_shift_requests_enabled
@@ -12255,7 +12255,7 @@ class microsoftgraphschedule(microsoftgraphentity):
         self.times_off = times_off
 
 
-class microsoftgraphschedulinggroup(microsoftgraphchangetrackedentity):
+class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """schedulingGroup.
 
     :param id: Read-only.
@@ -12265,7 +12265,7 @@ class microsoftgraphschedulinggroup(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -12285,7 +12285,7 @@ class microsoftgraphschedulinggroup(microsoftgraphchangetrackedentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -12298,7 +12298,7 @@ class microsoftgraphschedulinggroup(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
@@ -12306,14 +12306,14 @@ class microsoftgraphschedulinggroup(microsoftgraphchangetrackedentity):
         user_ids: Optional[List[str]] = None,
         **kwargs
     ):
-        super(microsoftgraphschedulinggroup, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphSchedulingGroup, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.is_active = is_active
         self.user_ids = user_ids
 
 
-class microsoftgraphscopedrolemembership(microsoftgraphentity):
+class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
     """scopedRoleMembership.
 
     :param id: Read-only.
@@ -12327,7 +12327,7 @@ class microsoftgraphscopedrolemembership(microsoftgraphentity):
     :param role_id: Unique identifier for the directory role that the member is in.
     :type role_id: str
     :param role_member_info: identity.
-    :type role_member_info: ~teams.models.microsoftgraphidentity
+    :type role_member_info: ~teams.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -12335,7 +12335,7 @@ class microsoftgraphscopedrolemembership(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'administrative_unit_id': {'key': 'administrativeUnitId', 'type': 'str'},
         'role_id': {'key': 'roleId', 'type': 'str'},
-        'role_member_info': {'key': 'roleMemberInfo', 'type': 'microsoftgraphidentity'},
+        'role_member_info': {'key': 'roleMemberInfo', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -12345,17 +12345,17 @@ class microsoftgraphscopedrolemembership(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         administrative_unit_id: Optional[str] = None,
         role_id: Optional[str] = None,
-        role_member_info: Optional["microsoftgraphidentity"] = None,
+        role_member_info: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
-        super(microsoftgraphscopedrolemembership, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphScopedRoleMembership, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.administrative_unit_id = administrative_unit_id
         self.role_id = role_id
         self.role_member_info = role_member_info
 
 
-class microsoftgraphscoredemailaddress(msrest.serialization.Model):
+class MicrosoftGraphScoredEmailAddress(msrest.serialization.Model):
     """scoredEmailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12371,7 +12371,7 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
      collaboration patterns and business relationships.
     :type relevance_score: float
     :param selection_likelihood:  Possible values include: "notSpecified", "high".
-    :type selection_likelihood: str or ~teams.models.Microsoftgraphselectionlikelihoodinfo
+    :type selection_likelihood: str or ~teams.models.MicrosoftGraphSelectionLikelihoodInfo
     """
 
     _attribute_map = {
@@ -12389,10 +12389,10 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
         address: Optional[str] = None,
         item_id: Optional[str] = None,
         relevance_score: Optional[float] = None,
-        selection_likelihood: Optional[Union[str, "Microsoftgraphselectionlikelihoodinfo"]] = None,
+        selection_likelihood: Optional[Union[str, "MicrosoftGraphSelectionLikelihoodInfo"]] = None,
         **kwargs
     ):
-        super(microsoftgraphscoredemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphScoredEmailAddress, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.item_id = item_id
@@ -12400,7 +12400,7 @@ class microsoftgraphscoredemailaddress(msrest.serialization.Model):
         self.selection_likelihood = selection_likelihood
 
 
-class microsoftgraphsearchresult(msrest.serialization.Model):
+class MicrosoftGraphSearchResult(msrest.serialization.Model):
     """searchResult.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12424,12 +12424,12 @@ class microsoftgraphsearchresult(msrest.serialization.Model):
         on_click_telemetry_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsearchresult, self).__init__(**kwargs)
+        super(MicrosoftGraphSearchResult, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.on_click_telemetry_url = on_click_telemetry_url
 
 
-class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
+class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """sectionGroup.
 
     :param id: Read-only.
@@ -12441,11 +12441,11 @@ class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
@@ -12461,30 +12461,30 @@ class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
      sections in the section group. Read-only.
     :type sections_url: str
     :param parent_notebook: notebook.
-    :type parent_notebook: ~teams.models.microsoftgraphnotebook
+    :type parent_notebook: ~teams.models.MicrosoftGraphNotebook
     :param parent_section_group: sectionGroup.
-    :type parent_section_group: ~teams.models.microsoftgraphsectiongroup
+    :type parent_section_group: ~teams.models.MicrosoftGraphSectionGroup
     :param section_groups: The section groups in the section. Read-only. Nullable.
-    :type section_groups: list[~teams.models.microsoftgraphsectiongroup]
+    :type section_groups: list[~teams.models.MicrosoftGraphSectionGroup]
     :param sections: The sections in the section group. Read-only. Nullable.
-    :type sections: list[~teams.models.microsoftgraphonenotesection]
+    :type sections: list[~teams.models.MicrosoftGraphOnenoteSection]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
-        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'microsoftgraphsectiongroup'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
-        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
+        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
+        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
     }
 
     def __init__(
@@ -12493,20 +12493,20 @@ class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
         id: Optional[str] = None,
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         section_groups_url: Optional[str] = None,
         sections_url: Optional[str] = None,
-        parent_notebook: Optional["microsoftgraphnotebook"] = None,
-        parent_section_group: Optional["microsoftgraphsectiongroup"] = None,
-        section_groups: Optional[List["microsoftgraphsectiongroup"]] = None,
-        sections: Optional[List["microsoftgraphonenotesection"]] = None,
+        parent_notebook: Optional["MicrosoftGraphNotebook"] = None,
+        parent_section_group: Optional["MicrosoftGraphSectionGroup"] = None,
+        section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
+        sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
         **kwargs
     ):
-        super(microsoftgraphsectiongroup, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphSectionGroup, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.section_groups_url = section_groups_url
         self.sections_url = sections_url
@@ -12516,39 +12516,39 @@ class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
         self.sections = sections
 
 
-class microsoftgraphsectionlinks(msrest.serialization.Model):
+class MicrosoftGraphSectionLinks(msrest.serialization.Model):
     """sectionLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_client_url: ~teams.models.MicrosoftGraphExternalLink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~teams.models.microsoftgraphexternallink
+    :type one_note_web_url: ~teams.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        one_note_client_url: Optional["microsoftgraphexternallink"] = None,
-        one_note_web_url: Optional["microsoftgraphexternallink"] = None,
+        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
+        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
-        super(microsoftgraphsectionlinks, self).__init__(**kwargs)
+        super(MicrosoftGraphSectionLinks, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.one_note_client_url = one_note_client_url
         self.one_note_web_url = one_note_web_url
 
 
-class microsoftgraphserviceplaninfo(msrest.serialization.Model):
+class MicrosoftGraphServicePlanInfo(msrest.serialization.Model):
     """servicePlanInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12589,7 +12589,7 @@ class microsoftgraphserviceplaninfo(msrest.serialization.Model):
         service_plan_name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphserviceplaninfo, self).__init__(**kwargs)
+        super(MicrosoftGraphServicePlanInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.applies_to = applies_to
         self.provisioning_status = provisioning_status
@@ -12597,7 +12597,7 @@ class microsoftgraphserviceplaninfo(msrest.serialization.Model):
         self.service_plan_name = service_plan_name
 
 
-class microsoftgraphsettingsource(msrest.serialization.Model):
+class MicrosoftGraphSettingSource(msrest.serialization.Model):
     """settingSource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12623,13 +12623,13 @@ class microsoftgraphsettingsource(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsettingsource, self).__init__(**kwargs)
+        super(MicrosoftGraphSettingSource, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
 
 
-class microsoftgraphsettingvalue(msrest.serialization.Model):
+class MicrosoftGraphSettingValue(msrest.serialization.Model):
     """settingValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12655,34 +12655,34 @@ class microsoftgraphsettingvalue(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsettingvalue, self).__init__(**kwargs)
+        super(MicrosoftGraphSettingValue, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.value = value
 
 
-class microsoftgraphshared(msrest.serialization.Model):
+class MicrosoftGraphShared(msrest.serialization.Model):
     """shared.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param owner: identitySet.
-    :type owner: ~teams.models.microsoftgraphidentityset
+    :type owner: ~teams.models.MicrosoftGraphIdentitySet
     :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
      Read-only.
     :type scope: str
     :param shared_by: identitySet.
-    :type shared_by: ~teams.models.microsoftgraphidentityset
+    :type shared_by: ~teams.models.MicrosoftGraphIdentitySet
     :param shared_date_time: The UTC date and time when the item was shared. Read-only.
     :type shared_date_time: ~datetime.datetime
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'owner': {'key': 'owner', 'type': 'microsoftgraphidentityset'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
         'scope': {'key': 'scope', 'type': 'str'},
-        'shared_by': {'key': 'sharedBy', 'type': 'microsoftgraphidentityset'},
+        'shared_by': {'key': 'sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'shared_date_time': {'key': 'sharedDateTime', 'type': 'iso-8601'},
     }
 
@@ -12690,13 +12690,13 @@ class microsoftgraphshared(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        owner: Optional["microsoftgraphidentityset"] = None,
+        owner: Optional["MicrosoftGraphIdentitySet"] = None,
         scope: Optional[str] = None,
-        shared_by: Optional["microsoftgraphidentityset"] = None,
+        shared_by: Optional["MicrosoftGraphIdentitySet"] = None,
         shared_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphshared, self).__init__(**kwargs)
+        super(MicrosoftGraphShared, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.owner = owner
         self.scope = scope
@@ -12704,7 +12704,7 @@ class microsoftgraphshared(msrest.serialization.Model):
         self.shared_date_time = shared_date_time
 
 
-class microsoftgraphsharedinsight(microsoftgraphentity):
+class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
     """sharedInsight.
 
     :param id: Read-only.
@@ -12713,28 +12713,28 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param last_shared: sharingDetail.
-    :type last_shared: ~teams.models.microsoftgraphsharingdetail
+    :type last_shared: ~teams.models.MicrosoftGraphSharingDetail
     :param resource_reference: resourceReference.
-    :type resource_reference: ~teams.models.microsoftgraphresourcereference
+    :type resource_reference: ~teams.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~teams.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~teams.models.MicrosoftGraphResourceVisualization
     :param sharing_history:
-    :type sharing_history: list[~teams.models.microsoftgraphsharingdetail]
+    :type sharing_history: list[~teams.models.MicrosoftGraphSharingDetail]
     :param last_shared_method: entity.
-    :type last_shared_method: ~teams.models.microsoftgraphentity
+    :type last_shared_method: ~teams.models.MicrosoftGraphEntity
     :param resource: entity.
-    :type resource: ~teams.models.microsoftgraphentity
+    :type resource: ~teams.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'last_shared': {'key': 'lastShared', 'type': 'microsoftgraphsharingdetail'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
-        'sharing_history': {'key': 'sharingHistory', 'type': '[microsoftgraphsharingdetail]'},
-        'last_shared_method': {'key': 'lastSharedMethod', 'type': 'microsoftgraphentity'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'last_shared': {'key': 'lastShared', 'type': 'MicrosoftGraphSharingDetail'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
+        'sharing_history': {'key': 'sharingHistory', 'type': '[MicrosoftGraphSharingDetail]'},
+        'last_shared_method': {'key': 'lastSharedMethod', 'type': 'MicrosoftGraphEntity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -12742,15 +12742,15 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        last_shared: Optional["microsoftgraphsharingdetail"] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
-        sharing_history: Optional[List["microsoftgraphsharingdetail"]] = None,
-        last_shared_method: Optional["microsoftgraphentity"] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        last_shared: Optional["MicrosoftGraphSharingDetail"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
+        sharing_history: Optional[List["MicrosoftGraphSharingDetail"]] = None,
+        last_shared_method: Optional["MicrosoftGraphEntity"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphsharedinsight, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSharedInsight, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_shared = last_shared
         self.resource_reference = resource_reference
@@ -12760,7 +12760,7 @@ class microsoftgraphsharedinsight(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphsharepointids(msrest.serialization.Model):
+class MicrosoftGraphSharepointIds(msrest.serialization.Model):
     """sharepointIds.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12807,7 +12807,7 @@ class microsoftgraphsharepointids(msrest.serialization.Model):
         web_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsharepointids, self).__init__(**kwargs)
+        super(MicrosoftGraphSharepointIds, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.list_id = list_id
         self.list_item_id = list_item_id
@@ -12818,20 +12818,20 @@ class microsoftgraphsharepointids(msrest.serialization.Model):
         self.web_id = web_id
 
 
-class microsoftgraphsharingdetail(msrest.serialization.Model):
+class MicrosoftGraphSharingDetail(msrest.serialization.Model):
     """sharingDetail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param shared_by: insightIdentity.
-    :type shared_by: ~teams.models.microsoftgraphinsightidentity
+    :type shared_by: ~teams.models.MicrosoftGraphInsightIdentity
     :param shared_date_time: The date and time the file was last shared. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.
     :type shared_date_time: ~datetime.datetime
     :param sharing_reference: resourceReference.
-    :type sharing_reference: ~teams.models.microsoftgraphresourcereference
+    :type sharing_reference: ~teams.models.MicrosoftGraphResourceReference
     :param sharing_subject: The subject with which the document was shared.
     :type sharing_subject: str
     :param sharing_type: Determines the way the document was shared, can be by a 'Link',
@@ -12841,9 +12841,9 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'shared_by': {'key': 'sharedBy', 'type': 'microsoftgraphinsightidentity'},
+        'shared_by': {'key': 'sharedBy', 'type': 'MicrosoftGraphInsightIdentity'},
         'shared_date_time': {'key': 'sharedDateTime', 'type': 'iso-8601'},
-        'sharing_reference': {'key': 'sharingReference', 'type': 'microsoftgraphresourcereference'},
+        'sharing_reference': {'key': 'sharingReference', 'type': 'MicrosoftGraphResourceReference'},
         'sharing_subject': {'key': 'sharingSubject', 'type': 'str'},
         'sharing_type': {'key': 'sharingType', 'type': 'str'},
     }
@@ -12852,14 +12852,14 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        shared_by: Optional["microsoftgraphinsightidentity"] = None,
+        shared_by: Optional["MicrosoftGraphInsightIdentity"] = None,
         shared_date_time: Optional[datetime.datetime] = None,
-        sharing_reference: Optional["microsoftgraphresourcereference"] = None,
+        sharing_reference: Optional["MicrosoftGraphResourceReference"] = None,
         sharing_subject: Optional[str] = None,
         sharing_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsharingdetail, self).__init__(**kwargs)
+        super(MicrosoftGraphSharingDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.shared_by = shared_by
         self.shared_date_time = shared_date_time
@@ -12868,7 +12868,7 @@ class microsoftgraphsharingdetail(msrest.serialization.Model):
         self.sharing_type = sharing_type
 
 
-class microsoftgraphsharinginvitation(msrest.serialization.Model):
+class MicrosoftGraphSharingInvitation(msrest.serialization.Model):
     """sharingInvitation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12878,7 +12878,7 @@ class microsoftgraphsharinginvitation(msrest.serialization.Model):
      only.
     :type email: str
     :param invited_by: identitySet.
-    :type invited_by: ~teams.models.microsoftgraphidentityset
+    :type invited_by: ~teams.models.MicrosoftGraphIdentitySet
     :param redeemed_by:
     :type redeemed_by: str
     :param sign_in_required: If true the recipient of the invitation needs to sign in in order to
@@ -12889,7 +12889,7 @@ class microsoftgraphsharinginvitation(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'email': {'key': 'email', 'type': 'str'},
-        'invited_by': {'key': 'invitedBy', 'type': 'microsoftgraphidentityset'},
+        'invited_by': {'key': 'invitedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'redeemed_by': {'key': 'redeemedBy', 'type': 'str'},
         'sign_in_required': {'key': 'signInRequired', 'type': 'bool'},
     }
@@ -12899,12 +12899,12 @@ class microsoftgraphsharinginvitation(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         email: Optional[str] = None,
-        invited_by: Optional["microsoftgraphidentityset"] = None,
+        invited_by: Optional["MicrosoftGraphIdentitySet"] = None,
         redeemed_by: Optional[str] = None,
         sign_in_required: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphsharinginvitation, self).__init__(**kwargs)
+        super(MicrosoftGraphSharingInvitation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.email = email
         self.invited_by = invited_by
@@ -12912,14 +12912,14 @@ class microsoftgraphsharinginvitation(msrest.serialization.Model):
         self.sign_in_required = sign_in_required
 
 
-class microsoftgraphsharinglink(msrest.serialization.Model):
+class MicrosoftGraphSharingLink(msrest.serialization.Model):
     """sharingLink.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~teams.models.microsoftgraphidentity
+    :type application: ~teams.models.MicrosoftGraphIdentity
     :param prevents_download: If true then the user can only use this link to view the item on the
      web, and cannot use it to download the contents of the item. Only for OneDrive for Business and
      SharePoint.
@@ -12939,7 +12939,7 @@ class microsoftgraphsharinglink(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
         'prevents_download': {'key': 'preventsDownload', 'type': 'bool'},
         'scope': {'key': 'scope', 'type': 'str'},
         'type': {'key': 'type', 'type': 'str'},
@@ -12951,7 +12951,7 @@ class microsoftgraphsharinglink(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        application: Optional["microsoftgraphidentity"] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
         prevents_download: Optional[bool] = None,
         scope: Optional[str] = None,
         type: Optional[str] = None,
@@ -12959,7 +12959,7 @@ class microsoftgraphsharinglink(msrest.serialization.Model):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsharinglink, self).__init__(**kwargs)
+        super(MicrosoftGraphSharingLink, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.application = application
         self.prevents_download = prevents_download
@@ -12969,7 +12969,7 @@ class microsoftgraphsharinglink(msrest.serialization.Model):
         self.web_url = web_url
 
 
-class microsoftgraphshift(microsoftgraphchangetrackedentity):
+class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """shift.
 
     :param id: Read-only.
@@ -12979,7 +12979,7 @@ class microsoftgraphshift(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -12988,11 +12988,11 @@ class microsoftgraphshift(microsoftgraphchangetrackedentity):
      collection.
     :type additional_properties: dict[str, object]
     :param draft_shift: shiftItem.
-    :type draft_shift: ~teams.models.microsoftgraphshiftitem
+    :type draft_shift: ~teams.models.MicrosoftGraphShiftItem
     :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
     :type scheduling_group_id: str
     :param shared_shift: shiftItem.
-    :type shared_shift: ~teams.models.microsoftgraphshiftitem
+    :type shared_shift: ~teams.models.MicrosoftGraphShiftItem
     :param user_id: ID of the user assigned to the shift. Required.
     :type user_id: str
     """
@@ -13000,12 +13000,12 @@ class microsoftgraphshift(microsoftgraphchangetrackedentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'draft_shift': {'key': 'draftShift', 'type': 'microsoftgraphshiftitem'},
+        'draft_shift': {'key': 'draftShift', 'type': 'MicrosoftGraphShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
-        'shared_shift': {'key': 'sharedShift', 'type': 'microsoftgraphshiftitem'},
+        'shared_shift': {'key': 'sharedShift', 'type': 'MicrosoftGraphShiftItem'},
         'user_id': {'key': 'userId', 'type': 'str'},
     }
 
@@ -13014,16 +13014,16 @@ class microsoftgraphshift(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        draft_shift: Optional["microsoftgraphshiftitem"] = None,
+        draft_shift: Optional["MicrosoftGraphShiftItem"] = None,
         scheduling_group_id: Optional[str] = None,
-        shared_shift: Optional["microsoftgraphshiftitem"] = None,
+        shared_shift: Optional["MicrosoftGraphShiftItem"] = None,
         user_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphshift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.draft_shift = draft_shift
         self.scheduling_group_id = scheduling_group_id
@@ -13031,7 +13031,7 @@ class microsoftgraphshift(microsoftgraphchangetrackedentity):
         self.user_id = user_id
 
 
-class microsoftgraphshiftactivity(msrest.serialization.Model):
+class MicrosoftGraphShiftActivity(msrest.serialization.Model):
     """shiftActivity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13054,7 +13054,7 @@ class microsoftgraphshiftactivity(msrest.serialization.Model):
     :type start_date_time: ~datetime.datetime
     :param theme:  Possible values include: "white", "blue", "green", "purple", "pink", "yellow",
      "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow", "unknownFutureValue".
-    :type theme: str or ~teams.models.Microsoftgraphscheduleentitytheme
+    :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
     """
 
     _attribute_map = {
@@ -13076,10 +13076,10 @@ class microsoftgraphshiftactivity(msrest.serialization.Model):
         end_date_time: Optional[datetime.datetime] = None,
         is_paid: Optional[bool] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        theme: Optional[Union[str, "Microsoftgraphscheduleentitytheme"]] = None,
+        theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
         **kwargs
     ):
-        super(microsoftgraphshiftactivity, self).__init__(**kwargs)
+        super(MicrosoftGraphShiftActivity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
@@ -13089,24 +13089,24 @@ class microsoftgraphshiftactivity(msrest.serialization.Model):
         self.theme = theme
 
 
-class microsoftgraphshiftavailability(msrest.serialization.Model):
+class MicrosoftGraphShiftAvailability(msrest.serialization.Model):
     """shiftAvailability.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param recurrence: patternedRecurrence.
-    :type recurrence: ~teams.models.microsoftgraphpatternedrecurrence
+    :type recurrence: ~teams.models.MicrosoftGraphPatternedRecurrence
     :param time_slots: The time slot(s) preferred by the user.
-    :type time_slots: list[~teams.models.microsoftgraphtimerange]
+    :type time_slots: list[~teams.models.MicrosoftGraphTimeRange]
     :param time_zone: Specifies the time zone for the indicated time.
     :type time_zone: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'recurrence': {'key': 'recurrence', 'type': 'microsoftgraphpatternedrecurrence'},
-        'time_slots': {'key': 'timeSlots', 'type': '[microsoftgraphtimerange]'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
+        'time_slots': {'key': 'timeSlots', 'type': '[MicrosoftGraphTimeRange]'},
         'time_zone': {'key': 'timeZone', 'type': 'str'},
     }
 
@@ -13114,19 +13114,19 @@ class microsoftgraphshiftavailability(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        recurrence: Optional["microsoftgraphpatternedrecurrence"] = None,
-        time_slots: Optional[List["microsoftgraphtimerange"]] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
+        time_slots: Optional[List["MicrosoftGraphTimeRange"]] = None,
         time_zone: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphshiftavailability, self).__init__(**kwargs)
+        super(MicrosoftGraphShiftAvailability, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.recurrence = recurrence
         self.time_slots = time_slots
         self.time_zone = time_zone
 
 
-class microsoftgraphshiftpreferences(microsoftgraphchangetrackedentity):
+class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """shiftPreferences.
 
     :param id: Read-only.
@@ -13136,7 +13136,7 @@ class microsoftgraphshiftpreferences(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -13146,16 +13146,16 @@ class microsoftgraphshiftpreferences(microsoftgraphchangetrackedentity):
     :type additional_properties: dict[str, object]
     :param availability: Availability of the user to be scheduled for work and its recurrence
      pattern.
-    :type availability: list[~teams.models.microsoftgraphshiftavailability]
+    :type availability: list[~teams.models.MicrosoftGraphShiftAvailability]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'availability': {'key': 'availability', 'type': '[microsoftgraphshiftavailability]'},
+        'availability': {'key': 'availability', 'type': '[MicrosoftGraphShiftAvailability]'},
     }
 
     def __init__(
@@ -13163,18 +13163,18 @@ class microsoftgraphshiftpreferences(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        availability: Optional[List["microsoftgraphshiftavailability"]] = None,
+        availability: Optional[List["MicrosoftGraphShiftAvailability"]] = None,
         **kwargs
     ):
-        super(microsoftgraphshiftpreferences, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphShiftPreferences, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.availability = availability
 
 
-class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """singleValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -13200,18 +13200,18 @@ class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsinglevaluelegacyextendedproperty, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSingleValueLegacyExtendedProperty, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.value = value
 
 
-class microsoftgraphsite(microsoftgraphbaseitem):
+class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """site.
 
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
-    :type created_by: ~teams.models.microsoftgraphidentityset
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
@@ -13219,116 +13219,116 @@ class microsoftgraphsite(microsoftgraphbaseitem):
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
     :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.microsoftgraphitemreference
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~teams.models.microsoftgraphuser
+    :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~teams.models.microsoftgraphuser
+    :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param display_name: The full title for the site. Read-only.
     :type display_name: str
     :param error: publicError.
-    :type error: ~teams.models.microsoftgraphpublicerror
+    :type error: ~teams.models.MicrosoftGraphPublicError
     :param root: root.
     :type root: dict[str, object]
     :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.microsoftgraphsharepointids
+    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param site_collection: siteCollection.
-    :type site_collection: ~teams.models.microsoftgraphsitecollection
+    :type site_collection: ~teams.models.MicrosoftGraphSiteCollection
     :param analytics: itemAnalytics.
-    :type analytics: ~teams.models.microsoftgraphitemanalytics
+    :type analytics: ~teams.models.MicrosoftGraphItemAnalytics
     :param columns: The collection of column definitions reusable across lists under this site.
-    :type columns: list[~teams.models.microsoftgraphcolumndefinition]
+    :type columns: list[~teams.models.MicrosoftGraphColumnDefinition]
     :param content_types: The collection of content types defined for this site.
-    :type content_types: list[~teams.models.microsoftgraphcontenttype]
+    :type content_types: list[~teams.models.MicrosoftGraphContentType]
     :param drive: drive.
-    :type drive: ~teams.models.microsoftgraphdrive
+    :type drive: ~teams.models.MicrosoftGraphDrive
     :param drives: The collection of drives (document libraries) under this site.
-    :type drives: list[~teams.models.microsoftgraphdrive]
+    :type drives: list[~teams.models.MicrosoftGraphDrive]
     :param items: Used to address any item contained in this site. This collection cannot be
      enumerated.
-    :type items: list[~teams.models.microsoftgraphbaseitem]
+    :type items: list[~teams.models.MicrosoftGraphBaseItem]
     :param lists: The collection of lists under this site.
-    :type lists: list[~teams.models.microsoftgraphlist]
+    :type lists: list[~teams.models.MicrosoftGraphList]
     :param sites: The collection of the sub-sites under this site.
-    :type sites: list[~teams.models.microsoftgraphsite]
+    :type sites: list[~teams.models.MicrosoftGraphSite]
     :param onenote: onenote.
-    :type onenote: ~teams.models.microsoftgraphonenote
+    :type onenote: ~teams.models.MicrosoftGraphOnenote
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
-        'parent_reference': {'key': 'parentReference', 'type': 'microsoftgraphitemreference'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'createdByUser', 'type': 'microsoftgraphuser'},
-        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'microsoftgraphuser'},
+        'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'error': {'key': 'error', 'type': 'microsoftgraphpublicerror'},
+        'error': {'key': 'error', 'type': 'MicrosoftGraphPublicError'},
         'root': {'key': 'root', 'type': '{object}'},
-        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'microsoftgraphsharepointids'},
-        'site_collection': {'key': 'siteCollection', 'type': 'microsoftgraphsitecollection'},
-        'analytics': {'key': 'analytics', 'type': 'microsoftgraphitemanalytics'},
-        'columns': {'key': 'columns', 'type': '[microsoftgraphcolumndefinition]'},
-        'content_types': {'key': 'contentTypes', 'type': '[microsoftgraphcontenttype]'},
-        'drive': {'key': 'drive', 'type': 'microsoftgraphdrive'},
-        'drives': {'key': 'drives', 'type': '[microsoftgraphdrive]'},
-        'items': {'key': 'items', 'type': '[microsoftgraphbaseitem]'},
-        'lists': {'key': 'lists', 'type': '[microsoftgraphlist]'},
-        'sites': {'key': 'sites', 'type': '[microsoftgraphsite]'},
-        'onenote': {'key': 'onenote', 'type': 'microsoftgraphonenote'},
+        'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_collection': {'key': 'siteCollection', 'type': 'MicrosoftGraphSiteCollection'},
+        'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
+        'columns': {'key': 'columns', 'type': '[MicrosoftGraphColumnDefinition]'},
+        'content_types': {'key': 'contentTypes', 'type': '[MicrosoftGraphContentType]'},
+        'drive': {'key': 'drive', 'type': 'MicrosoftGraphDrive'},
+        'drives': {'key': 'drives', 'type': '[MicrosoftGraphDrive]'},
+        'items': {'key': 'items', 'type': '[MicrosoftGraphBaseItem]'},
+        'lists': {'key': 'lists', 'type': '[MicrosoftGraphList]'},
+        'sites': {'key': 'sites', 'type': '[MicrosoftGraphSite]'},
+        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        created_by: Optional["microsoftgraphidentityset"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
-        parent_reference: Optional["microsoftgraphitemreference"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
-        created_by_user: Optional["microsoftgraphuser"] = None,
-        last_modified_by_user: Optional["microsoftgraphuser"] = None,
+        created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        error: Optional["microsoftgraphpublicerror"] = None,
+        error: Optional["MicrosoftGraphPublicError"] = None,
         root: Optional[Dict[str, object]] = None,
-        sharepoint_ids: Optional["microsoftgraphsharepointids"] = None,
-        site_collection: Optional["microsoftgraphsitecollection"] = None,
-        analytics: Optional["microsoftgraphitemanalytics"] = None,
-        columns: Optional[List["microsoftgraphcolumndefinition"]] = None,
-        content_types: Optional[List["microsoftgraphcontenttype"]] = None,
-        drive: Optional["microsoftgraphdrive"] = None,
-        drives: Optional[List["microsoftgraphdrive"]] = None,
-        items: Optional[List["microsoftgraphbaseitem"]] = None,
-        lists: Optional[List["microsoftgraphlist"]] = None,
-        sites: Optional[List["microsoftgraphsite"]] = None,
-        onenote: Optional["microsoftgraphonenote"] = None,
+        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        site_collection: Optional["MicrosoftGraphSiteCollection"] = None,
+        analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
+        columns: Optional[List["MicrosoftGraphColumnDefinition"]] = None,
+        content_types: Optional[List["MicrosoftGraphContentType"]] = None,
+        drive: Optional["MicrosoftGraphDrive"] = None,
+        drives: Optional[List["MicrosoftGraphDrive"]] = None,
+        items: Optional[List["MicrosoftGraphBaseItem"]] = None,
+        lists: Optional[List["MicrosoftGraphList"]] = None,
+        sites: Optional[List["MicrosoftGraphSite"]] = None,
+        onenote: Optional["MicrosoftGraphOnenote"] = None,
         **kwargs
     ):
-        super(microsoftgraphsite, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
+        super(MicrosoftGraphSite, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.error = error
@@ -13346,7 +13346,7 @@ class microsoftgraphsite(microsoftgraphbaseitem):
         self.onenote = onenote
 
 
-class microsoftgraphsitecollection(msrest.serialization.Model):
+class MicrosoftGraphSiteCollection(msrest.serialization.Model):
     """siteCollection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13377,14 +13377,14 @@ class microsoftgraphsitecollection(msrest.serialization.Model):
         root: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphsitecollection, self).__init__(**kwargs)
+        super(MicrosoftGraphSiteCollection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.data_location_code = data_location_code
         self.hostname = hostname
         self.root = root
 
 
-class microsoftgraphsizerange(msrest.serialization.Model):
+class MicrosoftGraphSizeRange(msrest.serialization.Model):
     """sizeRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13417,13 +13417,13 @@ class microsoftgraphsizerange(msrest.serialization.Model):
         minimum_size: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphsizerange, self).__init__(**kwargs)
+        super(MicrosoftGraphSizeRange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.maximum_size = maximum_size
         self.minimum_size = minimum_size
 
 
-class microsoftgraphspecialfolder(msrest.serialization.Model):
+class MicrosoftGraphSpecialFolder(msrest.serialization.Model):
     """specialFolder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13445,12 +13445,12 @@ class microsoftgraphspecialfolder(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphspecialfolder, self).__init__(**kwargs)
+        super(MicrosoftGraphSpecialFolder, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.name = name
 
 
-class microsoftgraphstorageplaninformation(msrest.serialization.Model):
+class MicrosoftGraphStoragePlanInformation(msrest.serialization.Model):
     """storagePlanInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13473,12 +13473,12 @@ class microsoftgraphstorageplaninformation(msrest.serialization.Model):
         upgrade_available: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphstorageplaninformation, self).__init__(**kwargs)
+        super(MicrosoftGraphStoragePlanInformation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.upgrade_available = upgrade_available
 
 
-class microsoftgraphsubscription(microsoftgraphentity):
+class MicrosoftGraphSubscription(MicrosoftGraphEntity):
     """subscription.
 
     :param id: Read-only.
@@ -13570,7 +13570,7 @@ class microsoftgraphsubscription(microsoftgraphentity):
         resource: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphsubscription, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSubscription, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.application_id = application_id
         self.change_type = change_type
@@ -13586,7 +13586,7 @@ class microsoftgraphsubscription(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
+class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """swapShiftsChangeRequest.
 
     :param id: Read-only.
@@ -13596,7 +13596,7 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -13608,14 +13608,14 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
-    :type assigned_to: str or ~teams.models.Microsoftgraphschedulechangerequestactor
+    :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
     :param manager_action_date_time:
     :type manager_action_date_time: ~datetime.datetime
     :param manager_action_message:
@@ -13630,7 +13630,7 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
     :type sender_user_id: str
     :param state:  Possible values include: "pending", "approved", "declined",
      "unknownFutureValue".
-    :type state: str or ~teams.models.Microsoftgraphschedulechangestate
+    :type state: str or ~teams.models.MicrosoftGraphScheduleChangeState
     :param recipient_action_date_time: The Timestamp type represents date and time information
      using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would
      look like this: '2014-01-01T00:00:00Z'.
@@ -13651,11 +13651,11 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -13678,20 +13678,20 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        assigned_to: Optional[Union[str, "Microsoftgraphschedulechangerequestactor"]] = None,
+        assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
         manager_user_id: Optional[str] = None,
         sender_date_time: Optional[datetime.datetime] = None,
         sender_message: Optional[str] = None,
         sender_user_id: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphschedulechangestate"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         recipient_action_date_time: Optional[datetime.datetime] = None,
         recipient_action_message: Optional[str] = None,
         recipient_user_id: Optional[str] = None,
@@ -13700,12 +13700,12 @@ class microsoftgraphswapshiftschangerequest(microsoftgraphoffershiftrequest):
         recipient_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphswapshiftschangerequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, recipient_action_date_time=recipient_action_date_time, recipient_action_message=recipient_action_message, recipient_user_id=recipient_user_id, sender_shift_id=sender_shift_id, **kwargs)
+        super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, recipient_action_date_time=recipient_action_date_time, recipient_action_message=recipient_action_message, recipient_user_id=recipient_user_id, sender_shift_id=sender_shift_id, **kwargs)
         self.additional_properties = additional_properties
         self.recipient_shift_id = recipient_shift_id
 
 
-class microsoftgraphteam(microsoftgraphentity):
+class MicrosoftGraphTeam(MicrosoftGraphEntity):
     """team.
 
     :param id: Read-only.
@@ -13721,46 +13721,46 @@ class microsoftgraphteam(microsoftgraphentity):
     :param display_name: The name of the team.
     :type display_name: str
     :param fun_settings: teamFunSettings.
-    :type fun_settings: ~teams.models.microsoftgraphteamfunsettings
+    :type fun_settings: ~teams.models.MicrosoftGraphTeamFunSettings
     :param guest_settings: teamGuestSettings.
-    :type guest_settings: ~teams.models.microsoftgraphteamguestsettings
+    :type guest_settings: ~teams.models.MicrosoftGraphTeamGuestSettings
     :param internal_id: A unique ID for the team that has been used in a few places such as the
      audit log/Office 365 Management Activity API.
     :type internal_id: str
     :param is_archived: Whether this team is in read-only mode.
     :type is_archived: bool
     :param member_settings: teamMemberSettings.
-    :type member_settings: ~teams.models.microsoftgraphteammembersettings
+    :type member_settings: ~teams.models.MicrosoftGraphTeamMemberSettings
     :param messaging_settings: teamMessagingSettings.
-    :type messaging_settings: ~teams.models.microsoftgraphteammessagingsettings
+    :type messaging_settings: ~teams.models.MicrosoftGraphTeamMessagingSettings
     :param specialization:  Possible values include: "none", "educationStandard", "educationClass",
      "educationProfessionalLearningCommunity", "educationStaff", "healthcareStandard",
      "healthcareCareCoordination", "unknownFutureValue".
-    :type specialization: str or ~teams.models.Microsoftgraphteamspecialization
+    :type specialization: str or ~teams.models.MicrosoftGraphTeamSpecialization
     :param visibility:  Possible values include: "private", "public", "hiddenMembership",
      "unknownFutureValue".
-    :type visibility: str or ~teams.models.Microsoftgraphteamvisibilitytype
+    :type visibility: str or ~teams.models.MicrosoftGraphTeamVisibilityType
     :param web_url: A hyperlink that will go to the team in the Microsoft Teams client. This is the
      URL that you get when you right-click a team in the Microsoft Teams client and select Get link
      to team. This URL should be treated as an opaque blob, and not parsed.
     :type web_url: str
     :param schedule: schedule.
-    :type schedule: ~teams.models.microsoftgraphschedule
+    :type schedule: ~teams.models.MicrosoftGraphSchedule
     :param channels: The collection of channels & messages associated with the team.
-    :type channels: list[~teams.models.microsoftgraphchannel]
+    :type channels: list[~teams.models.MicrosoftGraphChannel]
     :param group: Represents an Azure Active Directory object. The directoryObject type is the base
      type for many other directory entity types.
-    :type group: ~teams.models.microsoftgraphgroup
+    :type group: ~teams.models.MicrosoftGraphGroup
     :param installed_apps: The apps installed in this team.
-    :type installed_apps: list[~teams.models.microsoftgraphteamsappinstallation]
+    :type installed_apps: list[~teams.models.MicrosoftGraphTeamsAppInstallation]
     :param members: Members and owners of the team.
-    :type members: list[~teams.models.microsoftgraphconversationmember]
+    :type members: list[~teams.models.MicrosoftGraphConversationMember]
     :param operations: The async operations that ran or are running on this team.
-    :type operations: list[~teams.models.microsoftgraphteamsasyncoperation]
+    :type operations: list[~teams.models.MicrosoftGraphTeamsAsyncOperation]
     :param primary_channel: channel.
-    :type primary_channel: ~teams.models.microsoftgraphchannel
+    :type primary_channel: ~teams.models.MicrosoftGraphChannel
     :param template: teamsTemplate.
-    :type template: ~teams.models.microsoftgraphteamstemplate
+    :type template: ~teams.models.MicrosoftGraphTeamsTemplate
     """
 
     _attribute_map = {
@@ -13769,23 +13769,23 @@ class microsoftgraphteam(microsoftgraphentity):
         'classification': {'key': 'classification', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'fun_settings': {'key': 'funSettings', 'type': 'microsoftgraphteamfunsettings'},
-        'guest_settings': {'key': 'guestSettings', 'type': 'microsoftgraphteamguestsettings'},
+        'fun_settings': {'key': 'funSettings', 'type': 'MicrosoftGraphTeamFunSettings'},
+        'guest_settings': {'key': 'guestSettings', 'type': 'MicrosoftGraphTeamGuestSettings'},
         'internal_id': {'key': 'internalId', 'type': 'str'},
         'is_archived': {'key': 'isArchived', 'type': 'bool'},
-        'member_settings': {'key': 'memberSettings', 'type': 'microsoftgraphteammembersettings'},
-        'messaging_settings': {'key': 'messagingSettings', 'type': 'microsoftgraphteammessagingsettings'},
+        'member_settings': {'key': 'memberSettings', 'type': 'MicrosoftGraphTeamMemberSettings'},
+        'messaging_settings': {'key': 'messagingSettings', 'type': 'MicrosoftGraphTeamMessagingSettings'},
         'specialization': {'key': 'specialization', 'type': 'str'},
         'visibility': {'key': 'visibility', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'schedule': {'key': 'schedule', 'type': 'microsoftgraphschedule'},
-        'channels': {'key': 'channels', 'type': '[microsoftgraphchannel]'},
-        'group': {'key': 'group', 'type': 'microsoftgraphgroup'},
-        'installed_apps': {'key': 'installedApps', 'type': '[microsoftgraphteamsappinstallation]'},
-        'members': {'key': 'members', 'type': '[microsoftgraphconversationmember]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphteamsasyncoperation]'},
-        'primary_channel': {'key': 'primaryChannel', 'type': 'microsoftgraphchannel'},
-        'template': {'key': 'template', 'type': 'microsoftgraphteamstemplate'},
+        'schedule': {'key': 'schedule', 'type': 'MicrosoftGraphSchedule'},
+        'channels': {'key': 'channels', 'type': '[MicrosoftGraphChannel]'},
+        'group': {'key': 'group', 'type': 'MicrosoftGraphGroup'},
+        'installed_apps': {'key': 'installedApps', 'type': '[MicrosoftGraphTeamsAppInstallation]'},
+        'members': {'key': 'members', 'type': '[MicrosoftGraphConversationMember]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphTeamsAsyncOperation]'},
+        'primary_channel': {'key': 'primaryChannel', 'type': 'MicrosoftGraphChannel'},
+        'template': {'key': 'template', 'type': 'MicrosoftGraphTeamsTemplate'},
     }
 
     def __init__(
@@ -13796,26 +13796,26 @@ class microsoftgraphteam(microsoftgraphentity):
         classification: Optional[str] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
-        fun_settings: Optional["microsoftgraphteamfunsettings"] = None,
-        guest_settings: Optional["microsoftgraphteamguestsettings"] = None,
+        fun_settings: Optional["MicrosoftGraphTeamFunSettings"] = None,
+        guest_settings: Optional["MicrosoftGraphTeamGuestSettings"] = None,
         internal_id: Optional[str] = None,
         is_archived: Optional[bool] = None,
-        member_settings: Optional["microsoftgraphteammembersettings"] = None,
-        messaging_settings: Optional["microsoftgraphteammessagingsettings"] = None,
-        specialization: Optional[Union[str, "Microsoftgraphteamspecialization"]] = None,
-        visibility: Optional[Union[str, "Microsoftgraphteamvisibilitytype"]] = None,
+        member_settings: Optional["MicrosoftGraphTeamMemberSettings"] = None,
+        messaging_settings: Optional["MicrosoftGraphTeamMessagingSettings"] = None,
+        specialization: Optional[Union[str, "MicrosoftGraphTeamSpecialization"]] = None,
+        visibility: Optional[Union[str, "MicrosoftGraphTeamVisibilityType"]] = None,
         web_url: Optional[str] = None,
-        schedule: Optional["microsoftgraphschedule"] = None,
-        channels: Optional[List["microsoftgraphchannel"]] = None,
-        group: Optional["microsoftgraphgroup"] = None,
-        installed_apps: Optional[List["microsoftgraphteamsappinstallation"]] = None,
-        members: Optional[List["microsoftgraphconversationmember"]] = None,
-        operations: Optional[List["microsoftgraphteamsasyncoperation"]] = None,
-        primary_channel: Optional["microsoftgraphchannel"] = None,
-        template: Optional["microsoftgraphteamstemplate"] = None,
+        schedule: Optional["MicrosoftGraphSchedule"] = None,
+        channels: Optional[List["MicrosoftGraphChannel"]] = None,
+        group: Optional["MicrosoftGraphGroup"] = None,
+        installed_apps: Optional[List["MicrosoftGraphTeamsAppInstallation"]] = None,
+        members: Optional[List["MicrosoftGraphConversationMember"]] = None,
+        operations: Optional[List["MicrosoftGraphTeamsAsyncOperation"]] = None,
+        primary_channel: Optional["MicrosoftGraphChannel"] = None,
+        template: Optional["MicrosoftGraphTeamsTemplate"] = None,
         **kwargs
     ):
-        super(microsoftgraphteam, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeam, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.classification = classification
         self.description = description
@@ -13839,7 +13839,7 @@ class microsoftgraphteam(microsoftgraphentity):
         self.template = template
 
 
-class microsoftgraphteamfunsettings(msrest.serialization.Model):
+class MicrosoftGraphTeamFunSettings(msrest.serialization.Model):
     """teamFunSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13853,7 +13853,7 @@ class microsoftgraphteamfunsettings(msrest.serialization.Model):
     :type allow_stickers_and_memes: bool
     :param giphy_content_rating:  Possible values include: "strict", "moderate",
      "unknownFutureValue".
-    :type giphy_content_rating: str or ~teams.models.Microsoftgraphgiphyratingtype
+    :type giphy_content_rating: str or ~teams.models.MicrosoftGraphGiphyRatingType
     """
 
     _attribute_map = {
@@ -13871,10 +13871,10 @@ class microsoftgraphteamfunsettings(msrest.serialization.Model):
         allow_custom_memes: Optional[bool] = None,
         allow_giphy: Optional[bool] = None,
         allow_stickers_and_memes: Optional[bool] = None,
-        giphy_content_rating: Optional[Union[str, "Microsoftgraphgiphyratingtype"]] = None,
+        giphy_content_rating: Optional[Union[str, "MicrosoftGraphGiphyRatingType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphteamfunsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphTeamFunSettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_custom_memes = allow_custom_memes
         self.allow_giphy = allow_giphy
@@ -13882,7 +13882,7 @@ class microsoftgraphteamfunsettings(msrest.serialization.Model):
         self.giphy_content_rating = giphy_content_rating
 
 
-class microsoftgraphteamguestsettings(msrest.serialization.Model):
+class MicrosoftGraphTeamGuestSettings(msrest.serialization.Model):
     """teamGuestSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13908,13 +13908,13 @@ class microsoftgraphteamguestsettings(msrest.serialization.Model):
         allow_delete_channels: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphteamguestsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphTeamGuestSettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_create_update_channels = allow_create_update_channels
         self.allow_delete_channels = allow_delete_channels
 
 
-class microsoftgraphteammembersettings(msrest.serialization.Model):
+class MicrosoftGraphTeamMemberSettings(msrest.serialization.Model):
     """teamMemberSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13959,7 +13959,7 @@ class microsoftgraphteammembersettings(msrest.serialization.Model):
         allow_delete_channels: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphteammembersettings, self).__init__(**kwargs)
+        super(MicrosoftGraphTeamMemberSettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_add_remove_apps = allow_add_remove_apps
         self.allow_create_private_channels = allow_create_private_channels
@@ -13969,7 +13969,7 @@ class microsoftgraphteammembersettings(msrest.serialization.Model):
         self.allow_delete_channels = allow_delete_channels
 
 
-class microsoftgraphteammessagingsettings(msrest.serialization.Model):
+class MicrosoftGraphTeamMessagingSettings(msrest.serialization.Model):
     """teamMessagingSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14007,7 +14007,7 @@ class microsoftgraphteammessagingsettings(msrest.serialization.Model):
         allow_user_edit_messages: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphteammessagingsettings, self).__init__(**kwargs)
+        super(MicrosoftGraphTeamMessagingSettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_channel_mentions = allow_channel_mentions
         self.allow_owner_delete_messages = allow_owner_delete_messages
@@ -14016,7 +14016,7 @@ class microsoftgraphteammessagingsettings(msrest.serialization.Model):
         self.allow_user_edit_messages = allow_user_edit_messages
 
 
-class microsoftgraphteamsapp(microsoftgraphentity):
+class MicrosoftGraphTeamsApp(MicrosoftGraphEntity):
     """teamsApp.
 
     :param id: Read-only.
@@ -14029,12 +14029,12 @@ class microsoftgraphteamsapp(microsoftgraphentity):
     :type display_name: str
     :param distribution_method:  Possible values include: "store", "organization", "sideloaded",
      "unknownFutureValue".
-    :type distribution_method: str or ~teams.models.Microsoftgraphteamsappdistributionmethod
+    :type distribution_method: str or ~teams.models.MicrosoftGraphTeamsAppDistributionMethod
     :param external_id: The ID of the catalog provided by the app developer in the Microsoft Teams
      zip app package.
     :type external_id: str
     :param app_definitions: The details for each version of the app.
-    :type app_definitions: list[~teams.models.microsoftgraphteamsappdefinition]
+    :type app_definitions: list[~teams.models.MicrosoftGraphTeamsAppDefinition]
     """
 
     _attribute_map = {
@@ -14043,7 +14043,7 @@ class microsoftgraphteamsapp(microsoftgraphentity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'distribution_method': {'key': 'distributionMethod', 'type': 'str'},
         'external_id': {'key': 'externalId', 'type': 'str'},
-        'app_definitions': {'key': 'appDefinitions', 'type': '[microsoftgraphteamsappdefinition]'},
+        'app_definitions': {'key': 'appDefinitions', 'type': '[MicrosoftGraphTeamsAppDefinition]'},
     }
 
     def __init__(
@@ -14052,12 +14052,12 @@ class microsoftgraphteamsapp(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        distribution_method: Optional[Union[str, "Microsoftgraphteamsappdistributionmethod"]] = None,
+        distribution_method: Optional[Union[str, "MicrosoftGraphTeamsAppDistributionMethod"]] = None,
         external_id: Optional[str] = None,
-        app_definitions: Optional[List["microsoftgraphteamsappdefinition"]] = None,
+        app_definitions: Optional[List["MicrosoftGraphTeamsAppDefinition"]] = None,
         **kwargs
     ):
-        super(microsoftgraphteamsapp, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsApp, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.distribution_method = distribution_method
@@ -14065,7 +14065,7 @@ class microsoftgraphteamsapp(microsoftgraphentity):
         self.app_definitions = app_definitions
 
 
-class microsoftgraphteamsappdefinition(microsoftgraphentity):
+class MicrosoftGraphTeamsAppDefinition(MicrosoftGraphEntity):
     """teamsAppDefinition.
 
     :param id: Read-only.
@@ -14099,14 +14099,14 @@ class microsoftgraphteamsappdefinition(microsoftgraphentity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphteamsappdefinition, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsAppDefinition, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.teams_app_id = teams_app_id
         self.version = version
 
 
-class microsoftgraphteamsappinstallation(microsoftgraphentity):
+class MicrosoftGraphTeamsAppInstallation(MicrosoftGraphEntity):
     """teamsAppInstallation.
 
     :param id: Read-only.
@@ -14115,16 +14115,16 @@ class microsoftgraphteamsappinstallation(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param teams_app: teamsApp.
-    :type teams_app: ~teams.models.microsoftgraphteamsapp
+    :type teams_app: ~teams.models.MicrosoftGraphTeamsApp
     :param teams_app_definition: teamsAppDefinition.
-    :type teams_app_definition: ~teams.models.microsoftgraphteamsappdefinition
+    :type teams_app_definition: ~teams.models.MicrosoftGraphTeamsAppDefinition
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'teams_app': {'key': 'teamsApp', 'type': 'microsoftgraphteamsapp'},
-        'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'microsoftgraphteamsappdefinition'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
+        'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
     }
 
     def __init__(
@@ -14132,17 +14132,17 @@ class microsoftgraphteamsappinstallation(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        teams_app: Optional["microsoftgraphteamsapp"] = None,
-        teams_app_definition: Optional["microsoftgraphteamsappdefinition"] = None,
+        teams_app: Optional["MicrosoftGraphTeamsApp"] = None,
+        teams_app_definition: Optional["MicrosoftGraphTeamsAppDefinition"] = None,
         **kwargs
     ):
-        super(microsoftgraphteamsappinstallation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsAppInstallation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.teams_app = teams_app
         self.teams_app_definition = teams_app_definition
 
 
-class microsoftgraphteamsasyncoperation(microsoftgraphentity):
+class MicrosoftGraphTeamsAsyncOperation(MicrosoftGraphEntity):
     """teamsAsyncOperation.
 
     :param id: Read-only.
@@ -14156,15 +14156,15 @@ class microsoftgraphteamsasyncoperation(microsoftgraphentity):
     :param created_date_time: Time when the operation was created.
     :type created_date_time: ~datetime.datetime
     :param error: operationError.
-    :type error: ~teams.models.microsoftgraphoperationerror
+    :type error: ~teams.models.MicrosoftGraphOperationError
     :param last_action_date_time: Time when the async operation was last updated.
     :type last_action_date_time: ~datetime.datetime
     :param operation_type:  Possible values include: "invalid", "cloneTeam", "archiveTeam",
      "unarchiveTeam", "createTeam", "unknownFutureValue".
-    :type operation_type: str or ~teams.models.Microsoftgraphteamsasyncoperationtype
+    :type operation_type: str or ~teams.models.MicrosoftGraphTeamsAsyncOperationType
     :param status:  Possible values include: "invalid", "notStarted", "inProgress", "succeeded",
      "failed", "unknownFutureValue".
-    :type status: str or ~teams.models.Microsoftgraphteamsasyncoperationstatus
+    :type status: str or ~teams.models.MicrosoftGraphTeamsAsyncOperationStatus
     :param target_resource_id: The ID of the object that's created or modified as result of this
      async operation, typically a team.
     :type target_resource_id: str
@@ -14183,7 +14183,7 @@ class microsoftgraphteamsasyncoperation(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'attempts_count': {'key': 'attemptsCount', 'type': 'int'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'error': {'key': 'error', 'type': 'microsoftgraphoperationerror'},
+        'error': {'key': 'error', 'type': 'MicrosoftGraphOperationError'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
         'operation_type': {'key': 'operationType', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
@@ -14198,15 +14198,15 @@ class microsoftgraphteamsasyncoperation(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         attempts_count: Optional[int] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        error: Optional["microsoftgraphoperationerror"] = None,
+        error: Optional["MicrosoftGraphOperationError"] = None,
         last_action_date_time: Optional[datetime.datetime] = None,
-        operation_type: Optional[Union[str, "Microsoftgraphteamsasyncoperationtype"]] = None,
-        status: Optional[Union[str, "Microsoftgraphteamsasyncoperationstatus"]] = None,
+        operation_type: Optional[Union[str, "MicrosoftGraphTeamsAsyncOperationType"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphTeamsAsyncOperationStatus"]] = None,
         target_resource_id: Optional[str] = None,
         target_resource_location: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphteamsasyncoperation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsAsyncOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.attempts_count = attempts_count
         self.created_date_time = created_date_time
@@ -14218,7 +14218,7 @@ class microsoftgraphteamsasyncoperation(microsoftgraphentity):
         self.target_resource_location = target_resource_location
 
 
-class microsoftgraphteamstab(microsoftgraphentity):
+class MicrosoftGraphTeamsTab(MicrosoftGraphEntity):
     """teamsTab.
 
     :param id: Read-only.
@@ -14227,22 +14227,22 @@ class microsoftgraphteamstab(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param configuration: teamsTabConfiguration.
-    :type configuration: ~teams.models.microsoftgraphteamstabconfiguration
+    :type configuration: ~teams.models.MicrosoftGraphTeamsTabConfiguration
     :param display_name: Name of the tab.
     :type display_name: str
     :param web_url: Deep link URL of the tab instance. Read only.
     :type web_url: str
     :param teams_app: teamsApp.
-    :type teams_app: ~teams.models.microsoftgraphteamsapp
+    :type teams_app: ~teams.models.MicrosoftGraphTeamsApp
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'configuration': {'key': 'configuration', 'type': 'microsoftgraphteamstabconfiguration'},
+        'configuration': {'key': 'configuration', 'type': 'MicrosoftGraphTeamsTabConfiguration'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'teams_app': {'key': 'teamsApp', 'type': 'microsoftgraphteamsapp'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
     }
 
     def __init__(
@@ -14250,13 +14250,13 @@ class microsoftgraphteamstab(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        configuration: Optional["microsoftgraphteamstabconfiguration"] = None,
+        configuration: Optional["MicrosoftGraphTeamsTabConfiguration"] = None,
         display_name: Optional[str] = None,
         web_url: Optional[str] = None,
-        teams_app: Optional["microsoftgraphteamsapp"] = None,
+        teams_app: Optional["MicrosoftGraphTeamsApp"] = None,
         **kwargs
     ):
-        super(microsoftgraphteamstab, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsTab, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration = configuration
         self.display_name = display_name
@@ -14264,7 +14264,7 @@ class microsoftgraphteamstab(microsoftgraphentity):
         self.teams_app = teams_app
 
 
-class microsoftgraphteamstabconfiguration(msrest.serialization.Model):
+class MicrosoftGraphTeamsTabConfiguration(msrest.serialization.Model):
     """teamsTabConfiguration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14298,7 +14298,7 @@ class microsoftgraphteamstabconfiguration(msrest.serialization.Model):
         website_url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphteamstabconfiguration, self).__init__(**kwargs)
+        super(MicrosoftGraphTeamsTabConfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content_url = content_url
         self.entity_id = entity_id
@@ -14306,7 +14306,7 @@ class microsoftgraphteamstabconfiguration(msrest.serialization.Model):
         self.website_url = website_url
 
 
-class microsoftgraphteamstemplate(microsoftgraphentity):
+class MicrosoftGraphTeamsTemplate(MicrosoftGraphEntity):
     """teamsTemplate.
 
     :param id: Read-only.
@@ -14328,11 +14328,11 @@ class microsoftgraphteamstemplate(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphteamstemplate, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamsTemplate, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphteamwork(microsoftgraphentity):
+class MicrosoftGraphTeamwork(MicrosoftGraphEntity):
     """teamwork.
 
     :param id: Read-only.
@@ -14341,13 +14341,13 @@ class microsoftgraphteamwork(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param workforce_integrations:
-    :type workforce_integrations: list[~teams.models.microsoftgraphworkforceintegration]
+    :type workforce_integrations: list[~teams.models.MicrosoftGraphWorkforceIntegration]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'workforce_integrations': {'key': 'workforceIntegrations', 'type': '[microsoftgraphworkforceintegration]'},
+        'workforce_integrations': {'key': 'workforceIntegrations', 'type': '[MicrosoftGraphWorkforceIntegration]'},
     }
 
     def __init__(
@@ -14355,15 +14355,15 @@ class microsoftgraphteamwork(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        workforce_integrations: Optional[List["microsoftgraphworkforceintegration"]] = None,
+        workforce_integrations: Optional[List["MicrosoftGraphWorkforceIntegration"]] = None,
         **kwargs
     ):
-        super(microsoftgraphteamwork, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTeamwork, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.workforce_integrations = workforce_integrations
 
 
-class microsoftgraphtextcolumn(msrest.serialization.Model):
+class MicrosoftGraphTextColumn(msrest.serialization.Model):
     """textColumn.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14407,7 +14407,7 @@ class microsoftgraphtextcolumn(msrest.serialization.Model):
         text_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtextcolumn, self).__init__(**kwargs)
+        super(MicrosoftGraphTextColumn, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_multiple_lines = allow_multiple_lines
         self.append_changes_to_existing_text = append_changes_to_existing_text
@@ -14416,7 +14416,7 @@ class microsoftgraphtextcolumn(msrest.serialization.Model):
         self.text_type = text_type
 
 
-class microsoftgraphthumbnail(msrest.serialization.Model):
+class MicrosoftGraphThumbnail(msrest.serialization.Model):
     """thumbnail.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14460,7 +14460,7 @@ class microsoftgraphthumbnail(msrest.serialization.Model):
         width: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphthumbnail, self).__init__(**kwargs)
+        super(MicrosoftGraphThumbnail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.height = height
@@ -14469,7 +14469,7 @@ class microsoftgraphthumbnail(msrest.serialization.Model):
         self.width = width
 
 
-class microsoftgraphthumbnailset(microsoftgraphentity):
+class MicrosoftGraphThumbnailSet(MicrosoftGraphEntity):
     """thumbnailSet.
 
     :param id: Read-only.
@@ -14478,22 +14478,22 @@ class microsoftgraphthumbnailset(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param large: thumbnail.
-    :type large: ~teams.models.microsoftgraphthumbnail
+    :type large: ~teams.models.MicrosoftGraphThumbnail
     :param medium: thumbnail.
-    :type medium: ~teams.models.microsoftgraphthumbnail
+    :type medium: ~teams.models.MicrosoftGraphThumbnail
     :param small: thumbnail.
-    :type small: ~teams.models.microsoftgraphthumbnail
+    :type small: ~teams.models.MicrosoftGraphThumbnail
     :param source: thumbnail.
-    :type source: ~teams.models.microsoftgraphthumbnail
+    :type source: ~teams.models.MicrosoftGraphThumbnail
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'large': {'key': 'large', 'type': 'microsoftgraphthumbnail'},
-        'medium': {'key': 'medium', 'type': 'microsoftgraphthumbnail'},
-        'small': {'key': 'small', 'type': 'microsoftgraphthumbnail'},
-        'source': {'key': 'source', 'type': 'microsoftgraphthumbnail'},
+        'large': {'key': 'large', 'type': 'MicrosoftGraphThumbnail'},
+        'medium': {'key': 'medium', 'type': 'MicrosoftGraphThumbnail'},
+        'small': {'key': 'small', 'type': 'MicrosoftGraphThumbnail'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphThumbnail'},
     }
 
     def __init__(
@@ -14501,13 +14501,13 @@ class microsoftgraphthumbnailset(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        large: Optional["microsoftgraphthumbnail"] = None,
-        medium: Optional["microsoftgraphthumbnail"] = None,
-        small: Optional["microsoftgraphthumbnail"] = None,
-        source: Optional["microsoftgraphthumbnail"] = None,
+        large: Optional["MicrosoftGraphThumbnail"] = None,
+        medium: Optional["MicrosoftGraphThumbnail"] = None,
+        small: Optional["MicrosoftGraphThumbnail"] = None,
+        source: Optional["MicrosoftGraphThumbnail"] = None,
         **kwargs
     ):
-        super(microsoftgraphthumbnailset, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphThumbnailSet, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.large = large
         self.medium = medium
@@ -14515,7 +14515,7 @@ class microsoftgraphthumbnailset(microsoftgraphentity):
         self.source = source
 
 
-class microsoftgraphtimeoff(microsoftgraphchangetrackedentity):
+class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """timeOff.
 
     :param id: Read-only.
@@ -14525,7 +14525,7 @@ class microsoftgraphtimeoff(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -14534,9 +14534,9 @@ class microsoftgraphtimeoff(microsoftgraphchangetrackedentity):
      collection.
     :type additional_properties: dict[str, object]
     :param draft_time_off: timeOffItem.
-    :type draft_time_off: ~teams.models.microsoftgraphtimeoffitem
+    :type draft_time_off: ~teams.models.MicrosoftGraphTimeOffItem
     :param shared_time_off: timeOffItem.
-    :type shared_time_off: ~teams.models.microsoftgraphtimeoffitem
+    :type shared_time_off: ~teams.models.MicrosoftGraphTimeOffItem
     :param user_id: ID of the user assigned to the timeOff. Required.
     :type user_id: str
     """
@@ -14544,11 +14544,11 @@ class microsoftgraphtimeoff(microsoftgraphchangetrackedentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'draft_time_off': {'key': 'draftTimeOff', 'type': 'microsoftgraphtimeoffitem'},
-        'shared_time_off': {'key': 'sharedTimeOff', 'type': 'microsoftgraphtimeoffitem'},
+        'draft_time_off': {'key': 'draftTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
+        'shared_time_off': {'key': 'sharedTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
         'user_id': {'key': 'userId', 'type': 'str'},
     }
 
@@ -14557,22 +14557,22 @@ class microsoftgraphtimeoff(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        draft_time_off: Optional["microsoftgraphtimeoffitem"] = None,
-        shared_time_off: Optional["microsoftgraphtimeoffitem"] = None,
+        draft_time_off: Optional["MicrosoftGraphTimeOffItem"] = None,
+        shared_time_off: Optional["MicrosoftGraphTimeOffItem"] = None,
         user_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeoff, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphTimeOff, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.draft_time_off = draft_time_off
         self.shared_time_off = shared_time_off
         self.user_id = user_id
 
 
-class microsoftgraphtimeoffitem(microsoftgraphscheduleentity):
+class MicrosoftGraphTimeOffItem(MicrosoftGraphScheduleEntity):
     """timeOffItem.
 
     :param end_date_time:
@@ -14581,7 +14581,7 @@ class microsoftgraphtimeoffitem(microsoftgraphscheduleentity):
     :type start_date_time: ~datetime.datetime
     :param theme:  Possible values include: "white", "blue", "green", "purple", "pink", "yellow",
      "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow", "unknownFutureValue".
-    :type theme: str or ~teams.models.Microsoftgraphscheduleentitytheme
+    :type theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -14602,17 +14602,17 @@ class microsoftgraphtimeoffitem(microsoftgraphscheduleentity):
         *,
         end_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
-        theme: Optional[Union[str, "Microsoftgraphscheduleentitytheme"]] = None,
+        theme: Optional[Union[str, "MicrosoftGraphScheduleEntityTheme"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         time_off_reason_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeoffitem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, **kwargs)
+        super(MicrosoftGraphTimeOffItem, self).__init__(end_date_time=end_date_time, start_date_time=start_date_time, theme=theme, **kwargs)
         self.additional_properties = additional_properties
         self.time_off_reason_id = time_off_reason_id
 
 
-class microsoftgraphtimeoffreason(microsoftgraphchangetrackedentity):
+class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """timeOffReason.
 
     :param id: Read-only.
@@ -14622,7 +14622,7 @@ class microsoftgraphtimeoffreason(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -14635,7 +14635,7 @@ class microsoftgraphtimeoffreason(microsoftgraphchangetrackedentity):
     :param icon_type:  Possible values include: "none", "car", "calendar", "running", "plane",
      "firstAid", "doctor", "notWorking", "clock", "juryDuty", "globe", "cup", "phone", "weather",
      "umbrella", "piggyBank", "dog", "cake", "trafficCone", "pin", "sunny", "unknownFutureValue".
-    :type icon_type: str or ~teams.models.Microsoftgraphtimeoffreasonicontype
+    :type icon_type: str or ~teams.models.MicrosoftGraphTimeOffReasonIconType
     :param is_active: Indicates whether the timeOffReason can be used when creating new entities or
      updating existing ones. Required.
     :type is_active: bool
@@ -14644,7 +14644,7 @@ class microsoftgraphtimeoffreason(microsoftgraphchangetrackedentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -14657,22 +14657,22 @@ class microsoftgraphtimeoffreason(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        icon_type: Optional[Union[str, "Microsoftgraphtimeoffreasonicontype"]] = None,
+        icon_type: Optional[Union[str, "MicrosoftGraphTimeOffReasonIconType"]] = None,
         is_active: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeoffreason, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphTimeOffReason, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.icon_type = icon_type
         self.is_active = is_active
 
 
-class microsoftgraphtimeoffrequest(microsoftgraphschedulechangerequest):
+class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
     """timeOffRequest.
 
     :param id: Read-only.
@@ -14682,14 +14682,14 @@ class microsoftgraphtimeoffrequest(microsoftgraphschedulechangerequest):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
-    :type assigned_to: str or ~teams.models.Microsoftgraphschedulechangerequestactor
+    :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
     :param manager_action_date_time:
     :type manager_action_date_time: ~datetime.datetime
     :param manager_action_message:
@@ -14704,7 +14704,7 @@ class microsoftgraphtimeoffrequest(microsoftgraphschedulechangerequest):
     :type sender_user_id: str
     :param state:  Possible values include: "pending", "approved", "declined",
      "unknownFutureValue".
-    :type state: str or ~teams.models.Microsoftgraphschedulechangestate
+    :type state: str or ~teams.models.MicrosoftGraphScheduleChangeState
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -14723,7 +14723,7 @@ class microsoftgraphtimeoffrequest(microsoftgraphschedulechangerequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -14744,30 +14744,30 @@ class microsoftgraphtimeoffrequest(microsoftgraphschedulechangerequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        assigned_to: Optional[Union[str, "Microsoftgraphschedulechangerequestactor"]] = None,
+        assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
         manager_user_id: Optional[str] = None,
         sender_date_time: Optional[datetime.datetime] = None,
         sender_message: Optional[str] = None,
         sender_user_id: Optional[str] = None,
-        state: Optional[Union[str, "Microsoftgraphschedulechangestate"]] = None,
+        state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         end_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
         time_off_reason_id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeoffrequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphTimeOffRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.end_date_time = end_date_time
         self.start_date_time = start_date_time
         self.time_off_reason_id = time_off_reason_id
 
 
-class microsoftgraphtimerange(msrest.serialization.Model):
+class MicrosoftGraphTimeRange(msrest.serialization.Model):
     """timeRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14793,45 +14793,45 @@ class microsoftgraphtimerange(msrest.serialization.Model):
         start_time: Optional[datetime.time] = None,
         **kwargs
     ):
-        super(microsoftgraphtimerange, self).__init__(**kwargs)
+        super(MicrosoftGraphTimeRange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end_time = end_time
         self.start_time = start_time
 
 
-class microsoftgraphtimeslot(msrest.serialization.Model):
+class MicrosoftGraphTimeSlot(msrest.serialization.Model):
     """timeSlot.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param end: dateTimeTimeZone.
-    :type end: ~teams.models.microsoftgraphdatetimezone
+    :type end: ~teams.models.MicrosoftGraphDateTimeZone
     :param start: dateTimeTimeZone.
-    :type start: ~teams.models.microsoftgraphdatetimezone
+    :type start: ~teams.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'end': {'key': 'end', 'type': 'microsoftgraphdatetimezone'},
-        'start': {'key': 'start', 'type': 'microsoftgraphdatetimezone'},
+        'end': {'key': 'end', 'type': 'MicrosoftGraphDateTimeZone'},
+        'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        end: Optional["microsoftgraphdatetimezone"] = None,
-        start: Optional["microsoftgraphdatetimezone"] = None,
+        end: Optional["MicrosoftGraphDateTimeZone"] = None,
+        start: Optional["MicrosoftGraphDateTimeZone"] = None,
         **kwargs
     ):
-        super(microsoftgraphtimeslot, self).__init__(**kwargs)
+        super(MicrosoftGraphTimeSlot, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end = end
         self.start = start
 
 
-class microsoftgraphtimezonebase(msrest.serialization.Model):
+class MicrosoftGraphTimeZoneBase(msrest.serialization.Model):
     """timeZoneBase.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14854,12 +14854,12 @@ class microsoftgraphtimezonebase(msrest.serialization.Model):
         name: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtimezonebase, self).__init__(**kwargs)
+        super(MicrosoftGraphTimeZoneBase, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.name = name
 
 
-class microsoftgraphtrending(microsoftgraphentity):
+class MicrosoftGraphTrending(MicrosoftGraphEntity):
     """trending.
 
     :param id: Read-only.
@@ -14870,25 +14870,25 @@ class microsoftgraphtrending(microsoftgraphentity):
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param resource_reference: resourceReference.
-    :type resource_reference: ~teams.models.microsoftgraphresourcereference
+    :type resource_reference: ~teams.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~teams.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~teams.models.MicrosoftGraphResourceVisualization
     :param weight: Value indicating how much the document is currently trending. The larger the
      number, the more the document is currently trending around the user (the more relevant it is).
      Returned documents are sorted by this value.
     :type weight: float
     :param resource: entity.
-    :type resource: ~teams.models.microsoftgraphentity
+    :type resource: ~teams.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
         'weight': {'key': 'weight', 'type': 'float'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -14897,13 +14897,13 @@ class microsoftgraphtrending(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
         weight: Optional[float] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphtrending, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTrending, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_modified_date_time = last_modified_date_time
         self.resource_reference = resource_reference
@@ -14912,7 +14912,7 @@ class microsoftgraphtrending(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphusagedetails(msrest.serialization.Model):
+class MicrosoftGraphUsageDetails(msrest.serialization.Model):
     """usageDetails.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14944,13 +14944,13 @@ class microsoftgraphusagedetails(msrest.serialization.Model):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphusagedetails, self).__init__(**kwargs)
+        super(MicrosoftGraphUsageDetails, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.last_accessed_date_time = last_accessed_date_time
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphusedinsight(microsoftgraphentity):
+class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
     """usedInsight.
 
     :param id: Read-only.
@@ -14959,22 +14959,22 @@ class microsoftgraphusedinsight(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param last_used: usageDetails.
-    :type last_used: ~teams.models.microsoftgraphusagedetails
+    :type last_used: ~teams.models.MicrosoftGraphUsageDetails
     :param resource_reference: resourceReference.
-    :type resource_reference: ~teams.models.microsoftgraphresourcereference
+    :type resource_reference: ~teams.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
-    :type resource_visualization: ~teams.models.microsoftgraphresourcevisualization
+    :type resource_visualization: ~teams.models.MicrosoftGraphResourceVisualization
     :param resource: entity.
-    :type resource: ~teams.models.microsoftgraphentity
+    :type resource: ~teams.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'last_used': {'key': 'lastUsed', 'type': 'microsoftgraphusagedetails'},
-        'resource_reference': {'key': 'resourceReference', 'type': 'microsoftgraphresourcereference'},
-        'resource_visualization': {'key': 'resourceVisualization', 'type': 'microsoftgraphresourcevisualization'},
-        'resource': {'key': 'resource', 'type': 'microsoftgraphentity'},
+        'last_used': {'key': 'lastUsed', 'type': 'MicrosoftGraphUsageDetails'},
+        'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
+        'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -14982,13 +14982,13 @@ class microsoftgraphusedinsight(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        last_used: Optional["microsoftgraphusagedetails"] = None,
-        resource_reference: Optional["microsoftgraphresourcereference"] = None,
-        resource_visualization: Optional["microsoftgraphresourcevisualization"] = None,
-        resource: Optional["microsoftgraphentity"] = None,
+        last_used: Optional["MicrosoftGraphUsageDetails"] = None,
+        resource_reference: Optional["MicrosoftGraphResourceReference"] = None,
+        resource_visualization: Optional["MicrosoftGraphResourceVisualization"] = None,
+        resource: Optional["MicrosoftGraphEntity"] = None,
         **kwargs
     ):
-        super(microsoftgraphusedinsight, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUsedInsight, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.last_used = last_used
         self.resource_reference = resource_reference
@@ -14996,7 +14996,7 @@ class microsoftgraphusedinsight(microsoftgraphentity):
         self.resource = resource
 
 
-class microsoftgraphuser(microsoftgraphdirectoryobject):
+class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory user object.
 
     :param id: Read-only.
@@ -15013,9 +15013,9 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      adult. Refer to the legal age group property definitions for further information.
     :type age_group: str
     :param assigned_licenses: The licenses that are assigned to the user. Not nullable.
-    :type assigned_licenses: list[~teams.models.microsoftgraphassignedlicense]
+    :type assigned_licenses: list[~teams.models.MicrosoftGraphAssignedLicense]
     :param assigned_plans: The plans that are assigned to the user. Read-only. Not nullable.
-    :type assigned_plans: list[~teams.models.microsoftgraphassignedplan]
+    :type assigned_plans: list[~teams.models.MicrosoftGraphAssignedPlan]
     :param business_phones: The telephone numbers for the user. NOTE: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
@@ -15065,7 +15065,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      An identity can be provided by Microsoft (also known as a local account), by organizations, or
      by social identity providers such as Facebook, Google, and Microsoft, and tied to a user
      account. May contain multiple items with the same signInType value. Supports $filter.
-    :type identities: list[~teams.models.microsoftgraphobjectidentity]
+    :type identities: list[~teams.models.MicrosoftGraphObjectIdentity]
     :param im_addresses: The instant message voice over IP (VOIP) session initiation protocol (SIP)
      addresses for the user. Read-only.
     :type im_addresses: list[str]
@@ -15084,7 +15084,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      legal age group property definitions for further information.).
     :type legal_age_group_classification: str
     :param license_assignment_states: State of license assignments for this user. Read-only.
-    :type license_assignment_states: list[~teams.models.microsoftgraphlicenseassignmentstate]
+    :type license_assignment_states: list[~teams.models.MicrosoftGraphLicenseAssignmentState]
     :param mail: The SMTP address for the user, for example, 'jeff@contoso.onmicrosoft.com'.
      Supports $filter.
     :type mail: str
@@ -15106,7 +15106,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
     :type on_premises_domain_name: str
     :param on_premises_extension_attributes: onPremisesExtensionAttributes.
     :type on_premises_extension_attributes:
-     ~teams.models.microsoftgraphonpremisesextensionattributes
+     ~teams.models.MicrosoftGraphOnPremisesExtensionAttributes
     :param on_premises_immutable_id: This property is used to associate an on-premises Active
      Directory user account to their Azure AD user object. This property must be specified when
      creating a new user account in the Graph if you are using a federated domain for the user’s
@@ -15121,7 +15121,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
     :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
      during provisioning.
     :type on_premises_provisioning_errors:
-     list[~teams.models.microsoftgraphonpremisesprovisioningerror]
+     list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
     :param on_premises_sam_account_name: Contains the on-premises samAccountName synchronized from
      the on-premises directory. The property is only populated for customers who are synchronizing
      their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only.
@@ -15149,7 +15149,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      DisableStrongPassword'.
     :type password_policies: str
     :param password_profile: passwordProfile.
-    :type password_profile: ~teams.models.microsoftgraphpasswordprofile
+    :type password_profile: ~teams.models.MicrosoftGraphPasswordProfile
     :param postal_code: The postal code for the user's postal address. The postal code is specific
      to the user's country/region. In the United States of America, this attribute contains the ZIP
      code.
@@ -15158,7 +15158,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      for example 'en-US'.
     :type preferred_language: str
     :param provisioned_plans: The plans that are provisioned for the user. Read-only. Not nullable.
-    :type provisioned_plans: list[~teams.models.microsoftgraphprovisionedplan]
+    :type provisioned_plans: list[~teams.models.MicrosoftGraphProvisionedPlan]
     :param proxy_addresses: For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']
      The any operator is required for filter expressions on multi-valued properties. Read-only, Not
      nullable. Supports $filter.
@@ -15194,7 +15194,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
      such as 'Member' and 'Guest'. Supports $filter.
     :type user_type: str
     :param mailbox_settings: mailboxSettings.
-    :type mailbox_settings: ~teams.models.microsoftgraphmailboxsettings
+    :type mailbox_settings: ~teams.models.MicrosoftGraphMailboxSettings
     :param device_enrollment_limit: The limit on the maximum number of devices that the user is
      permitted to enroll. Allowed values are 5 or 1000.
     :type device_enrollment_limit: int
@@ -15223,92 +15223,92 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
     :param skills: A list for the user to enumerate their skills.
     :type skills: list[str]
     :param app_role_assignments:
-    :type app_role_assignments: list[~teams.models.microsoftgraphapproleassignment]
+    :type app_role_assignments: list[~teams.models.MicrosoftGraphAppRoleAssignment]
     :param created_objects: Directory objects that were created by the user. Read-only. Nullable.
-    :type created_objects: list[~teams.models.microsoftgraphdirectoryobject]
+    :type created_objects: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param direct_reports: The users and contacts that report to the user. (The users and contacts
      that have their manager property set to this user.) Read-only. Nullable.
-    :type direct_reports: list[~teams.models.microsoftgraphdirectoryobject]
+    :type direct_reports: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param license_details: A collection of this user's license details. Read-only.
-    :type license_details: list[~teams.models.microsoftgraphlicensedetails]
+    :type license_details: list[~teams.models.MicrosoftGraphLicenseDetails]
     :param manager: Represents an Azure Active Directory object. The directoryObject type is the
      base type for many other directory entity types.
-    :type manager: ~teams.models.microsoftgraphdirectoryobject
+    :type manager: ~teams.models.MicrosoftGraphDirectoryObject
     :param member_of: The groups and directory roles that the user is a member of. Read-only.
      Nullable.
-    :type member_of: list[~teams.models.microsoftgraphdirectoryobject]
+    :type member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param oauth2_permission_grants:
-    :type oauth2_permission_grants: list[~teams.models.microsoftgraphoauth2permissiongrant]
+    :type oauth2_permission_grants: list[~teams.models.MicrosoftGraphOAuth2PermissionGrant]
     :param owned_devices: Devices that are owned by the user. Read-only. Nullable.
-    :type owned_devices: list[~teams.models.microsoftgraphdirectoryobject]
+    :type owned_devices: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param owned_objects: Directory objects that are owned by the user. Read-only. Nullable.
-    :type owned_objects: list[~teams.models.microsoftgraphdirectoryobject]
+    :type owned_objects: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param registered_devices: Devices that are registered for the user. Read-only. Nullable.
-    :type registered_devices: list[~teams.models.microsoftgraphdirectoryobject]
+    :type registered_devices: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param scoped_role_member_of:
-    :type scoped_role_member_of: list[~teams.models.microsoftgraphscopedrolemembership]
+    :type scoped_role_member_of: list[~teams.models.MicrosoftGraphScopedRoleMembership]
     :param transitive_member_of:
-    :type transitive_member_of: list[~teams.models.microsoftgraphdirectoryobject]
+    :type transitive_member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
     :param calendar: calendar.
-    :type calendar: ~teams.models.microsoftgraphcalendar
+    :type calendar: ~teams.models.MicrosoftGraphCalendar
     :param calendar_groups: The user's calendar groups. Read-only. Nullable.
-    :type calendar_groups: list[~teams.models.microsoftgraphcalendargroup]
+    :type calendar_groups: list[~teams.models.MicrosoftGraphCalendarGroup]
     :param calendars: The user's calendars. Read-only. Nullable.
-    :type calendars: list[~teams.models.microsoftgraphcalendar]
+    :type calendars: list[~teams.models.MicrosoftGraphCalendar]
     :param calendar_view: The calendar view for the calendar. Read-only. Nullable.
-    :type calendar_view: list[~teams.models.microsoftgraphevent]
+    :type calendar_view: list[~teams.models.MicrosoftGraphEvent]
     :param contact_folders: The user's contacts folders. Read-only. Nullable.
-    :type contact_folders: list[~teams.models.microsoftgraphcontactfolder]
+    :type contact_folders: list[~teams.models.MicrosoftGraphContactFolder]
     :param contacts: The user's contacts. Read-only. Nullable.
-    :type contacts: list[~teams.models.microsoftgraphcontact]
+    :type contacts: list[~teams.models.MicrosoftGraphContact]
     :param events: The user's events. Default is to show Events under the Default Calendar. Read-
      only. Nullable.
-    :type events: list[~teams.models.microsoftgraphevent]
+    :type events: list[~teams.models.MicrosoftGraphEvent]
     :param inference_classification: inferenceClassification.
-    :type inference_classification: ~teams.models.microsoftgraphinferenceclassification
+    :type inference_classification: ~teams.models.MicrosoftGraphInferenceClassification
     :param mail_folders: The user's mail folders. Read-only. Nullable.
-    :type mail_folders: list[~teams.models.microsoftgraphmailfolder]
+    :type mail_folders: list[~teams.models.MicrosoftGraphMailFolder]
     :param messages: The messages in a mailbox or folder. Read-only. Nullable.
-    :type messages: list[~teams.models.microsoftgraphmessage]
+    :type messages: list[~teams.models.MicrosoftGraphMessage]
     :param outlook: outlookUser.
-    :type outlook: ~teams.models.microsoftgraphoutlookuser
+    :type outlook: ~teams.models.MicrosoftGraphOutlookUser
     :param people: People that are relevant to the user. Read-only. Nullable.
-    :type people: list[~teams.models.microsoftgraphperson]
+    :type people: list[~teams.models.MicrosoftGraphPerson]
     :param photo: profilePhoto.
-    :type photo: ~teams.models.microsoftgraphprofilephoto
+    :type photo: ~teams.models.MicrosoftGraphProfilePhoto
     :param photos:
-    :type photos: list[~teams.models.microsoftgraphprofilephoto]
+    :type photos: list[~teams.models.MicrosoftGraphProfilePhoto]
     :param drive: drive.
-    :type drive: ~teams.models.microsoftgraphdrive
+    :type drive: ~teams.models.MicrosoftGraphDrive
     :param drives: A collection of drives available for this user. Read-only.
-    :type drives: list[~teams.models.microsoftgraphdrive]
+    :type drives: list[~teams.models.MicrosoftGraphDrive]
     :param followed_sites:
-    :type followed_sites: list[~teams.models.microsoftgraphsite]
+    :type followed_sites: list[~teams.models.MicrosoftGraphSite]
     :param extensions: The collection of open extensions defined for the user. Read-only. Nullable.
-    :type extensions: list[~teams.models.microsoftgraphextension]
+    :type extensions: list[~teams.models.MicrosoftGraphExtension]
     :param managed_devices: The managed devices associated with the user.
-    :type managed_devices: list[~teams.models.microsoftgraphmanageddevice]
+    :type managed_devices: list[~teams.models.MicrosoftGraphManagedDevice]
     :param managed_app_registrations: Zero or more managed app registrations that belong to the
      user.
-    :type managed_app_registrations: list[~teams.models.microsoftgraphmanagedappregistration]
+    :type managed_app_registrations: list[~teams.models.MicrosoftGraphManagedAppRegistration]
     :param device_management_troubleshooting_events: The list of troubleshooting events for this
      user.
     :type device_management_troubleshooting_events:
-     list[~teams.models.microsoftgraphdevicemanagementtroubleshootingevent]
+     list[~teams.models.MicrosoftGraphDeviceManagementTroubleshootingEvent]
     :param planner: plannerUser.
-    :type planner: ~teams.models.microsoftgraphplanneruser
+    :type planner: ~teams.models.MicrosoftGraphPlannerUser
     :param insights: officeGraphInsights.
-    :type insights: ~teams.models.microsoftgraphofficegraphinsights
+    :type insights: ~teams.models.MicrosoftGraphOfficeGraphInsights
     :param settings: userSettings.
-    :type settings: ~teams.models.microsoftgraphusersettings
+    :type settings: ~teams.models.MicrosoftGraphUserSettings
     :param onenote: onenote.
-    :type onenote: ~teams.models.microsoftgraphonenote
+    :type onenote: ~teams.models.MicrosoftGraphOnenote
     :param activities: The user's activities across devices. Read-only. Nullable.
-    :type activities: list[~teams.models.microsoftgraphuseractivity]
+    :type activities: list[~teams.models.MicrosoftGraphUserActivity]
     :param online_meetings:
-    :type online_meetings: list[~teams.models.microsoftgraphonlinemeeting]
+    :type online_meetings: list[~teams.models.MicrosoftGraphOnlineMeeting]
     :param joined_teams:
-    :type joined_teams: list[~teams.models.microsoftgraphteam]
+    :type joined_teams: list[~teams.models.MicrosoftGraphTeam]
     """
 
     _validation = {
@@ -15321,8 +15321,8 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         'additional_properties': {'key': '', 'type': '{object}'},
         'account_enabled': {'key': 'accountEnabled', 'type': 'bool'},
         'age_group': {'key': 'ageGroup', 'type': 'str'},
-        'assigned_licenses': {'key': 'assignedLicenses', 'type': '[microsoftgraphassignedlicense]'},
-        'assigned_plans': {'key': 'assignedPlans', 'type': '[microsoftgraphassignedplan]'},
+        'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
+        'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
         'city': {'key': 'city', 'type': 'str'},
         'company_name': {'key': 'companyName', 'type': 'str'},
@@ -15337,33 +15337,33 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         'external_user_state_change_date_time': {'key': 'externalUserStateChangeDateTime', 'type': 'iso-8601'},
         'fax_number': {'key': 'faxNumber', 'type': 'str'},
         'given_name': {'key': 'givenName', 'type': 'str'},
-        'identities': {'key': 'identities', 'type': '[microsoftgraphobjectidentity]'},
+        'identities': {'key': 'identities', 'type': '[MicrosoftGraphObjectIdentity]'},
         'im_addresses': {'key': 'imAddresses', 'type': '[str]'},
         'is_resource_account': {'key': 'isResourceAccount', 'type': 'bool'},
         'job_title': {'key': 'jobTitle', 'type': 'str'},
         'last_password_change_date_time': {'key': 'lastPasswordChangeDateTime', 'type': 'iso-8601'},
         'legal_age_group_classification': {'key': 'legalAgeGroupClassification', 'type': 'str'},
-        'license_assignment_states': {'key': 'licenseAssignmentStates', 'type': '[microsoftgraphlicenseassignmentstate]'},
+        'license_assignment_states': {'key': 'licenseAssignmentStates', 'type': '[MicrosoftGraphLicenseAssignmentState]'},
         'mail': {'key': 'mail', 'type': 'str'},
         'mail_nickname': {'key': 'mailNickname', 'type': 'str'},
         'mobile_phone': {'key': 'mobilePhone', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
         'on_premises_distinguished_name': {'key': 'onPremisesDistinguishedName', 'type': 'str'},
         'on_premises_domain_name': {'key': 'onPremisesDomainName', 'type': 'str'},
-        'on_premises_extension_attributes': {'key': 'onPremisesExtensionAttributes', 'type': 'microsoftgraphonpremisesextensionattributes'},
+        'on_premises_extension_attributes': {'key': 'onPremisesExtensionAttributes', 'type': 'MicrosoftGraphOnPremisesExtensionAttributes'},
         'on_premises_immutable_id': {'key': 'onPremisesImmutableId', 'type': 'str'},
         'on_premises_last_sync_date_time': {'key': 'onPremisesLastSyncDateTime', 'type': 'iso-8601'},
-        'on_premises_provisioning_errors': {'key': 'onPremisesProvisioningErrors', 'type': '[microsoftgraphonpremisesprovisioningerror]'},
+        'on_premises_provisioning_errors': {'key': 'onPremisesProvisioningErrors', 'type': '[MicrosoftGraphOnPremisesProvisioningError]'},
         'on_premises_sam_account_name': {'key': 'onPremisesSamAccountName', 'type': 'str'},
         'on_premises_security_identifier': {'key': 'onPremisesSecurityIdentifier', 'type': 'str'},
         'on_premises_sync_enabled': {'key': 'onPremisesSyncEnabled', 'type': 'bool'},
         'on_premises_user_principal_name': {'key': 'onPremisesUserPrincipalName', 'type': 'str'},
         'other_mails': {'key': 'otherMails', 'type': '[str]'},
         'password_policies': {'key': 'passwordPolicies', 'type': 'str'},
-        'password_profile': {'key': 'passwordProfile', 'type': 'microsoftgraphpasswordprofile'},
+        'password_profile': {'key': 'passwordProfile', 'type': 'MicrosoftGraphPasswordProfile'},
         'postal_code': {'key': 'postalCode', 'type': 'str'},
         'preferred_language': {'key': 'preferredLanguage', 'type': 'str'},
-        'provisioned_plans': {'key': 'provisionedPlans', 'type': '[microsoftgraphprovisionedplan]'},
+        'provisioned_plans': {'key': 'provisionedPlans', 'type': '[MicrosoftGraphProvisionedPlan]'},
         'proxy_addresses': {'key': 'proxyAddresses', 'type': '[str]'},
         'show_in_address_list': {'key': 'showInAddressList', 'type': 'bool'},
         'sign_in_sessions_valid_from_date_time': {'key': 'signInSessionsValidFromDateTime', 'type': 'iso-8601'},
@@ -15373,7 +15373,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         'usage_location': {'key': 'usageLocation', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
         'user_type': {'key': 'userType', 'type': 'str'},
-        'mailbox_settings': {'key': 'mailboxSettings', 'type': 'microsoftgraphmailboxsettings'},
+        'mailbox_settings': {'key': 'mailboxSettings', 'type': 'MicrosoftGraphMailboxSettings'},
         'device_enrollment_limit': {'key': 'deviceEnrollmentLimit', 'type': 'int'},
         'about_me': {'key': 'aboutMe', 'type': 'str'},
         'birthday': {'key': 'birthday', 'type': 'iso-8601'},
@@ -15385,46 +15385,46 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         'responsibilities': {'key': 'responsibilities', 'type': '[str]'},
         'schools': {'key': 'schools', 'type': '[str]'},
         'skills': {'key': 'skills', 'type': '[str]'},
-        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[microsoftgraphapproleassignment]'},
-        'created_objects': {'key': 'createdObjects', 'type': '[microsoftgraphdirectoryobject]'},
-        'direct_reports': {'key': 'directReports', 'type': '[microsoftgraphdirectoryobject]'},
-        'license_details': {'key': 'licenseDetails', 'type': '[microsoftgraphlicensedetails]'},
-        'manager': {'key': 'manager', 'type': 'microsoftgraphdirectoryobject'},
-        'member_of': {'key': 'memberOf', 'type': '[microsoftgraphdirectoryobject]'},
-        'oauth2_permission_grants': {'key': 'oauth2PermissionGrants', 'type': '[microsoftgraphoauth2permissiongrant]'},
-        'owned_devices': {'key': 'ownedDevices', 'type': '[microsoftgraphdirectoryobject]'},
-        'owned_objects': {'key': 'ownedObjects', 'type': '[microsoftgraphdirectoryobject]'},
-        'registered_devices': {'key': 'registeredDevices', 'type': '[microsoftgraphdirectoryobject]'},
-        'scoped_role_member_of': {'key': 'scopedRoleMemberOf', 'type': '[microsoftgraphscopedrolemembership]'},
-        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[microsoftgraphdirectoryobject]'},
-        'calendar': {'key': 'calendar', 'type': 'microsoftgraphcalendar'},
-        'calendar_groups': {'key': 'calendarGroups', 'type': '[microsoftgraphcalendargroup]'},
-        'calendars': {'key': 'calendars', 'type': '[microsoftgraphcalendar]'},
-        'calendar_view': {'key': 'calendarView', 'type': '[microsoftgraphevent]'},
-        'contact_folders': {'key': 'contactFolders', 'type': '[microsoftgraphcontactfolder]'},
-        'contacts': {'key': 'contacts', 'type': '[microsoftgraphcontact]'},
-        'events': {'key': 'events', 'type': '[microsoftgraphevent]'},
-        'inference_classification': {'key': 'inferenceClassification', 'type': 'microsoftgraphinferenceclassification'},
-        'mail_folders': {'key': 'mailFolders', 'type': '[microsoftgraphmailfolder]'},
-        'messages': {'key': 'messages', 'type': '[microsoftgraphmessage]'},
-        'outlook': {'key': 'outlook', 'type': 'microsoftgraphoutlookuser'},
-        'people': {'key': 'people', 'type': '[microsoftgraphperson]'},
-        'photo': {'key': 'photo', 'type': 'microsoftgraphprofilephoto'},
-        'photos': {'key': 'photos', 'type': '[microsoftgraphprofilephoto]'},
-        'drive': {'key': 'drive', 'type': 'microsoftgraphdrive'},
-        'drives': {'key': 'drives', 'type': '[microsoftgraphdrive]'},
-        'followed_sites': {'key': 'followedSites', 'type': '[microsoftgraphsite]'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'managed_devices': {'key': 'managedDevices', 'type': '[microsoftgraphmanageddevice]'},
-        'managed_app_registrations': {'key': 'managedAppRegistrations', 'type': '[microsoftgraphmanagedappregistration]'},
-        'device_management_troubleshooting_events': {'key': 'deviceManagementTroubleshootingEvents', 'type': '[microsoftgraphdevicemanagementtroubleshootingevent]'},
-        'planner': {'key': 'planner', 'type': 'microsoftgraphplanneruser'},
-        'insights': {'key': 'insights', 'type': 'microsoftgraphofficegraphinsights'},
-        'settings': {'key': 'settings', 'type': 'microsoftgraphusersettings'},
-        'onenote': {'key': 'onenote', 'type': 'microsoftgraphonenote'},
-        'activities': {'key': 'activities', 'type': '[microsoftgraphuseractivity]'},
-        'online_meetings': {'key': 'onlineMeetings', 'type': '[microsoftgraphonlinemeeting]'},
-        'joined_teams': {'key': 'joinedTeams', 'type': '[microsoftgraphteam]'},
+        'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
+        'created_objects': {'key': 'createdObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'direct_reports': {'key': 'directReports', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'license_details': {'key': 'licenseDetails', 'type': '[MicrosoftGraphLicenseDetails]'},
+        'manager': {'key': 'manager', 'type': 'MicrosoftGraphDirectoryObject'},
+        'member_of': {'key': 'memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'oauth2_permission_grants': {'key': 'oauth2PermissionGrants', 'type': '[MicrosoftGraphOAuth2PermissionGrant]'},
+        'owned_devices': {'key': 'ownedDevices', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'owned_objects': {'key': 'ownedObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'registered_devices': {'key': 'registeredDevices', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'scoped_role_member_of': {'key': 'scopedRoleMemberOf', 'type': '[MicrosoftGraphScopedRoleMembership]'},
+        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'calendar': {'key': 'calendar', 'type': 'MicrosoftGraphCalendar'},
+        'calendar_groups': {'key': 'calendarGroups', 'type': '[MicrosoftGraphCalendarGroup]'},
+        'calendars': {'key': 'calendars', 'type': '[MicrosoftGraphCalendar]'},
+        'calendar_view': {'key': 'calendarView', 'type': '[MicrosoftGraphEvent]'},
+        'contact_folders': {'key': 'contactFolders', 'type': '[MicrosoftGraphContactFolder]'},
+        'contacts': {'key': 'contacts', 'type': '[MicrosoftGraphContact]'},
+        'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
+        'inference_classification': {'key': 'inferenceClassification', 'type': 'MicrosoftGraphInferenceClassification'},
+        'mail_folders': {'key': 'mailFolders', 'type': '[MicrosoftGraphMailFolder]'},
+        'messages': {'key': 'messages', 'type': '[MicrosoftGraphMessage]'},
+        'outlook': {'key': 'outlook', 'type': 'MicrosoftGraphOutlookUser'},
+        'people': {'key': 'people', 'type': '[MicrosoftGraphPerson]'},
+        'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
+        'photos': {'key': 'photos', 'type': '[MicrosoftGraphProfilePhoto]'},
+        'drive': {'key': 'drive', 'type': 'MicrosoftGraphDrive'},
+        'drives': {'key': 'drives', 'type': '[MicrosoftGraphDrive]'},
+        'followed_sites': {'key': 'followedSites', 'type': '[MicrosoftGraphSite]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'managed_devices': {'key': 'managedDevices', 'type': '[MicrosoftGraphManagedDevice]'},
+        'managed_app_registrations': {'key': 'managedAppRegistrations', 'type': '[MicrosoftGraphManagedAppRegistration]'},
+        'device_management_troubleshooting_events': {'key': 'deviceManagementTroubleshootingEvents', 'type': '[MicrosoftGraphDeviceManagementTroubleshootingEvent]'},
+        'planner': {'key': 'planner', 'type': 'MicrosoftGraphPlannerUser'},
+        'insights': {'key': 'insights', 'type': 'MicrosoftGraphOfficeGraphInsights'},
+        'settings': {'key': 'settings', 'type': 'MicrosoftGraphUserSettings'},
+        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
+        'activities': {'key': 'activities', 'type': '[MicrosoftGraphUserActivity]'},
+        'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
+        'joined_teams': {'key': 'joinedTeams', 'type': '[MicrosoftGraphTeam]'},
     }
 
     def __init__(
@@ -15435,8 +15435,8 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         additional_properties: Optional[Dict[str, object]] = None,
         account_enabled: Optional[bool] = None,
         age_group: Optional[str] = None,
-        assigned_licenses: Optional[List["microsoftgraphassignedlicense"]] = None,
-        assigned_plans: Optional[List["microsoftgraphassignedplan"]] = None,
+        assigned_licenses: Optional[List["MicrosoftGraphAssignedLicense"]] = None,
+        assigned_plans: Optional[List["MicrosoftGraphAssignedPlan"]] = None,
         business_phones: Optional[List[str]] = None,
         city: Optional[str] = None,
         company_name: Optional[str] = None,
@@ -15451,33 +15451,33 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         external_user_state_change_date_time: Optional[datetime.datetime] = None,
         fax_number: Optional[str] = None,
         given_name: Optional[str] = None,
-        identities: Optional[List["microsoftgraphobjectidentity"]] = None,
+        identities: Optional[List["MicrosoftGraphObjectIdentity"]] = None,
         im_addresses: Optional[List[str]] = None,
         is_resource_account: Optional[bool] = None,
         job_title: Optional[str] = None,
         last_password_change_date_time: Optional[datetime.datetime] = None,
         legal_age_group_classification: Optional[str] = None,
-        license_assignment_states: Optional[List["microsoftgraphlicenseassignmentstate"]] = None,
+        license_assignment_states: Optional[List["MicrosoftGraphLicenseAssignmentState"]] = None,
         mail: Optional[str] = None,
         mail_nickname: Optional[str] = None,
         mobile_phone: Optional[str] = None,
         office_location: Optional[str] = None,
         on_premises_distinguished_name: Optional[str] = None,
         on_premises_domain_name: Optional[str] = None,
-        on_premises_extension_attributes: Optional["microsoftgraphonpremisesextensionattributes"] = None,
+        on_premises_extension_attributes: Optional["MicrosoftGraphOnPremisesExtensionAttributes"] = None,
         on_premises_immutable_id: Optional[str] = None,
         on_premises_last_sync_date_time: Optional[datetime.datetime] = None,
-        on_premises_provisioning_errors: Optional[List["microsoftgraphonpremisesprovisioningerror"]] = None,
+        on_premises_provisioning_errors: Optional[List["MicrosoftGraphOnPremisesProvisioningError"]] = None,
         on_premises_sam_account_name: Optional[str] = None,
         on_premises_security_identifier: Optional[str] = None,
         on_premises_sync_enabled: Optional[bool] = None,
         on_premises_user_principal_name: Optional[str] = None,
         other_mails: Optional[List[str]] = None,
         password_policies: Optional[str] = None,
-        password_profile: Optional["microsoftgraphpasswordprofile"] = None,
+        password_profile: Optional["MicrosoftGraphPasswordProfile"] = None,
         postal_code: Optional[str] = None,
         preferred_language: Optional[str] = None,
-        provisioned_plans: Optional[List["microsoftgraphprovisionedplan"]] = None,
+        provisioned_plans: Optional[List["MicrosoftGraphProvisionedPlan"]] = None,
         proxy_addresses: Optional[List[str]] = None,
         show_in_address_list: Optional[bool] = None,
         sign_in_sessions_valid_from_date_time: Optional[datetime.datetime] = None,
@@ -15487,7 +15487,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         usage_location: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         user_type: Optional[str] = None,
-        mailbox_settings: Optional["microsoftgraphmailboxsettings"] = None,
+        mailbox_settings: Optional["MicrosoftGraphMailboxSettings"] = None,
         device_enrollment_limit: Optional[int] = None,
         about_me: Optional[str] = None,
         birthday: Optional[datetime.datetime] = None,
@@ -15499,49 +15499,49 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         responsibilities: Optional[List[str]] = None,
         schools: Optional[List[str]] = None,
         skills: Optional[List[str]] = None,
-        app_role_assignments: Optional[List["microsoftgraphapproleassignment"]] = None,
-        created_objects: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        direct_reports: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        license_details: Optional[List["microsoftgraphlicensedetails"]] = None,
-        manager: Optional["microsoftgraphdirectoryobject"] = None,
-        member_of: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        oauth2_permission_grants: Optional[List["microsoftgraphoauth2permissiongrant"]] = None,
-        owned_devices: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        owned_objects: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        registered_devices: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        scoped_role_member_of: Optional[List["microsoftgraphscopedrolemembership"]] = None,
-        transitive_member_of: Optional[List["microsoftgraphdirectoryobject"]] = None,
-        calendar: Optional["microsoftgraphcalendar"] = None,
-        calendar_groups: Optional[List["microsoftgraphcalendargroup"]] = None,
-        calendars: Optional[List["microsoftgraphcalendar"]] = None,
-        calendar_view: Optional[List["microsoftgraphevent"]] = None,
-        contact_folders: Optional[List["microsoftgraphcontactfolder"]] = None,
-        contacts: Optional[List["microsoftgraphcontact"]] = None,
-        events: Optional[List["microsoftgraphevent"]] = None,
-        inference_classification: Optional["microsoftgraphinferenceclassification"] = None,
-        mail_folders: Optional[List["microsoftgraphmailfolder"]] = None,
-        messages: Optional[List["microsoftgraphmessage"]] = None,
-        outlook: Optional["microsoftgraphoutlookuser"] = None,
-        people: Optional[List["microsoftgraphperson"]] = None,
-        photo: Optional["microsoftgraphprofilephoto"] = None,
-        photos: Optional[List["microsoftgraphprofilephoto"]] = None,
-        drive: Optional["microsoftgraphdrive"] = None,
-        drives: Optional[List["microsoftgraphdrive"]] = None,
-        followed_sites: Optional[List["microsoftgraphsite"]] = None,
-        extensions: Optional[List["microsoftgraphextension"]] = None,
-        managed_devices: Optional[List["microsoftgraphmanageddevice"]] = None,
-        managed_app_registrations: Optional[List["microsoftgraphmanagedappregistration"]] = None,
-        device_management_troubleshooting_events: Optional[List["microsoftgraphdevicemanagementtroubleshootingevent"]] = None,
-        planner: Optional["microsoftgraphplanneruser"] = None,
-        insights: Optional["microsoftgraphofficegraphinsights"] = None,
-        settings: Optional["microsoftgraphusersettings"] = None,
-        onenote: Optional["microsoftgraphonenote"] = None,
-        activities: Optional[List["microsoftgraphuseractivity"]] = None,
-        online_meetings: Optional[List["microsoftgraphonlinemeeting"]] = None,
-        joined_teams: Optional[List["microsoftgraphteam"]] = None,
+        app_role_assignments: Optional[List["MicrosoftGraphAppRoleAssignment"]] = None,
+        created_objects: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        direct_reports: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        license_details: Optional[List["MicrosoftGraphLicenseDetails"]] = None,
+        manager: Optional["MicrosoftGraphDirectoryObject"] = None,
+        member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        oauth2_permission_grants: Optional[List["MicrosoftGraphOAuth2PermissionGrant"]] = None,
+        owned_devices: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        owned_objects: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        registered_devices: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        scoped_role_member_of: Optional[List["MicrosoftGraphScopedRoleMembership"]] = None,
+        transitive_member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        calendar: Optional["MicrosoftGraphCalendar"] = None,
+        calendar_groups: Optional[List["MicrosoftGraphCalendarGroup"]] = None,
+        calendars: Optional[List["MicrosoftGraphCalendar"]] = None,
+        calendar_view: Optional[List["MicrosoftGraphEvent"]] = None,
+        contact_folders: Optional[List["MicrosoftGraphContactFolder"]] = None,
+        contacts: Optional[List["MicrosoftGraphContact"]] = None,
+        events: Optional[List["MicrosoftGraphEvent"]] = None,
+        inference_classification: Optional["MicrosoftGraphInferenceClassification"] = None,
+        mail_folders: Optional[List["MicrosoftGraphMailFolder"]] = None,
+        messages: Optional[List["MicrosoftGraphMessage"]] = None,
+        outlook: Optional["MicrosoftGraphOutlookUser"] = None,
+        people: Optional[List["MicrosoftGraphPerson"]] = None,
+        photo: Optional["MicrosoftGraphProfilePhoto"] = None,
+        photos: Optional[List["MicrosoftGraphProfilePhoto"]] = None,
+        drive: Optional["MicrosoftGraphDrive"] = None,
+        drives: Optional[List["MicrosoftGraphDrive"]] = None,
+        followed_sites: Optional[List["MicrosoftGraphSite"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        managed_devices: Optional[List["MicrosoftGraphManagedDevice"]] = None,
+        managed_app_registrations: Optional[List["MicrosoftGraphManagedAppRegistration"]] = None,
+        device_management_troubleshooting_events: Optional[List["MicrosoftGraphDeviceManagementTroubleshootingEvent"]] = None,
+        planner: Optional["MicrosoftGraphPlannerUser"] = None,
+        insights: Optional["MicrosoftGraphOfficeGraphInsights"] = None,
+        settings: Optional["MicrosoftGraphUserSettings"] = None,
+        onenote: Optional["MicrosoftGraphOnenote"] = None,
+        activities: Optional[List["MicrosoftGraphUserActivity"]] = None,
+        online_meetings: Optional[List["MicrosoftGraphOnlineMeeting"]] = None,
+        joined_teams: Optional[List["MicrosoftGraphTeam"]] = None,
         **kwargs
     ):
-        super(microsoftgraphuser, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
+        super(MicrosoftGraphUser, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.account_enabled = account_enabled
         self.age_group = age_group
@@ -15651,7 +15651,7 @@ class microsoftgraphuser(microsoftgraphdirectoryobject):
         self.joined_teams = joined_teams
 
 
-class microsoftgraphuseractivity(microsoftgraphentity):
+class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
     """userActivity.
 
     :param id: Read-only.
@@ -15696,16 +15696,16 @@ class microsoftgraphuseractivity(microsoftgraphentity):
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~teams.models.Microsoftgraphstatus
+    :type status: str or ~teams.models.MicrosoftGraphStatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time; values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
     :param visual_elements: visualInfo.
-    :type visual_elements: ~teams.models.microsoftgraphvisualinfo
+    :type visual_elements: ~teams.models.MicrosoftGraphVisualInfo
     :param history_items: Optional. NavigationProperty/Containment; navigation property to the
      activity's historyItems.
-    :type history_items: list[~teams.models.microsoftgraphactivityhistoryitem]
+    :type history_items: list[~teams.models.MicrosoftGraphActivityHistoryItem]
     """
 
     _attribute_map = {
@@ -15723,8 +15723,8 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'visual_elements': {'key': 'visualElements', 'type': 'microsoftgraphvisualinfo'},
-        'history_items': {'key': 'historyItems', 'type': '[microsoftgraphactivityhistoryitem]'},
+        'visual_elements': {'key': 'visualElements', 'type': 'MicrosoftGraphVisualInfo'},
+        'history_items': {'key': 'historyItems', 'type': '[MicrosoftGraphActivityHistoryItem]'},
     }
 
     def __init__(
@@ -15742,13 +15742,13 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         expiration_date_time: Optional[datetime.datetime] = None,
         fallback_url: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "Microsoftgraphstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphStatus"]] = None,
         user_timezone: Optional[str] = None,
-        visual_elements: Optional["microsoftgraphvisualinfo"] = None,
-        history_items: Optional[List["microsoftgraphactivityhistoryitem"]] = None,
+        visual_elements: Optional["MicrosoftGraphVisualInfo"] = None,
+        history_items: Optional[List["MicrosoftGraphActivityHistoryItem"]] = None,
         **kwargs
     ):
-        super(microsoftgraphuseractivity, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUserActivity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.activation_url = activation_url
         self.activity_source_host = activity_source_host
@@ -15766,7 +15766,7 @@ class microsoftgraphuseractivity(microsoftgraphentity):
         self.history_items = history_items
 
 
-class microsoftgraphusersettings(microsoftgraphentity):
+class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
     """userSettings.
 
     :param id: Read-only.
@@ -15779,7 +15779,7 @@ class microsoftgraphusersettings(microsoftgraphentity):
     :param contribution_to_content_discovery_disabled:
     :type contribution_to_content_discovery_disabled: bool
     :param shift_preferences: shiftPreferences.
-    :type shift_preferences: ~teams.models.microsoftgraphshiftpreferences
+    :type shift_preferences: ~teams.models.MicrosoftGraphShiftPreferences
     """
 
     _attribute_map = {
@@ -15787,7 +15787,7 @@ class microsoftgraphusersettings(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'contribution_to_content_discovery_as_organization_disabled': {'key': 'contributionToContentDiscoveryAsOrganizationDisabled', 'type': 'bool'},
         'contribution_to_content_discovery_disabled': {'key': 'contributionToContentDiscoveryDisabled', 'type': 'bool'},
-        'shift_preferences': {'key': 'shiftPreferences', 'type': 'microsoftgraphshiftpreferences'},
+        'shift_preferences': {'key': 'shiftPreferences', 'type': 'MicrosoftGraphShiftPreferences'},
     }
 
     def __init__(
@@ -15797,17 +15797,17 @@ class microsoftgraphusersettings(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         contribution_to_content_discovery_as_organization_disabled: Optional[bool] = None,
         contribution_to_content_discovery_disabled: Optional[bool] = None,
-        shift_preferences: Optional["microsoftgraphshiftpreferences"] = None,
+        shift_preferences: Optional["MicrosoftGraphShiftPreferences"] = None,
         **kwargs
     ):
-        super(microsoftgraphusersettings, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUserSettings, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.contribution_to_content_discovery_as_organization_disabled = contribution_to_content_discovery_as_organization_disabled
         self.contribution_to_content_discovery_disabled = contribution_to_content_discovery_disabled
         self.shift_preferences = shift_preferences
 
 
-class microsoftgraphvideo(msrest.serialization.Model):
+class MicrosoftGraphVideo(msrest.serialization.Model):
     """video.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15874,7 +15874,7 @@ class microsoftgraphvideo(msrest.serialization.Model):
         width: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphvideo, self).__init__(**kwargs)
+        super(MicrosoftGraphVideo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.audio_bits_per_sample = audio_bits_per_sample
         self.audio_channels = audio_channels
@@ -15888,14 +15888,14 @@ class microsoftgraphvideo(msrest.serialization.Model):
         self.width = width
 
 
-class microsoftgraphvisualinfo(msrest.serialization.Model):
+class MicrosoftGraphVisualInfo(msrest.serialization.Model):
     """visualInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param attribution: imageInfo.
-    :type attribution: ~teams.models.microsoftgraphimageinfo
+    :type attribution: ~teams.models.MicrosoftGraphImageInfo
     :param background_color: Optional. Background color used to render the activity in the UI -
      brand color for the application source of the activity. Must be a valid hex color.
     :type background_color: str
@@ -15911,7 +15911,7 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attribution': {'key': 'attribution', 'type': 'microsoftgraphimageinfo'},
+        'attribution': {'key': 'attribution', 'type': 'MicrosoftGraphImageInfo'},
         'background_color': {'key': 'backgroundColor', 'type': 'str'},
         'content': {'key': 'content', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
@@ -15922,14 +15922,14 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        attribution: Optional["microsoftgraphimageinfo"] = None,
+        attribution: Optional["MicrosoftGraphImageInfo"] = None,
         background_color: Optional[str] = None,
         content: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_text: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphvisualinfo, self).__init__(**kwargs)
+        super(MicrosoftGraphVisualInfo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attribution = attribution
         self.background_color = background_color
@@ -15938,7 +15938,7 @@ class microsoftgraphvisualinfo(msrest.serialization.Model):
         self.display_text = display_text
 
 
-class microsoftgraphwebsite(msrest.serialization.Model):
+class MicrosoftGraphWebsite(msrest.serialization.Model):
     """website.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15949,7 +15949,7 @@ class microsoftgraphwebsite(msrest.serialization.Model):
     :param display_name: The display name of the web site.
     :type display_name: str
     :param type:  Possible values include: "other", "home", "work", "blog", "profile".
-    :type type: str or ~teams.models.Microsoftgraphwebsitetype
+    :type type: str or ~teams.models.MicrosoftGraphWebsiteType
     """
 
     _attribute_map = {
@@ -15965,17 +15965,17 @@ class microsoftgraphwebsite(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         address: Optional[str] = None,
         display_name: Optional[str] = None,
-        type: Optional[Union[str, "Microsoftgraphwebsitetype"]] = None,
+        type: Optional[Union[str, "MicrosoftGraphWebsiteType"]] = None,
         **kwargs
     ):
-        super(microsoftgraphwebsite, self).__init__(**kwargs)
+        super(MicrosoftGraphWebsite, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
         self.type = type
 
 
-class microsoftgraphworkbook(microsoftgraphentity):
+class MicrosoftGraphWorkbook(MicrosoftGraphEntity):
     """workbook.
 
     :param id: Read-only.
@@ -15984,35 +15984,35 @@ class microsoftgraphworkbook(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param application: workbookApplication.
-    :type application: ~teams.models.microsoftgraphworkbookapplication
+    :type application: ~teams.models.MicrosoftGraphWorkbookApplication
     :param comments:
-    :type comments: list[~teams.models.microsoftgraphworkbookcomment]
+    :type comments: list[~teams.models.MicrosoftGraphWorkbookComment]
     :param functions: workbookFunctions.
-    :type functions: ~teams.models.microsoftgraphworkbookfunctions
+    :type functions: ~teams.models.MicrosoftGraphWorkbookFunctions
     :param names: Represents a collection of workbook scoped named items (named ranges and
      constants). Read-only.
-    :type names: list[~teams.models.microsoftgraphworkbooknameditem]
+    :type names: list[~teams.models.MicrosoftGraphWorkbookNamedItem]
     :param operations: The status of workbook operations. Getting an operation collection is not
      supported, but you can get the status of a long-running operation if the Location header is
      returned in the response. Read-only.
-    :type operations: list[~teams.models.microsoftgraphworkbookoperation]
+    :type operations: list[~teams.models.MicrosoftGraphWorkbookOperation]
     :param tables: Represents a collection of tables associated with the workbook. Read-only.
-    :type tables: list[~teams.models.microsoftgraphworkbooktable]
+    :type tables: list[~teams.models.MicrosoftGraphWorkbookTable]
     :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
      only.
-    :type worksheets: list[~teams.models.microsoftgraphworkbookworksheet]
+    :type worksheets: list[~teams.models.MicrosoftGraphWorkbookWorksheet]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'microsoftgraphworkbookapplication'},
-        'comments': {'key': 'comments', 'type': '[microsoftgraphworkbookcomment]'},
-        'functions': {'key': 'functions', 'type': 'microsoftgraphworkbookfunctions'},
-        'names': {'key': 'names', 'type': '[microsoftgraphworkbooknameditem]'},
-        'operations': {'key': 'operations', 'type': '[microsoftgraphworkbookoperation]'},
-        'tables': {'key': 'tables', 'type': '[microsoftgraphworkbooktable]'},
-        'worksheets': {'key': 'worksheets', 'type': '[microsoftgraphworkbookworksheet]'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphWorkbookApplication'},
+        'comments': {'key': 'comments', 'type': '[MicrosoftGraphWorkbookComment]'},
+        'functions': {'key': 'functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
+        'names': {'key': 'names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
+        'tables': {'key': 'tables', 'type': '[MicrosoftGraphWorkbookTable]'},
+        'worksheets': {'key': 'worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
     }
 
     def __init__(
@@ -16020,16 +16020,16 @@ class microsoftgraphworkbook(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        application: Optional["microsoftgraphworkbookapplication"] = None,
-        comments: Optional[List["microsoftgraphworkbookcomment"]] = None,
-        functions: Optional["microsoftgraphworkbookfunctions"] = None,
-        names: Optional[List["microsoftgraphworkbooknameditem"]] = None,
-        operations: Optional[List["microsoftgraphworkbookoperation"]] = None,
-        tables: Optional[List["microsoftgraphworkbooktable"]] = None,
-        worksheets: Optional[List["microsoftgraphworkbookworksheet"]] = None,
+        application: Optional["MicrosoftGraphWorkbookApplication"] = None,
+        comments: Optional[List["MicrosoftGraphWorkbookComment"]] = None,
+        functions: Optional["MicrosoftGraphWorkbookFunctions"] = None,
+        names: Optional[List["MicrosoftGraphWorkbookNamedItem"]] = None,
+        operations: Optional[List["MicrosoftGraphWorkbookOperation"]] = None,
+        tables: Optional[List["MicrosoftGraphWorkbookTable"]] = None,
+        worksheets: Optional[List["MicrosoftGraphWorkbookWorksheet"]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbook, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbook, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.application = application
         self.comments = comments
@@ -16040,7 +16040,7 @@ class microsoftgraphworkbook(microsoftgraphentity):
         self.worksheets = worksheets
 
 
-class microsoftgraphworkbookapplication(microsoftgraphentity):
+class MicrosoftGraphWorkbookApplication(MicrosoftGraphEntity):
     """workbookApplication.
 
     :param id: Read-only.
@@ -16067,12 +16067,12 @@ class microsoftgraphworkbookapplication(microsoftgraphentity):
         calculation_mode: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookapplication, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookApplication, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.calculation_mode = calculation_mode
 
 
-class microsoftgraphworkbookchart(microsoftgraphentity):
+class MicrosoftGraphWorkbookChart(MicrosoftGraphEntity):
     """workbookChart.
 
     :param id: Read-only.
@@ -16092,20 +16092,20 @@ class microsoftgraphworkbookchart(microsoftgraphentity):
     :param width: Represents the width, in points, of the chart object.
     :type width: float
     :param axes: workbookChartAxes.
-    :type axes: ~teams.models.microsoftgraphworkbookchartaxes
+    :type axes: ~teams.models.MicrosoftGraphWorkbookChartAxes
     :param data_labels: workbookChartDataLabels.
-    :type data_labels: ~teams.models.microsoftgraphworkbookchartdatalabels
+    :type data_labels: ~teams.models.MicrosoftGraphWorkbookChartDataLabels
     :param format: workbookChartAreaFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartareaformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartAreaFormat
     :param legend: workbookChartLegend.
-    :type legend: ~teams.models.microsoftgraphworkbookchartlegend
+    :type legend: ~teams.models.MicrosoftGraphWorkbookChartLegend
     :param series: Represents either a single series or collection of series in the chart. Read-
      only.
-    :type series: list[~teams.models.microsoftgraphworkbookchartseries]
+    :type series: list[~teams.models.MicrosoftGraphWorkbookChartSeries]
     :param title: workbookChartTitle.
-    :type title: ~teams.models.microsoftgraphworkbookcharttitle
+    :type title: ~teams.models.MicrosoftGraphWorkbookChartTitle
     :param worksheet: workbookWorksheet.
-    :type worksheet: ~teams.models.microsoftgraphworkbookworksheet
+    :type worksheet: ~teams.models.MicrosoftGraphWorkbookWorksheet
     """
 
     _attribute_map = {
@@ -16116,13 +16116,13 @@ class microsoftgraphworkbookchart(microsoftgraphentity):
         'name': {'key': 'name', 'type': 'str'},
         'top': {'key': 'top', 'type': 'float'},
         'width': {'key': 'width', 'type': 'float'},
-        'axes': {'key': 'axes', 'type': 'microsoftgraphworkbookchartaxes'},
-        'data_labels': {'key': 'dataLabels', 'type': 'microsoftgraphworkbookchartdatalabels'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartareaformat'},
-        'legend': {'key': 'legend', 'type': 'microsoftgraphworkbookchartlegend'},
-        'series': {'key': 'series', 'type': '[microsoftgraphworkbookchartseries]'},
-        'title': {'key': 'title', 'type': 'microsoftgraphworkbookcharttitle'},
-        'worksheet': {'key': 'worksheet', 'type': 'microsoftgraphworkbookworksheet'},
+        'axes': {'key': 'axes', 'type': 'MicrosoftGraphWorkbookChartAxes'},
+        'data_labels': {'key': 'dataLabels', 'type': 'MicrosoftGraphWorkbookChartDataLabels'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartAreaFormat'},
+        'legend': {'key': 'legend', 'type': 'MicrosoftGraphWorkbookChartLegend'},
+        'series': {'key': 'series', 'type': '[MicrosoftGraphWorkbookChartSeries]'},
+        'title': {'key': 'title', 'type': 'MicrosoftGraphWorkbookChartTitle'},
+        'worksheet': {'key': 'worksheet', 'type': 'MicrosoftGraphWorkbookWorksheet'},
     }
 
     def __init__(
@@ -16135,16 +16135,16 @@ class microsoftgraphworkbookchart(microsoftgraphentity):
         name: Optional[str] = None,
         top: Optional[float] = None,
         width: Optional[float] = None,
-        axes: Optional["microsoftgraphworkbookchartaxes"] = None,
-        data_labels: Optional["microsoftgraphworkbookchartdatalabels"] = None,
-        format: Optional["microsoftgraphworkbookchartareaformat"] = None,
-        legend: Optional["microsoftgraphworkbookchartlegend"] = None,
-        series: Optional[List["microsoftgraphworkbookchartseries"]] = None,
-        title: Optional["microsoftgraphworkbookcharttitle"] = None,
-        worksheet: Optional["microsoftgraphworkbookworksheet"] = None,
+        axes: Optional["MicrosoftGraphWorkbookChartAxes"] = None,
+        data_labels: Optional["MicrosoftGraphWorkbookChartDataLabels"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartAreaFormat"] = None,
+        legend: Optional["MicrosoftGraphWorkbookChartLegend"] = None,
+        series: Optional[List["MicrosoftGraphWorkbookChartSeries"]] = None,
+        title: Optional["MicrosoftGraphWorkbookChartTitle"] = None,
+        worksheet: Optional["MicrosoftGraphWorkbookWorksheet"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchart, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChart, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.height = height
         self.left = left
@@ -16160,7 +16160,7 @@ class microsoftgraphworkbookchart(microsoftgraphentity):
         self.worksheet = worksheet
 
 
-class microsoftgraphworkbookchartareaformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAreaFormat(MicrosoftGraphEntity):
     """workbookChartAreaFormat.
 
     :param id: Read-only.
@@ -16169,16 +16169,16 @@ class microsoftgraphworkbookchartareaformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
     }
 
     def __init__(
@@ -16186,17 +16186,17 @@ class microsoftgraphworkbookchartareaformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartareaformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAreaFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
         self.font = font
 
 
-class microsoftgraphworkbookchartaxes(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAxes(MicrosoftGraphEntity):
     """workbookChartAxes.
 
     :param id: Read-only.
@@ -16205,19 +16205,19 @@ class microsoftgraphworkbookchartaxes(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param category_axis: workbookChartAxis.
-    :type category_axis: ~teams.models.microsoftgraphworkbookchartaxis
+    :type category_axis: ~teams.models.MicrosoftGraphWorkbookChartAxis
     :param series_axis: workbookChartAxis.
-    :type series_axis: ~teams.models.microsoftgraphworkbookchartaxis
+    :type series_axis: ~teams.models.MicrosoftGraphWorkbookChartAxis
     :param value_axis: workbookChartAxis.
-    :type value_axis: ~teams.models.microsoftgraphworkbookchartaxis
+    :type value_axis: ~teams.models.MicrosoftGraphWorkbookChartAxis
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'category_axis': {'key': 'categoryAxis', 'type': 'microsoftgraphworkbookchartaxis'},
-        'series_axis': {'key': 'seriesAxis', 'type': 'microsoftgraphworkbookchartaxis'},
-        'value_axis': {'key': 'valueAxis', 'type': 'microsoftgraphworkbookchartaxis'},
+        'category_axis': {'key': 'categoryAxis', 'type': 'MicrosoftGraphWorkbookChartAxis'},
+        'series_axis': {'key': 'seriesAxis', 'type': 'MicrosoftGraphWorkbookChartAxis'},
+        'value_axis': {'key': 'valueAxis', 'type': 'MicrosoftGraphWorkbookChartAxis'},
     }
 
     def __init__(
@@ -16225,19 +16225,19 @@ class microsoftgraphworkbookchartaxes(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        category_axis: Optional["microsoftgraphworkbookchartaxis"] = None,
-        series_axis: Optional["microsoftgraphworkbookchartaxis"] = None,
-        value_axis: Optional["microsoftgraphworkbookchartaxis"] = None,
+        category_axis: Optional["MicrosoftGraphWorkbookChartAxis"] = None,
+        series_axis: Optional["MicrosoftGraphWorkbookChartAxis"] = None,
+        value_axis: Optional["MicrosoftGraphWorkbookChartAxis"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartaxes, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAxes, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.category_axis = category_axis
         self.series_axis = series_axis
         self.value_axis = value_axis
 
 
-class microsoftgraphworkbookchartaxis(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAxis(MicrosoftGraphEntity):
     """workbookChartAxis.
 
     :param id: Read-only.
@@ -16254,13 +16254,13 @@ class microsoftgraphworkbookchartaxis(microsoftgraphentity):
     :param minor_unit: Json.
     :type minor_unit: dict[str, object]
     :param format: workbookChartAxisFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartaxisformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartAxisFormat
     :param major_gridlines: workbookChartGridlines.
-    :type major_gridlines: ~teams.models.microsoftgraphworkbookchartgridlines
+    :type major_gridlines: ~teams.models.MicrosoftGraphWorkbookChartGridlines
     :param minor_gridlines: workbookChartGridlines.
-    :type minor_gridlines: ~teams.models.microsoftgraphworkbookchartgridlines
+    :type minor_gridlines: ~teams.models.MicrosoftGraphWorkbookChartGridlines
     :param title: workbookChartAxisTitle.
-    :type title: ~teams.models.microsoftgraphworkbookchartaxistitle
+    :type title: ~teams.models.MicrosoftGraphWorkbookChartAxisTitle
     """
 
     _attribute_map = {
@@ -16270,10 +16270,10 @@ class microsoftgraphworkbookchartaxis(microsoftgraphentity):
         'maximum': {'key': 'maximum', 'type': '{object}'},
         'minimum': {'key': 'minimum', 'type': '{object}'},
         'minor_unit': {'key': 'minorUnit', 'type': '{object}'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartaxisformat'},
-        'major_gridlines': {'key': 'majorGridlines', 'type': 'microsoftgraphworkbookchartgridlines'},
-        'minor_gridlines': {'key': 'minorGridlines', 'type': 'microsoftgraphworkbookchartgridlines'},
-        'title': {'key': 'title', 'type': 'microsoftgraphworkbookchartaxistitle'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartAxisFormat'},
+        'major_gridlines': {'key': 'majorGridlines', 'type': 'MicrosoftGraphWorkbookChartGridlines'},
+        'minor_gridlines': {'key': 'minorGridlines', 'type': 'MicrosoftGraphWorkbookChartGridlines'},
+        'title': {'key': 'title', 'type': 'MicrosoftGraphWorkbookChartAxisTitle'},
     }
 
     def __init__(
@@ -16285,13 +16285,13 @@ class microsoftgraphworkbookchartaxis(microsoftgraphentity):
         maximum: Optional[Dict[str, object]] = None,
         minimum: Optional[Dict[str, object]] = None,
         minor_unit: Optional[Dict[str, object]] = None,
-        format: Optional["microsoftgraphworkbookchartaxisformat"] = None,
-        major_gridlines: Optional["microsoftgraphworkbookchartgridlines"] = None,
-        minor_gridlines: Optional["microsoftgraphworkbookchartgridlines"] = None,
-        title: Optional["microsoftgraphworkbookchartaxistitle"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartAxisFormat"] = None,
+        major_gridlines: Optional["MicrosoftGraphWorkbookChartGridlines"] = None,
+        minor_gridlines: Optional["MicrosoftGraphWorkbookChartGridlines"] = None,
+        title: Optional["MicrosoftGraphWorkbookChartAxisTitle"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartaxis, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAxis, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.major_unit = major_unit
         self.maximum = maximum
@@ -16303,7 +16303,7 @@ class microsoftgraphworkbookchartaxis(microsoftgraphentity):
         self.title = title
 
 
-class microsoftgraphworkbookchartaxisformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAxisFormat(MicrosoftGraphEntity):
     """workbookChartAxisFormat.
 
     :param id: Read-only.
@@ -16312,16 +16312,16 @@ class microsoftgraphworkbookchartaxisformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     :param line: workbookChartLineFormat.
-    :type line: ~teams.models.microsoftgraphworkbookchartlineformat
+    :type line: ~teams.models.MicrosoftGraphWorkbookChartLineFormat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
-        'line': {'key': 'line', 'type': 'microsoftgraphworkbookchartlineformat'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
+        'line': {'key': 'line', 'type': 'MicrosoftGraphWorkbookChartLineFormat'},
     }
 
     def __init__(
@@ -16329,17 +16329,17 @@ class microsoftgraphworkbookchartaxisformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
-        line: Optional["microsoftgraphworkbookchartlineformat"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
+        line: Optional["MicrosoftGraphWorkbookChartLineFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartaxisformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAxisFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.font = font
         self.line = line
 
 
-class microsoftgraphworkbookchartaxistitle(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAxisTitle(MicrosoftGraphEntity):
     """workbookChartAxisTitle.
 
     :param id: Read-only.
@@ -16352,7 +16352,7 @@ class microsoftgraphworkbookchartaxistitle(microsoftgraphentity):
     :param visible: A boolean that specifies the visibility of an axis title.
     :type visible: bool
     :param format: workbookChartAxisTitleFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartaxistitleformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartAxisTitleFormat
     """
 
     _attribute_map = {
@@ -16360,7 +16360,7 @@ class microsoftgraphworkbookchartaxistitle(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'text': {'key': 'text', 'type': 'str'},
         'visible': {'key': 'visible', 'type': 'bool'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartaxistitleformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartAxisTitleFormat'},
     }
 
     def __init__(
@@ -16370,17 +16370,17 @@ class microsoftgraphworkbookchartaxistitle(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         text: Optional[str] = None,
         visible: Optional[bool] = None,
-        format: Optional["microsoftgraphworkbookchartaxistitleformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartAxisTitleFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartaxistitle, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAxisTitle, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.text = text
         self.visible = visible
         self.format = format
 
 
-class microsoftgraphworkbookchartaxistitleformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartAxisTitleFormat(MicrosoftGraphEntity):
     """workbookChartAxisTitleFormat.
 
     :param id: Read-only.
@@ -16389,13 +16389,13 @@ class microsoftgraphworkbookchartaxistitleformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
     }
 
     def __init__(
@@ -16403,15 +16403,15 @@ class microsoftgraphworkbookchartaxistitleformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartaxistitleformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartAxisTitleFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.font = font
 
 
-class microsoftgraphworkbookchartdatalabelformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartDataLabelFormat(MicrosoftGraphEntity):
     """workbookChartDataLabelFormat.
 
     :param id: Read-only.
@@ -16420,16 +16420,16 @@ class microsoftgraphworkbookchartdatalabelformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
     }
 
     def __init__(
@@ -16437,17 +16437,17 @@ class microsoftgraphworkbookchartdatalabelformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartdatalabelformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartDataLabelFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
         self.font = font
 
 
-class microsoftgraphworkbookchartdatalabels(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartDataLabels(MicrosoftGraphEntity):
     """workbookChartDataLabels.
 
     :param id: Read-only.
@@ -16479,7 +16479,7 @@ class microsoftgraphworkbookchartdatalabels(microsoftgraphentity):
     :param show_value: Boolean value representing if the data label value is visible or not.
     :type show_value: bool
     :param format: workbookChartDataLabelFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartdatalabelformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartDataLabelFormat
     """
 
     _attribute_map = {
@@ -16493,7 +16493,7 @@ class microsoftgraphworkbookchartdatalabels(microsoftgraphentity):
         'show_percentage': {'key': 'showPercentage', 'type': 'bool'},
         'show_series_name': {'key': 'showSeriesName', 'type': 'bool'},
         'show_value': {'key': 'showValue', 'type': 'bool'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartdatalabelformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartDataLabelFormat'},
     }
 
     def __init__(
@@ -16509,10 +16509,10 @@ class microsoftgraphworkbookchartdatalabels(microsoftgraphentity):
         show_percentage: Optional[bool] = None,
         show_series_name: Optional[bool] = None,
         show_value: Optional[bool] = None,
-        format: Optional["microsoftgraphworkbookchartdatalabelformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartDataLabelFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartdatalabels, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartDataLabels, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.position = position
         self.separator = separator
@@ -16525,7 +16525,7 @@ class microsoftgraphworkbookchartdatalabels(microsoftgraphentity):
         self.format = format
 
 
-class microsoftgraphworkbookchartfill(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartFill(MicrosoftGraphEntity):
     """workbookChartFill.
 
     :param id: Read-only.
@@ -16547,11 +16547,11 @@ class microsoftgraphworkbookchartfill(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartfill, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartFill, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphworkbookchartfont(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartFont(MicrosoftGraphEntity):
     """workbookChartFont.
 
     :param id: Read-only.
@@ -16597,7 +16597,7 @@ class microsoftgraphworkbookchartfont(microsoftgraphentity):
         underline: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartfont, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartFont, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.bold = bold
         self.color = color
@@ -16607,7 +16607,7 @@ class microsoftgraphworkbookchartfont(microsoftgraphentity):
         self.underline = underline
 
 
-class microsoftgraphworkbookchartgridlines(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartGridlines(MicrosoftGraphEntity):
     """workbookChartGridlines.
 
     :param id: Read-only.
@@ -16618,14 +16618,14 @@ class microsoftgraphworkbookchartgridlines(microsoftgraphentity):
     :param visible: Boolean value representing if the axis gridlines are visible or not.
     :type visible: bool
     :param format: workbookChartGridlinesFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartgridlinesformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartGridlinesFormat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'visible': {'key': 'visible', 'type': 'bool'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartgridlinesformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartGridlinesFormat'},
     }
 
     def __init__(
@@ -16634,16 +16634,16 @@ class microsoftgraphworkbookchartgridlines(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         visible: Optional[bool] = None,
-        format: Optional["microsoftgraphworkbookchartgridlinesformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartGridlinesFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartgridlines, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartGridlines, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.visible = visible
         self.format = format
 
 
-class microsoftgraphworkbookchartgridlinesformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartGridlinesFormat(MicrosoftGraphEntity):
     """workbookChartGridlinesFormat.
 
     :param id: Read-only.
@@ -16652,13 +16652,13 @@ class microsoftgraphworkbookchartgridlinesformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param line: workbookChartLineFormat.
-    :type line: ~teams.models.microsoftgraphworkbookchartlineformat
+    :type line: ~teams.models.MicrosoftGraphWorkbookChartLineFormat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'line': {'key': 'line', 'type': 'microsoftgraphworkbookchartlineformat'},
+        'line': {'key': 'line', 'type': 'MicrosoftGraphWorkbookChartLineFormat'},
     }
 
     def __init__(
@@ -16666,15 +16666,15 @@ class microsoftgraphworkbookchartgridlinesformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        line: Optional["microsoftgraphworkbookchartlineformat"] = None,
+        line: Optional["MicrosoftGraphWorkbookChartLineFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartgridlinesformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartGridlinesFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.line = line
 
 
-class microsoftgraphworkbookchartlegend(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartLegend(MicrosoftGraphEntity):
     """workbookChartLegend.
 
     :param id: Read-only.
@@ -16691,7 +16691,7 @@ class microsoftgraphworkbookchartlegend(microsoftgraphentity):
     :param visible: A boolean value the represents the visibility of a ChartLegend object.
     :type visible: bool
     :param format: workbookChartLegendFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartlegendformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartLegendFormat
     """
 
     _attribute_map = {
@@ -16700,7 +16700,7 @@ class microsoftgraphworkbookchartlegend(microsoftgraphentity):
         'overlay': {'key': 'overlay', 'type': 'bool'},
         'position': {'key': 'position', 'type': 'str'},
         'visible': {'key': 'visible', 'type': 'bool'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartlegendformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartLegendFormat'},
     }
 
     def __init__(
@@ -16711,10 +16711,10 @@ class microsoftgraphworkbookchartlegend(microsoftgraphentity):
         overlay: Optional[bool] = None,
         position: Optional[str] = None,
         visible: Optional[bool] = None,
-        format: Optional["microsoftgraphworkbookchartlegendformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartLegendFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartlegend, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartLegend, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.overlay = overlay
         self.position = position
@@ -16722,7 +16722,7 @@ class microsoftgraphworkbookchartlegend(microsoftgraphentity):
         self.format = format
 
 
-class microsoftgraphworkbookchartlegendformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartLegendFormat(MicrosoftGraphEntity):
     """workbookChartLegendFormat.
 
     :param id: Read-only.
@@ -16731,16 +16731,16 @@ class microsoftgraphworkbookchartlegendformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
     }
 
     def __init__(
@@ -16748,17 +16748,17 @@ class microsoftgraphworkbookchartlegendformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartlegendformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartLegendFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
         self.font = font
 
 
-class microsoftgraphworkbookchartlineformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartLineFormat(MicrosoftGraphEntity):
     """workbookChartLineFormat.
 
     :param id: Read-only.
@@ -16784,12 +16784,12 @@ class microsoftgraphworkbookchartlineformat(microsoftgraphentity):
         color: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartlineformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartLineFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.color = color
 
 
-class microsoftgraphworkbookchartpoint(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartPoint(MicrosoftGraphEntity):
     """workbookChartPoint.
 
     :param id: Read-only.
@@ -16800,14 +16800,14 @@ class microsoftgraphworkbookchartpoint(microsoftgraphentity):
     :param value: Json.
     :type value: dict[str, object]
     :param format: workbookChartPointFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartpointformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartPointFormat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'value': {'key': 'value', 'type': '{object}'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartpointformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartPointFormat'},
     }
 
     def __init__(
@@ -16816,16 +16816,16 @@ class microsoftgraphworkbookchartpoint(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         value: Optional[Dict[str, object]] = None,
-        format: Optional["microsoftgraphworkbookchartpointformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartPointFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartpoint, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartPoint, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.format = format
 
 
-class microsoftgraphworkbookchartpointformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartPointFormat(MicrosoftGraphEntity):
     """workbookChartPointFormat.
 
     :param id: Read-only.
@@ -16834,13 +16834,13 @@ class microsoftgraphworkbookchartpointformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
     }
 
     def __init__(
@@ -16848,15 +16848,15 @@ class microsoftgraphworkbookchartpointformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartpointformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartPointFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
 
 
-class microsoftgraphworkbookchartseries(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartSeries(MicrosoftGraphEntity):
     """workbookChartSeries.
 
     :param id: Read-only.
@@ -16867,17 +16867,17 @@ class microsoftgraphworkbookchartseries(microsoftgraphentity):
     :param name: Represents the name of a series in a chart.
     :type name: str
     :param format: workbookChartSeriesFormat.
-    :type format: ~teams.models.microsoftgraphworkbookchartseriesformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartSeriesFormat
     :param points: Represents a collection of all points in the series. Read-only.
-    :type points: list[~teams.models.microsoftgraphworkbookchartpoint]
+    :type points: list[~teams.models.MicrosoftGraphWorkbookChartPoint]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'name': {'key': 'name', 'type': 'str'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookchartseriesformat'},
-        'points': {'key': 'points', 'type': '[microsoftgraphworkbookchartpoint]'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartSeriesFormat'},
+        'points': {'key': 'points', 'type': '[MicrosoftGraphWorkbookChartPoint]'},
     }
 
     def __init__(
@@ -16886,18 +16886,18 @@ class microsoftgraphworkbookchartseries(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         name: Optional[str] = None,
-        format: Optional["microsoftgraphworkbookchartseriesformat"] = None,
-        points: Optional[List["microsoftgraphworkbookchartpoint"]] = None,
+        format: Optional["MicrosoftGraphWorkbookChartSeriesFormat"] = None,
+        points: Optional[List["MicrosoftGraphWorkbookChartPoint"]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartseries, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartSeries, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.format = format
         self.points = points
 
 
-class microsoftgraphworkbookchartseriesformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartSeriesFormat(MicrosoftGraphEntity):
     """workbookChartSeriesFormat.
 
     :param id: Read-only.
@@ -16906,16 +16906,16 @@ class microsoftgraphworkbookchartseriesformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     :param line: workbookChartLineFormat.
-    :type line: ~teams.models.microsoftgraphworkbookchartlineformat
+    :type line: ~teams.models.MicrosoftGraphWorkbookChartLineFormat
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
-        'line': {'key': 'line', 'type': 'microsoftgraphworkbookchartlineformat'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
+        'line': {'key': 'line', 'type': 'MicrosoftGraphWorkbookChartLineFormat'},
     }
 
     def __init__(
@@ -16923,17 +16923,17 @@ class microsoftgraphworkbookchartseriesformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
-        line: Optional["microsoftgraphworkbookchartlineformat"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
+        line: Optional["MicrosoftGraphWorkbookChartLineFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookchartseriesformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartSeriesFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
         self.line = line
 
 
-class microsoftgraphworkbookcharttitle(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartTitle(MicrosoftGraphEntity):
     """workbookChartTitle.
 
     :param id: Read-only.
@@ -16948,7 +16948,7 @@ class microsoftgraphworkbookcharttitle(microsoftgraphentity):
     :param visible: A boolean value the represents the visibility of a chart title object.
     :type visible: bool
     :param format: workbookChartTitleFormat.
-    :type format: ~teams.models.microsoftgraphworkbookcharttitleformat
+    :type format: ~teams.models.MicrosoftGraphWorkbookChartTitleFormat
     """
 
     _attribute_map = {
@@ -16957,7 +16957,7 @@ class microsoftgraphworkbookcharttitle(microsoftgraphentity):
         'overlay': {'key': 'overlay', 'type': 'bool'},
         'text': {'key': 'text', 'type': 'str'},
         'visible': {'key': 'visible', 'type': 'bool'},
-        'format': {'key': 'format', 'type': 'microsoftgraphworkbookcharttitleformat'},
+        'format': {'key': 'format', 'type': 'MicrosoftGraphWorkbookChartTitleFormat'},
     }
 
     def __init__(
@@ -16968,10 +16968,10 @@ class microsoftgraphworkbookcharttitle(microsoftgraphentity):
         overlay: Optional[bool] = None,
         text: Optional[str] = None,
         visible: Optional[bool] = None,
-        format: Optional["microsoftgraphworkbookcharttitleformat"] = None,
+        format: Optional["MicrosoftGraphWorkbookChartTitleFormat"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookcharttitle, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartTitle, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.overlay = overlay
         self.text = text
@@ -16979,7 +16979,7 @@ class microsoftgraphworkbookcharttitle(microsoftgraphentity):
         self.format = format
 
 
-class microsoftgraphworkbookcharttitleformat(microsoftgraphentity):
+class MicrosoftGraphWorkbookChartTitleFormat(MicrosoftGraphEntity):
     """workbookChartTitleFormat.
 
     :param id: Read-only.
@@ -16988,16 +16988,16 @@ class microsoftgraphworkbookcharttitleformat(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fill: workbookChartFill.
-    :type fill: ~teams.models.microsoftgraphworkbookchartfill
+    :type fill: ~teams.models.MicrosoftGraphWorkbookChartFill
     :param font: workbookChartFont.
-    :type font: ~teams.models.microsoftgraphworkbookchartfont
+    :type font: ~teams.models.MicrosoftGraphWorkbookChartFont
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fill': {'key': 'fill', 'type': 'microsoftgraphworkbookchartfill'},
-        'font': {'key': 'font', 'type': 'microsoftgraphworkbookchartfont'},
+        'fill': {'key': 'fill', 'type': 'MicrosoftGraphWorkbookChartFill'},
+        'font': {'key': 'font', 'type': 'MicrosoftGraphWorkbookChartFont'},
     }
 
     def __init__(
@@ -17005,17 +17005,17 @@ class microsoftgraphworkbookcharttitleformat(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fill: Optional["microsoftgraphworkbookchartfill"] = None,
-        font: Optional["microsoftgraphworkbookchartfont"] = None,
+        fill: Optional["MicrosoftGraphWorkbookChartFill"] = None,
+        font: Optional["MicrosoftGraphWorkbookChartFont"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookcharttitleformat, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookChartTitleFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fill = fill
         self.font = font
 
 
-class microsoftgraphworkbookcomment(microsoftgraphentity):
+class MicrosoftGraphWorkbookComment(MicrosoftGraphEntity):
     """workbookComment.
 
     :param id: Read-only.
@@ -17028,7 +17028,7 @@ class microsoftgraphworkbookcomment(microsoftgraphentity):
     :param content_type: Indicates the type for the comment.
     :type content_type: str
     :param replies: Read-only. Nullable.
-    :type replies: list[~teams.models.microsoftgraphworkbookcommentreply]
+    :type replies: list[~teams.models.MicrosoftGraphWorkbookCommentReply]
     """
 
     _attribute_map = {
@@ -17036,7 +17036,7 @@ class microsoftgraphworkbookcomment(microsoftgraphentity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'str'},
         'content_type': {'key': 'contentType', 'type': 'str'},
-        'replies': {'key': 'replies', 'type': '[microsoftgraphworkbookcommentreply]'},
+        'replies': {'key': 'replies', 'type': '[MicrosoftGraphWorkbookCommentReply]'},
     }
 
     def __init__(
@@ -17046,17 +17046,17 @@ class microsoftgraphworkbookcomment(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         content: Optional[str] = None,
         content_type: Optional[str] = None,
-        replies: Optional[List["microsoftgraphworkbookcommentreply"]] = None,
+        replies: Optional[List["MicrosoftGraphWorkbookCommentReply"]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookcomment, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookComment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
         self.replies = replies
 
 
-class microsoftgraphworkbookcommentreply(microsoftgraphentity):
+class MicrosoftGraphWorkbookCommentReply(MicrosoftGraphEntity):
     """workbookCommentReply.
 
     :param id: Read-only.
@@ -17086,13 +17086,13 @@ class microsoftgraphworkbookcommentreply(microsoftgraphentity):
         content_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookcommentreply, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookCommentReply, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
 
 
-class microsoftgraphworkbookfilter(microsoftgraphentity):
+class MicrosoftGraphWorkbookFilter(MicrosoftGraphEntity):
     """workbookFilter.
 
     :param id: Read-only.
@@ -17101,13 +17101,13 @@ class microsoftgraphworkbookfilter(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param criteria: workbookFilterCriteria.
-    :type criteria: ~teams.models.microsoftgraphworkbookfiltercriteria
+    :type criteria: ~teams.models.MicrosoftGraphWorkbookFilterCriteria
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'criteria': {'key': 'criteria', 'type': 'microsoftgraphworkbookfiltercriteria'},
+        'criteria': {'key': 'criteria', 'type': 'MicrosoftGraphWorkbookFilterCriteria'},
     }
 
     def __init__(
@@ -17115,15 +17115,15 @@ class microsoftgraphworkbookfilter(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        criteria: Optional["microsoftgraphworkbookfiltercriteria"] = None,
+        criteria: Optional["MicrosoftGraphWorkbookFilterCriteria"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookfilter, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookFilter, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.criteria = criteria
 
 
-class microsoftgraphworkbookfiltercriteria(msrest.serialization.Model):
+class MicrosoftGraphWorkbookFilterCriteria(msrest.serialization.Model):
     """workbookFilterCriteria.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17140,7 +17140,7 @@ class microsoftgraphworkbookfiltercriteria(msrest.serialization.Model):
     :param filter_on:
     :type filter_on: str
     :param icon: workbookIcon.
-    :type icon: ~teams.models.microsoftgraphworkbookicon
+    :type icon: ~teams.models.MicrosoftGraphWorkbookIcon
     :param operator:
     :type operator: str
     :param values: Json.
@@ -17154,7 +17154,7 @@ class microsoftgraphworkbookfiltercriteria(msrest.serialization.Model):
         'criterion2': {'key': 'criterion2', 'type': 'str'},
         'dynamic_criteria': {'key': 'dynamicCriteria', 'type': 'str'},
         'filter_on': {'key': 'filterOn', 'type': 'str'},
-        'icon': {'key': 'icon', 'type': 'microsoftgraphworkbookicon'},
+        'icon': {'key': 'icon', 'type': 'MicrosoftGraphWorkbookIcon'},
         'operator': {'key': 'operator', 'type': 'str'},
         'values': {'key': 'values', 'type': '{object}'},
     }
@@ -17168,12 +17168,12 @@ class microsoftgraphworkbookfiltercriteria(msrest.serialization.Model):
         criterion2: Optional[str] = None,
         dynamic_criteria: Optional[str] = None,
         filter_on: Optional[str] = None,
-        icon: Optional["microsoftgraphworkbookicon"] = None,
+        icon: Optional["MicrosoftGraphWorkbookIcon"] = None,
         operator: Optional[str] = None,
         values: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookfiltercriteria, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkbookFilterCriteria, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.color = color
         self.criterion1 = criterion1
@@ -17185,7 +17185,7 @@ class microsoftgraphworkbookfiltercriteria(msrest.serialization.Model):
         self.values = values
 
 
-class microsoftgraphworkbookfunctions(microsoftgraphentity):
+class MicrosoftGraphWorkbookFunctions(MicrosoftGraphEntity):
     """workbookFunctions.
 
     :param id: Read-only.
@@ -17207,11 +17207,11 @@ class microsoftgraphworkbookfunctions(microsoftgraphentity):
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookfunctions, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookFunctions, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
 
 
-class microsoftgraphworkbookicon(msrest.serialization.Model):
+class MicrosoftGraphWorkbookIcon(msrest.serialization.Model):
     """workbookIcon.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17245,13 +17245,13 @@ class microsoftgraphworkbookicon(msrest.serialization.Model):
         set: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookicon, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkbookIcon, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.index = index
         self.set = set
 
 
-class microsoftgraphworkbooknameditem(microsoftgraphentity):
+class MicrosoftGraphWorkbookNamedItem(MicrosoftGraphEntity):
     """workbookNamedItem.
 
     :param id: Read-only.
@@ -17274,7 +17274,7 @@ class microsoftgraphworkbooknameditem(microsoftgraphentity):
     :param visible: Specifies whether the object is visible or not.
     :type visible: bool
     :param worksheet: workbookWorksheet.
-    :type worksheet: ~teams.models.microsoftgraphworkbookworksheet
+    :type worksheet: ~teams.models.MicrosoftGraphWorkbookWorksheet
     """
 
     _attribute_map = {
@@ -17286,7 +17286,7 @@ class microsoftgraphworkbooknameditem(microsoftgraphentity):
         'type': {'key': 'type', 'type': 'str'},
         'value': {'key': 'value', 'type': '{object}'},
         'visible': {'key': 'visible', 'type': 'bool'},
-        'worksheet': {'key': 'worksheet', 'type': 'microsoftgraphworkbookworksheet'},
+        'worksheet': {'key': 'worksheet', 'type': 'MicrosoftGraphWorkbookWorksheet'},
     }
 
     def __init__(
@@ -17300,10 +17300,10 @@ class microsoftgraphworkbooknameditem(microsoftgraphentity):
         type: Optional[str] = None,
         value: Optional[Dict[str, object]] = None,
         visible: Optional[bool] = None,
-        worksheet: Optional["microsoftgraphworkbookworksheet"] = None,
+        worksheet: Optional["MicrosoftGraphWorkbookWorksheet"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooknameditem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookNamedItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.comment = comment
         self.name = name
@@ -17314,7 +17314,7 @@ class microsoftgraphworkbooknameditem(microsoftgraphentity):
         self.worksheet = worksheet
 
 
-class microsoftgraphworkbookoperation(microsoftgraphentity):
+class MicrosoftGraphWorkbookOperation(MicrosoftGraphEntity):
     """workbookOperation.
 
     :param id: Read-only.
@@ -17323,17 +17323,17 @@ class microsoftgraphworkbookoperation(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param error: workbookOperationError.
-    :type error: ~teams.models.microsoftgraphworkbookoperationerror
+    :type error: ~teams.models.MicrosoftGraphWorkbookOperationError
     :param resource_location: The resource URI for the result.
     :type resource_location: str
     :param status:  Possible values include: "notStarted", "running", "succeeded", "failed".
-    :type status: str or ~teams.models.Microsoftgraphworkbookoperationstatus
+    :type status: str or ~teams.models.MicrosoftGraphWorkbookOperationStatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'microsoftgraphworkbookoperationerror'},
+        'error': {'key': 'error', 'type': 'MicrosoftGraphWorkbookOperationError'},
         'resource_location': {'key': 'resourceLocation', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
     }
@@ -17343,19 +17343,19 @@ class microsoftgraphworkbookoperation(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        error: Optional["microsoftgraphworkbookoperationerror"] = None,
+        error: Optional["MicrosoftGraphWorkbookOperationError"] = None,
         resource_location: Optional[str] = None,
-        status: Optional[Union[str, "Microsoftgraphworkbookoperationstatus"]] = None,
+        status: Optional[Union[str, "MicrosoftGraphWorkbookOperationStatus"]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookoperation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.error = error
         self.resource_location = resource_location
         self.status = status
 
 
-class microsoftgraphworkbookoperationerror(msrest.serialization.Model):
+class MicrosoftGraphWorkbookOperationError(msrest.serialization.Model):
     """workbookOperationError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17364,7 +17364,7 @@ class microsoftgraphworkbookoperationerror(msrest.serialization.Model):
     :param code: The error code.
     :type code: str
     :param inner_error: workbookOperationError.
-    :type inner_error: ~teams.models.microsoftgraphworkbookoperationerror
+    :type inner_error: ~teams.models.MicrosoftGraphWorkbookOperationError
     :param message: The error message.
     :type message: str
     """
@@ -17372,7 +17372,7 @@ class microsoftgraphworkbookoperationerror(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'code': {'key': 'code', 'type': 'str'},
-        'inner_error': {'key': 'innerError', 'type': 'microsoftgraphworkbookoperationerror'},
+        'inner_error': {'key': 'innerError', 'type': 'MicrosoftGraphWorkbookOperationError'},
         'message': {'key': 'message', 'type': 'str'},
     }
 
@@ -17381,18 +17381,18 @@ class microsoftgraphworkbookoperationerror(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         code: Optional[str] = None,
-        inner_error: Optional["microsoftgraphworkbookoperationerror"] = None,
+        inner_error: Optional["MicrosoftGraphWorkbookOperationError"] = None,
         message: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookoperationerror, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkbookOperationError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.inner_error = inner_error
         self.message = message
 
 
-class microsoftgraphworkbookpivottable(microsoftgraphentity):
+class MicrosoftGraphWorkbookPivotTable(MicrosoftGraphEntity):
     """workbookPivotTable.
 
     :param id: Read-only.
@@ -17403,14 +17403,14 @@ class microsoftgraphworkbookpivottable(microsoftgraphentity):
     :param name: Name of the PivotTable.
     :type name: str
     :param worksheet: workbookWorksheet.
-    :type worksheet: ~teams.models.microsoftgraphworkbookworksheet
+    :type worksheet: ~teams.models.MicrosoftGraphWorkbookWorksheet
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'name': {'key': 'name', 'type': 'str'},
-        'worksheet': {'key': 'worksheet', 'type': 'microsoftgraphworkbookworksheet'},
+        'worksheet': {'key': 'worksheet', 'type': 'MicrosoftGraphWorkbookWorksheet'},
     }
 
     def __init__(
@@ -17419,16 +17419,16 @@ class microsoftgraphworkbookpivottable(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         name: Optional[str] = None,
-        worksheet: Optional["microsoftgraphworkbookworksheet"] = None,
+        worksheet: Optional["MicrosoftGraphWorkbookWorksheet"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookpivottable, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookPivotTable, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.worksheet = worksheet
 
 
-class microsoftgraphworkbooksortfield(msrest.serialization.Model):
+class MicrosoftGraphWorkbookSortField(msrest.serialization.Model):
     """workbookSortField.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17443,7 +17443,7 @@ class microsoftgraphworkbooksortfield(msrest.serialization.Model):
      are: Normal, TextAsNumber.
     :type data_option: str
     :param icon: workbookIcon.
-    :type icon: ~teams.models.microsoftgraphworkbookicon
+    :type icon: ~teams.models.MicrosoftGraphWorkbookIcon
     :param key: Represents the column (or row, depending on the sort orientation) that the
      condition is on. Represented as an offset from the first column (or row).
     :type key: int
@@ -17461,7 +17461,7 @@ class microsoftgraphworkbooksortfield(msrest.serialization.Model):
         'ascending': {'key': 'ascending', 'type': 'bool'},
         'color': {'key': 'color', 'type': 'str'},
         'data_option': {'key': 'dataOption', 'type': 'str'},
-        'icon': {'key': 'icon', 'type': 'microsoftgraphworkbookicon'},
+        'icon': {'key': 'icon', 'type': 'MicrosoftGraphWorkbookIcon'},
         'key': {'key': 'key', 'type': 'int'},
         'sort_on': {'key': 'sortOn', 'type': 'str'},
     }
@@ -17473,12 +17473,12 @@ class microsoftgraphworkbooksortfield(msrest.serialization.Model):
         ascending: Optional[bool] = None,
         color: Optional[str] = None,
         data_option: Optional[str] = None,
-        icon: Optional["microsoftgraphworkbookicon"] = None,
+        icon: Optional["MicrosoftGraphWorkbookIcon"] = None,
         key: Optional[int] = None,
         sort_on: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooksortfield, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkbookSortField, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.ascending = ascending
         self.color = color
@@ -17488,7 +17488,7 @@ class microsoftgraphworkbooksortfield(msrest.serialization.Model):
         self.sort_on = sort_on
 
 
-class microsoftgraphworkbooktable(microsoftgraphentity):
+class MicrosoftGraphWorkbookTable(MicrosoftGraphEntity):
     """workbookTable.
 
     :param id: Read-only.
@@ -17527,13 +17527,13 @@ class microsoftgraphworkbooktable(microsoftgraphentity):
      workbook can also be specified.
     :type style: str
     :param columns: Represents a collection of all the columns in the table. Read-only.
-    :type columns: list[~teams.models.microsoftgraphworkbooktablecolumn]
+    :type columns: list[~teams.models.MicrosoftGraphWorkbookTableColumn]
     :param rows: Represents a collection of all the rows in the table. Read-only.
-    :type rows: list[~teams.models.microsoftgraphworkbooktablerow]
+    :type rows: list[~teams.models.MicrosoftGraphWorkbookTableRow]
     :param sort: workbookTableSort.
-    :type sort: ~teams.models.microsoftgraphworkbooktablesort
+    :type sort: ~teams.models.MicrosoftGraphWorkbookTableSort
     :param worksheet: workbookWorksheet.
-    :type worksheet: ~teams.models.microsoftgraphworkbookworksheet
+    :type worksheet: ~teams.models.MicrosoftGraphWorkbookWorksheet
     """
 
     _attribute_map = {
@@ -17549,10 +17549,10 @@ class microsoftgraphworkbooktable(microsoftgraphentity):
         'show_headers': {'key': 'showHeaders', 'type': 'bool'},
         'show_totals': {'key': 'showTotals', 'type': 'bool'},
         'style': {'key': 'style', 'type': 'str'},
-        'columns': {'key': 'columns', 'type': '[microsoftgraphworkbooktablecolumn]'},
-        'rows': {'key': 'rows', 'type': '[microsoftgraphworkbooktablerow]'},
-        'sort': {'key': 'sort', 'type': 'microsoftgraphworkbooktablesort'},
-        'worksheet': {'key': 'worksheet', 'type': 'microsoftgraphworkbookworksheet'},
+        'columns': {'key': 'columns', 'type': '[MicrosoftGraphWorkbookTableColumn]'},
+        'rows': {'key': 'rows', 'type': '[MicrosoftGraphWorkbookTableRow]'},
+        'sort': {'key': 'sort', 'type': 'MicrosoftGraphWorkbookTableSort'},
+        'worksheet': {'key': 'worksheet', 'type': 'MicrosoftGraphWorkbookWorksheet'},
     }
 
     def __init__(
@@ -17570,13 +17570,13 @@ class microsoftgraphworkbooktable(microsoftgraphentity):
         show_headers: Optional[bool] = None,
         show_totals: Optional[bool] = None,
         style: Optional[str] = None,
-        columns: Optional[List["microsoftgraphworkbooktablecolumn"]] = None,
-        rows: Optional[List["microsoftgraphworkbooktablerow"]] = None,
-        sort: Optional["microsoftgraphworkbooktablesort"] = None,
-        worksheet: Optional["microsoftgraphworkbookworksheet"] = None,
+        columns: Optional[List["MicrosoftGraphWorkbookTableColumn"]] = None,
+        rows: Optional[List["MicrosoftGraphWorkbookTableRow"]] = None,
+        sort: Optional["MicrosoftGraphWorkbookTableSort"] = None,
+        worksheet: Optional["MicrosoftGraphWorkbookWorksheet"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooktable, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookTable, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.highlight_first_column = highlight_first_column
         self.highlight_last_column = highlight_last_column
@@ -17594,7 +17594,7 @@ class microsoftgraphworkbooktable(microsoftgraphentity):
         self.worksheet = worksheet
 
 
-class microsoftgraphworkbooktablecolumn(microsoftgraphentity):
+class MicrosoftGraphWorkbookTableColumn(MicrosoftGraphEntity):
     """workbookTableColumn.
 
     :param id: Read-only.
@@ -17610,7 +17610,7 @@ class microsoftgraphworkbooktablecolumn(microsoftgraphentity):
     :param values: Json.
     :type values: dict[str, object]
     :param filter: workbookFilter.
-    :type filter: ~teams.models.microsoftgraphworkbookfilter
+    :type filter: ~teams.models.MicrosoftGraphWorkbookFilter
     """
 
     _validation = {
@@ -17623,7 +17623,7 @@ class microsoftgraphworkbooktablecolumn(microsoftgraphentity):
         'index': {'key': 'index', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
         'values': {'key': 'values', 'type': '{object}'},
-        'filter': {'key': 'filter', 'type': 'microsoftgraphworkbookfilter'},
+        'filter': {'key': 'filter', 'type': 'MicrosoftGraphWorkbookFilter'},
     }
 
     def __init__(
@@ -17634,10 +17634,10 @@ class microsoftgraphworkbooktablecolumn(microsoftgraphentity):
         index: Optional[int] = None,
         name: Optional[str] = None,
         values: Optional[Dict[str, object]] = None,
-        filter: Optional["microsoftgraphworkbookfilter"] = None,
+        filter: Optional["MicrosoftGraphWorkbookFilter"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooktablecolumn, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookTableColumn, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.index = index
         self.name = name
@@ -17645,7 +17645,7 @@ class microsoftgraphworkbooktablecolumn(microsoftgraphentity):
         self.filter = filter
 
 
-class microsoftgraphworkbooktablerow(microsoftgraphentity):
+class MicrosoftGraphWorkbookTableRow(MicrosoftGraphEntity):
     """workbookTableRow.
 
     :param id: Read-only.
@@ -17680,13 +17680,13 @@ class microsoftgraphworkbooktablerow(microsoftgraphentity):
         values: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooktablerow, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookTableRow, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.index = index
         self.values = values
 
 
-class microsoftgraphworkbooktablesort(microsoftgraphentity):
+class MicrosoftGraphWorkbookTableSort(MicrosoftGraphEntity):
     """workbookTableSort.
 
     :param id: Read-only.
@@ -17695,7 +17695,7 @@ class microsoftgraphworkbooktablesort(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param fields: Represents the current conditions used to last sort the table. Read-only.
-    :type fields: list[~teams.models.microsoftgraphworkbooksortfield]
+    :type fields: list[~teams.models.MicrosoftGraphWorkbookSortField]
     :param match_case: Represents whether the casing impacted the last sort of the table. Read-
      only.
     :type match_case: bool
@@ -17707,7 +17707,7 @@ class microsoftgraphworkbooktablesort(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'fields': {'key': 'fields', 'type': '[microsoftgraphworkbooksortfield]'},
+        'fields': {'key': 'fields', 'type': '[MicrosoftGraphWorkbookSortField]'},
         'match_case': {'key': 'matchCase', 'type': 'bool'},
         'method': {'key': 'method', 'type': 'str'},
     }
@@ -17717,19 +17717,19 @@ class microsoftgraphworkbooktablesort(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        fields: Optional[List["microsoftgraphworkbooksortfield"]] = None,
+        fields: Optional[List["MicrosoftGraphWorkbookSortField"]] = None,
         match_case: Optional[bool] = None,
         method: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbooktablesort, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookTableSort, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.fields = fields
         self.match_case = match_case
         self.method = method
 
 
-class microsoftgraphworkbookworksheet(microsoftgraphentity):
+class MicrosoftGraphWorkbookWorksheet(MicrosoftGraphEntity):
     """workbookWorksheet.
 
     :param id: Read-only.
@@ -17745,15 +17745,15 @@ class microsoftgraphworkbookworksheet(microsoftgraphentity):
      VeryHidden.
     :type visibility: str
     :param charts: Returns collection of charts that are part of the worksheet. Read-only.
-    :type charts: list[~teams.models.microsoftgraphworkbookchart]
+    :type charts: list[~teams.models.MicrosoftGraphWorkbookChart]
     :param names: Returns collection of names that are associated with the worksheet. Read-only.
-    :type names: list[~teams.models.microsoftgraphworkbooknameditem]
+    :type names: list[~teams.models.MicrosoftGraphWorkbookNamedItem]
     :param pivot_tables: Collection of PivotTables that are part of the worksheet.
-    :type pivot_tables: list[~teams.models.microsoftgraphworkbookpivottable]
+    :type pivot_tables: list[~teams.models.MicrosoftGraphWorkbookPivotTable]
     :param protection: workbookWorksheetProtection.
-    :type protection: ~teams.models.microsoftgraphworkbookworksheetprotection
+    :type protection: ~teams.models.MicrosoftGraphWorkbookWorksheetProtection
     :param tables: Collection of tables that are part of the worksheet. Read-only.
-    :type tables: list[~teams.models.microsoftgraphworkbooktable]
+    :type tables: list[~teams.models.MicrosoftGraphWorkbookTable]
     """
 
     _validation = {
@@ -17766,11 +17766,11 @@ class microsoftgraphworkbookworksheet(microsoftgraphentity):
         'name': {'key': 'name', 'type': 'str'},
         'position': {'key': 'position', 'type': 'int'},
         'visibility': {'key': 'visibility', 'type': 'str'},
-        'charts': {'key': 'charts', 'type': '[microsoftgraphworkbookchart]'},
-        'names': {'key': 'names', 'type': '[microsoftgraphworkbooknameditem]'},
-        'pivot_tables': {'key': 'pivotTables', 'type': '[microsoftgraphworkbookpivottable]'},
-        'protection': {'key': 'protection', 'type': 'microsoftgraphworkbookworksheetprotection'},
-        'tables': {'key': 'tables', 'type': '[microsoftgraphworkbooktable]'},
+        'charts': {'key': 'charts', 'type': '[MicrosoftGraphWorkbookChart]'},
+        'names': {'key': 'names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
+        'pivot_tables': {'key': 'pivotTables', 'type': '[MicrosoftGraphWorkbookPivotTable]'},
+        'protection': {'key': 'protection', 'type': 'MicrosoftGraphWorkbookWorksheetProtection'},
+        'tables': {'key': 'tables', 'type': '[MicrosoftGraphWorkbookTable]'},
     }
 
     def __init__(
@@ -17781,14 +17781,14 @@ class microsoftgraphworkbookworksheet(microsoftgraphentity):
         name: Optional[str] = None,
         position: Optional[int] = None,
         visibility: Optional[str] = None,
-        charts: Optional[List["microsoftgraphworkbookchart"]] = None,
-        names: Optional[List["microsoftgraphworkbooknameditem"]] = None,
-        pivot_tables: Optional[List["microsoftgraphworkbookpivottable"]] = None,
-        protection: Optional["microsoftgraphworkbookworksheetprotection"] = None,
-        tables: Optional[List["microsoftgraphworkbooktable"]] = None,
+        charts: Optional[List["MicrosoftGraphWorkbookChart"]] = None,
+        names: Optional[List["MicrosoftGraphWorkbookNamedItem"]] = None,
+        pivot_tables: Optional[List["MicrosoftGraphWorkbookPivotTable"]] = None,
+        protection: Optional["MicrosoftGraphWorkbookWorksheetProtection"] = None,
+        tables: Optional[List["MicrosoftGraphWorkbookTable"]] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookworksheet, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookWorksheet, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.position = position
@@ -17800,7 +17800,7 @@ class microsoftgraphworkbookworksheet(microsoftgraphentity):
         self.tables = tables
 
 
-class microsoftgraphworkbookworksheetprotection(microsoftgraphentity):
+class MicrosoftGraphWorkbookWorksheetProtection(MicrosoftGraphEntity):
     """workbookWorksheetProtection.
 
     :param id: Read-only.
@@ -17809,7 +17809,7 @@ class microsoftgraphworkbookworksheetprotection(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param options: workbookWorksheetProtectionOptions.
-    :type options: ~teams.models.microsoftgraphworkbookworksheetprotectionoptions
+    :type options: ~teams.models.MicrosoftGraphWorkbookWorksheetProtectionOptions
     :param protected: Indicates if the worksheet is protected.  Read-only.
     :type protected: bool
     """
@@ -17817,7 +17817,7 @@ class microsoftgraphworkbookworksheetprotection(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'options': {'key': 'options', 'type': 'microsoftgraphworkbookworksheetprotectionoptions'},
+        'options': {'key': 'options', 'type': 'MicrosoftGraphWorkbookWorksheetProtectionOptions'},
         'protected': {'key': 'protected', 'type': 'bool'},
     }
 
@@ -17826,17 +17826,17 @@ class microsoftgraphworkbookworksheetprotection(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        options: Optional["microsoftgraphworkbookworksheetprotectionoptions"] = None,
+        options: Optional["MicrosoftGraphWorkbookWorksheetProtectionOptions"] = None,
         protected: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookworksheetprotection, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphWorkbookWorksheetProtection, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.options = options
         self.protected = protected
 
 
-class microsoftgraphworkbookworksheetprotectionoptions(msrest.serialization.Model):
+class MicrosoftGraphWorkbookWorksheetProtectionOptions(msrest.serialization.Model):
     """workbookWorksheetProtectionOptions.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17907,7 +17907,7 @@ class microsoftgraphworkbookworksheetprotectionoptions(msrest.serialization.Mode
         allow_sort: Optional[bool] = None,
         **kwargs
     ):
-        super(microsoftgraphworkbookworksheetprotectionoptions, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkbookWorksheetProtectionOptions, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.allow_auto_filter = allow_auto_filter
         self.allow_delete_columns = allow_delete_columns
@@ -17922,7 +17922,7 @@ class microsoftgraphworkbookworksheetprotectionoptions(msrest.serialization.Mode
         self.allow_sort = allow_sort
 
 
-class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
+class MicrosoftGraphWorkforceIntegration(MicrosoftGraphChangeTrackedEntity):
     """workforceIntegration.
 
     :param id: Read-only.
@@ -17932,7 +17932,7 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.microsoftgraphidentityset
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
@@ -17945,7 +17945,7 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
     :param display_name: Name of the workforce integration.
     :type display_name: str
     :param encryption: workforceIntegrationEncryption.
-    :type encryption: ~teams.models.microsoftgraphworkforceintegrationencryption
+    :type encryption: ~teams.models.MicrosoftGraphWorkforceIntegrationEncryption
     :param is_active: Indicates whether this workforce integration is currently active and
      available.
     :type is_active: bool
@@ -17953,7 +17953,7 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
      "userShiftPreferences", "openShift", "openShiftRequest", "offerShiftRequest",
      "unknownFutureValue".
     :type supported_entities: str or
-     ~teams.models.Microsoftgraphworkforceintegrationsupportedentities
+     ~teams.models.MicrosoftGraphWorkforceIntegrationSupportedEntities
     :param url: Workforce Integration URL for callbacks from the Shifts service.
     :type url: str
     """
@@ -17965,12 +17965,12 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'api_version': {'key': 'apiVersion', 'type': 'int'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'encryption': {'key': 'encryption', 'type': 'microsoftgraphworkforceintegrationencryption'},
+        'encryption': {'key': 'encryption', 'type': 'MicrosoftGraphWorkforceIntegrationEncryption'},
         'is_active': {'key': 'isActive', 'type': 'bool'},
         'supported_entities': {'key': 'supportedEntities', 'type': 'str'},
         'url': {'key': 'url', 'type': 'str'},
@@ -17981,18 +17981,18 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["microsoftgraphidentityset"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         api_version: Optional[int] = None,
         display_name: Optional[str] = None,
-        encryption: Optional["microsoftgraphworkforceintegrationencryption"] = None,
+        encryption: Optional["MicrosoftGraphWorkforceIntegrationEncryption"] = None,
         is_active: Optional[bool] = None,
-        supported_entities: Optional[Union[str, "Microsoftgraphworkforceintegrationsupportedentities"]] = None,
+        supported_entities: Optional[Union[str, "MicrosoftGraphWorkforceIntegrationSupportedEntities"]] = None,
         url: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkforceintegration, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphWorkforceIntegration, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.api_version = api_version
         self.display_name = display_name
@@ -18002,14 +18002,14 @@ class microsoftgraphworkforceintegration(microsoftgraphchangetrackedentity):
         self.url = url
 
 
-class microsoftgraphworkforceintegrationencryption(msrest.serialization.Model):
+class MicrosoftGraphWorkforceIntegrationEncryption(msrest.serialization.Model):
     """workforceIntegrationEncryption.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param protocol:  Possible values include: "sharedSecret", "unknownFutureValue".
-    :type protocol: str or ~teams.models.Microsoftgraphworkforceintegrationencryptionprotocol
+    :type protocol: str or ~teams.models.MicrosoftGraphWorkforceIntegrationEncryptionProtocol
     :param secret: Encryption shared secret.
     :type secret: str
     """
@@ -18024,30 +18024,30 @@ class microsoftgraphworkforceintegrationencryption(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        protocol: Optional[Union[str, "Microsoftgraphworkforceintegrationencryptionprotocol"]] = None,
+        protocol: Optional[Union[str, "MicrosoftGraphWorkforceIntegrationEncryptionProtocol"]] = None,
         secret: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphworkforceintegrationencryption, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkforceIntegrationEncryption, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.protocol = protocol
         self.secret = secret
 
 
-class microsoftgraphworkinghours(msrest.serialization.Model):
+class MicrosoftGraphWorkingHours(msrest.serialization.Model):
     """workingHours.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param days_of_week: The days of the week on which the user works.
-    :type days_of_week: list[str or ~teams.models.Microsoftgraphdayofweek]
+    :type days_of_week: list[str or ~teams.models.MicrosoftGraphDayOfWeek]
     :param end_time: The time of the day that the user stops working.
     :type end_time: ~datetime.time
     :param start_time: The time of the day that the user starts working.
     :type start_time: ~datetime.time
     :param time_zone: timeZoneBase.
-    :type time_zone: ~teams.models.microsoftgraphtimezonebase
+    :type time_zone: ~teams.models.MicrosoftGraphTimeZoneBase
     """
 
     _attribute_map = {
@@ -18055,20 +18055,20 @@ class microsoftgraphworkinghours(msrest.serialization.Model):
         'days_of_week': {'key': 'daysOfWeek', 'type': '[str]'},
         'end_time': {'key': 'endTime', 'type': 'time'},
         'start_time': {'key': 'startTime', 'type': 'time'},
-        'time_zone': {'key': 'timeZone', 'type': 'microsoftgraphtimezonebase'},
+        'time_zone': {'key': 'timeZone', 'type': 'MicrosoftGraphTimeZoneBase'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        days_of_week: Optional[List[Union[str, "Microsoftgraphdayofweek"]]] = None,
+        days_of_week: Optional[List[Union[str, "MicrosoftGraphDayOfWeek"]]] = None,
         end_time: Optional[datetime.time] = None,
         start_time: Optional[datetime.time] = None,
-        time_zone: Optional["microsoftgraphtimezonebase"] = None,
+        time_zone: Optional["MicrosoftGraphTimeZoneBase"] = None,
         **kwargs
     ):
-        super(microsoftgraphworkinghours, self).__init__(**kwargs)
+        super(MicrosoftGraphWorkingHours, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.days_of_week = days_of_week
         self.end_time = end_time
@@ -18076,8 +18076,8 @@ class microsoftgraphworkinghours(msrest.serialization.Model):
         self.time_zone = time_zone
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -18085,7 +18085,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~teams.models.odataerrormain
+    :type error: ~teams.models.OdataErrorMain
     """
 
     _validation = {
@@ -18094,23 +18094,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -18146,15 +18146,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -18168,7 +18168,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~teams.models.odataerrordetail]
+    :type details: list[~teams.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -18183,7 +18183,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -18194,11 +18194,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
@@ -18207,8 +18207,8 @@ class odataerrormain(msrest.serialization.Model):
         self.innererror = innererror
 
 
-class paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicationjsonschema.
+class Paths1Izic0UTeamsTeamIdMicrosoftGraphClonePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Izic0UTeamsTeamIdMicrosoftGraphClonePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -18223,10 +18223,10 @@ class paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicatio
     :type classification: str
     :param visibility:  Possible values include: "private", "public", "hiddenMembership",
      "unknownFutureValue".
-    :type visibility: str or ~teams.models.Microsoftgraphteamvisibilitytype
+    :type visibility: str or ~teams.models.MicrosoftGraphTeamVisibilityType
     :param parts_to_clone:  Possible values include: "apps", "tabs", "settings", "channels",
      "members".
-    :type parts_to_clone: str or ~teams.models.Microsoftgraphclonableteamparts
+    :type parts_to_clone: str or ~teams.models.MicrosoftGraphClonableTeamParts
     """
 
     _attribute_map = {
@@ -18247,11 +18247,11 @@ class paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicatio
         description: Optional[str] = None,
         mail_nickname: Optional[str] = None,
         classification: Optional[str] = None,
-        visibility: Optional[Union[str, "Microsoftgraphteamvisibilitytype"]] = None,
-        parts_to_clone: Optional[Union[str, "Microsoftgraphclonableteamparts"]] = None,
+        visibility: Optional[Union[str, "MicrosoftGraphTeamVisibilityType"]] = None,
+        parts_to_clone: Optional[Union[str, "MicrosoftGraphClonableTeamParts"]] = None,
         **kwargs
     ):
-        super(paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(Paths1Izic0UTeamsTeamIdMicrosoftGraphClonePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.description = description
@@ -18261,8 +18261,8 @@ class paths1izic0uteamsteamidmicrosoftgraphclonepostrequestbodycontentapplicatio
         self.parts_to_clone = parts_to_clone
 
 
-class pathsbezc4teamsteamidmicrosoftgrapharchivepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsbezc4teamsteamidmicrosoftgrapharchivepostrequestbodycontentapplicationjsonschema.
+class PathsBezc4TeamsTeamIdMicrosoftGraphArchivePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsBezc4TeamsTeamIdMicrosoftGraphArchivePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -18283,13 +18283,13 @@ class pathsbezc4teamsteamidmicrosoftgrapharchivepostrequestbodycontentapplicatio
         should_set_spo_site_read_only_for_members: Optional[bool] = False,
         **kwargs
     ):
-        super(pathsbezc4teamsteamidmicrosoftgrapharchivepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsBezc4TeamsTeamIdMicrosoftGraphArchivePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.should_set_spo_site_read_only_for_members = should_set_spo_site_read_only_for_members
 
 
-class pathsco6shtteamsteamidschedulemicrosoftgraphsharepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
-    """pathsco6shtteamsteamidschedulemicrosoftgraphsharepostrequestbodycontentapplicationjsonschema.
+class PathsCo6ShtTeamsTeamIdScheduleMicrosoftGraphSharePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsCo6ShtTeamsTeamIdScheduleMicrosoftGraphSharePostRequestbodyContentApplicationJsonSchema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -18318,7 +18318,7 @@ class pathsco6shtteamsteamidschedulemicrosoftgraphsharepostrequestbodycontentapp
         end_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(pathsco6shtteamsteamidschedulemicrosoftgraphsharepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
+        super(PathsCo6ShtTeamsTeamIdScheduleMicrosoftGraphSharePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.notify_team = notify_team
         self.start_date_time = start_date_time

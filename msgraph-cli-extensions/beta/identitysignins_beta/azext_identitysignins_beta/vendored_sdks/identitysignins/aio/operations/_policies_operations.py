@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class policiesOperations:
-    """policiesOperations async operations.
+class PoliciesOperations:
+    """PoliciesOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,7 +47,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum203"]]] = None,
         expand: Optional[List[Union[str, "models.Enum204"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofactivitybasedtimeoutpolicy"]:
+    ) -> AsyncIterable["models.CollectionOfActivityBasedTimeoutPolicy"]:
         """Get activityBasedTimeoutPolicies from policies.
 
         Get activityBasedTimeoutPolicies from policies.
@@ -58,11 +59,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum204]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofactivitybasedtimeoutpolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofactivitybasedtimeoutpolicy]
+        :return: An iterator like instance of either CollectionOfActivityBasedTimeoutPolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfActivityBasedTimeoutPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofactivitybasedtimeoutpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfActivityBasedTimeoutPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -104,7 +105,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofactivitybasedtimeoutpolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfActivityBasedTimeoutPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -117,9 +118,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -130,21 +131,21 @@ class policiesOperations:
 
     async def create_activity_based_timeout_policies(
         self,
-        body: "models.microsoftgraphactivitybasedtimeoutpolicy",
+        body: "models.MicrosoftGraphActivityBasedTimeoutPolicy",
         **kwargs
-    ) -> "models.microsoftgraphactivitybasedtimeoutpolicy":
+    ) -> "models.MicrosoftGraphActivityBasedTimeoutPolicy":
         """Create new navigation property to activityBasedTimeoutPolicies for policies.
 
         Create new navigation property to activityBasedTimeoutPolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphactivitybasedtimeoutpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphactivitybasedtimeoutpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphactivitybasedtimeoutpolicy
+        :return: MicrosoftGraphActivityBasedTimeoutPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphactivitybasedtimeoutpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphActivityBasedTimeoutPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -164,7 +165,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphactivitybasedtimeoutpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphActivityBasedTimeoutPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -172,10 +173,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphactivitybasedtimeoutpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphActivityBasedTimeoutPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -189,7 +190,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum205"]]] = None,
         expand: Optional[List[Union[str, "models.Enum206"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphactivitybasedtimeoutpolicy":
+    ) -> "models.MicrosoftGraphActivityBasedTimeoutPolicy":
         """Get activityBasedTimeoutPolicies from policies.
 
         Get activityBasedTimeoutPolicies from policies.
@@ -201,11 +202,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum206]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphactivitybasedtimeoutpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphactivitybasedtimeoutpolicy
+        :return: MicrosoftGraphActivityBasedTimeoutPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphactivitybasedtimeoutpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphActivityBasedTimeoutPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -236,10 +237,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphactivitybasedtimeoutpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphActivityBasedTimeoutPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -250,7 +251,7 @@ class policiesOperations:
     async def update_activity_based_timeout_policies(
         self,
         activity_based_timeout_policy_id: str,
-        body: "models.microsoftgraphactivitybasedtimeoutpolicy",
+        body: "models.MicrosoftGraphActivityBasedTimeoutPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property activityBasedTimeoutPolicies in policies.
@@ -260,7 +261,7 @@ class policiesOperations:
         :param activity_based_timeout_policy_id: key: id of activityBasedTimeoutPolicy.
         :type activity_based_timeout_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphactivitybasedtimeoutpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -290,7 +291,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphactivitybasedtimeoutpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphActivityBasedTimeoutPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -298,8 +299,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -354,8 +355,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -367,7 +368,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum207"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphadminconsentrequestpolicy":
+    ) -> "models.MicrosoftGraphAdminConsentRequestPolicy":
         """Get adminConsentRequestPolicy from policies.
 
         Get adminConsentRequestPolicy from policies.
@@ -377,11 +378,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphadminconsentrequestpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphadminconsentrequestpolicy
+        :return: MicrosoftGraphAdminConsentRequestPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphAdminConsentRequestPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphadminconsentrequestpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAdminConsentRequestPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -408,10 +409,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphadminconsentrequestpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAdminConsentRequestPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -421,7 +422,7 @@ class policiesOperations:
 
     async def update_admin_consent_request_policy(
         self,
-        body: "models.microsoftgraphadminconsentrequestpolicy",
+        body: "models.MicrosoftGraphAdminConsentRequestPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property adminConsentRequestPolicy in policies.
@@ -429,7 +430,7 @@ class policiesOperations:
         Update the navigation property adminConsentRequestPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphadminconsentrequestpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphAdminConsentRequestPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -455,7 +456,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphadminconsentrequestpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAdminConsentRequestPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -463,8 +464,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -512,8 +513,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -525,7 +526,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum208"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphauthenticationflowspolicy":
+    ) -> "models.MicrosoftGraphAuthenticationFlowsPolicy":
         """Get authenticationFlowsPolicy from policies.
 
         Get authenticationFlowsPolicy from policies.
@@ -535,11 +536,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphauthenticationflowspolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphauthenticationflowspolicy
+        :return: MicrosoftGraphAuthenticationFlowsPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphAuthenticationFlowsPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphauthenticationflowspolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAuthenticationFlowsPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -566,10 +567,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphauthenticationflowspolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAuthenticationFlowsPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -579,7 +580,7 @@ class policiesOperations:
 
     async def update_authentication_flows_policy(
         self,
-        body: "models.microsoftgraphauthenticationflowspolicy",
+        body: "models.MicrosoftGraphAuthenticationFlowsPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property authenticationFlowsPolicy in policies.
@@ -587,7 +588,7 @@ class policiesOperations:
         Update the navigation property authenticationFlowsPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphauthenticationflowspolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphAuthenticationFlowsPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -613,7 +614,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphauthenticationflowspolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAuthenticationFlowsPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -621,8 +622,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -670,8 +671,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -684,7 +685,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum210"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofauthorizationpolicy"]:
+    ) -> AsyncIterable["models.CollectionOfAuthorizationPolicy"]:
         """Get authorizationPolicy from policies.
 
         Get authorizationPolicy from policies.
@@ -696,11 +697,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofauthorizationpolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofauthorizationpolicy]
+        :return: An iterator like instance of either CollectionOfAuthorizationPolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfAuthorizationPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofauthorizationpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAuthorizationPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -742,7 +743,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofauthorizationpolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfAuthorizationPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -755,9 +756,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -768,21 +769,21 @@ class policiesOperations:
 
     async def create_authorization_policy(
         self,
-        body: "models.microsoftgraphauthorizationpolicy",
+        body: "models.MicrosoftGraphAuthorizationPolicy",
         **kwargs
-    ) -> "models.microsoftgraphauthorizationpolicy":
+    ) -> "models.MicrosoftGraphAuthorizationPolicy":
         """Create new navigation property to authorizationPolicy for policies.
 
         Create new navigation property to authorizationPolicy for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphauthorizationpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphAuthorizationPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphauthorizationpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphauthorizationpolicy
+        :return: MicrosoftGraphAuthorizationPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphAuthorizationPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphauthorizationpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAuthorizationPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -802,7 +803,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphauthorizationpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAuthorizationPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -810,10 +811,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphauthorizationpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAuthorizationPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -827,7 +828,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum211"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphauthorizationpolicy":
+    ) -> "models.MicrosoftGraphAuthorizationPolicy":
         """Get authorizationPolicy from policies.
 
         Get authorizationPolicy from policies.
@@ -839,11 +840,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphauthorizationpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphauthorizationpolicy
+        :return: MicrosoftGraphAuthorizationPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphAuthorizationPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphauthorizationpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAuthorizationPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -874,10 +875,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphauthorizationpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphAuthorizationPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -888,7 +889,7 @@ class policiesOperations:
     async def update_authorization_policy(
         self,
         authorization_policy_id: str,
-        body: "models.microsoftgraphauthorizationpolicy",
+        body: "models.MicrosoftGraphAuthorizationPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property authorizationPolicy in policies.
@@ -898,7 +899,7 @@ class policiesOperations:
         :param authorization_policy_id: key: id of authorizationPolicy.
         :type authorization_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphauthorizationpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphAuthorizationPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -928,7 +929,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphauthorizationpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAuthorizationPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -936,8 +937,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -992,8 +993,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1005,7 +1006,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum212"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphb2cauthenticationmethodspolicy":
+    ) -> "models.MicrosoftGraphB2CAuthenticationMethodsPolicy":
         """Get b2cAuthenticationMethodsPolicy from policies.
 
         Get b2cAuthenticationMethodsPolicy from policies.
@@ -1015,11 +1016,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphb2cauthenticationmethodspolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphb2cauthenticationmethodspolicy
+        :return: MicrosoftGraphB2CAuthenticationMethodsPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphB2CAuthenticationMethodsPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphb2cauthenticationmethodspolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphB2CAuthenticationMethodsPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1046,10 +1047,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphb2cauthenticationmethodspolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphB2CAuthenticationMethodsPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1059,7 +1060,7 @@ class policiesOperations:
 
     async def update_b2_c_authentication_methods_policy(
         self,
-        body: "models.microsoftgraphb2cauthenticationmethodspolicy",
+        body: "models.MicrosoftGraphB2CAuthenticationMethodsPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property b2cAuthenticationMethodsPolicy in policies.
@@ -1067,7 +1068,7 @@ class policiesOperations:
         Update the navigation property b2cAuthenticationMethodsPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphb2cauthenticationmethodspolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphB2CAuthenticationMethodsPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1093,7 +1094,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphb2cauthenticationmethodspolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphB2CAuthenticationMethodsPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1101,8 +1102,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1150,8 +1151,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1164,7 +1165,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum214"]]] = None,
         expand: Optional[List[Union[str, "models.Enum215"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofclaimsmappingpolicy"]:
+    ) -> AsyncIterable["models.CollectionOfClaimsMappingPolicy"]:
         """Get claimsMappingPolicies from policies.
 
         Get claimsMappingPolicies from policies.
@@ -1176,11 +1177,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum215]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofclaimsmappingpolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofclaimsmappingpolicy]
+        :return: An iterator like instance of either CollectionOfClaimsMappingPolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfClaimsMappingPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofclaimsmappingpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfClaimsMappingPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1222,7 +1223,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofclaimsmappingpolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfClaimsMappingPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1235,9 +1236,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1248,21 +1249,21 @@ class policiesOperations:
 
     async def create_claims_mapping_policies(
         self,
-        body: "models.microsoftgraphclaimsmappingpolicy",
+        body: "models.MicrosoftGraphClaimsMappingPolicy",
         **kwargs
-    ) -> "models.microsoftgraphclaimsmappingpolicy":
+    ) -> "models.MicrosoftGraphClaimsMappingPolicy":
         """Create new navigation property to claimsMappingPolicies for policies.
 
         Create new navigation property to claimsMappingPolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphclaimsmappingpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphClaimsMappingPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphclaimsmappingpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphclaimsmappingpolicy
+        :return: MicrosoftGraphClaimsMappingPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphClaimsMappingPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphclaimsmappingpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphClaimsMappingPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1282,7 +1283,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphclaimsmappingpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphClaimsMappingPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1290,10 +1291,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphclaimsmappingpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphClaimsMappingPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1307,7 +1308,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum216"]]] = None,
         expand: Optional[List[Union[str, "models.Enum217"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphclaimsmappingpolicy":
+    ) -> "models.MicrosoftGraphClaimsMappingPolicy":
         """Get claimsMappingPolicies from policies.
 
         Get claimsMappingPolicies from policies.
@@ -1319,11 +1320,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum217]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphclaimsmappingpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphclaimsmappingpolicy
+        :return: MicrosoftGraphClaimsMappingPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphClaimsMappingPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphclaimsmappingpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphClaimsMappingPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1354,10 +1355,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphclaimsmappingpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphClaimsMappingPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1368,7 +1369,7 @@ class policiesOperations:
     async def update_claims_mapping_policies(
         self,
         claims_mapping_policy_id: str,
-        body: "models.microsoftgraphclaimsmappingpolicy",
+        body: "models.MicrosoftGraphClaimsMappingPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property claimsMappingPolicies in policies.
@@ -1378,7 +1379,7 @@ class policiesOperations:
         :param claims_mapping_policy_id: key: id of claimsMappingPolicy.
         :type claims_mapping_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphclaimsmappingpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphClaimsMappingPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1408,7 +1409,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphclaimsmappingpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphClaimsMappingPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1416,8 +1417,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1472,8 +1473,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1486,7 +1487,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum219"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofconditionalaccesspolicy0"]:
+    ) -> AsyncIterable["models.CollectionOfConditionalAccessPolicy0"]:
         """Get conditionalAccessPolicies from policies.
 
         Get conditionalAccessPolicies from policies.
@@ -1498,11 +1499,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofconditionalaccesspolicy0 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofconditionalaccesspolicy0]
+        :return: An iterator like instance of either CollectionOfConditionalAccessPolicy0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfConditionalAccessPolicy0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofconditionalaccesspolicy0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfConditionalAccessPolicy0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1544,7 +1545,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofconditionalaccesspolicy0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfConditionalAccessPolicy0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1557,9 +1558,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1570,21 +1571,21 @@ class policiesOperations:
 
     async def create_conditional_access_policies(
         self,
-        body: "models.microsoftgraphconditionalaccesspolicy",
+        body: "models.MicrosoftGraphConditionalAccessPolicy",
         **kwargs
-    ) -> "models.microsoftgraphconditionalaccesspolicy":
+    ) -> "models.MicrosoftGraphConditionalAccessPolicy":
         """Create new navigation property to conditionalAccessPolicies for policies.
 
         Create new navigation property to conditionalAccessPolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphconditionalaccesspolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphconditionalaccesspolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphconditionalaccesspolicy
+        :return: MicrosoftGraphConditionalAccessPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphconditionalaccesspolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphConditionalAccessPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1604,7 +1605,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphconditionalaccesspolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphConditionalAccessPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1612,10 +1613,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphconditionalaccesspolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphConditionalAccessPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1629,7 +1630,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum220"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphconditionalaccesspolicy":
+    ) -> "models.MicrosoftGraphConditionalAccessPolicy":
         """Get conditionalAccessPolicies from policies.
 
         Get conditionalAccessPolicies from policies.
@@ -1641,11 +1642,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphconditionalaccesspolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphconditionalaccesspolicy
+        :return: MicrosoftGraphConditionalAccessPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphconditionalaccesspolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphConditionalAccessPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1676,10 +1677,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphconditionalaccesspolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphConditionalAccessPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1690,7 +1691,7 @@ class policiesOperations:
     async def update_conditional_access_policies(
         self,
         conditional_access_policy_id: str,
-        body: "models.microsoftgraphconditionalaccesspolicy",
+        body: "models.MicrosoftGraphConditionalAccessPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property conditionalAccessPolicies in policies.
@@ -1700,7 +1701,7 @@ class policiesOperations:
         :param conditional_access_policy_id: key: id of conditionalAccessPolicy.
         :type conditional_access_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphconditionalaccesspolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1730,7 +1731,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphconditionalaccesspolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphConditionalAccessPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1738,8 +1739,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1794,8 +1795,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1807,7 +1808,7 @@ class policiesOperations:
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdeviceregistrationpolicy":
+    ) -> "models.MicrosoftGraphDeviceRegistrationPolicy":
         """Get deviceRegistrationPolicy from policies.
 
         Get deviceRegistrationPolicy from policies.
@@ -1817,11 +1818,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdeviceregistrationpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphdeviceregistrationpolicy
+        :return: MicrosoftGraphDeviceRegistrationPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphDeviceRegistrationPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdeviceregistrationpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceRegistrationPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1848,10 +1849,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdeviceregistrationpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDeviceRegistrationPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1861,7 +1862,7 @@ class policiesOperations:
 
     async def update_device_registration_policy(
         self,
-        body: "models.microsoftgraphdeviceregistrationpolicy",
+        body: "models.MicrosoftGraphDeviceRegistrationPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property deviceRegistrationPolicy in policies.
@@ -1869,7 +1870,7 @@ class policiesOperations:
         Update the navigation property deviceRegistrationPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphdeviceregistrationpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphDeviceRegistrationPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1895,7 +1896,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdeviceregistrationpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDeviceRegistrationPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1903,8 +1904,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1952,8 +1953,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1965,7 +1966,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum221"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdirectoryroleaccessreviewpolicy":
+    ) -> "models.MicrosoftGraphDirectoryRoleAccessReviewPolicy":
         """Get directoryRoleAccessReviewPolicy from policies.
 
         Get directoryRoleAccessReviewPolicy from policies.
@@ -1975,11 +1976,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdirectoryroleaccessreviewpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphdirectoryroleaccessreviewpolicy
+        :return: MicrosoftGraphDirectoryRoleAccessReviewPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphDirectoryRoleAccessReviewPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdirectoryroleaccessreviewpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryRoleAccessReviewPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2006,10 +2007,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdirectoryroleaccessreviewpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDirectoryRoleAccessReviewPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2019,7 +2020,7 @@ class policiesOperations:
 
     async def update_directory_role_access_review_policy(
         self,
-        body: "models.microsoftgraphdirectoryroleaccessreviewpolicy",
+        body: "models.MicrosoftGraphDirectoryRoleAccessReviewPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property directoryRoleAccessReviewPolicy in policies.
@@ -2027,7 +2028,7 @@ class policiesOperations:
         Update the navigation property directoryRoleAccessReviewPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphdirectoryroleaccessreviewpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphDirectoryRoleAccessReviewPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2053,7 +2054,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdirectoryroleaccessreviewpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDirectoryRoleAccessReviewPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2061,8 +2062,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2110,8 +2111,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2124,7 +2125,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum223"]]] = None,
         expand: Optional[List[Union[str, "models.Enum224"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofhomerealmdiscoverypolicy"]:
+    ) -> AsyncIterable["models.CollectionOfHomeRealmDiscoveryPolicy"]:
         """Get homeRealmDiscoveryPolicies from policies.
 
         Get homeRealmDiscoveryPolicies from policies.
@@ -2136,11 +2137,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum224]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofhomerealmdiscoverypolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofhomerealmdiscoverypolicy]
+        :return: An iterator like instance of either CollectionOfHomeRealmDiscoveryPolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfHomeRealmDiscoveryPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofhomerealmdiscoverypolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfHomeRealmDiscoveryPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2182,7 +2183,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofhomerealmdiscoverypolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfHomeRealmDiscoveryPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2195,9 +2196,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2208,21 +2209,21 @@ class policiesOperations:
 
     async def create_home_realm_discovery_policies(
         self,
-        body: "models.microsoftgraphhomerealmdiscoverypolicy",
+        body: "models.MicrosoftGraphHomeRealmDiscoveryPolicy",
         **kwargs
-    ) -> "models.microsoftgraphhomerealmdiscoverypolicy":
+    ) -> "models.MicrosoftGraphHomeRealmDiscoveryPolicy":
         """Create new navigation property to homeRealmDiscoveryPolicies for policies.
 
         Create new navigation property to homeRealmDiscoveryPolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphhomerealmdiscoverypolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphHomeRealmDiscoveryPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphhomerealmdiscoverypolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphhomerealmdiscoverypolicy
+        :return: MicrosoftGraphHomeRealmDiscoveryPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphHomeRealmDiscoveryPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphhomerealmdiscoverypolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphHomeRealmDiscoveryPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2242,7 +2243,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphhomerealmdiscoverypolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphHomeRealmDiscoveryPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2250,10 +2251,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphhomerealmdiscoverypolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphHomeRealmDiscoveryPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2267,7 +2268,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum225"]]] = None,
         expand: Optional[List[Union[str, "models.Enum226"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphhomerealmdiscoverypolicy":
+    ) -> "models.MicrosoftGraphHomeRealmDiscoveryPolicy":
         """Get homeRealmDiscoveryPolicies from policies.
 
         Get homeRealmDiscoveryPolicies from policies.
@@ -2279,11 +2280,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum226]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphhomerealmdiscoverypolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphhomerealmdiscoverypolicy
+        :return: MicrosoftGraphHomeRealmDiscoveryPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphHomeRealmDiscoveryPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphhomerealmdiscoverypolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphHomeRealmDiscoveryPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2314,10 +2315,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphhomerealmdiscoverypolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphHomeRealmDiscoveryPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2328,7 +2329,7 @@ class policiesOperations:
     async def update_home_realm_discovery_policies(
         self,
         home_realm_discovery_policy_id: str,
-        body: "models.microsoftgraphhomerealmdiscoverypolicy",
+        body: "models.MicrosoftGraphHomeRealmDiscoveryPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property homeRealmDiscoveryPolicies in policies.
@@ -2338,7 +2339,7 @@ class policiesOperations:
         :param home_realm_discovery_policy_id: key: id of homeRealmDiscoveryPolicy.
         :type home_realm_discovery_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphhomerealmdiscoverypolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphHomeRealmDiscoveryPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2368,7 +2369,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphhomerealmdiscoverypolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphHomeRealmDiscoveryPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2376,8 +2377,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2432,8 +2433,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2445,7 +2446,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum227"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphidentitysecuritydefaultsenforcementpolicy":
+    ) -> "models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy":
         """Get identitySecurityDefaultsEnforcementPolicy from policies.
 
         Get identitySecurityDefaultsEnforcementPolicy from policies.
@@ -2455,11 +2456,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphidentitysecuritydefaultsenforcementpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphidentitysecuritydefaultsenforcementpolicy
+        :return: MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphidentitysecuritydefaultsenforcementpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2486,10 +2487,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphidentitysecuritydefaultsenforcementpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2499,7 +2500,7 @@ class policiesOperations:
 
     async def update_identity_security_defaults_enforcement_policy(
         self,
-        body: "models.microsoftgraphidentitysecuritydefaultsenforcementpolicy",
+        body: "models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies.
@@ -2507,7 +2508,7 @@ class policiesOperations:
         Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies.
 
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphidentitysecuritydefaultsenforcementpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2533,7 +2534,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphidentitysecuritydefaultsenforcementpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2541,8 +2542,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2590,8 +2591,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2604,7 +2605,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum229"]]] = None,
         expand: Optional[List[Union[str, "models.Enum230"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofpermissiongrantpolicy"]:
+    ) -> AsyncIterable["models.CollectionOfPermissionGrantPolicy"]:
         """Get permissionGrantPolicies from policies.
 
         Get permissionGrantPolicies from policies.
@@ -2616,11 +2617,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum230]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofpermissiongrantpolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofpermissiongrantpolicy]
+        :return: An iterator like instance of either CollectionOfPermissionGrantPolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfPermissionGrantPolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofpermissiongrantpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPermissionGrantPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2662,7 +2663,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofpermissiongrantpolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPermissionGrantPolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2675,9 +2676,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2688,21 +2689,21 @@ class policiesOperations:
 
     async def create_permission_grant_policies(
         self,
-        body: "models.microsoftgraphpermissiongrantpolicy",
+        body: "models.MicrosoftGraphPermissionGrantPolicy",
         **kwargs
-    ) -> "models.microsoftgraphpermissiongrantpolicy":
+    ) -> "models.MicrosoftGraphPermissionGrantPolicy":
         """Create new navigation property to permissionGrantPolicies for policies.
 
         Create new navigation property to permissionGrantPolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphpermissiongrantpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphPermissionGrantPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpermissiongrantpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphpermissiongrantpolicy
+        :return: MicrosoftGraphPermissionGrantPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphPermissionGrantPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpermissiongrantpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPermissionGrantPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2722,7 +2723,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphpermissiongrantpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPermissionGrantPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2730,10 +2731,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpermissiongrantpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPermissionGrantPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2747,7 +2748,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum231"]]] = None,
         expand: Optional[List[Union[str, "models.Enum232"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphpermissiongrantpolicy":
+    ) -> "models.MicrosoftGraphPermissionGrantPolicy":
         """Get permissionGrantPolicies from policies.
 
         Get permissionGrantPolicies from policies.
@@ -2759,11 +2760,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum232]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphpermissiongrantpolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphpermissiongrantpolicy
+        :return: MicrosoftGraphPermissionGrantPolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphPermissionGrantPolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphpermissiongrantpolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPermissionGrantPolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2794,10 +2795,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphpermissiongrantpolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPermissionGrantPolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2808,7 +2809,7 @@ class policiesOperations:
     async def update_permission_grant_policies(
         self,
         permission_grant_policy_id: str,
-        body: "models.microsoftgraphpermissiongrantpolicy",
+        body: "models.MicrosoftGraphPermissionGrantPolicy",
         **kwargs
     ) -> None:
         """Update the navigation property permissionGrantPolicies in policies.
@@ -2818,7 +2819,7 @@ class policiesOperations:
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphpermissiongrantpolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphPermissionGrantPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2848,7 +2849,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphpermissiongrantpolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPermissionGrantPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2856,8 +2857,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2912,8 +2913,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2926,7 +2927,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum240"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofprivatelinkresource"]:
+    ) -> AsyncIterable["models.CollectionOfPrivateLinkResource"]:
         """Get privateLinkResourcePolicies from policies.
 
         Get privateLinkResourcePolicies from policies.
@@ -2938,11 +2939,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofprivatelinkresource or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionofprivatelinkresource]
+        :return: An iterator like instance of either CollectionOfPrivateLinkResource or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfPrivateLinkResource]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofprivatelinkresource"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrivateLinkResource"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2984,7 +2985,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofprivatelinkresource', pipeline_response)
+            deserialized = self._deserialize('CollectionOfPrivateLinkResource', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2997,9 +2998,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3010,21 +3011,21 @@ class policiesOperations:
 
     async def create_private_link_resource_policies(
         self,
-        body: "models.microsoftgraphprivatelinkresource",
+        body: "models.MicrosoftGraphPrivateLinkResource",
         **kwargs
-    ) -> "models.microsoftgraphprivatelinkresource":
+    ) -> "models.MicrosoftGraphPrivateLinkResource":
         """Create new navigation property to privateLinkResourcePolicies for policies.
 
         Create new navigation property to privateLinkResourcePolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphprivatelinkresource
+        :type body: ~identity_sign_ins.models.MicrosoftGraphPrivateLinkResource
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprivatelinkresource, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphprivatelinkresource
+        :return: MicrosoftGraphPrivateLinkResource, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphPrivateLinkResource
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprivatelinkresource"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrivateLinkResource"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3044,7 +3045,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprivatelinkresource')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrivateLinkResource')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3052,10 +3053,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprivatelinkresource', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrivateLinkResource', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3069,7 +3070,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum241"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphprivatelinkresource":
+    ) -> "models.MicrosoftGraphPrivateLinkResource":
         """Get privateLinkResourcePolicies from policies.
 
         Get privateLinkResourcePolicies from policies.
@@ -3081,11 +3082,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphprivatelinkresource, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphprivatelinkresource
+        :return: MicrosoftGraphPrivateLinkResource, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphPrivateLinkResource
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphprivatelinkresource"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrivateLinkResource"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3116,10 +3117,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphprivatelinkresource', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphPrivateLinkResource', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3130,7 +3131,7 @@ class policiesOperations:
     async def update_private_link_resource_policies(
         self,
         private_link_resource_id: str,
-        body: "models.microsoftgraphprivatelinkresource",
+        body: "models.MicrosoftGraphPrivateLinkResource",
         **kwargs
     ) -> None:
         """Update the navigation property privateLinkResourcePolicies in policies.
@@ -3140,7 +3141,7 @@ class policiesOperations:
         :param private_link_resource_id: key: id of privateLinkResource.
         :type private_link_resource_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphprivatelinkresource
+        :type body: ~identity_sign_ins.models.MicrosoftGraphPrivateLinkResource
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3170,7 +3171,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphprivatelinkresource')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrivateLinkResource')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3178,8 +3179,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3234,8 +3235,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3248,7 +3249,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum243"]]] = None,
         expand: Optional[List[Union[str, "models.Enum244"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoftokenissuancepolicy"]:
+    ) -> AsyncIterable["models.CollectionOfTokenIssuancePolicy"]:
         """Get tokenIssuancePolicies from policies.
 
         Get tokenIssuancePolicies from policies.
@@ -3260,11 +3261,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum244]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoftokenissuancepolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionoftokenissuancepolicy]
+        :return: An iterator like instance of either CollectionOfTokenIssuancePolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfTokenIssuancePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoftokenissuancepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTokenIssuancePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3306,7 +3307,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoftokenissuancepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTokenIssuancePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -3319,9 +3320,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3332,21 +3333,21 @@ class policiesOperations:
 
     async def create_token_issuance_policies(
         self,
-        body: "models.microsoftgraphtokenissuancepolicy",
+        body: "models.MicrosoftGraphTokenIssuancePolicy",
         **kwargs
-    ) -> "models.microsoftgraphtokenissuancepolicy":
+    ) -> "models.MicrosoftGraphTokenIssuancePolicy":
         """Create new navigation property to tokenIssuancePolicies for policies.
 
         Create new navigation property to tokenIssuancePolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphtokenissuancepolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTokenIssuancePolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtokenissuancepolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphtokenissuancepolicy
+        :return: MicrosoftGraphTokenIssuancePolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenIssuancePolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtokenissuancepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTokenIssuancePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3366,7 +3367,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtokenissuancepolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTokenIssuancePolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3374,10 +3375,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtokenissuancepolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTokenIssuancePolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3391,7 +3392,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum245"]]] = None,
         expand: Optional[List[Union[str, "models.Enum246"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphtokenissuancepolicy":
+    ) -> "models.MicrosoftGraphTokenIssuancePolicy":
         """Get tokenIssuancePolicies from policies.
 
         Get tokenIssuancePolicies from policies.
@@ -3403,11 +3404,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum246]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtokenissuancepolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphtokenissuancepolicy
+        :return: MicrosoftGraphTokenIssuancePolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenIssuancePolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtokenissuancepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTokenIssuancePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3438,10 +3439,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtokenissuancepolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTokenIssuancePolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3452,7 +3453,7 @@ class policiesOperations:
     async def update_token_issuance_policies(
         self,
         token_issuance_policy_id: str,
-        body: "models.microsoftgraphtokenissuancepolicy",
+        body: "models.MicrosoftGraphTokenIssuancePolicy",
         **kwargs
     ) -> None:
         """Update the navigation property tokenIssuancePolicies in policies.
@@ -3462,7 +3463,7 @@ class policiesOperations:
         :param token_issuance_policy_id: key: id of tokenIssuancePolicy.
         :type token_issuance_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphtokenissuancepolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTokenIssuancePolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3492,7 +3493,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtokenissuancepolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTokenIssuancePolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3500,8 +3501,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3556,8 +3557,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3570,7 +3571,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum248"]]] = None,
         expand: Optional[List[Union[str, "models.Enum249"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoftokenlifetimepolicy"]:
+    ) -> AsyncIterable["models.CollectionOfTokenLifetimePolicy"]:
         """Get tokenLifetimePolicies from policies.
 
         Get tokenLifetimePolicies from policies.
@@ -3582,11 +3583,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum249]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoftokenlifetimepolicy or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.collectionoftokenlifetimepolicy]
+        :return: An iterator like instance of either CollectionOfTokenLifetimePolicy or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfTokenLifetimePolicy]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoftokenlifetimepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTokenLifetimePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3628,7 +3629,7 @@ class policiesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoftokenlifetimepolicy', pipeline_response)
+            deserialized = self._deserialize('CollectionOfTokenLifetimePolicy', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -3641,9 +3642,9 @@ class policiesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -3654,21 +3655,21 @@ class policiesOperations:
 
     async def create_token_lifetime_policies(
         self,
-        body: "models.microsoftgraphtokenlifetimepolicy",
+        body: "models.MicrosoftGraphTokenLifetimePolicy",
         **kwargs
-    ) -> "models.microsoftgraphtokenlifetimepolicy":
+    ) -> "models.MicrosoftGraphTokenLifetimePolicy":
         """Create new navigation property to tokenLifetimePolicies for policies.
 
         Create new navigation property to tokenLifetimePolicies for policies.
 
         :param body: New navigation property.
-        :type body: ~identity_sign_ins.models.microsoftgraphtokenlifetimepolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtokenlifetimepolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphtokenlifetimepolicy
+        :return: MicrosoftGraphTokenLifetimePolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtokenlifetimepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTokenLifetimePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3688,7 +3689,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtokenlifetimepolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTokenLifetimePolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3696,10 +3697,10 @@ class policiesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtokenlifetimepolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTokenLifetimePolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3713,7 +3714,7 @@ class policiesOperations:
         select: Optional[List[Union[str, "models.Enum250"]]] = None,
         expand: Optional[List[Union[str, "models.Enum251"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphtokenlifetimepolicy":
+    ) -> "models.MicrosoftGraphTokenLifetimePolicy":
         """Get tokenLifetimePolicies from policies.
 
         Get tokenLifetimePolicies from policies.
@@ -3725,11 +3726,11 @@ class policiesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum251]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphtokenlifetimepolicy, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.microsoftgraphtokenlifetimepolicy
+        :return: MicrosoftGraphTokenLifetimePolicy, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphtokenlifetimepolicy"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTokenLifetimePolicy"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -3760,10 +3761,10 @@ class policiesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphtokenlifetimepolicy', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTokenLifetimePolicy', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3774,7 +3775,7 @@ class policiesOperations:
     async def update_token_lifetime_policies(
         self,
         token_lifetime_policy_id: str,
-        body: "models.microsoftgraphtokenlifetimepolicy",
+        body: "models.MicrosoftGraphTokenLifetimePolicy",
         **kwargs
     ) -> None:
         """Update the navigation property tokenLifetimePolicies in policies.
@@ -3784,7 +3785,7 @@ class policiesOperations:
         :param token_lifetime_policy_id: key: id of tokenLifetimePolicy.
         :type token_lifetime_policy_id: str
         :param body: New navigation property values.
-        :type body: ~identity_sign_ins.models.microsoftgraphtokenlifetimepolicy
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -3814,7 +3815,7 @@ class policiesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphtokenlifetimepolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTokenLifetimePolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3822,8 +3823,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -3878,8 +3879,8 @@ class policiesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations(object):
-    """usersOperations operations.
+class UsersOperations(object):
+    """UsersOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -52,7 +53,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdevicemanagementtroubleshootingevent"]
+        # type: (...) -> Iterable["models.CollectionOfDeviceManagementTroubleshootingEvent"]
         """Get deviceManagementTroubleshootingEvents from users.
 
         Get deviceManagementTroubleshootingEvents from users.
@@ -66,11 +67,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdevicemanagementtroubleshootingevent or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.collectionofdevicemanagementtroubleshootingevent]
+        :return: An iterator like instance of either CollectionOfDeviceManagementTroubleshootingEvent or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.CollectionOfDeviceManagementTroubleshootingEvent]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdevicemanagementtroubleshootingevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDeviceManagementTroubleshootingEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdevicemanagementtroubleshootingevent', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDeviceManagementTroubleshootingEvent', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -143,10 +144,10 @@ class usersOperations(object):
     def create_device_management_troubleshooting_events(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphdevicemanagementtroubleshootingevent"
+        body,  # type: "models.MicrosoftGraphDeviceManagementTroubleshootingEvent"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdevicemanagementtroubleshootingevent"
+        # type: (...) -> "models.MicrosoftGraphDeviceManagementTroubleshootingEvent"
         """Create new navigation property to deviceManagementTroubleshootingEvents for users.
 
         Create new navigation property to deviceManagementTroubleshootingEvents for users.
@@ -154,13 +155,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.microsoftgraphdevicemanagementtroubleshootingevent
+        :type body: ~devices_corporate_management.models.MicrosoftGraphDeviceManagementTroubleshootingEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdevicemanagementtroubleshootingevent, or the result of cls(response)
-        :rtype: ~devices_corporate_management.models.microsoftgraphdevicemanagementtroubleshootingevent
+        :return: MicrosoftGraphDeviceManagementTroubleshootingEvent, or the result of cls(response)
+        :rtype: ~devices_corporate_management.models.MicrosoftGraphDeviceManagementTroubleshootingEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdevicemanagementtroubleshootingevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceManagementTroubleshootingEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,7 +185,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdevicemanagementtroubleshootingevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -192,10 +193,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdevicemanagementtroubleshootingevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDeviceManagementTroubleshootingEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -211,7 +212,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdevicemanagementtroubleshootingevent"
+        # type: (...) -> "models.MicrosoftGraphDeviceManagementTroubleshootingEvent"
         """Get deviceManagementTroubleshootingEvents from users.
 
         Get deviceManagementTroubleshootingEvents from users.
@@ -226,11 +227,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdevicemanagementtroubleshootingevent, or the result of cls(response)
-        :rtype: ~devices_corporate_management.models.microsoftgraphdevicemanagementtroubleshootingevent
+        :return: MicrosoftGraphDeviceManagementTroubleshootingEvent, or the result of cls(response)
+        :rtype: ~devices_corporate_management.models.MicrosoftGraphDeviceManagementTroubleshootingEvent
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdevicemanagementtroubleshootingevent"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceManagementTroubleshootingEvent"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -262,10 +263,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdevicemanagementtroubleshootingevent', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDeviceManagementTroubleshootingEvent', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -277,7 +278,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         device_management_troubleshooting_event_id,  # type: str
-        body,  # type: "models.microsoftgraphdevicemanagementtroubleshootingevent"
+        body,  # type: "models.MicrosoftGraphDeviceManagementTroubleshootingEvent"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -291,7 +292,7 @@ class usersOperations(object):
          deviceManagementTroubleshootingEvent.
         :type device_management_troubleshooting_event_id: str
         :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.microsoftgraphdevicemanagementtroubleshootingevent
+        :type body: ~devices_corporate_management.models.MicrosoftGraphDeviceManagementTroubleshootingEvent
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -322,7 +323,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdevicemanagementtroubleshootingevent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -330,8 +331,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -392,8 +393,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -408,7 +409,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofmanagedappregistration0"]
+        # type: (...) -> Iterable["models.CollectionOfManagedAppRegistration0"]
         """Get managedAppRegistrations from users.
 
         Get managedAppRegistrations from users.
@@ -422,11 +423,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_corporate_management.models.Enum145]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofmanagedappregistration0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.collectionofmanagedappregistration0]
+        :return: An iterator like instance of either CollectionOfManagedAppRegistration0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.CollectionOfManagedAppRegistration0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofmanagedappregistration0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedAppRegistration0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -472,7 +473,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofmanagedappregistration0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfManagedAppRegistration0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -485,9 +486,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -502,7 +503,7 @@ class usersOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksofmanagedappregistration"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfManagedAppRegistration"]
         """Get ref of managedAppRegistrations from users.
 
         Get ref of managedAppRegistrations from users.
@@ -512,11 +513,11 @@ class usersOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~devices_corporate_management.models.Enum146]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofmanagedappregistration or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.collectionoflinksofmanagedappregistration]
+        :return: An iterator like instance of either CollectionOfLinksOfManagedAppRegistration or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.CollectionOfLinksOfManagedAppRegistration]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofmanagedappregistration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfManagedAppRegistration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -558,7 +559,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofmanagedappregistration', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfManagedAppRegistration', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -571,9 +572,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -634,8 +635,8 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -653,7 +654,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofmanageddevice"]
+        # type: (...) -> Iterable["models.CollectionOfManagedDevice"]
         """Get managedDevices from users.
 
         Get managedDevices from users.
@@ -667,11 +668,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_corporate_management.models.Enum149]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofmanageddevice or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.collectionofmanageddevice]
+        :return: An iterator like instance of either CollectionOfManagedDevice or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~devices_corporate_management.models.CollectionOfManagedDevice]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofmanageddevice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDevice"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -717,7 +718,7 @@ class usersOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofmanageddevice', pipeline_response)
+            deserialized = self._deserialize('CollectionOfManagedDevice', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -730,9 +731,9 @@ class usersOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -744,10 +745,10 @@ class usersOperations(object):
     def create_managed_devices(
         self,
         user_id,  # type: str
-        body,  # type: "models.microsoftgraphmanageddevice"
+        body,  # type: "models.MicrosoftGraphManagedDevice"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmanageddevice"
+        # type: (...) -> "models.MicrosoftGraphManagedDevice"
         """Create new navigation property to managedDevices for users.
 
         Create new navigation property to managedDevices for users.
@@ -755,13 +756,13 @@ class usersOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~devices_corporate_management.models.microsoftgraphmanageddevice
+        :type body: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmanageddevice, or the result of cls(response)
-        :rtype: ~devices_corporate_management.models.microsoftgraphmanageddevice
+        :return: MicrosoftGraphManagedDevice, or the result of cls(response)
+        :rtype: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmanageddevice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDevice"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -785,7 +786,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmanageddevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -793,10 +794,10 @@ class usersOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmanageddevice', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphManagedDevice', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -812,7 +813,7 @@ class usersOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum161"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphmanageddevice"
+        # type: (...) -> "models.MicrosoftGraphManagedDevice"
         """Get managedDevices from users.
 
         Get managedDevices from users.
@@ -826,11 +827,11 @@ class usersOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~devices_corporate_management.models.Enum161]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphmanageddevice, or the result of cls(response)
-        :rtype: ~devices_corporate_management.models.microsoftgraphmanageddevice
+        :return: MicrosoftGraphManagedDevice, or the result of cls(response)
+        :rtype: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphmanageddevice"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDevice"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -862,10 +863,10 @@ class usersOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphmanageddevice', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphManagedDevice', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -877,7 +878,7 @@ class usersOperations(object):
         self,
         user_id,  # type: str
         managed_device_id,  # type: str
-        body,  # type: "models.microsoftgraphmanageddevice"
+        body,  # type: "models.MicrosoftGraphManagedDevice"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -890,7 +891,7 @@ class usersOperations(object):
         :param managed_device_id: key: id of managedDevice.
         :type managed_device_id: str
         :param body: New navigation property values.
-        :type body: ~devices_corporate_management.models.microsoftgraphmanageddevice
+        :type body: ~devices_corporate_management.models.MicrosoftGraphManagedDevice
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -921,7 +922,7 @@ class usersOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphmanageddevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -929,8 +930,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -990,8 +991,8 @@ class usersOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

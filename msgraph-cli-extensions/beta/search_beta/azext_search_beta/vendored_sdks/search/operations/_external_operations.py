@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class externalOperations(object):
-    """externalOperations operations.
+class ExternalOperations(object):
+    """ExternalOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,28 +47,28 @@ class externalOperations(object):
 
     def list_connections(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofexternalconnection"]
+        # type: (...) -> Iterable["models.CollectionOfExternalConnection"]
         """Get connections from external.
 
         Get connections from external.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~search.models.Get5itemsitem]
+        :type orderby: list[str or ~search.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~search.models.Get6itemsitem]
+        :type select: list[str or ~search.models.Get6ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~search.models.Get7itemsitem]
+        :type expand: list[str or ~search.models.Get7ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofexternalconnection or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~search.models.collectionofexternalconnection]
+        :return: An iterator like instance of either CollectionOfExternalConnection or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~search.models.CollectionOfExternalConnection]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofexternalconnection"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExternalConnection"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class externalOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofexternalconnection', pipeline_response)
+            deserialized = self._deserialize('CollectionOfExternalConnection', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class externalOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class externalOperations(object):
 
     def create_connections(
         self,
-        body,  # type: "models.microsoftgraphexternalconnection"
+        body,  # type: "models.MicrosoftGraphExternalConnection"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphexternalconnection"
+        # type: (...) -> "models.MicrosoftGraphExternalConnection"
         """Create new navigation property to connections for external.
 
         Create new navigation property to connections for external.
 
         :param body: New navigation property.
-        :type body: ~search.models.microsoftgraphexternalconnection
+        :type body: ~search.models.MicrosoftGraphExternalConnection
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphexternalconnection, or the result of cls(response)
-        :rtype: ~search.models.microsoftgraphexternalconnection
+        :return: MicrosoftGraphExternalConnection, or the result of cls(response)
+        :rtype: ~search.models.MicrosoftGraphExternalConnection
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphexternalconnection"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExternalConnection"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class externalOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphexternalconnection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExternalConnection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class externalOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphexternalconnection', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExternalConnection', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -193,10 +194,10 @@ class externalOperations(object):
         self,
         external_connection_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum13"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphexternalconnection"
+        # type: (...) -> "models.MicrosoftGraphExternalConnection"
         """Get connections from external.
 
         Get connections from external.
@@ -206,13 +207,13 @@ class externalOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~search.models.Enum13]
         :param expand: Expand related entities.
-        :type expand: list[str or ~search.models.Get2itemsitem]
+        :type expand: list[str or ~search.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphexternalconnection, or the result of cls(response)
-        :rtype: ~search.models.microsoftgraphexternalconnection
+        :return: MicrosoftGraphExternalConnection, or the result of cls(response)
+        :rtype: ~search.models.MicrosoftGraphExternalConnection
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphexternalconnection"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExternalConnection"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class externalOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphexternalconnection', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphExternalConnection', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class externalOperations(object):
     def update_connections(
         self,
         external_connection_id,  # type: str
-        body,  # type: "models.microsoftgraphexternalconnection"
+        body,  # type: "models.MicrosoftGraphExternalConnection"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class externalOperations(object):
         :param external_connection_id: key: id of externalConnection.
         :type external_connection_id: str
         :param body: New navigation property values.
-        :type body: ~search.models.microsoftgraphexternalconnection
+        :type body: ~search.models.MicrosoftGraphExternalConnection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class externalOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphexternalconnection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExternalConnection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class externalOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class externalOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

@@ -13,40 +13,47 @@
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
-from azext_search_beta.generated._client_factory import cf_external, cf_external, cf_searchentity, cf_search
+from azext_search_beta.generated._client_factory import (
+    cf_external_external,
+    cf_external,
+    cf_search_search_entity,
+    cf_search,
+)
 
 
-search_beta_external = CliCommandType(
+search_beta_external_external = CliCommandType(
     operations_tmpl=(
-        'azext_search_beta.vendored_sdks.search.operations._externalexternal_operations#externalexternalOperations.{}'
+        'azext_search_beta.vendored_sdks.search.operations._external_external_operations#ExternalExternalOperations.{}'
     ),
-    client_factory=cf_external,
+    client_factory=cf_external_external,
 )
 
 
 search_beta_external = CliCommandType(
-    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._external_operations#externalOperations.{}',
+    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._external_operations#ExternalOperations.{}',
     client_factory=cf_external,
 )
 
 
-search_beta_searchentity = CliCommandType(
-    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._searchsearchentity_operations#searchsearchentityOperations.{}',
-    client_factory=cf_searchentity,
+search_beta_search_search_entity = CliCommandType(
+    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._search_search_entity_operations#SearchSearchEntityOperations.{}',
+    client_factory=cf_search_search_entity,
 )
 
 
 search_beta_search = CliCommandType(
-    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._search_operations#searchOperations.{}',
+    operations_tmpl='azext_search_beta.vendored_sdks.search.operations._search_operations#SearchOperations.{}',
     client_factory=cf_search,
 )
 
 
 def load_command_table(self, _):
 
-    with self.command_group('search external', search_beta_external, client_factory=cf_external) as g:
-        g.custom_command('show-external', 'search_external_show_external')
-        g.custom_command('update-external', 'search_external_update_external')
+    with self.command_group(
+        'search external-external', search_beta_external_external, client_factory=cf_external_external
+    ) as g:
+        g.custom_command('show-external', 'search_external_external_show_external')
+        g.custom_command('update-external', 'search_external_external_update_external')
 
     with self.command_group('search external', search_beta_external, client_factory=cf_external) as g:
         g.custom_command('create-connection', 'search_external_create_connection')
@@ -55,9 +62,11 @@ def load_command_table(self, _):
         g.custom_command('show-connection', 'search_external_show_connection')
         g.custom_command('update-connection', 'search_external_update_connection')
 
-    with self.command_group('search searchentity', search_beta_searchentity, client_factory=cf_searchentity) as g:
-        g.custom_command('show-search-entity', 'search_searchentity_show_search_entity')
-        g.custom_command('update-search-entity', 'search_searchentity_update_search_entity')
+    with self.command_group(
+        'search search-entity', search_beta_search_search_entity, client_factory=cf_search_search_entity
+    ) as g:
+        g.custom_command('show-search-entity', 'search_search_entity_show_search_entity')
+        g.custom_command('update-search-entity', 'search_search_entity_update_search_entity')
 
     with self.command_group('search search', search_beta_search, client_factory=cf_search) as g:
         g.custom_command('query', 'search_search_query')

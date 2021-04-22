@@ -7,55 +7,55 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofdirectoryaudit
-    from ._models_py3 import collectionofrestrictedsignin
-    from ._models_py3 import collectionofsignin
-    from ._models_py3 import microsoftgraphappidentity
-    from ._models_py3 import microsoftgraphappliedconditionalaccesspolicy
-    from ._models_py3 import microsoftgraphauditactivityinitiator
-    from ._models_py3 import microsoftgraphauditlogroot
-    from ._models_py3 import microsoftgraphdevicedetail
-    from ._models_py3 import microsoftgraphdirectoryaudit
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphgeocoordinates
-    from ._models_py3 import microsoftgraphkeyvalue
-    from ._models_py3 import microsoftgraphmodifiedproperty
-    from ._models_py3 import microsoftgraphreport
-    from ._models_py3 import microsoftgraphreportroot
-    from ._models_py3 import microsoftgraphrestrictedsignin
-    from ._models_py3 import microsoftgraphsignin
-    from ._models_py3 import microsoftgraphsigninlocation
-    from ._models_py3 import microsoftgraphsigninstatus
-    from ._models_py3 import microsoftgraphtargetresource
-    from ._models_py3 import microsoftgraphuseridentity
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfDirectoryAudit
+    from ._models_py3 import CollectionOfRestrictedSignIn
+    from ._models_py3 import CollectionOfSignIn
+    from ._models_py3 import MicrosoftGraphAppIdentity
+    from ._models_py3 import MicrosoftGraphAppliedConditionalAccessPolicy
+    from ._models_py3 import MicrosoftGraphAuditActivityInitiator
+    from ._models_py3 import MicrosoftGraphAuditLogRoot
+    from ._models_py3 import MicrosoftGraphDeviceDetail
+    from ._models_py3 import MicrosoftGraphDirectoryAudit
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphGeoCoordinates
+    from ._models_py3 import MicrosoftGraphKeyValue
+    from ._models_py3 import MicrosoftGraphModifiedProperty
+    from ._models_py3 import MicrosoftGraphReport
+    from ._models_py3 import MicrosoftGraphReportRoot
+    from ._models_py3 import MicrosoftGraphRestrictedSignIn
+    from ._models_py3 import MicrosoftGraphSignIn
+    from ._models_py3 import MicrosoftGraphSignInLocation
+    from ._models_py3 import MicrosoftGraphSignInStatus
+    from ._models_py3 import MicrosoftGraphTargetResource
+    from ._models_py3 import MicrosoftGraphUserIdentity
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofdirectoryaudit  # type: ignore
-    from ._models import collectionofrestrictedsignin  # type: ignore
-    from ._models import collectionofsignin  # type: ignore
-    from ._models import microsoftgraphappidentity  # type: ignore
-    from ._models import microsoftgraphappliedconditionalaccesspolicy  # type: ignore
-    from ._models import microsoftgraphauditactivityinitiator  # type: ignore
-    from ._models import microsoftgraphauditlogroot  # type: ignore
-    from ._models import microsoftgraphdevicedetail  # type: ignore
-    from ._models import microsoftgraphdirectoryaudit  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphgeocoordinates  # type: ignore
-    from ._models import microsoftgraphkeyvalue  # type: ignore
-    from ._models import microsoftgraphmodifiedproperty  # type: ignore
-    from ._models import microsoftgraphreport  # type: ignore
-    from ._models import microsoftgraphreportroot  # type: ignore
-    from ._models import microsoftgraphrestrictedsignin  # type: ignore
-    from ._models import microsoftgraphsignin  # type: ignore
-    from ._models import microsoftgraphsigninlocation  # type: ignore
-    from ._models import microsoftgraphsigninstatus  # type: ignore
-    from ._models import microsoftgraphtargetresource  # type: ignore
-    from ._models import microsoftgraphuseridentity  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfDirectoryAudit  # type: ignore
+    from ._models import CollectionOfRestrictedSignIn  # type: ignore
+    from ._models import CollectionOfSignIn  # type: ignore
+    from ._models import MicrosoftGraphAppIdentity  # type: ignore
+    from ._models import MicrosoftGraphAppliedConditionalAccessPolicy  # type: ignore
+    from ._models import MicrosoftGraphAuditActivityInitiator  # type: ignore
+    from ._models import MicrosoftGraphAuditLogRoot  # type: ignore
+    from ._models import MicrosoftGraphDeviceDetail  # type: ignore
+    from ._models import MicrosoftGraphDirectoryAudit  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphGeoCoordinates  # type: ignore
+    from ._models import MicrosoftGraphKeyValue  # type: ignore
+    from ._models import MicrosoftGraphModifiedProperty  # type: ignore
+    from ._models import MicrosoftGraphReport  # type: ignore
+    from ._models import MicrosoftGraphReportRoot  # type: ignore
+    from ._models import MicrosoftGraphRestrictedSignIn  # type: ignore
+    from ._models import MicrosoftGraphSignIn  # type: ignore
+    from ._models import MicrosoftGraphSignInLocation  # type: ignore
+    from ._models import MicrosoftGraphSignInStatus  # type: ignore
+    from ._models import MicrosoftGraphTargetResource  # type: ignore
+    from ._models import MicrosoftGraphUserIdentity  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._reports_enums import (
     Enum12,
@@ -65,45 +65,45 @@ from ._reports_enums import (
     Enum16,
     Enum17,
     Enum18,
-    Get0itemsitem,
-    Get1itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Microsoftgraphappliedconditionalaccesspolicyresult,
-    Microsoftgraphconditionalaccessstatus,
-    Microsoftgraphgrouptype,
-    Microsoftgraphoperationresult,
-    Microsoftgraphriskdetail,
-    Microsoftgraphriskeventtype,
-    Microsoftgraphrisklevel,
-    Microsoftgraphriskstate,
+    Get0ItemsItem,
+    Get1ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    MicrosoftGraphAppliedConditionalAccessPolicyResult,
+    MicrosoftGraphConditionalAccessStatus,
+    MicrosoftGraphGroupType,
+    MicrosoftGraphOperationResult,
+    MicrosoftGraphRiskDetail,
+    MicrosoftGraphRiskEventType,
+    MicrosoftGraphRiskLevel,
+    MicrosoftGraphRiskState,
 )
 
 __all__ = [
-    'collectionofdirectoryaudit',
-    'collectionofrestrictedsignin',
-    'collectionofsignin',
-    'microsoftgraphappidentity',
-    'microsoftgraphappliedconditionalaccesspolicy',
-    'microsoftgraphauditactivityinitiator',
-    'microsoftgraphauditlogroot',
-    'microsoftgraphdevicedetail',
-    'microsoftgraphdirectoryaudit',
-    'microsoftgraphentity',
-    'microsoftgraphgeocoordinates',
-    'microsoftgraphkeyvalue',
-    'microsoftgraphmodifiedproperty',
-    'microsoftgraphreport',
-    'microsoftgraphreportroot',
-    'microsoftgraphrestrictedsignin',
-    'microsoftgraphsignin',
-    'microsoftgraphsigninlocation',
-    'microsoftgraphsigninstatus',
-    'microsoftgraphtargetresource',
-    'microsoftgraphuseridentity',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfDirectoryAudit',
+    'CollectionOfRestrictedSignIn',
+    'CollectionOfSignIn',
+    'MicrosoftGraphAppIdentity',
+    'MicrosoftGraphAppliedConditionalAccessPolicy',
+    'MicrosoftGraphAuditActivityInitiator',
+    'MicrosoftGraphAuditLogRoot',
+    'MicrosoftGraphDeviceDetail',
+    'MicrosoftGraphDirectoryAudit',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphGeoCoordinates',
+    'MicrosoftGraphKeyValue',
+    'MicrosoftGraphModifiedProperty',
+    'MicrosoftGraphReport',
+    'MicrosoftGraphReportRoot',
+    'MicrosoftGraphRestrictedSignIn',
+    'MicrosoftGraphSignIn',
+    'MicrosoftGraphSignInLocation',
+    'MicrosoftGraphSignInStatus',
+    'MicrosoftGraphTargetResource',
+    'MicrosoftGraphUserIdentity',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum12',
     'Enum13',
     'Enum14',
@@ -111,16 +111,16 @@ __all__ = [
     'Enum16',
     'Enum17',
     'Enum18',
-    'Get0itemsitem',
-    'Get1itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Microsoftgraphappliedconditionalaccesspolicyresult',
-    'Microsoftgraphconditionalaccessstatus',
-    'Microsoftgraphgrouptype',
-    'Microsoftgraphoperationresult',
-    'Microsoftgraphriskdetail',
-    'Microsoftgraphriskeventtype',
-    'Microsoftgraphrisklevel',
-    'Microsoftgraphriskstate',
+    'Get0ItemsItem',
+    'Get1ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'MicrosoftGraphAppliedConditionalAccessPolicyResult',
+    'MicrosoftGraphConditionalAccessStatus',
+    'MicrosoftGraphGroupType',
+    'MicrosoftGraphOperationResult',
+    'MicrosoftGraphRiskDetail',
+    'MicrosoftGraphRiskEventType',
+    'MicrosoftGraphRiskLevel',
+    'MicrosoftGraphRiskState',
 ]

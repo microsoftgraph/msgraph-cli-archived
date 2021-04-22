@@ -12,7 +12,8 @@
 
 from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
-    get_enum_type
+    get_enum_type,
+    get_location_type
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_people_beta.action import (
@@ -37,13 +38,14 @@ from azext_people_beta.action import (
     AddSource,
     AddApplication,
     AddPreferredLanguageTag,
-    AddPeopleUsersprofileCreateAddressDetail,
+    AddPeopleUserProfileCreateAddressDetail,
     AddGeoCoordinates,
+    AddProgram,
     AddPronunciation,
-    AddPeopleUsersprofileCreateNoteDetail,
-    AddPeopleUsersprofileCreatePositionColleagues,
+    AddPeopleUserProfileCreateNoteDetail,
+    AddPeopleUserProfileCreatePositionColleagues,
     AddManager,
-    AddPeopleUsersprofileCreateProjectColleagues,
+    AddPeopleUserProfileCreateProjectColleagues,
     AddSponsors,
     AddService
 )
@@ -173,7 +175,7 @@ def load_arguments(self, _):
         c.argument('web_accounts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('websites', action=AddPeopleUserUpdateProfileWebsites, nargs='+', help='')
 
-    with self.argument_context('people usersanalytic create-activity-statistics') as c:
+    with self.argument_context('people user-analytic create-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', arg_type=get_enum_type(['Email', 'Meeting', 'Focus', 'Chat', 'Call']), help='')
@@ -182,24 +184,24 @@ def load_arguments(self, _):
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
 
-    with self.argument_context('people usersanalytic delete-activity-statistics') as c:
+    with self.argument_context('people user-analytic delete-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersanalytic list-activity-statistics') as c:
+    with self.argument_context('people user-analytic list-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersanalytic show-activity-statistics') as c:
+    with self.argument_context('people user-analytic show-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersanalytic update-activity-statistics') as c:
+    with self.argument_context('people user-analytic update-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -209,7 +211,7 @@ def load_arguments(self, _):
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
 
-    with self.argument_context('people usersprofile create-account') as c:
+    with self.argument_context('people user-profile create-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -233,7 +235,7 @@ def load_arguments(self, _):
         c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='+', help='localeInfo')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('people usersprofile create-address') as c:
+    with self.argument_context('people user-profile create-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -252,11 +254,11 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
-        c.argument('detail', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress')
+        c.argument('detail', action=AddPeopleUserProfileCreateAddressDetail, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='')
         c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates')
 
-    with self.argument_context('people usersprofile create-anniversary') as c:
+    with self.argument_context('people user-profile create-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -279,7 +281,7 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding',
                                                                              'unknownFutureValue']), help='')
 
-    with self.argument_context('people usersprofile create-award') as c:
+    with self.argument_context('people user-profile create-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -305,7 +307,7 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-certification') as c:
+    with self.argument_context('people user-profile create-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -335,12 +337,35 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-educational-activity') as c:
+    with self.argument_context('people user-profile create-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
+                                                                'unknownFutureValue']), help='')
+        c.argument('created_date_time', help='')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
+        c.argument('last_modified_date_time', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('completion_month_year', help='')
+        c.argument('end_month_year', help='')
+        c.argument('program', action=AddProgram, nargs='+', help='educationalActivityDetail')
+        c.argument('start_month_year', help='')
+        c.argument('description', type=str, help='', arg_group='Institution')
+        c.argument('display_name', type=str, help='', arg_group='Institution')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('web_url', type=str, help='', arg_group='Institution')
 
-    with self.argument_context('people usersprofile create-email') as c:
+    with self.argument_context('people user-profile create-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -364,7 +389,7 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main',
                                                                              'other']), help='')
 
-    with self.argument_context('people usersprofile create-interest') as c:
+    with self.argument_context('people user-profile create-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -389,7 +414,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-language') as c:
+    with self.argument_context('people user-profile create-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -423,7 +448,7 @@ def load_arguments(self, _):
                                                       'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
 
-    with self.argument_context('people usersprofile create-name') as c:
+    with self.argument_context('people user-profile create-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -454,7 +479,7 @@ def load_arguments(self, _):
         c.argument('suffix', type=str, help='')
         c.argument('title', type=str, help='')
 
-    with self.argument_context('people usersprofile create-note') as c:
+    with self.argument_context('people user-profile create-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -473,10 +498,10 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
-        c.argument('detail', action=AddPeopleUsersprofileCreateNoteDetail, nargs='+', help='itemBody')
+        c.argument('detail', action=AddPeopleUserProfileCreateNoteDetail, nargs='+', help='itemBody')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('people usersprofile create-patent') as c:
+    with self.argument_context('people user-profile create-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -503,7 +528,7 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-phone') as c:
+    with self.argument_context('people user-profile create-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -528,7 +553,7 @@ def load_arguments(self, _):
                                                                              'assistant', 'homeFax', 'businessFax',
                                                                              'otherFax', 'pager', 'radio']), help='')
 
-    with self.argument_context('people usersprofile create-position') as c:
+    with self.argument_context('people user-profile create-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -548,7 +573,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
         c.argument('categories', nargs='+', help='')
-        c.argument('colleagues', action=AddPeopleUsersprofileCreatePositionColleagues, nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUserProfileCreatePositionColleagues, nargs='+', help='')
         c.argument('is_current', arg_type=get_three_state_flag(), help='')
         c.argument('manager', action=AddManager, nargs='+', help='relatedPerson')
         c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
@@ -560,7 +585,7 @@ def load_arguments(self, _):
         c.argument('start_month_year', help='', arg_group='Detail')
         c.argument('summary', type=str, help='', arg_group='Detail')
 
-    with self.argument_context('people usersprofile create-project') as c:
+    with self.argument_context('people user-profile create-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -581,7 +606,7 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('categories', nargs='+', help='')
         c.argument('collaboration_tags', nargs='+', help='')
-        c.argument('colleagues', action=AddPeopleUsersprofileCreateProjectColleagues, nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUserProfileCreateProjectColleagues, nargs='+', help='')
         c.argument('display_name', type=str, help='')
         c.argument('sponsors', action=AddSponsors, nargs='+', help='')
         c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
@@ -592,7 +617,7 @@ def load_arguments(self, _):
         c.argument('role', type=str, help='', arg_group='Detail')
         c.argument('start_month_year', help='', arg_group='Detail')
         c.argument('summary', type=str, help='', arg_group='Detail')
-        c.argument('address', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress',
+        c.argument('address', action=AddPeopleUserProfileCreateAddressDetail, nargs='+', help='physicalAddress',
                    arg_group='Client')
         c.argument('department', type=str, help='', arg_group='Client')
         c.argument('microsoft_graph_company_detail_display_name', type=str, help='', arg_group='Client')
@@ -600,7 +625,7 @@ def load_arguments(self, _):
         c.argument('pronunciation', type=str, help='', arg_group='Client')
         c.argument('web_url', type=str, help='', arg_group='Client')
 
-    with self.argument_context('people usersprofile create-publication') as c:
+    with self.argument_context('people user-profile create-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -626,7 +651,7 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-skill') as c:
+    with self.argument_context('people user-profile create-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -653,7 +678,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-web-account') as c:
+    with self.argument_context('people user-profile create-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -678,7 +703,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_web_account_user_id', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile create-website') as c:
+    with self.argument_context('people user-profile create-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
@@ -702,330 +727,330 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile delete-account') as c:
+    with self.argument_context('people user-profile delete-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-address') as c:
+    with self.argument_context('people user-profile delete-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_address_id', type=str, help='key: id of itemAddress')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-anniversary') as c:
+    with self.argument_context('people user-profile delete-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-award') as c:
+    with self.argument_context('people user-profile delete-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_award_id', type=str, help='key: id of personAward')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-certification') as c:
+    with self.argument_context('people user-profile delete-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_certification_id', type=str, help='key: id of personCertification')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-educational-activity') as c:
+    with self.argument_context('people user-profile delete-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-email') as c:
+    with self.argument_context('people user-profile delete-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_email_id', type=str, help='key: id of itemEmail')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-interest') as c:
+    with self.argument_context('people user-profile delete-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_interest_id', type=str, help='key: id of personInterest')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-language') as c:
+    with self.argument_context('people user-profile delete-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-name') as c:
+    with self.argument_context('people user-profile delete-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_name_id', type=str, help='key: id of personName')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-note') as c:
+    with self.argument_context('people user-profile delete-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-patent') as c:
+    with self.argument_context('people user-profile delete-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_patent_id', type=str, help='key: id of itemPatent')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-phone') as c:
+    with self.argument_context('people user-profile delete-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_phone_id', type=str, help='key: id of itemPhone')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-position') as c:
+    with self.argument_context('people user-profile delete-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('work_position_id', type=str, help='key: id of workPosition')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-project') as c:
+    with self.argument_context('people user-profile delete-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-publication') as c:
+    with self.argument_context('people user-profile delete-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_publication_id', type=str, help='key: id of itemPublication')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-skill') as c:
+    with self.argument_context('people user-profile delete-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-web-account') as c:
+    with self.argument_context('people user-profile delete-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_account_id', type=str, help='key: id of webAccount')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile delete-website') as c:
+    with self.argument_context('people user-profile delete-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_website_id', type=str, help='key: id of personWebsite')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people usersprofile list-account') as c:
+    with self.argument_context('people user-profile list-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-address') as c:
+    with self.argument_context('people user-profile list-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-anniversary') as c:
+    with self.argument_context('people user-profile list-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-award') as c:
+    with self.argument_context('people user-profile list-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-certification') as c:
+    with self.argument_context('people user-profile list-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-educational-activity') as c:
+    with self.argument_context('people user-profile list-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-email') as c:
+    with self.argument_context('people user-profile list-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-interest') as c:
+    with self.argument_context('people user-profile list-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-language') as c:
+    with self.argument_context('people user-profile list-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-name') as c:
+    with self.argument_context('people user-profile list-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-note') as c:
+    with self.argument_context('people user-profile list-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-patent') as c:
+    with self.argument_context('people user-profile list-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-phone') as c:
+    with self.argument_context('people user-profile list-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-position') as c:
+    with self.argument_context('people user-profile list-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-project') as c:
+    with self.argument_context('people user-profile list-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-publication') as c:
+    with self.argument_context('people user-profile list-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-skill') as c:
+    with self.argument_context('people user-profile list-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-web-account') as c:
+    with self.argument_context('people user-profile list-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile list-website') as c:
+    with self.argument_context('people user-profile list-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-account') as c:
+    with self.argument_context('people user-profile show-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-address') as c:
+    with self.argument_context('people user-profile show-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_address_id', type=str, help='key: id of itemAddress')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-anniversary') as c:
+    with self.argument_context('people user-profile show-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-award') as c:
+    with self.argument_context('people user-profile show-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_award_id', type=str, help='key: id of personAward')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-certification') as c:
+    with self.argument_context('people user-profile show-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_certification_id', type=str, help='key: id of personCertification')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-educational-activity') as c:
+    with self.argument_context('people user-profile show-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-email') as c:
+    with self.argument_context('people user-profile show-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_email_id', type=str, help='key: id of itemEmail')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-interest') as c:
+    with self.argument_context('people user-profile show-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_interest_id', type=str, help='key: id of personInterest')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-language') as c:
+    with self.argument_context('people user-profile show-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-name') as c:
+    with self.argument_context('people user-profile show-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_name_id', type=str, help='key: id of personName')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-note') as c:
+    with self.argument_context('people user-profile show-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-patent') as c:
+    with self.argument_context('people user-profile show-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_patent_id', type=str, help='key: id of itemPatent')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-phone') as c:
+    with self.argument_context('people user-profile show-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_phone_id', type=str, help='key: id of itemPhone')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-position') as c:
+    with self.argument_context('people user-profile show-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('work_position_id', type=str, help='key: id of workPosition')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-project') as c:
+    with self.argument_context('people user-profile show-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-publication') as c:
+    with self.argument_context('people user-profile show-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_publication_id', type=str, help='key: id of itemPublication')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-skill') as c:
+    with self.argument_context('people user-profile show-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-web-account') as c:
+    with self.argument_context('people user-profile show-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_account_id', type=str, help='key: id of webAccount')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile show-website') as c:
+    with self.argument_context('people user-profile show-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_website_id', type=str, help='key: id of personWebsite')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people usersprofile update-account') as c:
+    with self.argument_context('people user-profile update-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1050,7 +1075,7 @@ def load_arguments(self, _):
         c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='+', help='localeInfo')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('people usersprofile update-address') as c:
+    with self.argument_context('people user-profile update-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_address_id', type=str, help='key: id of itemAddress')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1070,11 +1095,11 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
-        c.argument('detail', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress')
+        c.argument('detail', action=AddPeopleUserProfileCreateAddressDetail, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='')
         c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates')
 
-    with self.argument_context('people usersprofile update-anniversary') as c:
+    with self.argument_context('people user-profile update-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1098,7 +1123,7 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding',
                                                                              'unknownFutureValue']), help='')
 
-    with self.argument_context('people usersprofile update-award') as c:
+    with self.argument_context('people user-profile update-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_award_id', type=str, help='key: id of personAward')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1125,7 +1150,7 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-certification') as c:
+    with self.argument_context('people user-profile update-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_certification_id', type=str, help='key: id of personCertification')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1156,13 +1181,36 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-educational-activity') as c:
+    with self.argument_context('people user-profile update-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
+                                                                'unknownFutureValue']), help='')
+        c.argument('created_date_time', help='')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
+        c.argument('last_modified_date_time', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('completion_month_year', help='')
+        c.argument('end_month_year', help='')
+        c.argument('program', action=AddProgram, nargs='+', help='educationalActivityDetail')
+        c.argument('start_month_year', help='')
+        c.argument('description', type=str, help='', arg_group='Institution')
+        c.argument('display_name', type=str, help='', arg_group='Institution')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('web_url', type=str, help='', arg_group='Institution')
 
-    with self.argument_context('people usersprofile update-email') as c:
+    with self.argument_context('people user-profile update-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_email_id', type=str, help='key: id of itemEmail')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1187,7 +1235,7 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main',
                                                                              'other']), help='')
 
-    with self.argument_context('people usersprofile update-interest') as c:
+    with self.argument_context('people user-profile update-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_interest_id', type=str, help='key: id of personInterest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1213,7 +1261,7 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-language') as c:
+    with self.argument_context('people user-profile update-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1248,7 +1296,7 @@ def load_arguments(self, _):
                                                       'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
 
-    with self.argument_context('people usersprofile update-name') as c:
+    with self.argument_context('people user-profile update-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_name_id', type=str, help='key: id of personName')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1280,7 +1328,7 @@ def load_arguments(self, _):
         c.argument('suffix', type=str, help='')
         c.argument('title', type=str, help='')
 
-    with self.argument_context('people usersprofile update-note') as c:
+    with self.argument_context('people user-profile update-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1300,10 +1348,10 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
-        c.argument('detail', action=AddPeopleUsersprofileCreateNoteDetail, nargs='+', help='itemBody')
+        c.argument('detail', action=AddPeopleUserProfileCreateNoteDetail, nargs='+', help='itemBody')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('people usersprofile update-patent') as c:
+    with self.argument_context('people user-profile update-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_patent_id', type=str, help='key: id of itemPatent')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1331,7 +1379,7 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-phone') as c:
+    with self.argument_context('people user-profile update-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_phone_id', type=str, help='key: id of itemPhone')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1357,7 +1405,7 @@ def load_arguments(self, _):
                                                                              'assistant', 'homeFax', 'businessFax',
                                                                              'otherFax', 'pager', 'radio']), help='')
 
-    with self.argument_context('people usersprofile update-position') as c:
+    with self.argument_context('people user-profile update-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('work_position_id', type=str, help='key: id of workPosition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1378,7 +1426,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
         c.argument('categories', nargs='+', help='')
-        c.argument('colleagues', action=AddPeopleUsersprofileCreatePositionColleagues, nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUserProfileCreatePositionColleagues, nargs='+', help='')
         c.argument('is_current', arg_type=get_three_state_flag(), help='')
         c.argument('manager', action=AddManager, nargs='+', help='relatedPerson')
         c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
@@ -1390,7 +1438,7 @@ def load_arguments(self, _):
         c.argument('start_month_year', help='', arg_group='Detail')
         c.argument('summary', type=str, help='', arg_group='Detail')
 
-    with self.argument_context('people usersprofile update-project') as c:
+    with self.argument_context('people user-profile update-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1412,7 +1460,7 @@ def load_arguments(self, _):
                    arg_group='Created By')
         c.argument('categories', nargs='+', help='')
         c.argument('collaboration_tags', nargs='+', help='')
-        c.argument('colleagues', action=AddPeopleUsersprofileCreateProjectColleagues, nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUserProfileCreateProjectColleagues, nargs='+', help='')
         c.argument('display_name', type=str, help='')
         c.argument('sponsors', action=AddSponsors, nargs='+', help='')
         c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
@@ -1423,7 +1471,7 @@ def load_arguments(self, _):
         c.argument('role', type=str, help='', arg_group='Detail')
         c.argument('start_month_year', help='', arg_group='Detail')
         c.argument('summary', type=str, help='', arg_group='Detail')
-        c.argument('address', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress',
+        c.argument('address', action=AddPeopleUserProfileCreateAddressDetail, nargs='+', help='physicalAddress',
                    arg_group='Client')
         c.argument('department', type=str, help='', arg_group='Client')
         c.argument('microsoft_graph_company_detail_display_name', type=str, help='', arg_group='Client')
@@ -1431,7 +1479,7 @@ def load_arguments(self, _):
         c.argument('pronunciation', type=str, help='', arg_group='Client')
         c.argument('web_url', type=str, help='', arg_group='Client')
 
-    with self.argument_context('people usersprofile update-publication') as c:
+    with self.argument_context('people user-profile update-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_publication_id', type=str, help='key: id of itemPublication')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1458,7 +1506,7 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-skill') as c:
+    with self.argument_context('people user-profile update-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1486,7 +1534,7 @@ def load_arguments(self, _):
                    help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-web-account') as c:
+    with self.argument_context('people user-profile update-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_account_id', type=str, help='key: id of webAccount')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1512,7 +1560,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_web_account_user_id', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people usersprofile update-website') as c:
+    with self.argument_context('people user-profile update-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_website_id', type=str, help='key: id of personWebsite')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')

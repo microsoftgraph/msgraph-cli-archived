@@ -6,16 +6,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._users_operations import usersOperations
-from ._usersinferenceclassification_operations import usersinferenceclassificationOperations
-from ._usersmailfolders_operations import usersmailfoldersOperations
-from ._usersmailfoldersmessages_operations import usersmailfoldersmessagesOperations
-from ._usersmessages_operations import usersmessagesOperations
+from ._users_operations import UsersOperations
+from ._users_inference_classification_operations import UsersInferenceClassificationOperations
+from ._users_mail_folders_operations import UsersMailFoldersOperations
+from ._users_mail_folders_messages_operations import UsersMailFoldersMessagesOperations
+from ._users_messages_operations import UsersMessagesOperations
 
 __all__ = [
-    'usersOperations',
-    'usersinferenceclassificationOperations',
-    'usersmailfoldersOperations',
-    'usersmailfoldersmessagesOperations',
-    'usersmessagesOperations',
+    'UsersOperations',
+    'UsersInferenceClassificationOperations',
+    'UsersMailFoldersOperations',
+    'UsersMailFoldersMessagesOperations',
+    'UsersMessagesOperations',
 ]

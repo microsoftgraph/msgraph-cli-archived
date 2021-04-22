@@ -6,22 +6,22 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._compliancecompliance_operations import compliancecomplianceOperations
-from ._compliance_operations import complianceOperations
-from ._complianceediscovery_operations import complianceediscoveryOperations
-from ._complianceediscoverycases_operations import complianceediscoverycasesOperations
-from ._complianceediscoverycasescustodians_operations import complianceediscoverycasescustodiansOperations
-from ._complianceediscoverycasescustodianssitesources_operations import complianceediscoverycasescustodianssitesourcesOperations
-from ._complianceediscoverycasescustodiansunifiedgroupsources_operations import complianceediscoverycasescustodiansunifiedgroupsourcesOperations
-from ._complianceediscoverycasesreviewsets_operations import complianceediscoverycasesreviewsetsOperations
+from ._compliance_compliance_operations import ComplianceComplianceOperations
+from ._compliance_operations import ComplianceOperations
+from ._compliance_ediscovery_operations import ComplianceEdiscoveryOperations
+from ._compliance_ediscovery_cases_operations import ComplianceEdiscoveryCasesOperations
+from ._compliance_ediscovery_cases_custodians_operations import ComplianceEdiscoveryCasesCustodiansOperations
+from ._compliance_ediscovery_cases_custodians_site_sources_operations import ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+from ._compliance_ediscovery_cases_custodians_unified_group_sources_operations import ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+from ._compliance_ediscovery_cases_review_sets_operations import ComplianceEdiscoveryCasesReviewSetsOperations
 
 __all__ = [
-    'compliancecomplianceOperations',
-    'complianceOperations',
-    'complianceediscoveryOperations',
-    'complianceediscoverycasesOperations',
-    'complianceediscoverycasescustodiansOperations',
-    'complianceediscoverycasescustodianssitesourcesOperations',
-    'complianceediscoverycasescustodiansunifiedgroupsourcesOperations',
-    'complianceediscoverycasesreviewsetsOperations',
+    'ComplianceComplianceOperations',
+    'ComplianceOperations',
+    'ComplianceEdiscoveryOperations',
+    'ComplianceEdiscoveryCasesOperations',
+    'ComplianceEdiscoveryCasesCustodiansOperations',
+    'ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations',
+    'ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations',
+    'ComplianceEdiscoveryCasesReviewSetsOperations',
 ]

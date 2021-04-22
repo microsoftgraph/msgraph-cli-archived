@@ -37,12 +37,12 @@ helps['planner group update-planner'] = """
     short-summary: "Update the navigation property planner in groups."
 """
 
-helps['planner groupsplanner'] = """
+helps['planner group-planner'] = """
     type: group
-    short-summary: Manage groupsplanner with planner_beta
+    short-summary: Manage group planner with planner_beta
 """
 
-helps['planner groupsplanner create-plan'] = """
+helps['planner group-planner create-plan'] = """
     type: command
     short-summary: "Create new navigation property to plans for groups."
     parameters:
@@ -87,22 +87,22 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner groupsplanner delete-plan'] = """
+helps['planner group-planner delete-plan'] = """
     type: command
     short-summary: "Delete navigation property plans for groups."
 """
 
-helps['planner groupsplanner list-plan'] = """
+helps['planner group-planner list-plan'] = """
     type: command
     short-summary: "Get plans from groups."
 """
 
-helps['planner groupsplanner show-plan'] = """
+helps['planner group-planner show-plan'] = """
     type: command
     short-summary: "Get plans from groups."
 """
 
-helps['planner groupsplanner update-plan'] = """
+helps['planner group-planner update-plan'] = """
     type: command
     short-summary: "Update the navigation property plans in groups."
     parameters:
@@ -147,67 +147,138 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner groupsplannerplan'] = """
+helps['planner group-planner-plan'] = """
     type: group
-    short-summary: Manage groupsplannerplan with planner_beta
+    short-summary: Manage group planner plan with planner_beta
 """
 
-helps['planner groupsplannerplan create-bucket'] = """
+helps['planner group-planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for groups."
 """
 
-helps['planner groupsplannerplan create-task'] = """
+helps['planner group-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner groupsplannerplan delete-bucket'] = """
+helps['planner group-planner-plan delete-bucket'] = """
     type: command
     short-summary: "Delete navigation property buckets for groups."
 """
 
-helps['planner groupsplannerplan delete-detail'] = """
+helps['planner group-planner-plan delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for groups."
 """
 
-helps['planner groupsplannerplan delete-task'] = """
+helps['planner group-planner-plan delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for groups."
 """
 
-helps['planner groupsplannerplan list-bucket'] = """
+helps['planner group-planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from groups."
 """
 
-helps['planner groupsplannerplan list-task'] = """
+helps['planner group-planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from groups."
 """
 
-helps['planner groupsplannerplan show-bucket'] = """
+helps['planner group-planner-plan show-bucket'] = """
     type: command
     short-summary: "Get buckets from groups."
 """
 
-helps['planner groupsplannerplan show-detail'] = """
+helps['planner group-planner-plan show-detail'] = """
     type: command
     short-summary: "Get details from groups."
 """
 
-helps['planner groupsplannerplan show-task'] = """
+helps['planner group-planner-plan show-task'] = """
     type: command
     short-summary: "Get tasks from groups."
 """
 
-helps['planner groupsplannerplan update-bucket'] = """
+helps['planner group-planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in groups."
 """
 
-helps['planner groupsplannerplan update-detail'] = """
+helps['planner group-planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups."
     parameters:
@@ -225,184 +296,397 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner groupsplannerplan update-task'] = """
+helps['planner group-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner groupsplannerplansbucket'] = """
+helps['planner group-planner-plan-bucket'] = """
     type: group
-    short-summary: Manage groupsplannerplansbucket with planner_beta
+    short-summary: Manage group planner plan bucket with planner_beta
 """
 
-helps['planner groupsplannerplansbucket create-task'] = """
+helps['planner group-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner groupsplannerplansbucket delete-task'] = """
+helps['planner group-planner-plan-bucket delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for groups."
 """
 
-helps['planner groupsplannerplansbucket list-task'] = """
+helps['planner group-planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from groups."
 """
 
-helps['planner groupsplannerplansbucket show-task'] = """
+helps['planner group-planner-plan-bucket show-task'] = """
     type: command
     short-summary: "Get tasks from groups."
 """
 
-helps['planner groupsplannerplansbucket update-task'] = """
+helps['planner group-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in groups."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner groupsplannerplansbucketstask'] = """
+helps['planner group-planner-plan-bucket-task'] = """
     type: group
-    short-summary: Manage groupsplannerplansbucketstask with planner_beta
+    short-summary: Manage group planner plan bucket task with planner_beta
 """
 
-helps['planner groupsplannerplansbucketstask delete-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplansbucketstask delete-bucket-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplansbucketstask delete-detail'] = """
+helps['planner group-planner-plan-bucket-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for groups."
 """
 
-helps['planner groupsplannerplansbucketstask delete-progress-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplansbucketstask show-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplansbucketstask show-bucket-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplansbucketstask show-detail'] = """
+helps['planner group-planner-plan-bucket-task show-detail'] = """
     type: command
     short-summary: "Get details from groups."
 """
 
-helps['planner groupsplannerplansbucketstask show-progress-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplansbucketstask update-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in groups."
 """
 
-helps['planner groupsplannerplansbucketstask update-bucket-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in groups."
 """
 
-helps['planner groupsplannerplansbucketstask update-detail'] = """
+helps['planner group-planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups."
 """
 
-helps['planner groupsplannerplansbucketstask update-progress-task-board-format'] = """
+helps['planner group-planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in groups."
 """
 
-helps['planner groupsplannerplanstask'] = """
+helps['planner group-planner-plan-task'] = """
     type: group
-    short-summary: Manage groupsplannerplanstask with planner_beta
+    short-summary: Manage group planner plan task with planner_beta
 """
 
-helps['planner groupsplannerplanstask delete-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplanstask delete-bucket-task-board-format'] = """
+helps['planner group-planner-plan-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplanstask delete-detail'] = """
+helps['planner group-planner-plan-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for groups."
 """
 
-helps['planner groupsplannerplanstask delete-progress-task-board-format'] = """
+helps['planner group-planner-plan-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for groups."
 """
 
-helps['planner groupsplannerplanstask show-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplanstask show-bucket-task-board-format'] = """
+helps['planner group-planner-plan-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplanstask show-detail'] = """
+helps['planner group-planner-plan-task show-detail'] = """
     type: command
     short-summary: "Get details from groups."
 """
 
-helps['planner groupsplannerplanstask show-progress-task-board-format'] = """
+helps['planner group-planner-plan-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from groups."
 """
 
-helps['planner groupsplannerplanstask update-assigned-to-task-board-format'] = """
+helps['planner group-planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in groups."
 """
 
-helps['planner groupsplannerplanstask update-bucket-task-board-format'] = """
+helps['planner group-planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in groups."
 """
 
-helps['planner groupsplannerplanstask update-detail'] = """
+helps['planner group-planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in groups."
 """
 
-helps['planner groupsplannerplanstask update-progress-task-board-format'] = """
+helps['planner group-planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in groups."
 """
 
 helps['planner planner'] = """
     type: group
-    short-summary: Manage planner with planner_beta
+    short-summary: Manage planner planner with planner_beta
+"""
+
+helps['planner planner create'] = """
+    type: command
+    short-summary: "Update planner."
 """
 
 helps['planner planner show-planner'] = """
     type: command
     short-summary: "Get planner."
-"""
-
-helps['planner planner update-planner'] = """
-    type: command
-    short-summary: "Update planner."
 """
 
 helps['planner planner'] = """
@@ -463,6 +747,77 @@ associated with the user won't show up as having changed when using delta.
 helps['planner planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['planner planner delete-bucket'] = """
@@ -563,164 +918,448 @@ associated with the user won't show up as having changed when using delta.
 helps['planner planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerbucket'] = """
+helps['planner planner-bucket'] = """
     type: group
-    short-summary: Manage plannerbucket with planner_beta
+    short-summary: Manage planner bucket with planner_beta
 """
 
-helps['planner plannerbucket create-task'] = """
+helps['planner planner-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerbucket delete-task'] = """
+helps['planner planner-bucket delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner."
 """
 
-helps['planner plannerbucket list-task'] = """
+helps['planner planner-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerbucket show-task'] = """
+helps['planner planner-bucket show-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerbucket update-task'] = """
+helps['planner planner-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerbucketstask'] = """
+helps['planner planner-bucket-task'] = """
     type: group
-    short-summary: Manage plannerbucketstask with planner_beta
+    short-summary: Manage planner bucket task with planner_beta
 """
 
-helps['planner plannerbucketstask delete-assigned-to-task-board-format'] = """
+helps['planner planner-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
 """
 
-helps['planner plannerbucketstask delete-bucket-task-board-format'] = """
+helps['planner planner-bucket-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
 """
 
-helps['planner plannerbucketstask delete-detail'] = """
+helps['planner planner-bucket-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for planner."
 """
 
-helps['planner plannerbucketstask delete-progress-task-board-format'] = """
+helps['planner planner-bucket-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
-helps['planner plannerbucketstask show-assigned-to-task-board-format'] = """
+helps['planner planner-bucket-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner."
 """
 
-helps['planner plannerbucketstask show-bucket-task-board-format'] = """
+helps['planner planner-bucket-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner."
 """
 
-helps['planner plannerbucketstask show-detail'] = """
+helps['planner planner-bucket-task show-detail'] = """
     type: command
     short-summary: "Get details from planner."
 """
 
-helps['planner plannerbucketstask show-progress-task-board-format'] = """
+helps['planner planner-bucket-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner."
 """
 
-helps['planner plannerbucketstask update-assigned-to-task-board-format'] = """
+helps['planner planner-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner."
 """
 
-helps['planner plannerbucketstask update-bucket-task-board-format'] = """
+helps['planner planner-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner."
 """
 
-helps['planner plannerbucketstask update-detail'] = """
+helps['planner planner-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner."
 """
 
-helps['planner plannerbucketstask update-progress-task-board-format'] = """
+helps['planner planner-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner."
 """
 
-helps['planner plannerplan'] = """
+helps['planner planner-plan'] = """
     type: group
-    short-summary: Manage plannerplan with planner_beta
+    short-summary: Manage planner plan with planner_beta
 """
 
-helps['planner plannerplan create-bucket'] = """
+helps['planner planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for planner."
 """
 
-helps['planner plannerplan create-task'] = """
+helps['planner planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerplan delete-bucket'] = """
+helps['planner planner-plan delete-bucket'] = """
     type: command
     short-summary: "Delete navigation property buckets for planner."
 """
 
-helps['planner plannerplan delete-detail'] = """
+helps['planner planner-plan delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for planner."
 """
 
-helps['planner plannerplan delete-task'] = """
+helps['planner planner-plan delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner."
 """
 
-helps['planner plannerplan list-bucket'] = """
+helps['planner planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from planner."
 """
 
-helps['planner plannerplan list-task'] = """
+helps['planner planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerplan show-bucket'] = """
+helps['planner planner-plan show-bucket'] = """
     type: command
     short-summary: "Get buckets from planner."
 """
 
-helps['planner plannerplan show-detail'] = """
+helps['planner planner-plan show-detail'] = """
     type: command
     short-summary: "Get details from planner."
 """
 
-helps['planner plannerplan show-task'] = """
+helps['planner planner-plan show-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerplan update-bucket'] = """
+helps['planner planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in planner."
 """
 
-helps['planner plannerplan update-detail'] = """
+helps['planner planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner."
     parameters:
@@ -738,232 +1377,445 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner plannerplan update-task'] = """
+helps['planner planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerplansbucket'] = """
+helps['planner planner-plan-bucket'] = """
     type: group
-    short-summary: Manage plannerplansbucket with planner_beta
+    short-summary: Manage planner plan bucket with planner_beta
 """
 
-helps['planner plannerplansbucket create-task'] = """
+helps['planner planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerplansbucket delete-task'] = """
+helps['planner planner-plan-bucket delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for planner."
 """
 
-helps['planner plannerplansbucket list-task'] = """
+helps['planner planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerplansbucket show-task'] = """
+helps['planner planner-plan-bucket show-task'] = """
     type: command
     short-summary: "Get tasks from planner."
 """
 
-helps['planner plannerplansbucket update-task'] = """
+helps['planner planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in planner."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner plannerplansbucketstask'] = """
+helps['planner planner-plan-bucket-task'] = """
     type: group
-    short-summary: Manage plannerplansbucketstask with planner_beta
+    short-summary: Manage planner plan bucket task with planner_beta
 """
 
-helps['planner plannerplansbucketstask delete-assigned-to-task-board-format'] = """
+helps['planner planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
 """
 
-helps['planner plannerplansbucketstask delete-bucket-task-board-format'] = """
+helps['planner planner-plan-bucket-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
 """
 
-helps['planner plannerplansbucketstask delete-detail'] = """
+helps['planner planner-plan-bucket-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for planner."
 """
 
-helps['planner plannerplansbucketstask delete-progress-task-board-format'] = """
+helps['planner planner-plan-bucket-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
-helps['planner plannerplansbucketstask show-assigned-to-task-board-format'] = """
+helps['planner planner-plan-bucket-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner."
 """
 
-helps['planner plannerplansbucketstask show-bucket-task-board-format'] = """
+helps['planner planner-plan-bucket-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner."
 """
 
-helps['planner plannerplansbucketstask show-detail'] = """
+helps['planner planner-plan-bucket-task show-detail'] = """
     type: command
     short-summary: "Get details from planner."
 """
 
-helps['planner plannerplansbucketstask show-progress-task-board-format'] = """
+helps['planner planner-plan-bucket-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner."
 """
 
-helps['planner plannerplansbucketstask update-assigned-to-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner."
 """
 
-helps['planner plannerplansbucketstask update-bucket-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner."
 """
 
-helps['planner plannerplansbucketstask update-detail'] = """
+helps['planner planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner."
 """
 
-helps['planner plannerplansbucketstask update-progress-task-board-format'] = """
+helps['planner planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner."
 """
 
-helps['planner plannerplanstask'] = """
+helps['planner planner-plan-task'] = """
     type: group
-    short-summary: Manage plannerplanstask with planner_beta
+    short-summary: Manage planner plan task with planner_beta
 """
 
-helps['planner plannerplanstask delete-assigned-to-task-board-format'] = """
+helps['planner planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
 """
 
-helps['planner plannerplanstask delete-bucket-task-board-format'] = """
+helps['planner planner-plan-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
 """
 
-helps['planner plannerplanstask delete-detail'] = """
+helps['planner planner-plan-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for planner."
 """
 
-helps['planner plannerplanstask delete-progress-task-board-format'] = """
+helps['planner planner-plan-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
-helps['planner plannerplanstask show-assigned-to-task-board-format'] = """
+helps['planner planner-plan-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner."
 """
 
-helps['planner plannerplanstask show-bucket-task-board-format'] = """
+helps['planner planner-plan-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner."
 """
 
-helps['planner plannerplanstask show-detail'] = """
+helps['planner planner-plan-task show-detail'] = """
     type: command
     short-summary: "Get details from planner."
 """
 
-helps['planner plannerplanstask show-progress-task-board-format'] = """
+helps['planner planner-plan-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner."
 """
 
-helps['planner plannerplanstask update-assigned-to-task-board-format'] = """
+helps['planner planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner."
 """
 
-helps['planner plannerplanstask update-bucket-task-board-format'] = """
+helps['planner planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner."
 """
 
-helps['planner plannerplanstask update-detail'] = """
+helps['planner planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner."
 """
 
-helps['planner plannerplanstask update-progress-task-board-format'] = """
+helps['planner planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner."
 """
 
-helps['planner plannertask'] = """
+helps['planner planner-task'] = """
     type: group
-    short-summary: Manage plannertask with planner_beta
+    short-summary: Manage planner task with planner_beta
 """
 
-helps['planner plannertask delete-assigned-to-task-board-format'] = """
+helps['planner planner-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
 """
 
-helps['planner plannertask delete-bucket-task-board-format'] = """
+helps['planner planner-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
 """
 
-helps['planner plannertask delete-detail'] = """
+helps['planner planner-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for planner."
 """
 
-helps['planner plannertask delete-progress-task-board-format'] = """
+helps['planner planner-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
-helps['planner plannertask show-assigned-to-task-board-format'] = """
+helps['planner planner-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from planner."
 """
 
-helps['planner plannertask show-bucket-task-board-format'] = """
+helps['planner planner-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from planner."
 """
 
-helps['planner plannertask show-detail'] = """
+helps['planner planner-task show-detail'] = """
     type: command
     short-summary: "Get details from planner."
 """
 
-helps['planner plannertask show-progress-task-board-format'] = """
+helps['planner planner-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from planner."
 """
 
-helps['planner plannertask update-assigned-to-task-board-format'] = """
+helps['planner planner-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in planner."
 """
 
-helps['planner plannertask update-bucket-task-board-format'] = """
+helps['planner planner-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in planner."
 """
 
-helps['planner plannertask update-detail'] = """
+helps['planner planner-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in planner."
 """
 
-helps['planner plannertask update-progress-task-board-format'] = """
+helps['planner planner-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in planner."
 """
@@ -996,17 +1848,17 @@ helps['planner user update-planner'] = """
             Multiple actions can be specified by using more than one --all argument.
 """
 
-helps['planner usersplanner'] = """
+helps['planner user-planner'] = """
     type: group
-    short-summary: Manage usersplanner with planner_beta
+    short-summary: Manage user planner with planner_beta
 """
 
-helps['planner usersplanner create-all'] = """
+helps['planner user-planner create-all'] = """
     type: command
     short-summary: "Create new navigation property to all for users."
 """
 
-helps['planner usersplanner create-plan'] = """
+helps['planner user-planner create-plan'] = """
     type: command
     short-summary: "Create new navigation property to plans for users."
     parameters:
@@ -1051,92 +1903,163 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner usersplanner create-ref-favorite-plan'] = """
+helps['planner user-planner create-ref-favorite-plan'] = """
     type: command
     short-summary: "Create new navigation property ref to favoritePlans for users."
 """
 
-helps['planner usersplanner create-ref-recent-plan'] = """
+helps['planner user-planner create-ref-recent-plan'] = """
     type: command
     short-summary: "Create new navigation property ref to recentPlans for users."
 """
 
-helps['planner usersplanner create-task'] = """
+helps['planner user-planner create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplanner delete-all'] = """
+helps['planner user-planner delete-all'] = """
     type: command
     short-summary: "Delete navigation property all for users."
 """
 
-helps['planner usersplanner delete-plan'] = """
+helps['planner user-planner delete-plan'] = """
     type: command
     short-summary: "Delete navigation property plans for users."
 """
 
-helps['planner usersplanner delete-task'] = """
+helps['planner user-planner delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for users."
 """
 
-helps['planner usersplanner list-all'] = """
+helps['planner user-planner list-all'] = """
     type: command
     short-summary: "Get all from users."
 """
 
-helps['planner usersplanner list-favorite-plan'] = """
+helps['planner user-planner list-favorite-plan'] = """
     type: command
     short-summary: "Get favoritePlans from users."
 """
 
-helps['planner usersplanner list-plan'] = """
+helps['planner user-planner list-plan'] = """
     type: command
     short-summary: "Get plans from users."
 """
 
-helps['planner usersplanner list-recent-plan'] = """
+helps['planner user-planner list-recent-plan'] = """
     type: command
     short-summary: "Get recentPlans from users."
 """
 
-helps['planner usersplanner list-ref-favorite-plan'] = """
+helps['planner user-planner list-ref-favorite-plan'] = """
     type: command
     short-summary: "Get ref of favoritePlans from users."
 """
 
-helps['planner usersplanner list-ref-recent-plan'] = """
+helps['planner user-planner list-ref-recent-plan'] = """
     type: command
     short-summary: "Get ref of recentPlans from users."
 """
 
-helps['planner usersplanner list-task'] = """
+helps['planner user-planner list-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplanner show-all'] = """
+helps['planner user-planner show-all'] = """
     type: command
     short-summary: "Get all from users."
 """
 
-helps['planner usersplanner show-plan'] = """
+helps['planner user-planner show-plan'] = """
     type: command
     short-summary: "Get plans from users."
 """
 
-helps['planner usersplanner show-task'] = """
+helps['planner user-planner show-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplanner update-all'] = """
+helps['planner user-planner update-all'] = """
     type: command
     short-summary: "Update the navigation property all in users."
 """
 
-helps['planner usersplanner update-plan'] = """
+helps['planner user-planner update-plan'] = """
     type: command
     short-summary: "Update the navigation property plans in users."
     parameters:
@@ -1181,72 +2104,214 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['planner usersplanner update-task'] = """
+helps['planner user-planner update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplannerplan'] = """
+helps['planner user-planner-plan'] = """
     type: group
-    short-summary: Manage usersplannerplan with planner_beta
+    short-summary: Manage user planner plan with planner_beta
 """
 
-helps['planner usersplannerplan create-bucket'] = """
+helps['planner user-planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for users."
 """
 
-helps['planner usersplannerplan create-task'] = """
+helps['planner user-planner-plan create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplannerplan delete-bucket'] = """
+helps['planner user-planner-plan delete-bucket'] = """
     type: command
     short-summary: "Delete navigation property buckets for users."
 """
 
-helps['planner usersplannerplan delete-detail'] = """
+helps['planner user-planner-plan delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for users."
 """
 
-helps['planner usersplannerplan delete-task'] = """
+helps['planner user-planner-plan delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for users."
 """
 
-helps['planner usersplannerplan list-bucket'] = """
+helps['planner user-planner-plan list-bucket'] = """
     type: command
     short-summary: "Get buckets from users."
 """
 
-helps['planner usersplannerplan list-task'] = """
+helps['planner user-planner-plan list-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplannerplan show-bucket'] = """
+helps['planner user-planner-plan show-bucket'] = """
     type: command
     short-summary: "Get buckets from users."
 """
 
-helps['planner usersplannerplan show-detail'] = """
+helps['planner user-planner-plan show-detail'] = """
     type: command
     short-summary: "Get details from users."
 """
 
-helps['planner usersplannerplan show-task'] = """
+helps['planner user-planner-plan show-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplannerplan update-bucket'] = """
+helps['planner user-planner-plan update-bucket'] = """
     type: command
     short-summary: "Update the navigation property buckets in users."
 """
 
-helps['planner usersplannerplan update-detail'] = """
+helps['planner user-planner-plan update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users."
     parameters:
@@ -1264,232 +2329,445 @@ category6=XX
             category6: The label associated with Category 6
 """
 
-helps['planner usersplannerplan update-task'] = """
+helps['planner user-planner-plan update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplannerplansbucket'] = """
+helps['planner user-planner-plan-bucket'] = """
     type: group
-    short-summary: Manage usersplannerplansbucket with planner_beta
+    short-summary: Manage user planner plan bucket with planner_beta
 """
 
-helps['planner usersplannerplansbucket create-task'] = """
+helps['planner user-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplannerplansbucket delete-task'] = """
+helps['planner user-planner-plan-bucket delete-task'] = """
     type: command
     short-summary: "Delete navigation property tasks for users."
 """
 
-helps['planner usersplannerplansbucket list-task'] = """
+helps['planner user-planner-plan-bucket list-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplannerplansbucket show-task'] = """
+helps['planner user-planner-plan-bucket show-task'] = """
     type: command
     short-summary: "Get tasks from users."
 """
 
-helps['planner usersplannerplansbucket update-task'] = """
+helps['planner user-planner-plan-bucket update-task'] = """
     type: command
     short-summary: "Update the navigation property tasks in users."
+    parameters:
+      - name: --bucket-task-board-format
+        short-summary: "plannerBucketTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --bucket-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as \
+outlined here.
+            id: Read-only.
+      - name: --progress-task-board-format
+        short-summary: "plannerProgressTaskBoardTaskFormat"
+        long-summary: |
+            Usage: --progress-task-board-format order-hint=XX id=XX
+
+            order-hint: Hint value used to order the task on the Progress view of the Task Board. The format is \
+defined as outlined here.
+            id: Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['planner usersplannerplansbucketstask'] = """
+helps['planner user-planner-plan-bucket-task'] = """
     type: group
-    short-summary: Manage usersplannerplansbucketstask with planner_beta
+    short-summary: Manage user planner plan bucket task with planner_beta
 """
 
-helps['planner usersplannerplansbucketstask delete-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplansbucketstask delete-bucket-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplansbucketstask delete-detail'] = """
+helps['planner user-planner-plan-bucket-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for users."
 """
 
-helps['planner usersplannerplansbucketstask delete-progress-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplansbucketstask show-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplansbucketstask show-bucket-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplansbucketstask show-detail'] = """
+helps['planner user-planner-plan-bucket-task show-detail'] = """
     type: command
     short-summary: "Get details from users."
 """
 
-helps['planner usersplannerplansbucketstask show-progress-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplansbucketstask update-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users."
 """
 
-helps['planner usersplannerplansbucketstask update-bucket-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users."
 """
 
-helps['planner usersplannerplansbucketstask update-detail'] = """
+helps['planner user-planner-plan-bucket-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users."
 """
 
-helps['planner usersplannerplansbucketstask update-progress-task-board-format'] = """
+helps['planner user-planner-plan-bucket-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users."
 """
 
-helps['planner usersplannerplanstask'] = """
+helps['planner user-planner-plan-task'] = """
     type: group
-    short-summary: Manage usersplannerplanstask with planner_beta
+    short-summary: Manage user planner plan task with planner_beta
 """
 
-helps['planner usersplannerplanstask delete-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplanstask delete-bucket-task-board-format'] = """
+helps['planner user-planner-plan-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplanstask delete-detail'] = """
+helps['planner user-planner-plan-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for users."
 """
 
-helps['planner usersplannerplanstask delete-progress-task-board-format'] = """
+helps['planner user-planner-plan-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
-helps['planner usersplannerplanstask show-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplanstask show-bucket-task-board-format'] = """
+helps['planner user-planner-plan-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplanstask show-detail'] = """
+helps['planner user-planner-plan-task show-detail'] = """
     type: command
     short-summary: "Get details from users."
 """
 
-helps['planner usersplannerplanstask show-progress-task-board-format'] = """
+helps['planner user-planner-plan-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users."
 """
 
-helps['planner usersplannerplanstask update-assigned-to-task-board-format'] = """
+helps['planner user-planner-plan-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users."
 """
 
-helps['planner usersplannerplanstask update-bucket-task-board-format'] = """
+helps['planner user-planner-plan-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users."
 """
 
-helps['planner usersplannerplanstask update-detail'] = """
+helps['planner user-planner-plan-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users."
 """
 
-helps['planner usersplannerplanstask update-progress-task-board-format'] = """
+helps['planner user-planner-plan-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users."
 """
 
-helps['planner usersplannertask'] = """
+helps['planner user-planner-task'] = """
     type: group
-    short-summary: Manage usersplannertask with planner_beta
+    short-summary: Manage user planner task with planner_beta
 """
 
-helps['planner usersplannertask delete-assigned-to-task-board-format'] = """
+helps['planner user-planner-task delete-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
 """
 
-helps['planner usersplannertask delete-bucket-task-board-format'] = """
+helps['planner user-planner-task delete-bucket-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property bucketTaskBoardFormat for users."
 """
 
-helps['planner usersplannertask delete-detail'] = """
+helps['planner user-planner-task delete-detail'] = """
     type: command
     short-summary: "Delete navigation property details for users."
 """
 
-helps['planner usersplannertask delete-progress-task-board-format'] = """
+helps['planner user-planner-task delete-progress-task-board-format'] = """
     type: command
     short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
-helps['planner usersplannertask show-assigned-to-task-board-format'] = """
+helps['planner user-planner-task show-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Get assignedToTaskBoardFormat from users."
 """
 
-helps['planner usersplannertask show-bucket-task-board-format'] = """
+helps['planner user-planner-task show-bucket-task-board-format'] = """
     type: command
     short-summary: "Get bucketTaskBoardFormat from users."
 """
 
-helps['planner usersplannertask show-detail'] = """
+helps['planner user-planner-task show-detail'] = """
     type: command
     short-summary: "Get details from users."
 """
 
-helps['planner usersplannertask show-progress-task-board-format'] = """
+helps['planner user-planner-task show-progress-task-board-format'] = """
     type: command
     short-summary: "Get progressTaskBoardFormat from users."
 """
 
-helps['planner usersplannertask update-assigned-to-task-board-format'] = """
+helps['planner user-planner-task update-assigned-to-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property assignedToTaskBoardFormat in users."
 """
 
-helps['planner usersplannertask update-bucket-task-board-format'] = """
+helps['planner user-planner-task update-bucket-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property bucketTaskBoardFormat in users."
 """
 
-helps['planner usersplannertask update-detail'] = """
+helps['planner user-planner-task update-detail'] = """
     type: command
     short-summary: "Update the navigation property details in users."
 """
 
-helps['planner usersplannertask update-progress-task-board-format'] = """
+helps['planner user-planner-task update-progress-task-board-format'] = """
     type: command
     short-summary: "Update the navigation property progressTaskBoardFormat in users."
 """

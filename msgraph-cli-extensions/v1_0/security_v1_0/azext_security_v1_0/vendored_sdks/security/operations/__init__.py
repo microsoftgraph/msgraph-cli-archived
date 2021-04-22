@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._securitysecurity_operations import securitysecurityOperations
-from ._security_operations import securityOperations
+from ._security_security_operations import SecuritySecurityOperations
+from ._security_operations import SecurityOperations
 
 __all__ = [
-    'securitysecurityOperations',
-    'securityOperations',
+    'SecuritySecurityOperations',
+    'SecurityOperations',
 ]

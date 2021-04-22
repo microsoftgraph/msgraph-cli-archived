@@ -168,7 +168,7 @@ def people_user_update_person(client,
                                 body=body)
 
 
-def people_usersinsight_create_shared(client,
+def people_user_insight_create_shared(client,
                                       user_id,
                                       id_=None,
                                       resource_reference=None,
@@ -200,7 +200,7 @@ def people_usersinsight_create_shared(client,
                                 body=body)
 
 
-def people_usersinsight_create_trending(client,
+def people_user_insight_create_trending(client,
                                         user_id,
                                         id_=None,
                                         last_modified_date_time=None,
@@ -220,7 +220,7 @@ def people_usersinsight_create_trending(client,
                                   body=body)
 
 
-def people_usersinsight_create_used(client,
+def people_user_insight_create_used(client,
                                     user_id,
                                     id_=None,
                                     last_used=None,
@@ -238,7 +238,7 @@ def people_usersinsight_create_used(client,
                               body=body)
 
 
-def people_usersinsight_delete_shared(client,
+def people_user_insight_delete_shared(client,
                                       user_id,
                                       shared_insight_id,
                                       if_match=None):
@@ -247,7 +247,7 @@ def people_usersinsight_delete_shared(client,
                                 if_match=if_match)
 
 
-def people_usersinsight_delete_trending(client,
+def people_user_insight_delete_trending(client,
                                         user_id,
                                         trending_id,
                                         if_match=None):
@@ -256,7 +256,7 @@ def people_usersinsight_delete_trending(client,
                                   if_match=if_match)
 
 
-def people_usersinsight_delete_used(client,
+def people_user_insight_delete_used(client,
                                     user_id,
                                     used_insight_id,
                                     if_match=None):
@@ -265,7 +265,7 @@ def people_usersinsight_delete_used(client,
                               if_match=if_match)
 
 
-def people_usersinsight_list_shared(client,
+def people_user_insight_list_shared(client,
                                     user_id,
                                     orderby=None,
                                     select=None,
@@ -276,7 +276,7 @@ def people_usersinsight_list_shared(client,
                               expand=expand)
 
 
-def people_usersinsight_list_trending(client,
+def people_user_insight_list_trending(client,
                                       user_id,
                                       orderby=None,
                                       select=None,
@@ -287,7 +287,7 @@ def people_usersinsight_list_trending(client,
                                 expand=expand)
 
 
-def people_usersinsight_list_used(client,
+def people_user_insight_list_used(client,
                                   user_id,
                                   orderby=None,
                                   select=None,
@@ -298,7 +298,7 @@ def people_usersinsight_list_used(client,
                             expand=expand)
 
 
-def people_usersinsight_show_shared(client,
+def people_user_insight_show_shared(client,
                                     user_id,
                                     shared_insight_id,
                                     select=None,
@@ -309,7 +309,7 @@ def people_usersinsight_show_shared(client,
                              expand=expand)
 
 
-def people_usersinsight_show_trending(client,
+def people_user_insight_show_trending(client,
                                       user_id,
                                       trending_id,
                                       select=None,
@@ -320,7 +320,7 @@ def people_usersinsight_show_trending(client,
                                expand=expand)
 
 
-def people_usersinsight_show_used(client,
+def people_user_insight_show_used(client,
                                   user_id,
                                   used_insight_id,
                                   select=None,
@@ -331,7 +331,7 @@ def people_usersinsight_show_used(client,
                            expand=expand)
 
 
-def people_usersinsight_update_shared(client,
+def people_user_insight_update_shared(client,
                                       user_id,
                                       shared_insight_id,
                                       id_=None,
@@ -365,7 +365,7 @@ def people_usersinsight_update_shared(client,
                                 body=body)
 
 
-def people_usersinsight_update_trending(client,
+def people_user_insight_update_trending(client,
                                         user_id,
                                         trending_id,
                                         id_=None,
@@ -387,7 +387,7 @@ def people_usersinsight_update_trending(client,
                                   body=body)
 
 
-def people_usersinsight_update_used(client,
+def people_user_insight_update_used(client,
                                     user_id,
                                     used_insight_id,
                                     id_=None,
@@ -407,7 +407,7 @@ def people_usersinsight_update_used(client,
                               body=body)
 
 
-def people_usersinsightsshared_delete_ref_last_shared_method(client,
+def people_user_insight_shared_delete_ref_last_shared_method(client,
                                                              user_id,
                                                              shared_insight_id,
                                                              if_match=None):
@@ -416,7 +416,7 @@ def people_usersinsightsshared_delete_ref_last_shared_method(client,
                                                 if_match=if_match)
 
 
-def people_usersinsightsshared_delete_ref_resource(client,
+def people_user_insight_shared_delete_ref_resource(client,
                                                    user_id,
                                                    shared_insight_id,
                                                    if_match=None):
@@ -425,7 +425,7 @@ def people_usersinsightsshared_delete_ref_resource(client,
                                       if_match=if_match)
 
 
-def people_usersinsightsshared_set_ref_last_shared_method(client,
+def people_user_insight_shared_set_ref_last_shared_method(client,
                                                           user_id,
                                                           shared_insight_id,
                                                           body):
@@ -434,7 +434,7 @@ def people_usersinsightsshared_set_ref_last_shared_method(client,
                                              body=body)
 
 
-def people_usersinsightsshared_set_ref_resource(client,
+def people_user_insight_shared_set_ref_resource(client,
                                                 user_id,
                                                 shared_insight_id,
                                                 body):
@@ -443,7 +443,7 @@ def people_usersinsightsshared_set_ref_resource(client,
                                    body=body)
 
 
-def people_usersinsightsshared_show_last_shared_method(client,
+def people_user_insight_shared_show_last_shared_method(client,
                                                        user_id,
                                                        shared_insight_id,
                                                        select=None,
@@ -454,21 +454,21 @@ def people_usersinsightsshared_show_last_shared_method(client,
                                          expand=expand)
 
 
-def people_usersinsightsshared_show_ref_last_shared_method(client,
+def people_user_insight_shared_show_ref_last_shared_method(client,
                                                            user_id,
                                                            shared_insight_id):
     return client.get_ref_last_shared_method(user_id=user_id,
                                              shared_insight_id=shared_insight_id)
 
 
-def people_usersinsightsshared_show_ref_resource(client,
+def people_user_insight_shared_show_ref_resource(client,
                                                  user_id,
                                                  shared_insight_id):
     return client.get_ref_resource(user_id=user_id,
                                    shared_insight_id=shared_insight_id)
 
 
-def people_usersinsightsshared_show_resource(client,
+def people_user_insight_shared_show_resource(client,
                                              user_id,
                                              shared_insight_id,
                                              select=None,
@@ -479,7 +479,7 @@ def people_usersinsightsshared_show_resource(client,
                                expand=expand)
 
 
-def people_usersinsightstrending_delete_ref_resource(client,
+def people_user_insight_trending_delete_ref_resource(client,
                                                      user_id,
                                                      trending_id,
                                                      if_match=None):
@@ -488,7 +488,7 @@ def people_usersinsightstrending_delete_ref_resource(client,
                                       if_match=if_match)
 
 
-def people_usersinsightstrending_set_ref_resource(client,
+def people_user_insight_trending_set_ref_resource(client,
                                                   user_id,
                                                   trending_id,
                                                   body):
@@ -497,14 +497,14 @@ def people_usersinsightstrending_set_ref_resource(client,
                                    body=body)
 
 
-def people_usersinsightstrending_show_ref_resource(client,
+def people_user_insight_trending_show_ref_resource(client,
                                                    user_id,
                                                    trending_id):
     return client.get_ref_resource(user_id=user_id,
                                    trending_id=trending_id)
 
 
-def people_usersinsightstrending_show_resource(client,
+def people_user_insight_trending_show_resource(client,
                                                user_id,
                                                trending_id,
                                                select=None,
@@ -515,7 +515,7 @@ def people_usersinsightstrending_show_resource(client,
                                expand=expand)
 
 
-def people_usersinsightsused_delete_ref_resource(client,
+def people_user_insight_used_delete_ref_resource(client,
                                                  user_id,
                                                  used_insight_id,
                                                  if_match=None):
@@ -524,7 +524,7 @@ def people_usersinsightsused_delete_ref_resource(client,
                                       if_match=if_match)
 
 
-def people_usersinsightsused_set_ref_resource(client,
+def people_user_insight_used_set_ref_resource(client,
                                               user_id,
                                               used_insight_id,
                                               body):
@@ -533,14 +533,14 @@ def people_usersinsightsused_set_ref_resource(client,
                                    body=body)
 
 
-def people_usersinsightsused_show_ref_resource(client,
+def people_user_insight_used_show_ref_resource(client,
                                                user_id,
                                                used_insight_id):
     return client.get_ref_resource(user_id=user_id,
                                    used_insight_id=used_insight_id)
 
 
-def people_usersinsightsused_show_resource(client,
+def people_user_insight_used_show_resource(client,
                                            user_id,
                                            used_insight_id,
                                            select=None,

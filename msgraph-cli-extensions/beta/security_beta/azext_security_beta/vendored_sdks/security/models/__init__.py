@@ -7,135 +7,135 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofalert
-    from ._models_py3 import collectionofcloudappsecurityprofile
-    from ._models_py3 import collectionofdomainsecurityprofile
-    from ._models_py3 import collectionoffilesecurityprofile
-    from ._models_py3 import collectionofhostsecurityprofile
-    from ._models_py3 import collectionofipsecurityprofile
-    from ._models_py3 import collectionofprovidertenantsetting
-    from ._models_py3 import collectionofsecurescore
-    from ._models_py3 import collectionofsecurescorecontrolprofile
-    from ._models_py3 import collectionofsecurityaction
-    from ._models_py3 import collectionoftiindicator
-    from ._models_py3 import collectionofusersecurityprofile
-    from ._models_py3 import microsoftgraphalert
-    from ._models_py3 import microsoftgraphalerthistorystate
-    from ._models_py3 import microsoftgraphalerttrigger
-    from ._models_py3 import microsoftgraphaveragecomparativescore
-    from ._models_py3 import microsoftgraphcertificationcontrol
-    from ._models_py3 import microsoftgraphcloudappsecurityprofile
-    from ._models_py3 import microsoftgraphcloudappsecuritystate
-    from ._models_py3 import microsoftgraphcomplianceinformation
-    from ._models_py3 import microsoftgraphcontrolscore
-    from ._models_py3 import microsoftgraphdomainregistrant
-    from ._models_py3 import microsoftgraphdomainsecurityprofile
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphfilehash
-    from ._models_py3 import microsoftgraphfilesecurityprofile
-    from ._models_py3 import microsoftgraphfilesecuritystate
-    from ._models_py3 import microsoftgraphhostsecurityprofile
-    from ._models_py3 import microsoftgraphhostsecuritystate
-    from ._models_py3 import microsoftgraphipcategory
-    from ._models_py3 import microsoftgraphipreferencedata
-    from ._models_py3 import microsoftgraphipsecurityprofile
-    from ._models_py3 import microsoftgraphkeyvaluepair
-    from ._models_py3 import microsoftgraphlogonuser
-    from ._models_py3 import microsoftgraphmalwarestate
-    from ._models_py3 import microsoftgraphnetworkconnection
-    from ._models_py3 import microsoftgraphnetworkinterface
-    from ._models_py3 import microsoftgraphprocess
-    from ._models_py3 import microsoftgraphprovidertenantsetting
-    from ._models_py3 import microsoftgraphregistrykeystate
-    from ._models_py3 import microsoftgraphreputationcategory
-    from ._models_py3 import microsoftgraphresultinfo
-    from ._models_py3 import microsoftgraphsecurescore
-    from ._models_py3 import microsoftgraphsecurescorecontrolprofile
-    from ._models_py3 import microsoftgraphsecurescorecontrolstateupdate
-    from ._models_py3 import microsoftgraphsecurity
-    from ._models_py3 import microsoftgraphsecurityaction
-    from ._models_py3 import microsoftgraphsecurityactionstate
-    from ._models_py3 import microsoftgraphsecurityproviderstatus
-    from ._models_py3 import microsoftgraphsecurityresource
-    from ._models_py3 import microsoftgraphsecurityvendorinformation
-    from ._models_py3 import microsoftgraphtiindicator
-    from ._models_py3 import microsoftgraphuseraccount
-    from ._models_py3 import microsoftgraphusersecurityprofile
-    from ._models_py3 import microsoftgraphusersecuritystate
-    from ._models_py3 import microsoftgraphvulnerabilitystate
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
-    from ._models_py3 import paths1gb7he6securitytiindicatorsmicrosoftgraphdeletetiindicatorsbyexternalidpostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1i03shnsecuritytiindicatorsmicrosoftgraphsubmittiindicatorspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1pgxztnsecurityalertsmicrosoftgraphupdatealertspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathso3cp3msecuritytiindicatorsmicrosoftgraphdeletetiindicatorspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathss86sndsecuritytiindicatorsmicrosoftgraphupdatetiindicatorspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import CollectionOfAlert
+    from ._models_py3 import CollectionOfCloudAppSecurityProfile
+    from ._models_py3 import CollectionOfDomainSecurityProfile
+    from ._models_py3 import CollectionOfFileSecurityProfile
+    from ._models_py3 import CollectionOfHostSecurityProfile
+    from ._models_py3 import CollectionOfIpSecurityProfile
+    from ._models_py3 import CollectionOfProviderTenantSetting
+    from ._models_py3 import CollectionOfSecureScore
+    from ._models_py3 import CollectionOfSecureScoreControlProfile
+    from ._models_py3 import CollectionOfSecurityAction
+    from ._models_py3 import CollectionOfTiIndicator
+    from ._models_py3 import CollectionOfUserSecurityProfile
+    from ._models_py3 import MicrosoftGraphAlert
+    from ._models_py3 import MicrosoftGraphAlertHistoryState
+    from ._models_py3 import MicrosoftGraphAlertTrigger
+    from ._models_py3 import MicrosoftGraphAverageComparativeScore
+    from ._models_py3 import MicrosoftGraphCertificationControl
+    from ._models_py3 import MicrosoftGraphCloudAppSecurityProfile
+    from ._models_py3 import MicrosoftGraphCloudAppSecurityState
+    from ._models_py3 import MicrosoftGraphComplianceInformation
+    from ._models_py3 import MicrosoftGraphControlScore
+    from ._models_py3 import MicrosoftGraphDomainRegistrant
+    from ._models_py3 import MicrosoftGraphDomainSecurityProfile
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphFileHash
+    from ._models_py3 import MicrosoftGraphFileSecurityProfile
+    from ._models_py3 import MicrosoftGraphFileSecurityState
+    from ._models_py3 import MicrosoftGraphHostSecurityProfile
+    from ._models_py3 import MicrosoftGraphHostSecurityState
+    from ._models_py3 import MicrosoftGraphIpCategory
+    from ._models_py3 import MicrosoftGraphIpReferenceData
+    from ._models_py3 import MicrosoftGraphIpSecurityProfile
+    from ._models_py3 import MicrosoftGraphKeyValuePair
+    from ._models_py3 import MicrosoftGraphLogonUser
+    from ._models_py3 import MicrosoftGraphMalwareState
+    from ._models_py3 import MicrosoftGraphNetworkConnection
+    from ._models_py3 import MicrosoftGraphNetworkInterface
+    from ._models_py3 import MicrosoftGraphProcess
+    from ._models_py3 import MicrosoftGraphProviderTenantSetting
+    from ._models_py3 import MicrosoftGraphRegistryKeyState
+    from ._models_py3 import MicrosoftGraphReputationCategory
+    from ._models_py3 import MicrosoftGraphResultInfo
+    from ._models_py3 import MicrosoftGraphSecureScore
+    from ._models_py3 import MicrosoftGraphSecureScoreControlProfile
+    from ._models_py3 import MicrosoftGraphSecureScoreControlStateUpdate
+    from ._models_py3 import MicrosoftGraphSecurity
+    from ._models_py3 import MicrosoftGraphSecurityAction
+    from ._models_py3 import MicrosoftGraphSecurityActionState
+    from ._models_py3 import MicrosoftGraphSecurityProviderStatus
+    from ._models_py3 import MicrosoftGraphSecurityResource
+    from ._models_py3 import MicrosoftGraphSecurityVendorInformation
+    from ._models_py3 import MicrosoftGraphTiIndicator
+    from ._models_py3 import MicrosoftGraphUserAccount
+    from ._models_py3 import MicrosoftGraphUserSecurityProfile
+    from ._models_py3 import MicrosoftGraphUserSecurityState
+    from ._models_py3 import MicrosoftGraphVulnerabilityState
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths1Gb7He6SecurityTiindicatorsMicrosoftGraphDeletetiindicatorsbyexternalidPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1I03ShnSecurityTiindicatorsMicrosoftGraphSubmittiindicatorsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1PgxztnSecurityAlertsMicrosoftGraphUpdatealertsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsO3Cp3MSecurityTiindicatorsMicrosoftGraphDeletetiindicatorsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsS86SndSecurityTiindicatorsMicrosoftGraphUpdatetiindicatorsPostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
-    from ._models import collectionofalert  # type: ignore
-    from ._models import collectionofcloudappsecurityprofile  # type: ignore
-    from ._models import collectionofdomainsecurityprofile  # type: ignore
-    from ._models import collectionoffilesecurityprofile  # type: ignore
-    from ._models import collectionofhostsecurityprofile  # type: ignore
-    from ._models import collectionofipsecurityprofile  # type: ignore
-    from ._models import collectionofprovidertenantsetting  # type: ignore
-    from ._models import collectionofsecurescore  # type: ignore
-    from ._models import collectionofsecurescorecontrolprofile  # type: ignore
-    from ._models import collectionofsecurityaction  # type: ignore
-    from ._models import collectionoftiindicator  # type: ignore
-    from ._models import collectionofusersecurityprofile  # type: ignore
-    from ._models import microsoftgraphalert  # type: ignore
-    from ._models import microsoftgraphalerthistorystate  # type: ignore
-    from ._models import microsoftgraphalerttrigger  # type: ignore
-    from ._models import microsoftgraphaveragecomparativescore  # type: ignore
-    from ._models import microsoftgraphcertificationcontrol  # type: ignore
-    from ._models import microsoftgraphcloudappsecurityprofile  # type: ignore
-    from ._models import microsoftgraphcloudappsecuritystate  # type: ignore
-    from ._models import microsoftgraphcomplianceinformation  # type: ignore
-    from ._models import microsoftgraphcontrolscore  # type: ignore
-    from ._models import microsoftgraphdomainregistrant  # type: ignore
-    from ._models import microsoftgraphdomainsecurityprofile  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphfilehash  # type: ignore
-    from ._models import microsoftgraphfilesecurityprofile  # type: ignore
-    from ._models import microsoftgraphfilesecuritystate  # type: ignore
-    from ._models import microsoftgraphhostsecurityprofile  # type: ignore
-    from ._models import microsoftgraphhostsecuritystate  # type: ignore
-    from ._models import microsoftgraphipcategory  # type: ignore
-    from ._models import microsoftgraphipreferencedata  # type: ignore
-    from ._models import microsoftgraphipsecurityprofile  # type: ignore
-    from ._models import microsoftgraphkeyvaluepair  # type: ignore
-    from ._models import microsoftgraphlogonuser  # type: ignore
-    from ._models import microsoftgraphmalwarestate  # type: ignore
-    from ._models import microsoftgraphnetworkconnection  # type: ignore
-    from ._models import microsoftgraphnetworkinterface  # type: ignore
-    from ._models import microsoftgraphprocess  # type: ignore
-    from ._models import microsoftgraphprovidertenantsetting  # type: ignore
-    from ._models import microsoftgraphregistrykeystate  # type: ignore
-    from ._models import microsoftgraphreputationcategory  # type: ignore
-    from ._models import microsoftgraphresultinfo  # type: ignore
-    from ._models import microsoftgraphsecurescore  # type: ignore
-    from ._models import microsoftgraphsecurescorecontrolprofile  # type: ignore
-    from ._models import microsoftgraphsecurescorecontrolstateupdate  # type: ignore
-    from ._models import microsoftgraphsecurity  # type: ignore
-    from ._models import microsoftgraphsecurityaction  # type: ignore
-    from ._models import microsoftgraphsecurityactionstate  # type: ignore
-    from ._models import microsoftgraphsecurityproviderstatus  # type: ignore
-    from ._models import microsoftgraphsecurityresource  # type: ignore
-    from ._models import microsoftgraphsecurityvendorinformation  # type: ignore
-    from ._models import microsoftgraphtiindicator  # type: ignore
-    from ._models import microsoftgraphuseraccount  # type: ignore
-    from ._models import microsoftgraphusersecurityprofile  # type: ignore
-    from ._models import microsoftgraphusersecuritystate  # type: ignore
-    from ._models import microsoftgraphvulnerabilitystate  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
-    from ._models import paths1gb7he6securitytiindicatorsmicrosoftgraphdeletetiindicatorsbyexternalidpostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1i03shnsecuritytiindicatorsmicrosoftgraphsubmittiindicatorspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1pgxztnsecurityalertsmicrosoftgraphupdatealertspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathso3cp3msecuritytiindicatorsmicrosoftgraphdeletetiindicatorspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathss86sndsecuritytiindicatorsmicrosoftgraphupdatetiindicatorspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import CollectionOfAlert  # type: ignore
+    from ._models import CollectionOfCloudAppSecurityProfile  # type: ignore
+    from ._models import CollectionOfDomainSecurityProfile  # type: ignore
+    from ._models import CollectionOfFileSecurityProfile  # type: ignore
+    from ._models import CollectionOfHostSecurityProfile  # type: ignore
+    from ._models import CollectionOfIpSecurityProfile  # type: ignore
+    from ._models import CollectionOfProviderTenantSetting  # type: ignore
+    from ._models import CollectionOfSecureScore  # type: ignore
+    from ._models import CollectionOfSecureScoreControlProfile  # type: ignore
+    from ._models import CollectionOfSecurityAction  # type: ignore
+    from ._models import CollectionOfTiIndicator  # type: ignore
+    from ._models import CollectionOfUserSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphAlert  # type: ignore
+    from ._models import MicrosoftGraphAlertHistoryState  # type: ignore
+    from ._models import MicrosoftGraphAlertTrigger  # type: ignore
+    from ._models import MicrosoftGraphAverageComparativeScore  # type: ignore
+    from ._models import MicrosoftGraphCertificationControl  # type: ignore
+    from ._models import MicrosoftGraphCloudAppSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphCloudAppSecurityState  # type: ignore
+    from ._models import MicrosoftGraphComplianceInformation  # type: ignore
+    from ._models import MicrosoftGraphControlScore  # type: ignore
+    from ._models import MicrosoftGraphDomainRegistrant  # type: ignore
+    from ._models import MicrosoftGraphDomainSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphFileHash  # type: ignore
+    from ._models import MicrosoftGraphFileSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphFileSecurityState  # type: ignore
+    from ._models import MicrosoftGraphHostSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphHostSecurityState  # type: ignore
+    from ._models import MicrosoftGraphIpCategory  # type: ignore
+    from ._models import MicrosoftGraphIpReferenceData  # type: ignore
+    from ._models import MicrosoftGraphIpSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphKeyValuePair  # type: ignore
+    from ._models import MicrosoftGraphLogonUser  # type: ignore
+    from ._models import MicrosoftGraphMalwareState  # type: ignore
+    from ._models import MicrosoftGraphNetworkConnection  # type: ignore
+    from ._models import MicrosoftGraphNetworkInterface  # type: ignore
+    from ._models import MicrosoftGraphProcess  # type: ignore
+    from ._models import MicrosoftGraphProviderTenantSetting  # type: ignore
+    from ._models import MicrosoftGraphRegistryKeyState  # type: ignore
+    from ._models import MicrosoftGraphReputationCategory  # type: ignore
+    from ._models import MicrosoftGraphResultInfo  # type: ignore
+    from ._models import MicrosoftGraphSecureScore  # type: ignore
+    from ._models import MicrosoftGraphSecureScoreControlProfile  # type: ignore
+    from ._models import MicrosoftGraphSecureScoreControlStateUpdate  # type: ignore
+    from ._models import MicrosoftGraphSecurity  # type: ignore
+    from ._models import MicrosoftGraphSecurityAction  # type: ignore
+    from ._models import MicrosoftGraphSecurityActionState  # type: ignore
+    from ._models import MicrosoftGraphSecurityProviderStatus  # type: ignore
+    from ._models import MicrosoftGraphSecurityResource  # type: ignore
+    from ._models import MicrosoftGraphSecurityVendorInformation  # type: ignore
+    from ._models import MicrosoftGraphTiIndicator  # type: ignore
+    from ._models import MicrosoftGraphUserAccount  # type: ignore
+    from ._models import MicrosoftGraphUserSecurityProfile  # type: ignore
+    from ._models import MicrosoftGraphUserSecurityState  # type: ignore
+    from ._models import MicrosoftGraphVulnerabilityState  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths1Gb7He6SecurityTiindicatorsMicrosoftGraphDeletetiindicatorsbyexternalidPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1I03ShnSecurityTiindicatorsMicrosoftGraphSubmittiindicatorsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1PgxztnSecurityAlertsMicrosoftGraphUpdatealertsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsO3Cp3MSecurityTiindicatorsMicrosoftGraphDeletetiindicatorsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsS86SndSecurityTiindicatorsMicrosoftGraphUpdatetiindicatorsPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._security_enums import (
     Enum25,
@@ -172,98 +172,98 @@ from ._security_enums import (
     Enum56,
     Enum57,
     Enum58,
-    Get0itemsitem,
-    Get1itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Microsoftgraphaccountstatus,
-    Microsoftgraphalertfeedback,
-    Microsoftgraphalertseverity,
-    Microsoftgraphalertstatus,
-    Microsoftgraphapplicationpermissionsrequired,
-    Microsoftgraphconnectiondirection,
-    Microsoftgraphconnectionstatus,
-    Microsoftgraphdiamondmodel,
-    Microsoftgraphemailrole,
-    Microsoftgraphfilehashtype,
-    Microsoftgraphlogontype,
-    Microsoftgraphoperationstatus,
-    Microsoftgraphprocessintegritylevel,
-    Microsoftgraphregistryhive,
-    Microsoftgraphregistryoperation,
-    Microsoftgraphregistryvaluetype,
-    Microsoftgraphsecuritynetworkprotocol,
-    Microsoftgraphsecurityresourcetype,
-    Microsoftgraphtiaction,
-    Microsoftgraphtlplevel,
-    Microsoftgraphuseraccountsecuritytype,
+    Get0ItemsItem,
+    Get1ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    MicrosoftGraphAccountStatus,
+    MicrosoftGraphAlertFeedback,
+    MicrosoftGraphAlertSeverity,
+    MicrosoftGraphAlertStatus,
+    MicrosoftGraphApplicationPermissionsRequired,
+    MicrosoftGraphConnectionDirection,
+    MicrosoftGraphConnectionStatus,
+    MicrosoftGraphDiamondModel,
+    MicrosoftGraphEmailRole,
+    MicrosoftGraphFileHashType,
+    MicrosoftGraphLogonType,
+    MicrosoftGraphOperationStatus,
+    MicrosoftGraphProcessIntegrityLevel,
+    MicrosoftGraphRegistryHive,
+    MicrosoftGraphRegistryOperation,
+    MicrosoftGraphRegistryValueType,
+    MicrosoftGraphSecurityNetworkProtocol,
+    MicrosoftGraphSecurityResourceType,
+    MicrosoftGraphTiAction,
+    MicrosoftGraphTlpLevel,
+    MicrosoftGraphUserAccountSecurityType,
 )
 
 __all__ = [
-    'collectionofalert',
-    'collectionofcloudappsecurityprofile',
-    'collectionofdomainsecurityprofile',
-    'collectionoffilesecurityprofile',
-    'collectionofhostsecurityprofile',
-    'collectionofipsecurityprofile',
-    'collectionofprovidertenantsetting',
-    'collectionofsecurescore',
-    'collectionofsecurescorecontrolprofile',
-    'collectionofsecurityaction',
-    'collectionoftiindicator',
-    'collectionofusersecurityprofile',
-    'microsoftgraphalert',
-    'microsoftgraphalerthistorystate',
-    'microsoftgraphalerttrigger',
-    'microsoftgraphaveragecomparativescore',
-    'microsoftgraphcertificationcontrol',
-    'microsoftgraphcloudappsecurityprofile',
-    'microsoftgraphcloudappsecuritystate',
-    'microsoftgraphcomplianceinformation',
-    'microsoftgraphcontrolscore',
-    'microsoftgraphdomainregistrant',
-    'microsoftgraphdomainsecurityprofile',
-    'microsoftgraphentity',
-    'microsoftgraphfilehash',
-    'microsoftgraphfilesecurityprofile',
-    'microsoftgraphfilesecuritystate',
-    'microsoftgraphhostsecurityprofile',
-    'microsoftgraphhostsecuritystate',
-    'microsoftgraphipcategory',
-    'microsoftgraphipreferencedata',
-    'microsoftgraphipsecurityprofile',
-    'microsoftgraphkeyvaluepair',
-    'microsoftgraphlogonuser',
-    'microsoftgraphmalwarestate',
-    'microsoftgraphnetworkconnection',
-    'microsoftgraphnetworkinterface',
-    'microsoftgraphprocess',
-    'microsoftgraphprovidertenantsetting',
-    'microsoftgraphregistrykeystate',
-    'microsoftgraphreputationcategory',
-    'microsoftgraphresultinfo',
-    'microsoftgraphsecurescore',
-    'microsoftgraphsecurescorecontrolprofile',
-    'microsoftgraphsecurescorecontrolstateupdate',
-    'microsoftgraphsecurity',
-    'microsoftgraphsecurityaction',
-    'microsoftgraphsecurityactionstate',
-    'microsoftgraphsecurityproviderstatus',
-    'microsoftgraphsecurityresource',
-    'microsoftgraphsecurityvendorinformation',
-    'microsoftgraphtiindicator',
-    'microsoftgraphuseraccount',
-    'microsoftgraphusersecurityprofile',
-    'microsoftgraphusersecuritystate',
-    'microsoftgraphvulnerabilitystate',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
-    'paths1gb7he6securitytiindicatorsmicrosoftgraphdeletetiindicatorsbyexternalidpostrequestbodycontentapplicationjsonschema',
-    'paths1i03shnsecuritytiindicatorsmicrosoftgraphsubmittiindicatorspostrequestbodycontentapplicationjsonschema',
-    'paths1pgxztnsecurityalertsmicrosoftgraphupdatealertspostrequestbodycontentapplicationjsonschema',
-    'pathso3cp3msecuritytiindicatorsmicrosoftgraphdeletetiindicatorspostrequestbodycontentapplicationjsonschema',
-    'pathss86sndsecuritytiindicatorsmicrosoftgraphupdatetiindicatorspostrequestbodycontentapplicationjsonschema',
+    'CollectionOfAlert',
+    'CollectionOfCloudAppSecurityProfile',
+    'CollectionOfDomainSecurityProfile',
+    'CollectionOfFileSecurityProfile',
+    'CollectionOfHostSecurityProfile',
+    'CollectionOfIpSecurityProfile',
+    'CollectionOfProviderTenantSetting',
+    'CollectionOfSecureScore',
+    'CollectionOfSecureScoreControlProfile',
+    'CollectionOfSecurityAction',
+    'CollectionOfTiIndicator',
+    'CollectionOfUserSecurityProfile',
+    'MicrosoftGraphAlert',
+    'MicrosoftGraphAlertHistoryState',
+    'MicrosoftGraphAlertTrigger',
+    'MicrosoftGraphAverageComparativeScore',
+    'MicrosoftGraphCertificationControl',
+    'MicrosoftGraphCloudAppSecurityProfile',
+    'MicrosoftGraphCloudAppSecurityState',
+    'MicrosoftGraphComplianceInformation',
+    'MicrosoftGraphControlScore',
+    'MicrosoftGraphDomainRegistrant',
+    'MicrosoftGraphDomainSecurityProfile',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphFileHash',
+    'MicrosoftGraphFileSecurityProfile',
+    'MicrosoftGraphFileSecurityState',
+    'MicrosoftGraphHostSecurityProfile',
+    'MicrosoftGraphHostSecurityState',
+    'MicrosoftGraphIpCategory',
+    'MicrosoftGraphIpReferenceData',
+    'MicrosoftGraphIpSecurityProfile',
+    'MicrosoftGraphKeyValuePair',
+    'MicrosoftGraphLogonUser',
+    'MicrosoftGraphMalwareState',
+    'MicrosoftGraphNetworkConnection',
+    'MicrosoftGraphNetworkInterface',
+    'MicrosoftGraphProcess',
+    'MicrosoftGraphProviderTenantSetting',
+    'MicrosoftGraphRegistryKeyState',
+    'MicrosoftGraphReputationCategory',
+    'MicrosoftGraphResultInfo',
+    'MicrosoftGraphSecureScore',
+    'MicrosoftGraphSecureScoreControlProfile',
+    'MicrosoftGraphSecureScoreControlStateUpdate',
+    'MicrosoftGraphSecurity',
+    'MicrosoftGraphSecurityAction',
+    'MicrosoftGraphSecurityActionState',
+    'MicrosoftGraphSecurityProviderStatus',
+    'MicrosoftGraphSecurityResource',
+    'MicrosoftGraphSecurityVendorInformation',
+    'MicrosoftGraphTiIndicator',
+    'MicrosoftGraphUserAccount',
+    'MicrosoftGraphUserSecurityProfile',
+    'MicrosoftGraphUserSecurityState',
+    'MicrosoftGraphVulnerabilityState',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
+    'Paths1Gb7He6SecurityTiindicatorsMicrosoftGraphDeletetiindicatorsbyexternalidPostRequestbodyContentApplicationJsonSchema',
+    'Paths1I03ShnSecurityTiindicatorsMicrosoftGraphSubmittiindicatorsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1PgxztnSecurityAlertsMicrosoftGraphUpdatealertsPostRequestbodyContentApplicationJsonSchema',
+    'PathsO3Cp3MSecurityTiindicatorsMicrosoftGraphDeletetiindicatorsPostRequestbodyContentApplicationJsonSchema',
+    'PathsS86SndSecurityTiindicatorsMicrosoftGraphUpdatetiindicatorsPostRequestbodyContentApplicationJsonSchema',
     'Enum25',
     'Enum26',
     'Enum27',
@@ -298,29 +298,29 @@ __all__ = [
     'Enum56',
     'Enum57',
     'Enum58',
-    'Get0itemsitem',
-    'Get1itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Microsoftgraphaccountstatus',
-    'Microsoftgraphalertfeedback',
-    'Microsoftgraphalertseverity',
-    'Microsoftgraphalertstatus',
-    'Microsoftgraphapplicationpermissionsrequired',
-    'Microsoftgraphconnectiondirection',
-    'Microsoftgraphconnectionstatus',
-    'Microsoftgraphdiamondmodel',
-    'Microsoftgraphemailrole',
-    'Microsoftgraphfilehashtype',
-    'Microsoftgraphlogontype',
-    'Microsoftgraphoperationstatus',
-    'Microsoftgraphprocessintegritylevel',
-    'Microsoftgraphregistryhive',
-    'Microsoftgraphregistryoperation',
-    'Microsoftgraphregistryvaluetype',
-    'Microsoftgraphsecuritynetworkprotocol',
-    'Microsoftgraphsecurityresourcetype',
-    'Microsoftgraphtiaction',
-    'Microsoftgraphtlplevel',
-    'Microsoftgraphuseraccountsecuritytype',
+    'Get0ItemsItem',
+    'Get1ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'MicrosoftGraphAccountStatus',
+    'MicrosoftGraphAlertFeedback',
+    'MicrosoftGraphAlertSeverity',
+    'MicrosoftGraphAlertStatus',
+    'MicrosoftGraphApplicationPermissionsRequired',
+    'MicrosoftGraphConnectionDirection',
+    'MicrosoftGraphConnectionStatus',
+    'MicrosoftGraphDiamondModel',
+    'MicrosoftGraphEmailRole',
+    'MicrosoftGraphFileHashType',
+    'MicrosoftGraphLogonType',
+    'MicrosoftGraphOperationStatus',
+    'MicrosoftGraphProcessIntegrityLevel',
+    'MicrosoftGraphRegistryHive',
+    'MicrosoftGraphRegistryOperation',
+    'MicrosoftGraphRegistryValueType',
+    'MicrosoftGraphSecurityNetworkProtocol',
+    'MicrosoftGraphSecurityResourceType',
+    'MicrosoftGraphTiAction',
+    'MicrosoftGraphTlpLevel',
+    'MicrosoftGraphUserAccountSecurityType',
 ]

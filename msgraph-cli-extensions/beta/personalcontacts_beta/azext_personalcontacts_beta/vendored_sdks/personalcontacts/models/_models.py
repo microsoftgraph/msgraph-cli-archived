@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofcontact(msrest.serialization.Model):
+class CollectionOfContact(msrest.serialization.Model):
     """Collection of contact.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphcontact]
+    :type value: list[~personal_contacts.models.MicrosoftGraphContact]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcontact]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphContact]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class collectionofcontact(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcontact, self).__init__(**kwargs)
+        super(CollectionOfContact, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcontact0(msrest.serialization.Model):
+class CollectionOfContact0(msrest.serialization.Model):
     """Collection of contact.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphcontact]
+    :type value: list[~personal_contacts.models.MicrosoftGraphContact]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcontact]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphContact]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class collectionofcontact0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcontact0, self).__init__(**kwargs)
+        super(CollectionOfContact0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcontactfolder(msrest.serialization.Model):
+class CollectionOfContactFolder(msrest.serialization.Model):
     """Collection of contactFolder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphcontactfolder]
+    :type value: list[~personal_contacts.models.MicrosoftGraphContactFolder]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcontactfolder]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphContactFolder]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class collectionofcontactfolder(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcontactfolder, self).__init__(**kwargs)
+        super(CollectionOfContactFolder, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofcontactfolder0(msrest.serialization.Model):
+class CollectionOfContactFolder0(msrest.serialization.Model):
     """Collection of contactFolder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphcontactfolder]
+    :type value: list[~personal_contacts.models.MicrosoftGraphContactFolder]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcontactfolder]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphContactFolder]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class collectionofcontactfolder0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofcontactfolder0, self).__init__(**kwargs)
+        super(CollectionOfContactFolder0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofextension(msrest.serialization.Model):
+class CollectionOfExtension(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphextension]
+    :type value: list[~personal_contacts.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class collectionofextension(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofextension, self).__init__(**kwargs)
+        super(CollectionOfExtension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofextension0(msrest.serialization.Model):
+class CollectionOfExtension0(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphextension]
+    :type value: list[~personal_contacts.models.MicrosoftGraphExtension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class collectionofextension0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofextension0, self).__init__(**kwargs)
+        super(CollectionOfExtension0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofmultivaluelegacyextendedproperty(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class collectionofmultivaluelegacyextendedproperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofmultivaluelegacyextendedproperty0(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty0(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class collectionofmultivaluelegacyextendedproperty0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty0, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofmultivaluelegacyextendedproperty1(msrest.serialization.Model):
+class CollectionOfMultiValueLegacyExtendedProperty1(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphmultivaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class collectionofmultivaluelegacyextendedproperty1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofmultivaluelegacyextendedproperty1, self).__init__(**kwargs)
+        super(CollectionOfMultiValueLegacyExtendedProperty1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofsinglevaluelegacyextendedproperty(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,27 +284,27 @@ class collectionofsinglevaluelegacyextendedproperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofsinglevaluelegacyextendedproperty0(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty0(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -312,27 +312,27 @@ class collectionofsinglevaluelegacyextendedproperty0(msrest.serialization.Model)
         self,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty0, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class collectionofsinglevaluelegacyextendedproperty1(msrest.serialization.Model):
+class CollectionOfSingleValueLegacyExtendedProperty1(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~personal_contacts.models.microsoftgraphsinglevaluelegacyextendedproperty]
+    :type value: list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -340,13 +340,13 @@ class collectionofsinglevaluelegacyextendedproperty1(msrest.serialization.Model)
         self,
         **kwargs
     ):
-        super(collectionofsinglevaluelegacyextendedproperty1, self).__init__(**kwargs)
+        super(CollectionOfSingleValueLegacyExtendedProperty1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -365,12 +365,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class microsoftgraphoutlookitem(microsoftgraphentity):
+class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
     """outlookItem.
 
     :param id: Read-only.
@@ -407,7 +407,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphoutlookitem, self).__init__(**kwargs)
+        super(MicrosoftGraphOutlookItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.change_key = kwargs.get('change_key', None)
@@ -415,7 +415,7 @@ class microsoftgraphoutlookitem(microsoftgraphentity):
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
 
 
-class microsoftgraphcontact(microsoftgraphoutlookitem):
+class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
     :param id: Read-only.
@@ -455,11 +455,11 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
      existing value, always include it as displayName in an update operation.
     :type display_name: str
     :param email_addresses: The contact's email addresses.
-    :type email_addresses: list[~personal_contacts.models.microsoftgraphtypedemailaddress]
+    :type email_addresses: list[~personal_contacts.models.MicrosoftGraphTypedEmailAddress]
     :param file_as: The name the contact is filed under.
     :type file_as: str
     :param flag: followupFlag.
-    :type flag: ~personal_contacts.models.microsoftgraphfollowupflag
+    :type flag: ~personal_contacts.models.MicrosoftGraphFollowupFlag
     :param gender:
     :type gender: str
     :param generation: The contact's generation.
@@ -487,9 +487,9 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :param personal_notes: The user's notes about the contact.
     :type personal_notes: str
     :param phones:
-    :type phones: list[~personal_contacts.models.microsoftgraphphone]
+    :type phones: list[~personal_contacts.models.MicrosoftGraphPhone]
     :param postal_addresses:
-    :type postal_addresses: list[~personal_contacts.models.microsoftgraphphysicaladdress]
+    :type postal_addresses: list[~personal_contacts.models.MicrosoftGraphPhysicalAddress]
     :param profession: The contact's profession.
     :type profession: str
     :param spouse_name: The name of the contact's spouse/partner.
@@ -499,7 +499,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :param title: The contact's title.
     :type title: str
     :param websites:
-    :type websites: list[~personal_contacts.models.microsoftgraphwebsite]
+    :type websites: list[~personal_contacts.models.MicrosoftGraphWebsite]
     :param wedding_anniversary:
     :type wedding_anniversary: ~datetime.date
     :param yomi_company_name: The phonetic Japanese company name of the contact.
@@ -510,17 +510,17 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
     :type yomi_surname: str
     :param extensions: The collection of open extensions defined for the contact. Read-only.
      Nullable.
-    :type extensions: list[~personal_contacts.models.microsoftgraphextension]
+    :type extensions: list[~personal_contacts.models.MicrosoftGraphExtension]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the contact. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~personal_contacts.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~personal_contacts.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param photo: profilePhoto.
-    :type photo: ~personal_contacts.models.microsoftgraphprofilephoto
+    :type photo: ~personal_contacts.models.MicrosoftGraphProfilePhoto
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the contact. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~personal_contacts.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -536,9 +536,9 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         'company_name': {'key': 'companyName', 'type': 'str'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'email_addresses': {'key': 'emailAddresses', 'type': '[microsoftgraphtypedemailaddress]'},
+        'email_addresses': {'key': 'emailAddresses', 'type': '[MicrosoftGraphTypedEmailAddress]'},
         'file_as': {'key': 'fileAs', 'type': 'str'},
-        'flag': {'key': 'flag', 'type': 'microsoftgraphfollowupflag'},
+        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
         'gender': {'key': 'gender', 'type': 'str'},
         'generation': {'key': 'generation', 'type': 'str'},
         'given_name': {'key': 'givenName', 'type': 'str'},
@@ -552,28 +552,28 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         'office_location': {'key': 'officeLocation', 'type': 'str'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'personal_notes': {'key': 'personalNotes', 'type': 'str'},
-        'phones': {'key': 'phones', 'type': '[microsoftgraphphone]'},
-        'postal_addresses': {'key': 'postalAddresses', 'type': '[microsoftgraphphysicaladdress]'},
+        'phones': {'key': 'phones', 'type': '[MicrosoftGraphPhone]'},
+        'postal_addresses': {'key': 'postalAddresses', 'type': '[MicrosoftGraphPhysicalAddress]'},
         'profession': {'key': 'profession', 'type': 'str'},
         'spouse_name': {'key': 'spouseName', 'type': 'str'},
         'surname': {'key': 'surname', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
-        'websites': {'key': 'websites', 'type': '[microsoftgraphwebsite]'},
+        'websites': {'key': 'websites', 'type': '[MicrosoftGraphWebsite]'},
         'wedding_anniversary': {'key': 'weddingAnniversary', 'type': 'date'},
         'yomi_company_name': {'key': 'yomiCompanyName', 'type': 'str'},
         'yomi_given_name': {'key': 'yomiGivenName', 'type': 'str'},
         'yomi_surname': {'key': 'yomiSurname', 'type': 'str'},
-        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'photo': {'key': 'photo', 'type': 'microsoftgraphprofilephoto'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcontact, self).__init__(**kwargs)
+        super(MicrosoftGraphContact, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assistant_name = kwargs.get('assistant_name', None)
         self.birthday = kwargs.get('birthday', None)
@@ -614,7 +614,7 @@ class microsoftgraphcontact(microsoftgraphoutlookitem):
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
-class microsoftgraphcontactfolder(microsoftgraphentity):
+class MicrosoftGraphContactFolder(MicrosoftGraphEntity):
     """contactFolder.
 
     :param id: Read-only.
@@ -630,17 +630,17 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
     :type well_known_name: str
     :param child_folders: The collection of child folders in the folder. Navigation property. Read-
      only. Nullable.
-    :type child_folders: list[~personal_contacts.models.microsoftgraphcontactfolder]
+    :type child_folders: list[~personal_contacts.models.MicrosoftGraphContactFolder]
     :param contacts: The contacts in the folder. Navigation property. Read-only. Nullable.
-    :type contacts: list[~personal_contacts.models.microsoftgraphcontact]
+    :type contacts: list[~personal_contacts.models.MicrosoftGraphContact]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the contactFolder. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~personal_contacts.models.microsoftgraphmultivaluelegacyextendedproperty]
+     list[~personal_contacts.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the contactFolder. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~personal_contacts.models.microsoftgraphsinglevaluelegacyextendedproperty]
+     list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
@@ -649,17 +649,17 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'well_known_name': {'key': 'wellKnownName', 'type': 'str'},
-        'child_folders': {'key': 'childFolders', 'type': '[microsoftgraphcontactfolder]'},
-        'contacts': {'key': 'contacts', 'type': '[microsoftgraphcontact]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
+        'child_folders': {'key': 'childFolders', 'type': '[MicrosoftGraphContactFolder]'},
+        'contacts': {'key': 'contacts', 'type': '[MicrosoftGraphContact]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphcontactfolder, self).__init__(**kwargs)
+        super(MicrosoftGraphContactFolder, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.parent_folder_id = kwargs.get('parent_folder_id', None)
@@ -670,7 +670,7 @@ class microsoftgraphcontactfolder(microsoftgraphentity):
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
-class microsoftgraphdatetimezone(msrest.serialization.Model):
+class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
     """dateTimeTimeZone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -694,13 +694,13 @@ class microsoftgraphdatetimezone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphdatetimezone, self).__init__(**kwargs)
+        super(MicrosoftGraphDateTimeZone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.date_time = kwargs.get('date_time', None)
         self.time_zone = kwargs.get('time_zone', None)
 
 
-class microsoftgraphemailaddress(msrest.serialization.Model):
+class MicrosoftGraphEmailAddress(msrest.serialization.Model):
     """emailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -722,13 +722,13 @@ class microsoftgraphemailaddress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphEmailAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.name = kwargs.get('name', None)
 
 
-class microsoftgraphextension(microsoftgraphentity):
+class MicrosoftGraphExtension(MicrosoftGraphEntity):
     """extension.
 
     :param id: Read-only.
@@ -747,39 +747,39 @@ class microsoftgraphextension(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphextension, self).__init__(**kwargs)
+        super(MicrosoftGraphExtension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class microsoftgraphfollowupflag(msrest.serialization.Model):
+class MicrosoftGraphFollowupFlag(msrest.serialization.Model):
     """followupFlag.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~personal_contacts.models.microsoftgraphdatetimezone
+    :type completed_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
     :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~personal_contacts.models.microsoftgraphdatetimezone
+    :type due_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
     :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~personal_contacts.models.Microsoftgraphfollowupflagstatus
+    :type flag_status: str or ~personal_contacts.models.MicrosoftGraphFollowupFlagStatus
     :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~personal_contacts.models.microsoftgraphdatetimezone
+    :type start_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'completed_date_time': {'key': 'completedDateTime', 'type': 'microsoftgraphdatetimezone'},
-        'due_date_time': {'key': 'dueDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'completed_date_time': {'key': 'completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'due_date_time': {'key': 'dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
         'flag_status': {'key': 'flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'startDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(microsoftgraphfollowupflag, self).__init__(**kwargs)
+        super(MicrosoftGraphFollowupFlag, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completed_date_time = kwargs.get('completed_date_time', None)
         self.due_date_time = kwargs.get('due_date_time', None)
@@ -787,7 +787,7 @@ class microsoftgraphfollowupflag(msrest.serialization.Model):
         self.start_date_time = kwargs.get('start_date_time', None)
 
 
-class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphMultiValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """multiValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -809,12 +809,12 @@ class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphmultivaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphMultiValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
 
 
-class microsoftgraphphone(msrest.serialization.Model):
+class MicrosoftGraphPhone(msrest.serialization.Model):
     """phone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -824,7 +824,7 @@ class microsoftgraphphone(msrest.serialization.Model):
     :type number: str
     :param type:  Possible values include: "home", "business", "mobile", "other", "assistant",
      "homeFax", "businessFax", "otherFax", "pager", "radio".
-    :type type: str or ~personal_contacts.models.Microsoftgraphphonetype
+    :type type: str or ~personal_contacts.models.MicrosoftGraphPhoneType
     """
 
     _attribute_map = {
@@ -837,13 +837,13 @@ class microsoftgraphphone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphphone, self).__init__(**kwargs)
+        super(MicrosoftGraphPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphphysicaladdress(msrest.serialization.Model):
+class MicrosoftGraphPhysicalAddress(msrest.serialization.Model):
     """physicalAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -863,7 +863,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
     :param street: The street.
     :type street: str
     :param type:  Possible values include: "unknown", "home", "business", "other".
-    :type type: str or ~personal_contacts.models.Microsoftgraphphysicaladdresstype
+    :type type: str or ~personal_contacts.models.MicrosoftGraphPhysicalAddressType
     """
 
     _attribute_map = {
@@ -881,7 +881,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphphysicaladdress, self).__init__(**kwargs)
+        super(MicrosoftGraphPhysicalAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.city = kwargs.get('city', None)
         self.country_or_region = kwargs.get('country_or_region', None)
@@ -892,7 +892,7 @@ class microsoftgraphphysicaladdress(msrest.serialization.Model):
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphprofilephoto(microsoftgraphentity):
+class MicrosoftGraphProfilePhoto(MicrosoftGraphEntity):
     """profilePhoto.
 
     :param id: Read-only.
@@ -922,13 +922,13 @@ class microsoftgraphprofilephoto(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphprofilephoto, self).__init__(**kwargs)
+        super(MicrosoftGraphProfilePhoto, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.height = kwargs.get('height', None)
         self.width = kwargs.get('width', None)
 
 
-class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
+class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
     """singleValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -950,12 +950,12 @@ class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
         self,
         **kwargs
     ):
-        super(microsoftgraphsinglevaluelegacyextendedproperty, self).__init__(**kwargs)
+        super(MicrosoftGraphSingleValueLegacyExtendedProperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
 
 
-class microsoftgraphtypedemailaddress(microsoftgraphemailaddress):
+class MicrosoftGraphTypedEmailAddress(MicrosoftGraphEmailAddress):
     """typedEmailAddress.
 
     :param address: The email address of the person or entity.
@@ -968,7 +968,7 @@ class microsoftgraphtypedemailaddress(microsoftgraphemailaddress):
     :param other_label:
     :type other_label: str
     :param type:  Possible values include: "unknown", "work", "personal", "main", "other".
-    :type type: str or ~personal_contacts.models.Microsoftgraphemailtype
+    :type type: str or ~personal_contacts.models.MicrosoftGraphEmailType
     """
 
     _attribute_map = {
@@ -983,13 +983,13 @@ class microsoftgraphtypedemailaddress(microsoftgraphemailaddress):
         self,
         **kwargs
     ):
-        super(microsoftgraphtypedemailaddress, self).__init__(**kwargs)
+        super(MicrosoftGraphTypedEmailAddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.other_label = kwargs.get('other_label', None)
         self.type = kwargs.get('type', None)
 
 
-class microsoftgraphwebsite(msrest.serialization.Model):
+class MicrosoftGraphWebsite(msrest.serialization.Model):
     """website.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1000,7 +1000,7 @@ class microsoftgraphwebsite(msrest.serialization.Model):
     :param display_name: The display name of the web site.
     :type display_name: str
     :param type:  Possible values include: "other", "home", "work", "blog", "profile".
-    :type type: str or ~personal_contacts.models.Microsoftgraphwebsitetype
+    :type type: str or ~personal_contacts.models.MicrosoftGraphWebsiteType
     """
 
     _attribute_map = {
@@ -1014,15 +1014,15 @@ class microsoftgraphwebsite(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(microsoftgraphwebsite, self).__init__(**kwargs)
+        super(MicrosoftGraphWebsite, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
         self.type = kwargs.get('type', None)
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1030,7 +1030,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~personal_contacts.models.odataerrormain
+    :type error: ~personal_contacts.models.OdataErrorMain
     """
 
     _validation = {
@@ -1039,20 +1039,20 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1083,15 +1083,15 @@ class odataerrordetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1105,7 +1105,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~personal_contacts.models.odataerrordetail]
+    :type details: list[~personal_contacts.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1120,7 +1120,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1128,7 +1128,7 @@ class odataerrormain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

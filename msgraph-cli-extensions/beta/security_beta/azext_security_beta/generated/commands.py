@@ -14,51 +14,55 @@
 
 from msgraph.cli.core.commands import CliCommandType
 from azext_security_beta.generated._client_factory import (
+    cf_security_security,
     cf_security,
-    cf_security,
-    cf_securityalert,
-    cf_securityaction,
-    cf_securitytiindicator,
+    cf_security_alert,
+    cf_security_security_action,
+    cf_security_tiindicator,
+)
+
+
+security_beta_security_security = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_operations#SecuritySecurityOperations.{}',
+    client_factory=cf_security_security,
 )
 
 
 security_beta_security = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._securitysecurity_operations#securitysecurityOperations.{}',
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_operations#SecurityOperations.{}',
     client_factory=cf_security,
 )
 
 
-security_beta_security = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_operations#securityOperations.{}',
-    client_factory=cf_security,
-)
-
-
-security_beta_securityalert = CliCommandType(
+security_beta_security_alert = CliCommandType(
     operations_tmpl=(
-        'azext_security_beta.vendored_sdks.security.operations._securityalerts_operations#securityalertsOperations.{}'
+        'azext_security_beta.vendored_sdks.security.operations._security_alerts_operations#SecurityAlertsOperations.{}'
     ),
-    client_factory=cf_securityalert,
+    client_factory=cf_security_alert,
 )
 
 
-security_beta_securityaction = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._securitysecurityactions_operations#securitysecurityactionsOperations.{}',
-    client_factory=cf_securityaction,
+security_beta_security_security_action = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_actions_operations#SecuritySecurityActionsOperations.{}',
+    client_factory=cf_security_security_action,
 )
 
 
-security_beta_securitytiindicator = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._securitytiindicators_operations#securitytiindicatorsOperations.{}',
-    client_factory=cf_securitytiindicator,
+security_beta_security_tiindicator = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_ti_indicators_operations#SecurityTiIndicatorsOperations.{}',
+    client_factory=cf_security_tiindicator,
 )
 
 
 def load_command_table(self, _):
 
-    with self.command_group('security security', security_beta_security, client_factory=cf_security) as g:
+    with self.command_group(
+        'security security', security_beta_security_security, client_factory=cf_security_security
+    ) as g:
+        g.custom_command('create', 'security_security_create')
+        g.custom_command('create-action', 'security_security_create_action', client_factory=cf_security)
+        g.custom_command('list-action', 'security_security_list_action', client_factory=cf_security)
         g.custom_command('show-security', 'security_security_show_security')
-        g.custom_command('update-security', 'security_security_update_security')
 
     with self.command_group('security security', security_beta_security, client_factory=cf_security) as g:
         g.custom_command('create-alert', 'security_security_create_alert')
@@ -70,7 +74,6 @@ def load_command_table(self, _):
         g.custom_command('create-provider-tenant-setting', 'security_security_create_provider_tenant_setting')
         g.custom_command('create-secure-score', 'security_security_create_secure_score')
         g.custom_command('create-secure-score-control-profile', 'security_security_create_secure_score_control_profile')
-        g.custom_command('create-security-action', 'security_security_create_security_action')
         g.custom_command('create-ti-indicator', 'security_security_create_ti_indicator')
         g.custom_command('create-user-security-profile', 'security_security_create_user_security_profile')
         g.custom_command('delete-alert', 'security_security_delete_alert')
@@ -94,7 +97,6 @@ def load_command_table(self, _):
         g.custom_command('list-provider-tenant-setting', 'security_security_list_provider_tenant_setting')
         g.custom_command('list-secure-score', 'security_security_list_secure_score')
         g.custom_command('list-secure-score-control-profile', 'security_security_list_secure_score_control_profile')
-        g.custom_command('list-security-action', 'security_security_list_security_action')
         g.custom_command('list-ti-indicator', 'security_security_list_ti_indicator')
         g.custom_command('list-user-security-profile', 'security_security_list_user_security_profile')
         g.custom_command('show-alert', 'security_security_show_alert')
@@ -118,29 +120,28 @@ def load_command_table(self, _):
         g.custom_command('update-provider-tenant-setting', 'security_security_update_provider_tenant_setting')
         g.custom_command('update-secure-score', 'security_security_update_secure_score')
         g.custom_command('update-secure-score-control-profile', 'security_security_update_secure_score_control_profile')
-        g.custom_command('update-security-action', 'security_security_update_security_action')
         g.custom_command('update-ti-indicator', 'security_security_update_ti_indicator')
         g.custom_command('update-user-security-profile', 'security_security_update_user_security_profile')
 
     with self.command_group(
-        'security securityalert', security_beta_securityalert, client_factory=cf_securityalert
+        'security security-alert', security_beta_security_alert, client_factory=cf_security_alert
     ) as g:
-        g.custom_command('update-alert', 'security_securityalert_update_alert')
+        g.custom_command('update-alert', 'security_security_alert_update_alert')
 
     with self.command_group(
-        'security securityaction', security_beta_securityaction, client_factory=cf_securityaction
+        'security security-action', security_beta_security_security_action, client_factory=cf_security_security_action
     ) as g:
-        g.custom_command('cancel-security-action', 'security_securityaction_cancel_security_action')
+        g.custom_command('cancel-security-action', 'security_security_action_cancel_security_action')
 
     with self.command_group(
-        'security securitytiindicator', security_beta_securitytiindicator, client_factory=cf_securitytiindicator
+        'security security-ti-indicator', security_beta_security_tiindicator, client_factory=cf_security_tiindicator
     ) as g:
-        g.custom_command('delete-ti-indicator', 'security_securitytiindicator_delete_ti_indicator')
+        g.custom_command('delete-ti-indicator', 'security_security_ti_indicator_delete_ti_indicator')
         g.custom_command(
-            'delete-ti-indicator-by-external-id', 'security_securitytiindicator_delete_ti_indicator_by_external_id'
+            'delete-ti-indicator-by-external-id', 'security_security_ti_indicator_delete_ti_indicator_by_external_id'
         )
-        g.custom_command('submit-ti-indicator', 'security_securitytiindicator_submit_ti_indicator')
-        g.custom_command('update-ti-indicator', 'security_securitytiindicator_update_ti_indicator')
+        g.custom_command('submit-ti-indicator', 'security_security_ti_indicator_submit_ti_indicator')
+        g.custom_command('update-ti-indicator', 'security_security_ti_indicator_update_ti_indicator')
 
     with self.command_group('security_beta', is_experimental=True):
         pass

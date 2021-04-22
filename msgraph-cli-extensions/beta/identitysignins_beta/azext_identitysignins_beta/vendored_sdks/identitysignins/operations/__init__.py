@@ -6,64 +6,64 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._datapolicyoperationsdatapolicyoperation_operations import datapolicyoperationsdatapolicyoperationOperations
-from ._identity_operations import identityOperations
-from ._identityconditionalaccess_operations import identityconditionalaccessOperations
-from ._identityprovidersidentityprovider_operations import identityprovidersidentityproviderOperations
-from ._identityproviders_operations import identityprovidersOperations
-from ._informationprotectioninformationprotection_operations import informationprotectioninformationprotectionOperations
-from ._informationprotection_operations import informationprotectionOperations
-from ._informationprotectiondatalosspreventionpolicies_operations import informationprotectiondatalosspreventionpoliciesOperations
-from ._informationprotectionpolicy_operations import informationprotectionpolicyOperations
-from ._informationprotectionpolicylabels_operations import informationprotectionpolicylabelsOperations
-from ._informationprotectionsensitivitylabels_operations import informationprotectionsensitivitylabelsOperations
-from ._informationprotectionsensitivitylabelssublabels_operations import informationprotectionsensitivitylabelssublabelsOperations
-from ._informationprotectionthreatassessmentrequests_operations import informationprotectionthreatassessmentrequestsOperations
-from ._invitationsinvitation_operations import invitationsinvitationOperations
-from ._invitations_operations import invitationsOperations
-from ._oauth2permissiongrantsoauth2permissiongrant_operations import oauth2permissiongrantsoauth2permissiongrantOperations
-from ._oauth2permissiongrants_operations import oauth2permissiongrantsOperations
-from ._organization_operations import organizationOperations
-from ._policiespolicyroot_operations import policiespolicyrootOperations
-from ._policies_operations import policiesOperations
-from ._policiespermissiongrantpolicies_operations import policiespermissiongrantpoliciesOperations
-from ._riskdetectionsriskdetection_operations import riskdetectionsriskdetectionOperations
-from ._riskyusersriskyuser_operations import riskyusersriskyuserOperations
-from ._riskyusers_operations import riskyusersOperations
-from ._trustframeworktrustframework_operations import trustframeworktrustframeworkOperations
-from ._trustframework_operations import trustframeworkOperations
-from ._trustframeworkkeysets_operations import trustframeworkkeysetsOperations
-from ._users_operations import usersOperations
-from ._usersauthentication_operations import usersauthenticationOperations
+from ._data_policy_operations_data_policy_operation_operations import DataPolicyOperationsDataPolicyOperationOperations
+from ._identity_operations import IdentityOperations
+from ._identity_conditional_access_operations import IdentityConditionalAccessOperations
+from ._identity_providers_identity_provider_operations import IdentityProvidersIdentityProviderOperations
+from ._identity_providers_operations import IdentityProvidersOperations
+from ._information_protection_information_protection_operations import InformationProtectionInformationProtectionOperations
+from ._information_protection_operations import InformationProtectionOperations
+from ._information_protection_data_loss_prevention_policies_operations import InformationProtectionDataLossPreventionPoliciesOperations
+from ._information_protection_policy_operations import InformationProtectionPolicyOperations
+from ._information_protection_policy_labels_operations import InformationProtectionPolicyLabelsOperations
+from ._information_protection_sensitivity_labels_operations import InformationProtectionSensitivityLabelsOperations
+from ._information_protection_sensitivity_labels_sublabels_operations import InformationProtectionSensitivityLabelsSublabelsOperations
+from ._information_protection_threat_assessment_requests_operations import InformationProtectionThreatAssessmentRequestsOperations
+from ._invitations_invitation_operations import InvitationsInvitationOperations
+from ._invitations_operations import InvitationsOperations
+from ._oauth2_permission_grants_oauth2_permission_grant_operations import Oauth2PermissionGrantsOAuth2PermissionGrantOperations
+from ._oauth2_permission_grants_operations import Oauth2PermissionGrantsOperations
+from ._organization_operations import OrganizationOperations
+from ._policies_policy_root_operations import PoliciesPolicyRootOperations
+from ._policies_operations import PoliciesOperations
+from ._policies_permission_grant_policies_operations import PoliciesPermissionGrantPoliciesOperations
+from ._risk_detections_risk_detection_operations import RiskDetectionsRiskDetectionOperations
+from ._risky_users_risky_user_operations import RiskyUsersRiskyUserOperations
+from ._risky_users_operations import RiskyUsersOperations
+from ._trust_framework_trust_framework_operations import TrustFrameworkTrustFrameworkOperations
+from ._trust_framework_operations import TrustFrameworkOperations
+from ._trust_framework_key_sets_operations import TrustFrameworkKeySetsOperations
+from ._users_operations import UsersOperations
+from ._users_authentication_operations import UsersAuthenticationOperations
 
 __all__ = [
-    'datapolicyoperationsdatapolicyoperationOperations',
-    'identityOperations',
-    'identityconditionalaccessOperations',
-    'identityprovidersidentityproviderOperations',
-    'identityprovidersOperations',
-    'informationprotectioninformationprotectionOperations',
-    'informationprotectionOperations',
-    'informationprotectiondatalosspreventionpoliciesOperations',
-    'informationprotectionpolicyOperations',
-    'informationprotectionpolicylabelsOperations',
-    'informationprotectionsensitivitylabelsOperations',
-    'informationprotectionsensitivitylabelssublabelsOperations',
-    'informationprotectionthreatassessmentrequestsOperations',
-    'invitationsinvitationOperations',
-    'invitationsOperations',
-    'oauth2permissiongrantsoauth2permissiongrantOperations',
-    'oauth2permissiongrantsOperations',
-    'organizationOperations',
-    'policiespolicyrootOperations',
-    'policiesOperations',
-    'policiespermissiongrantpoliciesOperations',
-    'riskdetectionsriskdetectionOperations',
-    'riskyusersriskyuserOperations',
-    'riskyusersOperations',
-    'trustframeworktrustframeworkOperations',
-    'trustframeworkOperations',
-    'trustframeworkkeysetsOperations',
-    'usersOperations',
-    'usersauthenticationOperations',
+    'DataPolicyOperationsDataPolicyOperationOperations',
+    'IdentityOperations',
+    'IdentityConditionalAccessOperations',
+    'IdentityProvidersIdentityProviderOperations',
+    'IdentityProvidersOperations',
+    'InformationProtectionInformationProtectionOperations',
+    'InformationProtectionOperations',
+    'InformationProtectionDataLossPreventionPoliciesOperations',
+    'InformationProtectionPolicyOperations',
+    'InformationProtectionPolicyLabelsOperations',
+    'InformationProtectionSensitivityLabelsOperations',
+    'InformationProtectionSensitivityLabelsSublabelsOperations',
+    'InformationProtectionThreatAssessmentRequestsOperations',
+    'InvitationsInvitationOperations',
+    'InvitationsOperations',
+    'Oauth2PermissionGrantsOAuth2PermissionGrantOperations',
+    'Oauth2PermissionGrantsOperations',
+    'OrganizationOperations',
+    'PoliciesPolicyRootOperations',
+    'PoliciesOperations',
+    'PoliciesPermissionGrantPoliciesOperations',
+    'RiskDetectionsRiskDetectionOperations',
+    'RiskyUsersRiskyUserOperations',
+    'RiskyUsersOperations',
+    'TrustFrameworkTrustFrameworkOperations',
+    'TrustFrameworkOperations',
+    'TrustFrameworkKeySetsOperations',
+    'UsersOperations',
+    'UsersAuthenticationOperations',
 ]

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,18 +18,18 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import DirectoryObjectsConfiguration
-from .operations import directoryobjectsdirectoryobjectOperations
-from .operations import directoryobjectsOperations
+from .operations import DirectoryObjectsDirectoryObjectOperations
+from .operations import DirectoryObjectsOperations
 from . import models
 
 
 class DirectoryObjects(object):
     """DirectoryObjects.
 
-    :ivar directoryobjectsdirectoryobject: directoryobjectsdirectoryobjectOperations operations
-    :vartype directoryobjectsdirectoryobject: directory_objects.operations.directoryobjectsdirectoryobjectOperations
-    :ivar directoryobjects: directoryobjectsOperations operations
-    :vartype directoryobjects: directory_objects.operations.directoryobjectsOperations
+    :ivar directory_objects_directory_object: DirectoryObjectsDirectoryObjectOperations operations
+    :vartype directory_objects_directory_object: directory_objects.operations.DirectoryObjectsDirectoryObjectOperations
+    :ivar directory_objects: DirectoryObjectsOperations operations
+    :vartype directory_objects: directory_objects.operations.DirectoryObjectsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -60,16 +60,16 @@ class DirectoryObjects(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = DirectoryObjectsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.directoryobjectsdirectoryobject = directoryobjectsdirectoryobjectOperations(
+        self.directory_objects_directory_object = DirectoryObjectsDirectoryObjectOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directoryobjects = directoryobjectsOperations(
+        self.directory_objects = DirectoryObjectsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

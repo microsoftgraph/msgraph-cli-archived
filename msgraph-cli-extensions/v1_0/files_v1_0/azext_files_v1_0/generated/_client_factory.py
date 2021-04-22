@@ -18,68 +18,68 @@ def cf_files_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_drivesdrive(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).drivesdrive
+def cf_drive_drive(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).drives_drive
 
 
 def cf_drive(cli_ctx, *_):
     return cf_files_v1_0_cl(cli_ctx).drives
 
 
-def cf_driveslist(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).driveslist
+def cf_drive_list(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).drives_list
 
 
-def cf_driveslistcontenttype(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).driveslistcontenttypes
+def cf_drive_list_content_type(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).drives_list_content_types
 
 
-def cf_driveslistitem(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).driveslistitems
+def cf_drive_list_item(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).drives_list_items
 
 
-def cf_driveslistitemsversion(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).driveslistitemsversions
+def cf_drive_list_item_version(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).drives_list_items_versions
 
 
 def cf_group(cli_ctx, *_):
     return cf_files_v1_0_cl(cli_ctx).groups
 
 
-def cf_sharesshareddriveitem(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).sharesshareddriveitem
+def cf_share_shared_drive_item(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_shared_drive_item
 
 
 def cf_share(cli_ctx, *_):
     return cf_files_v1_0_cl(cli_ctx).shares
 
 
-def cf_shareslist(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslist
+def cf_share_list(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list
 
 
-def cf_shareslistcontenttype(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslistcontenttypes
+def cf_share_list_content_type(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list_content_types
 
 
-def cf_shareslistitem(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslistitems
+def cf_share_list_item(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list_items
 
 
-def cf_shareslistitemsversion(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslistitemsversions
+def cf_share_list_item_version(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list_items_versions
 
 
-def cf_shareslistitem(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslistitem
+def cf_share_list_item(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list_item
 
 
-def cf_shareslistitemversion(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).shareslistitemversions
+def cf_share_list_item_version(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_list_item_versions
 
 
-def cf_sharespermission(cli_ctx, *_):
-    return cf_files_v1_0_cl(cli_ctx).sharespermission
+def cf_share_permission(cli_ctx, *_):
+    return cf_files_v1_0_cl(cli_ctx).shares_permission
 
 
 def cf_user(cli_ctx, *_):

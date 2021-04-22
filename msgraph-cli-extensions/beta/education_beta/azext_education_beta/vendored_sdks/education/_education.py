@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,84 +18,84 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import EducationConfiguration
-from .operations import educationeducationrootOperations
-from .operations import educationOperations
-from .operations import educationclassesOperations
-from .operations import educationclassesassignmentsOperations
-from .operations import educationclassesassignmentssubmissionsOperations
-from .operations import educationclassesmembersOperations
-from .operations import educationclassesschoolsOperations
-from .operations import educationclassesteachersOperations
-from .operations import educationmeOperations
-from .operations import educationmeassignmentsOperations
-from .operations import educationmeassignmentssubmissionsOperations
-from .operations import educationmeclassesOperations
-from .operations import educationmeschoolsOperations
-from .operations import educationmetaughtclassesOperations
-from .operations import educationschoolsOperations
-from .operations import educationschoolsclassesOperations
-from .operations import educationschoolsusersOperations
-from .operations import educationsynchronizationprofilesOperations
-from .operations import educationusersOperations
-from .operations import educationusersassignmentsOperations
-from .operations import educationusersassignmentssubmissionsOperations
-from .operations import educationusersclassesOperations
-from .operations import educationusersschoolsOperations
-from .operations import educationuserstaughtclassesOperations
+from .operations import EducationEducationRootOperations
+from .operations import EducationOperations
+from .operations import EducationClassesOperations
+from .operations import EducationClassesAssignmentsOperations
+from .operations import EducationClassesAssignmentsSubmissionsOperations
+from .operations import EducationClassesMembersOperations
+from .operations import EducationClassesSchoolsOperations
+from .operations import EducationClassesTeachersOperations
+from .operations import EducationMeOperations
+from .operations import EducationMeAssignmentsOperations
+from .operations import EducationMeAssignmentsSubmissionsOperations
+from .operations import EducationMeClassesOperations
+from .operations import EducationMeSchoolsOperations
+from .operations import EducationMeTaughtClassesOperations
+from .operations import EducationSchoolsOperations
+from .operations import EducationSchoolsClassesOperations
+from .operations import EducationSchoolsUsersOperations
+from .operations import EducationSynchronizationProfilesOperations
+from .operations import EducationUsersOperations
+from .operations import EducationUsersAssignmentsOperations
+from .operations import EducationUsersAssignmentsSubmissionsOperations
+from .operations import EducationUsersClassesOperations
+from .operations import EducationUsersSchoolsOperations
+from .operations import EducationUsersTaughtClassesOperations
 from . import models
 
 
 class Education(object):
     """Education.
 
-    :ivar educationeducationroot: educationeducationrootOperations operations
-    :vartype educationeducationroot: education.operations.educationeducationrootOperations
-    :ivar education: educationOperations operations
-    :vartype education: education.operations.educationOperations
-    :ivar educationclasses: educationclassesOperations operations
-    :vartype educationclasses: education.operations.educationclassesOperations
-    :ivar educationclassesassignments: educationclassesassignmentsOperations operations
-    :vartype educationclassesassignments: education.operations.educationclassesassignmentsOperations
-    :ivar educationclassesassignmentssubmissions: educationclassesassignmentssubmissionsOperations operations
-    :vartype educationclassesassignmentssubmissions: education.operations.educationclassesassignmentssubmissionsOperations
-    :ivar educationclassesmembers: educationclassesmembersOperations operations
-    :vartype educationclassesmembers: education.operations.educationclassesmembersOperations
-    :ivar educationclassesschools: educationclassesschoolsOperations operations
-    :vartype educationclassesschools: education.operations.educationclassesschoolsOperations
-    :ivar educationclassesteachers: educationclassesteachersOperations operations
-    :vartype educationclassesteachers: education.operations.educationclassesteachersOperations
-    :ivar educationme: educationmeOperations operations
-    :vartype educationme: education.operations.educationmeOperations
-    :ivar educationmeassignments: educationmeassignmentsOperations operations
-    :vartype educationmeassignments: education.operations.educationmeassignmentsOperations
-    :ivar educationmeassignmentssubmissions: educationmeassignmentssubmissionsOperations operations
-    :vartype educationmeassignmentssubmissions: education.operations.educationmeassignmentssubmissionsOperations
-    :ivar educationmeclasses: educationmeclassesOperations operations
-    :vartype educationmeclasses: education.operations.educationmeclassesOperations
-    :ivar educationmeschools: educationmeschoolsOperations operations
-    :vartype educationmeschools: education.operations.educationmeschoolsOperations
-    :ivar educationmetaughtclasses: educationmetaughtclassesOperations operations
-    :vartype educationmetaughtclasses: education.operations.educationmetaughtclassesOperations
-    :ivar educationschools: educationschoolsOperations operations
-    :vartype educationschools: education.operations.educationschoolsOperations
-    :ivar educationschoolsclasses: educationschoolsclassesOperations operations
-    :vartype educationschoolsclasses: education.operations.educationschoolsclassesOperations
-    :ivar educationschoolsusers: educationschoolsusersOperations operations
-    :vartype educationschoolsusers: education.operations.educationschoolsusersOperations
-    :ivar educationsynchronizationprofiles: educationsynchronizationprofilesOperations operations
-    :vartype educationsynchronizationprofiles: education.operations.educationsynchronizationprofilesOperations
-    :ivar educationusers: educationusersOperations operations
-    :vartype educationusers: education.operations.educationusersOperations
-    :ivar educationusersassignments: educationusersassignmentsOperations operations
-    :vartype educationusersassignments: education.operations.educationusersassignmentsOperations
-    :ivar educationusersassignmentssubmissions: educationusersassignmentssubmissionsOperations operations
-    :vartype educationusersassignmentssubmissions: education.operations.educationusersassignmentssubmissionsOperations
-    :ivar educationusersclasses: educationusersclassesOperations operations
-    :vartype educationusersclasses: education.operations.educationusersclassesOperations
-    :ivar educationusersschools: educationusersschoolsOperations operations
-    :vartype educationusersschools: education.operations.educationusersschoolsOperations
-    :ivar educationuserstaughtclasses: educationuserstaughtclassesOperations operations
-    :vartype educationuserstaughtclasses: education.operations.educationuserstaughtclassesOperations
+    :ivar education_education_root: EducationEducationRootOperations operations
+    :vartype education_education_root: education.operations.EducationEducationRootOperations
+    :ivar education: EducationOperations operations
+    :vartype education: education.operations.EducationOperations
+    :ivar education_classes: EducationClassesOperations operations
+    :vartype education_classes: education.operations.EducationClassesOperations
+    :ivar education_classes_assignments: EducationClassesAssignmentsOperations operations
+    :vartype education_classes_assignments: education.operations.EducationClassesAssignmentsOperations
+    :ivar education_classes_assignments_submissions: EducationClassesAssignmentsSubmissionsOperations operations
+    :vartype education_classes_assignments_submissions: education.operations.EducationClassesAssignmentsSubmissionsOperations
+    :ivar education_classes_members: EducationClassesMembersOperations operations
+    :vartype education_classes_members: education.operations.EducationClassesMembersOperations
+    :ivar education_classes_schools: EducationClassesSchoolsOperations operations
+    :vartype education_classes_schools: education.operations.EducationClassesSchoolsOperations
+    :ivar education_classes_teachers: EducationClassesTeachersOperations operations
+    :vartype education_classes_teachers: education.operations.EducationClassesTeachersOperations
+    :ivar education_me: EducationMeOperations operations
+    :vartype education_me: education.operations.EducationMeOperations
+    :ivar education_me_assignments: EducationMeAssignmentsOperations operations
+    :vartype education_me_assignments: education.operations.EducationMeAssignmentsOperations
+    :ivar education_me_assignments_submissions: EducationMeAssignmentsSubmissionsOperations operations
+    :vartype education_me_assignments_submissions: education.operations.EducationMeAssignmentsSubmissionsOperations
+    :ivar education_me_classes: EducationMeClassesOperations operations
+    :vartype education_me_classes: education.operations.EducationMeClassesOperations
+    :ivar education_me_schools: EducationMeSchoolsOperations operations
+    :vartype education_me_schools: education.operations.EducationMeSchoolsOperations
+    :ivar education_me_taught_classes: EducationMeTaughtClassesOperations operations
+    :vartype education_me_taught_classes: education.operations.EducationMeTaughtClassesOperations
+    :ivar education_schools: EducationSchoolsOperations operations
+    :vartype education_schools: education.operations.EducationSchoolsOperations
+    :ivar education_schools_classes: EducationSchoolsClassesOperations operations
+    :vartype education_schools_classes: education.operations.EducationSchoolsClassesOperations
+    :ivar education_schools_users: EducationSchoolsUsersOperations operations
+    :vartype education_schools_users: education.operations.EducationSchoolsUsersOperations
+    :ivar education_synchronization_profiles: EducationSynchronizationProfilesOperations operations
+    :vartype education_synchronization_profiles: education.operations.EducationSynchronizationProfilesOperations
+    :ivar education_users: EducationUsersOperations operations
+    :vartype education_users: education.operations.EducationUsersOperations
+    :ivar education_users_assignments: EducationUsersAssignmentsOperations operations
+    :vartype education_users_assignments: education.operations.EducationUsersAssignmentsOperations
+    :ivar education_users_assignments_submissions: EducationUsersAssignmentsSubmissionsOperations operations
+    :vartype education_users_assignments_submissions: education.operations.EducationUsersAssignmentsSubmissionsOperations
+    :ivar education_users_classes: EducationUsersClassesOperations operations
+    :vartype education_users_classes: education.operations.EducationUsersClassesOperations
+    :ivar education_users_schools: EducationUsersSchoolsOperations operations
+    :vartype education_users_schools: education.operations.EducationUsersSchoolsOperations
+    :ivar education_users_taught_classes: EducationUsersTaughtClassesOperations operations
+    :vartype education_users_taught_classes: education.operations.EducationUsersTaughtClassesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -126,60 +126,60 @@ class Education(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = EducationConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.educationeducationroot = educationeducationrootOperations(
+        self.education_education_root = EducationEducationRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education = educationOperations(
+        self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclasses = educationclassesOperations(
+        self.education_classes = EducationClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclassesassignments = educationclassesassignmentsOperations(
+        self.education_classes_assignments = EducationClassesAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclassesassignmentssubmissions = educationclassesassignmentssubmissionsOperations(
+        self.education_classes_assignments_submissions = EducationClassesAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclassesmembers = educationclassesmembersOperations(
+        self.education_classes_members = EducationClassesMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclassesschools = educationclassesschoolsOperations(
+        self.education_classes_schools = EducationClassesSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationclassesteachers = educationclassesteachersOperations(
+        self.education_classes_teachers = EducationClassesTeachersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationme = educationmeOperations(
+        self.education_me = EducationMeOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationmeassignments = educationmeassignmentsOperations(
+        self.education_me_assignments = EducationMeAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationmeassignmentssubmissions = educationmeassignmentssubmissionsOperations(
+        self.education_me_assignments_submissions = EducationMeAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationmeclasses = educationmeclassesOperations(
+        self.education_me_classes = EducationMeClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationmeschools = educationmeschoolsOperations(
+        self.education_me_schools = EducationMeSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationmetaughtclasses = educationmetaughtclassesOperations(
+        self.education_me_taught_classes = EducationMeTaughtClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationschools = educationschoolsOperations(
+        self.education_schools = EducationSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationschoolsclasses = educationschoolsclassesOperations(
+        self.education_schools_classes = EducationSchoolsClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationschoolsusers = educationschoolsusersOperations(
+        self.education_schools_users = EducationSchoolsUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationsynchronizationprofiles = educationsynchronizationprofilesOperations(
+        self.education_synchronization_profiles = EducationSynchronizationProfilesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusers = educationusersOperations(
+        self.education_users = EducationUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusersassignments = educationusersassignmentsOperations(
+        self.education_users_assignments = EducationUsersAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusersassignmentssubmissions = educationusersassignmentssubmissionsOperations(
+        self.education_users_assignments_submissions = EducationUsersAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusersclasses = educationusersclassesOperations(
+        self.education_users_classes = EducationUsersClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationusersschools = educationusersschoolsOperations(
+        self.education_users_schools = EducationUsersSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.educationuserstaughtclasses = educationuserstaughtclassesOperations(
+        self.education_users_taught_classes = EducationUsersTaughtClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

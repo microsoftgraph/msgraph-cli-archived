@@ -20,11 +20,11 @@ from azext_search_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('search external show-external') as c:
+    with self.argument_context('search external-external show-external') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('search external update-external') as c:
+    with self.argument_context('search external-external update-external') as c:
         c.argument('connections', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('search external create-connection') as c:
@@ -70,11 +70,11 @@ def load_arguments(self, _):
         c.argument('base_type', type=str, help='', arg_group='Schema')
         c.argument('properties', action=AddProperties, nargs='+', help='', arg_group='Schema')
 
-    with self.argument_context('search searchentity show-search-entity') as c:
+    with self.argument_context('search search-entity show-search-entity') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('search searchentity update-search-entity') as c:
+    with self.argument_context('search search-entity update-search-entity') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('search search query') as c:

@@ -10,18 +10,18 @@
 # pylint: disable=too-many-lines
 
 
-def reports_auditlogsauditlogroot_show_audit_log_root(client,
-                                                      select=None,
-                                                      expand=None):
+def reports_audit_log_audit_log_root_show_audit_log_root(client,
+                                                         select=None,
+                                                         expand=None):
     return client.get_audit_log_root(select=select,
                                      expand=expand)
 
 
-def reports_auditlogsauditlogroot_update_audit_log_root(client,
-                                                        id_=None,
-                                                        directory_audits=None,
-                                                        restricted_sign_ins=None,
-                                                        sign_ins=None):
+def reports_audit_log_audit_log_root_update_audit_log_root(client,
+                                                           id_=None,
+                                                           directory_audits=None,
+                                                           restricted_sign_ins=None,
+                                                           sign_ins=None):
     body = {}
     body['id'] = id_
     body['directory_audits'] = directory_audits
@@ -30,20 +30,20 @@ def reports_auditlogsauditlogroot_update_audit_log_root(client,
     return client.update_audit_log_root(body=body)
 
 
-def reports_auditlog_create_directory_audit(client,
-                                            id_=None,
-                                            activity_date_time=None,
-                                            activity_display_name=None,
-                                            additional_details=None,
-                                            category=None,
-                                            correlation_id=None,
-                                            logged_by_service=None,
-                                            operation_type=None,
-                                            result=None,
-                                            result_reason=None,
-                                            target_resources=None,
-                                            app=None,
-                                            user=None):
+def reports_audit_log_create_directory_audit(client,
+                                             id_=None,
+                                             activity_date_time=None,
+                                             activity_display_name=None,
+                                             additional_details=None,
+                                             category=None,
+                                             correlation_id=None,
+                                             logged_by_service=None,
+                                             operation_type=None,
+                                             result=None,
+                                             result_reason=None,
+                                             target_resources=None,
+                                             app=None,
+                                             user=None):
     body = {}
     body['id'] = id_
     body['activity_date_time'] = activity_date_time
@@ -62,35 +62,35 @@ def reports_auditlog_create_directory_audit(client,
     return client.create_directory_audits(body=body)
 
 
-def reports_auditlog_create_restricted_sign_in(client,
-                                               id_=None,
-                                               app_display_name=None,
-                                               app_id=None,
-                                               applied_conditional_access_policies=None,
-                                               client_app_used=None,
-                                               conditional_access_status=None,
-                                               correlation_id=None,
-                                               created_date_time=None,
-                                               device_detail=None,
-                                               ip_address=None,
-                                               is_interactive=None,
-                                               resource_display_name=None,
-                                               resource_id=None,
-                                               risk_detail=None,
-                                               risk_event_types=None,
-                                               risk_event_types_v2=None,
-                                               risk_level_aggregated=None,
-                                               risk_level_during_sign_in=None,
-                                               risk_state=None,
-                                               status=None,
-                                               user_display_name=None,
-                                               user_id=None,
-                                               user_principal_name=None,
-                                               city=None,
-                                               country_or_region=None,
-                                               geo_coordinates=None,
-                                               state=None,
-                                               target_tenant_id=None):
+def reports_audit_log_create_restricted_sign_in(client,
+                                                id_=None,
+                                                app_display_name=None,
+                                                app_id=None,
+                                                applied_conditional_access_policies=None,
+                                                client_app_used=None,
+                                                conditional_access_status=None,
+                                                correlation_id=None,
+                                                created_date_time=None,
+                                                device_detail=None,
+                                                ip_address=None,
+                                                is_interactive=None,
+                                                resource_display_name=None,
+                                                resource_id=None,
+                                                risk_detail=None,
+                                                risk_event_types=None,
+                                                risk_event_types_v2=None,
+                                                risk_level_aggregated=None,
+                                                risk_level_during_sign_in=None,
+                                                risk_state=None,
+                                                status=None,
+                                                user_display_name=None,
+                                                user_id=None,
+                                                user_principal_name=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
+                                                target_tenant_id=None):
     body = {}
     body['id'] = id_
     body['app_display_name'] = app_display_name
@@ -124,34 +124,34 @@ def reports_auditlog_create_restricted_sign_in(client,
     return client.create_restricted_sign_ins(body=body)
 
 
-def reports_auditlog_create_sign_in(client,
-                                    id_=None,
-                                    app_display_name=None,
-                                    app_id=None,
-                                    applied_conditional_access_policies=None,
-                                    client_app_used=None,
-                                    conditional_access_status=None,
-                                    correlation_id=None,
-                                    created_date_time=None,
-                                    device_detail=None,
-                                    ip_address=None,
-                                    is_interactive=None,
-                                    resource_display_name=None,
-                                    resource_id=None,
-                                    risk_detail=None,
-                                    risk_event_types=None,
-                                    risk_event_types_v2=None,
-                                    risk_level_aggregated=None,
-                                    risk_level_during_sign_in=None,
-                                    risk_state=None,
-                                    status=None,
-                                    user_display_name=None,
-                                    user_id=None,
-                                    user_principal_name=None,
-                                    city=None,
-                                    country_or_region=None,
-                                    geo_coordinates=None,
-                                    state=None):
+def reports_audit_log_create_sign_in(client,
+                                     id_=None,
+                                     app_display_name=None,
+                                     app_id=None,
+                                     applied_conditional_access_policies=None,
+                                     client_app_used=None,
+                                     conditional_access_status=None,
+                                     correlation_id=None,
+                                     created_date_time=None,
+                                     device_detail=None,
+                                     ip_address=None,
+                                     is_interactive=None,
+                                     resource_display_name=None,
+                                     resource_id=None,
+                                     risk_detail=None,
+                                     risk_event_types=None,
+                                     risk_event_types_v2=None,
+                                     risk_level_aggregated=None,
+                                     risk_level_during_sign_in=None,
+                                     risk_state=None,
+                                     status=None,
+                                     user_display_name=None,
+                                     user_id=None,
+                                     user_principal_name=None,
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
     body = {}
     body['id'] = id_
     body['app_display_name'] = app_display_name
@@ -184,96 +184,96 @@ def reports_auditlog_create_sign_in(client,
     return client.create_sign_ins(body=body)
 
 
-def reports_auditlog_delete_directory_audit(client,
-                                            directory_audit_id,
-                                            if_match=None):
+def reports_audit_log_delete_directory_audit(client,
+                                             directory_audit_id,
+                                             if_match=None):
     return client.delete_directory_audits(directory_audit_id=directory_audit_id,
                                           if_match=if_match)
 
 
-def reports_auditlog_delete_restricted_sign_in(client,
-                                               restricted_sign_in_id,
-                                               if_match=None):
+def reports_audit_log_delete_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                if_match=None):
     return client.delete_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
                                              if_match=if_match)
 
 
-def reports_auditlog_delete_sign_in(client,
-                                    sign_in_id,
-                                    if_match=None):
+def reports_audit_log_delete_sign_in(client,
+                                     sign_in_id,
+                                     if_match=None):
     return client.delete_sign_ins(sign_in_id=sign_in_id,
                                   if_match=if_match)
 
 
-def reports_auditlog_list_directory_audit(client,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def reports_audit_log_list_directory_audit(client,
+                                           orderby=None,
+                                           select=None,
+                                           expand=None):
     return client.list_directory_audits(orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def reports_auditlog_list_restricted_sign_in(client,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def reports_audit_log_list_restricted_sign_in(client,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
     return client.list_restricted_sign_ins(orderby=orderby,
                                            select=select,
                                            expand=expand)
 
 
-def reports_auditlog_list_sign_in(client,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def reports_audit_log_list_sign_in(client,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
     return client.list_sign_ins(orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def reports_auditlog_show_directory_audit(client,
-                                          directory_audit_id,
-                                          select=None,
-                                          expand=None):
+def reports_audit_log_show_directory_audit(client,
+                                           directory_audit_id,
+                                           select=None,
+                                           expand=None):
     return client.get_directory_audits(directory_audit_id=directory_audit_id,
                                        select=select,
                                        expand=expand)
 
 
-def reports_auditlog_show_restricted_sign_in(client,
-                                             restricted_sign_in_id,
-                                             select=None,
-                                             expand=None):
+def reports_audit_log_show_restricted_sign_in(client,
+                                              restricted_sign_in_id,
+                                              select=None,
+                                              expand=None):
     return client.get_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
                                           select=select,
                                           expand=expand)
 
 
-def reports_auditlog_show_sign_in(client,
-                                  sign_in_id,
-                                  select=None,
-                                  expand=None):
+def reports_audit_log_show_sign_in(client,
+                                   sign_in_id,
+                                   select=None,
+                                   expand=None):
     return client.get_sign_ins(sign_in_id=sign_in_id,
                                select=select,
                                expand=expand)
 
 
-def reports_auditlog_update_directory_audit(client,
-                                            directory_audit_id,
-                                            id_=None,
-                                            activity_date_time=None,
-                                            activity_display_name=None,
-                                            additional_details=None,
-                                            category=None,
-                                            correlation_id=None,
-                                            logged_by_service=None,
-                                            operation_type=None,
-                                            result=None,
-                                            result_reason=None,
-                                            target_resources=None,
-                                            app=None,
-                                            user=None):
+def reports_audit_log_update_directory_audit(client,
+                                             directory_audit_id,
+                                             id_=None,
+                                             activity_date_time=None,
+                                             activity_display_name=None,
+                                             additional_details=None,
+                                             category=None,
+                                             correlation_id=None,
+                                             logged_by_service=None,
+                                             operation_type=None,
+                                             result=None,
+                                             result_reason=None,
+                                             target_resources=None,
+                                             app=None,
+                                             user=None):
     body = {}
     body['id'] = id_
     body['activity_date_time'] = activity_date_time
@@ -293,36 +293,36 @@ def reports_auditlog_update_directory_audit(client,
                                           body=body)
 
 
-def reports_auditlog_update_restricted_sign_in(client,
-                                               restricted_sign_in_id,
-                                               id_=None,
-                                               app_display_name=None,
-                                               app_id=None,
-                                               applied_conditional_access_policies=None,
-                                               client_app_used=None,
-                                               conditional_access_status=None,
-                                               correlation_id=None,
-                                               created_date_time=None,
-                                               device_detail=None,
-                                               ip_address=None,
-                                               is_interactive=None,
-                                               resource_display_name=None,
-                                               resource_id=None,
-                                               risk_detail=None,
-                                               risk_event_types=None,
-                                               risk_event_types_v2=None,
-                                               risk_level_aggregated=None,
-                                               risk_level_during_sign_in=None,
-                                               risk_state=None,
-                                               status=None,
-                                               user_display_name=None,
-                                               user_id=None,
-                                               user_principal_name=None,
-                                               city=None,
-                                               country_or_region=None,
-                                               geo_coordinates=None,
-                                               state=None,
-                                               target_tenant_id=None):
+def reports_audit_log_update_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                id_=None,
+                                                app_display_name=None,
+                                                app_id=None,
+                                                applied_conditional_access_policies=None,
+                                                client_app_used=None,
+                                                conditional_access_status=None,
+                                                correlation_id=None,
+                                                created_date_time=None,
+                                                device_detail=None,
+                                                ip_address=None,
+                                                is_interactive=None,
+                                                resource_display_name=None,
+                                                resource_id=None,
+                                                risk_detail=None,
+                                                risk_event_types=None,
+                                                risk_event_types_v2=None,
+                                                risk_level_aggregated=None,
+                                                risk_level_during_sign_in=None,
+                                                risk_state=None,
+                                                status=None,
+                                                user_display_name=None,
+                                                user_id=None,
+                                                user_principal_name=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
+                                                target_tenant_id=None):
     body = {}
     body['id'] = id_
     body['app_display_name'] = app_display_name
@@ -357,35 +357,35 @@ def reports_auditlog_update_restricted_sign_in(client,
                                              body=body)
 
 
-def reports_auditlog_update_sign_in(client,
-                                    sign_in_id,
-                                    id_=None,
-                                    app_display_name=None,
-                                    app_id=None,
-                                    applied_conditional_access_policies=None,
-                                    client_app_used=None,
-                                    conditional_access_status=None,
-                                    correlation_id=None,
-                                    created_date_time=None,
-                                    device_detail=None,
-                                    ip_address=None,
-                                    is_interactive=None,
-                                    resource_display_name=None,
-                                    resource_id=None,
-                                    risk_detail=None,
-                                    risk_event_types=None,
-                                    risk_event_types_v2=None,
-                                    risk_level_aggregated=None,
-                                    risk_level_during_sign_in=None,
-                                    risk_state=None,
-                                    status=None,
-                                    user_display_name=None,
-                                    user_id=None,
-                                    user_principal_name=None,
-                                    city=None,
-                                    country_or_region=None,
-                                    geo_coordinates=None,
-                                    state=None):
+def reports_audit_log_update_sign_in(client,
+                                     sign_in_id,
+                                     id_=None,
+                                     app_display_name=None,
+                                     app_id=None,
+                                     applied_conditional_access_policies=None,
+                                     client_app_used=None,
+                                     conditional_access_status=None,
+                                     correlation_id=None,
+                                     created_date_time=None,
+                                     device_detail=None,
+                                     ip_address=None,
+                                     is_interactive=None,
+                                     resource_display_name=None,
+                                     resource_id=None,
+                                     risk_detail=None,
+                                     risk_event_types=None,
+                                     risk_event_types_v2=None,
+                                     risk_level_aggregated=None,
+                                     risk_level_during_sign_in=None,
+                                     risk_state=None,
+                                     status=None,
+                                     user_display_name=None,
+                                     user_id=None,
+                                     user_principal_name=None,
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
     body = {}
     body['id'] = id_
     body['app_display_name'] = app_display_name
@@ -419,15 +419,15 @@ def reports_auditlog_update_sign_in(client,
                                   body=body)
 
 
-def reports_reportsreportroot_show_report_root(client,
-                                               select=None,
-                                               expand=None):
+def reports_report_root_show_report_root(client,
+                                         select=None,
+                                         expand=None):
     return client.get_report_root(select=select,
                                   expand=expand)
 
 
-def reports_reportsreportroot_update_report_root(client,
-                                                 id_=None):
+def reports_report_root_update_report_root(client,
+                                           id_=None):
     body = {}
     body['id'] = id_
     return client.update_report_root(body=body)

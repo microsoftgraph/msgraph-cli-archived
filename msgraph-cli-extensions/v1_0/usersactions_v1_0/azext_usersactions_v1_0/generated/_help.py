@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 
 from knack.help_files import helps
@@ -17,12 +18,12 @@ helps['usersactions_v1_0'] = '''
     short-summary: Manage Users Actions
 '''
 
-helps['usersactions userscalendarviewattachment'] = """
+helps['usersactions user-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: Manage userscalendarviewattachment with usersactions_v1_0
+    short-summary: Manage user calendar calendar view attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewattachment create-upload-session'] = """
+helps['usersactions user-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -38,12 +39,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendarviewcalendar'] = """
+helps['usersactions user-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: Manage userscalendarviewcalendar with usersactions_v1_0
+    short-summary: Manage user calendar calendar view calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewcalendar get-schedule'] = """
+helps['usersactions user-calendar-calendar-view-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -67,27 +68,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendarviewinstance'] = """
+helps['usersactions user-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: Manage userscalendarviewinstance with usersactions_v1_0
+    short-summary: Manage user calendar calendar view instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewinstance accept'] = """
+helps['usersactions user-calendar-calendar-view-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarviewinstance decline'] = """
+helps['usersactions user-calendar-calendar-view-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarviewinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarviewinstance snooze-reminder'] = """
+helps['usersactions user-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -102,32 +103,32 @@ helps['usersactions userscalendarviewinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarviewinstance tentatively-accept'] = """
+helps['usersactions user-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarview'] = """
+helps['usersactions user-calendar-calendar-view'] = """
     type: group
-    short-summary: Manage userscalendarview with usersactions_v1_0
+    short-summary: Manage user calendar calendar view with usersactions_v1_0
 """
 
-helps['usersactions userscalendarview accept'] = """
+helps['usersactions user-calendar-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarview decline'] = """
+helps['usersactions user-calendar-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarview dismiss-reminder'] = """
+helps['usersactions user-calendar-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarview snooze-reminder'] = """
+helps['usersactions user-calendar-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -142,17 +143,17 @@ helps['usersactions userscalendarview snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarview tentatively-accept'] = """
+helps['usersactions user-calendar-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendareventsattachment'] = """
+helps['usersactions user-calendar-event-attachment'] = """
     type: group
-    short-summary: Manage userscalendareventsattachment with usersactions_v1_0
+    short-summary: Manage user calendar event attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendareventsattachment create-upload-session'] = """
+helps['usersactions user-calendar-event-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -168,12 +169,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendareventscalendar'] = """
+helps['usersactions user-calendar-event-calendar'] = """
     type: group
-    short-summary: Manage userscalendareventscalendar with usersactions_v1_0
+    short-summary: Manage user calendar event calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendareventscalendar get-schedule'] = """
+helps['usersactions user-calendar-event-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -197,27 +198,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendareventsinstance'] = """
+helps['usersactions user-calendar-event-instance'] = """
     type: group
-    short-summary: Manage userscalendareventsinstance with usersactions_v1_0
+    short-summary: Manage user calendar event instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendareventsinstance accept'] = """
+helps['usersactions user-calendar-event-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendareventsinstance decline'] = """
+helps['usersactions user-calendar-event-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendareventsinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-event-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendareventsinstance snooze-reminder'] = """
+helps['usersactions user-calendar-event-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -232,32 +233,32 @@ helps['usersactions userscalendareventsinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendareventsinstance tentatively-accept'] = """
+helps['usersactions user-calendar-event-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarevent'] = """
+helps['usersactions user-calendar-event'] = """
     type: group
-    short-summary: Manage userscalendarevent with usersactions_v1_0
+    short-summary: Manage user calendar event with usersactions_v1_0
 """
 
-helps['usersactions userscalendarevent accept'] = """
+helps['usersactions user-calendar-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarevent decline'] = """
+helps['usersactions user-calendar-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarevent dismiss-reminder'] = """
+helps['usersactions user-calendar-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarevent snooze-reminder'] = """
+helps['usersactions user-calendar-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -272,17 +273,17 @@ helps['usersactions userscalendarevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarevent tentatively-accept'] = """
+helps['usersactions user-calendar-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendar'] = """
+helps['usersactions user-calendar'] = """
     type: group
-    short-summary: Manage userscalendar with usersactions_v1_0
+    short-summary: Manage user calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendar get-schedule'] = """
+helps['usersactions user-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -306,12 +307,12 @@ values.
 values.
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewattachment'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarscalendarviewattachment with usersactions_v1_0
+    short-summary: Manage user calendar group calendar calendar view attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewattachment create-upload-session'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -327,12 +328,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewcalendar'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarscalendarviewcalendar with usersactions_v1_0
+    short-summary: Manage user calendar group calendar calendar view calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewcalendar get-schedule'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -356,27 +357,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarscalendarviewinstance with usersactions_v1_0
+    short-summary: Manage user calendar group calendar calendar view instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance accept'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance decline'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance snooze-reminder'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -391,32 +392,32 @@ helps['usersactions userscalendargroupscalendarscalendarviewinstance snooze-remi
 values.
 """
 
-helps['usersactions userscalendargroupscalendarscalendarviewinstance tentatively-accept'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarscalendarview with usersactions_v1_0
+    short-summary: Manage user calendar group calendar calendar view with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview accept'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview decline'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview dismiss-reminder'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview snooze-reminder'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -431,17 +432,17 @@ helps['usersactions userscalendargroupscalendarscalendarview snooze-reminder'] =
 values.
 """
 
-helps['usersactions userscalendargroupscalendarscalendarview tentatively-accept'] = """
+helps['usersactions user-calendar-group-calendar-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendargroupscalendarseventsattachment'] = """
+helps['usersactions user-calendar-group-calendar-event-attachment'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarseventsattachment with usersactions_v1_0
+    short-summary: Manage user calendar group calendar event attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarseventsattachment create-upload-session'] = """
+helps['usersactions user-calendar-group-calendar-event-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -457,12 +458,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendargroupscalendarseventscalendar'] = """
+helps['usersactions user-calendar-group-calendar-event-calendar'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarseventscalendar with usersactions_v1_0
+    short-summary: Manage user calendar group calendar event calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarseventscalendar get-schedule'] = """
+helps['usersactions user-calendar-group-calendar-event-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -486,27 +487,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance'] = """
+helps['usersactions user-calendar-group-calendar-event-instance'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarseventsinstance with usersactions_v1_0
+    short-summary: Manage user calendar group calendar event instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance accept'] = """
+helps['usersactions user-calendar-group-calendar-event-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance decline'] = """
+helps['usersactions user-calendar-group-calendar-event-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-group-calendar-event-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance snooze-reminder'] = """
+helps['usersactions user-calendar-group-calendar-event-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -521,32 +522,32 @@ helps['usersactions userscalendargroupscalendarseventsinstance snooze-reminder']
 values.
 """
 
-helps['usersactions userscalendargroupscalendarseventsinstance tentatively-accept'] = """
+helps['usersactions user-calendar-group-calendar-event-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendargroupscalendarsevent'] = """
+helps['usersactions user-calendar-group-calendar-event'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendarsevent with usersactions_v1_0
+    short-summary: Manage user calendar group calendar event with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendarsevent accept'] = """
+helps['usersactions user-calendar-group-calendar-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendargroupscalendarsevent decline'] = """
+helps['usersactions user-calendar-group-calendar-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendargroupscalendarsevent dismiss-reminder'] = """
+helps['usersactions user-calendar-group-calendar-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendargroupscalendarsevent snooze-reminder'] = """
+helps['usersactions user-calendar-group-calendar-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -561,17 +562,17 @@ helps['usersactions userscalendargroupscalendarsevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendargroupscalendarsevent tentatively-accept'] = """
+helps['usersactions user-calendar-group-calendar-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendargroupscalendar'] = """
+helps['usersactions user-calendar-group-calendar'] = """
     type: group
-    short-summary: Manage userscalendargroupscalendar with usersactions_v1_0
+    short-summary: Manage user calendar group calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendargroupscalendar get-schedule'] = """
+helps['usersactions user-calendar-group-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -595,12 +596,12 @@ values.
 values.
 """
 
-helps['usersactions userscalendarscalendarviewattachment'] = """
+helps['usersactions user-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: Manage userscalendarscalendarviewattachment with usersactions_v1_0
+    short-summary: Manage user calendar calendar view attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendarscalendarviewattachment create-upload-session'] = """
+helps['usersactions user-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -616,12 +617,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendarscalendarviewcalendar'] = """
+helps['usersactions user-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: Manage userscalendarscalendarviewcalendar with usersactions_v1_0
+    short-summary: Manage user calendar calendar view calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendarscalendarviewcalendar get-schedule'] = """
+helps['usersactions user-calendar-calendar-view-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -645,27 +646,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendarscalendarviewinstance'] = """
+helps['usersactions user-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: Manage userscalendarscalendarviewinstance with usersactions_v1_0
+    short-summary: Manage user calendar calendar view instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendarscalendarviewinstance accept'] = """
+helps['usersactions user-calendar-calendar-view-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarscalendarviewinstance decline'] = """
+helps['usersactions user-calendar-calendar-view-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarscalendarviewinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarscalendarviewinstance snooze-reminder'] = """
+helps['usersactions user-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -680,32 +681,32 @@ helps['usersactions userscalendarscalendarviewinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarscalendarviewinstance tentatively-accept'] = """
+helps['usersactions user-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarscalendarview'] = """
+helps['usersactions user-calendar-calendar-view'] = """
     type: group
-    short-summary: Manage userscalendarscalendarview with usersactions_v1_0
+    short-summary: Manage user calendar calendar view with usersactions_v1_0
 """
 
-helps['usersactions userscalendarscalendarview accept'] = """
+helps['usersactions user-calendar-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarscalendarview decline'] = """
+helps['usersactions user-calendar-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarscalendarview dismiss-reminder'] = """
+helps['usersactions user-calendar-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarscalendarview snooze-reminder'] = """
+helps['usersactions user-calendar-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -720,17 +721,17 @@ helps['usersactions userscalendarscalendarview snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarscalendarview tentatively-accept'] = """
+helps['usersactions user-calendar-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarseventsattachment'] = """
+helps['usersactions user-calendar-event-attachment'] = """
     type: group
-    short-summary: Manage userscalendarseventsattachment with usersactions_v1_0
+    short-summary: Manage user calendar event attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendarseventsattachment create-upload-session'] = """
+helps['usersactions user-calendar-event-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -746,12 +747,12 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendarseventscalendar'] = """
+helps['usersactions user-calendar-event-calendar'] = """
     type: group
-    short-summary: Manage userscalendarseventscalendar with usersactions_v1_0
+    short-summary: Manage user calendar event calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendarseventscalendar get-schedule'] = """
+helps['usersactions user-calendar-event-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -775,27 +776,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendarseventsinstance'] = """
+helps['usersactions user-calendar-event-instance'] = """
     type: group
-    short-summary: Manage userscalendarseventsinstance with usersactions_v1_0
+    short-summary: Manage user calendar event instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendarseventsinstance accept'] = """
+helps['usersactions user-calendar-event-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarseventsinstance decline'] = """
+helps['usersactions user-calendar-event-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarseventsinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-event-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarseventsinstance snooze-reminder'] = """
+helps['usersactions user-calendar-event-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -810,32 +811,32 @@ helps['usersactions userscalendarseventsinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarseventsinstance tentatively-accept'] = """
+helps['usersactions user-calendar-event-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarsevent'] = """
+helps['usersactions user-calendar-event'] = """
     type: group
-    short-summary: Manage userscalendarsevent with usersactions_v1_0
+    short-summary: Manage user calendar event with usersactions_v1_0
 """
 
-helps['usersactions userscalendarsevent accept'] = """
+helps['usersactions user-calendar-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarsevent decline'] = """
+helps['usersactions user-calendar-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarsevent dismiss-reminder'] = """
+helps['usersactions user-calendar-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarsevent snooze-reminder'] = """
+helps['usersactions user-calendar-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -850,17 +851,17 @@ helps['usersactions userscalendarsevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarsevent tentatively-accept'] = """
+helps['usersactions user-calendar-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendar'] = """
+helps['usersactions user-calendar'] = """
     type: group
-    short-summary: Manage userscalendar with usersactions_v1_0
+    short-summary: Manage user calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendar get-schedule'] = """
+helps['usersactions user-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -884,12 +885,12 @@ values.
 values.
 """
 
-helps['usersactions userscalendarviewattachment'] = """
+helps['usersactions user-calendar-view-attachment'] = """
     type: group
-    short-summary: Manage userscalendarviewattachment with usersactions_v1_0
+    short-summary: Manage user calendar view attachment with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewattachment create-upload-session'] = """
+helps['usersactions user-calendar-view-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -905,27 +906,27 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userscalendarviewcalendarview'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view'] = """
     type: group
-    short-summary: Manage userscalendarviewcalendarview with usersactions_v1_0
+    short-summary: Manage user calendar view calendar calendar view with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewcalendarview accept'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarviewcalendarview decline'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarviewcalendarview dismiss-reminder'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarviewcalendarview snooze-reminder'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -940,32 +941,32 @@ helps['usersactions userscalendarviewcalendarview snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarviewcalendarview tentatively-accept'] = """
+helps['usersactions user-calendar-view-calendar-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarviewcalendarevent'] = """
+helps['usersactions user-calendar-view-calendar-event'] = """
     type: group
-    short-summary: Manage userscalendarviewcalendarevent with usersactions_v1_0
+    short-summary: Manage user calendar view calendar event with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewcalendarevent accept'] = """
+helps['usersactions user-calendar-view-calendar-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarviewcalendarevent decline'] = """
+helps['usersactions user-calendar-view-calendar-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarviewcalendarevent dismiss-reminder'] = """
+helps['usersactions user-calendar-view-calendar-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarviewcalendarevent snooze-reminder'] = """
+helps['usersactions user-calendar-view-calendar-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -980,17 +981,17 @@ helps['usersactions userscalendarviewcalendarevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarviewcalendarevent tentatively-accept'] = """
+helps['usersactions user-calendar-view-calendar-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarviewcalendar'] = """
+helps['usersactions user-calendar-view-calendar'] = """
     type: group
-    short-summary: Manage userscalendarviewcalendar with usersactions_v1_0
+    short-summary: Manage user calendar view calendar with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewcalendar get-schedule'] = """
+helps['usersactions user-calendar-view-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -1014,27 +1015,27 @@ values.
 values.
 """
 
-helps['usersactions userscalendarviewinstance'] = """
+helps['usersactions user-calendar-view-instance'] = """
     type: group
-    short-summary: Manage userscalendarviewinstance with usersactions_v1_0
+    short-summary: Manage user calendar view instance with usersactions_v1_0
 """
 
-helps['usersactions userscalendarviewinstance accept'] = """
+helps['usersactions user-calendar-view-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarviewinstance decline'] = """
+helps['usersactions user-calendar-view-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarviewinstance dismiss-reminder'] = """
+helps['usersactions user-calendar-view-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarviewinstance snooze-reminder'] = """
+helps['usersactions user-calendar-view-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1049,32 +1050,32 @@ helps['usersactions userscalendarviewinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarviewinstance tentatively-accept'] = """
+helps['usersactions user-calendar-view-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userscalendarview'] = """
+helps['usersactions user-calendar-view'] = """
     type: group
-    short-summary: Manage userscalendarview with usersactions_v1_0
+    short-summary: Manage user calendar view with usersactions_v1_0
 """
 
-helps['usersactions userscalendarview accept'] = """
+helps['usersactions user-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userscalendarview decline'] = """
+helps['usersactions user-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userscalendarview dismiss-reminder'] = """
+helps['usersactions user-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userscalendarview snooze-reminder'] = """
+helps['usersactions user-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1089,17 +1090,17 @@ helps['usersactions userscalendarview snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userscalendarview tentatively-accept'] = """
+helps['usersactions user-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userseventsattachment'] = """
+helps['usersactions user-event-attachment'] = """
     type: group
-    short-summary: Manage userseventsattachment with usersactions_v1_0
+    short-summary: Manage user event attachment with usersactions_v1_0
 """
 
-helps['usersactions userseventsattachment create-upload-session'] = """
+helps['usersactions user-event-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -1115,27 +1116,27 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions userseventscalendarview'] = """
+helps['usersactions user-event-calendar-calendar-view'] = """
     type: group
-    short-summary: Manage userseventscalendarview with usersactions_v1_0
+    short-summary: Manage user event calendar calendar view with usersactions_v1_0
 """
 
-helps['usersactions userseventscalendarview accept'] = """
+helps['usersactions user-event-calendar-calendar-view accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userseventscalendarview decline'] = """
+helps['usersactions user-event-calendar-calendar-view decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userseventscalendarview dismiss-reminder'] = """
+helps['usersactions user-event-calendar-calendar-view dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userseventscalendarview snooze-reminder'] = """
+helps['usersactions user-event-calendar-calendar-view snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1150,32 +1151,32 @@ helps['usersactions userseventscalendarview snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userseventscalendarview tentatively-accept'] = """
+helps['usersactions user-event-calendar-calendar-view tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userseventscalendarevent'] = """
+helps['usersactions user-event-calendar-event'] = """
     type: group
-    short-summary: Manage userseventscalendarevent with usersactions_v1_0
+    short-summary: Manage user event calendar event with usersactions_v1_0
 """
 
-helps['usersactions userseventscalendarevent accept'] = """
+helps['usersactions user-event-calendar-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userseventscalendarevent decline'] = """
+helps['usersactions user-event-calendar-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userseventscalendarevent dismiss-reminder'] = """
+helps['usersactions user-event-calendar-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userseventscalendarevent snooze-reminder'] = """
+helps['usersactions user-event-calendar-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1190,17 +1191,17 @@ helps['usersactions userseventscalendarevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userseventscalendarevent tentatively-accept'] = """
+helps['usersactions user-event-calendar-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions userseventscalendar'] = """
+helps['usersactions user-event-calendar'] = """
     type: group
-    short-summary: Manage userseventscalendar with usersactions_v1_0
+    short-summary: Manage user event calendar with usersactions_v1_0
 """
 
-helps['usersactions userseventscalendar get-schedule'] = """
+helps['usersactions user-event-calendar get-schedule'] = """
     type: command
     short-summary: "Invoke action getSchedule."
     parameters:
@@ -1224,27 +1225,27 @@ values.
 values.
 """
 
-helps['usersactions userseventsinstance'] = """
+helps['usersactions user-event-instance'] = """
     type: group
-    short-summary: Manage userseventsinstance with usersactions_v1_0
+    short-summary: Manage user event instance with usersactions_v1_0
 """
 
-helps['usersactions userseventsinstance accept'] = """
+helps['usersactions user-event-instance accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions userseventsinstance decline'] = """
+helps['usersactions user-event-instance decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions userseventsinstance dismiss-reminder'] = """
+helps['usersactions user-event-instance dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions userseventsinstance snooze-reminder'] = """
+helps['usersactions user-event-instance snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1259,32 +1260,32 @@ helps['usersactions userseventsinstance snooze-reminder'] = """
 values.
 """
 
-helps['usersactions userseventsinstance tentatively-accept'] = """
+helps['usersactions user-event-instance tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions usersevent'] = """
+helps['usersactions user-event'] = """
     type: group
-    short-summary: Manage usersevent with usersactions_v1_0
+    short-summary: Manage user event with usersactions_v1_0
 """
 
-helps['usersactions usersevent accept'] = """
+helps['usersactions user-event accept'] = """
     type: command
     short-summary: "Invoke action accept."
 """
 
-helps['usersactions usersevent decline'] = """
+helps['usersactions user-event decline'] = """
     type: command
     short-summary: "Invoke action decline."
 """
 
-helps['usersactions usersevent dismiss-reminder'] = """
+helps['usersactions user-event dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder."
 """
 
-helps['usersactions usersevent snooze-reminder'] = """
+helps['usersactions user-event snooze-reminder'] = """
     type: command
     short-summary: "Invoke action snoozeReminder."
     parameters:
@@ -1299,32 +1300,32 @@ helps['usersactions usersevent snooze-reminder'] = """
 values.
 """
 
-helps['usersactions usersevent tentatively-accept'] = """
+helps['usersactions user-event tentatively-accept'] = """
     type: command
     short-summary: "Invoke action tentativelyAccept."
 """
 
-helps['usersactions usersmailfolderschildfolder'] = """
+helps['usersactions user-mail-folder-child-folder'] = """
     type: group
-    short-summary: Manage usersmailfolderschildfolder with usersactions_v1_0
+    short-summary: Manage user mail folder child folder with usersactions_v1_0
 """
 
-helps['usersactions usersmailfolderschildfolder copy'] = """
+helps['usersactions user-mail-folder-child-folder copy'] = """
     type: command
     short-summary: "Invoke action copy."
 """
 
-helps['usersactions usersmailfolderschildfolder move'] = """
+helps['usersactions user-mail-folder-child-folder move'] = """
     type: command
     short-summary: "Invoke action move."
 """
 
-helps['usersactions usersmailfoldersmessagesattachment'] = """
+helps['usersactions user-mail-folder-message-attachment'] = """
     type: group
-    short-summary: Manage usersmailfoldersmessagesattachment with usersactions_v1_0
+    short-summary: Manage user mail folder message attachment with usersactions_v1_0
 """
 
-helps['usersactions usersmailfoldersmessagesattachment create-upload-session'] = """
+helps['usersactions user-mail-folder-message-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -1340,17 +1341,17 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions usersmailfoldersmessage'] = """
+helps['usersactions user-mail-folder-message'] = """
     type: group
-    short-summary: Manage usersmailfoldersmessage with usersactions_v1_0
+    short-summary: Manage user mail folder message with usersactions_v1_0
 """
 
-helps['usersactions usersmailfoldersmessage copy'] = """
+helps['usersactions user-mail-folder-message copy'] = """
     type: command
     short-summary: "Invoke action copy."
 """
 
-helps['usersactions usersmailfoldersmessage create-forward'] = """
+helps['usersactions user-mail-folder-message create-forward'] = """
     type: command
     short-summary: "Invoke action createForward."
     parameters:
@@ -1419,7 +1420,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage create-reply'] = """
+helps['usersactions user-mail-folder-message create-reply'] = """
     type: command
     short-summary: "Invoke action createReply."
     parameters:
@@ -1488,7 +1489,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage create-reply-all'] = """
+helps['usersactions user-mail-folder-message create-reply-all'] = """
     type: command
     short-summary: "Invoke action createReplyAll."
     parameters:
@@ -1557,7 +1558,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage forward'] = """
+helps['usersactions user-mail-folder-message forward'] = """
     type: command
     short-summary: "Invoke action forward."
     parameters:
@@ -1626,12 +1627,12 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage move'] = """
+helps['usersactions user-mail-folder-message move'] = """
     type: command
     short-summary: "Invoke action move."
 """
 
-helps['usersactions usersmailfoldersmessage reply'] = """
+helps['usersactions user-mail-folder-message reply'] = """
     type: command
     short-summary: "Invoke action reply."
     parameters:
@@ -1700,7 +1701,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage reply-all'] = """
+helps['usersactions user-mail-folder-message reply-all'] = """
     type: command
     short-summary: "Invoke action replyAll."
     parameters:
@@ -1769,127 +1770,134 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmailfoldersmessage send'] = """
+helps['usersactions user-mail-folder-message send'] = """
     type: command
     short-summary: "Invoke action send."
 """
 
-helps['usersactions usersmailfolder'] = """
+helps['usersactions user-mail-folder'] = """
     type: group
-    short-summary: Manage usersmailfolder with usersactions_v1_0
+    short-summary: Manage user mail folder with usersactions_v1_0
 """
 
-helps['usersactions usersmailfolder copy'] = """
+helps['usersactions user-mail-folder copy'] = """
     type: command
     short-summary: "Invoke action copy."
 """
 
-helps['usersactions usersmailfolder move'] = """
+helps['usersactions user-mail-folder move'] = """
     type: command
     short-summary: "Invoke action move."
 """
 
-helps['usersactions usersmanageddevice'] = """
+helps['usersactions user-managed-device'] = """
     type: group
-    short-summary: Manage usersmanageddevice with usersactions_v1_0
+    short-summary: Manage user managed device with usersactions_v1_0
 """
 
-helps['usersactions usersmanageddevice bypass-activation-lock'] = """
+helps['usersactions user-managed-device bypass-activation-lock'] = """
     type: command
     short-summary: "Invoke action bypassActivationLock."
 """
 
-helps['usersactions usersmanageddevice clean-window-device'] = """
+helps['usersactions user-managed-device clean-window-device'] = """
     type: command
     short-summary: "Invoke action cleanWindowsDevice."
 """
 
-helps['usersactions usersmanageddevice delete-user-from-shared-apple-device'] = """
+helps['usersactions user-managed-device delete-user-from-shared-apple-device'] = """
     type: command
     short-summary: "Invoke action deleteUserFromSharedAppleDevice."
 """
 
-helps['usersactions usersmanageddevice disable-lost-mode'] = """
+helps['usersactions user-managed-device disable-lost-mode'] = """
     type: command
     short-summary: "Invoke action disableLostMode."
 """
 
-helps['usersactions usersmanageddevice locate-device'] = """
+helps['usersactions user-managed-device locate-device'] = """
     type: command
     short-summary: "Invoke action locateDevice."
 """
 
-helps['usersactions usersmanageddevice logout-shared-apple-device-active-user'] = """
+helps['usersactions user-managed-device logout-shared-apple-device-active-user'] = """
     type: command
     short-summary: "Invoke action logoutSharedAppleDeviceActiveUser."
 """
 
-helps['usersactions usersmanageddevice reboot-now'] = """
+helps['usersactions user-managed-device reboot-now'] = """
     type: command
     short-summary: "Invoke action rebootNow."
 """
 
-helps['usersactions usersmanageddevice recover-passcode'] = """
+helps['usersactions user-managed-device recover-passcode'] = """
     type: command
     short-summary: "Invoke action recoverPasscode."
 """
 
-helps['usersactions usersmanageddevice remote-lock'] = """
+helps['usersactions user-managed-device remote-lock'] = """
     type: command
     short-summary: "Invoke action remoteLock."
 """
 
-helps['usersactions usersmanageddevice request-remote-assistance'] = """
+helps['usersactions user-managed-device request-remote-assistance'] = """
     type: command
     short-summary: "Invoke action requestRemoteAssistance."
 """
 
-helps['usersactions usersmanageddevice reset-passcode'] = """
+helps['usersactions user-managed-device reset-passcode'] = """
     type: command
     short-summary: "Invoke action resetPasscode."
 """
 
-helps['usersactions usersmanageddevice retire'] = """
+helps['usersactions user-managed-device retire'] = """
     type: command
     short-summary: "Invoke action retire."
 """
 
-helps['usersactions usersmanageddevice shut-down'] = """
+helps['usersactions user-managed-device shut-down'] = """
     type: command
     short-summary: "Invoke action shutDown."
 """
 
-helps['usersactions usersmanageddevice sync-device'] = """
+helps['usersactions user-managed-device sync-device'] = """
     type: command
     short-summary: "Invoke action syncDevice."
 """
 
-helps['usersactions usersmanageddevice update-window-device-account'] = """
+helps['usersactions user-managed-device update-window-device-account'] = """
     type: command
     short-summary: "Invoke action updateWindowsDeviceAccount."
+    parameters:
+      - name: --device-account
+        short-summary: "windowsDeviceAccount"
+        long-summary: |
+            Usage: --device-account password=XX
+
+            password: Not yet documented
 """
 
-helps['usersactions usersmanageddevice window-defender-scan'] = """
+helps['usersactions user-managed-device window-defender-scan'] = """
     type: command
     short-summary: "Invoke action windowsDefenderScan."
 """
 
-helps['usersactions usersmanageddevice window-defender-update-signature'] = """
+helps['usersactions user-managed-device window-defender-update-signature'] = """
     type: command
     short-summary: "Invoke action windowsDefenderUpdateSignatures."
 """
 
-helps['usersactions usersmanageddevice wipe'] = """
+helps['usersactions user-managed-device wipe'] = """
     type: command
     short-summary: "Invoke action wipe."
 """
 
-helps['usersactions usersmessagesattachment'] = """
+helps['usersactions user-message-attachment'] = """
     type: group
-    short-summary: Manage usersmessagesattachment with usersactions_v1_0
+    short-summary: Manage user message attachment with usersactions_v1_0
 """
 
-helps['usersactions usersmessagesattachment create-upload-session'] = """
+helps['usersactions user-message-attachment create-upload-session'] = """
     type: command
     short-summary: "Invoke action createUploadSession."
     parameters:
@@ -1905,17 +1913,17 @@ actual file name. Required.
             size: The length of the attachment in bytes. Required.
 """
 
-helps['usersactions usersmessage'] = """
+helps['usersactions user-message'] = """
     type: group
-    short-summary: Manage usersmessage with usersactions_v1_0
+    short-summary: Manage user message with usersactions_v1_0
 """
 
-helps['usersactions usersmessage copy'] = """
+helps['usersactions user-message copy'] = """
     type: command
     short-summary: "Invoke action copy."
 """
 
-helps['usersactions usersmessage create-forward'] = """
+helps['usersactions user-message create-forward'] = """
     type: command
     short-summary: "Invoke action createForward."
     parameters:
@@ -1984,7 +1992,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage create-reply'] = """
+helps['usersactions user-message create-reply'] = """
     type: command
     short-summary: "Invoke action createReply."
     parameters:
@@ -2053,7 +2061,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage create-reply-all'] = """
+helps['usersactions user-message create-reply-all'] = """
     type: command
     short-summary: "Invoke action createReplyAll."
     parameters:
@@ -2122,7 +2130,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage forward'] = """
+helps['usersactions user-message forward'] = """
     type: command
     short-summary: "Invoke action forward."
     parameters:
@@ -2191,12 +2199,12 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage move'] = """
+helps['usersactions user-message move'] = """
     type: command
     short-summary: "Invoke action move."
 """
 
-helps['usersactions usersmessage reply'] = """
+helps['usersactions user-message reply'] = """
     type: command
     short-summary: "Invoke action reply."
     parameters:
@@ -2265,7 +2273,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage reply-all'] = """
+helps['usersactions user-message reply-all'] = """
     type: command
     short-summary: "Invoke action replyAll."
     parameters:
@@ -2334,7 +2342,7 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['usersactions usersmessage send'] = """
+helps['usersactions user-message send'] = """
     type: command
     short-summary: "Invoke action send."
 """
@@ -2381,6 +2389,31 @@ helps['usersactions user export-personal-data'] = """
 helps['usersactions user find-meeting-time'] = """
     type: command
     short-summary: "Invoke action findMeetingTimes."
+    parameters:
+      - name: --attendees
+        long-summary: |
+            Usage: --attendees type=XX email-address=XX
+
+            email-address: emailAddress
+
+            Multiple actions can be specified by using more than one --attendees argument.
+      - name: --locations
+        short-summary: "Constraint information for one or more locations that the client requests for the meeting."
+        long-summary: |
+            Usage: --locations resolve-availability=XX address=XX coordinates=XX display-name=XX \
+location-email-address=XX location-type=XX location-uri=XX unique-id=XX unique-id-type=XX
+
+            resolve-availability: If set to true and the specified resource is busy, findMeetingTimes looks for \
+another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the \
+resource best ranked in the user's cache without checking if it's free. Default is true.
+            address: physicalAddress
+            coordinates: outlookGeoCoordinates
+            display-name: The name associated with the location.
+            location-email-address: Optional email address of the location.
+            location-uri: Optional URI representing the location.
+            unique-id: For internal use only.
+
+            Multiple actions can be specified by using more than one --locations argument.
 """
 
 helps['usersactions user get-available-extension-property'] = """
@@ -2512,57 +2545,57 @@ helps['usersactions user wipe-managed-app-registration-by-device-tag'] = """
     short-summary: "Invoke action wipeManagedAppRegistrationsByDeviceTag."
 """
 
-helps['usersactions usersonenotenotebook'] = """
+helps['usersactions user-onenote-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebook get-notebook-from-web-url'] = """
+helps['usersactions user-onenote-notebook get-notebook-from-web-url'] = """
     type: command
     short-summary: "Invoke action getNotebookFromWebUrl."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupsparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssection'] = """
+helps['usersactions user-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspage'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssectionspage with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspage copy-to-section'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -2579,67 +2612,67 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspagesparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssectionspagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group section page parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspagesparentsection'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssectionspagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group section page parent section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspagesparentsection copy-to-notebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionspagesparentsection copy-to-section-group'] = """
+helps['usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionsparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssectionsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section group section parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectiongroupssectionsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssection'] = """
+helps['usersactions user-onenote-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssection with usersactions_v1_0
+    short-summary: Manage user onenote notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssection copy-to-notebook'] = """
+helps['usersactions user-onenote-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotenotebookssection copy-to-section-group'] = """
+helps['usersactions user-onenote-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotenotebookssectionspage'] = """
+helps['usersactions user-onenote-notebook-section-page'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionspage with usersactions_v1_0
+    short-summary: Manage user onenote notebook section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionspage copy-to-section'] = """
+helps['usersactions user-onenote-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotenotebookssectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -2656,77 +2689,77 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotenotebookssectionspagesparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionspagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section page parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionspagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectionspagesparentsection'] = """
+helps['usersactions user-onenote-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionspagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote notebook section page parent section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionspagesparentsection copy-to-notebook'] = """
+helps['usersactions user-onenote-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectionspagesparentsection copy-to-section-group'] = """
+helps['usersactions user-onenote-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotenotebookssectionsparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectionsparentsectiongroupparentnotebook'] = """
+helps['usersactions user-onenote-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionsparentsectiongroupparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote notebook section parent section group parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionsparentsectiongroupparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectionsparentsectiongroupsection'] = """
+helps['usersactions user-onenote-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionsparentsectiongroupsection with usersactions_v1_0
+    short-summary: Manage user onenote notebook section parent section group section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotenotebookssectionsparentsectiongroupsection copy-to-notebook'] = """
+helps['usersactions user-onenote-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotenotebookssectionsparentsectiongroupsection copy-to-section-group'] = """
+helps['usersactions user-onenote-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotepage'] = """
+helps['usersactions user-onenote-page'] = """
     type: group
-    short-summary: Manage usersonenotepage with usersactions_v1_0
+    short-summary: Manage user onenote page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepage copy-to-section'] = """
+helps['usersactions user-onenote-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotepage onenote-patch-content'] = """
+helps['usersactions user-onenote-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -2743,52 +2776,52 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotepagesparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupsparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroupsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section group parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssection'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section group section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssectionspage'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroupssectionspage with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section group section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssectionspage copy-to-section'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -2805,120 +2838,43 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssectionsparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroupssectionsparentnotebook with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectiongroupssectionsparentnotebook copy-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksection'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentnotebooksection with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionspage'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectionspage with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionspage copy-to-section'] = """
-    type: command
-    short-summary: "Invoke action copyToSection."
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionspage onenote-patch-content'] = """
-    type: command
-    short-summary: "Invoke action onenotePatchContent."
-    parameters:
-      - name: --commands
-        long-summary: |
-            Usage: --commands action=XX content=XX position=XX target=XX
-
-            content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
-content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
-part.
-            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
-title keyword.
-
-            Multiple actions can be specified by using more than one --commands argument.
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionsparentnotebook'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectionsparentnotebook with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionsparentnotebook copy-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook with \
+    short-summary: Manage user onenote page parent notebook section group section parent notebook with \
 usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectionsparentsectiongroupsection'] = """
+helps['usersactions user-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectionsparentsectiongroupsection with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectionsparentsectiongroupsection copy-to-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotepagesparentnotebooksectionsparentsectiongroupsection copy-to-section-group'] = """
+helps['usersactions user-onenote-page-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotepagesparentsection'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-page'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentsection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotepagesparentsectionpage'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentsectionpage with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentsectionpage copy-to-section'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotepagesparentsectionpage onenote-patch-content'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -2935,133 +2891,69 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook with \
+    short-summary: Manage user onenote page parent notebook section parent section group parent notebook with \
 usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksectiongroupssection'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebooksectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote page parent notebook section parent section group section with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksection'] = """
+helps['usersactions user-onenote-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote page parent section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotepagesparentsectionparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotepagesparentsectiongroupparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-section-page'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectiongroupparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote page parent section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotepagesparentsectiongroupparentnotebook copy-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupparentnotebooksection'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentsectiongroupparentnotebooksection with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupparentnotebooksection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupparentnotebooksection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupsection'] = """
-    type: group
-    short-summary: Manage usersonenotepagesparentsectiongroupsection with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupsection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotepagesparentsectiongroupsection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebook'] = """
-    type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebook with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebook copy-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyNotebook."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksection'] = """
-    type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksection with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspage'] = """
-    type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionspage with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspage copy-to-section'] = """
+helps['usersactions user-onenote-page-parent-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-page-parent-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -3078,67 +2970,135 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspagesparentnotebook'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionspagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote page parent section parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspagesparentsection'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionspagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote page parent section parent notebook section group parent notebook with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspagesparentsection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionspagesparentsection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionsparentnotebook'] = """
-    type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionsparentnotebook with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectiongroupsparentnotebooksectionsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssection'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote page parent section parent notebook section group section with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectiongroupssectionspage'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspage with usersactions_v1_0
+    short-summary: Manage user onenote page parent section parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssectionspage copy-to-section'] = """
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
+    type: group
+    short-summary: Manage user onenote page parent section parent section group parent notebook with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook copy-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyNotebook."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section'] = """
+    type: group
+    short-summary: Manage user onenote page parent section parent section group parent notebook section with \
+usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-section'] = """
+    type: group
+    short-summary: Manage user onenote page parent section parent section group section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook'] = """
+    type: group
+    short-summary: Manage user onenote section group parent notebook with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook copy-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyNotebook."
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook-section'] = """
+    type: group
+    short-summary: Manage user onenote section group parent notebook section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook-section-page'] = """
+    type: group
+    short-summary: Manage user onenote section group parent notebook section page with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-group-parent-notebook-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotesectiongroupssectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -3155,97 +3115,69 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentnotebook'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section group parent notebook section page parent notebook with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentnotebooksection'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspagesparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote section group parent notebook section page parent section with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentsection'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote section group parent notebook section parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssectionspagesparentsection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotesectiongroupssectionspagesparentsection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotesectiongroupssectionsparentnotebook'] = """
-    type: group
-    short-summary: Manage usersonenotesectiongroupssectionsparentnotebook with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectiongroupssectionsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-group-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssectionsparentnotebooksection'] = """
+helps['usersactions user-onenote-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionsparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote section group section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectiongroupssectionsparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectiongroupssectionsparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesection'] = """
+helps['usersactions user-onenote-section-group-section-page'] = """
     type: group
-    short-summary: Manage usersonenotesection with usersactions_v1_0
+    short-summary: Manage user onenote section group section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesection copy-to-notebook'] = """
-    type: command
-    short-summary: "Invoke action copyToNotebook."
-"""
-
-helps['usersactions usersonenotesection copy-to-section-group'] = """
-    type: command
-    short-summary: "Invoke action copyToSectionGroup."
-"""
-
-helps['usersactions usersonenotesectionspage'] = """
-    type: group
-    short-summary: Manage usersonenotesectionspage with usersactions_v1_0
-"""
-
-helps['usersactions usersonenotesectionspage copy-to-section'] = """
+helps['usersactions user-onenote-section-group-section-page copy-to-section'] = """
     type: command
     short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotesectionspage onenote-patch-content'] = """
+helps['usersactions user-onenote-section-group-section-page onenote-patch-content'] = """
     type: command
     short-summary: "Invoke action onenotePatchContent."
     parameters:
@@ -3262,167 +3194,275 @@ title keyword.
             Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebook'] = """
+helps['usersactions user-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section group section page parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksectiongroupsparentnotebook'] = """
+helps['usersactions user-onenote-section-group-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebooksectiongroupsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section group section page parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksectiongroupsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-group-section-page-parent-section'] = """
+    type: group
+    short-summary: Manage user onenote section group section page parent section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-group-section-page-parent-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-group-section-page-parent-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-group-section-parent-notebook'] = """
+    type: group
+    short-summary: Manage user onenote section group section parent notebook with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-group-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksectiongroupssection'] = """
+helps['usersactions user-onenote-section-group-section-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebooksectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote section group section parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-group-section-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-group-section-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksection'] = """
+helps['usersactions user-onenote-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionspagesparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectionspagesparentsection'] = """
+helps['usersactions user-onenote-section-page'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentsection with usersactions_v1_0
+    short-summary: Manage user onenote section page with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionspagesparentsection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook."
+    short-summary: "Invoke action copyToSection."
 """
 
-helps['usersactions usersonenotesectionspagesparentsection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup."
+    short-summary: "Invoke action onenotePatchContent."
+    parameters:
+      - name: --commands
+        long-summary: |
+            Usage: --commands action=XX content=XX position=XX target=XX
+
+            content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
+content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
+part.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
+
+            Multiple actions can be specified by using more than one --commands argument.
 """
 
-helps['usersactions usersonenotesectionsparentnotebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section page parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksectiongroupsparentnotebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebooksectiongroupsparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section page parent notebook section group parent notebook with \
+usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksectiongroupsparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksectiongroupssection'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebooksectiongroupssection with usersactions_v1_0
+    short-summary: Manage user onenote section page parent notebook section group section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksectiongroupssection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksectiongroupssection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksection'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote section page parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-page-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupparentnotebook'] = """
+helps['usersactions user-onenote-section-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentsectiongroupparentnotebook with usersactions_v1_0
+    short-summary: Manage user onenote section page parent section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupparentnotebook copy-notebook'] = """
+helps['usersactions user-onenote-section-page-parent-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-page-parent-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-parent-notebook'] = """
+    type: group
+    short-summary: Manage user onenote section parent notebook with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-parent-notebook copy-notebook'] = """
     type: command
     short-summary: "Invoke action copyNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupparentnotebooksection'] = """
+helps['usersactions user-onenote-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentsectiongroupparentnotebooksection with usersactions_v1_0
+    short-summary: Manage user onenote section parent notebook section group parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupparentnotebooksection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyNotebook."
+"""
+
+helps['usersactions user-onenote-section-parent-notebook-section-group-section'] = """
+    type: group
+    short-summary: Manage user onenote section parent notebook section group section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupparentnotebooksection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupsection'] = """
+helps['usersactions user-onenote-section-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentsectiongroupsection with usersactions_v1_0
+    short-summary: Manage user onenote section parent notebook section with usersactions_v1_0
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupsection copy-to-notebook'] = """
+helps['usersactions user-onenote-section-parent-notebook-section copy-to-notebook'] = """
     type: command
     short-summary: "Invoke action copyToNotebook."
 """
 
-helps['usersactions usersonenotesectionsparentsectiongroupsection copy-to-section-group'] = """
+helps['usersactions user-onenote-section-parent-notebook-section copy-to-section-group'] = """
     type: command
     short-summary: "Invoke action copyToSectionGroup."
 """
 
-helps['usersactions usersonlinemeeting'] = """
+helps['usersactions user-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonlinemeeting with usersactions_v1_0
+    short-summary: Manage user onenote section parent section group parent notebook with usersactions_v1_0
 """
 
-helps['usersactions usersonlinemeeting create-or-get'] = """
+helps['usersactions user-onenote-section-parent-section-group-parent-notebook copy-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyNotebook."
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section'] = """
+    type: group
+    short-summary: Manage user onenote section parent section group parent notebook section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-section'] = """
+    type: group
+    short-summary: Manage user onenote section parent section group section with usersactions_v1_0
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-section copy-to-notebook'] = """
+    type: command
+    short-summary: "Invoke action copyToNotebook."
+"""
+
+helps['usersactions user-onenote-section-parent-section-group-section copy-to-section-group'] = """
+    type: command
+    short-summary: "Invoke action copyToSectionGroup."
+"""
+
+helps['usersactions user-online-meeting'] = """
+    type: group
+    short-summary: Manage user online meeting with usersactions_v1_0
+"""
+
+helps['usersactions user-online-meeting create-or-get'] = """
     type: command
     short-summary: "Invoke action createOrGet."
     parameters:

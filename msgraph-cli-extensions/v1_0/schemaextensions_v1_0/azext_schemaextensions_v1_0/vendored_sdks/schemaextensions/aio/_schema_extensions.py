@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.core import AsyncPipelineClient
+from azure.mgmt.core import AsyncARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,15 +16,15 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import SchemaExtensionsConfiguration
-from .operations import schemaextensionsschemaextensionOperations
+from .operations import SchemaExtensionsSchemaExtensionOperations
 from .. import models
 
 
 class SchemaExtensions(object):
     """SchemaExtensions.
 
-    :ivar schemaextensionsschemaextension: schemaextensionsschemaextensionOperations operations
-    :vartype schemaextensionsschemaextension: schema_extensions.aio.operations.schemaextensionsschemaextensionOperations
+    :ivar schema_extensions_schema_extension: SchemaExtensionsSchemaExtensionOperations operations
+    :vartype schema_extensions_schema_extension: schema_extensions.aio.operations.SchemaExtensionsSchemaExtensionOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -54,14 +54,14 @@ class SchemaExtensions(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = SchemaExtensionsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.schemaextensionsschemaextension = schemaextensionsschemaextensionOperations(
+        self.schema_extensions_schema_extension = SchemaExtensionsSchemaExtensionOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,27 +18,27 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import BookingsConfiguration
-from .operations import bookingbusinessesbookingbusinessOperations
-from .operations import bookingbusinessesOperations
-from .operations import bookingbusinessesappointmentsOperations
-from .operations import bookingbusinessescalendarviewOperations
-from .operations import bookingcurrenciesbookingcurrencyOperations
+from .operations import BookingBusinessesBookingBusinessOperations
+from .operations import BookingBusinessesOperations
+from .operations import BookingBusinessesAppointmentsOperations
+from .operations import BookingBusinessesCalendarViewOperations
+from .operations import BookingCurrenciesBookingCurrencyOperations
 from . import models
 
 
 class Bookings(object):
     """Bookings.
 
-    :ivar bookingbusinessesbookingbusiness: bookingbusinessesbookingbusinessOperations operations
-    :vartype bookingbusinessesbookingbusiness: bookings.operations.bookingbusinessesbookingbusinessOperations
-    :ivar bookingbusinesses: bookingbusinessesOperations operations
-    :vartype bookingbusinesses: bookings.operations.bookingbusinessesOperations
-    :ivar bookingbusinessesappointments: bookingbusinessesappointmentsOperations operations
-    :vartype bookingbusinessesappointments: bookings.operations.bookingbusinessesappointmentsOperations
-    :ivar bookingbusinessescalendarview: bookingbusinessescalendarviewOperations operations
-    :vartype bookingbusinessescalendarview: bookings.operations.bookingbusinessescalendarviewOperations
-    :ivar bookingcurrenciesbookingcurrency: bookingcurrenciesbookingcurrencyOperations operations
-    :vartype bookingcurrenciesbookingcurrency: bookings.operations.bookingcurrenciesbookingcurrencyOperations
+    :ivar booking_businesses_booking_business: BookingBusinessesBookingBusinessOperations operations
+    :vartype booking_businesses_booking_business: bookings.operations.BookingBusinessesBookingBusinessOperations
+    :ivar booking_businesses: BookingBusinessesOperations operations
+    :vartype booking_businesses: bookings.operations.BookingBusinessesOperations
+    :ivar booking_businesses_appointments: BookingBusinessesAppointmentsOperations operations
+    :vartype booking_businesses_appointments: bookings.operations.BookingBusinessesAppointmentsOperations
+    :ivar booking_businesses_calendar_view: BookingBusinessesCalendarViewOperations operations
+    :vartype booking_businesses_calendar_view: bookings.operations.BookingBusinessesCalendarViewOperations
+    :ivar booking_currencies_booking_currency: BookingCurrenciesBookingCurrencyOperations operations
+    :vartype booking_currencies_booking_currency: bookings.operations.BookingCurrenciesBookingCurrencyOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -69,22 +69,22 @@ class Bookings(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = BookingsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.bookingbusinessesbookingbusiness = bookingbusinessesbookingbusinessOperations(
+        self.booking_businesses_booking_business = BookingBusinessesBookingBusinessOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.bookingbusinesses = bookingbusinessesOperations(
+        self.booking_businesses = BookingBusinessesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.bookingbusinessesappointments = bookingbusinessesappointmentsOperations(
+        self.booking_businesses_appointments = BookingBusinessesAppointmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.bookingbusinessescalendarview = bookingbusinessescalendarviewOperations(
+        self.booking_businesses_calendar_view = BookingBusinessesCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.bookingcurrenciesbookingcurrency = bookingcurrenciesbookingcurrencyOperations(
+        self.booking_currencies_booking_currency = BookingCurrenciesBookingCurrencyOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

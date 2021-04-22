@@ -50,12 +50,12 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes groupsonenote'] = """
+helps['notes group-onenote'] = """
     type: group
-    short-summary: Manage groupsonenote with notes_v1_0
+    short-summary: Manage group onenote with notes_v1_0
 """
 
-helps['notes groupsonenote create-notebook'] = """
+helps['notes group-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for groups."
     parameters:
@@ -127,7 +127,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenote create-operation'] = """
+helps['notes group-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for groups."
     parameters:
@@ -140,22 +140,102 @@ helps['notes groupsonenote create-operation'] = """
             message: The error message.
 """
 
-helps['notes groupsonenote create-page'] = """
+helps['notes group-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenote create-resource'] = """
+helps['notes group-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for groups."
 """
 
-helps['notes groupsonenote create-section'] = """
+helps['notes group-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenote create-section-group'] = """
+helps['notes group-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -215,97 +295,97 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenote delete-notebook'] = """
+helps['notes group-onenote delete-notebook'] = """
     type: command
     short-summary: "Delete navigation property notebooks for groups."
 """
 
-helps['notes groupsonenote delete-operation'] = """
+helps['notes group-onenote delete-operation'] = """
     type: command
     short-summary: "Delete navigation property operations for groups."
 """
 
-helps['notes groupsonenote delete-page'] = """
+helps['notes group-onenote delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenote delete-resource'] = """
+helps['notes group-onenote delete-resource'] = """
     type: command
     short-summary: "Delete navigation property resources for groups."
 """
 
-helps['notes groupsonenote delete-section'] = """
+helps['notes group-onenote delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenote delete-section-group'] = """
+helps['notes group-onenote delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenote list-notebook'] = """
+helps['notes group-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from groups."
 """
 
-helps['notes groupsonenote list-operation'] = """
+helps['notes group-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from groups."
 """
 
-helps['notes groupsonenote list-page'] = """
+helps['notes group-onenote list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenote list-resource'] = """
+helps['notes group-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from groups."
 """
 
-helps['notes groupsonenote list-section'] = """
+helps['notes group-onenote list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenote list-section-group'] = """
+helps['notes group-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenote show-notebook'] = """
+helps['notes group-onenote show-notebook'] = """
     type: command
     short-summary: "Get notebooks from groups."
 """
 
-helps['notes groupsonenote show-operation'] = """
+helps['notes group-onenote show-operation'] = """
     type: command
     short-summary: "Get operations from groups."
 """
 
-helps['notes groupsonenote show-page'] = """
+helps['notes group-onenote show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenote show-resource'] = """
+helps['notes group-onenote show-resource'] = """
     type: command
     short-summary: "Get resources from groups."
 """
 
-helps['notes groupsonenote show-section'] = """
+helps['notes group-onenote show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenote show-section-group'] = """
+helps['notes group-onenote show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenote update-notebook'] = """
+helps['notes group-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in groups."
     parameters:
@@ -377,7 +457,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenote update-operation'] = """
+helps['notes group-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in groups."
     parameters:
@@ -390,22 +470,102 @@ helps['notes groupsonenote update-operation'] = """
             message: The error message.
 """
 
-helps['notes groupsonenote update-page'] = """
+helps['notes group-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenote update-resource'] = """
+helps['notes group-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in groups."
 """
 
-helps['notes groupsonenote update-section'] = """
+helps['notes group-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenote update-section-group'] = """
+helps['notes group-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -465,17 +625,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebook'] = """
+helps['notes group-onenotebook'] = """
     type: group
-    short-summary: Manage groupsonenotenotebook with notes_v1_0
+    short-summary: Manage group onenote notebook with notes_v1_0
 """
 
-helps['notes groupsonenotenotebook create-section'] = """
+helps['notes group-onenotebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebook create-section-group'] = """
+helps['notes group-onenotebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -535,42 +762,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebook delete-section'] = """
+helps['notes group-onenotebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotenotebook delete-section-group'] = """
+helps['notes group-onenotebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotenotebook list-section'] = """
+helps['notes group-onenotebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebook list-section-group'] = """
+helps['notes group-onenotebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebook show-section'] = """
+helps['notes group-onenotebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebook show-section-group'] = """
+helps['notes group-onenotebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebook update-section'] = """
+helps['notes group-onenotebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebook update-section-group'] = """
+helps['notes group-onenotebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -630,17 +924,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectiongroup'] = """
+helps['notes group-onenotebook-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssectiongroup with notes_v1_0
+    short-summary: Manage group onenote notebook section group with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssectiongroup create-section'] = """
+helps['notes group-onenotebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroup create-section-group'] = """
+helps['notes group-onenotebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -700,57 +1061,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectiongroup delete-parent-notebook'] = """
+helps['notes group-onenotebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup delete-parent-section-group'] = """
+helps['notes group-onenotebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup delete-section'] = """
+helps['notes group-onenotebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup delete-section-group'] = """
+helps['notes group-onenotebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup list-section'] = """
+helps['notes group-onenotebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup list-section-group'] = """
+helps['notes group-onenotebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup show-parent-notebook'] = """
+helps['notes group-onenotebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup show-parent-section-group'] = """
+helps['notes group-onenotebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup show-section'] = """
+helps['notes group-onenotebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup show-section-group'] = """
+helps['notes group-onenotebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroup update-parent-notebook'] = """
+helps['notes group-onenotebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -822,7 +1183,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroup update-parent-section-group'] = """
+helps['notes group-onenotebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -882,12 +1243,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectiongroup update-section'] = """
+helps['notes group-onenotebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroup update-section-group'] = """
+helps['notes group-onenotebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -947,57 +1375,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection'] = """
+helps['notes group-onenotebook-section-group-section'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssectiongroupssection with notes_v1_0
+    short-summary: Manage group onenote notebook section group section with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection create-page'] = """
+helps['notes group-onenotebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection delete-page'] = """
+helps['notes group-onenotebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection delete-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection delete-parent-section-group'] = """
+helps['notes group-onenotebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection list-page'] = """
+helps['notes group-onenotebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection show-page'] = """
+helps['notes group-onenotebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection show-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection show-parent-section-group'] = """
+helps['notes group-onenotebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection update-page'] = """
+helps['notes group-onenotebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection update-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1069,7 +1523,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssection update-parent-section-group'] = """
+helps['notes group-onenotebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -1129,32 +1583,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage'] = """
+helps['notes group-onenotebook-section-group-section-page'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssectiongroupssectionspage with notes_v1_0
+    short-summary: Manage group onenote notebook section group section page with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage delete-parent-section'] = """
+helps['notes group-onenotebook-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage show-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage show-parent-section'] = """
+helps['notes group-onenotebook-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage update-parent-notebook'] = """
+helps['notes group-onenotebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1226,62 +1680,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectiongroupssectionspage update-parent-section'] = """
+helps['notes group-onenotebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssection'] = """
+helps['notes group-onenotebook-section'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssection with notes_v1_0
+    short-summary: Manage group onenote notebook section with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssection create-page'] = """
+helps['notes group-onenotebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssection delete-page'] = """
+helps['notes group-onenotebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotenotebookssection delete-parent-notebook'] = """
+helps['notes group-onenotebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssection delete-parent-section-group'] = """
+helps['notes group-onenotebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotenotebookssection list-page'] = """
+helps['notes group-onenotebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotenotebookssection show-page'] = """
+helps['notes group-onenotebook-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotenotebookssection show-parent-notebook'] = """
+helps['notes group-onenotebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssection show-parent-section-group'] = """
+helps['notes group-onenotebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotenotebookssection update-page'] = """
+helps['notes group-onenotebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssection update-parent-notebook'] = """
+helps['notes group-onenotebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1353,7 +1900,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssection update-parent-section-group'] = """
+helps['notes group-onenotebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -1413,32 +1960,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectionspage'] = """
+helps['notes group-onenotebook-section-page'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssectionspage with notes_v1_0
+    short-summary: Manage group onenote notebook section page with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssectionspage delete-parent-notebook'] = """
+helps['notes group-onenotebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssectionspage delete-parent-section'] = """
+helps['notes group-onenotebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotenotebookssectionspage show-parent-notebook'] = """
+helps['notes group-onenotebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssectionspage show-parent-section'] = """
+helps['notes group-onenotebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotenotebookssectionspage update-parent-notebook'] = """
+helps['notes group-onenotebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1510,22 +2057,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectionspage update-parent-section'] = """
+helps['notes group-onenotebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup'] = """
+helps['notes group-onenotebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotenotebookssectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage group onenote notebook section parent section group with notes_v1_0
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup create-section'] = """
+helps['notes group-onenotebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup create-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -1585,57 +2266,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes group-onenotebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup delete-section'] = """
+helps['notes group-onenotebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup delete-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup list-section'] = """
+helps['notes group-onenotebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup list-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes group-onenotebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup show-section'] = """
+helps['notes group-onenotebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup show-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes group-onenotebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1707,7 +2388,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -1767,12 +2448,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup update-section'] = """
+helps['notes group-onenotebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotenotebookssectionsparentsectiongroup update-section-group'] = """
+helps['notes group-onenotebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -1832,32 +2580,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepage'] = """
+helps['notes group-onenote-page'] = """
     type: group
-    short-summary: Manage groupsonenotepage with notes_v1_0
+    short-summary: Manage group onenote page with notes_v1_0
 """
 
-helps['notes groupsonenotepage delete-parent-notebook'] = """
+helps['notes group-onenote-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepage delete-parent-section'] = """
+helps['notes group-onenote-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotepage show-parent-notebook'] = """
+helps['notes group-onenote-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepage show-parent-section'] = """
+helps['notes group-onenote-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotepage update-parent-notebook'] = """
+helps['notes group-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -1929,22 +2677,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepage update-parent-section'] = """
+helps['notes group-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebook'] = """
+helps['notes group-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentnotebook with notes_v1_0
+    short-summary: Manage group onenote page parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentnotebook create-section'] = """
+helps['notes group-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebook create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -2004,42 +2886,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebook delete-section'] = """
+helps['notes group-onenote-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook delete-section-group'] = """
+helps['notes group-onenote-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook list-section'] = """
+helps['notes group-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook show-section'] = """
+helps['notes group-onenote-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook show-section-group'] = """
+helps['notes group-onenote-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebook update-section'] = """
+helps['notes group-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebook update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -2099,17 +3048,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup'] = """
+helps['notes group-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage group onenote page parent notebook section group with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup create-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -2169,57 +3185,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup delete-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup list-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup show-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -2291,7 +3307,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -2351,12 +3367,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup update-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -2416,57 +3499,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentnotebooksectiongroupssection with notes_v1_0
+    short-summary: Manage group onenote page parent notebook section group section with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection create-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection delete-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection list-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection show-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection update-page'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -2538,7 +3647,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectiongroupssection update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -2598,57 +3707,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksection'] = """
+helps['notes group-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentnotebooksection with notes_v1_0
+    short-summary: Manage group onenote page parent notebook section with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentnotebooksection create-page'] = """
+helps['notes group-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksection delete-page'] = """
+helps['notes group-onenote-page-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection list-page'] = """
+helps['notes group-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection show-page'] = """
+helps['notes group-onenote-page-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksection update-page'] = """
+helps['notes group-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksection update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -2720,7 +3855,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksection update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -2780,17 +3915,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentnotebooksectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage group onenote page parent notebook section parent section group with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup create-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup create-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -2850,57 +4052,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup delete-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup delete-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup list-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup list-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup show-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup show-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -2972,7 +4174,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -3032,12 +4234,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup update-section'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentnotebooksectionsparentsectiongroup update-section-group'] = """
+helps['notes group-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -3097,57 +4366,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsection'] = """
+helps['notes group-onenote-page-parent-section'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentsection with notes_v1_0
+    short-summary: Manage group onenote page parent section with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentsection create-page'] = """
+helps['notes group-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsection delete-page'] = """
+helps['notes group-onenote-page-parent-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotepagesparentsection delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentsection delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentsection list-page'] = """
+helps['notes group-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentsection show-page'] = """
+helps['notes group-onenote-page-parent-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotepagesparentsection show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentsection show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentsection update-page'] = """
+helps['notes group-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsection update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -3219,7 +4514,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsection update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -3279,17 +4574,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentsectionparentnotebook with notes_v1_0
+    short-summary: Manage group onenote page parent section parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -3349,42 +4711,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook delete-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook delete-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook show-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook show-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebook update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -3444,17 +4873,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentsectionparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage group onenote page parent section parent notebook section group with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -3514,57 +5010,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup delete-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup delete-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup show-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup show-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -3636,7 +5132,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -3696,12 +5192,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectionparentnotebooksectiongroup update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -3761,17 +5324,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentsectiongroup with notes_v1_0
+    short-summary: Manage group onenote page parent section parent section group with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentsectiongroup create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -3831,57 +5461,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup delete-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup delete-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup show-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup show-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -3953,7 +5583,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -4013,12 +5643,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectiongroup update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -4078,17 +5775,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotepagesparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage group onenote page parent section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook create-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -4148,42 +5912,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook delete-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook list-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook show-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook update-section'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotepagesparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes group-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -4243,17 +6074,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroup'] = """
+helps['notes group-onenote-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroup with notes_v1_0
+    short-summary: Manage group onenote section group with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroup create-section'] = """
+helps['notes group-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroup create-section-group'] = """
+helps['notes group-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -4313,57 +6211,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectiongroup delete-section'] = """
+helps['notes group-onenote-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectiongroup delete-section-group'] = """
+helps['notes group-onenote-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectiongroup list-section'] = """
+helps['notes group-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroup list-section-group'] = """
+helps['notes group-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectiongroup show-section'] = """
+helps['notes group-onenote-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroup show-section-group'] = """
+helps['notes group-onenote-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -4435,7 +6333,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -4495,12 +6393,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroup update-section'] = """
+helps['notes group-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroup update-section-group'] = """
+helps['notes group-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -4560,17 +6525,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook'] = """
+helps['notes group-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupsparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section group parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook create-section'] = """
+helps['notes group-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -4630,42 +6662,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook delete-section'] = """
+helps['notes group-onenote-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook list-section'] = """
+helps['notes group-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook show-section'] = """
+helps['notes group-onenote-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook update-section'] = """
+helps['notes group-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -4725,57 +6824,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection'] = """
+helps['notes group-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupsparentnotebooksection with notes_v1_0
+    short-summary: Manage group onenote section group parent notebook section with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection create-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection delete-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection delete-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection delete-parent-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection list-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection show-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection show-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection show-parent-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection update-page'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection update-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -4847,7 +6972,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksection update-parent-section-group'] = """
+helps['notes group-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -4907,32 +7032,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupsparentnotebooksectionspage with notes_v1_0
+    short-summary: Manage group onenote section group parent notebook section page with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage delete-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage delete-parent-section'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage show-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage show-parent-section'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage update-parent-notebook'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -5004,62 +7129,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupsparentnotebooksectionspage update-parent-section'] = """
+helps['notes group-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssection'] = """
+helps['notes group-onenote-section-group-section'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupssection with notes_v1_0
+    short-summary: Manage group onenote section group section with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupssection create-page'] = """
+helps['notes group-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssection delete-page'] = """
+helps['notes group-onenote-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotesectiongroupssection delete-parent-notebook'] = """
+helps['notes group-onenote-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectiongroupssection delete-parent-section-group'] = """
+helps['notes group-onenote-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectiongroupssection list-page'] = """
+helps['notes group-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesectiongroupssection show-page'] = """
+helps['notes group-onenote-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesectiongroupssection show-parent-notebook'] = """
+helps['notes group-onenote-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectiongroupssection show-parent-section-group'] = """
+helps['notes group-onenote-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectiongroupssection update-page'] = """
+helps['notes group-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssection update-parent-notebook'] = """
+helps['notes group-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -5131,7 +7349,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssection update-parent-section-group'] = """
+helps['notes group-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -5191,32 +7409,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupssectionspage'] = """
+helps['notes group-onenote-section-group-section-page'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupssectionspage with notes_v1_0
+    short-summary: Manage group onenote section group section page with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes group-onenote-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspage delete-parent-section'] = """
+helps['notes group-onenote-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspage show-parent-notebook'] = """
+helps['notes group-onenote-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspage show-parent-section'] = """
+helps['notes group-onenote-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspage update-parent-notebook'] = """
+helps['notes group-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -5288,22 +7506,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionspage update-parent-section'] = """
+helps['notes group-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupssectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section group section page parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook create-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -5363,42 +7715,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook delete-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook list-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook show-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook update-section'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionspagesparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -5458,17 +7877,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook'] = """
+helps['notes group-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectiongroupssectionsparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section group section parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook create-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -5528,42 +8014,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook delete-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook list-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook show-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook update-section'] = """
+helps['notes group-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectiongroupssectionsparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -5623,57 +8176,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesection'] = """
+helps['notes group-onenote-section'] = """
     type: group
-    short-summary: Manage groupsonenotesection with notes_v1_0
+    short-summary: Manage group onenote section with notes_v1_0
 """
 
-helps['notes groupsonenotesection create-page'] = """
+helps['notes group-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesection delete-page'] = """
+helps['notes group-onenote-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for groups."
 """
 
-helps['notes groupsonenotesection delete-parent-notebook'] = """
+helps['notes group-onenote-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesection delete-parent-section-group'] = """
+helps['notes group-onenote-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesection list-page'] = """
+helps['notes group-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesection show-page'] = """
+helps['notes group-onenote-section show-page'] = """
     type: command
     short-summary: "Get pages from groups."
 """
 
-helps['notes groupsonenotesection show-parent-notebook'] = """
+helps['notes group-onenote-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesection show-parent-section-group'] = """
+helps['notes group-onenote-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesection update-page'] = """
+helps['notes group-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in groups."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesection update-parent-notebook'] = """
+helps['notes group-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -5745,7 +8324,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesection update-parent-section-group'] = """
+helps['notes group-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -5805,32 +8384,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionspage'] = """
+helps['notes group-onenote-section-page'] = """
     type: group
-    short-summary: Manage groupsonenotesectionspage with notes_v1_0
+    short-summary: Manage group onenote section page with notes_v1_0
 """
 
-helps['notes groupsonenotesectionspage delete-parent-notebook'] = """
+helps['notes group-onenote-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectionspage delete-parent-section'] = """
+helps['notes group-onenote-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for groups."
 """
 
-helps['notes groupsonenotesectionspage show-parent-notebook'] = """
+helps['notes group-onenote-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectionspage show-parent-section'] = """
+helps['notes group-onenote-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from groups."
 """
 
-helps['notes groupsonenotesectionspage update-parent-notebook'] = """
+helps['notes group-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -5902,22 +8481,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspage update-parent-section'] = """
+helps['notes group-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook'] = """
+helps['notes group-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section page parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook create-section'] = """
+helps['notes group-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -5977,42 +8690,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook delete-section'] = """
+helps['notes group-onenote-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook list-section'] = """
+helps['notes group-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook show-section'] = """
+helps['notes group-onenote-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook update-section'] = """
+helps['notes group-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -6072,17 +8852,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotesectionspagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage group onenote section page parent notebook section group with notes_v1_0
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup create-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -6142,57 +8989,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup delete-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup list-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup show-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -6264,7 +9111,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -6324,12 +9171,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup update-section'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionspagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes group-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -6389,17 +9303,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentnotebook'] = """
+helps['notes group-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectionsparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectionsparentnotebook create-section'] = """
+helps['notes group-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -6459,42 +9440,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentnotebook delete-section'] = """
+helps['notes group-onenote-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook list-section'] = """
+helps['notes group-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook show-section'] = """
+helps['notes group-onenote-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebook update-section'] = """
+helps['notes group-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -6554,17 +9602,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup'] = """
+helps['notes group-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotesectionsparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage group onenote section parent notebook section group with notes_v1_0
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup create-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup create-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -6624,57 +9739,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup delete-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup delete-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup list-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup list-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup show-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup show-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -6746,7 +9861,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -6806,12 +9921,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup update-section'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentnotebooksectiongroup update-section-group'] = """
+helps['notes group-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -6871,17 +10053,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup'] = """
+helps['notes group-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: Manage groupsonenotesectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage group onenote section parent section group with notes_v1_0
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup create-section'] = """
+helps['notes group-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup create-section-group'] = """
+helps['notes group-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -6941,57 +10190,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes group-onenote-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes group-onenote-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup delete-section'] = """
+helps['notes group-onenote-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup delete-section-group'] = """
+helps['notes group-onenote-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup list-section'] = """
+helps['notes group-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup list-section-group'] = """
+helps['notes group-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes group-onenote-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes group-onenote-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup show-section'] = """
+helps['notes group-onenote-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup show-section-group'] = """
+helps['notes group-onenote-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes group-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in groups."
     parameters:
@@ -7063,7 +10312,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes group-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in groups."
     parameters:
@@ -7123,12 +10372,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup update-section'] = """
+helps['notes group-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroup update-section-group'] = """
+helps['notes group-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -7188,17 +10504,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage groupsonenotesectionsparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage group onenote section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook create-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for groups."
     parameters:
@@ -7258,42 +10641,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook delete-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook list-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook show-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from groups."
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook update-section'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in groups."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes groupsonenotesectionsparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes group-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in groups."
     parameters:
@@ -7386,12 +10836,12 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes sitesonenote'] = """
+helps['notes site-onenote'] = """
     type: group
-    short-summary: Manage sitesonenote with notes_v1_0
+    short-summary: Manage site onenote with notes_v1_0
 """
 
-helps['notes sitesonenote create-notebook'] = """
+helps['notes site-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for sites."
     parameters:
@@ -7463,7 +10913,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenote create-operation'] = """
+helps['notes site-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for sites."
     parameters:
@@ -7476,22 +10926,102 @@ helps['notes sitesonenote create-operation'] = """
             message: The error message.
 """
 
-helps['notes sitesonenote create-page'] = """
+helps['notes site-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenote create-resource'] = """
+helps['notes site-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for sites."
 """
 
-helps['notes sitesonenote create-section'] = """
+helps['notes site-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenote create-section-group'] = """
+helps['notes site-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -7551,97 +11081,97 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenote delete-notebook'] = """
+helps['notes site-onenote delete-notebook'] = """
     type: command
     short-summary: "Delete navigation property notebooks for sites."
 """
 
-helps['notes sitesonenote delete-operation'] = """
+helps['notes site-onenote delete-operation'] = """
     type: command
     short-summary: "Delete navigation property operations for sites."
 """
 
-helps['notes sitesonenote delete-page'] = """
+helps['notes site-onenote delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenote delete-resource'] = """
+helps['notes site-onenote delete-resource'] = """
     type: command
     short-summary: "Delete navigation property resources for sites."
 """
 
-helps['notes sitesonenote delete-section'] = """
+helps['notes site-onenote delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenote delete-section-group'] = """
+helps['notes site-onenote delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenote list-notebook'] = """
+helps['notes site-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from sites."
 """
 
-helps['notes sitesonenote list-operation'] = """
+helps['notes site-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from sites."
 """
 
-helps['notes sitesonenote list-page'] = """
+helps['notes site-onenote list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenote list-resource'] = """
+helps['notes site-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from sites."
 """
 
-helps['notes sitesonenote list-section'] = """
+helps['notes site-onenote list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenote list-section-group'] = """
+helps['notes site-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenote show-notebook'] = """
+helps['notes site-onenote show-notebook'] = """
     type: command
     short-summary: "Get notebooks from sites."
 """
 
-helps['notes sitesonenote show-operation'] = """
+helps['notes site-onenote show-operation'] = """
     type: command
     short-summary: "Get operations from sites."
 """
 
-helps['notes sitesonenote show-page'] = """
+helps['notes site-onenote show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenote show-resource'] = """
+helps['notes site-onenote show-resource'] = """
     type: command
     short-summary: "Get resources from sites."
 """
 
-helps['notes sitesonenote show-section'] = """
+helps['notes site-onenote show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenote show-section-group'] = """
+helps['notes site-onenote show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenote update-notebook'] = """
+helps['notes site-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in sites."
     parameters:
@@ -7713,7 +11243,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenote update-operation'] = """
+helps['notes site-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in sites."
     parameters:
@@ -7726,22 +11256,102 @@ helps['notes sitesonenote update-operation'] = """
             message: The error message.
 """
 
-helps['notes sitesonenote update-page'] = """
+helps['notes site-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenote update-resource'] = """
+helps['notes site-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in sites."
 """
 
-helps['notes sitesonenote update-section'] = """
+helps['notes site-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenote update-section-group'] = """
+helps['notes site-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -7801,17 +11411,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebook'] = """
+helps['notes site-onenotebook'] = """
     type: group
-    short-summary: Manage sitesonenotenotebook with notes_v1_0
+    short-summary: Manage site onenote notebook with notes_v1_0
 """
 
-helps['notes sitesonenotenotebook create-section'] = """
+helps['notes site-onenotebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebook create-section-group'] = """
+helps['notes site-onenotebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -7871,42 +11548,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebook delete-section'] = """
+helps['notes site-onenotebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotenotebook delete-section-group'] = """
+helps['notes site-onenotebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotenotebook list-section'] = """
+helps['notes site-onenotebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebook list-section-group'] = """
+helps['notes site-onenotebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebook show-section'] = """
+helps['notes site-onenotebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebook show-section-group'] = """
+helps['notes site-onenotebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebook update-section'] = """
+helps['notes site-onenotebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebook update-section-group'] = """
+helps['notes site-onenotebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -7966,17 +11710,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectiongroup'] = """
+helps['notes site-onenotebook-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssectiongroup with notes_v1_0
+    short-summary: Manage site onenote notebook section group with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssectiongroup create-section'] = """
+helps['notes site-onenotebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroup create-section-group'] = """
+helps['notes site-onenotebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -8036,57 +11847,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectiongroup delete-parent-notebook'] = """
+helps['notes site-onenotebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup delete-parent-section-group'] = """
+helps['notes site-onenotebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup delete-section'] = """
+helps['notes site-onenotebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup delete-section-group'] = """
+helps['notes site-onenotebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup list-section'] = """
+helps['notes site-onenotebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup list-section-group'] = """
+helps['notes site-onenotebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup show-parent-notebook'] = """
+helps['notes site-onenotebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup show-parent-section-group'] = """
+helps['notes site-onenotebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup show-section'] = """
+helps['notes site-onenotebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup show-section-group'] = """
+helps['notes site-onenotebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroup update-parent-notebook'] = """
+helps['notes site-onenotebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -8158,7 +11969,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroup update-parent-section-group'] = """
+helps['notes site-onenotebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -8218,12 +12029,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectiongroup update-section'] = """
+helps['notes site-onenotebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroup update-section-group'] = """
+helps['notes site-onenotebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -8283,57 +12161,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection'] = """
+helps['notes site-onenotebook-section-group-section'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssectiongroupssection with notes_v1_0
+    short-summary: Manage site onenote notebook section group section with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection create-page'] = """
+helps['notes site-onenotebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection delete-page'] = """
+helps['notes site-onenotebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection delete-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection delete-parent-section-group'] = """
+helps['notes site-onenotebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection list-page'] = """
+helps['notes site-onenotebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection show-page'] = """
+helps['notes site-onenotebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection show-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection show-parent-section-group'] = """
+helps['notes site-onenotebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection update-page'] = """
+helps['notes site-onenotebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection update-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -8405,7 +12309,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssection update-parent-section-group'] = """
+helps['notes site-onenotebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -8465,32 +12369,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage'] = """
+helps['notes site-onenotebook-section-group-section-page'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssectiongroupssectionspage with notes_v1_0
+    short-summary: Manage site onenote notebook section group section page with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage delete-parent-section'] = """
+helps['notes site-onenotebook-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage show-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage show-parent-section'] = """
+helps['notes site-onenotebook-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage update-parent-notebook'] = """
+helps['notes site-onenotebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -8562,62 +12466,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectiongroupssectionspage update-parent-section'] = """
+helps['notes site-onenotebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssection'] = """
+helps['notes site-onenotebook-section'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssection with notes_v1_0
+    short-summary: Manage site onenote notebook section with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssection create-page'] = """
+helps['notes site-onenotebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssection delete-page'] = """
+helps['notes site-onenotebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotenotebookssection delete-parent-notebook'] = """
+helps['notes site-onenotebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssection delete-parent-section-group'] = """
+helps['notes site-onenotebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotenotebookssection list-page'] = """
+helps['notes site-onenotebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotenotebookssection show-page'] = """
+helps['notes site-onenotebook-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotenotebookssection show-parent-notebook'] = """
+helps['notes site-onenotebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssection show-parent-section-group'] = """
+helps['notes site-onenotebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotenotebookssection update-page'] = """
+helps['notes site-onenotebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssection update-parent-notebook'] = """
+helps['notes site-onenotebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -8689,7 +12686,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssection update-parent-section-group'] = """
+helps['notes site-onenotebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -8749,32 +12746,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectionspage'] = """
+helps['notes site-onenotebook-section-page'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssectionspage with notes_v1_0
+    short-summary: Manage site onenote notebook section page with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssectionspage delete-parent-notebook'] = """
+helps['notes site-onenotebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssectionspage delete-parent-section'] = """
+helps['notes site-onenotebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotenotebookssectionspage show-parent-notebook'] = """
+helps['notes site-onenotebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssectionspage show-parent-section'] = """
+helps['notes site-onenotebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotenotebookssectionspage update-parent-notebook'] = """
+helps['notes site-onenotebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -8846,22 +12843,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectionspage update-parent-section'] = """
+helps['notes site-onenotebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup'] = """
+helps['notes site-onenotebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotenotebookssectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage site onenote notebook section parent section group with notes_v1_0
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup create-section'] = """
+helps['notes site-onenotebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup create-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -8921,57 +13052,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes site-onenotebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup delete-section'] = """
+helps['notes site-onenotebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup delete-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup list-section'] = """
+helps['notes site-onenotebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup list-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes site-onenotebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup show-section'] = """
+helps['notes site-onenotebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup show-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes site-onenotebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -9043,7 +13174,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -9103,12 +13234,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup update-section'] = """
+helps['notes site-onenotebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotenotebookssectionsparentsectiongroup update-section-group'] = """
+helps['notes site-onenotebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -9168,32 +13366,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepage'] = """
+helps['notes site-onenote-page'] = """
     type: group
-    short-summary: Manage sitesonenotepage with notes_v1_0
+    short-summary: Manage site onenote page with notes_v1_0
 """
 
-helps['notes sitesonenotepage delete-parent-notebook'] = """
+helps['notes site-onenote-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepage delete-parent-section'] = """
+helps['notes site-onenote-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotepage show-parent-notebook'] = """
+helps['notes site-onenote-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepage show-parent-section'] = """
+helps['notes site-onenote-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotepage update-parent-notebook'] = """
+helps['notes site-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -9265,22 +13463,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepage update-parent-section'] = """
+helps['notes site-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebook'] = """
+helps['notes site-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentnotebook with notes_v1_0
+    short-summary: Manage site onenote page parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentnotebook create-section'] = """
+helps['notes site-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebook create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -9340,42 +13672,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebook delete-section'] = """
+helps['notes site-onenote-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook delete-section-group'] = """
+helps['notes site-onenote-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook list-section'] = """
+helps['notes site-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook show-section'] = """
+helps['notes site-onenote-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook show-section-group'] = """
+helps['notes site-onenote-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebook update-section'] = """
+helps['notes site-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebook update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -9435,17 +13834,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup'] = """
+helps['notes site-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage site onenote page parent notebook section group with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup create-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -9505,57 +13971,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup delete-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup list-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup show-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -9627,7 +14093,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -9687,12 +14153,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup update-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -9752,57 +14285,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentnotebooksectiongroupssection with notes_v1_0
+    short-summary: Manage site onenote page parent notebook section group section with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection create-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection delete-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection list-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection show-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection update-page'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -9874,7 +14433,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectiongroupssection update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -9934,57 +14493,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksection'] = """
+helps['notes site-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentnotebooksection with notes_v1_0
+    short-summary: Manage site onenote page parent notebook section with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentnotebooksection create-page'] = """
+helps['notes site-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksection delete-page'] = """
+helps['notes site-onenote-page-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection list-page'] = """
+helps['notes site-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection show-page'] = """
+helps['notes site-onenote-page-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksection update-page'] = """
+helps['notes site-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksection update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -10056,7 +14641,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksection update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -10116,17 +14701,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentnotebooksectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage site onenote page parent notebook section parent section group with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup create-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup create-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -10186,57 +14838,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup delete-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup delete-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup list-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup list-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup show-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup show-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -10308,7 +14960,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -10368,12 +15020,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup update-section'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentnotebooksectionsparentsectiongroup update-section-group'] = """
+helps['notes site-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -10433,57 +15152,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsection'] = """
+helps['notes site-onenote-page-parent-section'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentsection with notes_v1_0
+    short-summary: Manage site onenote page parent section with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentsection create-page'] = """
+helps['notes site-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsection delete-page'] = """
+helps['notes site-onenote-page-parent-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotepagesparentsection delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentsection delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentsection list-page'] = """
+helps['notes site-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentsection show-page'] = """
+helps['notes site-onenote-page-parent-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotepagesparentsection show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentsection show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentsection update-page'] = """
+helps['notes site-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsection update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -10555,7 +15300,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsection update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -10615,17 +15360,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentsectionparentnotebook with notes_v1_0
+    short-summary: Manage site onenote page parent section parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -10685,42 +15497,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook delete-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook delete-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook show-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook show-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebook update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -10780,17 +15659,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentsectionparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage site onenote page parent section parent notebook section group with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -10850,57 +15796,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup delete-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup delete-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup show-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup show-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -10972,7 +15918,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -11032,12 +15978,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectionparentnotebooksectiongroup update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -11097,17 +16110,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentsectiongroup with notes_v1_0
+    short-summary: Manage site onenote page parent section parent section group with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentsectiongroup create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -11167,57 +16247,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup delete-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup delete-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup show-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup show-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -11289,7 +16369,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -11349,12 +16429,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectiongroup update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -11414,17 +16561,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotepagesparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage site onenote page parent section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook create-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -11484,42 +16698,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook delete-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook list-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook show-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook update-section'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotepagesparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes site-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -11579,17 +16860,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroup'] = """
+helps['notes site-onenote-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroup with notes_v1_0
+    short-summary: Manage site onenote section group with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroup create-section'] = """
+helps['notes site-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroup create-section-group'] = """
+helps['notes site-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -11649,57 +16997,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectiongroup delete-section'] = """
+helps['notes site-onenote-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectiongroup delete-section-group'] = """
+helps['notes site-onenote-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectiongroup list-section'] = """
+helps['notes site-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroup list-section-group'] = """
+helps['notes site-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectiongroup show-section'] = """
+helps['notes site-onenote-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroup show-section-group'] = """
+helps['notes site-onenote-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -11771,7 +17119,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -11831,12 +17179,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroup update-section'] = """
+helps['notes site-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroup update-section-group'] = """
+helps['notes site-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -11896,17 +17311,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook'] = """
+helps['notes site-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupsparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section group parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook create-section'] = """
+helps['notes site-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -11966,42 +17448,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook delete-section'] = """
+helps['notes site-onenote-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook list-section'] = """
+helps['notes site-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook show-section'] = """
+helps['notes site-onenote-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook update-section'] = """
+helps['notes site-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -12061,57 +17610,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection'] = """
+helps['notes site-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupsparentnotebooksection with notes_v1_0
+    short-summary: Manage site onenote section group parent notebook section with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection create-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection delete-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection delete-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection delete-parent-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection list-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection show-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection show-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection show-parent-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection update-page'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection update-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -12183,7 +17758,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksection update-parent-section-group'] = """
+helps['notes site-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -12243,32 +17818,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupsparentnotebooksectionspage with notes_v1_0
+    short-summary: Manage site onenote section group parent notebook section page with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage delete-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage delete-parent-section'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage show-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage show-parent-section'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage update-parent-notebook'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -12340,62 +17915,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupsparentnotebooksectionspage update-parent-section'] = """
+helps['notes site-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssection'] = """
+helps['notes site-onenote-section-group-section'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupssection with notes_v1_0
+    short-summary: Manage site onenote section group section with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupssection create-page'] = """
+helps['notes site-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssection delete-page'] = """
+helps['notes site-onenote-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotesectiongroupssection delete-parent-notebook'] = """
+helps['notes site-onenote-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectiongroupssection delete-parent-section-group'] = """
+helps['notes site-onenote-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectiongroupssection list-page'] = """
+helps['notes site-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesectiongroupssection show-page'] = """
+helps['notes site-onenote-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesectiongroupssection show-parent-notebook'] = """
+helps['notes site-onenote-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectiongroupssection show-parent-section-group'] = """
+helps['notes site-onenote-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectiongroupssection update-page'] = """
+helps['notes site-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssection update-parent-notebook'] = """
+helps['notes site-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -12467,7 +18135,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssection update-parent-section-group'] = """
+helps['notes site-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -12527,32 +18195,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupssectionspage'] = """
+helps['notes site-onenote-section-group-section-page'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupssectionspage with notes_v1_0
+    short-summary: Manage site onenote section group section page with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes site-onenote-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspage delete-parent-section'] = """
+helps['notes site-onenote-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspage show-parent-notebook'] = """
+helps['notes site-onenote-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspage show-parent-section'] = """
+helps['notes site-onenote-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspage update-parent-notebook'] = """
+helps['notes site-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -12624,22 +18292,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionspage update-parent-section'] = """
+helps['notes site-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupssectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section group section page parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook create-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -12699,42 +18501,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook delete-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook list-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook show-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook update-section'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionspagesparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -12794,17 +18663,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook'] = """
+helps['notes site-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectiongroupssectionsparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section group section parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook create-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -12864,42 +18800,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook delete-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook list-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook show-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook update-section'] = """
+helps['notes site-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectiongroupssectionsparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -12959,57 +18962,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesection'] = """
+helps['notes site-onenote-section'] = """
     type: group
-    short-summary: Manage sitesonenotesection with notes_v1_0
+    short-summary: Manage site onenote section with notes_v1_0
 """
 
-helps['notes sitesonenotesection create-page'] = """
+helps['notes site-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesection delete-page'] = """
+helps['notes site-onenote-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for sites."
 """
 
-helps['notes sitesonenotesection delete-parent-notebook'] = """
+helps['notes site-onenote-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesection delete-parent-section-group'] = """
+helps['notes site-onenote-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesection list-page'] = """
+helps['notes site-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesection show-page'] = """
+helps['notes site-onenote-section show-page'] = """
     type: command
     short-summary: "Get pages from sites."
 """
 
-helps['notes sitesonenotesection show-parent-notebook'] = """
+helps['notes site-onenote-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesection show-parent-section-group'] = """
+helps['notes site-onenote-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesection update-page'] = """
+helps['notes site-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in sites."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesection update-parent-notebook'] = """
+helps['notes site-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -13081,7 +19110,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesection update-parent-section-group'] = """
+helps['notes site-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -13141,32 +19170,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionspage'] = """
+helps['notes site-onenote-section-page'] = """
     type: group
-    short-summary: Manage sitesonenotesectionspage with notes_v1_0
+    short-summary: Manage site onenote section page with notes_v1_0
 """
 
-helps['notes sitesonenotesectionspage delete-parent-notebook'] = """
+helps['notes site-onenote-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectionspage delete-parent-section'] = """
+helps['notes site-onenote-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for sites."
 """
 
-helps['notes sitesonenotesectionspage show-parent-notebook'] = """
+helps['notes site-onenote-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectionspage show-parent-section'] = """
+helps['notes site-onenote-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from sites."
 """
 
-helps['notes sitesonenotesectionspage update-parent-notebook'] = """
+helps['notes site-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -13238,22 +19267,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspage update-parent-section'] = """
+helps['notes site-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook'] = """
+helps['notes site-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section page parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook create-section'] = """
+helps['notes site-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -13313,42 +19476,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook delete-section'] = """
+helps['notes site-onenote-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook list-section'] = """
+helps['notes site-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook show-section'] = """
+helps['notes site-onenote-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook update-section'] = """
+helps['notes site-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -13408,17 +19638,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotesectionspagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage site onenote section page parent notebook section group with notes_v1_0
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup create-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -13478,57 +19775,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup delete-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup list-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup show-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -13600,7 +19897,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -13660,12 +19957,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup update-section'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionspagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes site-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -13725,17 +20089,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentnotebook'] = """
+helps['notes site-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectionsparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectionsparentnotebook create-section'] = """
+helps['notes site-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -13795,42 +20226,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentnotebook delete-section'] = """
+helps['notes site-onenote-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook list-section'] = """
+helps['notes site-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook show-section'] = """
+helps['notes site-onenote-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebook update-section'] = """
+helps['notes site-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -13890,17 +20388,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup'] = """
+helps['notes site-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotesectionsparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage site onenote section parent notebook section group with notes_v1_0
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup create-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup create-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -13960,57 +20525,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup delete-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup delete-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup list-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup list-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup show-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup show-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -14082,7 +20647,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -14142,12 +20707,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup update-section'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentnotebooksectiongroup update-section-group'] = """
+helps['notes site-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -14207,17 +20839,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup'] = """
+helps['notes site-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: Manage sitesonenotesectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage site onenote section parent section group with notes_v1_0
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup create-section'] = """
+helps['notes site-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup create-section-group'] = """
+helps['notes site-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -14277,57 +20976,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes site-onenote-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes site-onenote-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup delete-section'] = """
+helps['notes site-onenote-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup delete-section-group'] = """
+helps['notes site-onenote-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup list-section'] = """
+helps['notes site-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup list-section-group'] = """
+helps['notes site-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes site-onenote-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes site-onenote-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup show-section'] = """
+helps['notes site-onenote-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup show-section-group'] = """
+helps['notes site-onenote-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes site-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in sites."
     parameters:
@@ -14399,7 +21098,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes site-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in sites."
     parameters:
@@ -14459,12 +21158,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup update-section'] = """
+helps['notes site-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroup update-section-group'] = """
+helps['notes site-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -14524,17 +21290,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage sitesonenotesectionsparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage site onenote section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook create-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for sites."
     parameters:
@@ -14594,42 +21427,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook delete-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook list-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook show-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from sites."
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook update-section'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in sites."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes sitesonenotesectionsparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes site-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in sites."
     parameters:
@@ -14722,12 +21622,12 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['notes usersonenote'] = """
+helps['notes user-onenote'] = """
     type: group
-    short-summary: Manage usersonenote with notes_v1_0
+    short-summary: Manage user onenote with notes_v1_0
 """
 
-helps['notes usersonenote create-notebook'] = """
+helps['notes user-onenote create-notebook'] = """
     type: command
     short-summary: "Create new navigation property to notebooks for users."
     parameters:
@@ -14799,7 +21699,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenote create-operation'] = """
+helps['notes user-onenote create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for users."
     parameters:
@@ -14812,22 +21712,102 @@ helps['notes usersonenote create-operation'] = """
             message: The error message.
 """
 
-helps['notes usersonenote create-page'] = """
+helps['notes user-onenote create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenote create-resource'] = """
+helps['notes user-onenote create-resource'] = """
     type: command
     short-summary: "Create new navigation property to resources for users."
 """
 
-helps['notes usersonenote create-section'] = """
+helps['notes user-onenote create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenote create-section-group'] = """
+helps['notes user-onenote create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -14887,97 +21867,97 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenote delete-notebook'] = """
+helps['notes user-onenote delete-notebook'] = """
     type: command
     short-summary: "Delete navigation property notebooks for users."
 """
 
-helps['notes usersonenote delete-operation'] = """
+helps['notes user-onenote delete-operation'] = """
     type: command
     short-summary: "Delete navigation property operations for users."
 """
 
-helps['notes usersonenote delete-page'] = """
+helps['notes user-onenote delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenote delete-resource'] = """
+helps['notes user-onenote delete-resource'] = """
     type: command
     short-summary: "Delete navigation property resources for users."
 """
 
-helps['notes usersonenote delete-section'] = """
+helps['notes user-onenote delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenote delete-section-group'] = """
+helps['notes user-onenote delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenote list-notebook'] = """
+helps['notes user-onenote list-notebook'] = """
     type: command
     short-summary: "Get notebooks from users."
 """
 
-helps['notes usersonenote list-operation'] = """
+helps['notes user-onenote list-operation'] = """
     type: command
     short-summary: "Get operations from users."
 """
 
-helps['notes usersonenote list-page'] = """
+helps['notes user-onenote list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenote list-resource'] = """
+helps['notes user-onenote list-resource'] = """
     type: command
     short-summary: "Get resources from users."
 """
 
-helps['notes usersonenote list-section'] = """
+helps['notes user-onenote list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenote list-section-group'] = """
+helps['notes user-onenote list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenote show-notebook'] = """
+helps['notes user-onenote show-notebook'] = """
     type: command
     short-summary: "Get notebooks from users."
 """
 
-helps['notes usersonenote show-operation'] = """
+helps['notes user-onenote show-operation'] = """
     type: command
     short-summary: "Get operations from users."
 """
 
-helps['notes usersonenote show-page'] = """
+helps['notes user-onenote show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenote show-resource'] = """
+helps['notes user-onenote show-resource'] = """
     type: command
     short-summary: "Get resources from users."
 """
 
-helps['notes usersonenote show-section'] = """
+helps['notes user-onenote show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenote show-section-group'] = """
+helps['notes user-onenote show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenote update-notebook'] = """
+helps['notes user-onenote update-notebook'] = """
     type: command
     short-summary: "Update the navigation property notebooks in users."
     parameters:
@@ -15049,7 +22029,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenote update-operation'] = """
+helps['notes user-onenote update-operation'] = """
     type: command
     short-summary: "Update the navigation property operations in users."
     parameters:
@@ -15062,22 +22042,102 @@ helps['notes usersonenote update-operation'] = """
             message: The error message.
 """
 
-helps['notes usersonenote update-page'] = """
+helps['notes user-onenote update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenote update-resource'] = """
+helps['notes user-onenote update-resource'] = """
     type: command
     short-summary: "Update the navigation property resources in users."
 """
 
-helps['notes usersonenote update-section'] = """
+helps['notes user-onenote update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenote update-section-group'] = """
+helps['notes user-onenote update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -15137,17 +22197,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebook'] = """
+helps['notes user-onenotebook'] = """
     type: group
-    short-summary: Manage usersonenotenotebook with notes_v1_0
+    short-summary: Manage user onenote notebook with notes_v1_0
 """
 
-helps['notes usersonenotenotebook create-section'] = """
+helps['notes user-onenotebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebook create-section-group'] = """
+helps['notes user-onenotebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -15207,42 +22334,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebook delete-section'] = """
+helps['notes user-onenotebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotenotebook delete-section-group'] = """
+helps['notes user-onenotebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotenotebook list-section'] = """
+helps['notes user-onenotebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebook list-section-group'] = """
+helps['notes user-onenotebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebook show-section'] = """
+helps['notes user-onenotebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebook show-section-group'] = """
+helps['notes user-onenotebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebook update-section'] = """
+helps['notes user-onenotebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebook update-section-group'] = """
+helps['notes user-onenotebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -15302,17 +22496,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectiongroup'] = """
+helps['notes user-onenotebook-section-group'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroup with notes_v1_0
+    short-summary: Manage user onenote notebook section group with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssectiongroup create-section'] = """
+helps['notes user-onenotebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroup create-section-group'] = """
+helps['notes user-onenotebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -15372,57 +22633,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectiongroup delete-parent-notebook'] = """
+helps['notes user-onenotebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssectiongroup delete-parent-section-group'] = """
+helps['notes user-onenotebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotenotebookssectiongroup delete-section'] = """
+helps['notes user-onenotebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotenotebookssectiongroup delete-section-group'] = """
+helps['notes user-onenotebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotenotebookssectiongroup list-section'] = """
+helps['notes user-onenotebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup list-section-group'] = """
+helps['notes user-onenotebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup show-parent-notebook'] = """
+helps['notes user-onenotebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup show-parent-section-group'] = """
+helps['notes user-onenotebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup show-section'] = """
+helps['notes user-onenotebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup show-section-group'] = """
+helps['notes user-onenotebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebookssectiongroup update-parent-notebook'] = """
+helps['notes user-onenotebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -15494,7 +22755,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroup update-parent-section-group'] = """
+helps['notes user-onenotebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -15554,12 +22815,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectiongroup update-section'] = """
+helps['notes user-onenotebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroup update-section-group'] = """
+helps['notes user-onenotebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -15619,57 +22947,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectiongroupssection'] = """
+helps['notes user-onenotebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssection with notes_v1_0
+    short-summary: Manage user onenote notebook section group section with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssectiongroupssection create-page'] = """
+helps['notes user-onenotebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroupssection delete-page'] = """
+helps['notes user-onenotebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection delete-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection delete-parent-section-group'] = """
+helps['notes user-onenotebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection list-page'] = """
+helps['notes user-onenotebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection show-page'] = """
+helps['notes user-onenotebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection show-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection show-parent-section-group'] = """
+helps['notes user-onenotebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssection update-page'] = """
+helps['notes user-onenotebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroupssection update-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -15741,7 +23095,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroupssection update-parent-section-group'] = """
+helps['notes user-onenotebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -15801,32 +23155,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage'] = """
+helps['notes user-onenotebook-section-group-section-page'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectiongroupssectionspage with notes_v1_0
+    short-summary: Manage user onenote notebook section group section page with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage delete-parent-section'] = """
+helps['notes user-onenotebook-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage show-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage show-parent-section'] = """
+helps['notes user-onenotebook-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage update-parent-notebook'] = """
+helps['notes user-onenotebook-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -15898,62 +23252,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectiongroupssectionspage update-parent-section'] = """
+helps['notes user-onenotebook-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssection'] = """
+helps['notes user-onenotebook-section'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssection with notes_v1_0
+    short-summary: Manage user onenote notebook section with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssection create-page'] = """
+helps['notes user-onenotebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssection delete-page'] = """
+helps['notes user-onenotebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotenotebookssection delete-parent-notebook'] = """
+helps['notes user-onenotebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssection delete-parent-section-group'] = """
+helps['notes user-onenotebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotenotebookssection list-page'] = """
+helps['notes user-onenotebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotenotebookssection show-page'] = """
+helps['notes user-onenotebook-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotenotebookssection show-parent-notebook'] = """
+helps['notes user-onenotebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssection show-parent-section-group'] = """
+helps['notes user-onenotebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotenotebookssection update-page'] = """
+helps['notes user-onenotebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssection update-parent-notebook'] = """
+helps['notes user-onenotebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -16025,7 +23472,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssection update-parent-section-group'] = """
+helps['notes user-onenotebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -16085,32 +23532,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectionspage'] = """
+helps['notes user-onenotebook-section-page'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionspage with notes_v1_0
+    short-summary: Manage user onenote notebook section page with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssectionspage delete-parent-notebook'] = """
+helps['notes user-onenotebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssectionspage delete-parent-section'] = """
+helps['notes user-onenotebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotenotebookssectionspage show-parent-notebook'] = """
+helps['notes user-onenotebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssectionspage show-parent-section'] = """
+helps['notes user-onenotebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotenotebookssectionspage update-parent-notebook'] = """
+helps['notes user-onenotebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -16182,22 +23629,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectionspage update-parent-section'] = """
+helps['notes user-onenotebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup'] = """
+helps['notes user-onenotebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage usersonenotenotebookssectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage user onenote notebook section parent section group with notes_v1_0
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup create-section'] = """
+helps['notes user-onenotebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup create-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -16257,57 +23838,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes user-onenotebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup delete-section'] = """
+helps['notes user-onenotebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup delete-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup list-section'] = """
+helps['notes user-onenotebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup list-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes user-onenotebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup show-section'] = """
+helps['notes user-onenotebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup show-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes user-onenotebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -16379,7 +23960,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -16439,12 +24020,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup update-section'] = """
+helps['notes user-onenotebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotenotebookssectionsparentsectiongroup update-section-group'] = """
+helps['notes user-onenotebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -16504,32 +24152,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepage'] = """
+helps['notes user-onenote-page'] = """
     type: group
-    short-summary: Manage usersonenotepage with notes_v1_0
+    short-summary: Manage user onenote page with notes_v1_0
 """
 
-helps['notes usersonenotepage delete-parent-notebook'] = """
+helps['notes user-onenote-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepage delete-parent-section'] = """
+helps['notes user-onenote-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotepage show-parent-notebook'] = """
+helps['notes user-onenote-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepage show-parent-section'] = """
+helps['notes user-onenote-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotepage update-parent-notebook'] = """
+helps['notes user-onenote-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -16601,22 +24249,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepage update-parent-section'] = """
+helps['notes user-onenote-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebook'] = """
+helps['notes user-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebook with notes_v1_0
+    short-summary: Manage user onenote page parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentnotebook create-section'] = """
+helps['notes user-onenote-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebook create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -16676,42 +24458,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebook delete-section'] = """
+helps['notes user-onenote-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentnotebook delete-section-group'] = """
+helps['notes user-onenote-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentnotebook list-section'] = """
+helps['notes user-onenote-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebook list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebook show-section'] = """
+helps['notes user-onenote-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebook show-section-group'] = """
+helps['notes user-onenote-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebook update-section'] = """
+helps['notes user-onenote-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebook update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -16771,17 +24620,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup'] = """
+helps['notes user-onenote-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage user onenote page parent notebook section group with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup create-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -16841,57 +24757,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup delete-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup list-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup show-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -16963,7 +24879,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -17023,12 +24939,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup update-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -17088,57 +25071,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectiongroupssection with notes_v1_0
+    short-summary: Manage user onenote page parent notebook section group section with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection create-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection delete-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection list-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection show-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection update-page'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -17210,7 +25219,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectiongroupssection update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -17270,57 +25279,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksection'] = """
+helps['notes user-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksection with notes_v1_0
+    short-summary: Manage user onenote page parent notebook section with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentnotebooksection create-page'] = """
+helps['notes user-onenote-page-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksection delete-page'] = """
+helps['notes user-onenote-page-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection list-page'] = """
+helps['notes user-onenote-page-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection show-page'] = """
+helps['notes user-onenote-page-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksection update-page'] = """
+helps['notes user-onenote-page-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksection update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -17392,7 +25427,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksection update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -17452,17 +25487,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentnotebooksectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage user onenote page parent notebook section parent section group with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup create-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup create-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -17522,57 +25624,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup delete-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup delete-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup list-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup list-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup show-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup show-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -17644,7 +25746,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -17704,12 +25806,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup update-section'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentnotebooksectionsparentsectiongroup update-section-group'] = """
+helps['notes user-onenote-page-parent-notebook-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -17769,57 +25938,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsection'] = """
+helps['notes user-onenote-page-parent-section'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsection with notes_v1_0
+    short-summary: Manage user onenote page parent section with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentsection create-page'] = """
+helps['notes user-onenote-page-parent-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsection delete-page'] = """
+helps['notes user-onenote-page-parent-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotepagesparentsection delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentsection delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentsection list-page'] = """
+helps['notes user-onenote-page-parent-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentsection show-page'] = """
+helps['notes user-onenote-page-parent-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotepagesparentsection show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentsection show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentsection update-page'] = """
+helps['notes user-onenote-page-parent-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsection update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -17891,7 +26086,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsection update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -17951,17 +26146,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebook with notes_v1_0
+    short-summary: Manage user onenote page parent section parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -18021,42 +26283,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook delete-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook delete-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook show-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook show-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebook update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -18116,17 +26445,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectionparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage user onenote page parent section parent notebook section group with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -18186,57 +26582,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup delete-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup delete-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup show-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup show-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -18308,7 +26704,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -18368,12 +26764,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectionparentnotebooksectiongroup update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -18433,17 +26896,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectiongroup'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectiongroup with notes_v1_0
+    short-summary: Manage user onenote page parent section parent section group with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentsectiongroup create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectiongroup create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -18503,57 +27033,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup delete-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup delete-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup show-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup show-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -18625,7 +27155,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -18685,12 +27215,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectiongroup update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectiongroup update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -18750,17 +27347,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotepagesparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage user onenote page parent section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook create-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -18820,42 +27484,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook delete-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook list-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook show-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook update-section'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotepagesparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes user-onenote-page-parent-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -18915,17 +27646,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroup'] = """
+helps['notes user-onenote-section-group'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroup with notes_v1_0
+    short-summary: Manage user onenote section group with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroup create-section'] = """
+helps['notes user-onenote-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroup create-section-group'] = """
+helps['notes user-onenote-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -18985,57 +27783,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectiongroup delete-section'] = """
+helps['notes user-onenote-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectiongroup delete-section-group'] = """
+helps['notes user-onenote-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectiongroup list-section'] = """
+helps['notes user-onenote-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroup list-section-group'] = """
+helps['notes user-onenote-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectiongroup show-section'] = """
+helps['notes user-onenote-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroup show-section-group'] = """
+helps['notes user-onenote-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -19107,7 +27905,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -19167,12 +27965,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroup update-section'] = """
+helps['notes user-onenote-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroup update-section-group'] = """
+helps['notes user-onenote-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -19232,17 +28097,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook'] = """
+helps['notes user-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section group parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook create-section'] = """
+helps['notes user-onenote-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -19302,42 +28234,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook delete-section'] = """
+helps['notes user-onenote-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook list-section'] = """
+helps['notes user-onenote-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook show-section'] = """
+helps['notes user-onenote-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook update-section'] = """
+helps['notes user-onenote-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -19397,57 +28396,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection'] = """
+helps['notes user-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksection with notes_v1_0
+    short-summary: Manage user onenote section group parent notebook section with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection create-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection delete-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection delete-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection delete-parent-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection list-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection show-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection show-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection show-parent-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection update-page'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection update-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -19519,7 +28544,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksection update-parent-section-group'] = """
+helps['notes user-onenote-section-group-parent-notebook-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -19579,32 +28604,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionspage with notes_v1_0
+    short-summary: Manage user onenote section group parent notebook section page with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage delete-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage delete-parent-section'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage show-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage show-parent-section'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage update-parent-notebook'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -19676,62 +28701,155 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupsparentnotebooksectionspage update-parent-section'] = """
+helps['notes user-onenote-section-group-parent-notebook-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssection'] = """
+helps['notes user-onenote-section-group-section'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssection with notes_v1_0
+    short-summary: Manage user onenote section group section with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupssection create-page'] = """
+helps['notes user-onenote-section-group-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssection delete-page'] = """
+helps['notes user-onenote-section-group-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotesectiongroupssection delete-parent-notebook'] = """
+helps['notes user-onenote-section-group-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectiongroupssection delete-parent-section-group'] = """
+helps['notes user-onenote-section-group-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectiongroupssection list-page'] = """
+helps['notes user-onenote-section-group-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesectiongroupssection show-page'] = """
+helps['notes user-onenote-section-group-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesectiongroupssection show-parent-notebook'] = """
+helps['notes user-onenote-section-group-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectiongroupssection show-parent-section-group'] = """
+helps['notes user-onenote-section-group-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectiongroupssection update-page'] = """
+helps['notes user-onenote-section-group-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssection update-parent-notebook'] = """
+helps['notes user-onenote-section-group-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -19803,7 +28921,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssection update-parent-section-group'] = """
+helps['notes user-onenote-section-group-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -19863,32 +28981,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupssectionspage'] = """
+helps['notes user-onenote-section-group-section-page'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspage with notes_v1_0
+    short-summary: Manage user onenote section group section page with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupssectionspage delete-parent-notebook'] = """
+helps['notes user-onenote-section-group-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectiongroupssectionspage delete-parent-section'] = """
+helps['notes user-onenote-section-group-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotesectiongroupssectionspage show-parent-notebook'] = """
+helps['notes user-onenote-section-group-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspage show-parent-section'] = """
+helps['notes user-onenote-section-group-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspage update-parent-notebook'] = """
+helps['notes user-onenote-section-group-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -19960,22 +29078,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionspage update-parent-section'] = """
+helps['notes user-onenote-section-group-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section group section page parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook create-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -20035,42 +29287,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook delete-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook list-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook show-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook update-section'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionspagesparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-group-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -20130,17 +29449,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook'] = """
+helps['notes user-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectiongroupssectionsparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section group section parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook create-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -20200,42 +29586,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook delete-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook list-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook show-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook update-section'] = """
+helps['notes user-onenote-section-group-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectiongroupssectionsparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-group-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -20295,57 +29748,83 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesection'] = """
+helps['notes user-onenote-section'] = """
     type: group
-    short-summary: Manage usersonenotesection with notes_v1_0
+    short-summary: Manage user onenote section with notes_v1_0
 """
 
-helps['notes usersonenotesection create-page'] = """
+helps['notes user-onenote-section create-page'] = """
     type: command
     short-summary: "Create new navigation property to pages for users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesection delete-page'] = """
+helps['notes user-onenote-section delete-page'] = """
     type: command
     short-summary: "Delete navigation property pages for users."
 """
 
-helps['notes usersonenotesection delete-parent-notebook'] = """
+helps['notes user-onenote-section delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesection delete-parent-section-group'] = """
+helps['notes user-onenote-section delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesection list-page'] = """
+helps['notes user-onenote-section list-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesection show-page'] = """
+helps['notes user-onenote-section show-page'] = """
     type: command
     short-summary: "Get pages from users."
 """
 
-helps['notes usersonenotesection show-parent-notebook'] = """
+helps['notes user-onenote-section show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesection show-parent-section-group'] = """
+helps['notes user-onenote-section show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesection update-page'] = """
+helps['notes user-onenote-section update-page'] = """
     type: command
     short-summary: "Update the navigation property pages in users."
+    parameters:
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesection update-parent-notebook'] = """
+helps['notes user-onenote-section update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -20417,7 +29896,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesection update-parent-section-group'] = """
+helps['notes user-onenote-section update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -20477,32 +29956,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionspage'] = """
+helps['notes user-onenote-section-page'] = """
     type: group
-    short-summary: Manage usersonenotesectionspage with notes_v1_0
+    short-summary: Manage user onenote section page with notes_v1_0
 """
 
-helps['notes usersonenotesectionspage delete-parent-notebook'] = """
+helps['notes user-onenote-section-page delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectionspage delete-parent-section'] = """
+helps['notes user-onenote-section-page delete-parent-section'] = """
     type: command
     short-summary: "Delete navigation property parentSection for users."
 """
 
-helps['notes usersonenotesectionspage show-parent-notebook'] = """
+helps['notes user-onenote-section-page show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectionspage show-parent-section'] = """
+helps['notes user-onenote-section-page show-parent-section'] = """
     type: command
     short-summary: "Get parentSection from users."
 """
 
-helps['notes usersonenotesectionspage update-parent-notebook'] = """
+helps['notes user-onenote-section-page update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -20574,22 +30053,156 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectionspage update-parent-section'] = """
+helps['notes user-onenote-section-page update-parent-section'] = """
     type: command
     short-summary: "Update the navigation property parentSection in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebook'] = """
+helps['notes user-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section page parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectionspagesparentnotebook create-section'] = """
+helps['notes user-onenote-section-page-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -20649,42 +30262,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionspagesparentnotebook delete-section'] = """
+helps['notes user-onenote-section-page-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook list-section'] = """
+helps['notes user-onenote-section-page-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook show-section'] = """
+helps['notes user-onenote-section-page-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebook update-section'] = """
+helps['notes user-onenote-section-page-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -20744,17 +30424,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage usersonenotesectionspagesparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage user onenote section page parent notebook section group with notes_v1_0
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup create-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup create-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -20814,57 +30561,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup delete-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup delete-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup list-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup list-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup show-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup show-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -20936,7 +30683,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -20996,12 +30743,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup update-section'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionspagesparentnotebooksectiongroup update-section-group'] = """
+helps['notes user-onenote-section-page-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -21061,17 +30875,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentnotebook'] = """
+helps['notes user-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectionsparentnotebook create-section'] = """
+helps['notes user-onenote-section-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -21131,42 +31012,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentnotebook delete-section'] = """
+helps['notes user-onenote-section-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionsparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionsparentnotebook list-section'] = """
+helps['notes user-onenote-section-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentnotebook show-section'] = """
+helps['notes user-onenote-section-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentnotebook update-section'] = """
+helps['notes user-onenote-section-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -21226,17 +31174,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup'] = """
+helps['notes user-onenote-section-parent-notebook-section-group'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentnotebooksectiongroup with notes_v1_0
+    short-summary: Manage user onenote section parent notebook section group with notes_v1_0
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup create-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup create-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -21296,57 +31311,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-section-parent-notebook-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup delete-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup delete-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup list-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup list-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-section-parent-notebook-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup show-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup show-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -21418,7 +31433,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -21478,12 +31493,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup update-section'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentnotebooksectiongroup update-section-group'] = """
+helps['notes user-onenote-section-parent-notebook-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -21543,17 +31625,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup'] = """
+helps['notes user-onenote-section-parent-section-group'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentsectiongroup with notes_v1_0
+    short-summary: Manage user onenote section parent section group with notes_v1_0
 """
 
-helps['notes usersonenotesectionsparentsectiongroup create-section'] = """
+helps['notes user-onenote-section-parent-section-group create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup create-section-group'] = """
+helps['notes user-onenote-section-parent-section-group create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -21613,57 +31762,57 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup delete-parent-notebook'] = """
+helps['notes user-onenote-section-parent-section-group delete-parent-notebook'] = """
     type: command
     short-summary: "Delete navigation property parentNotebook for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup delete-parent-section-group'] = """
+helps['notes user-onenote-section-parent-section-group delete-parent-section-group'] = """
     type: command
     short-summary: "Delete navigation property parentSectionGroup for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup delete-section'] = """
+helps['notes user-onenote-section-parent-section-group delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup delete-section-group'] = """
+helps['notes user-onenote-section-parent-section-group delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup list-section'] = """
+helps['notes user-onenote-section-parent-section-group list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup list-section-group'] = """
+helps['notes user-onenote-section-parent-section-group list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup show-parent-notebook'] = """
+helps['notes user-onenote-section-parent-section-group show-parent-notebook'] = """
     type: command
     short-summary: "Get parentNotebook from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup show-parent-section-group'] = """
+helps['notes user-onenote-section-parent-section-group show-parent-section-group'] = """
     type: command
     short-summary: "Get parentSectionGroup from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup show-section'] = """
+helps['notes user-onenote-section-parent-section-group show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup show-section-group'] = """
+helps['notes user-onenote-section-parent-section-group show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroup update-parent-notebook'] = """
+helps['notes user-onenote-section-parent-section-group update-parent-notebook'] = """
     type: command
     short-summary: "Update the navigation property parentNotebook in users."
     parameters:
@@ -21735,7 +31884,7 @@ associated with the user won't show up as having changed when using delta.
             href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup update-parent-section-group'] = """
+helps['notes user-onenote-section-parent-section-group update-parent-section-group'] = """
     type: command
     short-summary: "Update the navigation property parentSectionGroup in users."
     parameters:
@@ -21795,12 +31944,79 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup update-section'] = """
+helps['notes user-onenote-section-parent-section-group update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentsectiongroup update-section-group'] = """
+helps['notes user-onenote-section-parent-section-group update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:
@@ -21860,17 +32076,84 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: Manage usersonenotesectionsparentsectiongroupparentnotebook with notes_v1_0
+    short-summary: Manage user onenote section parent section group parent notebook with notes_v1_0
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook create-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook create-section'] = """
     type: command
     short-summary: "Create new navigation property to sections for users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook create-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook create-section-group'] = """
     type: command
     short-summary: "Create new navigation property to sectionGroups for users."
     parameters:
@@ -21930,42 +32213,109 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook delete-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook delete-section'] = """
     type: command
     short-summary: "Delete navigation property sections for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook delete-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook delete-section-group'] = """
     type: command
     short-summary: "Delete navigation property sectionGroups for users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook list-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook list-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook list-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook list-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook show-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook show-section'] = """
     type: command
     short-summary: "Get sections from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook show-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook show-section-group'] = """
     type: command
     short-summary: "Get sectionGroups from users."
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook update-section'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook update-section'] = """
     type: command
     short-summary: "Update the navigation property sections in users."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
-helps['notes usersonenotesectionsparentsectiongroupparentnotebook update-section-group'] = """
+helps['notes user-onenote-section-parent-section-group-parent-notebook update-section-group'] = """
     type: command
     short-summary: "Update the navigation property sectionGroups in users."
     parameters:

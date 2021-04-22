@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 
 
-def files_drivesdrive_create_drive(client,
+def files_drive_drive_create_drive(client,
                                    id_=None,
                                    created_date_time=None,
                                    description=None,
@@ -167,14 +167,14 @@ def files_drivesdrive_create_drive(client,
     return client.create_drive(body=body)
 
 
-def files_drivesdrive_delete_drive(client,
+def files_drive_drive_delete_drive(client,
                                    drive_id,
                                    if_match=None):
     return client.delete_drive(drive_id=drive_id,
                                if_match=if_match)
 
 
-def files_drivesdrive_list_drive(client,
+def files_drive_drive_list_drive(client,
                                  orderby=None,
                                  select=None,
                                  expand=None):
@@ -183,7 +183,7 @@ def files_drivesdrive_list_drive(client,
                              expand=expand)
 
 
-def files_drivesdrive_show_drive(client,
+def files_drive_drive_show_drive(client,
                                  drive_id,
                                  select=None,
                                  expand=None):
@@ -192,7 +192,7 @@ def files_drivesdrive_show_drive(client,
                             expand=expand)
 
 
-def files_drivesdrive_update_drive(client,
+def files_drive_drive_update_drive(client,
                                    drive_id,
                                    id_=None,
                                    created_date_time=None,
@@ -352,21 +352,747 @@ def files_drivesdrive_update_drive(client,
 
 def files_drive_create_following(client,
                                  drive_id,
-                                 body):
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 microsoft_graph_item_reference_drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 audio=None,
+                                 content=None,
+                                 c_tag=None,
+                                 file_system_info=None,
+                                 image=None,
+                                 location=None,
+                                 photo=None,
+                                 publication=None,
+                                 root=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 size=None,
+                                 video=None,
+                                 web_dav_url=None,
+                                 analytics=None,
+                                 children=None,
+                                 permissions=None,
+                                 subscriptions=None,
+                                 thumbnails=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None,
+                                 microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                 microsoft_graph_base_item_description=None,
+                                 microsoft_graph_base_item_e_tag=None,
+                                 microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                 microsoft_graph_base_item_name=None,
+                                 microsoft_graph_base_item_web_url=None,
+                                 microsoft_graph_user_created_by_user=None,
+                                 microsoft_graph_user_last_modified_by_user=None,
+                                 drive_id1=None,
+                                 microsoft_graph_item_reference_drive_type=None,
+                                 id1=None,
+                                 name1=None,
+                                 microsoft_graph_item_reference_path=None,
+                                 microsoft_graph_item_reference_share_id=None,
+                                 sharepoint_ids1=None,
+                                 microsoft_graph_item_reference_site_id=None,
+                                 application1=None,
+                                 device1=None,
+                                 user1=None,
+                                 application2=None,
+                                 device2=None,
+                                 user2=None,
+                                 sharepoint_ids2=None,
+                                 microsoft_graph_item_analytics=None,
+                                 drive_item=None,
+                                 microsoft_graph_list_item_versions=None,
+                                 id2=None,
+                                 id3=None,
+                                 microsoft_graph_workbook_application=None,
+                                 comments=None,
+                                 functions=None,
+                                 names=None,
+                                 operations=None,
+                                 tables=None,
+                                 worksheets=None,
+                                 microsoft_graph_special_folder_name=None,
+                                 owner=None,
+                                 scope=None,
+                                 shared_by=None,
+                                 shared_date_time=None,
+                                 on_click_telemetry_url=None,
+                                 created_by=None,
+                                 microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                 file=None,
+                                 microsoft_graph_file_system_info_file_system_info=None,
+                                 folder=None,
+                                 microsoft_graph_remote_item_id=None,
+                                 microsoft_graph_image=None,
+                                 last_modified_by=None,
+                                 microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                 microsoft_graph_remote_item_name=None,
+                                 package=None,
+                                 parent_reference=None,
+                                 shared=None,
+                                 sharepoint_ids3=None,
+                                 integer_size=None,
+                                 special_folder=None,
+                                 microsoft_graph_video=None,
+                                 microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                 microsoft_graph_remote_item_web_url=None,
+                                 queued_date_time=None,
+                                 type_=None,
+                                 child_count=None,
+                                 view=None,
+                                 hashes=None,
+                                 mime_type=None,
+                                 processing_metadata=None,
+                                 state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.create_following(drive_id=drive_id,
                                    body=body)
 
 
 def files_drive_create_item(client,
                             drive_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            drive_id1=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.create_items(drive_id=drive_id,
                                body=body)
 
 
 def files_drive_create_special(client,
                                drive_id,
-                               body):
+                               content_type,
+                               id_=None,
+                               created_date_time=None,
+                               description=None,
+                               e_tag=None,
+                               last_modified_date_time=None,
+                               name=None,
+                               web_url=None,
+                               created_by_user=None,
+                               last_modified_by_user=None,
+                               microsoft_graph_item_reference_drive_id=None,
+                               drive_type=None,
+                               microsoft_graph_item_reference_id=None,
+                               microsoft_graph_item_reference_name=None,
+                               path=None,
+                               share_id=None,
+                               sharepoint_ids=None,
+                               site_id=None,
+                               application=None,
+                               device=None,
+                               user=None,
+                               microsoft_graph_identity_application=None,
+                               microsoft_graph_identity_device=None,
+                               microsoft_graph_identity_user=None,
+                               audio=None,
+                               content=None,
+                               c_tag=None,
+                               file_system_info=None,
+                               image=None,
+                               location=None,
+                               photo=None,
+                               publication=None,
+                               root=None,
+                               microsoft_graph_sharepoint_ids=None,
+                               size=None,
+                               video=None,
+                               web_dav_url=None,
+                               analytics=None,
+                               children=None,
+                               permissions=None,
+                               subscriptions=None,
+                               thumbnails=None,
+                               versions=None,
+                               microsoft_graph_entity_id=None,
+                               microsoft_graph_base_item_created_date_time_created_date_time=None,
+                               microsoft_graph_base_item_description=None,
+                               microsoft_graph_base_item_e_tag=None,
+                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                               microsoft_graph_base_item_name=None,
+                               microsoft_graph_base_item_web_url=None,
+                               microsoft_graph_user_created_by_user=None,
+                               microsoft_graph_user_last_modified_by_user=None,
+                               drive_id1=None,
+                               microsoft_graph_item_reference_drive_type=None,
+                               id1=None,
+                               name1=None,
+                               microsoft_graph_item_reference_path=None,
+                               microsoft_graph_item_reference_share_id=None,
+                               sharepoint_ids1=None,
+                               microsoft_graph_item_reference_site_id=None,
+                               application1=None,
+                               device1=None,
+                               user1=None,
+                               application2=None,
+                               device2=None,
+                               user2=None,
+                               sharepoint_ids2=None,
+                               microsoft_graph_item_analytics=None,
+                               drive_item=None,
+                               microsoft_graph_list_item_versions=None,
+                               id2=None,
+                               id3=None,
+                               microsoft_graph_workbook_application=None,
+                               comments=None,
+                               functions=None,
+                               names=None,
+                               operations=None,
+                               tables=None,
+                               worksheets=None,
+                               microsoft_graph_special_folder_name=None,
+                               owner=None,
+                               scope=None,
+                               shared_by=None,
+                               shared_date_time=None,
+                               on_click_telemetry_url=None,
+                               created_by=None,
+                               microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                               file=None,
+                               microsoft_graph_file_system_info_file_system_info=None,
+                               folder=None,
+                               microsoft_graph_remote_item_id=None,
+                               microsoft_graph_image=None,
+                               last_modified_by=None,
+                               microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                               microsoft_graph_remote_item_name=None,
+                               package=None,
+                               parent_reference=None,
+                               shared=None,
+                               sharepoint_ids3=None,
+                               integer_size=None,
+                               special_folder=None,
+                               microsoft_graph_video=None,
+                               microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                               microsoft_graph_remote_item_web_url=None,
+                               queued_date_time=None,
+                               type_=None,
+                               child_count=None,
+                               view=None,
+                               hashes=None,
+                               mime_type=None,
+                               processing_metadata=None,
+                               state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.create_special(drive_id=drive_id,
                                  body=body)
 
@@ -516,7 +1242,249 @@ def files_drive_show_special(client,
 def files_drive_update_following(client,
                                  drive_id,
                                  drive_item_id,
-                                 body):
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 microsoft_graph_item_reference_drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 audio=None,
+                                 content=None,
+                                 c_tag=None,
+                                 file_system_info=None,
+                                 image=None,
+                                 location=None,
+                                 photo=None,
+                                 publication=None,
+                                 root=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 size=None,
+                                 video=None,
+                                 web_dav_url=None,
+                                 analytics=None,
+                                 children=None,
+                                 permissions=None,
+                                 subscriptions=None,
+                                 thumbnails=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None,
+                                 microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                 microsoft_graph_base_item_description=None,
+                                 microsoft_graph_base_item_e_tag=None,
+                                 microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                 microsoft_graph_base_item_name=None,
+                                 microsoft_graph_base_item_web_url=None,
+                                 microsoft_graph_user_created_by_user=None,
+                                 microsoft_graph_user_last_modified_by_user=None,
+                                 drive_id1=None,
+                                 microsoft_graph_item_reference_drive_type=None,
+                                 id1=None,
+                                 name1=None,
+                                 microsoft_graph_item_reference_path=None,
+                                 microsoft_graph_item_reference_share_id=None,
+                                 sharepoint_ids1=None,
+                                 microsoft_graph_item_reference_site_id=None,
+                                 application1=None,
+                                 device1=None,
+                                 user1=None,
+                                 application2=None,
+                                 device2=None,
+                                 user2=None,
+                                 sharepoint_ids2=None,
+                                 microsoft_graph_item_analytics=None,
+                                 drive_item=None,
+                                 microsoft_graph_list_item_versions=None,
+                                 id2=None,
+                                 id3=None,
+                                 microsoft_graph_workbook_application=None,
+                                 comments=None,
+                                 functions=None,
+                                 names=None,
+                                 operations=None,
+                                 tables=None,
+                                 worksheets=None,
+                                 microsoft_graph_special_folder_name=None,
+                                 owner=None,
+                                 scope=None,
+                                 shared_by=None,
+                                 shared_date_time=None,
+                                 on_click_telemetry_url=None,
+                                 created_by=None,
+                                 microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                 file=None,
+                                 microsoft_graph_file_system_info_file_system_info=None,
+                                 folder=None,
+                                 microsoft_graph_remote_item_id=None,
+                                 microsoft_graph_image=None,
+                                 last_modified_by=None,
+                                 microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                 microsoft_graph_remote_item_name=None,
+                                 package=None,
+                                 parent_reference=None,
+                                 shared=None,
+                                 sharepoint_ids3=None,
+                                 integer_size=None,
+                                 special_folder=None,
+                                 microsoft_graph_video=None,
+                                 microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                 microsoft_graph_remote_item_web_url=None,
+                                 queued_date_time=None,
+                                 type_=None,
+                                 child_count=None,
+                                 view=None,
+                                 hashes=None,
+                                 mime_type=None,
+                                 processing_metadata=None,
+                                 state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_following(drive_id=drive_id,
                                    drive_item_id=drive_item_id,
                                    body=body)
@@ -525,7 +1493,249 @@ def files_drive_update_following(client,
 def files_drive_update_item(client,
                             drive_id,
                             drive_item_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            drive_id1=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_items(drive_id=drive_id,
                                drive_item_id=drive_item_id,
                                body=body)
@@ -607,7 +1817,249 @@ def files_drive_update_list(client,
 
 def files_drive_update_root(client,
                             drive_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            drive_id1=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_root(drive_id=drive_id,
                               body=body)
 
@@ -615,13 +2067,255 @@ def files_drive_update_root(client,
 def files_drive_update_special(client,
                                drive_id,
                                drive_item_id,
-                               body):
+                               content_type,
+                               id_=None,
+                               created_date_time=None,
+                               description=None,
+                               e_tag=None,
+                               last_modified_date_time=None,
+                               name=None,
+                               web_url=None,
+                               created_by_user=None,
+                               last_modified_by_user=None,
+                               microsoft_graph_item_reference_drive_id=None,
+                               drive_type=None,
+                               microsoft_graph_item_reference_id=None,
+                               microsoft_graph_item_reference_name=None,
+                               path=None,
+                               share_id=None,
+                               sharepoint_ids=None,
+                               site_id=None,
+                               application=None,
+                               device=None,
+                               user=None,
+                               microsoft_graph_identity_application=None,
+                               microsoft_graph_identity_device=None,
+                               microsoft_graph_identity_user=None,
+                               audio=None,
+                               content=None,
+                               c_tag=None,
+                               file_system_info=None,
+                               image=None,
+                               location=None,
+                               photo=None,
+                               publication=None,
+                               root=None,
+                               microsoft_graph_sharepoint_ids=None,
+                               size=None,
+                               video=None,
+                               web_dav_url=None,
+                               analytics=None,
+                               children=None,
+                               permissions=None,
+                               subscriptions=None,
+                               thumbnails=None,
+                               versions=None,
+                               microsoft_graph_entity_id=None,
+                               microsoft_graph_base_item_created_date_time_created_date_time=None,
+                               microsoft_graph_base_item_description=None,
+                               microsoft_graph_base_item_e_tag=None,
+                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                               microsoft_graph_base_item_name=None,
+                               microsoft_graph_base_item_web_url=None,
+                               microsoft_graph_user_created_by_user=None,
+                               microsoft_graph_user_last_modified_by_user=None,
+                               drive_id1=None,
+                               microsoft_graph_item_reference_drive_type=None,
+                               id1=None,
+                               name1=None,
+                               microsoft_graph_item_reference_path=None,
+                               microsoft_graph_item_reference_share_id=None,
+                               sharepoint_ids1=None,
+                               microsoft_graph_item_reference_site_id=None,
+                               application1=None,
+                               device1=None,
+                               user1=None,
+                               application2=None,
+                               device2=None,
+                               user2=None,
+                               sharepoint_ids2=None,
+                               microsoft_graph_item_analytics=None,
+                               drive_item=None,
+                               microsoft_graph_list_item_versions=None,
+                               id2=None,
+                               id3=None,
+                               microsoft_graph_workbook_application=None,
+                               comments=None,
+                               functions=None,
+                               names=None,
+                               operations=None,
+                               tables=None,
+                               worksheets=None,
+                               microsoft_graph_special_folder_name=None,
+                               owner=None,
+                               scope=None,
+                               shared_by=None,
+                               shared_date_time=None,
+                               on_click_telemetry_url=None,
+                               created_by=None,
+                               microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                               file=None,
+                               microsoft_graph_file_system_info_file_system_info=None,
+                               folder=None,
+                               microsoft_graph_remote_item_id=None,
+                               microsoft_graph_image=None,
+                               last_modified_by=None,
+                               microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                               microsoft_graph_remote_item_name=None,
+                               package=None,
+                               parent_reference=None,
+                               shared=None,
+                               sharepoint_ids3=None,
+                               integer_size=None,
+                               special_folder=None,
+                               microsoft_graph_video=None,
+                               microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                               microsoft_graph_remote_item_web_url=None,
+                               queued_date_time=None,
+                               type_=None,
+                               child_count=None,
+                               view=None,
+                               hashes=None,
+                               mime_type=None,
+                               processing_metadata=None,
+                               state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_special(drive_id=drive_id,
                                  drive_item_id=drive_item_id,
                                  body=body)
 
 
-def files_driveslist_create_column(client,
+def files_drive_list_create_column(client,
                                    drive_id,
                                    id_=None,
                                    boolean=None,
@@ -671,7 +2365,7 @@ def files_driveslist_create_column(client,
                                  body=body)
 
 
-def files_driveslist_create_content_type(client,
+def files_drive_list_create_content_type(client,
                                          drive_id,
                                          id_=None,
                                          description=None,
@@ -715,7 +2409,7 @@ def files_driveslist_create_content_type(client,
                                        body=body)
 
 
-def files_driveslist_create_item(client,
+def files_drive_list_create_item(client,
                                  drive_id,
                                  content_type,
                                  id_=None,
@@ -784,7 +2478,7 @@ def files_driveslist_create_item(client,
                                body=body)
 
 
-def files_driveslist_create_subscription(client,
+def files_drive_list_create_subscription(client,
                                          drive_id,
                                          id_=None,
                                          application_id=None,
@@ -817,7 +2511,7 @@ def files_driveslist_create_subscription(client,
                                        body=body)
 
 
-def files_driveslist_delete_column(client,
+def files_drive_list_delete_column(client,
                                    drive_id,
                                    column_definition_id,
                                    if_match=None):
@@ -826,7 +2520,7 @@ def files_driveslist_delete_column(client,
                                  if_match=if_match)
 
 
-def files_driveslist_delete_content_type(client,
+def files_drive_list_delete_content_type(client,
                                          drive_id,
                                          content_type_id,
                                          if_match=None):
@@ -835,14 +2529,14 @@ def files_driveslist_delete_content_type(client,
                                        if_match=if_match)
 
 
-def files_driveslist_delete_drive(client,
+def files_drive_list_delete_drive(client,
                                   drive_id,
                                   if_match=None):
     return client.delete_drive(drive_id=drive_id,
                                if_match=if_match)
 
 
-def files_driveslist_delete_item(client,
+def files_drive_list_delete_item(client,
                                  drive_id,
                                  list_item_id,
                                  if_match=None):
@@ -851,7 +2545,7 @@ def files_driveslist_delete_item(client,
                                if_match=if_match)
 
 
-def files_driveslist_delete_subscription(client,
+def files_drive_list_delete_subscription(client,
                                          drive_id,
                                          subscription_id,
                                          if_match=None):
@@ -860,7 +2554,7 @@ def files_driveslist_delete_subscription(client,
                                        if_match=if_match)
 
 
-def files_driveslist_list_column(client,
+def files_drive_list_list_column(client,
                                  drive_id,
                                  orderby=None,
                                  select=None,
@@ -871,7 +2565,7 @@ def files_driveslist_list_column(client,
                                expand=expand)
 
 
-def files_driveslist_list_content_type(client,
+def files_drive_list_list_content_type(client,
                                        drive_id,
                                        orderby=None,
                                        select=None,
@@ -882,7 +2576,7 @@ def files_driveslist_list_content_type(client,
                                      expand=expand)
 
 
-def files_driveslist_list_item(client,
+def files_drive_list_list_item(client,
                                drive_id,
                                orderby=None,
                                select=None,
@@ -893,7 +2587,7 @@ def files_driveslist_list_item(client,
                              expand=expand)
 
 
-def files_driveslist_list_subscription(client,
+def files_drive_list_list_subscription(client,
                                        drive_id,
                                        orderby=None,
                                        select=None,
@@ -904,7 +2598,7 @@ def files_driveslist_list_subscription(client,
                                      expand=expand)
 
 
-def files_driveslist_show_column(client,
+def files_drive_list_show_column(client,
                                  drive_id,
                                  column_definition_id,
                                  select=None,
@@ -915,7 +2609,7 @@ def files_driveslist_show_column(client,
                               expand=expand)
 
 
-def files_driveslist_show_content_type(client,
+def files_drive_list_show_content_type(client,
                                        drive_id,
                                        content_type_id,
                                        select=None,
@@ -926,7 +2620,7 @@ def files_driveslist_show_content_type(client,
                                     expand=expand)
 
 
-def files_driveslist_show_drive(client,
+def files_drive_list_show_drive(client,
                                 drive_id,
                                 select=None,
                                 expand=None):
@@ -935,7 +2629,7 @@ def files_driveslist_show_drive(client,
                             expand=expand)
 
 
-def files_driveslist_show_item(client,
+def files_drive_list_show_item(client,
                                drive_id,
                                list_item_id,
                                select=None,
@@ -946,7 +2640,7 @@ def files_driveslist_show_item(client,
                             expand=expand)
 
 
-def files_driveslist_show_subscription(client,
+def files_drive_list_show_subscription(client,
                                        drive_id,
                                        subscription_id,
                                        select=None,
@@ -957,7 +2651,7 @@ def files_driveslist_show_subscription(client,
                                     expand=expand)
 
 
-def files_driveslist_update_column(client,
+def files_drive_list_update_column(client,
                                    drive_id,
                                    column_definition_id,
                                    id_=None,
@@ -1009,7 +2703,7 @@ def files_driveslist_update_column(client,
                                  body=body)
 
 
-def files_driveslist_update_content_type(client,
+def files_drive_list_update_content_type(client,
                                          drive_id,
                                          content_type_id,
                                          id_=None,
@@ -1055,7 +2749,7 @@ def files_driveslist_update_content_type(client,
                                        body=body)
 
 
-def files_driveslist_update_drive(client,
+def files_drive_list_update_drive(client,
                                   drive_id,
                                   id_=None,
                                   created_date_time=None,
@@ -1213,7 +2907,7 @@ def files_driveslist_update_drive(client,
                                body=body)
 
 
-def files_driveslist_update_item(client,
+def files_drive_list_update_item(client,
                                  drive_id,
                                  list_item_id,
                                  content_type,
@@ -1284,7 +2978,7 @@ def files_driveslist_update_item(client,
                                body=body)
 
 
-def files_driveslist_update_subscription(client,
+def files_drive_list_update_subscription(client,
                                          drive_id,
                                          subscription_id,
                                          id_=None,
@@ -1319,11 +3013,11 @@ def files_driveslist_update_subscription(client,
                                        body=body)
 
 
-def files_driveslistcontenttype_create_column_link(client,
-                                                   drive_id,
-                                                   content_type_id,
-                                                   id_=None,
-                                                   name=None):
+def files_drive_list_content_type_create_column_link(client,
+                                                     drive_id,
+                                                     content_type_id,
+                                                     id_=None,
+                                                     name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -1332,23 +3026,23 @@ def files_driveslistcontenttype_create_column_link(client,
                                       body=body)
 
 
-def files_driveslistcontenttype_delete_column_link(client,
-                                                   drive_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   if_match=None):
+def files_drive_list_content_type_delete_column_link(client,
+                                                     drive_id,
+                                                     content_type_id,
+                                                     column_link_id,
+                                                     if_match=None):
     return client.delete_column_links(drive_id=drive_id,
                                       content_type_id=content_type_id,
                                       column_link_id=column_link_id,
                                       if_match=if_match)
 
 
-def files_driveslistcontenttype_list_column_link(client,
-                                                 drive_id,
-                                                 content_type_id,
-                                                 orderby=None,
-                                                 select=None,
-                                                 expand=None):
+def files_drive_list_content_type_list_column_link(client,
+                                                   drive_id,
+                                                   content_type_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_column_links(drive_id=drive_id,
                                     content_type_id=content_type_id,
                                     orderby=orderby,
@@ -1356,12 +3050,12 @@ def files_driveslistcontenttype_list_column_link(client,
                                     expand=expand)
 
 
-def files_driveslistcontenttype_show_column_link(client,
-                                                 drive_id,
-                                                 content_type_id,
-                                                 column_link_id,
-                                                 select=None,
-                                                 expand=None):
+def files_drive_list_content_type_show_column_link(client,
+                                                   drive_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   select=None,
+                                                   expand=None):
     return client.get_column_links(drive_id=drive_id,
                                    content_type_id=content_type_id,
                                    column_link_id=column_link_id,
@@ -1369,12 +3063,12 @@ def files_driveslistcontenttype_show_column_link(client,
                                    expand=expand)
 
 
-def files_driveslistcontenttype_update_column_link(client,
-                                                   drive_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   id_=None,
-                                                   name=None):
+def files_drive_list_content_type_update_column_link(client,
+                                                     drive_id,
+                                                     content_type_id,
+                                                     column_link_id,
+                                                     id_=None,
+                                                     name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -1384,16 +3078,16 @@ def files_driveslistcontenttype_update_column_link(client,
                                       body=body)
 
 
-def files_driveslistitem_create_version(client,
-                                        drive_id,
-                                        list_item_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_drive_list_item_create_version(client,
+                                         drive_id,
+                                         list_item_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -1409,50 +3103,50 @@ def files_driveslistitem_create_version(client,
                                   body=body)
 
 
-def files_driveslistitem_delete_drive_item(client,
-                                           drive_id,
-                                           list_item_id,
-                                           if_match=None):
+def files_drive_list_item_delete_drive_item(client,
+                                            drive_id,
+                                            list_item_id,
+                                            if_match=None):
     return client.delete_drive_item(drive_id=drive_id,
                                     list_item_id=list_item_id,
                                     if_match=if_match)
 
 
-def files_driveslistitem_delete_field(client,
-                                      drive_id,
-                                      list_item_id,
-                                      if_match=None):
+def files_drive_list_item_delete_field(client,
+                                       drive_id,
+                                       list_item_id,
+                                       if_match=None):
     return client.delete_fields(drive_id=drive_id,
                                 list_item_id=list_item_id,
                                 if_match=if_match)
 
 
-def files_driveslistitem_delete_ref_analytic(client,
-                                             drive_id,
-                                             list_item_id,
-                                             if_match=None):
+def files_drive_list_item_delete_ref_analytic(client,
+                                              drive_id,
+                                              list_item_id,
+                                              if_match=None):
     return client.delete_ref_analytics(drive_id=drive_id,
                                        list_item_id=list_item_id,
                                        if_match=if_match)
 
 
-def files_driveslistitem_delete_version(client,
-                                        drive_id,
-                                        list_item_id,
-                                        list_item_version_id,
-                                        if_match=None):
+def files_drive_list_item_delete_version(client,
+                                         drive_id,
+                                         list_item_id,
+                                         list_item_version_id,
+                                         if_match=None):
     return client.delete_versions(drive_id=drive_id,
                                   list_item_id=list_item_id,
                                   list_item_version_id=list_item_version_id,
                                   if_match=if_match)
 
 
-def files_driveslistitem_list_version(client,
-                                      drive_id,
-                                      list_item_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
+def files_drive_list_item_list_version(client,
+                                       drive_id,
+                                       list_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
     return client.list_versions(drive_id=drive_id,
                                 list_item_id=list_item_id,
                                 orderby=orderby,
@@ -1460,21 +3154,21 @@ def files_driveslistitem_list_version(client,
                                 expand=expand)
 
 
-def files_driveslistitem_set_ref_analytic(client,
-                                          drive_id,
-                                          list_item_id,
-                                          body):
+def files_drive_list_item_set_ref_analytic(client,
+                                           drive_id,
+                                           list_item_id,
+                                           body):
     return client.set_ref_analytics(drive_id=drive_id,
                                     list_item_id=list_item_id,
                                     body=body)
 
 
-def files_driveslistitem_show_activity(client,
-                                       drive_id,
-                                       list_item_id,
-                                       start_date_time=None,
-                                       end_date_time=None,
-                                       interval=None):
+def files_drive_list_item_show_activity(client,
+                                        drive_id,
+                                        list_item_id,
+                                        start_date_time=None,
+                                        end_date_time=None,
+                                        interval=None):
     if drive_id is not None and list_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
         return client.get_activities_by_interval53_ee(drive_id=drive_id,
                                                       list_item_id=list_item_id,
@@ -1485,52 +3179,52 @@ def files_driveslistitem_show_activity(client,
                                                   list_item_id=list_item_id)
 
 
-def files_driveslistitem_show_analytic(client,
-                                       drive_id,
-                                       list_item_id,
-                                       select=None,
-                                       expand=None):
+def files_drive_list_item_show_analytic(client,
+                                        drive_id,
+                                        list_item_id,
+                                        select=None,
+                                        expand=None):
     return client.get_analytics(drive_id=drive_id,
                                 list_item_id=list_item_id,
                                 select=select,
                                 expand=expand)
 
 
-def files_driveslistitem_show_drive_item(client,
-                                         drive_id,
-                                         list_item_id,
-                                         select=None,
-                                         expand=None):
+def files_drive_list_item_show_drive_item(client,
+                                          drive_id,
+                                          list_item_id,
+                                          select=None,
+                                          expand=None):
     return client.get_drive_item(drive_id=drive_id,
                                  list_item_id=list_item_id,
                                  select=select,
                                  expand=expand)
 
 
-def files_driveslistitem_show_field(client,
-                                    drive_id,
-                                    list_item_id,
-                                    select=None,
-                                    expand=None):
+def files_drive_list_item_show_field(client,
+                                     drive_id,
+                                     list_item_id,
+                                     select=None,
+                                     expand=None):
     return client.get_fields(drive_id=drive_id,
                              list_item_id=list_item_id,
                              select=select,
                              expand=expand)
 
 
-def files_driveslistitem_show_ref_analytic(client,
-                                           drive_id,
-                                           list_item_id):
+def files_drive_list_item_show_ref_analytic(client,
+                                            drive_id,
+                                            list_item_id):
     return client.get_ref_analytics(drive_id=drive_id,
                                     list_item_id=list_item_id)
 
 
-def files_driveslistitem_show_version(client,
-                                      drive_id,
-                                      list_item_id,
-                                      list_item_version_id,
-                                      select=None,
-                                      expand=None):
+def files_drive_list_item_show_version(client,
+                                       drive_id,
+                                       list_item_id,
+                                       list_item_version_id,
+                                       select=None,
+                                       expand=None):
     return client.get_versions(drive_id=drive_id,
                                list_item_id=list_item_id,
                                list_item_version_id=list_item_version_id,
@@ -1538,19 +3232,261 @@ def files_driveslistitem_show_version(client,
                                expand=expand)
 
 
-def files_driveslistitem_update_drive_item(client,
-                                           drive_id,
-                                           list_item_id,
-                                           body):
+def files_drive_list_item_update_drive_item(client,
+                                            drive_id,
+                                            list_item_id,
+                                            content_type,
+                                            id_=None,
+                                            created_date_time=None,
+                                            description=None,
+                                            e_tag=None,
+                                            last_modified_date_time=None,
+                                            name=None,
+                                            web_url=None,
+                                            created_by_user=None,
+                                            last_modified_by_user=None,
+                                            microsoft_graph_item_reference_drive_id=None,
+                                            drive_type=None,
+                                            microsoft_graph_item_reference_id=None,
+                                            microsoft_graph_item_reference_name=None,
+                                            path=None,
+                                            share_id=None,
+                                            sharepoint_ids=None,
+                                            site_id=None,
+                                            application=None,
+                                            device=None,
+                                            user=None,
+                                            microsoft_graph_identity_application=None,
+                                            microsoft_graph_identity_device=None,
+                                            microsoft_graph_identity_user=None,
+                                            audio=None,
+                                            content=None,
+                                            c_tag=None,
+                                            file_system_info=None,
+                                            image=None,
+                                            location=None,
+                                            photo=None,
+                                            publication=None,
+                                            root=None,
+                                            microsoft_graph_sharepoint_ids=None,
+                                            size=None,
+                                            video=None,
+                                            web_dav_url=None,
+                                            analytics=None,
+                                            children=None,
+                                            permissions=None,
+                                            subscriptions=None,
+                                            thumbnails=None,
+                                            versions=None,
+                                            microsoft_graph_entity_id=None,
+                                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                            microsoft_graph_base_item_description=None,
+                                            microsoft_graph_base_item_e_tag=None,
+                                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_base_item_name=None,
+                                            microsoft_graph_base_item_web_url=None,
+                                            microsoft_graph_user_created_by_user=None,
+                                            microsoft_graph_user_last_modified_by_user=None,
+                                            drive_id1=None,
+                                            microsoft_graph_item_reference_drive_type=None,
+                                            id1=None,
+                                            name1=None,
+                                            microsoft_graph_item_reference_path=None,
+                                            microsoft_graph_item_reference_share_id=None,
+                                            sharepoint_ids1=None,
+                                            microsoft_graph_item_reference_site_id=None,
+                                            application1=None,
+                                            device1=None,
+                                            user1=None,
+                                            application2=None,
+                                            device2=None,
+                                            user2=None,
+                                            sharepoint_ids2=None,
+                                            microsoft_graph_item_analytics=None,
+                                            drive_item=None,
+                                            microsoft_graph_list_item_versions=None,
+                                            id2=None,
+                                            id3=None,
+                                            microsoft_graph_workbook_application=None,
+                                            comments=None,
+                                            functions=None,
+                                            names=None,
+                                            operations=None,
+                                            tables=None,
+                                            worksheets=None,
+                                            microsoft_graph_special_folder_name=None,
+                                            owner=None,
+                                            scope=None,
+                                            shared_by=None,
+                                            shared_date_time=None,
+                                            on_click_telemetry_url=None,
+                                            created_by=None,
+                                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                            file=None,
+                                            microsoft_graph_file_system_info_file_system_info=None,
+                                            folder=None,
+                                            microsoft_graph_remote_item_id=None,
+                                            microsoft_graph_image=None,
+                                            last_modified_by=None,
+                                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_remote_item_name=None,
+                                            package=None,
+                                            parent_reference=None,
+                                            shared=None,
+                                            sharepoint_ids3=None,
+                                            integer_size=None,
+                                            special_folder=None,
+                                            microsoft_graph_video=None,
+                                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                            microsoft_graph_remote_item_web_url=None,
+                                            queued_date_time=None,
+                                            type_=None,
+                                            child_count=None,
+                                            view=None,
+                                            hashes=None,
+                                            mime_type=None,
+                                            processing_metadata=None,
+                                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_drive_item(drive_id=drive_id,
                                     list_item_id=list_item_id,
                                     body=body)
 
 
-def files_driveslistitem_update_field(client,
-                                      drive_id,
-                                      list_item_id,
-                                      id_=None):
+def files_drive_list_item_update_field(client,
+                                       drive_id,
+                                       list_item_id,
+                                       id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(drive_id=drive_id,
@@ -1558,17 +3494,17 @@ def files_driveslistitem_update_field(client,
                                 body=body)
 
 
-def files_driveslistitem_update_version(client,
-                                        drive_id,
-                                        list_item_id,
-                                        list_item_version_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_drive_list_item_update_version(client,
+                                         drive_id,
+                                         list_item_id,
+                                         list_item_version_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -1585,32 +3521,32 @@ def files_driveslistitem_update_version(client,
                                   body=body)
 
 
-def files_driveslistitemsversion_delete_field(client,
-                                              drive_id,
-                                              list_item_id,
-                                              list_item_version_id,
-                                              if_match=None):
+def files_drive_list_item_version_delete_field(client,
+                                               drive_id,
+                                               list_item_id,
+                                               list_item_version_id,
+                                               if_match=None):
     return client.delete_fields(drive_id=drive_id,
                                 list_item_id=list_item_id,
                                 list_item_version_id=list_item_version_id,
                                 if_match=if_match)
 
 
-def files_driveslistitemsversion_restore_version(client,
-                                                 drive_id,
-                                                 list_item_id,
-                                                 list_item_version_id):
+def files_drive_list_item_version_restore_version(client,
+                                                  drive_id,
+                                                  list_item_id,
+                                                  list_item_version_id):
     return client.restore_version(drive_id=drive_id,
                                   list_item_id=list_item_id,
                                   list_item_version_id=list_item_version_id)
 
 
-def files_driveslistitemsversion_show_field(client,
-                                            drive_id,
-                                            list_item_id,
-                                            list_item_version_id,
-                                            select=None,
-                                            expand=None):
+def files_drive_list_item_version_show_field(client,
+                                             drive_id,
+                                             list_item_id,
+                                             list_item_version_id,
+                                             select=None,
+                                             expand=None):
     return client.get_fields(drive_id=drive_id,
                              list_item_id=list_item_id,
                              list_item_version_id=list_item_version_id,
@@ -1618,11 +3554,11 @@ def files_driveslistitemsversion_show_field(client,
                              expand=expand)
 
 
-def files_driveslistitemsversion_update_field(client,
-                                              drive_id,
-                                              list_item_id,
-                                              list_item_version_id,
-                                              id_=None):
+def files_drive_list_item_version_update_field(client,
+                                               drive_id,
+                                               list_item_id,
+                                               list_item_version_id,
+                                               id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(drive_id=drive_id,
@@ -1990,46 +3926,796 @@ def files_group_update_drive(client,
                                body=body)
 
 
-def files_sharesshareddriveitem_create_shared_drive_item(client,
-                                                         body):
+def files_share_shared_drive_item_create_shared_drive_item(client,
+                                                           content_type,
+                                                           id_=None,
+                                                           created_date_time=None,
+                                                           description=None,
+                                                           e_tag=None,
+                                                           last_modified_date_time=None,
+                                                           name=None,
+                                                           web_url=None,
+                                                           created_by_user=None,
+                                                           last_modified_by_user=None,
+                                                           drive_id=None,
+                                                           drive_type=None,
+                                                           microsoft_graph_item_reference_id=None,
+                                                           microsoft_graph_item_reference_name=None,
+                                                           path=None,
+                                                           share_id=None,
+                                                           sharepoint_ids=None,
+                                                           site_id=None,
+                                                           application=None,
+                                                           device=None,
+                                                           user=None,
+                                                           microsoft_graph_identity_application=None,
+                                                           microsoft_graph_identity_device=None,
+                                                           microsoft_graph_identity_user=None,
+                                                           drive_item=None,
+                                                           items=None,
+                                                           root=None,
+                                                           site=None,
+                                                           microsoft_graph_entity_id=None,
+                                                           expiration_date_time=None,
+                                                           granted_to_identities=None,
+                                                           has_password=None,
+                                                           roles=None,
+                                                           microsoft_graph_permission_share_id=None,
+                                                           application1=None,
+                                                           prevents_download=None,
+                                                           scope=None,
+                                                           type_=None,
+                                                           web_html=None,
+                                                           microsoft_graph_sharing_link_web_url=None,
+                                                           email=None,
+                                                           invited_by=None,
+                                                           redeemed_by=None,
+                                                           sign_in_required=None,
+                                                           microsoft_graph_item_reference_drive_id=None,
+                                                           microsoft_graph_item_reference_drive_type=None,
+                                                           id1=None,
+                                                           name1=None,
+                                                           microsoft_graph_item_reference_path=None,
+                                                           microsoft_graph_item_reference_share_id=None,
+                                                           microsoft_graph_sharepoint_ids=None,
+                                                           microsoft_graph_item_reference_site_id=None,
+                                                           application2=None,
+                                                           device1=None,
+                                                           user1=None,
+                                                           id2=None,
+                                                           microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                                           microsoft_graph_base_item_description=None,
+                                                           microsoft_graph_base_item_e_tag=None,
+                                                           microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                                           microsoft_graph_base_item_name=None,
+                                                           microsoft_graph_base_item_web_url=None,
+                                                           microsoft_graph_user_created_by_user=None,
+                                                           microsoft_graph_user_last_modified_by_user=None,
+                                                           drive_id1=None,
+                                                           drive_type1=None,
+                                                           id3=None,
+                                                           name2=None,
+                                                           path1=None,
+                                                           share_id1=None,
+                                                           sharepoint_ids1=None,
+                                                           site_id1=None,
+                                                           application3=None,
+                                                           device2=None,
+                                                           user2=None,
+                                                           application4=None,
+                                                           device3=None,
+                                                           user3=None,
+                                                           sharepoint_ids2=None,
+                                                           analytics=None,
+                                                           microsoft_graph_drive_item=None,
+                                                           versions=None,
+                                                           id4=None,
+                                                           id5=None,
+                                                           created_date_time1=None,
+                                                           description1=None,
+                                                           e_tag1=None,
+                                                           last_modified_date_time1=None,
+                                                           name3=None,
+                                                           web_url1=None,
+                                                           created_by_user1=None,
+                                                           last_modified_by_user1=None,
+                                                           drive_id2=None,
+                                                           drive_type2=None,
+                                                           id6=None,
+                                                           name4=None,
+                                                           path2=None,
+                                                           share_id2=None,
+                                                           sharepoint_ids3=None,
+                                                           site_id2=None,
+                                                           application5=None,
+                                                           device4=None,
+                                                           user4=None,
+                                                           application6=None,
+                                                           device5=None,
+                                                           user5=None,
+                                                           display_name=None,
+                                                           list=None,
+                                                           sharepoint_ids4=None,
+                                                           system=None,
+                                                           columns=None,
+                                                           content_types=None,
+                                                           drive=None,
+                                                           microsoft_graph_list_items=None,
+                                                           subscriptions=None,
+                                                           application7=None,
+                                                           device6=None,
+                                                           user6=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_item'] = drive_item
+    body['items'] = items
+    body['root'] = root
+    body['site'] = site
+    body['permission'] = {}
+    body['permission']['id'] = microsoft_graph_entity_id
+    body['permission']['expiration_date_time'] = expiration_date_time
+    body['permission']['granted_to_identities'] = granted_to_identities
+    body['permission']['has_password'] = has_password
+    body['permission']['roles'] = roles
+    body['permission']['share_id'] = microsoft_graph_permission_share_id
+    body['permission']['link'] = {}
+    body['permission']['link']['application'] = application1
+    body['permission']['link']['prevents_download'] = prevents_download
+    body['permission']['link']['scope'] = scope
+    body['permission']['link']['type'] = type_
+    body['permission']['link']['web_html'] = web_html
+    body['permission']['link']['web_url'] = microsoft_graph_sharing_link_web_url
+    body['permission']['invitation'] = {}
+    body['permission']['invitation']['email'] = email
+    body['permission']['invitation']['invited_by'] = invited_by
+    body['permission']['invitation']['redeemed_by'] = redeemed_by
+    body['permission']['invitation']['sign_in_required'] = sign_in_required
+    body['permission']['inherited_from'] = {}
+    body['permission']['inherited_from']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['permission']['inherited_from']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['permission']['inherited_from']['id'] = id1
+    body['permission']['inherited_from']['name'] = name1
+    body['permission']['inherited_from']['path'] = microsoft_graph_item_reference_path
+    body['permission']['inherited_from']['share_id'] = microsoft_graph_item_reference_share_id
+    body['permission']['inherited_from']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['permission']['inherited_from']['site_id'] = microsoft_graph_item_reference_site_id
+    body['permission']['granted_to'] = {}
+    body['permission']['granted_to']['application'] = application2
+    body['permission']['granted_to']['device'] = device1
+    body['permission']['granted_to']['user'] = user1
+    body['list_item'] = {}
+    body['list_item']['id'] = id2
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = drive_type1
+    body['list_item']['parent_reference']['id'] = id3
+    body['list_item']['parent_reference']['name'] = name2
+    body['list_item']['parent_reference']['path'] = path1
+    body['list_item']['parent_reference']['share_id'] = share_id1
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = site_id1
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application3
+    body['list_item']['last_modified_by']['device'] = device2
+    body['list_item']['last_modified_by']['user'] = user2
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application4
+    body['list_item']['created_by']['device'] = device3
+    body['list_item']['created_by']['user'] = user3
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = analytics
+    body['list_item']['drive_item'] = microsoft_graph_drive_item
+    body['list_item']['versions'] = versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id4
+    body['list'] = {}
+    body['list']['id'] = id5
+    body['list']['created_date_time'] = created_date_time1
+    body['list']['description'] = description1
+    body['list']['e_tag'] = e_tag1
+    body['list']['last_modified_date_time'] = last_modified_date_time1
+    body['list']['name'] = name3
+    body['list']['web_url'] = web_url1
+    body['list']['created_by_user'] = created_by_user1
+    body['list']['last_modified_by_user'] = last_modified_by_user1
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id2
+    body['list']['parent_reference']['drive_type'] = drive_type2
+    body['list']['parent_reference']['id'] = id6
+    body['list']['parent_reference']['name'] = name4
+    body['list']['parent_reference']['path'] = path2
+    body['list']['parent_reference']['share_id'] = share_id2
+    body['list']['parent_reference']['sharepoint_ids'] = sharepoint_ids3
+    body['list']['parent_reference']['site_id'] = site_id2
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application5
+    body['list']['last_modified_by']['device'] = device4
+    body['list']['last_modified_by']['user'] = user4
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application6
+    body['list']['created_by']['device'] = device5
+    body['list']['created_by']['user'] = user5
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids4
+    body['list']['system'] = system
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['owner'] = {}
+    body['owner']['application'] = application7
+    body['owner']['device'] = device6
+    body['owner']['user'] = user6
     return client.create_shared_drive_item(body=body)
 
 
-def files_sharesshareddriveitem_delete_shared_drive_item(client,
-                                                         shared_drive_item_id,
-                                                         if_match=None):
+def files_share_shared_drive_item_delete_shared_drive_item(client,
+                                                           shared_drive_item_id,
+                                                           if_match=None):
     return client.delete_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
                                            if_match=if_match)
 
 
-def files_sharesshareddriveitem_list_shared_drive_item(client,
-                                                       orderby=None,
-                                                       select=None,
-                                                       expand=None):
+def files_share_shared_drive_item_list_shared_drive_item(client,
+                                                         orderby=None,
+                                                         select=None,
+                                                         expand=None):
     return client.list_shared_drive_item(orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def files_sharesshareddriveitem_show_shared_drive_item(client,
-                                                       shared_drive_item_id,
-                                                       select=None,
-                                                       expand=None):
+def files_share_shared_drive_item_show_shared_drive_item(client,
+                                                         shared_drive_item_id,
+                                                         select=None,
+                                                         expand=None):
     return client.get_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
                                         select=select,
                                         expand=expand)
 
 
-def files_sharesshareddriveitem_update_shared_drive_item(client,
-                                                         shared_drive_item_id,
-                                                         body):
+def files_share_shared_drive_item_update_shared_drive_item(client,
+                                                           shared_drive_item_id,
+                                                           content_type,
+                                                           id_=None,
+                                                           created_date_time=None,
+                                                           description=None,
+                                                           e_tag=None,
+                                                           last_modified_date_time=None,
+                                                           name=None,
+                                                           web_url=None,
+                                                           created_by_user=None,
+                                                           last_modified_by_user=None,
+                                                           drive_id=None,
+                                                           drive_type=None,
+                                                           microsoft_graph_item_reference_id=None,
+                                                           microsoft_graph_item_reference_name=None,
+                                                           path=None,
+                                                           share_id=None,
+                                                           sharepoint_ids=None,
+                                                           site_id=None,
+                                                           application=None,
+                                                           device=None,
+                                                           user=None,
+                                                           microsoft_graph_identity_application=None,
+                                                           microsoft_graph_identity_device=None,
+                                                           microsoft_graph_identity_user=None,
+                                                           drive_item=None,
+                                                           items=None,
+                                                           root=None,
+                                                           site=None,
+                                                           microsoft_graph_entity_id=None,
+                                                           expiration_date_time=None,
+                                                           granted_to_identities=None,
+                                                           has_password=None,
+                                                           roles=None,
+                                                           microsoft_graph_permission_share_id=None,
+                                                           application1=None,
+                                                           prevents_download=None,
+                                                           scope=None,
+                                                           type_=None,
+                                                           web_html=None,
+                                                           microsoft_graph_sharing_link_web_url=None,
+                                                           email=None,
+                                                           invited_by=None,
+                                                           redeemed_by=None,
+                                                           sign_in_required=None,
+                                                           microsoft_graph_item_reference_drive_id=None,
+                                                           microsoft_graph_item_reference_drive_type=None,
+                                                           id1=None,
+                                                           name1=None,
+                                                           microsoft_graph_item_reference_path=None,
+                                                           microsoft_graph_item_reference_share_id=None,
+                                                           microsoft_graph_sharepoint_ids=None,
+                                                           microsoft_graph_item_reference_site_id=None,
+                                                           application2=None,
+                                                           device1=None,
+                                                           user1=None,
+                                                           id2=None,
+                                                           microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                                           microsoft_graph_base_item_description=None,
+                                                           microsoft_graph_base_item_e_tag=None,
+                                                           microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                                           microsoft_graph_base_item_name=None,
+                                                           microsoft_graph_base_item_web_url=None,
+                                                           microsoft_graph_user_created_by_user=None,
+                                                           microsoft_graph_user_last_modified_by_user=None,
+                                                           drive_id1=None,
+                                                           drive_type1=None,
+                                                           id3=None,
+                                                           name2=None,
+                                                           path1=None,
+                                                           share_id1=None,
+                                                           sharepoint_ids1=None,
+                                                           site_id1=None,
+                                                           application3=None,
+                                                           device2=None,
+                                                           user2=None,
+                                                           application4=None,
+                                                           device3=None,
+                                                           user3=None,
+                                                           sharepoint_ids2=None,
+                                                           analytics=None,
+                                                           microsoft_graph_drive_item=None,
+                                                           versions=None,
+                                                           id4=None,
+                                                           id5=None,
+                                                           created_date_time1=None,
+                                                           description1=None,
+                                                           e_tag1=None,
+                                                           last_modified_date_time1=None,
+                                                           name3=None,
+                                                           web_url1=None,
+                                                           created_by_user1=None,
+                                                           last_modified_by_user1=None,
+                                                           drive_id2=None,
+                                                           drive_type2=None,
+                                                           id6=None,
+                                                           name4=None,
+                                                           path2=None,
+                                                           share_id2=None,
+                                                           sharepoint_ids3=None,
+                                                           site_id2=None,
+                                                           application5=None,
+                                                           device4=None,
+                                                           user4=None,
+                                                           application6=None,
+                                                           device5=None,
+                                                           user5=None,
+                                                           display_name=None,
+                                                           list=None,
+                                                           sharepoint_ids4=None,
+                                                           system=None,
+                                                           columns=None,
+                                                           content_types=None,
+                                                           drive=None,
+                                                           microsoft_graph_list_items=None,
+                                                           subscriptions=None,
+                                                           application7=None,
+                                                           device6=None,
+                                                           user6=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_item'] = drive_item
+    body['items'] = items
+    body['root'] = root
+    body['site'] = site
+    body['permission'] = {}
+    body['permission']['id'] = microsoft_graph_entity_id
+    body['permission']['expiration_date_time'] = expiration_date_time
+    body['permission']['granted_to_identities'] = granted_to_identities
+    body['permission']['has_password'] = has_password
+    body['permission']['roles'] = roles
+    body['permission']['share_id'] = microsoft_graph_permission_share_id
+    body['permission']['link'] = {}
+    body['permission']['link']['application'] = application1
+    body['permission']['link']['prevents_download'] = prevents_download
+    body['permission']['link']['scope'] = scope
+    body['permission']['link']['type'] = type_
+    body['permission']['link']['web_html'] = web_html
+    body['permission']['link']['web_url'] = microsoft_graph_sharing_link_web_url
+    body['permission']['invitation'] = {}
+    body['permission']['invitation']['email'] = email
+    body['permission']['invitation']['invited_by'] = invited_by
+    body['permission']['invitation']['redeemed_by'] = redeemed_by
+    body['permission']['invitation']['sign_in_required'] = sign_in_required
+    body['permission']['inherited_from'] = {}
+    body['permission']['inherited_from']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['permission']['inherited_from']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['permission']['inherited_from']['id'] = id1
+    body['permission']['inherited_from']['name'] = name1
+    body['permission']['inherited_from']['path'] = microsoft_graph_item_reference_path
+    body['permission']['inherited_from']['share_id'] = microsoft_graph_item_reference_share_id
+    body['permission']['inherited_from']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['permission']['inherited_from']['site_id'] = microsoft_graph_item_reference_site_id
+    body['permission']['granted_to'] = {}
+    body['permission']['granted_to']['application'] = application2
+    body['permission']['granted_to']['device'] = device1
+    body['permission']['granted_to']['user'] = user1
+    body['list_item'] = {}
+    body['list_item']['id'] = id2
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = drive_id1
+    body['list_item']['parent_reference']['drive_type'] = drive_type1
+    body['list_item']['parent_reference']['id'] = id3
+    body['list_item']['parent_reference']['name'] = name2
+    body['list_item']['parent_reference']['path'] = path1
+    body['list_item']['parent_reference']['share_id'] = share_id1
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = site_id1
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application3
+    body['list_item']['last_modified_by']['device'] = device2
+    body['list_item']['last_modified_by']['user'] = user2
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application4
+    body['list_item']['created_by']['device'] = device3
+    body['list_item']['created_by']['user'] = user3
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = analytics
+    body['list_item']['drive_item'] = microsoft_graph_drive_item
+    body['list_item']['versions'] = versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id4
+    body['list'] = {}
+    body['list']['id'] = id5
+    body['list']['created_date_time'] = created_date_time1
+    body['list']['description'] = description1
+    body['list']['e_tag'] = e_tag1
+    body['list']['last_modified_date_time'] = last_modified_date_time1
+    body['list']['name'] = name3
+    body['list']['web_url'] = web_url1
+    body['list']['created_by_user'] = created_by_user1
+    body['list']['last_modified_by_user'] = last_modified_by_user1
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id2
+    body['list']['parent_reference']['drive_type'] = drive_type2
+    body['list']['parent_reference']['id'] = id6
+    body['list']['parent_reference']['name'] = name4
+    body['list']['parent_reference']['path'] = path2
+    body['list']['parent_reference']['share_id'] = share_id2
+    body['list']['parent_reference']['sharepoint_ids'] = sharepoint_ids3
+    body['list']['parent_reference']['site_id'] = site_id2
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application5
+    body['list']['last_modified_by']['device'] = device4
+    body['list']['last_modified_by']['user'] = user4
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application6
+    body['list']['created_by']['device'] = device5
+    body['list']['created_by']['user'] = user5
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids4
+    body['list']['system'] = system
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['owner'] = {}
+    body['owner']['application'] = application7
+    body['owner']['device'] = device6
+    body['owner']['user'] = user6
     return client.update_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
                                            body=body)
 
 
 def files_share_create_item(client,
                             shared_drive_item_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.create_items(shared_drive_item_id=shared_drive_item_id,
                                body=body)
 
@@ -2163,7 +4849,249 @@ def files_share_show_site(client,
 
 def files_share_update_drive_item(client,
                                   shared_drive_item_id,
-                                  body):
+                                  content_type,
+                                  id_=None,
+                                  created_date_time=None,
+                                  description=None,
+                                  e_tag=None,
+                                  last_modified_date_time=None,
+                                  name=None,
+                                  web_url=None,
+                                  created_by_user=None,
+                                  last_modified_by_user=None,
+                                  drive_id=None,
+                                  drive_type=None,
+                                  microsoft_graph_item_reference_id=None,
+                                  microsoft_graph_item_reference_name=None,
+                                  path=None,
+                                  share_id=None,
+                                  sharepoint_ids=None,
+                                  site_id=None,
+                                  application=None,
+                                  device=None,
+                                  user=None,
+                                  microsoft_graph_identity_application=None,
+                                  microsoft_graph_identity_device=None,
+                                  microsoft_graph_identity_user=None,
+                                  audio=None,
+                                  content=None,
+                                  c_tag=None,
+                                  file_system_info=None,
+                                  image=None,
+                                  location=None,
+                                  photo=None,
+                                  publication=None,
+                                  root=None,
+                                  microsoft_graph_sharepoint_ids=None,
+                                  size=None,
+                                  video=None,
+                                  web_dav_url=None,
+                                  analytics=None,
+                                  children=None,
+                                  permissions=None,
+                                  subscriptions=None,
+                                  thumbnails=None,
+                                  versions=None,
+                                  microsoft_graph_entity_id=None,
+                                  microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                  microsoft_graph_base_item_description=None,
+                                  microsoft_graph_base_item_e_tag=None,
+                                  microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                  microsoft_graph_base_item_name=None,
+                                  microsoft_graph_base_item_web_url=None,
+                                  microsoft_graph_user_created_by_user=None,
+                                  microsoft_graph_user_last_modified_by_user=None,
+                                  microsoft_graph_item_reference_drive_id=None,
+                                  microsoft_graph_item_reference_drive_type=None,
+                                  id1=None,
+                                  name1=None,
+                                  microsoft_graph_item_reference_path=None,
+                                  microsoft_graph_item_reference_share_id=None,
+                                  sharepoint_ids1=None,
+                                  microsoft_graph_item_reference_site_id=None,
+                                  application1=None,
+                                  device1=None,
+                                  user1=None,
+                                  application2=None,
+                                  device2=None,
+                                  user2=None,
+                                  sharepoint_ids2=None,
+                                  microsoft_graph_item_analytics=None,
+                                  drive_item=None,
+                                  microsoft_graph_list_item_versions=None,
+                                  id2=None,
+                                  id3=None,
+                                  microsoft_graph_workbook_application=None,
+                                  comments=None,
+                                  functions=None,
+                                  names=None,
+                                  operations=None,
+                                  tables=None,
+                                  worksheets=None,
+                                  microsoft_graph_special_folder_name=None,
+                                  owner=None,
+                                  scope=None,
+                                  shared_by=None,
+                                  shared_date_time=None,
+                                  on_click_telemetry_url=None,
+                                  created_by=None,
+                                  microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                  file=None,
+                                  microsoft_graph_file_system_info_file_system_info=None,
+                                  folder=None,
+                                  microsoft_graph_remote_item_id=None,
+                                  microsoft_graph_image=None,
+                                  last_modified_by=None,
+                                  microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                  microsoft_graph_remote_item_name=None,
+                                  package=None,
+                                  parent_reference=None,
+                                  shared=None,
+                                  sharepoint_ids3=None,
+                                  integer_size=None,
+                                  special_folder=None,
+                                  microsoft_graph_video=None,
+                                  microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                  microsoft_graph_remote_item_web_url=None,
+                                  queued_date_time=None,
+                                  type_=None,
+                                  child_count=None,
+                                  view=None,
+                                  hashes=None,
+                                  mime_type=None,
+                                  processing_metadata=None,
+                                  state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
                                     body=body)
 
@@ -2171,7 +5099,249 @@ def files_share_update_drive_item(client,
 def files_share_update_item(client,
                             shared_drive_item_id,
                             drive_item_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_items(shared_drive_item_id=shared_drive_item_id,
                                drive_item_id=drive_item_id,
                                body=body)
@@ -2322,14 +5492,314 @@ def files_share_update_list_item(client,
 
 def files_share_update_permission(client,
                                   shared_drive_item_id,
-                                  body):
+                                  id_=None,
+                                  expiration_date_time=None,
+                                  granted_to_identities=None,
+                                  has_password=None,
+                                  roles=None,
+                                  share_id=None,
+                                  application=None,
+                                  prevents_download=None,
+                                  scope=None,
+                                  type_=None,
+                                  web_html=None,
+                                  web_url=None,
+                                  email=None,
+                                  invited_by=None,
+                                  redeemed_by=None,
+                                  sign_in_required=None,
+                                  drive_id=None,
+                                  drive_type=None,
+                                  microsoft_graph_item_reference_id=None,
+                                  name=None,
+                                  path=None,
+                                  microsoft_graph_item_reference_share_id=None,
+                                  sharepoint_ids=None,
+                                  site_id=None,
+                                  microsoft_graph_identity_application=None,
+                                  device=None,
+                                  user=None):
+    body = {}
+    body['id'] = id_
+    body['expiration_date_time'] = expiration_date_time
+    body['granted_to_identities'] = granted_to_identities
+    body['has_password'] = has_password
+    body['roles'] = roles
+    body['share_id'] = share_id
+    body['link'] = {}
+    body['link']['application'] = application
+    body['link']['prevents_download'] = prevents_download
+    body['link']['scope'] = scope
+    body['link']['type'] = type_
+    body['link']['web_html'] = web_html
+    body['link']['web_url'] = web_url
+    body['invitation'] = {}
+    body['invitation']['email'] = email
+    body['invitation']['invited_by'] = invited_by
+    body['invitation']['redeemed_by'] = redeemed_by
+    body['invitation']['sign_in_required'] = sign_in_required
+    body['inherited_from'] = {}
+    body['inherited_from']['drive_id'] = drive_id
+    body['inherited_from']['drive_type'] = drive_type
+    body['inherited_from']['id'] = microsoft_graph_item_reference_id
+    body['inherited_from']['name'] = name
+    body['inherited_from']['path'] = path
+    body['inherited_from']['share_id'] = microsoft_graph_item_reference_share_id
+    body['inherited_from']['sharepoint_ids'] = sharepoint_ids
+    body['inherited_from']['site_id'] = site_id
+    body['granted_to'] = {}
+    body['granted_to']['application'] = microsoft_graph_identity_application
+    body['granted_to']['device'] = device
+    body['granted_to']['user'] = user
     return client.update_permission(shared_drive_item_id=shared_drive_item_id,
                                     body=body)
 
 
 def files_share_update_root(client,
                             shared_drive_item_id,
-                            body):
+                            content_type,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            audio=None,
+                            content=None,
+                            c_tag=None,
+                            file_system_info=None,
+                            image=None,
+                            location=None,
+                            photo=None,
+                            publication=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            size=None,
+                            video=None,
+                            web_dav_url=None,
+                            analytics=None,
+                            children=None,
+                            permissions=None,
+                            subscriptions=None,
+                            thumbnails=None,
+                            versions=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            sharepoint_ids2=None,
+                            microsoft_graph_item_analytics=None,
+                            drive_item=None,
+                            microsoft_graph_list_item_versions=None,
+                            id2=None,
+                            id3=None,
+                            microsoft_graph_workbook_application=None,
+                            comments=None,
+                            functions=None,
+                            names=None,
+                            operations=None,
+                            tables=None,
+                            worksheets=None,
+                            microsoft_graph_special_folder_name=None,
+                            owner=None,
+                            scope=None,
+                            shared_by=None,
+                            shared_date_time=None,
+                            on_click_telemetry_url=None,
+                            created_by=None,
+                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                            file=None,
+                            microsoft_graph_file_system_info_file_system_info=None,
+                            folder=None,
+                            microsoft_graph_remote_item_id=None,
+                            microsoft_graph_image=None,
+                            last_modified_by=None,
+                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_remote_item_name=None,
+                            package=None,
+                            parent_reference=None,
+                            shared=None,
+                            sharepoint_ids3=None,
+                            integer_size=None,
+                            special_folder=None,
+                            microsoft_graph_video=None,
+                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                            microsoft_graph_remote_item_web_url=None,
+                            queued_date_time=None,
+                            type_=None,
+                            child_count=None,
+                            view=None,
+                            hashes=None,
+                            mime_type=None,
+                            processing_metadata=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_root(shared_drive_item_id=shared_drive_item_id,
                               body=body)
 
@@ -2445,7 +5915,7 @@ def files_share_update_site(client,
                               body=body)
 
 
-def files_shareslist_create_column(client,
+def files_share_list_create_column(client,
                                    shared_drive_item_id,
                                    id_=None,
                                    boolean=None,
@@ -2495,7 +5965,7 @@ def files_shareslist_create_column(client,
                                  body=body)
 
 
-def files_shareslist_create_content_type(client,
+def files_share_list_create_content_type(client,
                                          shared_drive_item_id,
                                          id_=None,
                                          description=None,
@@ -2539,7 +6009,7 @@ def files_shareslist_create_content_type(client,
                                        body=body)
 
 
-def files_shareslist_create_item(client,
+def files_share_list_create_item(client,
                                  shared_drive_item_id,
                                  content_type,
                                  id_=None,
@@ -2608,7 +6078,7 @@ def files_shareslist_create_item(client,
                                body=body)
 
 
-def files_shareslist_create_subscription(client,
+def files_share_list_create_subscription(client,
                                          shared_drive_item_id,
                                          id_=None,
                                          application_id=None,
@@ -2641,7 +6111,7 @@ def files_shareslist_create_subscription(client,
                                        body=body)
 
 
-def files_shareslist_delete_column(client,
+def files_share_list_delete_column(client,
                                    shared_drive_item_id,
                                    column_definition_id,
                                    if_match=None):
@@ -2650,7 +6120,7 @@ def files_shareslist_delete_column(client,
                                  if_match=if_match)
 
 
-def files_shareslist_delete_content_type(client,
+def files_share_list_delete_content_type(client,
                                          shared_drive_item_id,
                                          content_type_id,
                                          if_match=None):
@@ -2659,14 +6129,14 @@ def files_shareslist_delete_content_type(client,
                                        if_match=if_match)
 
 
-def files_shareslist_delete_drive(client,
+def files_share_list_delete_drive(client,
                                   shared_drive_item_id,
                                   if_match=None):
     return client.delete_drive(shared_drive_item_id=shared_drive_item_id,
                                if_match=if_match)
 
 
-def files_shareslist_delete_item(client,
+def files_share_list_delete_item(client,
                                  shared_drive_item_id,
                                  list_item_id,
                                  if_match=None):
@@ -2675,7 +6145,7 @@ def files_shareslist_delete_item(client,
                                if_match=if_match)
 
 
-def files_shareslist_delete_subscription(client,
+def files_share_list_delete_subscription(client,
                                          shared_drive_item_id,
                                          subscription_id,
                                          if_match=None):
@@ -2684,7 +6154,7 @@ def files_shareslist_delete_subscription(client,
                                        if_match=if_match)
 
 
-def files_shareslist_list_column(client,
+def files_share_list_list_column(client,
                                  shared_drive_item_id,
                                  orderby=None,
                                  select=None,
@@ -2695,7 +6165,7 @@ def files_shareslist_list_column(client,
                                expand=expand)
 
 
-def files_shareslist_list_content_type(client,
+def files_share_list_list_content_type(client,
                                        shared_drive_item_id,
                                        orderby=None,
                                        select=None,
@@ -2706,7 +6176,7 @@ def files_shareslist_list_content_type(client,
                                      expand=expand)
 
 
-def files_shareslist_list_item(client,
+def files_share_list_list_item(client,
                                shared_drive_item_id,
                                orderby=None,
                                select=None,
@@ -2717,7 +6187,7 @@ def files_shareslist_list_item(client,
                              expand=expand)
 
 
-def files_shareslist_list_subscription(client,
+def files_share_list_list_subscription(client,
                                        shared_drive_item_id,
                                        orderby=None,
                                        select=None,
@@ -2728,7 +6198,7 @@ def files_shareslist_list_subscription(client,
                                      expand=expand)
 
 
-def files_shareslist_show_column(client,
+def files_share_list_show_column(client,
                                  shared_drive_item_id,
                                  column_definition_id,
                                  select=None,
@@ -2739,7 +6209,7 @@ def files_shareslist_show_column(client,
                               expand=expand)
 
 
-def files_shareslist_show_content_type(client,
+def files_share_list_show_content_type(client,
                                        shared_drive_item_id,
                                        content_type_id,
                                        select=None,
@@ -2750,7 +6220,7 @@ def files_shareslist_show_content_type(client,
                                     expand=expand)
 
 
-def files_shareslist_show_drive(client,
+def files_share_list_show_drive(client,
                                 shared_drive_item_id,
                                 select=None,
                                 expand=None):
@@ -2759,7 +6229,7 @@ def files_shareslist_show_drive(client,
                             expand=expand)
 
 
-def files_shareslist_show_item(client,
+def files_share_list_show_item(client,
                                shared_drive_item_id,
                                list_item_id,
                                select=None,
@@ -2770,7 +6240,7 @@ def files_shareslist_show_item(client,
                             expand=expand)
 
 
-def files_shareslist_show_subscription(client,
+def files_share_list_show_subscription(client,
                                        shared_drive_item_id,
                                        subscription_id,
                                        select=None,
@@ -2781,7 +6251,7 @@ def files_shareslist_show_subscription(client,
                                     expand=expand)
 
 
-def files_shareslist_update_column(client,
+def files_share_list_update_column(client,
                                    shared_drive_item_id,
                                    column_definition_id,
                                    id_=None,
@@ -2833,7 +6303,7 @@ def files_shareslist_update_column(client,
                                  body=body)
 
 
-def files_shareslist_update_content_type(client,
+def files_share_list_update_content_type(client,
                                          shared_drive_item_id,
                                          content_type_id,
                                          id_=None,
@@ -2879,7 +6349,7 @@ def files_shareslist_update_content_type(client,
                                        body=body)
 
 
-def files_shareslist_update_drive(client,
+def files_share_list_update_drive(client,
                                   shared_drive_item_id,
                                   id_=None,
                                   created_date_time=None,
@@ -3037,7 +6507,7 @@ def files_shareslist_update_drive(client,
                                body=body)
 
 
-def files_shareslist_update_item(client,
+def files_share_list_update_item(client,
                                  shared_drive_item_id,
                                  list_item_id,
                                  content_type,
@@ -3108,7 +6578,7 @@ def files_shareslist_update_item(client,
                                body=body)
 
 
-def files_shareslist_update_subscription(client,
+def files_share_list_update_subscription(client,
                                          shared_drive_item_id,
                                          subscription_id,
                                          id_=None,
@@ -3143,11 +6613,11 @@ def files_shareslist_update_subscription(client,
                                        body=body)
 
 
-def files_shareslistcontenttype_create_column_link(client,
-                                                   shared_drive_item_id,
-                                                   content_type_id,
-                                                   id_=None,
-                                                   name=None):
+def files_share_list_content_type_create_column_link(client,
+                                                     shared_drive_item_id,
+                                                     content_type_id,
+                                                     id_=None,
+                                                     name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -3156,23 +6626,23 @@ def files_shareslistcontenttype_create_column_link(client,
                                       body=body)
 
 
-def files_shareslistcontenttype_delete_column_link(client,
-                                                   shared_drive_item_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   if_match=None):
+def files_share_list_content_type_delete_column_link(client,
+                                                     shared_drive_item_id,
+                                                     content_type_id,
+                                                     column_link_id,
+                                                     if_match=None):
     return client.delete_column_links(shared_drive_item_id=shared_drive_item_id,
                                       content_type_id=content_type_id,
                                       column_link_id=column_link_id,
                                       if_match=if_match)
 
 
-def files_shareslistcontenttype_list_column_link(client,
-                                                 shared_drive_item_id,
-                                                 content_type_id,
-                                                 orderby=None,
-                                                 select=None,
-                                                 expand=None):
+def files_share_list_content_type_list_column_link(client,
+                                                   shared_drive_item_id,
+                                                   content_type_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_column_links(shared_drive_item_id=shared_drive_item_id,
                                     content_type_id=content_type_id,
                                     orderby=orderby,
@@ -3180,12 +6650,12 @@ def files_shareslistcontenttype_list_column_link(client,
                                     expand=expand)
 
 
-def files_shareslistcontenttype_show_column_link(client,
-                                                 shared_drive_item_id,
-                                                 content_type_id,
-                                                 column_link_id,
-                                                 select=None,
-                                                 expand=None):
+def files_share_list_content_type_show_column_link(client,
+                                                   shared_drive_item_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   select=None,
+                                                   expand=None):
     return client.get_column_links(shared_drive_item_id=shared_drive_item_id,
                                    content_type_id=content_type_id,
                                    column_link_id=column_link_id,
@@ -3193,12 +6663,12 @@ def files_shareslistcontenttype_show_column_link(client,
                                    expand=expand)
 
 
-def files_shareslistcontenttype_update_column_link(client,
-                                                   shared_drive_item_id,
-                                                   content_type_id,
-                                                   column_link_id,
-                                                   id_=None,
-                                                   name=None):
+def files_share_list_content_type_update_column_link(client,
+                                                     shared_drive_item_id,
+                                                     content_type_id,
+                                                     column_link_id,
+                                                     id_=None,
+                                                     name=None):
     body = {}
     body['id'] = id_
     body['name'] = name
@@ -3208,16 +6678,16 @@ def files_shareslistcontenttype_update_column_link(client,
                                       body=body)
 
 
-def files_shareslistitem_create_version(client,
-                                        shared_drive_item_id,
-                                        list_item_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_share_list_item_create_version(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -3233,50 +6703,50 @@ def files_shareslistitem_create_version(client,
                                   body=body)
 
 
-def files_shareslistitem_delete_drive_item(client,
-                                           shared_drive_item_id,
-                                           list_item_id,
-                                           if_match=None):
+def files_share_list_item_delete_drive_item(client,
+                                            shared_drive_item_id,
+                                            list_item_id,
+                                            if_match=None):
     return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
                                     list_item_id=list_item_id,
                                     if_match=if_match)
 
 
-def files_shareslistitem_delete_field(client,
-                                      shared_drive_item_id,
-                                      list_item_id,
-                                      if_match=None):
+def files_share_list_item_delete_field(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       if_match=None):
     return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
                                 list_item_id=list_item_id,
                                 if_match=if_match)
 
 
-def files_shareslistitem_delete_ref_analytic(client,
-                                             shared_drive_item_id,
-                                             list_item_id,
-                                             if_match=None):
+def files_share_list_item_delete_ref_analytic(client,
+                                              shared_drive_item_id,
+                                              list_item_id,
+                                              if_match=None):
     return client.delete_ref_analytics(shared_drive_item_id=shared_drive_item_id,
                                        list_item_id=list_item_id,
                                        if_match=if_match)
 
 
-def files_shareslistitem_delete_version(client,
-                                        shared_drive_item_id,
-                                        list_item_id,
-                                        list_item_version_id,
-                                        if_match=None):
+def files_share_list_item_delete_version(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         list_item_version_id,
+                                         if_match=None):
     return client.delete_versions(shared_drive_item_id=shared_drive_item_id,
                                   list_item_id=list_item_id,
                                   list_item_version_id=list_item_version_id,
                                   if_match=if_match)
 
 
-def files_shareslistitem_list_version(client,
-                                      shared_drive_item_id,
-                                      list_item_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
+def files_share_list_item_list_version(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
     return client.list_versions(shared_drive_item_id=shared_drive_item_id,
                                 list_item_id=list_item_id,
                                 orderby=orderby,
@@ -3284,21 +6754,21 @@ def files_shareslistitem_list_version(client,
                                 expand=expand)
 
 
-def files_shareslistitem_set_ref_analytic(client,
-                                          shared_drive_item_id,
-                                          list_item_id,
-                                          body):
+def files_share_list_item_set_ref_analytic(client,
+                                           shared_drive_item_id,
+                                           list_item_id,
+                                           body):
     return client.set_ref_analytics(shared_drive_item_id=shared_drive_item_id,
                                     list_item_id=list_item_id,
                                     body=body)
 
 
-def files_shareslistitem_show_activity(client,
-                                       shared_drive_item_id,
-                                       list_item_id,
-                                       start_date_time=None,
-                                       end_date_time=None,
-                                       interval=None):
+def files_share_list_item_show_activity(client,
+                                        shared_drive_item_id,
+                                        list_item_id,
+                                        start_date_time=None,
+                                        end_date_time=None,
+                                        interval=None):
     if shared_drive_item_id is not None and list_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
         return client.get_activities_by_interval53_ee(shared_drive_item_id=shared_drive_item_id,
                                                       list_item_id=list_item_id,
@@ -3309,52 +6779,52 @@ def files_shareslistitem_show_activity(client,
                                                   list_item_id=list_item_id)
 
 
-def files_shareslistitem_show_analytic(client,
-                                       shared_drive_item_id,
-                                       list_item_id,
-                                       select=None,
-                                       expand=None):
+def files_share_list_item_show_analytic(client,
+                                        shared_drive_item_id,
+                                        list_item_id,
+                                        select=None,
+                                        expand=None):
     return client.get_analytics(shared_drive_item_id=shared_drive_item_id,
                                 list_item_id=list_item_id,
                                 select=select,
                                 expand=expand)
 
 
-def files_shareslistitem_show_drive_item(client,
-                                         shared_drive_item_id,
-                                         list_item_id,
-                                         select=None,
-                                         expand=None):
+def files_share_list_item_show_drive_item(client,
+                                          shared_drive_item_id,
+                                          list_item_id,
+                                          select=None,
+                                          expand=None):
     return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
                                  list_item_id=list_item_id,
                                  select=select,
                                  expand=expand)
 
 
-def files_shareslistitem_show_field(client,
-                                    shared_drive_item_id,
-                                    list_item_id,
-                                    select=None,
-                                    expand=None):
+def files_share_list_item_show_field(client,
+                                     shared_drive_item_id,
+                                     list_item_id,
+                                     select=None,
+                                     expand=None):
     return client.get_fields(shared_drive_item_id=shared_drive_item_id,
                              list_item_id=list_item_id,
                              select=select,
                              expand=expand)
 
 
-def files_shareslistitem_show_ref_analytic(client,
-                                           shared_drive_item_id,
-                                           list_item_id):
+def files_share_list_item_show_ref_analytic(client,
+                                            shared_drive_item_id,
+                                            list_item_id):
     return client.get_ref_analytics(shared_drive_item_id=shared_drive_item_id,
                                     list_item_id=list_item_id)
 
 
-def files_shareslistitem_show_version(client,
-                                      shared_drive_item_id,
-                                      list_item_id,
-                                      list_item_version_id,
-                                      select=None,
-                                      expand=None):
+def files_share_list_item_show_version(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       list_item_version_id,
+                                       select=None,
+                                       expand=None):
     return client.get_versions(shared_drive_item_id=shared_drive_item_id,
                                list_item_id=list_item_id,
                                list_item_version_id=list_item_version_id,
@@ -3362,19 +6832,261 @@ def files_shareslistitem_show_version(client,
                                expand=expand)
 
 
-def files_shareslistitem_update_drive_item(client,
-                                           shared_drive_item_id,
-                                           list_item_id,
-                                           body):
+def files_share_list_item_update_drive_item(client,
+                                            shared_drive_item_id,
+                                            list_item_id,
+                                            content_type,
+                                            id_=None,
+                                            created_date_time=None,
+                                            description=None,
+                                            e_tag=None,
+                                            last_modified_date_time=None,
+                                            name=None,
+                                            web_url=None,
+                                            created_by_user=None,
+                                            last_modified_by_user=None,
+                                            drive_id=None,
+                                            drive_type=None,
+                                            microsoft_graph_item_reference_id=None,
+                                            microsoft_graph_item_reference_name=None,
+                                            path=None,
+                                            share_id=None,
+                                            sharepoint_ids=None,
+                                            site_id=None,
+                                            application=None,
+                                            device=None,
+                                            user=None,
+                                            microsoft_graph_identity_application=None,
+                                            microsoft_graph_identity_device=None,
+                                            microsoft_graph_identity_user=None,
+                                            audio=None,
+                                            content=None,
+                                            c_tag=None,
+                                            file_system_info=None,
+                                            image=None,
+                                            location=None,
+                                            photo=None,
+                                            publication=None,
+                                            root=None,
+                                            microsoft_graph_sharepoint_ids=None,
+                                            size=None,
+                                            video=None,
+                                            web_dav_url=None,
+                                            analytics=None,
+                                            children=None,
+                                            permissions=None,
+                                            subscriptions=None,
+                                            thumbnails=None,
+                                            versions=None,
+                                            microsoft_graph_entity_id=None,
+                                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                            microsoft_graph_base_item_description=None,
+                                            microsoft_graph_base_item_e_tag=None,
+                                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_base_item_name=None,
+                                            microsoft_graph_base_item_web_url=None,
+                                            microsoft_graph_user_created_by_user=None,
+                                            microsoft_graph_user_last_modified_by_user=None,
+                                            microsoft_graph_item_reference_drive_id=None,
+                                            microsoft_graph_item_reference_drive_type=None,
+                                            id1=None,
+                                            name1=None,
+                                            microsoft_graph_item_reference_path=None,
+                                            microsoft_graph_item_reference_share_id=None,
+                                            sharepoint_ids1=None,
+                                            microsoft_graph_item_reference_site_id=None,
+                                            application1=None,
+                                            device1=None,
+                                            user1=None,
+                                            application2=None,
+                                            device2=None,
+                                            user2=None,
+                                            sharepoint_ids2=None,
+                                            microsoft_graph_item_analytics=None,
+                                            drive_item=None,
+                                            microsoft_graph_list_item_versions=None,
+                                            id2=None,
+                                            id3=None,
+                                            microsoft_graph_workbook_application=None,
+                                            comments=None,
+                                            functions=None,
+                                            names=None,
+                                            operations=None,
+                                            tables=None,
+                                            worksheets=None,
+                                            microsoft_graph_special_folder_name=None,
+                                            owner=None,
+                                            scope=None,
+                                            shared_by=None,
+                                            shared_date_time=None,
+                                            on_click_telemetry_url=None,
+                                            created_by=None,
+                                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                            file=None,
+                                            microsoft_graph_file_system_info_file_system_info=None,
+                                            folder=None,
+                                            microsoft_graph_remote_item_id=None,
+                                            microsoft_graph_image=None,
+                                            last_modified_by=None,
+                                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_remote_item_name=None,
+                                            package=None,
+                                            parent_reference=None,
+                                            shared=None,
+                                            sharepoint_ids3=None,
+                                            integer_size=None,
+                                            special_folder=None,
+                                            microsoft_graph_video=None,
+                                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                            microsoft_graph_remote_item_web_url=None,
+                                            queued_date_time=None,
+                                            type_=None,
+                                            child_count=None,
+                                            view=None,
+                                            hashes=None,
+                                            mime_type=None,
+                                            processing_metadata=None,
+                                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
                                     list_item_id=list_item_id,
                                     body=body)
 
 
-def files_shareslistitem_update_field(client,
-                                      shared_drive_item_id,
-                                      list_item_id,
-                                      id_=None):
+def files_share_list_item_update_field(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(shared_drive_item_id=shared_drive_item_id,
@@ -3382,17 +7094,17 @@ def files_shareslistitem_update_field(client,
                                 body=body)
 
 
-def files_shareslistitem_update_version(client,
-                                        shared_drive_item_id,
-                                        list_item_id,
-                                        list_item_version_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_share_list_item_update_version(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         list_item_version_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -3409,32 +7121,32 @@ def files_shareslistitem_update_version(client,
                                   body=body)
 
 
-def files_shareslistitemsversion_delete_field(client,
-                                              shared_drive_item_id,
-                                              list_item_id,
-                                              list_item_version_id,
-                                              if_match=None):
+def files_share_list_item_version_delete_field(client,
+                                               shared_drive_item_id,
+                                               list_item_id,
+                                               list_item_version_id,
+                                               if_match=None):
     return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
                                 list_item_id=list_item_id,
                                 list_item_version_id=list_item_version_id,
                                 if_match=if_match)
 
 
-def files_shareslistitemsversion_restore_version(client,
-                                                 shared_drive_item_id,
-                                                 list_item_id,
-                                                 list_item_version_id):
+def files_share_list_item_version_restore_version(client,
+                                                  shared_drive_item_id,
+                                                  list_item_id,
+                                                  list_item_version_id):
     return client.restore_version(shared_drive_item_id=shared_drive_item_id,
                                   list_item_id=list_item_id,
                                   list_item_version_id=list_item_version_id)
 
 
-def files_shareslistitemsversion_show_field(client,
-                                            shared_drive_item_id,
-                                            list_item_id,
-                                            list_item_version_id,
-                                            select=None,
-                                            expand=None):
+def files_share_list_item_version_show_field(client,
+                                             shared_drive_item_id,
+                                             list_item_id,
+                                             list_item_version_id,
+                                             select=None,
+                                             expand=None):
     return client.get_fields(shared_drive_item_id=shared_drive_item_id,
                              list_item_id=list_item_id,
                              list_item_version_id=list_item_version_id,
@@ -3442,11 +7154,11 @@ def files_shareslistitemsversion_show_field(client,
                              expand=expand)
 
 
-def files_shareslistitemsversion_update_field(client,
-                                              shared_drive_item_id,
-                                              list_item_id,
-                                              list_item_version_id,
-                                              id_=None):
+def files_share_list_item_version_update_field(client,
+                                               shared_drive_item_id,
+                                               list_item_id,
+                                               list_item_version_id,
+                                               id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(shared_drive_item_id=shared_drive_item_id,
@@ -3455,15 +7167,15 @@ def files_shareslistitemsversion_update_field(client,
                                 body=body)
 
 
-def files_shareslistitem_create_version(client,
-                                        shared_drive_item_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_share_list_item_create_version(client,
+                                         shared_drive_item_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -3478,59 +7190,59 @@ def files_shareslistitem_create_version(client,
                                   body=body)
 
 
-def files_shareslistitem_delete_drive_item(client,
-                                           shared_drive_item_id,
-                                           if_match=None):
+def files_share_list_item_delete_drive_item(client,
+                                            shared_drive_item_id,
+                                            if_match=None):
     return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
                                     if_match=if_match)
 
 
-def files_shareslistitem_delete_field(client,
-                                      shared_drive_item_id,
-                                      if_match=None):
+def files_share_list_item_delete_field(client,
+                                       shared_drive_item_id,
+                                       if_match=None):
     return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
                                 if_match=if_match)
 
 
-def files_shareslistitem_delete_ref_analytic(client,
-                                             shared_drive_item_id,
-                                             if_match=None):
+def files_share_list_item_delete_ref_analytic(client,
+                                              shared_drive_item_id,
+                                              if_match=None):
     return client.delete_ref_analytics(shared_drive_item_id=shared_drive_item_id,
                                        if_match=if_match)
 
 
-def files_shareslistitem_delete_version(client,
-                                        shared_drive_item_id,
-                                        list_item_version_id,
-                                        if_match=None):
+def files_share_list_item_delete_version(client,
+                                         shared_drive_item_id,
+                                         list_item_version_id,
+                                         if_match=None):
     return client.delete_versions(shared_drive_item_id=shared_drive_item_id,
                                   list_item_version_id=list_item_version_id,
                                   if_match=if_match)
 
 
-def files_shareslistitem_list_version(client,
-                                      shared_drive_item_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
+def files_share_list_item_list_version(client,
+                                       shared_drive_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
     return client.list_versions(shared_drive_item_id=shared_drive_item_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def files_shareslistitem_set_ref_analytic(client,
-                                          shared_drive_item_id,
-                                          body):
+def files_share_list_item_set_ref_analytic(client,
+                                           shared_drive_item_id,
+                                           body):
     return client.set_ref_analytics(shared_drive_item_id=shared_drive_item_id,
                                     body=body)
 
 
-def files_shareslistitem_show_activity(client,
-                                       shared_drive_item_id,
-                                       start_date_time=None,
-                                       end_date_time=None,
-                                       interval=None):
+def files_share_list_item_show_activity(client,
+                                        shared_drive_item_id,
+                                        start_date_time=None,
+                                        end_date_time=None,
+                                        interval=None):
     if shared_drive_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
         return client.get_activities_by_interval53_ee(shared_drive_item_id=shared_drive_item_id,
                                                       start_date_time=start_date_time,
@@ -3539,75 +7251,317 @@ def files_shareslistitem_show_activity(client,
     return client.get_activities_by_interval96_b0(shared_drive_item_id=shared_drive_item_id)
 
 
-def files_shareslistitem_show_analytic(client,
-                                       shared_drive_item_id,
-                                       select=None,
-                                       expand=None):
+def files_share_list_item_show_analytic(client,
+                                        shared_drive_item_id,
+                                        select=None,
+                                        expand=None):
     return client.get_analytics(shared_drive_item_id=shared_drive_item_id,
                                 select=select,
                                 expand=expand)
 
 
-def files_shareslistitem_show_drive_item(client,
-                                         shared_drive_item_id,
-                                         select=None,
-                                         expand=None):
+def files_share_list_item_show_drive_item(client,
+                                          shared_drive_item_id,
+                                          select=None,
+                                          expand=None):
     return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
                                  select=select,
                                  expand=expand)
 
 
-def files_shareslistitem_show_field(client,
-                                    shared_drive_item_id,
-                                    select=None,
-                                    expand=None):
+def files_share_list_item_show_field(client,
+                                     shared_drive_item_id,
+                                     select=None,
+                                     expand=None):
     return client.get_fields(shared_drive_item_id=shared_drive_item_id,
                              select=select,
                              expand=expand)
 
 
-def files_shareslistitem_show_ref_analytic(client,
-                                           shared_drive_item_id):
+def files_share_list_item_show_ref_analytic(client,
+                                            shared_drive_item_id):
     return client.get_ref_analytics(shared_drive_item_id=shared_drive_item_id)
 
 
-def files_shareslistitem_show_version(client,
-                                      shared_drive_item_id,
-                                      list_item_version_id,
-                                      select=None,
-                                      expand=None):
+def files_share_list_item_show_version(client,
+                                       shared_drive_item_id,
+                                       list_item_version_id,
+                                       select=None,
+                                       expand=None):
     return client.get_versions(shared_drive_item_id=shared_drive_item_id,
                                list_item_version_id=list_item_version_id,
                                select=select,
                                expand=expand)
 
 
-def files_shareslistitem_update_drive_item(client,
-                                           shared_drive_item_id,
-                                           body):
+def files_share_list_item_update_drive_item(client,
+                                            shared_drive_item_id,
+                                            content_type,
+                                            id_=None,
+                                            created_date_time=None,
+                                            description=None,
+                                            e_tag=None,
+                                            last_modified_date_time=None,
+                                            name=None,
+                                            web_url=None,
+                                            created_by_user=None,
+                                            last_modified_by_user=None,
+                                            drive_id=None,
+                                            drive_type=None,
+                                            microsoft_graph_item_reference_id=None,
+                                            microsoft_graph_item_reference_name=None,
+                                            path=None,
+                                            share_id=None,
+                                            sharepoint_ids=None,
+                                            site_id=None,
+                                            application=None,
+                                            device=None,
+                                            user=None,
+                                            microsoft_graph_identity_application=None,
+                                            microsoft_graph_identity_device=None,
+                                            microsoft_graph_identity_user=None,
+                                            audio=None,
+                                            content=None,
+                                            c_tag=None,
+                                            file_system_info=None,
+                                            image=None,
+                                            location=None,
+                                            photo=None,
+                                            publication=None,
+                                            root=None,
+                                            microsoft_graph_sharepoint_ids=None,
+                                            size=None,
+                                            video=None,
+                                            web_dav_url=None,
+                                            analytics=None,
+                                            children=None,
+                                            permissions=None,
+                                            subscriptions=None,
+                                            thumbnails=None,
+                                            versions=None,
+                                            microsoft_graph_entity_id=None,
+                                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                            microsoft_graph_base_item_description=None,
+                                            microsoft_graph_base_item_e_tag=None,
+                                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_base_item_name=None,
+                                            microsoft_graph_base_item_web_url=None,
+                                            microsoft_graph_user_created_by_user=None,
+                                            microsoft_graph_user_last_modified_by_user=None,
+                                            microsoft_graph_item_reference_drive_id=None,
+                                            microsoft_graph_item_reference_drive_type=None,
+                                            id1=None,
+                                            name1=None,
+                                            microsoft_graph_item_reference_path=None,
+                                            microsoft_graph_item_reference_share_id=None,
+                                            sharepoint_ids1=None,
+                                            microsoft_graph_item_reference_site_id=None,
+                                            application1=None,
+                                            device1=None,
+                                            user1=None,
+                                            application2=None,
+                                            device2=None,
+                                            user2=None,
+                                            sharepoint_ids2=None,
+                                            microsoft_graph_item_analytics=None,
+                                            drive_item=None,
+                                            microsoft_graph_list_item_versions=None,
+                                            id2=None,
+                                            id3=None,
+                                            microsoft_graph_workbook_application=None,
+                                            comments=None,
+                                            functions=None,
+                                            names=None,
+                                            operations=None,
+                                            tables=None,
+                                            worksheets=None,
+                                            microsoft_graph_special_folder_name=None,
+                                            owner=None,
+                                            scope=None,
+                                            shared_by=None,
+                                            shared_date_time=None,
+                                            on_click_telemetry_url=None,
+                                            created_by=None,
+                                            microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                            file=None,
+                                            microsoft_graph_file_system_info_file_system_info=None,
+                                            folder=None,
+                                            microsoft_graph_remote_item_id=None,
+                                            microsoft_graph_image=None,
+                                            last_modified_by=None,
+                                            microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                            microsoft_graph_remote_item_name=None,
+                                            package=None,
+                                            parent_reference=None,
+                                            shared=None,
+                                            sharepoint_ids3=None,
+                                            integer_size=None,
+                                            special_folder=None,
+                                            microsoft_graph_video=None,
+                                            microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                            microsoft_graph_remote_item_web_url=None,
+                                            queued_date_time=None,
+                                            type_=None,
+                                            child_count=None,
+                                            view=None,
+                                            hashes=None,
+                                            mime_type=None,
+                                            processing_metadata=None,
+                                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['analytics'] = analytics
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = microsoft_graph_item_analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['list_item']['fields'] = {}
+    body['list_item']['fields']['id'] = id2
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
     return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
                                     body=body)
 
 
-def files_shareslistitem_update_field(client,
-                                      shared_drive_item_id,
-                                      id_=None):
+def files_share_list_item_update_field(client,
+                                       shared_drive_item_id,
+                                       id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(shared_drive_item_id=shared_drive_item_id,
                                 body=body)
 
 
-def files_shareslistitem_update_version(client,
-                                        shared_drive_item_id,
-                                        list_item_version_id,
-                                        id_=None,
-                                        last_modified_date_time=None,
-                                        publication=None,
-                                        application=None,
-                                        device=None,
-                                        user=None,
-                                        microsoft_graph_entity_id=None):
+def files_share_list_item_update_version(client,
+                                         shared_drive_item_id,
+                                         list_item_version_id,
+                                         id_=None,
+                                         last_modified_date_time=None,
+                                         publication=None,
+                                         application=None,
+                                         device=None,
+                                         user=None,
+                                         microsoft_graph_entity_id=None):
     body = {}
     body['id'] = id_
     body['last_modified_date_time'] = last_modified_date_time
@@ -3623,37 +7577,37 @@ def files_shareslistitem_update_version(client,
                                   body=body)
 
 
-def files_shareslistitemversion_delete_field(client,
-                                             shared_drive_item_id,
-                                             list_item_version_id,
-                                             if_match=None):
+def files_share_list_item_version_delete_field(client,
+                                               shared_drive_item_id,
+                                               list_item_version_id,
+                                               if_match=None):
     return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
                                 list_item_version_id=list_item_version_id,
                                 if_match=if_match)
 
 
-def files_shareslistitemversion_restore_version(client,
-                                                shared_drive_item_id,
-                                                list_item_version_id):
+def files_share_list_item_version_restore_version(client,
+                                                  shared_drive_item_id,
+                                                  list_item_version_id):
     return client.restore_version(shared_drive_item_id=shared_drive_item_id,
                                   list_item_version_id=list_item_version_id)
 
 
-def files_shareslistitemversion_show_field(client,
-                                           shared_drive_item_id,
-                                           list_item_version_id,
-                                           select=None,
-                                           expand=None):
+def files_share_list_item_version_show_field(client,
+                                             shared_drive_item_id,
+                                             list_item_version_id,
+                                             select=None,
+                                             expand=None):
     return client.get_fields(shared_drive_item_id=shared_drive_item_id,
                              list_item_version_id=list_item_version_id,
                              select=select,
                              expand=expand)
 
 
-def files_shareslistitemversion_update_field(client,
-                                             shared_drive_item_id,
-                                             list_item_version_id,
-                                             id_=None):
+def files_share_list_item_version_update_field(client,
+                                               shared_drive_item_id,
+                                               list_item_version_id,
+                                               id_=None):
     body = {}
     body['id'] = id_
     return client.update_fields(shared_drive_item_id=shared_drive_item_id,
@@ -3661,7 +7615,7 @@ def files_shareslistitemversion_update_field(client,
                                 body=body)
 
 
-def files_sharespermission_grant(client,
+def files_share_permission_grant(client,
                                  shared_drive_item_id,
                                  roles=None,
                                  recipients=None):

@@ -11,14 +11,14 @@
 # pylint: disable=too-many-lines
 
 
-def identitysignins_datapolicyoperationsdatapolicyoperation_create_data_policy_operation(client,
-                                                                                         id_=None,
-                                                                                         completed_date_time=None,
-                                                                                         progress=None,
-                                                                                         status=None,
-                                                                                         storage_location=None,
-                                                                                         submitted_date_time=None,
-                                                                                         user_id=None):
+def identitysignins_data_policy_operation_data_policy_operation_create_data_policy_operation(client,
+                                                                                             id_=None,
+                                                                                             completed_date_time=None,
+                                                                                             progress=None,
+                                                                                             status=None,
+                                                                                             storage_location=None,
+                                                                                             submitted_date_time=None,
+                                                                                             user_id=None):
     body = {}
     body['id'] = id_
     body['completed_date_time'] = completed_date_time
@@ -30,40 +30,40 @@ def identitysignins_datapolicyoperationsdatapolicyoperation_create_data_policy_o
     return client.create_data_policy_operation(body=body)
 
 
-def identitysignins_datapolicyoperationsdatapolicyoperation_delete_data_policy_operation(client,
-                                                                                         data_policy_operation_id,
-                                                                                         if_match=None):
+def identitysignins_data_policy_operation_data_policy_operation_delete_data_policy_operation(client,
+                                                                                             data_policy_operation_id,
+                                                                                             if_match=None):
     return client.delete_data_policy_operation(data_policy_operation_id=data_policy_operation_id,
                                                if_match=if_match)
 
 
-def identitysignins_datapolicyoperationsdatapolicyoperation_list_data_policy_operation(client,
-                                                                                       orderby=None,
-                                                                                       select=None,
-                                                                                       expand=None):
+def identitysignins_data_policy_operation_data_policy_operation_list_data_policy_operation(client,
+                                                                                           orderby=None,
+                                                                                           select=None,
+                                                                                           expand=None):
     return client.list_data_policy_operation(orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def identitysignins_datapolicyoperationsdatapolicyoperation_show_data_policy_operation(client,
-                                                                                       data_policy_operation_id,
-                                                                                       select=None,
-                                                                                       expand=None):
+def identitysignins_data_policy_operation_data_policy_operation_show_data_policy_operation(client,
+                                                                                           data_policy_operation_id,
+                                                                                           select=None,
+                                                                                           expand=None):
     return client.get_data_policy_operation(data_policy_operation_id=data_policy_operation_id,
                                             select=select,
                                             expand=expand)
 
 
-def identitysignins_datapolicyoperationsdatapolicyoperation_update_data_policy_operation(client,
-                                                                                         data_policy_operation_id,
-                                                                                         id_=None,
-                                                                                         completed_date_time=None,
-                                                                                         progress=None,
-                                                                                         status=None,
-                                                                                         storage_location=None,
-                                                                                         submitted_date_time=None,
-                                                                                         user_id=None):
+def identitysignins_data_policy_operation_data_policy_operation_update_data_policy_operation(client,
+                                                                                             data_policy_operation_id,
+                                                                                             id_=None,
+                                                                                             completed_date_time=None,
+                                                                                             progress=None,
+                                                                                             status=None,
+                                                                                             storage_location=None,
+                                                                                             submitted_date_time=None,
+                                                                                             user_id=None):
     body = {}
     body['id'] = id_
     body['completed_date_time'] = completed_date_time
@@ -99,11 +99,11 @@ def identitysignins_identity_update_conditional_access(client,
     return client.update_conditional_access(body=body)
 
 
-def identitysignins_identityconditionalaccess_create_named_location(client,
-                                                                    id_=None,
-                                                                    created_date_time=None,
-                                                                    display_name=None,
-                                                                    modified_date_time=None):
+def identitysignins_identity_conditional_access_create_named_location(client,
+                                                                      id_=None,
+                                                                      created_date_time=None,
+                                                                      display_name=None,
+                                                                      modified_date_time=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -112,24 +112,24 @@ def identitysignins_identityconditionalaccess_create_named_location(client,
     return client.create_named_locations(body=body)
 
 
-def identitysignins_identityconditionalaccess_create_policy(client,
-                                                            id_=None,
-                                                            created_date_time=None,
-                                                            description=None,
-                                                            display_name=None,
-                                                            grant_controls=None,
-                                                            modified_date_time=None,
-                                                            state=None,
-                                                            application_enforced_restrictions=None,
-                                                            cloud_app_security=None,
-                                                            persistent_browser=None,
-                                                            sign_in_frequency=None,
-                                                            applications=None,
-                                                            client_app_types=None,
-                                                            locations=None,
-                                                            platforms=None,
-                                                            sign_in_risk_levels=None,
-                                                            users=None):
+def identitysignins_identity_conditional_access_create_policy(client,
+                                                              id_=None,
+                                                              created_date_time=None,
+                                                              description=None,
+                                                              display_name=None,
+                                                              grant_controls=None,
+                                                              modified_date_time=None,
+                                                              state=None,
+                                                              application_enforced_restrictions=None,
+                                                              cloud_app_security=None,
+                                                              persistent_browser=None,
+                                                              sign_in_frequency=None,
+                                                              applications=None,
+                                                              client_app_types=None,
+                                                              locations=None,
+                                                              platforms=None,
+                                                              sign_in_risk_levels=None,
+                                                              users=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -153,62 +153,62 @@ def identitysignins_identityconditionalaccess_create_policy(client,
     return client.create_policies(body=body)
 
 
-def identitysignins_identityconditionalaccess_delete_named_location(client,
-                                                                    named_location_id,
-                                                                    if_match=None):
+def identitysignins_identity_conditional_access_delete_named_location(client,
+                                                                      named_location_id,
+                                                                      if_match=None):
     return client.delete_named_locations(named_location_id=named_location_id,
                                          if_match=if_match)
 
 
-def identitysignins_identityconditionalaccess_delete_policy(client,
-                                                            conditional_access_policy_id,
-                                                            if_match=None):
+def identitysignins_identity_conditional_access_delete_policy(client,
+                                                              conditional_access_policy_id,
+                                                              if_match=None):
     return client.delete_policies(conditional_access_policy_id=conditional_access_policy_id,
                                   if_match=if_match)
 
 
-def identitysignins_identityconditionalaccess_list_named_location(client,
-                                                                  orderby=None,
-                                                                  select=None,
-                                                                  expand=None):
+def identitysignins_identity_conditional_access_list_named_location(client,
+                                                                    orderby=None,
+                                                                    select=None,
+                                                                    expand=None):
     return client.list_named_locations(orderby=orderby,
                                        select=select,
                                        expand=expand)
 
 
-def identitysignins_identityconditionalaccess_list_policy(client,
-                                                          orderby=None,
-                                                          select=None,
-                                                          expand=None):
+def identitysignins_identity_conditional_access_list_policy(client,
+                                                            orderby=None,
+                                                            select=None,
+                                                            expand=None):
     return client.list_policies(orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def identitysignins_identityconditionalaccess_show_named_location(client,
-                                                                  named_location_id,
-                                                                  select=None,
-                                                                  expand=None):
+def identitysignins_identity_conditional_access_show_named_location(client,
+                                                                    named_location_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_named_locations(named_location_id=named_location_id,
                                       select=select,
                                       expand=expand)
 
 
-def identitysignins_identityconditionalaccess_show_policy(client,
-                                                          conditional_access_policy_id,
-                                                          select=None,
-                                                          expand=None):
+def identitysignins_identity_conditional_access_show_policy(client,
+                                                            conditional_access_policy_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_policies(conditional_access_policy_id=conditional_access_policy_id,
                                select=select,
                                expand=expand)
 
 
-def identitysignins_identityconditionalaccess_update_named_location(client,
-                                                                    named_location_id,
-                                                                    id_=None,
-                                                                    created_date_time=None,
-                                                                    display_name=None,
-                                                                    modified_date_time=None):
+def identitysignins_identity_conditional_access_update_named_location(client,
+                                                                      named_location_id,
+                                                                      id_=None,
+                                                                      created_date_time=None,
+                                                                      display_name=None,
+                                                                      modified_date_time=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -218,25 +218,25 @@ def identitysignins_identityconditionalaccess_update_named_location(client,
                                          body=body)
 
 
-def identitysignins_identityconditionalaccess_update_policy(client,
-                                                            conditional_access_policy_id,
-                                                            id_=None,
-                                                            created_date_time=None,
-                                                            description=None,
-                                                            display_name=None,
-                                                            grant_controls=None,
-                                                            modified_date_time=None,
-                                                            state=None,
-                                                            application_enforced_restrictions=None,
-                                                            cloud_app_security=None,
-                                                            persistent_browser=None,
-                                                            sign_in_frequency=None,
-                                                            applications=None,
-                                                            client_app_types=None,
-                                                            locations=None,
-                                                            platforms=None,
-                                                            sign_in_risk_levels=None,
-                                                            users=None):
+def identitysignins_identity_conditional_access_update_policy(client,
+                                                              conditional_access_policy_id,
+                                                              id_=None,
+                                                              created_date_time=None,
+                                                              description=None,
+                                                              display_name=None,
+                                                              grant_controls=None,
+                                                              modified_date_time=None,
+                                                              state=None,
+                                                              application_enforced_restrictions=None,
+                                                              cloud_app_security=None,
+                                                              persistent_browser=None,
+                                                              sign_in_frequency=None,
+                                                              applications=None,
+                                                              client_app_types=None,
+                                                              locations=None,
+                                                              platforms=None,
+                                                              sign_in_risk_levels=None,
+                                                              users=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -261,12 +261,12 @@ def identitysignins_identityconditionalaccess_update_policy(client,
                                   body=body)
 
 
-def identitysignins_identityprovidersidentityprovider_create_identity_provider(client,
-                                                                               id_=None,
-                                                                               client_id=None,
-                                                                               client_secret=None,
-                                                                               name=None,
-                                                                               type_=None):
+def identitysignins_identity_provider_identity_provider_create_identity_provider(client,
+                                                                                 id_=None,
+                                                                                 client_id=None,
+                                                                                 client_secret=None,
+                                                                                 name=None,
+                                                                                 type_=None):
     body = {}
     body['id'] = id_
     body['client_id'] = client_id
@@ -276,38 +276,38 @@ def identitysignins_identityprovidersidentityprovider_create_identity_provider(c
     return client.create_identity_provider(body=body)
 
 
-def identitysignins_identityprovidersidentityprovider_delete_identity_provider(client,
-                                                                               identity_provider_id,
-                                                                               if_match=None):
+def identitysignins_identity_provider_identity_provider_delete_identity_provider(client,
+                                                                                 identity_provider_id,
+                                                                                 if_match=None):
     return client.delete_identity_provider(identity_provider_id=identity_provider_id,
                                            if_match=if_match)
 
 
-def identitysignins_identityprovidersidentityprovider_list_identity_provider(client,
-                                                                             orderby=None,
-                                                                             select=None,
-                                                                             expand=None):
+def identitysignins_identity_provider_identity_provider_list_identity_provider(client,
+                                                                               orderby=None,
+                                                                               select=None,
+                                                                               expand=None):
     return client.list_identity_provider(orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def identitysignins_identityprovidersidentityprovider_show_identity_provider(client,
-                                                                             identity_provider_id,
-                                                                             select=None,
-                                                                             expand=None):
+def identitysignins_identity_provider_identity_provider_show_identity_provider(client,
+                                                                               identity_provider_id,
+                                                                               select=None,
+                                                                               expand=None):
     return client.get_identity_provider(identity_provider_id=identity_provider_id,
                                         select=select,
                                         expand=expand)
 
 
-def identitysignins_identityprovidersidentityprovider_update_identity_provider(client,
-                                                                               identity_provider_id,
-                                                                               id_=None,
-                                                                               client_id=None,
-                                                                               client_secret=None,
-                                                                               name=None,
-                                                                               type_=None):
+def identitysignins_identity_provider_identity_provider_update_identity_provider(client,
+                                                                                 identity_provider_id,
+                                                                                 id_=None,
+                                                                                 client_id=None,
+                                                                                 client_secret=None,
+                                                                                 name=None,
+                                                                                 type_=None):
     body = {}
     body['id'] = id_
     body['client_id'] = client_id
@@ -318,34 +318,34 @@ def identitysignins_identityprovidersidentityprovider_update_identity_provider(c
                                            body=body)
 
 
-def identitysignins_informationprotection_show_information_protection(client,
-                                                                      select=None,
-                                                                      expand=None):
+def identitysignins_information_protection_information_protection_show_information_protection(client,
+                                                                                              select=None,
+                                                                                              expand=None):
     return client.get_information_protection(select=select,
                                              expand=expand)
 
 
-def identitysignins_informationprotection_update_information_protection(client,
-                                                                        id_=None,
-                                                                        threat_assessment_requests=None):
+def identitysignins_information_protection_information_protection_update_information_protection(client,
+                                                                                                id_=None,
+                                                                                                threat_assessment_requests=None):
     body = {}
     body['id'] = id_
     body['threat_assessment_requests'] = threat_assessment_requests
     return client.update_information_protection(body=body)
 
 
-def identitysignins_informationprotection_create_threat_assessment_request(client,
-                                                                           content_type,
-                                                                           id_=None,
-                                                                           category=None,
-                                                                           created_date_time=None,
-                                                                           expected_assessment=None,
-                                                                           request_source=None,
-                                                                           status=None,
-                                                                           results=None,
-                                                                           application=None,
-                                                                           device=None,
-                                                                           user=None):
+def identitysignins_information_protection_create_threat_assessment_request(client,
+                                                                            content_type,
+                                                                            id_=None,
+                                                                            category=None,
+                                                                            created_date_time=None,
+                                                                            expected_assessment=None,
+                                                                            request_source=None,
+                                                                            status=None,
+                                                                            results=None,
+                                                                            application=None,
+                                                                            device=None,
+                                                                            user=None):
     body = {}
     body['id'] = id_
     body['category'] = category
@@ -362,44 +362,44 @@ def identitysignins_informationprotection_create_threat_assessment_request(clien
     return client.create_threat_assessment_requests(body=body)
 
 
-def identitysignins_informationprotection_delete_threat_assessment_request(client,
-                                                                           threat_assessment_request_id,
-                                                                           if_match=None):
+def identitysignins_information_protection_delete_threat_assessment_request(client,
+                                                                            threat_assessment_request_id,
+                                                                            if_match=None):
     return client.delete_threat_assessment_requests(threat_assessment_request_id=threat_assessment_request_id,
                                                     if_match=if_match)
 
 
-def identitysignins_informationprotection_list_threat_assessment_request(client,
-                                                                         orderby=None,
-                                                                         select=None,
-                                                                         expand=None):
+def identitysignins_information_protection_list_threat_assessment_request(client,
+                                                                          orderby=None,
+                                                                          select=None,
+                                                                          expand=None):
     return client.list_threat_assessment_requests(orderby=orderby,
                                                   select=select,
                                                   expand=expand)
 
 
-def identitysignins_informationprotection_show_threat_assessment_request(client,
-                                                                         threat_assessment_request_id,
-                                                                         select=None,
-                                                                         expand=None):
+def identitysignins_information_protection_show_threat_assessment_request(client,
+                                                                          threat_assessment_request_id,
+                                                                          select=None,
+                                                                          expand=None):
     return client.get_threat_assessment_requests(threat_assessment_request_id=threat_assessment_request_id,
                                                  select=select,
                                                  expand=expand)
 
 
-def identitysignins_informationprotection_update_threat_assessment_request(client,
-                                                                           threat_assessment_request_id,
-                                                                           content_type,
-                                                                           id_=None,
-                                                                           category=None,
-                                                                           created_date_time=None,
-                                                                           expected_assessment=None,
-                                                                           request_source=None,
-                                                                           status=None,
-                                                                           results=None,
-                                                                           application=None,
-                                                                           device=None,
-                                                                           user=None):
+def identitysignins_information_protection_update_threat_assessment_request(client,
+                                                                            threat_assessment_request_id,
+                                                                            content_type,
+                                                                            id_=None,
+                                                                            category=None,
+                                                                            created_date_time=None,
+                                                                            expected_assessment=None,
+                                                                            request_source=None,
+                                                                            status=None,
+                                                                            results=None,
+                                                                            application=None,
+                                                                            device=None,
+                                                                            user=None):
     body = {}
     body['id'] = id_
     body['category'] = category
@@ -417,12 +417,12 @@ def identitysignins_informationprotection_update_threat_assessment_request(clien
                                                     body=body)
 
 
-def identitysignins_informationprotectionthreatassessmentrequest_create_result(client,
-                                                                               threat_assessment_request_id,
-                                                                               id_=None,
-                                                                               created_date_time=None,
-                                                                               message=None,
-                                                                               result_type=None):
+def identitysignins_information_protection_threat_assessment_request_create_result(client,
+                                                                                   threat_assessment_request_id,
+                                                                                   id_=None,
+                                                                                   created_date_time=None,
+                                                                                   message=None,
+                                                                                   result_type=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -432,44 +432,44 @@ def identitysignins_informationprotectionthreatassessmentrequest_create_result(c
                                  body=body)
 
 
-def identitysignins_informationprotectionthreatassessmentrequest_delete_result(client,
-                                                                               threat_assessment_request_id,
-                                                                               threat_assessment_result_id,
-                                                                               if_match=None):
+def identitysignins_information_protection_threat_assessment_request_delete_result(client,
+                                                                                   threat_assessment_request_id,
+                                                                                   threat_assessment_result_id,
+                                                                                   if_match=None):
     return client.delete_results(threat_assessment_request_id=threat_assessment_request_id,
                                  threat_assessment_result_id=threat_assessment_result_id,
                                  if_match=if_match)
 
 
-def identitysignins_informationprotectionthreatassessmentrequest_list_result(client,
-                                                                             threat_assessment_request_id,
-                                                                             orderby=None,
-                                                                             select=None,
-                                                                             expand=None):
+def identitysignins_information_protection_threat_assessment_request_list_result(client,
+                                                                                 threat_assessment_request_id,
+                                                                                 orderby=None,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.list_results(threat_assessment_request_id=threat_assessment_request_id,
                                orderby=orderby,
                                select=select,
                                expand=expand)
 
 
-def identitysignins_informationprotectionthreatassessmentrequest_show_result(client,
-                                                                             threat_assessment_request_id,
-                                                                             threat_assessment_result_id,
-                                                                             select=None,
-                                                                             expand=None):
+def identitysignins_information_protection_threat_assessment_request_show_result(client,
+                                                                                 threat_assessment_request_id,
+                                                                                 threat_assessment_result_id,
+                                                                                 select=None,
+                                                                                 expand=None):
     return client.get_results(threat_assessment_request_id=threat_assessment_request_id,
                               threat_assessment_result_id=threat_assessment_result_id,
                               select=select,
                               expand=expand)
 
 
-def identitysignins_informationprotectionthreatassessmentrequest_update_result(client,
-                                                                               threat_assessment_request_id,
-                                                                               threat_assessment_result_id,
-                                                                               id_=None,
-                                                                               created_date_time=None,
-                                                                               message=None,
-                                                                               result_type=None):
+def identitysignins_information_protection_threat_assessment_request_update_result(client,
+                                                                                   threat_assessment_request_id,
+                                                                                   threat_assessment_result_id,
+                                                                                   id_=None,
+                                                                                   created_date_time=None,
+                                                                                   message=None,
+                                                                                   result_type=None):
     body = {}
     body['id'] = id_
     body['created_date_time'] = created_date_time
@@ -480,7 +480,7 @@ def identitysignins_informationprotectionthreatassessmentrequest_update_result(c
                                  body=body)
 
 
-def identitysignins_invitationsinvitation_create_invitation(client,
+def identitysignins_invitation_invitation_create_invitation(client,
                                                             id_=None,
                                                             invited_user_display_name=None,
                                                             invited_user_email_address=None,
@@ -510,14 +510,14 @@ def identitysignins_invitationsinvitation_create_invitation(client,
     return client.create_invitation(body=body)
 
 
-def identitysignins_invitationsinvitation_delete_invitation(client,
+def identitysignins_invitation_invitation_delete_invitation(client,
                                                             invitation_id,
                                                             if_match=None):
     return client.delete_invitation(invitation_id=invitation_id,
                                     if_match=if_match)
 
 
-def identitysignins_invitationsinvitation_list_invitation(client,
+def identitysignins_invitation_invitation_list_invitation(client,
                                                           orderby=None,
                                                           select=None,
                                                           expand=None):
@@ -526,7 +526,7 @@ def identitysignins_invitationsinvitation_list_invitation(client,
                                   expand=expand)
 
 
-def identitysignins_invitationsinvitation_show_invitation(client,
+def identitysignins_invitation_invitation_show_invitation(client,
                                                           invitation_id,
                                                           select=None,
                                                           expand=None):
@@ -535,7 +535,7 @@ def identitysignins_invitationsinvitation_show_invitation(client,
                                  expand=expand)
 
 
-def identitysignins_invitationsinvitation_update_invitation(client,
+def identitysignins_invitation_invitation_update_invitation(client,
                                                             invitation_id,
                                                             id_=None,
                                                             invited_user_display_name=None,
@@ -595,13 +595,13 @@ def identitysignins_invitation_show_ref_invited_user(client,
     return client.get_ref_invited_user(invitation_id=invitation_id)
 
 
-def identitysignins_oauth2permissiongrantsoauth2permissiongrant_create_o_auth2_permission_grant(client,
-                                                                                                id_=None,
-                                                                                                client_id=None,
-                                                                                                consent_type=None,
-                                                                                                principal_id=None,
-                                                                                                resource_id=None,
-                                                                                                scope=None):
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_create_o_auth2_permission_grant(client,
+                                                                                                     id_=None,
+                                                                                                     client_id=None,
+                                                                                                     consent_type=None,
+                                                                                                     principal_id=None,
+                                                                                                     resource_id=None,
+                                                                                                     scope=None):
     body = {}
     body['id'] = id_
     body['client_id'] = client_id
@@ -612,39 +612,39 @@ def identitysignins_oauth2permissiongrantsoauth2permissiongrant_create_o_auth2_p
     return client.create_o_auth2_permission_grant(body=body)
 
 
-def identitysignins_oauth2permissiongrantsoauth2permissiongrant_delete_o_auth2_permission_grant(client,
-                                                                                                o_auth2_permission_grant_id,
-                                                                                                if_match=None):
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_delete_o_auth2_permission_grant(client,
+                                                                                                     o_auth2_permission_grant_id,
+                                                                                                     if_match=None):
     return client.delete_o_auth2_permission_grant(o_auth2_permission_grant_id=o_auth2_permission_grant_id,
                                                   if_match=if_match)
 
 
-def identitysignins_oauth2permissiongrantsoauth2permissiongrant_list_o_auth2_permission_grant(client,
-                                                                                              orderby=None,
-                                                                                              select=None,
-                                                                                              expand=None):
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_list_o_auth2_permission_grant(client,
+                                                                                                   orderby=None,
+                                                                                                   select=None,
+                                                                                                   expand=None):
     return client.list_o_auth2_permission_grant(orderby=orderby,
                                                 select=select,
                                                 expand=expand)
 
 
-def identitysignins_oauth2permissiongrantsoauth2permissiongrant_show_o_auth2_permission_grant(client,
-                                                                                              o_auth2_permission_grant_id,
-                                                                                              select=None,
-                                                                                              expand=None):
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_show_o_auth2_permission_grant(client,
+                                                                                                   o_auth2_permission_grant_id,
+                                                                                                   select=None,
+                                                                                                   expand=None):
     return client.get_o_auth2_permission_grant(o_auth2_permission_grant_id=o_auth2_permission_grant_id,
                                                select=select,
                                                expand=expand)
 
 
-def identitysignins_oauth2permissiongrantsoauth2permissiongrant_update_o_auth2_permission_grant(client,
-                                                                                                o_auth2_permission_grant_id,
-                                                                                                id_=None,
-                                                                                                client_id=None,
-                                                                                                consent_type=None,
-                                                                                                principal_id=None,
-                                                                                                resource_id=None,
-                                                                                                scope=None):
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_update_o_auth2_permission_grant(client,
+                                                                                                     o_auth2_permission_grant_id,
+                                                                                                     id_=None,
+                                                                                                     client_id=None,
+                                                                                                     consent_type=None,
+                                                                                                     principal_id=None,
+                                                                                                     resource_id=None,
+                                                                                                     scope=None):
     body = {}
     body['id'] = id_
     body['client_id'] = client_id
@@ -656,7 +656,7 @@ def identitysignins_oauth2permissiongrantsoauth2permissiongrant_update_o_auth2_p
                                                   body=body)
 
 
-def identitysignins_oauth2permissiongrant_delta(client):
+def identitysignins_oauth2_permission_grant_delta(client):
     return client.delta()
 
 
@@ -685,14 +685,14 @@ def identitysignins_organization_list_ref_certificate_based_auth_configuration(c
                                                                 orderby=orderby)
 
 
-def identitysignins_policiespolicyroot_show_policy_root(client,
+def identitysignins_policy_policy_root_show_policy_root(client,
                                                         select=None,
                                                         expand=None):
     return client.get_policy_root(select=select,
                                   expand=expand)
 
 
-def identitysignins_policiespolicyroot_update_policy_root(client,
+def identitysignins_policy_policy_root_update_policy_root(client,
                                                           id_=None,
                                                           activity_based_timeout_policies=None,
                                                           claims_mapping_policies=None,
@@ -1237,17 +1237,17 @@ def identitysignins_policy_update_token_lifetime_policy(client,
                                                  body=body)
 
 
-def identitysignins_policiespermissiongrantpolicy_create_exclude(client,
-                                                                 permission_grant_policy_id,
-                                                                 id_=None,
-                                                                 client_application_ids=None,
-                                                                 client_application_publisher_ids=None,
-                                                                 client_applications_from_verified_publisher_only=None,
-                                                                 client_application_tenant_ids=None,
-                                                                 permission_classification=None,
-                                                                 permissions=None,
-                                                                 permission_type=None,
-                                                                 resource_application=None):
+def identitysignins_policy_permission_grant_policy_create_exclude(client,
+                                                                  permission_grant_policy_id,
+                                                                  id_=None,
+                                                                  client_application_ids=None,
+                                                                  client_application_publisher_ids=None,
+                                                                  client_applications_from_verified_publisher_only=None,
+                                                                  client_application_tenant_ids=None,
+                                                                  permission_classification=None,
+                                                                  permissions=None,
+                                                                  permission_type=None,
+                                                                  resource_application=None):
     body = {}
     body['id'] = id_
     body['client_application_ids'] = client_application_ids
@@ -1262,17 +1262,17 @@ def identitysignins_policiespermissiongrantpolicy_create_exclude(client,
                                   body=body)
 
 
-def identitysignins_policiespermissiongrantpolicy_create_include(client,
-                                                                 permission_grant_policy_id,
-                                                                 id_=None,
-                                                                 client_application_ids=None,
-                                                                 client_application_publisher_ids=None,
-                                                                 client_applications_from_verified_publisher_only=None,
-                                                                 client_application_tenant_ids=None,
-                                                                 permission_classification=None,
-                                                                 permissions=None,
-                                                                 permission_type=None,
-                                                                 resource_application=None):
+def identitysignins_policy_permission_grant_policy_create_include(client,
+                                                                  permission_grant_policy_id,
+                                                                  id_=None,
+                                                                  client_application_ids=None,
+                                                                  client_application_publisher_ids=None,
+                                                                  client_applications_from_verified_publisher_only=None,
+                                                                  client_application_tenant_ids=None,
+                                                                  permission_classification=None,
+                                                                  permissions=None,
+                                                                  permission_type=None,
+                                                                  resource_application=None):
     body = {}
     body['id'] = id_
     body['client_application_ids'] = client_application_ids
@@ -1287,80 +1287,80 @@ def identitysignins_policiespermissiongrantpolicy_create_include(client,
                                   body=body)
 
 
-def identitysignins_policiespermissiongrantpolicy_delete_exclude(client,
-                                                                 permission_grant_policy_id,
-                                                                 permission_grant_condition_set_id,
-                                                                 if_match=None):
+def identitysignins_policy_permission_grant_policy_delete_exclude(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  if_match=None):
     return client.delete_excludes(permission_grant_policy_id=permission_grant_policy_id,
                                   permission_grant_condition_set_id=permission_grant_condition_set_id,
                                   if_match=if_match)
 
 
-def identitysignins_policiespermissiongrantpolicy_delete_include(client,
-                                                                 permission_grant_policy_id,
-                                                                 permission_grant_condition_set_id,
-                                                                 if_match=None):
+def identitysignins_policy_permission_grant_policy_delete_include(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  if_match=None):
     return client.delete_includes(permission_grant_policy_id=permission_grant_policy_id,
                                   permission_grant_condition_set_id=permission_grant_condition_set_id,
                                   if_match=if_match)
 
 
-def identitysignins_policiespermissiongrantpolicy_list_exclude(client,
-                                                               permission_grant_policy_id,
-                                                               orderby=None,
-                                                               select=None,
-                                                               expand=None):
+def identitysignins_policy_permission_grant_policy_list_exclude(client,
+                                                                permission_grant_policy_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_excludes(permission_grant_policy_id=permission_grant_policy_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def identitysignins_policiespermissiongrantpolicy_list_include(client,
-                                                               permission_grant_policy_id,
-                                                               orderby=None,
-                                                               select=None,
-                                                               expand=None):
+def identitysignins_policy_permission_grant_policy_list_include(client,
+                                                                permission_grant_policy_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_includes(permission_grant_policy_id=permission_grant_policy_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def identitysignins_policiespermissiongrantpolicy_show_exclude(client,
-                                                               permission_grant_policy_id,
-                                                               permission_grant_condition_set_id,
-                                                               select=None,
-                                                               expand=None):
+def identitysignins_policy_permission_grant_policy_show_exclude(client,
+                                                                permission_grant_policy_id,
+                                                                permission_grant_condition_set_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_excludes(permission_grant_policy_id=permission_grant_policy_id,
                                permission_grant_condition_set_id=permission_grant_condition_set_id,
                                select=select,
                                expand=expand)
 
 
-def identitysignins_policiespermissiongrantpolicy_show_include(client,
-                                                               permission_grant_policy_id,
-                                                               permission_grant_condition_set_id,
-                                                               select=None,
-                                                               expand=None):
+def identitysignins_policy_permission_grant_policy_show_include(client,
+                                                                permission_grant_policy_id,
+                                                                permission_grant_condition_set_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_includes(permission_grant_policy_id=permission_grant_policy_id,
                                permission_grant_condition_set_id=permission_grant_condition_set_id,
                                select=select,
                                expand=expand)
 
 
-def identitysignins_policiespermissiongrantpolicy_update_exclude(client,
-                                                                 permission_grant_policy_id,
-                                                                 permission_grant_condition_set_id,
-                                                                 id_=None,
-                                                                 client_application_ids=None,
-                                                                 client_application_publisher_ids=None,
-                                                                 client_applications_from_verified_publisher_only=None,
-                                                                 client_application_tenant_ids=None,
-                                                                 permission_classification=None,
-                                                                 permissions=None,
-                                                                 permission_type=None,
-                                                                 resource_application=None):
+def identitysignins_policy_permission_grant_policy_update_exclude(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  id_=None,
+                                                                  client_application_ids=None,
+                                                                  client_application_publisher_ids=None,
+                                                                  client_applications_from_verified_publisher_only=None,
+                                                                  client_application_tenant_ids=None,
+                                                                  permission_classification=None,
+                                                                  permissions=None,
+                                                                  permission_type=None,
+                                                                  resource_application=None):
     body = {}
     body['id'] = id_
     body['client_application_ids'] = client_application_ids
@@ -1376,18 +1376,18 @@ def identitysignins_policiespermissiongrantpolicy_update_exclude(client,
                                   body=body)
 
 
-def identitysignins_policiespermissiongrantpolicy_update_include(client,
-                                                                 permission_grant_policy_id,
-                                                                 permission_grant_condition_set_id,
-                                                                 id_=None,
-                                                                 client_application_ids=None,
-                                                                 client_application_publisher_ids=None,
-                                                                 client_applications_from_verified_publisher_only=None,
-                                                                 client_application_tenant_ids=None,
-                                                                 permission_classification=None,
-                                                                 permissions=None,
-                                                                 permission_type=None,
-                                                                 resource_application=None):
+def identitysignins_policy_permission_grant_policy_update_include(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  id_=None,
+                                                                  client_application_ids=None,
+                                                                  client_application_publisher_ids=None,
+                                                                  client_applications_from_verified_publisher_only=None,
+                                                                  client_application_tenant_ids=None,
+                                                                  permission_classification=None,
+                                                                  permissions=None,
+                                                                  permission_type=None,
+                                                                  resource_application=None):
     body = {}
     body['id'] = id_
     body['client_application_ids'] = client_application_ids

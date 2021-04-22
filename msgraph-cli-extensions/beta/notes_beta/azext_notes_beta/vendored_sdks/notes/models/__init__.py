@@ -7,375 +7,375 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofnotebook
-    from ._models_py3 import collectionofnotebook0
-    from ._models_py3 import collectionofnotebook1
-    from ._models_py3 import collectionofonenoteoperation
-    from ._models_py3 import collectionofonenoteoperation0
-    from ._models_py3 import collectionofonenoteoperation1
-    from ._models_py3 import collectionofonenotepage
-    from ._models_py3 import collectionofonenotepage0
-    from ._models_py3 import collectionofonenotepage1
-    from ._models_py3 import collectionofonenotepage10
-    from ._models_py3 import collectionofonenotepage11
-    from ._models_py3 import collectionofonenotepage12
-    from ._models_py3 import collectionofonenotepage13
-    from ._models_py3 import collectionofonenotepage14
-    from ._models_py3 import collectionofonenotepage15
-    from ._models_py3 import collectionofonenotepage16
-    from ._models_py3 import collectionofonenotepage17
-    from ._models_py3 import collectionofonenotepage18
-    from ._models_py3 import collectionofonenotepage19
-    from ._models_py3 import collectionofonenotepage2
-    from ._models_py3 import collectionofonenotepage20
-    from ._models_py3 import collectionofonenotepage21
-    from ._models_py3 import collectionofonenotepage22
-    from ._models_py3 import collectionofonenotepage23
-    from ._models_py3 import collectionofonenotepage24
-    from ._models_py3 import collectionofonenotepage25
-    from ._models_py3 import collectionofonenotepage3
-    from ._models_py3 import collectionofonenotepage4
-    from ._models_py3 import collectionofonenotepage5
-    from ._models_py3 import collectionofonenotepage6
-    from ._models_py3 import collectionofonenotepage7
-    from ._models_py3 import collectionofonenotepage8
-    from ._models_py3 import collectionofonenotepage9
-    from ._models_py3 import collectionofonenoteresource
-    from ._models_py3 import collectionofonenoteresource0
-    from ._models_py3 import collectionofonenoteresource1
-    from ._models_py3 import collectionofonenotesection
-    from ._models_py3 import collectionofonenotesection0
-    from ._models_py3 import collectionofonenotesection1
-    from ._models_py3 import collectionofonenotesection10
-    from ._models_py3 import collectionofonenotesection11
-    from ._models_py3 import collectionofonenotesection12
-    from ._models_py3 import collectionofonenotesection13
-    from ._models_py3 import collectionofonenotesection14
-    from ._models_py3 import collectionofonenotesection15
-    from ._models_py3 import collectionofonenotesection16
-    from ._models_py3 import collectionofonenotesection17
-    from ._models_py3 import collectionofonenotesection18
-    from ._models_py3 import collectionofonenotesection19
-    from ._models_py3 import collectionofonenotesection2
-    from ._models_py3 import collectionofonenotesection20
-    from ._models_py3 import collectionofonenotesection21
-    from ._models_py3 import collectionofonenotesection22
-    from ._models_py3 import collectionofonenotesection23
-    from ._models_py3 import collectionofonenotesection24
-    from ._models_py3 import collectionofonenotesection25
-    from ._models_py3 import collectionofonenotesection26
-    from ._models_py3 import collectionofonenotesection27
-    from ._models_py3 import collectionofonenotesection28
-    from ._models_py3 import collectionofonenotesection29
-    from ._models_py3 import collectionofonenotesection3
-    from ._models_py3 import collectionofonenotesection30
-    from ._models_py3 import collectionofonenotesection31
-    from ._models_py3 import collectionofonenotesection32
-    from ._models_py3 import collectionofonenotesection33
-    from ._models_py3 import collectionofonenotesection34
-    from ._models_py3 import collectionofonenotesection35
-    from ._models_py3 import collectionofonenotesection36
-    from ._models_py3 import collectionofonenotesection37
-    from ._models_py3 import collectionofonenotesection38
-    from ._models_py3 import collectionofonenotesection39
-    from ._models_py3 import collectionofonenotesection4
-    from ._models_py3 import collectionofonenotesection40
-    from ._models_py3 import collectionofonenotesection41
-    from ._models_py3 import collectionofonenotesection42
-    from ._models_py3 import collectionofonenotesection43
-    from ._models_py3 import collectionofonenotesection44
-    from ._models_py3 import collectionofonenotesection45
-    from ._models_py3 import collectionofonenotesection46
-    from ._models_py3 import collectionofonenotesection47
-    from ._models_py3 import collectionofonenotesection48
-    from ._models_py3 import collectionofonenotesection49
-    from ._models_py3 import collectionofonenotesection5
-    from ._models_py3 import collectionofonenotesection50
-    from ._models_py3 import collectionofonenotesection51
-    from ._models_py3 import collectionofonenotesection52
-    from ._models_py3 import collectionofonenotesection53
-    from ._models_py3 import collectionofonenotesection54
-    from ._models_py3 import collectionofonenotesection55
-    from ._models_py3 import collectionofonenotesection56
-    from ._models_py3 import collectionofonenotesection57
-    from ._models_py3 import collectionofonenotesection58
-    from ._models_py3 import collectionofonenotesection59
-    from ._models_py3 import collectionofonenotesection6
-    from ._models_py3 import collectionofonenotesection60
-    from ._models_py3 import collectionofonenotesection61
-    from ._models_py3 import collectionofonenotesection7
-    from ._models_py3 import collectionofonenotesection8
-    from ._models_py3 import collectionofonenotesection9
-    from ._models_py3 import collectionofsectiongroup
-    from ._models_py3 import collectionofsectiongroup0
-    from ._models_py3 import collectionofsectiongroup1
-    from ._models_py3 import collectionofsectiongroup10
-    from ._models_py3 import collectionofsectiongroup11
-    from ._models_py3 import collectionofsectiongroup12
-    from ._models_py3 import collectionofsectiongroup13
-    from ._models_py3 import collectionofsectiongroup14
-    from ._models_py3 import collectionofsectiongroup15
-    from ._models_py3 import collectionofsectiongroup16
-    from ._models_py3 import collectionofsectiongroup17
-    from ._models_py3 import collectionofsectiongroup18
-    from ._models_py3 import collectionofsectiongroup19
-    from ._models_py3 import collectionofsectiongroup2
-    from ._models_py3 import collectionofsectiongroup20
-    from ._models_py3 import collectionofsectiongroup21
-    from ._models_py3 import collectionofsectiongroup22
-    from ._models_py3 import collectionofsectiongroup23
-    from ._models_py3 import collectionofsectiongroup24
-    from ._models_py3 import collectionofsectiongroup25
-    from ._models_py3 import collectionofsectiongroup26
-    from ._models_py3 import collectionofsectiongroup27
-    from ._models_py3 import collectionofsectiongroup28
-    from ._models_py3 import collectionofsectiongroup29
-    from ._models_py3 import collectionofsectiongroup3
-    from ._models_py3 import collectionofsectiongroup30
-    from ._models_py3 import collectionofsectiongroup31
-    from ._models_py3 import collectionofsectiongroup32
-    from ._models_py3 import collectionofsectiongroup33
-    from ._models_py3 import collectionofsectiongroup34
-    from ._models_py3 import collectionofsectiongroup35
-    from ._models_py3 import collectionofsectiongroup36
-    from ._models_py3 import collectionofsectiongroup37
-    from ._models_py3 import collectionofsectiongroup38
-    from ._models_py3 import collectionofsectiongroup39
-    from ._models_py3 import collectionofsectiongroup4
-    from ._models_py3 import collectionofsectiongroup40
-    from ._models_py3 import collectionofsectiongroup41
-    from ._models_py3 import collectionofsectiongroup42
-    from ._models_py3 import collectionofsectiongroup43
-    from ._models_py3 import collectionofsectiongroup44
-    from ._models_py3 import collectionofsectiongroup45
-    from ._models_py3 import collectionofsectiongroup46
-    from ._models_py3 import collectionofsectiongroup47
-    from ._models_py3 import collectionofsectiongroup48
-    from ._models_py3 import collectionofsectiongroup49
-    from ._models_py3 import collectionofsectiongroup5
-    from ._models_py3 import collectionofsectiongroup50
-    from ._models_py3 import collectionofsectiongroup51
-    from ._models_py3 import collectionofsectiongroup52
-    from ._models_py3 import collectionofsectiongroup53
-    from ._models_py3 import collectionofsectiongroup54
-    from ._models_py3 import collectionofsectiongroup55
-    from ._models_py3 import collectionofsectiongroup56
-    from ._models_py3 import collectionofsectiongroup57
-    from ._models_py3 import collectionofsectiongroup58
-    from ._models_py3 import collectionofsectiongroup59
-    from ._models_py3 import collectionofsectiongroup6
-    from ._models_py3 import collectionofsectiongroup60
-    from ._models_py3 import collectionofsectiongroup61
-    from ._models_py3 import collectionofsectiongroup7
-    from ._models_py3 import collectionofsectiongroup8
-    from ._models_py3 import collectionofsectiongroup9
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphexternallink
-    from ._models_py3 import microsoftgraphidentity
-    from ._models_py3 import microsoftgraphidentityset
-    from ._models_py3 import microsoftgraphnotebook
-    from ._models_py3 import microsoftgraphnotebooklinks
-    from ._models_py3 import microsoftgraphonenote
-    from ._models_py3 import microsoftgraphonenoteentitybasemodel
-    from ._models_py3 import microsoftgraphonenoteentityhierarchymodel
-    from ._models_py3 import microsoftgraphonenoteentityschemaobjectmodel
-    from ._models_py3 import microsoftgraphonenoteoperation
-    from ._models_py3 import microsoftgraphonenoteoperationerror
-    from ._models_py3 import microsoftgraphonenotepage
-    from ._models_py3 import microsoftgraphonenoteresource
-    from ._models_py3 import microsoftgraphonenotesection
-    from ._models_py3 import microsoftgraphoperation
-    from ._models_py3 import microsoftgraphpagelinks
-    from ._models_py3 import microsoftgraphsectiongroup
-    from ._models_py3 import microsoftgraphsectionlinks
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
+    from ._models_py3 import CollectionOfNotebook
+    from ._models_py3 import CollectionOfNotebook0
+    from ._models_py3 import CollectionOfNotebook1
+    from ._models_py3 import CollectionOfOnenoteOperation
+    from ._models_py3 import CollectionOfOnenoteOperation0
+    from ._models_py3 import CollectionOfOnenoteOperation1
+    from ._models_py3 import CollectionOfOnenotePage
+    from ._models_py3 import CollectionOfOnenotePage0
+    from ._models_py3 import CollectionOfOnenotePage1
+    from ._models_py3 import CollectionOfOnenotePage10
+    from ._models_py3 import CollectionOfOnenotePage11
+    from ._models_py3 import CollectionOfOnenotePage12
+    from ._models_py3 import CollectionOfOnenotePage13
+    from ._models_py3 import CollectionOfOnenotePage14
+    from ._models_py3 import CollectionOfOnenotePage15
+    from ._models_py3 import CollectionOfOnenotePage16
+    from ._models_py3 import CollectionOfOnenotePage17
+    from ._models_py3 import CollectionOfOnenotePage18
+    from ._models_py3 import CollectionOfOnenotePage19
+    from ._models_py3 import CollectionOfOnenotePage2
+    from ._models_py3 import CollectionOfOnenotePage20
+    from ._models_py3 import CollectionOfOnenotePage21
+    from ._models_py3 import CollectionOfOnenotePage22
+    from ._models_py3 import CollectionOfOnenotePage23
+    from ._models_py3 import CollectionOfOnenotePage24
+    from ._models_py3 import CollectionOfOnenotePage25
+    from ._models_py3 import CollectionOfOnenotePage3
+    from ._models_py3 import CollectionOfOnenotePage4
+    from ._models_py3 import CollectionOfOnenotePage5
+    from ._models_py3 import CollectionOfOnenotePage6
+    from ._models_py3 import CollectionOfOnenotePage7
+    from ._models_py3 import CollectionOfOnenotePage8
+    from ._models_py3 import CollectionOfOnenotePage9
+    from ._models_py3 import CollectionOfOnenoteResource
+    from ._models_py3 import CollectionOfOnenoteResource0
+    from ._models_py3 import CollectionOfOnenoteResource1
+    from ._models_py3 import CollectionOfOnenoteSection
+    from ._models_py3 import CollectionOfOnenoteSection0
+    from ._models_py3 import CollectionOfOnenoteSection1
+    from ._models_py3 import CollectionOfOnenoteSection10
+    from ._models_py3 import CollectionOfOnenoteSection11
+    from ._models_py3 import CollectionOfOnenoteSection12
+    from ._models_py3 import CollectionOfOnenoteSection13
+    from ._models_py3 import CollectionOfOnenoteSection14
+    from ._models_py3 import CollectionOfOnenoteSection15
+    from ._models_py3 import CollectionOfOnenoteSection16
+    from ._models_py3 import CollectionOfOnenoteSection17
+    from ._models_py3 import CollectionOfOnenoteSection18
+    from ._models_py3 import CollectionOfOnenoteSection19
+    from ._models_py3 import CollectionOfOnenoteSection2
+    from ._models_py3 import CollectionOfOnenoteSection20
+    from ._models_py3 import CollectionOfOnenoteSection21
+    from ._models_py3 import CollectionOfOnenoteSection22
+    from ._models_py3 import CollectionOfOnenoteSection23
+    from ._models_py3 import CollectionOfOnenoteSection24
+    from ._models_py3 import CollectionOfOnenoteSection25
+    from ._models_py3 import CollectionOfOnenoteSection26
+    from ._models_py3 import CollectionOfOnenoteSection27
+    from ._models_py3 import CollectionOfOnenoteSection28
+    from ._models_py3 import CollectionOfOnenoteSection29
+    from ._models_py3 import CollectionOfOnenoteSection3
+    from ._models_py3 import CollectionOfOnenoteSection30
+    from ._models_py3 import CollectionOfOnenoteSection31
+    from ._models_py3 import CollectionOfOnenoteSection32
+    from ._models_py3 import CollectionOfOnenoteSection33
+    from ._models_py3 import CollectionOfOnenoteSection34
+    from ._models_py3 import CollectionOfOnenoteSection35
+    from ._models_py3 import CollectionOfOnenoteSection36
+    from ._models_py3 import CollectionOfOnenoteSection37
+    from ._models_py3 import CollectionOfOnenoteSection38
+    from ._models_py3 import CollectionOfOnenoteSection39
+    from ._models_py3 import CollectionOfOnenoteSection4
+    from ._models_py3 import CollectionOfOnenoteSection40
+    from ._models_py3 import CollectionOfOnenoteSection41
+    from ._models_py3 import CollectionOfOnenoteSection42
+    from ._models_py3 import CollectionOfOnenoteSection43
+    from ._models_py3 import CollectionOfOnenoteSection44
+    from ._models_py3 import CollectionOfOnenoteSection45
+    from ._models_py3 import CollectionOfOnenoteSection46
+    from ._models_py3 import CollectionOfOnenoteSection47
+    from ._models_py3 import CollectionOfOnenoteSection48
+    from ._models_py3 import CollectionOfOnenoteSection49
+    from ._models_py3 import CollectionOfOnenoteSection5
+    from ._models_py3 import CollectionOfOnenoteSection50
+    from ._models_py3 import CollectionOfOnenoteSection51
+    from ._models_py3 import CollectionOfOnenoteSection52
+    from ._models_py3 import CollectionOfOnenoteSection53
+    from ._models_py3 import CollectionOfOnenoteSection54
+    from ._models_py3 import CollectionOfOnenoteSection55
+    from ._models_py3 import CollectionOfOnenoteSection56
+    from ._models_py3 import CollectionOfOnenoteSection57
+    from ._models_py3 import CollectionOfOnenoteSection58
+    from ._models_py3 import CollectionOfOnenoteSection59
+    from ._models_py3 import CollectionOfOnenoteSection6
+    from ._models_py3 import CollectionOfOnenoteSection60
+    from ._models_py3 import CollectionOfOnenoteSection61
+    from ._models_py3 import CollectionOfOnenoteSection7
+    from ._models_py3 import CollectionOfOnenoteSection8
+    from ._models_py3 import CollectionOfOnenoteSection9
+    from ._models_py3 import CollectionOfSectionGroup
+    from ._models_py3 import CollectionOfSectionGroup0
+    from ._models_py3 import CollectionOfSectionGroup1
+    from ._models_py3 import CollectionOfSectionGroup10
+    from ._models_py3 import CollectionOfSectionGroup11
+    from ._models_py3 import CollectionOfSectionGroup12
+    from ._models_py3 import CollectionOfSectionGroup13
+    from ._models_py3 import CollectionOfSectionGroup14
+    from ._models_py3 import CollectionOfSectionGroup15
+    from ._models_py3 import CollectionOfSectionGroup16
+    from ._models_py3 import CollectionOfSectionGroup17
+    from ._models_py3 import CollectionOfSectionGroup18
+    from ._models_py3 import CollectionOfSectionGroup19
+    from ._models_py3 import CollectionOfSectionGroup2
+    from ._models_py3 import CollectionOfSectionGroup20
+    from ._models_py3 import CollectionOfSectionGroup21
+    from ._models_py3 import CollectionOfSectionGroup22
+    from ._models_py3 import CollectionOfSectionGroup23
+    from ._models_py3 import CollectionOfSectionGroup24
+    from ._models_py3 import CollectionOfSectionGroup25
+    from ._models_py3 import CollectionOfSectionGroup26
+    from ._models_py3 import CollectionOfSectionGroup27
+    from ._models_py3 import CollectionOfSectionGroup28
+    from ._models_py3 import CollectionOfSectionGroup29
+    from ._models_py3 import CollectionOfSectionGroup3
+    from ._models_py3 import CollectionOfSectionGroup30
+    from ._models_py3 import CollectionOfSectionGroup31
+    from ._models_py3 import CollectionOfSectionGroup32
+    from ._models_py3 import CollectionOfSectionGroup33
+    from ._models_py3 import CollectionOfSectionGroup34
+    from ._models_py3 import CollectionOfSectionGroup35
+    from ._models_py3 import CollectionOfSectionGroup36
+    from ._models_py3 import CollectionOfSectionGroup37
+    from ._models_py3 import CollectionOfSectionGroup38
+    from ._models_py3 import CollectionOfSectionGroup39
+    from ._models_py3 import CollectionOfSectionGroup4
+    from ._models_py3 import CollectionOfSectionGroup40
+    from ._models_py3 import CollectionOfSectionGroup41
+    from ._models_py3 import CollectionOfSectionGroup42
+    from ._models_py3 import CollectionOfSectionGroup43
+    from ._models_py3 import CollectionOfSectionGroup44
+    from ._models_py3 import CollectionOfSectionGroup45
+    from ._models_py3 import CollectionOfSectionGroup46
+    from ._models_py3 import CollectionOfSectionGroup47
+    from ._models_py3 import CollectionOfSectionGroup48
+    from ._models_py3 import CollectionOfSectionGroup49
+    from ._models_py3 import CollectionOfSectionGroup5
+    from ._models_py3 import CollectionOfSectionGroup50
+    from ._models_py3 import CollectionOfSectionGroup51
+    from ._models_py3 import CollectionOfSectionGroup52
+    from ._models_py3 import CollectionOfSectionGroup53
+    from ._models_py3 import CollectionOfSectionGroup54
+    from ._models_py3 import CollectionOfSectionGroup55
+    from ._models_py3 import CollectionOfSectionGroup56
+    from ._models_py3 import CollectionOfSectionGroup57
+    from ._models_py3 import CollectionOfSectionGroup58
+    from ._models_py3 import CollectionOfSectionGroup59
+    from ._models_py3 import CollectionOfSectionGroup6
+    from ._models_py3 import CollectionOfSectionGroup60
+    from ._models_py3 import CollectionOfSectionGroup61
+    from ._models_py3 import CollectionOfSectionGroup7
+    from ._models_py3 import CollectionOfSectionGroup8
+    from ._models_py3 import CollectionOfSectionGroup9
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphExternalLink
+    from ._models_py3 import MicrosoftGraphIdentity
+    from ._models_py3 import MicrosoftGraphIdentitySet
+    from ._models_py3 import MicrosoftGraphNotebook
+    from ._models_py3 import MicrosoftGraphNotebookLinks
+    from ._models_py3 import MicrosoftGraphOnenote
+    from ._models_py3 import MicrosoftGraphOnenoteEntityBaseModel
+    from ._models_py3 import MicrosoftGraphOnenoteEntityHierarchyModel
+    from ._models_py3 import MicrosoftGraphOnenoteEntitySchemaObjectModel
+    from ._models_py3 import MicrosoftGraphOnenoteOperation
+    from ._models_py3 import MicrosoftGraphOnenoteOperationError
+    from ._models_py3 import MicrosoftGraphOnenotePage
+    from ._models_py3 import MicrosoftGraphOnenoteResource
+    from ._models_py3 import MicrosoftGraphOnenoteSection
+    from ._models_py3 import MicrosoftGraphOperation
+    from ._models_py3 import MicrosoftGraphPageLinks
+    from ._models_py3 import MicrosoftGraphSectionGroup
+    from ._models_py3 import MicrosoftGraphSectionLinks
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
 except (SyntaxError, ImportError):
-    from ._models import collectionofnotebook  # type: ignore
-    from ._models import collectionofnotebook0  # type: ignore
-    from ._models import collectionofnotebook1  # type: ignore
-    from ._models import collectionofonenoteoperation  # type: ignore
-    from ._models import collectionofonenoteoperation0  # type: ignore
-    from ._models import collectionofonenoteoperation1  # type: ignore
-    from ._models import collectionofonenotepage  # type: ignore
-    from ._models import collectionofonenotepage0  # type: ignore
-    from ._models import collectionofonenotepage1  # type: ignore
-    from ._models import collectionofonenotepage10  # type: ignore
-    from ._models import collectionofonenotepage11  # type: ignore
-    from ._models import collectionofonenotepage12  # type: ignore
-    from ._models import collectionofonenotepage13  # type: ignore
-    from ._models import collectionofonenotepage14  # type: ignore
-    from ._models import collectionofonenotepage15  # type: ignore
-    from ._models import collectionofonenotepage16  # type: ignore
-    from ._models import collectionofonenotepage17  # type: ignore
-    from ._models import collectionofonenotepage18  # type: ignore
-    from ._models import collectionofonenotepage19  # type: ignore
-    from ._models import collectionofonenotepage2  # type: ignore
-    from ._models import collectionofonenotepage20  # type: ignore
-    from ._models import collectionofonenotepage21  # type: ignore
-    from ._models import collectionofonenotepage22  # type: ignore
-    from ._models import collectionofonenotepage23  # type: ignore
-    from ._models import collectionofonenotepage24  # type: ignore
-    from ._models import collectionofonenotepage25  # type: ignore
-    from ._models import collectionofonenotepage3  # type: ignore
-    from ._models import collectionofonenotepage4  # type: ignore
-    from ._models import collectionofonenotepage5  # type: ignore
-    from ._models import collectionofonenotepage6  # type: ignore
-    from ._models import collectionofonenotepage7  # type: ignore
-    from ._models import collectionofonenotepage8  # type: ignore
-    from ._models import collectionofonenotepage9  # type: ignore
-    from ._models import collectionofonenoteresource  # type: ignore
-    from ._models import collectionofonenoteresource0  # type: ignore
-    from ._models import collectionofonenoteresource1  # type: ignore
-    from ._models import collectionofonenotesection  # type: ignore
-    from ._models import collectionofonenotesection0  # type: ignore
-    from ._models import collectionofonenotesection1  # type: ignore
-    from ._models import collectionofonenotesection10  # type: ignore
-    from ._models import collectionofonenotesection11  # type: ignore
-    from ._models import collectionofonenotesection12  # type: ignore
-    from ._models import collectionofonenotesection13  # type: ignore
-    from ._models import collectionofonenotesection14  # type: ignore
-    from ._models import collectionofonenotesection15  # type: ignore
-    from ._models import collectionofonenotesection16  # type: ignore
-    from ._models import collectionofonenotesection17  # type: ignore
-    from ._models import collectionofonenotesection18  # type: ignore
-    from ._models import collectionofonenotesection19  # type: ignore
-    from ._models import collectionofonenotesection2  # type: ignore
-    from ._models import collectionofonenotesection20  # type: ignore
-    from ._models import collectionofonenotesection21  # type: ignore
-    from ._models import collectionofonenotesection22  # type: ignore
-    from ._models import collectionofonenotesection23  # type: ignore
-    from ._models import collectionofonenotesection24  # type: ignore
-    from ._models import collectionofonenotesection25  # type: ignore
-    from ._models import collectionofonenotesection26  # type: ignore
-    from ._models import collectionofonenotesection27  # type: ignore
-    from ._models import collectionofonenotesection28  # type: ignore
-    from ._models import collectionofonenotesection29  # type: ignore
-    from ._models import collectionofonenotesection3  # type: ignore
-    from ._models import collectionofonenotesection30  # type: ignore
-    from ._models import collectionofonenotesection31  # type: ignore
-    from ._models import collectionofonenotesection32  # type: ignore
-    from ._models import collectionofonenotesection33  # type: ignore
-    from ._models import collectionofonenotesection34  # type: ignore
-    from ._models import collectionofonenotesection35  # type: ignore
-    from ._models import collectionofonenotesection36  # type: ignore
-    from ._models import collectionofonenotesection37  # type: ignore
-    from ._models import collectionofonenotesection38  # type: ignore
-    from ._models import collectionofonenotesection39  # type: ignore
-    from ._models import collectionofonenotesection4  # type: ignore
-    from ._models import collectionofonenotesection40  # type: ignore
-    from ._models import collectionofonenotesection41  # type: ignore
-    from ._models import collectionofonenotesection42  # type: ignore
-    from ._models import collectionofonenotesection43  # type: ignore
-    from ._models import collectionofonenotesection44  # type: ignore
-    from ._models import collectionofonenotesection45  # type: ignore
-    from ._models import collectionofonenotesection46  # type: ignore
-    from ._models import collectionofonenotesection47  # type: ignore
-    from ._models import collectionofonenotesection48  # type: ignore
-    from ._models import collectionofonenotesection49  # type: ignore
-    from ._models import collectionofonenotesection5  # type: ignore
-    from ._models import collectionofonenotesection50  # type: ignore
-    from ._models import collectionofonenotesection51  # type: ignore
-    from ._models import collectionofonenotesection52  # type: ignore
-    from ._models import collectionofonenotesection53  # type: ignore
-    from ._models import collectionofonenotesection54  # type: ignore
-    from ._models import collectionofonenotesection55  # type: ignore
-    from ._models import collectionofonenotesection56  # type: ignore
-    from ._models import collectionofonenotesection57  # type: ignore
-    from ._models import collectionofonenotesection58  # type: ignore
-    from ._models import collectionofonenotesection59  # type: ignore
-    from ._models import collectionofonenotesection6  # type: ignore
-    from ._models import collectionofonenotesection60  # type: ignore
-    from ._models import collectionofonenotesection61  # type: ignore
-    from ._models import collectionofonenotesection7  # type: ignore
-    from ._models import collectionofonenotesection8  # type: ignore
-    from ._models import collectionofonenotesection9  # type: ignore
-    from ._models import collectionofsectiongroup  # type: ignore
-    from ._models import collectionofsectiongroup0  # type: ignore
-    from ._models import collectionofsectiongroup1  # type: ignore
-    from ._models import collectionofsectiongroup10  # type: ignore
-    from ._models import collectionofsectiongroup11  # type: ignore
-    from ._models import collectionofsectiongroup12  # type: ignore
-    from ._models import collectionofsectiongroup13  # type: ignore
-    from ._models import collectionofsectiongroup14  # type: ignore
-    from ._models import collectionofsectiongroup15  # type: ignore
-    from ._models import collectionofsectiongroup16  # type: ignore
-    from ._models import collectionofsectiongroup17  # type: ignore
-    from ._models import collectionofsectiongroup18  # type: ignore
-    from ._models import collectionofsectiongroup19  # type: ignore
-    from ._models import collectionofsectiongroup2  # type: ignore
-    from ._models import collectionofsectiongroup20  # type: ignore
-    from ._models import collectionofsectiongroup21  # type: ignore
-    from ._models import collectionofsectiongroup22  # type: ignore
-    from ._models import collectionofsectiongroup23  # type: ignore
-    from ._models import collectionofsectiongroup24  # type: ignore
-    from ._models import collectionofsectiongroup25  # type: ignore
-    from ._models import collectionofsectiongroup26  # type: ignore
-    from ._models import collectionofsectiongroup27  # type: ignore
-    from ._models import collectionofsectiongroup28  # type: ignore
-    from ._models import collectionofsectiongroup29  # type: ignore
-    from ._models import collectionofsectiongroup3  # type: ignore
-    from ._models import collectionofsectiongroup30  # type: ignore
-    from ._models import collectionofsectiongroup31  # type: ignore
-    from ._models import collectionofsectiongroup32  # type: ignore
-    from ._models import collectionofsectiongroup33  # type: ignore
-    from ._models import collectionofsectiongroup34  # type: ignore
-    from ._models import collectionofsectiongroup35  # type: ignore
-    from ._models import collectionofsectiongroup36  # type: ignore
-    from ._models import collectionofsectiongroup37  # type: ignore
-    from ._models import collectionofsectiongroup38  # type: ignore
-    from ._models import collectionofsectiongroup39  # type: ignore
-    from ._models import collectionofsectiongroup4  # type: ignore
-    from ._models import collectionofsectiongroup40  # type: ignore
-    from ._models import collectionofsectiongroup41  # type: ignore
-    from ._models import collectionofsectiongroup42  # type: ignore
-    from ._models import collectionofsectiongroup43  # type: ignore
-    from ._models import collectionofsectiongroup44  # type: ignore
-    from ._models import collectionofsectiongroup45  # type: ignore
-    from ._models import collectionofsectiongroup46  # type: ignore
-    from ._models import collectionofsectiongroup47  # type: ignore
-    from ._models import collectionofsectiongroup48  # type: ignore
-    from ._models import collectionofsectiongroup49  # type: ignore
-    from ._models import collectionofsectiongroup5  # type: ignore
-    from ._models import collectionofsectiongroup50  # type: ignore
-    from ._models import collectionofsectiongroup51  # type: ignore
-    from ._models import collectionofsectiongroup52  # type: ignore
-    from ._models import collectionofsectiongroup53  # type: ignore
-    from ._models import collectionofsectiongroup54  # type: ignore
-    from ._models import collectionofsectiongroup55  # type: ignore
-    from ._models import collectionofsectiongroup56  # type: ignore
-    from ._models import collectionofsectiongroup57  # type: ignore
-    from ._models import collectionofsectiongroup58  # type: ignore
-    from ._models import collectionofsectiongroup59  # type: ignore
-    from ._models import collectionofsectiongroup6  # type: ignore
-    from ._models import collectionofsectiongroup60  # type: ignore
-    from ._models import collectionofsectiongroup61  # type: ignore
-    from ._models import collectionofsectiongroup7  # type: ignore
-    from ._models import collectionofsectiongroup8  # type: ignore
-    from ._models import collectionofsectiongroup9  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphexternallink  # type: ignore
-    from ._models import microsoftgraphidentity  # type: ignore
-    from ._models import microsoftgraphidentityset  # type: ignore
-    from ._models import microsoftgraphnotebook  # type: ignore
-    from ._models import microsoftgraphnotebooklinks  # type: ignore
-    from ._models import microsoftgraphonenote  # type: ignore
-    from ._models import microsoftgraphonenoteentitybasemodel  # type: ignore
-    from ._models import microsoftgraphonenoteentityhierarchymodel  # type: ignore
-    from ._models import microsoftgraphonenoteentityschemaobjectmodel  # type: ignore
-    from ._models import microsoftgraphonenoteoperation  # type: ignore
-    from ._models import microsoftgraphonenoteoperationerror  # type: ignore
-    from ._models import microsoftgraphonenotepage  # type: ignore
-    from ._models import microsoftgraphonenoteresource  # type: ignore
-    from ._models import microsoftgraphonenotesection  # type: ignore
-    from ._models import microsoftgraphoperation  # type: ignore
-    from ._models import microsoftgraphpagelinks  # type: ignore
-    from ._models import microsoftgraphsectiongroup  # type: ignore
-    from ._models import microsoftgraphsectionlinks  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
+    from ._models import CollectionOfNotebook  # type: ignore
+    from ._models import CollectionOfNotebook0  # type: ignore
+    from ._models import CollectionOfNotebook1  # type: ignore
+    from ._models import CollectionOfOnenoteOperation  # type: ignore
+    from ._models import CollectionOfOnenoteOperation0  # type: ignore
+    from ._models import CollectionOfOnenoteOperation1  # type: ignore
+    from ._models import CollectionOfOnenotePage  # type: ignore
+    from ._models import CollectionOfOnenotePage0  # type: ignore
+    from ._models import CollectionOfOnenotePage1  # type: ignore
+    from ._models import CollectionOfOnenotePage10  # type: ignore
+    from ._models import CollectionOfOnenotePage11  # type: ignore
+    from ._models import CollectionOfOnenotePage12  # type: ignore
+    from ._models import CollectionOfOnenotePage13  # type: ignore
+    from ._models import CollectionOfOnenotePage14  # type: ignore
+    from ._models import CollectionOfOnenotePage15  # type: ignore
+    from ._models import CollectionOfOnenotePage16  # type: ignore
+    from ._models import CollectionOfOnenotePage17  # type: ignore
+    from ._models import CollectionOfOnenotePage18  # type: ignore
+    from ._models import CollectionOfOnenotePage19  # type: ignore
+    from ._models import CollectionOfOnenotePage2  # type: ignore
+    from ._models import CollectionOfOnenotePage20  # type: ignore
+    from ._models import CollectionOfOnenotePage21  # type: ignore
+    from ._models import CollectionOfOnenotePage22  # type: ignore
+    from ._models import CollectionOfOnenotePage23  # type: ignore
+    from ._models import CollectionOfOnenotePage24  # type: ignore
+    from ._models import CollectionOfOnenotePage25  # type: ignore
+    from ._models import CollectionOfOnenotePage3  # type: ignore
+    from ._models import CollectionOfOnenotePage4  # type: ignore
+    from ._models import CollectionOfOnenotePage5  # type: ignore
+    from ._models import CollectionOfOnenotePage6  # type: ignore
+    from ._models import CollectionOfOnenotePage7  # type: ignore
+    from ._models import CollectionOfOnenotePage8  # type: ignore
+    from ._models import CollectionOfOnenotePage9  # type: ignore
+    from ._models import CollectionOfOnenoteResource  # type: ignore
+    from ._models import CollectionOfOnenoteResource0  # type: ignore
+    from ._models import CollectionOfOnenoteResource1  # type: ignore
+    from ._models import CollectionOfOnenoteSection  # type: ignore
+    from ._models import CollectionOfOnenoteSection0  # type: ignore
+    from ._models import CollectionOfOnenoteSection1  # type: ignore
+    from ._models import CollectionOfOnenoteSection10  # type: ignore
+    from ._models import CollectionOfOnenoteSection11  # type: ignore
+    from ._models import CollectionOfOnenoteSection12  # type: ignore
+    from ._models import CollectionOfOnenoteSection13  # type: ignore
+    from ._models import CollectionOfOnenoteSection14  # type: ignore
+    from ._models import CollectionOfOnenoteSection15  # type: ignore
+    from ._models import CollectionOfOnenoteSection16  # type: ignore
+    from ._models import CollectionOfOnenoteSection17  # type: ignore
+    from ._models import CollectionOfOnenoteSection18  # type: ignore
+    from ._models import CollectionOfOnenoteSection19  # type: ignore
+    from ._models import CollectionOfOnenoteSection2  # type: ignore
+    from ._models import CollectionOfOnenoteSection20  # type: ignore
+    from ._models import CollectionOfOnenoteSection21  # type: ignore
+    from ._models import CollectionOfOnenoteSection22  # type: ignore
+    from ._models import CollectionOfOnenoteSection23  # type: ignore
+    from ._models import CollectionOfOnenoteSection24  # type: ignore
+    from ._models import CollectionOfOnenoteSection25  # type: ignore
+    from ._models import CollectionOfOnenoteSection26  # type: ignore
+    from ._models import CollectionOfOnenoteSection27  # type: ignore
+    from ._models import CollectionOfOnenoteSection28  # type: ignore
+    from ._models import CollectionOfOnenoteSection29  # type: ignore
+    from ._models import CollectionOfOnenoteSection3  # type: ignore
+    from ._models import CollectionOfOnenoteSection30  # type: ignore
+    from ._models import CollectionOfOnenoteSection31  # type: ignore
+    from ._models import CollectionOfOnenoteSection32  # type: ignore
+    from ._models import CollectionOfOnenoteSection33  # type: ignore
+    from ._models import CollectionOfOnenoteSection34  # type: ignore
+    from ._models import CollectionOfOnenoteSection35  # type: ignore
+    from ._models import CollectionOfOnenoteSection36  # type: ignore
+    from ._models import CollectionOfOnenoteSection37  # type: ignore
+    from ._models import CollectionOfOnenoteSection38  # type: ignore
+    from ._models import CollectionOfOnenoteSection39  # type: ignore
+    from ._models import CollectionOfOnenoteSection4  # type: ignore
+    from ._models import CollectionOfOnenoteSection40  # type: ignore
+    from ._models import CollectionOfOnenoteSection41  # type: ignore
+    from ._models import CollectionOfOnenoteSection42  # type: ignore
+    from ._models import CollectionOfOnenoteSection43  # type: ignore
+    from ._models import CollectionOfOnenoteSection44  # type: ignore
+    from ._models import CollectionOfOnenoteSection45  # type: ignore
+    from ._models import CollectionOfOnenoteSection46  # type: ignore
+    from ._models import CollectionOfOnenoteSection47  # type: ignore
+    from ._models import CollectionOfOnenoteSection48  # type: ignore
+    from ._models import CollectionOfOnenoteSection49  # type: ignore
+    from ._models import CollectionOfOnenoteSection5  # type: ignore
+    from ._models import CollectionOfOnenoteSection50  # type: ignore
+    from ._models import CollectionOfOnenoteSection51  # type: ignore
+    from ._models import CollectionOfOnenoteSection52  # type: ignore
+    from ._models import CollectionOfOnenoteSection53  # type: ignore
+    from ._models import CollectionOfOnenoteSection54  # type: ignore
+    from ._models import CollectionOfOnenoteSection55  # type: ignore
+    from ._models import CollectionOfOnenoteSection56  # type: ignore
+    from ._models import CollectionOfOnenoteSection57  # type: ignore
+    from ._models import CollectionOfOnenoteSection58  # type: ignore
+    from ._models import CollectionOfOnenoteSection59  # type: ignore
+    from ._models import CollectionOfOnenoteSection6  # type: ignore
+    from ._models import CollectionOfOnenoteSection60  # type: ignore
+    from ._models import CollectionOfOnenoteSection61  # type: ignore
+    from ._models import CollectionOfOnenoteSection7  # type: ignore
+    from ._models import CollectionOfOnenoteSection8  # type: ignore
+    from ._models import CollectionOfOnenoteSection9  # type: ignore
+    from ._models import CollectionOfSectionGroup  # type: ignore
+    from ._models import CollectionOfSectionGroup0  # type: ignore
+    from ._models import CollectionOfSectionGroup1  # type: ignore
+    from ._models import CollectionOfSectionGroup10  # type: ignore
+    from ._models import CollectionOfSectionGroup11  # type: ignore
+    from ._models import CollectionOfSectionGroup12  # type: ignore
+    from ._models import CollectionOfSectionGroup13  # type: ignore
+    from ._models import CollectionOfSectionGroup14  # type: ignore
+    from ._models import CollectionOfSectionGroup15  # type: ignore
+    from ._models import CollectionOfSectionGroup16  # type: ignore
+    from ._models import CollectionOfSectionGroup17  # type: ignore
+    from ._models import CollectionOfSectionGroup18  # type: ignore
+    from ._models import CollectionOfSectionGroup19  # type: ignore
+    from ._models import CollectionOfSectionGroup2  # type: ignore
+    from ._models import CollectionOfSectionGroup20  # type: ignore
+    from ._models import CollectionOfSectionGroup21  # type: ignore
+    from ._models import CollectionOfSectionGroup22  # type: ignore
+    from ._models import CollectionOfSectionGroup23  # type: ignore
+    from ._models import CollectionOfSectionGroup24  # type: ignore
+    from ._models import CollectionOfSectionGroup25  # type: ignore
+    from ._models import CollectionOfSectionGroup26  # type: ignore
+    from ._models import CollectionOfSectionGroup27  # type: ignore
+    from ._models import CollectionOfSectionGroup28  # type: ignore
+    from ._models import CollectionOfSectionGroup29  # type: ignore
+    from ._models import CollectionOfSectionGroup3  # type: ignore
+    from ._models import CollectionOfSectionGroup30  # type: ignore
+    from ._models import CollectionOfSectionGroup31  # type: ignore
+    from ._models import CollectionOfSectionGroup32  # type: ignore
+    from ._models import CollectionOfSectionGroup33  # type: ignore
+    from ._models import CollectionOfSectionGroup34  # type: ignore
+    from ._models import CollectionOfSectionGroup35  # type: ignore
+    from ._models import CollectionOfSectionGroup36  # type: ignore
+    from ._models import CollectionOfSectionGroup37  # type: ignore
+    from ._models import CollectionOfSectionGroup38  # type: ignore
+    from ._models import CollectionOfSectionGroup39  # type: ignore
+    from ._models import CollectionOfSectionGroup4  # type: ignore
+    from ._models import CollectionOfSectionGroup40  # type: ignore
+    from ._models import CollectionOfSectionGroup41  # type: ignore
+    from ._models import CollectionOfSectionGroup42  # type: ignore
+    from ._models import CollectionOfSectionGroup43  # type: ignore
+    from ._models import CollectionOfSectionGroup44  # type: ignore
+    from ._models import CollectionOfSectionGroup45  # type: ignore
+    from ._models import CollectionOfSectionGroup46  # type: ignore
+    from ._models import CollectionOfSectionGroup47  # type: ignore
+    from ._models import CollectionOfSectionGroup48  # type: ignore
+    from ._models import CollectionOfSectionGroup49  # type: ignore
+    from ._models import CollectionOfSectionGroup5  # type: ignore
+    from ._models import CollectionOfSectionGroup50  # type: ignore
+    from ._models import CollectionOfSectionGroup51  # type: ignore
+    from ._models import CollectionOfSectionGroup52  # type: ignore
+    from ._models import CollectionOfSectionGroup53  # type: ignore
+    from ._models import CollectionOfSectionGroup54  # type: ignore
+    from ._models import CollectionOfSectionGroup55  # type: ignore
+    from ._models import CollectionOfSectionGroup56  # type: ignore
+    from ._models import CollectionOfSectionGroup57  # type: ignore
+    from ._models import CollectionOfSectionGroup58  # type: ignore
+    from ._models import CollectionOfSectionGroup59  # type: ignore
+    from ._models import CollectionOfSectionGroup6  # type: ignore
+    from ._models import CollectionOfSectionGroup60  # type: ignore
+    from ._models import CollectionOfSectionGroup61  # type: ignore
+    from ._models import CollectionOfSectionGroup7  # type: ignore
+    from ._models import CollectionOfSectionGroup8  # type: ignore
+    from ._models import CollectionOfSectionGroup9  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphExternalLink  # type: ignore
+    from ._models import MicrosoftGraphIdentity  # type: ignore
+    from ._models import MicrosoftGraphIdentitySet  # type: ignore
+    from ._models import MicrosoftGraphNotebook  # type: ignore
+    from ._models import MicrosoftGraphNotebookLinks  # type: ignore
+    from ._models import MicrosoftGraphOnenote  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntityBaseModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntityHierarchyModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteEntitySchemaObjectModel  # type: ignore
+    from ._models import MicrosoftGraphOnenoteOperation  # type: ignore
+    from ._models import MicrosoftGraphOnenoteOperationError  # type: ignore
+    from ._models import MicrosoftGraphOnenotePage  # type: ignore
+    from ._models import MicrosoftGraphOnenoteResource  # type: ignore
+    from ._models import MicrosoftGraphOnenoteSection  # type: ignore
+    from ._models import MicrosoftGraphOperation  # type: ignore
+    from ._models import MicrosoftGraphPageLinks  # type: ignore
+    from ._models import MicrosoftGraphSectionGroup  # type: ignore
+    from ._models import MicrosoftGraphSectionLinks  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
 
 from ._notes_enums import (
     Enum10,
@@ -1459,206 +1459,206 @@ from ._notes_enums import (
     Enum997,
     Enum998,
     Enum999,
-    Get10itemsitem,
-    Get11itemsitem,
-    Get1itemsitem,
-    Get2itemsitem,
-    Get3itemsitem,
-    Get4itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
-    Get7itemsitem,
-    Get8itemsitem,
-    Get9itemsitem,
-    Microsoftgraphonenoteuserrole,
-    Microsoftgraphoperationstatus,
+    Get10ItemsItem,
+    Get11ItemsItem,
+    Get1ItemsItem,
+    Get2ItemsItem,
+    Get3ItemsItem,
+    Get4ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
+    Get8ItemsItem,
+    Get9ItemsItem,
+    MicrosoftGraphOnenoteUserRole,
+    MicrosoftGraphOperationStatus,
 )
 
 __all__ = [
-    'collectionofnotebook',
-    'collectionofnotebook0',
-    'collectionofnotebook1',
-    'collectionofonenoteoperation',
-    'collectionofonenoteoperation0',
-    'collectionofonenoteoperation1',
-    'collectionofonenotepage',
-    'collectionofonenotepage0',
-    'collectionofonenotepage1',
-    'collectionofonenotepage10',
-    'collectionofonenotepage11',
-    'collectionofonenotepage12',
-    'collectionofonenotepage13',
-    'collectionofonenotepage14',
-    'collectionofonenotepage15',
-    'collectionofonenotepage16',
-    'collectionofonenotepage17',
-    'collectionofonenotepage18',
-    'collectionofonenotepage19',
-    'collectionofonenotepage2',
-    'collectionofonenotepage20',
-    'collectionofonenotepage21',
-    'collectionofonenotepage22',
-    'collectionofonenotepage23',
-    'collectionofonenotepage24',
-    'collectionofonenotepage25',
-    'collectionofonenotepage3',
-    'collectionofonenotepage4',
-    'collectionofonenotepage5',
-    'collectionofonenotepage6',
-    'collectionofonenotepage7',
-    'collectionofonenotepage8',
-    'collectionofonenotepage9',
-    'collectionofonenoteresource',
-    'collectionofonenoteresource0',
-    'collectionofonenoteresource1',
-    'collectionofonenotesection',
-    'collectionofonenotesection0',
-    'collectionofonenotesection1',
-    'collectionofonenotesection10',
-    'collectionofonenotesection11',
-    'collectionofonenotesection12',
-    'collectionofonenotesection13',
-    'collectionofonenotesection14',
-    'collectionofonenotesection15',
-    'collectionofonenotesection16',
-    'collectionofonenotesection17',
-    'collectionofonenotesection18',
-    'collectionofonenotesection19',
-    'collectionofonenotesection2',
-    'collectionofonenotesection20',
-    'collectionofonenotesection21',
-    'collectionofonenotesection22',
-    'collectionofonenotesection23',
-    'collectionofonenotesection24',
-    'collectionofonenotesection25',
-    'collectionofonenotesection26',
-    'collectionofonenotesection27',
-    'collectionofonenotesection28',
-    'collectionofonenotesection29',
-    'collectionofonenotesection3',
-    'collectionofonenotesection30',
-    'collectionofonenotesection31',
-    'collectionofonenotesection32',
-    'collectionofonenotesection33',
-    'collectionofonenotesection34',
-    'collectionofonenotesection35',
-    'collectionofonenotesection36',
-    'collectionofonenotesection37',
-    'collectionofonenotesection38',
-    'collectionofonenotesection39',
-    'collectionofonenotesection4',
-    'collectionofonenotesection40',
-    'collectionofonenotesection41',
-    'collectionofonenotesection42',
-    'collectionofonenotesection43',
-    'collectionofonenotesection44',
-    'collectionofonenotesection45',
-    'collectionofonenotesection46',
-    'collectionofonenotesection47',
-    'collectionofonenotesection48',
-    'collectionofonenotesection49',
-    'collectionofonenotesection5',
-    'collectionofonenotesection50',
-    'collectionofonenotesection51',
-    'collectionofonenotesection52',
-    'collectionofonenotesection53',
-    'collectionofonenotesection54',
-    'collectionofonenotesection55',
-    'collectionofonenotesection56',
-    'collectionofonenotesection57',
-    'collectionofonenotesection58',
-    'collectionofonenotesection59',
-    'collectionofonenotesection6',
-    'collectionofonenotesection60',
-    'collectionofonenotesection61',
-    'collectionofonenotesection7',
-    'collectionofonenotesection8',
-    'collectionofonenotesection9',
-    'collectionofsectiongroup',
-    'collectionofsectiongroup0',
-    'collectionofsectiongroup1',
-    'collectionofsectiongroup10',
-    'collectionofsectiongroup11',
-    'collectionofsectiongroup12',
-    'collectionofsectiongroup13',
-    'collectionofsectiongroup14',
-    'collectionofsectiongroup15',
-    'collectionofsectiongroup16',
-    'collectionofsectiongroup17',
-    'collectionofsectiongroup18',
-    'collectionofsectiongroup19',
-    'collectionofsectiongroup2',
-    'collectionofsectiongroup20',
-    'collectionofsectiongroup21',
-    'collectionofsectiongroup22',
-    'collectionofsectiongroup23',
-    'collectionofsectiongroup24',
-    'collectionofsectiongroup25',
-    'collectionofsectiongroup26',
-    'collectionofsectiongroup27',
-    'collectionofsectiongroup28',
-    'collectionofsectiongroup29',
-    'collectionofsectiongroup3',
-    'collectionofsectiongroup30',
-    'collectionofsectiongroup31',
-    'collectionofsectiongroup32',
-    'collectionofsectiongroup33',
-    'collectionofsectiongroup34',
-    'collectionofsectiongroup35',
-    'collectionofsectiongroup36',
-    'collectionofsectiongroup37',
-    'collectionofsectiongroup38',
-    'collectionofsectiongroup39',
-    'collectionofsectiongroup4',
-    'collectionofsectiongroup40',
-    'collectionofsectiongroup41',
-    'collectionofsectiongroup42',
-    'collectionofsectiongroup43',
-    'collectionofsectiongroup44',
-    'collectionofsectiongroup45',
-    'collectionofsectiongroup46',
-    'collectionofsectiongroup47',
-    'collectionofsectiongroup48',
-    'collectionofsectiongroup49',
-    'collectionofsectiongroup5',
-    'collectionofsectiongroup50',
-    'collectionofsectiongroup51',
-    'collectionofsectiongroup52',
-    'collectionofsectiongroup53',
-    'collectionofsectiongroup54',
-    'collectionofsectiongroup55',
-    'collectionofsectiongroup56',
-    'collectionofsectiongroup57',
-    'collectionofsectiongroup58',
-    'collectionofsectiongroup59',
-    'collectionofsectiongroup6',
-    'collectionofsectiongroup60',
-    'collectionofsectiongroup61',
-    'collectionofsectiongroup7',
-    'collectionofsectiongroup8',
-    'collectionofsectiongroup9',
-    'microsoftgraphentity',
-    'microsoftgraphexternallink',
-    'microsoftgraphidentity',
-    'microsoftgraphidentityset',
-    'microsoftgraphnotebook',
-    'microsoftgraphnotebooklinks',
-    'microsoftgraphonenote',
-    'microsoftgraphonenoteentitybasemodel',
-    'microsoftgraphonenoteentityhierarchymodel',
-    'microsoftgraphonenoteentityschemaobjectmodel',
-    'microsoftgraphonenoteoperation',
-    'microsoftgraphonenoteoperationerror',
-    'microsoftgraphonenotepage',
-    'microsoftgraphonenoteresource',
-    'microsoftgraphonenotesection',
-    'microsoftgraphoperation',
-    'microsoftgraphpagelinks',
-    'microsoftgraphsectiongroup',
-    'microsoftgraphsectionlinks',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
+    'CollectionOfNotebook',
+    'CollectionOfNotebook0',
+    'CollectionOfNotebook1',
+    'CollectionOfOnenoteOperation',
+    'CollectionOfOnenoteOperation0',
+    'CollectionOfOnenoteOperation1',
+    'CollectionOfOnenotePage',
+    'CollectionOfOnenotePage0',
+    'CollectionOfOnenotePage1',
+    'CollectionOfOnenotePage10',
+    'CollectionOfOnenotePage11',
+    'CollectionOfOnenotePage12',
+    'CollectionOfOnenotePage13',
+    'CollectionOfOnenotePage14',
+    'CollectionOfOnenotePage15',
+    'CollectionOfOnenotePage16',
+    'CollectionOfOnenotePage17',
+    'CollectionOfOnenotePage18',
+    'CollectionOfOnenotePage19',
+    'CollectionOfOnenotePage2',
+    'CollectionOfOnenotePage20',
+    'CollectionOfOnenotePage21',
+    'CollectionOfOnenotePage22',
+    'CollectionOfOnenotePage23',
+    'CollectionOfOnenotePage24',
+    'CollectionOfOnenotePage25',
+    'CollectionOfOnenotePage3',
+    'CollectionOfOnenotePage4',
+    'CollectionOfOnenotePage5',
+    'CollectionOfOnenotePage6',
+    'CollectionOfOnenotePage7',
+    'CollectionOfOnenotePage8',
+    'CollectionOfOnenotePage9',
+    'CollectionOfOnenoteResource',
+    'CollectionOfOnenoteResource0',
+    'CollectionOfOnenoteResource1',
+    'CollectionOfOnenoteSection',
+    'CollectionOfOnenoteSection0',
+    'CollectionOfOnenoteSection1',
+    'CollectionOfOnenoteSection10',
+    'CollectionOfOnenoteSection11',
+    'CollectionOfOnenoteSection12',
+    'CollectionOfOnenoteSection13',
+    'CollectionOfOnenoteSection14',
+    'CollectionOfOnenoteSection15',
+    'CollectionOfOnenoteSection16',
+    'CollectionOfOnenoteSection17',
+    'CollectionOfOnenoteSection18',
+    'CollectionOfOnenoteSection19',
+    'CollectionOfOnenoteSection2',
+    'CollectionOfOnenoteSection20',
+    'CollectionOfOnenoteSection21',
+    'CollectionOfOnenoteSection22',
+    'CollectionOfOnenoteSection23',
+    'CollectionOfOnenoteSection24',
+    'CollectionOfOnenoteSection25',
+    'CollectionOfOnenoteSection26',
+    'CollectionOfOnenoteSection27',
+    'CollectionOfOnenoteSection28',
+    'CollectionOfOnenoteSection29',
+    'CollectionOfOnenoteSection3',
+    'CollectionOfOnenoteSection30',
+    'CollectionOfOnenoteSection31',
+    'CollectionOfOnenoteSection32',
+    'CollectionOfOnenoteSection33',
+    'CollectionOfOnenoteSection34',
+    'CollectionOfOnenoteSection35',
+    'CollectionOfOnenoteSection36',
+    'CollectionOfOnenoteSection37',
+    'CollectionOfOnenoteSection38',
+    'CollectionOfOnenoteSection39',
+    'CollectionOfOnenoteSection4',
+    'CollectionOfOnenoteSection40',
+    'CollectionOfOnenoteSection41',
+    'CollectionOfOnenoteSection42',
+    'CollectionOfOnenoteSection43',
+    'CollectionOfOnenoteSection44',
+    'CollectionOfOnenoteSection45',
+    'CollectionOfOnenoteSection46',
+    'CollectionOfOnenoteSection47',
+    'CollectionOfOnenoteSection48',
+    'CollectionOfOnenoteSection49',
+    'CollectionOfOnenoteSection5',
+    'CollectionOfOnenoteSection50',
+    'CollectionOfOnenoteSection51',
+    'CollectionOfOnenoteSection52',
+    'CollectionOfOnenoteSection53',
+    'CollectionOfOnenoteSection54',
+    'CollectionOfOnenoteSection55',
+    'CollectionOfOnenoteSection56',
+    'CollectionOfOnenoteSection57',
+    'CollectionOfOnenoteSection58',
+    'CollectionOfOnenoteSection59',
+    'CollectionOfOnenoteSection6',
+    'CollectionOfOnenoteSection60',
+    'CollectionOfOnenoteSection61',
+    'CollectionOfOnenoteSection7',
+    'CollectionOfOnenoteSection8',
+    'CollectionOfOnenoteSection9',
+    'CollectionOfSectionGroup',
+    'CollectionOfSectionGroup0',
+    'CollectionOfSectionGroup1',
+    'CollectionOfSectionGroup10',
+    'CollectionOfSectionGroup11',
+    'CollectionOfSectionGroup12',
+    'CollectionOfSectionGroup13',
+    'CollectionOfSectionGroup14',
+    'CollectionOfSectionGroup15',
+    'CollectionOfSectionGroup16',
+    'CollectionOfSectionGroup17',
+    'CollectionOfSectionGroup18',
+    'CollectionOfSectionGroup19',
+    'CollectionOfSectionGroup2',
+    'CollectionOfSectionGroup20',
+    'CollectionOfSectionGroup21',
+    'CollectionOfSectionGroup22',
+    'CollectionOfSectionGroup23',
+    'CollectionOfSectionGroup24',
+    'CollectionOfSectionGroup25',
+    'CollectionOfSectionGroup26',
+    'CollectionOfSectionGroup27',
+    'CollectionOfSectionGroup28',
+    'CollectionOfSectionGroup29',
+    'CollectionOfSectionGroup3',
+    'CollectionOfSectionGroup30',
+    'CollectionOfSectionGroup31',
+    'CollectionOfSectionGroup32',
+    'CollectionOfSectionGroup33',
+    'CollectionOfSectionGroup34',
+    'CollectionOfSectionGroup35',
+    'CollectionOfSectionGroup36',
+    'CollectionOfSectionGroup37',
+    'CollectionOfSectionGroup38',
+    'CollectionOfSectionGroup39',
+    'CollectionOfSectionGroup4',
+    'CollectionOfSectionGroup40',
+    'CollectionOfSectionGroup41',
+    'CollectionOfSectionGroup42',
+    'CollectionOfSectionGroup43',
+    'CollectionOfSectionGroup44',
+    'CollectionOfSectionGroup45',
+    'CollectionOfSectionGroup46',
+    'CollectionOfSectionGroup47',
+    'CollectionOfSectionGroup48',
+    'CollectionOfSectionGroup49',
+    'CollectionOfSectionGroup5',
+    'CollectionOfSectionGroup50',
+    'CollectionOfSectionGroup51',
+    'CollectionOfSectionGroup52',
+    'CollectionOfSectionGroup53',
+    'CollectionOfSectionGroup54',
+    'CollectionOfSectionGroup55',
+    'CollectionOfSectionGroup56',
+    'CollectionOfSectionGroup57',
+    'CollectionOfSectionGroup58',
+    'CollectionOfSectionGroup59',
+    'CollectionOfSectionGroup6',
+    'CollectionOfSectionGroup60',
+    'CollectionOfSectionGroup61',
+    'CollectionOfSectionGroup7',
+    'CollectionOfSectionGroup8',
+    'CollectionOfSectionGroup9',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphExternalLink',
+    'MicrosoftGraphIdentity',
+    'MicrosoftGraphIdentitySet',
+    'MicrosoftGraphNotebook',
+    'MicrosoftGraphNotebookLinks',
+    'MicrosoftGraphOnenote',
+    'MicrosoftGraphOnenoteEntityBaseModel',
+    'MicrosoftGraphOnenoteEntityHierarchyModel',
+    'MicrosoftGraphOnenoteEntitySchemaObjectModel',
+    'MicrosoftGraphOnenoteOperation',
+    'MicrosoftGraphOnenoteOperationError',
+    'MicrosoftGraphOnenotePage',
+    'MicrosoftGraphOnenoteResource',
+    'MicrosoftGraphOnenoteSection',
+    'MicrosoftGraphOperation',
+    'MicrosoftGraphPageLinks',
+    'MicrosoftGraphSectionGroup',
+    'MicrosoftGraphSectionLinks',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
     'Enum10',
     'Enum100',
     'Enum1000',
@@ -2740,17 +2740,17 @@ __all__ = [
     'Enum997',
     'Enum998',
     'Enum999',
-    'Get10itemsitem',
-    'Get11itemsitem',
-    'Get1itemsitem',
-    'Get2itemsitem',
-    'Get3itemsitem',
-    'Get4itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
-    'Get7itemsitem',
-    'Get8itemsitem',
-    'Get9itemsitem',
-    'Microsoftgraphonenoteuserrole',
-    'Microsoftgraphoperationstatus',
+    'Get10ItemsItem',
+    'Get11ItemsItem',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
+    'Get3ItemsItem',
+    'Get4ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
+    'Get8ItemsItem',
+    'Get9ItemsItem',
+    'MicrosoftGraphOnenoteUserRole',
+    'MicrosoftGraphOperationStatus',
 ]

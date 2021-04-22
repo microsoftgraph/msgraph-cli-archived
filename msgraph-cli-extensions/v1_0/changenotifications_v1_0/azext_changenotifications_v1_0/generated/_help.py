@@ -17,32 +17,32 @@ helps['changenotifications_v1_0'] = '''
     short-summary: Manage Change Notifications
 '''
 
-helps['changenotifications subscriptionssubscription'] = """
+helps['changenotifications subscription-subscription'] = """
     type: group
-    short-summary: Manage subscriptionssubscription with changenotifications_v1_0
+    short-summary: Manage subscription subscription with changenotifications_v1_0
 """
 
-helps['changenotifications subscriptionssubscription create-subscription'] = """
+helps['changenotifications subscription-subscription create-subscription'] = """
     type: command
     short-summary: "Add new entity to subscriptions."
 """
 
-helps['changenotifications subscriptionssubscription delete-subscription'] = """
+helps['changenotifications subscription-subscription delete-subscription'] = """
     type: command
     short-summary: "Delete entity from subscriptions."
 """
 
-helps['changenotifications subscriptionssubscription list-subscription'] = """
+helps['changenotifications subscription-subscription list-subscription'] = """
     type: command
     short-summary: "Get entities from subscriptions."
 """
 
-helps['changenotifications subscriptionssubscription show-subscription'] = """
+helps['changenotifications subscription-subscription show-subscription'] = """
     type: command
     short-summary: "Get entity from subscriptions by key."
 """
 
-helps['changenotifications subscriptionssubscription update-subscription'] = """
+helps['changenotifications subscription-subscription update-subscription'] = """
     type: command
     short-summary: "Update entity in subscriptions."
 """

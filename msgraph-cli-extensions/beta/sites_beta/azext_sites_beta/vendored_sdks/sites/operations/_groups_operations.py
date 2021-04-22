@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class groupsOperations(object):
-    """groupsOperations operations.
+class GroupsOperations(object):
+    """GroupsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -47,12 +48,12 @@ class groupsOperations(object):
     def list_sites(
         self,
         group_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get8itemsitem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofsite"]
+        # type: (...) -> Iterable["models.CollectionOfSite"]
         """Get sites from groups.
 
         Get sites from groups.
@@ -60,17 +61,17 @@ class groupsOperations(object):
         :param group_id: key: id of group.
         :type group_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Get6itemsitem]
+        :type orderby: list[str or ~sites.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Get7itemsitem]
+        :type select: list[str or ~sites.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Get8itemsitem]
+        :type expand: list[str or ~sites.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsite or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~sites.models.collectionofsite]
+        :return: An iterator like instance of either CollectionOfSite or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfSite]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class groupsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsite', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSite', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class groupsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -143,10 +144,10 @@ class groupsOperations(object):
     def create_sites(
         self,
         group_id,  # type: str
-        body,  # type: "models.microsoftgraphsite"
+        body,  # type: "models.MicrosoftGraphSite"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphsite"
+        # type: (...) -> "models.MicrosoftGraphSite"
         """Create new navigation property to sites for groups.
 
         Create new navigation property to sites for groups.
@@ -154,13 +155,13 @@ class groupsOperations(object):
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphsite
+        :type body: ~sites.models.MicrosoftGraphSite
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -184,7 +185,7 @@ class groupsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsite')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSite')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -192,10 +193,10 @@ class groupsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -207,11 +208,11 @@ class groupsOperations(object):
         self,
         group_id,  # type: str
         site_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get3itemsitem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphsite"
+        # type: (...) -> "models.MicrosoftGraphSite"
         """Get sites from groups.
 
         Get sites from groups.
@@ -221,15 +222,15 @@ class groupsOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Get2itemsitem]
+        :type select: list[str or ~sites.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Get3itemsitem]
+        :type expand: list[str or ~sites.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -261,10 +262,10 @@ class groupsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -276,7 +277,7 @@ class groupsOperations(object):
         self,
         group_id,  # type: str
         site_id,  # type: str
-        body,  # type: "models.microsoftgraphsite"
+        body,  # type: "models.MicrosoftGraphSite"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -289,7 +290,7 @@ class groupsOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphsite
+        :type body: ~sites.models.MicrosoftGraphSite
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -320,7 +321,7 @@ class groupsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsite')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSite')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -328,8 +329,8 @@ class groupsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -389,8 +390,8 @@ class groupsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

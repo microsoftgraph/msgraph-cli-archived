@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class usersOperations:
-    """usersOperations async operations.
+class UsersOperations:
+    """UsersOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -43,11 +44,11 @@ class usersOperations:
     def list_contact_folders(
         self,
         user_id: str,
-        orderby: Optional[List[Union[str, "models.Get6itemsitem"]]] = None,
-        select: Optional[List[Union[str, "models.Get7itemsitem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get8itemsitem"]]] = None,
+        orderby: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get8ItemsItem"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcontactfolder"]:
+    ) -> AsyncIterable["models.CollectionOfContactFolder"]:
         """Get contactFolders from users.
 
         Get contactFolders from users.
@@ -55,17 +56,17 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~personal_contacts.models.Get6itemsitem]
+        :type orderby: list[str or ~personal_contacts.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~personal_contacts.models.Get7itemsitem]
+        :type select: list[str or ~personal_contacts.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~personal_contacts.models.Get8itemsitem]
+        :type expand: list[str or ~personal_contacts.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcontactfolder or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~personal_contacts.models.collectionofcontactfolder]
+        :return: An iterator like instance of either CollectionOfContactFolder or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~personal_contacts.models.CollectionOfContactFolder]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcontactfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfContactFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -111,7 +112,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcontactfolder', pipeline_response)
+            deserialized = self._deserialize('CollectionOfContactFolder', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -124,9 +125,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -138,9 +139,9 @@ class usersOperations:
     async def create_contact_folders(
         self,
         user_id: str,
-        body: "models.microsoftgraphcontactfolder",
+        body: "models.MicrosoftGraphContactFolder",
         **kwargs
-    ) -> "models.microsoftgraphcontactfolder":
+    ) -> "models.MicrosoftGraphContactFolder":
         """Create new navigation property to contactFolders for users.
 
         Create new navigation property to contactFolders for users.
@@ -148,13 +149,13 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~personal_contacts.models.microsoftgraphcontactfolder
+        :type body: ~personal_contacts.models.MicrosoftGraphContactFolder
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontactfolder, or the result of cls(response)
-        :rtype: ~personal_contacts.models.microsoftgraphcontactfolder
+        :return: MicrosoftGraphContactFolder, or the result of cls(response)
+        :rtype: ~personal_contacts.models.MicrosoftGraphContactFolder
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontactfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContactFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -178,7 +179,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontactfolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContactFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -186,10 +187,10 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontactfolder', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContactFolder', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -201,10 +202,10 @@ class usersOperations:
         self,
         user_id: str,
         contact_folder_id: str,
-        select: Optional[List[Union[str, "models.Get2itemsitem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get3itemsitem"]]] = None,
+        select: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get3ItemsItem"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcontactfolder":
+    ) -> "models.MicrosoftGraphContactFolder":
         """Get contactFolders from users.
 
         Get contactFolders from users.
@@ -214,15 +215,15 @@ class usersOperations:
         :param contact_folder_id: key: id of contactFolder.
         :type contact_folder_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~personal_contacts.models.Get2itemsitem]
+        :type select: list[str or ~personal_contacts.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~personal_contacts.models.Get3itemsitem]
+        :type expand: list[str or ~personal_contacts.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontactfolder, or the result of cls(response)
-        :rtype: ~personal_contacts.models.microsoftgraphcontactfolder
+        :return: MicrosoftGraphContactFolder, or the result of cls(response)
+        :rtype: ~personal_contacts.models.MicrosoftGraphContactFolder
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontactfolder"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContactFolder"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -254,10 +255,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontactfolder', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContactFolder', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -269,7 +270,7 @@ class usersOperations:
         self,
         user_id: str,
         contact_folder_id: str,
-        body: "models.microsoftgraphcontactfolder",
+        body: "models.MicrosoftGraphContactFolder",
         **kwargs
     ) -> None:
         """Update the navigation property contactFolders in users.
@@ -281,7 +282,7 @@ class usersOperations:
         :param contact_folder_id: key: id of contactFolder.
         :type contact_folder_id: str
         :param body: New navigation property values.
-        :type body: ~personal_contacts.models.microsoftgraphcontactfolder
+        :type body: ~personal_contacts.models.MicrosoftGraphContactFolder
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -312,7 +313,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontactfolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContactFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -320,8 +321,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -380,8 +381,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -395,7 +396,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum35"]]] = None,
         expand: Optional[List[Union[str, "models.Enum36"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcontact0"]:
+    ) -> AsyncIterable["models.CollectionOfContact0"]:
         """Get contacts from users.
 
         Get contacts from users.
@@ -409,11 +410,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~personal_contacts.models.Enum36]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcontact0 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~personal_contacts.models.collectionofcontact0]
+        :return: An iterator like instance of either CollectionOfContact0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~personal_contacts.models.CollectionOfContact0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcontact0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfContact0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -459,7 +460,7 @@ class usersOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcontact0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfContact0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -472,9 +473,9 @@ class usersOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -486,9 +487,9 @@ class usersOperations:
     async def create_contacts(
         self,
         user_id: str,
-        body: "models.microsoftgraphcontact",
+        body: "models.MicrosoftGraphContact",
         **kwargs
-    ) -> "models.microsoftgraphcontact":
+    ) -> "models.MicrosoftGraphContact":
         """Create new navigation property to contacts for users.
 
         Create new navigation property to contacts for users.
@@ -496,13 +497,13 @@ class usersOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param body: New navigation property.
-        :type body: ~personal_contacts.models.microsoftgraphcontact
+        :type body: ~personal_contacts.models.MicrosoftGraphContact
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontact, or the result of cls(response)
-        :rtype: ~personal_contacts.models.microsoftgraphcontact
+        :return: MicrosoftGraphContact, or the result of cls(response)
+        :rtype: ~personal_contacts.models.MicrosoftGraphContact
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontact"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContact"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -526,7 +527,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontact')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContact')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -534,10 +535,10 @@ class usersOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontact', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContact', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -552,7 +553,7 @@ class usersOperations:
         select: Optional[List[Union[str, "models.Enum37"]]] = None,
         expand: Optional[List[Union[str, "models.Enum38"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcontact":
+    ) -> "models.MicrosoftGraphContact":
         """Get contacts from users.
 
         Get contacts from users.
@@ -566,11 +567,11 @@ class usersOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~personal_contacts.models.Enum38]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontact, or the result of cls(response)
-        :rtype: ~personal_contacts.models.microsoftgraphcontact
+        :return: MicrosoftGraphContact, or the result of cls(response)
+        :rtype: ~personal_contacts.models.MicrosoftGraphContact
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontact"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContact"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -602,10 +603,10 @@ class usersOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontact', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContact', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -617,7 +618,7 @@ class usersOperations:
         self,
         user_id: str,
         contact_id: str,
-        body: "models.microsoftgraphcontact",
+        body: "models.MicrosoftGraphContact",
         **kwargs
     ) -> None:
         """Update the navigation property contacts in users.
@@ -629,7 +630,7 @@ class usersOperations:
         :param contact_id: key: id of contact.
         :type contact_id: str
         :param body: New navigation property values.
-        :type body: ~personal_contacts.models.microsoftgraphcontact
+        :type body: ~personal_contacts.models.MicrosoftGraphContact
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -660,7 +661,7 @@ class usersOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontact')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContact')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -668,8 +669,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -728,8 +729,8 @@ class usersOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

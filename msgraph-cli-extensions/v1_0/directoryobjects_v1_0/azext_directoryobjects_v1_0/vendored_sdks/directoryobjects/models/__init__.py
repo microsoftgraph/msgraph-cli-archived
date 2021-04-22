@@ -7,58 +7,58 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import collectionofdirectoryobject
-    from ._models_py3 import microsoftgraphdirectoryobject
-    from ._models_py3 import microsoftgraphentity
-    from ._models_py3 import microsoftgraphextensionproperty
-    from ._models_py3 import odataerror
-    from ._models_py3 import odataerrordetail
-    from ._models_py3 import odataerrormain
-    from ._models_py3 import paths15et6vvdirectoryobjectsdirectoryobjectidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths16hhl7edirectoryobjectsdirectoryobjectidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1b1k3oodirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1ffes6mdirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1izu2oldirectoryobjectsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import paths1re7rfdirectoryobjectsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
-    from ._models_py3 import pathsg5xp0hdirectoryobjectsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import CollectionOfDirectoryObject
+    from ._models_py3 import MicrosoftGraphDirectoryObject
+    from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphExtensionProperty
+    from ._models_py3 import OdataError
+    from ._models_py3 import OdataErrorDetail
+    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths15Et6VvDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths16Hhl7EDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1B1K3OoDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Ffes6MDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Izu2OlDirectoryobjectsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Re7RfDirectoryobjectsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsG5Xp0HDirectoryobjectsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
-    from ._models import collectionofdirectoryobject  # type: ignore
-    from ._models import microsoftgraphdirectoryobject  # type: ignore
-    from ._models import microsoftgraphentity  # type: ignore
-    from ._models import microsoftgraphextensionproperty  # type: ignore
-    from ._models import odataerror  # type: ignore
-    from ._models import odataerrordetail  # type: ignore
-    from ._models import odataerrormain  # type: ignore
-    from ._models import paths15et6vvdirectoryobjectsdirectoryobjectidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths16hhl7edirectoryobjectsdirectoryobjectidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1b1k3oodirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1ffes6mdirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1izu2oldirectoryobjectsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import paths1re7rfdirectoryobjectsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
-    from ._models import pathsg5xp0hdirectoryobjectsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import CollectionOfDirectoryObject  # type: ignore
+    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
+    from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphExtensionProperty  # type: ignore
+    from ._models import OdataError  # type: ignore
+    from ._models import OdataErrorDetail  # type: ignore
+    from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths15Et6VvDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths16Hhl7EDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1B1K3OoDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Ffes6MDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Izu2OlDirectoryobjectsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Re7RfDirectoryobjectsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsG5Xp0HDirectoryobjectsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._directory_objects_enums import (
-    Get1itemsitem,
-    Get5itemsitem,
-    Get6itemsitem,
+    Get1ItemsItem,
+    Get5ItemsItem,
+    Get6ItemsItem,
 )
 
 __all__ = [
-    'collectionofdirectoryobject',
-    'microsoftgraphdirectoryobject',
-    'microsoftgraphentity',
-    'microsoftgraphextensionproperty',
-    'odataerror',
-    'odataerrordetail',
-    'odataerrormain',
-    'paths15et6vvdirectoryobjectsdirectoryobjectidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths16hhl7edirectoryobjectsdirectoryobjectidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths1b1k3oodirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
-    'paths1ffes6mdirectoryobjectsdirectoryobjectidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
-    'paths1izu2oldirectoryobjectsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
-    'paths1re7rfdirectoryobjectsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
-    'pathsg5xp0hdirectoryobjectsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
-    'Get1itemsitem',
-    'Get5itemsitem',
-    'Get6itemsitem',
+    'CollectionOfDirectoryObject',
+    'MicrosoftGraphDirectoryObject',
+    'MicrosoftGraphEntity',
+    'MicrosoftGraphExtensionProperty',
+    'OdataError',
+    'OdataErrorDetail',
+    'OdataErrorMain',
+    'Paths15Et6VvDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths16Hhl7EDirectoryobjectsDirectoryobjectIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1B1K3OoDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Ffes6MDirectoryobjectsDirectoryobjectIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Izu2OlDirectoryobjectsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Re7RfDirectoryobjectsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
+    'PathsG5Xp0HDirectoryobjectsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
+    'Get1ItemsItem',
+    'Get5ItemsItem',
+    'Get6ItemsItem',
 ]

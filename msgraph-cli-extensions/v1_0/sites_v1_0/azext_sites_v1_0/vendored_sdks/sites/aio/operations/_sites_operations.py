@@ -12,14 +12,15 @@ from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class sitesOperations:
-    """sitesOperations async operations.
+class SitesOperations:
+    """SitesOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,7 +47,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum69"]]] = None,
         expand: Optional[List[Union[str, "models.Enum70"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphitemanalytics":
+    ) -> "models.MicrosoftGraphItemAnalytics":
         """Get analytics from sites.
 
         Get analytics from sites.
@@ -58,11 +59,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum70]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphitemanalytics, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphitemanalytics
+        :return: MicrosoftGraphItemAnalytics, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphItemAnalytics
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphitemanalytics"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItemAnalytics"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -93,10 +94,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphitemanalytics', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphItemAnalytics', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -147,8 +148,8 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('str', pipeline_response)
 
@@ -209,8 +210,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -265,8 +266,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -280,7 +281,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum72"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcolumndefinition"]:
+    ) -> AsyncIterable["models.CollectionOfColumnDefinition"]:
         """Get columns from sites.
 
         Get columns from sites.
@@ -294,11 +295,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcolumndefinition or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionofcolumndefinition]
+        :return: An iterator like instance of either CollectionOfColumnDefinition or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfColumnDefinition]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcolumndefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfColumnDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -344,7 +345,7 @@ class sitesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcolumndefinition', pipeline_response)
+            deserialized = self._deserialize('CollectionOfColumnDefinition', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -357,9 +358,9 @@ class sitesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -371,9 +372,9 @@ class sitesOperations:
     async def create_columns(
         self,
         site_id: str,
-        body: "models.microsoftgraphcolumndefinition",
+        body: "models.MicrosoftGraphColumnDefinition",
         **kwargs
-    ) -> "models.microsoftgraphcolumndefinition":
+    ) -> "models.MicrosoftGraphColumnDefinition":
         """Create new navigation property to columns for sites.
 
         Create new navigation property to columns for sites.
@@ -381,13 +382,13 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphcolumndefinition
+        :type body: ~sites.models.MicrosoftGraphColumnDefinition
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcolumndefinition, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphcolumndefinition
+        :return: MicrosoftGraphColumnDefinition, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphColumnDefinition
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcolumndefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphColumnDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -411,7 +412,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcolumndefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphColumnDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -419,10 +420,10 @@ class sitesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcolumndefinition', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphColumnDefinition', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -437,7 +438,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum73"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcolumndefinition":
+    ) -> "models.MicrosoftGraphColumnDefinition":
         """Get columns from sites.
 
         Get columns from sites.
@@ -451,11 +452,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcolumndefinition, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphcolumndefinition
+        :return: MicrosoftGraphColumnDefinition, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphColumnDefinition
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcolumndefinition"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphColumnDefinition"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -487,10 +488,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcolumndefinition', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphColumnDefinition', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -502,7 +503,7 @@ class sitesOperations:
         self,
         site_id: str,
         column_definition_id: str,
-        body: "models.microsoftgraphcolumndefinition",
+        body: "models.MicrosoftGraphColumnDefinition",
         **kwargs
     ) -> None:
         """Update the navigation property columns in sites.
@@ -514,7 +515,7 @@ class sitesOperations:
         :param column_definition_id: key: id of columnDefinition.
         :type column_definition_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphcolumndefinition
+        :type body: ~sites.models.MicrosoftGraphColumnDefinition
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -545,7 +546,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcolumndefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphColumnDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -553,8 +554,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -613,8 +614,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -628,7 +629,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum75"]]] = None,
         expand: Optional[List[Union[str, "models.Enum76"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofcontenttype"]:
+    ) -> AsyncIterable["models.CollectionOfContentType"]:
         """Get contentTypes from sites.
 
         Get contentTypes from sites.
@@ -642,11 +643,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum76]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofcontenttype or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionofcontenttype]
+        :return: An iterator like instance of either CollectionOfContentType or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfContentType]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofcontenttype"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfContentType"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -692,7 +693,7 @@ class sitesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofcontenttype', pipeline_response)
+            deserialized = self._deserialize('CollectionOfContentType', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -705,9 +706,9 @@ class sitesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -719,9 +720,9 @@ class sitesOperations:
     async def create_content_types(
         self,
         site_id: str,
-        body: "models.microsoftgraphcontenttype",
+        body: "models.MicrosoftGraphContentType",
         **kwargs
-    ) -> "models.microsoftgraphcontenttype":
+    ) -> "models.MicrosoftGraphContentType":
         """Create new navigation property to contentTypes for sites.
 
         Create new navigation property to contentTypes for sites.
@@ -729,13 +730,13 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphcontenttype
+        :type body: ~sites.models.MicrosoftGraphContentType
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontenttype, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphcontenttype
+        :return: MicrosoftGraphContentType, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphContentType
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontenttype"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContentType"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -759,7 +760,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontenttype')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContentType')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -767,10 +768,10 @@ class sitesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontenttype', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContentType', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -785,7 +786,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum77"]]] = None,
         expand: Optional[List[Union[str, "models.Enum78"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphcontenttype":
+    ) -> "models.MicrosoftGraphContentType":
         """Get contentTypes from sites.
 
         Get contentTypes from sites.
@@ -799,11 +800,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum78]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphcontenttype, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphcontenttype
+        :return: MicrosoftGraphContentType, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphContentType
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphcontenttype"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContentType"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -835,10 +836,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphcontenttype', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphContentType', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -850,7 +851,7 @@ class sitesOperations:
         self,
         site_id: str,
         content_type_id: str,
-        body: "models.microsoftgraphcontenttype",
+        body: "models.MicrosoftGraphContentType",
         **kwargs
     ) -> None:
         """Update the navigation property contentTypes in sites.
@@ -862,7 +863,7 @@ class sitesOperations:
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphcontenttype
+        :type body: ~sites.models.MicrosoftGraphContentType
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -893,7 +894,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphcontenttype')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContentType')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -901,8 +902,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -961,8 +962,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -975,7 +976,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum82"]]] = None,
         expand: Optional[List[Union[str, "models.Enum83"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Get drive from sites.
 
         Get drive from sites.
@@ -987,11 +988,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum83]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1022,10 +1023,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1036,7 +1037,7 @@ class sitesOperations:
     async def update_drive(
         self,
         site_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
     ) -> None:
         """Update the navigation property drive in sites.
@@ -1046,7 +1047,7 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphdrive
+        :type body: ~sites.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1076,7 +1077,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1084,8 +1085,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1140,8 +1141,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1155,7 +1156,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum85"]]] = None,
         expand: Optional[List[Union[str, "models.Enum86"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofdrive"]:
+    ) -> AsyncIterable["models.CollectionOfDrive"]:
         """Get drives from sites.
 
         Get drives from sites.
@@ -1169,11 +1170,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum86]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdrive or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionofdrive]
+        :return: An iterator like instance of either CollectionOfDrive or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfDrive]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1219,7 +1220,7 @@ class sitesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdrive', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDrive', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1232,9 +1233,9 @@ class sitesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1246,9 +1247,9 @@ class sitesOperations:
     async def create_drives(
         self,
         site_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Create new navigation property to drives for sites.
 
         Create new navigation property to drives for sites.
@@ -1256,13 +1257,13 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphdrive
+        :type body: ~sites.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1286,7 +1287,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1294,10 +1295,10 @@ class sitesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1312,7 +1313,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum87"]]] = None,
         expand: Optional[List[Union[str, "models.Enum88"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphdrive":
+    ) -> "models.MicrosoftGraphDrive":
         """Get drives from sites.
 
         Get drives from sites.
@@ -1326,11 +1327,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum88]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdrive, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphdrive
+        :return: MicrosoftGraphDrive, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphDrive
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdrive"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDrive"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1362,10 +1363,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdrive', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDrive', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1377,7 +1378,7 @@ class sitesOperations:
         self,
         site_id: str,
         drive_id: str,
-        body: "models.microsoftgraphdrive",
+        body: "models.MicrosoftGraphDrive",
         **kwargs
     ) -> None:
         """Update the navigation property drives in sites.
@@ -1389,7 +1390,7 @@ class sitesOperations:
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphdrive
+        :type body: ~sites.models.MicrosoftGraphDrive
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1420,7 +1421,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdrive')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDrive')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1428,8 +1429,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1488,8 +1489,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1503,7 +1504,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum90"]]] = None,
         expand: Optional[List[Union[str, "models.Enum91"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionoflist"]:
+    ) -> AsyncIterable["models.CollectionOfList"]:
         """Get lists from sites.
 
         Get lists from sites.
@@ -1517,11 +1518,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum91]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflist or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionoflist]
+        :return: An iterator like instance of either CollectionOfList or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfList]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflist"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfList"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1567,7 +1568,7 @@ class sitesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflist', pipeline_response)
+            deserialized = self._deserialize('CollectionOfList', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1580,9 +1581,9 @@ class sitesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -1594,9 +1595,9 @@ class sitesOperations:
     async def create_lists(
         self,
         site_id: str,
-        body: "models.microsoftgraphlist",
+        body: "models.MicrosoftGraphList",
         **kwargs
-    ) -> "models.microsoftgraphlist":
+    ) -> "models.MicrosoftGraphList":
         """Create new navigation property to lists for sites.
 
         Create new navigation property to lists for sites.
@@ -1604,13 +1605,13 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphlist
+        :type body: ~sites.models.MicrosoftGraphList
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphlist, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphlist
+        :return: MicrosoftGraphList, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphList
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphlist"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphList"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1634,7 +1635,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphlist')
+        body_content = self._serialize.body(body, 'MicrosoftGraphList')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1642,10 +1643,10 @@ class sitesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphlist', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphList', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1660,7 +1661,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum92"]]] = None,
         expand: Optional[List[Union[str, "models.Enum93"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphlist":
+    ) -> "models.MicrosoftGraphList":
         """Get lists from sites.
 
         Get lists from sites.
@@ -1674,11 +1675,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum93]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphlist, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphlist
+        :return: MicrosoftGraphList, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphList
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphlist"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphList"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1710,10 +1711,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphlist', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphList', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1725,7 +1726,7 @@ class sitesOperations:
         self,
         site_id: str,
         list_id: str,
-        body: "models.microsoftgraphlist",
+        body: "models.MicrosoftGraphList",
         **kwargs
     ) -> None:
         """Update the navigation property lists in sites.
@@ -1737,7 +1738,7 @@ class sitesOperations:
         :param list_id: key: id of list.
         :type list_id: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphlist
+        :type body: ~sites.models.MicrosoftGraphList
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1768,7 +1769,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphlist')
+        body_content = self._serialize.body(body, 'MicrosoftGraphList')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1776,8 +1777,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1836,8 +1837,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1848,7 +1849,7 @@ class sitesOperations:
         self,
         site_id: str,
         **kwargs
-    ) -> List["models.microsoftgraphitemactivitystat"]:
+    ) -> List["models.MicrosoftGraphItemActivityStat"]:
         """Invoke function getActivitiesByInterval.
 
         Invoke function getActivitiesByInterval.
@@ -1856,11 +1857,11 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphitemactivitystat, or the result of cls(response)
-        :rtype: list[~sites.models.microsoftgraphitemactivitystat]
+        :return: list of MicrosoftGraphItemActivityStat, or the result of cls(response)
+        :rtype: list[~sites.models.MicrosoftGraphItemActivityStat]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphitemactivitystat"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphItemActivityStat"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1887,10 +1888,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphitemactivitystat]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphItemActivityStat]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1905,7 +1906,7 @@ class sitesOperations:
         end_date_time: str,
         interval: str,
         **kwargs
-    ) -> List["models.microsoftgraphitemactivitystat"]:
+    ) -> List["models.MicrosoftGraphItemActivityStat"]:
         """Invoke function getActivitiesByInterval.
 
         Invoke function getActivitiesByInterval.
@@ -1919,11 +1920,11 @@ class sitesOperations:
         :param interval:
         :type interval: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphitemactivitystat, or the result of cls(response)
-        :rtype: list[~sites.models.microsoftgraphitemactivitystat]
+        :return: list of MicrosoftGraphItemActivityStat, or the result of cls(response)
+        :rtype: list[~sites.models.MicrosoftGraphItemActivityStat]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphitemactivitystat"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphItemActivityStat"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -1953,10 +1954,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphitemactivitystat]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphItemActivityStat]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1969,7 +1970,7 @@ class sitesOperations:
         site_id: str,
         path: str,
         **kwargs
-    ) -> "models.microsoftgraphsite":
+    ) -> "models.MicrosoftGraphSite":
         """Invoke function getByPath.
 
         Invoke function getByPath.
@@ -1979,11 +1980,11 @@ class sitesOperations:
         :param path:
         :type path: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2011,10 +2012,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2029,7 +2030,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum128"]]] = None,
         expand: Optional[List[Union[str, "models.Enum129"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.collectionofsite1"]:
+    ) -> AsyncIterable["models.CollectionOfSite1"]:
         """Get sites from sites.
 
         Get sites from sites.
@@ -2043,11 +2044,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum129]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofsite1 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.collectionofsite1]
+        :return: An iterator like instance of either CollectionOfSite1 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfSite1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofsite1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSite1"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2093,7 +2094,7 @@ class sitesOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofsite1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSite1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -2106,9 +2107,9 @@ class sitesOperations:
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -2120,9 +2121,9 @@ class sitesOperations:
     async def create_sites(
         self,
         site_id: str,
-        body: "models.microsoftgraphsite",
+        body: "models.MicrosoftGraphSite",
         **kwargs
-    ) -> "models.microsoftgraphsite":
+    ) -> "models.MicrosoftGraphSite":
         """Create new navigation property to sites for sites.
 
         Create new navigation property to sites for sites.
@@ -2130,13 +2131,13 @@ class sitesOperations:
         :param site_id: key: id of site.
         :type site_id: str
         :param body: New navigation property.
-        :type body: ~sites.models.microsoftgraphsite
+        :type body: ~sites.models.MicrosoftGraphSite
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2160,7 +2161,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsite')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSite')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2168,10 +2169,10 @@ class sitesOperations:
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2186,7 +2187,7 @@ class sitesOperations:
         select: Optional[List[Union[str, "models.Enum130"]]] = None,
         expand: Optional[List[Union[str, "models.Enum131"]]] = None,
         **kwargs
-    ) -> "models.microsoftgraphsite":
+    ) -> "models.MicrosoftGraphSite":
         """Get sites from sites.
 
         Get sites from sites.
@@ -2200,11 +2201,11 @@ class sitesOperations:
         :param expand: Expand related entities.
         :type expand: list[str or ~sites.models.Enum131]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphsite, or the result of cls(response)
-        :rtype: ~sites.models.microsoftgraphsite
+        :return: MicrosoftGraphSite, or the result of cls(response)
+        :rtype: ~sites.models.MicrosoftGraphSite
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphsite"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSite"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2236,10 +2237,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphsite', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSite', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2251,7 +2252,7 @@ class sitesOperations:
         self,
         site_id: str,
         site_id1: str,
-        body: "models.microsoftgraphsite",
+        body: "models.MicrosoftGraphSite",
         **kwargs
     ) -> None:
         """Update the navigation property sites in sites.
@@ -2263,7 +2264,7 @@ class sitesOperations:
         :param site_id1: key: id of site.
         :type site_id1: str
         :param body: New navigation property values.
-        :type body: ~sites.models.microsoftgraphsite
+        :type body: ~sites.models.MicrosoftGraphSite
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -2294,7 +2295,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphsite')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSite')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2302,8 +2303,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2362,8 +2363,8 @@ class sitesOperations:
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -2372,21 +2373,21 @@ class sitesOperations:
 
     async def add(
         self,
-        body: "models.pathsv2u0z1sitesmicrosoftgraphaddpostrequestbodycontentapplicationjsonschema",
+        body: "models.PathsV2U0Z1SitesMicrosoftGraphAddPostRequestbodyContentApplicationJsonSchema",
         **kwargs
-    ) -> List["models.microsoftgraphsite"]:
+    ) -> List["models.MicrosoftGraphSite"]:
         """Invoke action add.
 
         Invoke action add.
 
         :param body: Action parameters.
-        :type body: ~sites.models.pathsv2u0z1sitesmicrosoftgraphaddpostrequestbodycontentapplicationjsonschema
+        :type body: ~sites.models.PathsV2U0Z1SitesMicrosoftGraphAddPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphsite, or the result of cls(response)
-        :rtype: list[~sites.models.microsoftgraphsite]
+        :return: list of MicrosoftGraphSite, or the result of cls(response)
+        :rtype: list[~sites.models.MicrosoftGraphSite]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphsite"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSite"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2406,7 +2407,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsv2u0z1sitesmicrosoftgraphaddpostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsV2U0Z1SitesMicrosoftGraphAddPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2414,10 +2415,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphsite]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphSite]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2427,21 +2428,21 @@ class sitesOperations:
 
     async def remove(
         self,
-        body: "models.paths8behs0sitesmicrosoftgraphremovepostrequestbodycontentapplicationjsonschema",
+        body: "models.Paths8Behs0SitesMicrosoftGraphRemovePostRequestbodyContentApplicationJsonSchema",
         **kwargs
-    ) -> List["models.microsoftgraphsite"]:
+    ) -> List["models.MicrosoftGraphSite"]:
         """Invoke action remove.
 
         Invoke action remove.
 
         :param body: Action parameters.
-        :type body: ~sites.models.paths8behs0sitesmicrosoftgraphremovepostrequestbodycontentapplicationjsonschema
+        :type body: ~sites.models.Paths8Behs0SitesMicrosoftGraphRemovePostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphsite, or the result of cls(response)
-        :rtype: list[~sites.models.microsoftgraphsite]
+        :return: list of MicrosoftGraphSite, or the result of cls(response)
+        :rtype: list[~sites.models.MicrosoftGraphSite]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphsite"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSite"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -2461,7 +2462,7 @@ class sitesOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'paths8behs0sitesmicrosoftgraphremovepostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'Paths8Behs0SitesMicrosoftGraphRemovePostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2469,10 +2470,10 @@ class sitesOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphsite]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphSite]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})

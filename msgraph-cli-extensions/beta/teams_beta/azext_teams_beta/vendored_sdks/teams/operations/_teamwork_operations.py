@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class teamworkOperations(object):
-    """teamworkOperations operations.
+class TeamworkOperations(object):
+    """TeamworkOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -51,7 +52,7 @@ class teamworkOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofworkforceintegration"]
+        # type: (...) -> Iterable["models.CollectionOfWorkforceIntegration"]
         """Get workforceIntegrations from teamwork.
 
         Get workforceIntegrations from teamwork.
@@ -63,11 +64,11 @@ class teamworkOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofworkforceintegration or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~teams.models.collectionofworkforceintegration]
+        :return: An iterator like instance of either CollectionOfWorkforceIntegration or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~teams.models.CollectionOfWorkforceIntegration]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofworkforceintegration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfWorkforceIntegration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -109,7 +110,7 @@ class teamworkOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofworkforceintegration', pipeline_response)
+            deserialized = self._deserialize('CollectionOfWorkforceIntegration', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,9 +123,9 @@ class teamworkOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -135,22 +136,22 @@ class teamworkOperations(object):
 
     def create_workforce_integrations(
         self,
-        body,  # type: "models.microsoftgraphworkforceintegration"
+        body,  # type: "models.MicrosoftGraphWorkforceIntegration"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphworkforceintegration"
+        # type: (...) -> "models.MicrosoftGraphWorkforceIntegration"
         """Create new navigation property to workforceIntegrations for teamwork.
 
         Create new navigation property to workforceIntegrations for teamwork.
 
         :param body: New navigation property.
-        :type body: ~teams.models.microsoftgraphworkforceintegration
+        :type body: ~teams.models.MicrosoftGraphWorkforceIntegration
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphworkforceintegration, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphworkforceintegration
+        :return: MicrosoftGraphWorkforceIntegration, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphWorkforceIntegration
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphworkforceintegration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphWorkforceIntegration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -170,7 +171,7 @@ class teamworkOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphworkforceintegration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphWorkforceIntegration')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -178,10 +179,10 @@ class teamworkOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphworkforceintegration', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphWorkforceIntegration', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -196,7 +197,7 @@ class teamworkOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphworkforceintegration"
+        # type: (...) -> "models.MicrosoftGraphWorkforceIntegration"
         """Get workforceIntegrations from teamwork.
 
         Get workforceIntegrations from teamwork.
@@ -208,11 +209,11 @@ class teamworkOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphworkforceintegration, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphworkforceintegration
+        :return: MicrosoftGraphWorkforceIntegration, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphWorkforceIntegration
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphworkforceintegration"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphWorkforceIntegration"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -243,10 +244,10 @@ class teamworkOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphworkforceintegration', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphWorkforceIntegration', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -257,7 +258,7 @@ class teamworkOperations(object):
     def update_workforce_integrations(
         self,
         workforce_integration_id,  # type: str
-        body,  # type: "models.microsoftgraphworkforceintegration"
+        body,  # type: "models.MicrosoftGraphWorkforceIntegration"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -268,7 +269,7 @@ class teamworkOperations(object):
         :param workforce_integration_id: key: id of workforceIntegration.
         :type workforce_integration_id: str
         :param body: New navigation property values.
-        :type body: ~teams.models.microsoftgraphworkforceintegration
+        :type body: ~teams.models.MicrosoftGraphWorkforceIntegration
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -298,7 +299,7 @@ class teamworkOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphworkforceintegration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphWorkforceIntegration')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -306,8 +307,8 @@ class teamworkOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -363,8 +364,8 @@ class teamworkOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

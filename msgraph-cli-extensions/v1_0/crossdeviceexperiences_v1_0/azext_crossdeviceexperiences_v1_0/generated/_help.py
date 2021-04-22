@@ -69,57 +69,57 @@ response to parameterization. For example – a high contrast image
 activity
 """
 
-helps['crossdeviceexperiences usersactivity'] = """
+helps['crossdeviceexperiences user-activity'] = """
     type: group
-    short-summary: Manage usersactivity with crossdeviceexperiences_v1_0
+    short-summary: Manage user activity with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences usersactivity create-history-item'] = """
+helps['crossdeviceexperiences user-activity create-history-item'] = """
     type: command
     short-summary: "Create new navigation property to historyItems for users."
 """
 
-helps['crossdeviceexperiences usersactivity delete-history-item'] = """
+helps['crossdeviceexperiences user-activity delete-history-item'] = """
     type: command
     short-summary: "Delete navigation property historyItems for users."
 """
 
-helps['crossdeviceexperiences usersactivity list-history-item'] = """
+helps['crossdeviceexperiences user-activity list-history-item'] = """
     type: command
     short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences usersactivity show-history-item'] = """
+helps['crossdeviceexperiences user-activity show-history-item'] = """
     type: command
     short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences usersactivity update-history-item'] = """
+helps['crossdeviceexperiences user-activity update-history-item'] = """
     type: command
     short-summary: "Update the navigation property historyItems in users."
 """
 
-helps['crossdeviceexperiences usersactivitieshistoryitem'] = """
+helps['crossdeviceexperiences user-activity-history-item'] = """
     type: group
-    short-summary: Manage usersactivitieshistoryitem with crossdeviceexperiences_v1_0
+    short-summary: Manage user activity history item with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences usersactivitieshistoryitem delete-ref-activity'] = """
+helps['crossdeviceexperiences user-activity-history-item delete-ref-activity'] = """
     type: command
     short-summary: "Delete ref of navigation property activity for users."
 """
 
-helps['crossdeviceexperiences usersactivitieshistoryitem set-ref-activity'] = """
+helps['crossdeviceexperiences user-activity-history-item set-ref-activity'] = """
     type: command
     short-summary: "Update the ref of navigation property activity in users."
 """
 
-helps['crossdeviceexperiences usersactivitieshistoryitem show-activity'] = """
+helps['crossdeviceexperiences user-activity-history-item show-activity'] = """
     type: command
     short-summary: "Get activity from users."
 """
 
-helps['crossdeviceexperiences usersactivitieshistoryitem show-ref-activity'] = """
+helps['crossdeviceexperiences user-activity-history-item show-ref-activity'] = """
     type: command
     short-summary: "Get ref of activity from users."
 """

@@ -12,6 +12,7 @@ from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, 
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +23,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class domainsOperations(object):
-    """domainsOperations operations.
+class DomainsOperations(object):
+    """DomainsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -52,7 +53,7 @@ class domainsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdirectoryobject9"]
+        # type: (...) -> Iterable["models.CollectionOfDirectoryObject9"]
         """Get domainNameReferences from domains.
 
         Get domainNameReferences from domains.
@@ -66,11 +67,11 @@ class domainsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdirectoryobject9 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.collectionofdirectoryobject9]
+        :return: An iterator like instance of either CollectionOfDirectoryObject9 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfDirectoryObject9]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdirectoryobject9"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject9"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -116,7 +117,7 @@ class domainsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdirectoryobject9', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDirectoryObject9', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -129,9 +130,9 @@ class domainsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -146,7 +147,7 @@ class domainsOperations(object):
         orderby=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionoflinksofdirectoryobject8"]
+        # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject8"]
         """Get ref of domainNameReferences from domains.
 
         Get ref of domainNameReferences from domains.
@@ -156,11 +157,11 @@ class domainsOperations(object):
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum75]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionoflinksofdirectoryobject8 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.collectionoflinksofdirectoryobject8]
+        :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject8 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfLinksOfDirectoryObject8]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionoflinksofdirectoryobject8"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject8"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -202,7 +203,7 @@ class domainsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionoflinksofdirectoryobject8', pipeline_response)
+            deserialized = self._deserialize('CollectionOfLinksOfDirectoryObject8', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -215,9 +216,9 @@ class domainsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -278,8 +279,8 @@ class domainsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         deserialized = self._deserialize('{object}', pipeline_response)
 
@@ -292,7 +293,7 @@ class domainsOperations(object):
     def force_delete(
         self,
         domain_id,  # type: str
-        body,  # type: "models.pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema"
+        body,  # type: "models.PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -303,7 +304,7 @@ class domainsOperations(object):
         :param domain_id: key: id of domain.
         :type domain_id: str
         :param body: Action parameters.
-        :type body: ~identity_directory_management.models.pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema
+        :type body: ~identity_directory_management.models.PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -333,7 +334,7 @@ class domainsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema')
+        body_content = self._serialize.body(body, 'PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -341,8 +342,8 @@ class domainsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -354,7 +355,7 @@ class domainsOperations(object):
         domain_id,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdomain"
+        # type: (...) -> "models.MicrosoftGraphDomain"
         """Invoke action verify.
 
         Invoke action verify.
@@ -362,11 +363,11 @@ class domainsOperations(object):
         :param domain_id: key: id of domain.
         :type domain_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomain, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdomain
+        :return: MicrosoftGraphDomain, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDomain
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomain"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomain"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -393,10 +394,10 @@ class domainsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomain', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomain', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -412,7 +413,7 @@ class domainsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdomaindnsrecord"]
+        # type: (...) -> Iterable["models.CollectionOfDomainDnsRecord"]
         """Get serviceConfigurationRecords from domains.
 
         Get serviceConfigurationRecords from domains.
@@ -426,11 +427,11 @@ class domainsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdomaindnsrecord or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.collectionofdomaindnsrecord]
+        :return: An iterator like instance of either CollectionOfDomainDnsRecord or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfDomainDnsRecord]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdomaindnsrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDomainDnsRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -476,7 +477,7 @@ class domainsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdomaindnsrecord', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDomainDnsRecord', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -489,9 +490,9 @@ class domainsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -503,10 +504,10 @@ class domainsOperations(object):
     def create_service_configuration_records(
         self,
         domain_id,  # type: str
-        body,  # type: "models.microsoftgraphdomaindnsrecord"
+        body,  # type: "models.MicrosoftGraphDomainDnsRecord"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdomaindnsrecord"
+        # type: (...) -> "models.MicrosoftGraphDomainDnsRecord"
         """Create new navigation property to serviceConfigurationRecords for domains.
 
         Create new navigation property to serviceConfigurationRecords for domains.
@@ -514,13 +515,13 @@ class domainsOperations(object):
         :param domain_id: key: id of domain.
         :type domain_id: str
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :type body: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomaindnsrecord, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :return: MicrosoftGraphDomainDnsRecord, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomaindnsrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainDnsRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -544,7 +545,7 @@ class domainsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomaindnsrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainDnsRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -552,10 +553,10 @@ class domainsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomaindnsrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainDnsRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -571,7 +572,7 @@ class domainsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdomaindnsrecord"
+        # type: (...) -> "models.MicrosoftGraphDomainDnsRecord"
         """Get serviceConfigurationRecords from domains.
 
         Get serviceConfigurationRecords from domains.
@@ -585,11 +586,11 @@ class domainsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomaindnsrecord, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :return: MicrosoftGraphDomainDnsRecord, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomaindnsrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainDnsRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -621,10 +622,10 @@ class domainsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomaindnsrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainDnsRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -636,7 +637,7 @@ class domainsOperations(object):
         self,
         domain_id,  # type: str
         domain_dns_record_id,  # type: str
-        body,  # type: "models.microsoftgraphdomaindnsrecord"
+        body,  # type: "models.MicrosoftGraphDomainDnsRecord"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -649,7 +650,7 @@ class domainsOperations(object):
         :param domain_dns_record_id: key: id of domainDnsRecord.
         :type domain_dns_record_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :type body: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -680,7 +681,7 @@ class domainsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomaindnsrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainDnsRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -688,8 +689,8 @@ class domainsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -749,8 +750,8 @@ class domainsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -765,7 +766,7 @@ class domainsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.collectionofdomaindnsrecord0"]
+        # type: (...) -> Iterable["models.CollectionOfDomainDnsRecord0"]
         """Get verificationDnsRecords from domains.
 
         Get verificationDnsRecords from domains.
@@ -779,11 +780,11 @@ class domainsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either collectionofdomaindnsrecord0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.collectionofdomaindnsrecord0]
+        :return: An iterator like instance of either CollectionOfDomainDnsRecord0 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfDomainDnsRecord0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofdomaindnsrecord0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDomainDnsRecord0"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -829,7 +830,7 @@ class domainsOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('collectionofdomaindnsrecord0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfDomainDnsRecord0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -842,9 +843,9 @@ class domainsOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.odataerror, response)
+                error = self._deserialize(models.OdataError, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
             return pipeline_response
 
@@ -856,10 +857,10 @@ class domainsOperations(object):
     def create_verification_dns_records(
         self,
         domain_id,  # type: str
-        body,  # type: "models.microsoftgraphdomaindnsrecord"
+        body,  # type: "models.MicrosoftGraphDomainDnsRecord"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdomaindnsrecord"
+        # type: (...) -> "models.MicrosoftGraphDomainDnsRecord"
         """Create new navigation property to verificationDnsRecords for domains.
 
         Create new navigation property to verificationDnsRecords for domains.
@@ -867,13 +868,13 @@ class domainsOperations(object):
         :param domain_id: key: id of domain.
         :type domain_id: str
         :param body: New navigation property.
-        :type body: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :type body: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomaindnsrecord, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :return: MicrosoftGraphDomainDnsRecord, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomaindnsrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainDnsRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -897,7 +898,7 @@ class domainsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomaindnsrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainDnsRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -905,10 +906,10 @@ class domainsOperations(object):
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomaindnsrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainDnsRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -924,7 +925,7 @@ class domainsOperations(object):
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphdomaindnsrecord"
+        # type: (...) -> "models.MicrosoftGraphDomainDnsRecord"
         """Get verificationDnsRecords from domains.
 
         Get verificationDnsRecords from domains.
@@ -938,11 +939,11 @@ class domainsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphdomaindnsrecord, or the result of cls(response)
-        :rtype: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :return: MicrosoftGraphDomainDnsRecord, or the result of cls(response)
+        :rtype: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphdomaindnsrecord"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomainDnsRecord"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -974,10 +975,10 @@ class domainsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphdomaindnsrecord', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphDomainDnsRecord', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -989,7 +990,7 @@ class domainsOperations(object):
         self,
         domain_id,  # type: str
         domain_dns_record_id,  # type: str
-        body,  # type: "models.microsoftgraphdomaindnsrecord"
+        body,  # type: "models.MicrosoftGraphDomainDnsRecord"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1002,7 +1003,7 @@ class domainsOperations(object):
         :param domain_dns_record_id: key: id of domainDnsRecord.
         :type domain_dns_record_id: str
         :param body: New navigation property values.
-        :type body: ~identity_directory_management.models.microsoftgraphdomaindnsrecord
+        :type body: ~identity_directory_management.models.MicrosoftGraphDomainDnsRecord
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1033,7 +1034,7 @@ class domainsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphdomaindnsrecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomainDnsRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1041,8 +1042,8 @@ class domainsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -1102,8 +1103,8 @@ class domainsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

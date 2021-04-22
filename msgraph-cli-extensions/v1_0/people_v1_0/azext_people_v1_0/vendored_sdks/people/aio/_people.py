@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.core import AsyncPipelineClient
+from azure.mgmt.core import AsyncARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,27 +16,27 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import usersOperations
-from .operations import usersinsightsOperations
-from .operations import usersinsightssharedOperations
-from .operations import usersinsightstrendingOperations
-from .operations import usersinsightsusedOperations
+from .operations import UsersOperations
+from .operations import UsersInsightsOperations
+from .operations import UsersInsightsSharedOperations
+from .operations import UsersInsightsTrendingOperations
+from .operations import UsersInsightsUsedOperations
 from .. import models
 
 
 class People(object):
     """People.
 
-    :ivar users: usersOperations operations
-    :vartype users: people.aio.operations.usersOperations
-    :ivar usersinsights: usersinsightsOperations operations
-    :vartype usersinsights: people.aio.operations.usersinsightsOperations
-    :ivar usersinsightsshared: usersinsightssharedOperations operations
-    :vartype usersinsightsshared: people.aio.operations.usersinsightssharedOperations
-    :ivar usersinsightstrending: usersinsightstrendingOperations operations
-    :vartype usersinsightstrending: people.aio.operations.usersinsightstrendingOperations
-    :ivar usersinsightsused: usersinsightsusedOperations operations
-    :vartype usersinsightsused: people.aio.operations.usersinsightsusedOperations
+    :ivar users: UsersOperations operations
+    :vartype users: people.aio.operations.UsersOperations
+    :ivar users_insights: UsersInsightsOperations operations
+    :vartype users_insights: people.aio.operations.UsersInsightsOperations
+    :ivar users_insights_shared: UsersInsightsSharedOperations operations
+    :vartype users_insights_shared: people.aio.operations.UsersInsightsSharedOperations
+    :ivar users_insights_trending: UsersInsightsTrendingOperations operations
+    :vartype users_insights_trending: people.aio.operations.UsersInsightsTrendingOperations
+    :ivar users_insights_used: UsersInsightsUsedOperations operations
+    :vartype users_insights_used: people.aio.operations.UsersInsightsUsedOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -66,22 +66,22 @@ class People(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = PeopleConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.users = usersOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersinsights = usersinsightsOperations(
+        self.users_insights = UsersInsightsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersinsightsshared = usersinsightssharedOperations(
+        self.users_insights_shared = UsersInsightsSharedOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersinsightstrending = usersinsightstrendingOperations(
+        self.users_insights_trending = UsersInsightsTrendingOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.usersinsightsused = usersinsightsusedOperations(
+        self.users_insights_used = UsersInsightsUsedOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

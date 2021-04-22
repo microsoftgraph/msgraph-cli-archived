@@ -11,14 +11,15 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from ... import models
 
 T = TypeVar('T')
 ClsType = Optional[Callable[[PipelineResponse[HttpRequest, AsyncHttpResponse], T, Dict[str, Any]], Any]]
 
-class chatsOperations:
-    """chatsOperations async operations.
+class ChatsOperations:
+    """ChatsOperations async operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -42,17 +43,17 @@ class chatsOperations:
     async def get_all_messages(
         self,
         **kwargs
-    ) -> List["models.microsoftgraphchatmessage"]:
+    ) -> List["models.MicrosoftGraphChatMessage"]:
         """Invoke function getAllMessages.
 
         Invoke function getAllMessages.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of microsoftgraphchatmessage, or the result of cls(response)
-        :rtype: list[~teams.models.microsoftgraphchatmessage]
+        :return: list of MicrosoftGraphChatMessage, or the result of cls(response)
+        :rtype: list[~teams.models.MicrosoftGraphChatMessage]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphchatmessage"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphChatMessage"]]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -75,10 +76,10 @@ class chatsOperations:
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[microsoftgraphchatmessage]', pipeline_response)
+        deserialized = self._deserialize('[MicrosoftGraphChatMessage]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})

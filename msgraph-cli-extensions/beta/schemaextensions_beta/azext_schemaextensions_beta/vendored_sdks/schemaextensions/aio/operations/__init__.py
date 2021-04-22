@@ -6,8 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._schemaextensionsschemaextension_operations import schemaextensionsschemaextensionOperations
+from ._schema_extensions_schema_extension_operations import SchemaExtensionsSchemaExtensionOperations
 
 __all__ = [
-    'schemaextensionsschemaextensionOperations',
+    'SchemaExtensionsSchemaExtensionOperations',
 ]

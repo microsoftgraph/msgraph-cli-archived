@@ -17,17 +17,17 @@ helps['search_beta'] = '''
     short-summary: Manage Search
 '''
 
-helps['search external'] = """
+helps['search external-external'] = """
     type: group
-    short-summary: Manage external with search_beta
+    short-summary: Manage external external with search_beta
 """
 
-helps['search external show-external'] = """
+helps['search external-external show-external'] = """
     type: command
     short-summary: "Get external."
 """
 
-helps['search external update-external'] = """
+helps['search external-external update-external'] = """
     type: command
     short-summary: "Update external."
 """
@@ -88,17 +88,17 @@ is-searchable=XX labels=XX name=XX type=XX
             Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['search searchentity'] = """
+helps['search search-entity'] = """
     type: group
-    short-summary: Manage searchentity with search_beta
+    short-summary: Manage search search entity with search_beta
 """
 
-helps['search searchentity show-search-entity'] = """
+helps['search search-entity show-search-entity'] = """
     type: command
     short-summary: "Get search."
 """
 
-helps['search searchentity update-search-entity'] = """
+helps['search search-entity update-search-entity'] = """
     type: command
     short-summary: "Update search."
 """

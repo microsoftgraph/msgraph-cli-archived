@@ -22,465 +22,465 @@ def cf_group(cli_ctx, *_):
     return cf_notes_beta_cl(cli_ctx).groups
 
 
-def cf_groupsonenote(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenote
+def cf_group_onenote(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote
 
 
-def cf_groupsonenotenotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebooks
+def cf_group_onenote_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks
 
 
-def cf_groupsonenotenotebookssectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssectiongroups
+def cf_group_onenote_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_section_groups
 
 
-def cf_groupsonenotenotebookssectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssectiongroupssections
+def cf_group_onenote_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_section_groups_sections
 
 
-def cf_groupsonenotenotebookssectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssectiongroupssectionspages
+def cf_group_onenote_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_section_groups_sections_pages
 
 
-def cf_groupsonenotenotebookssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssections
+def cf_group_onenote_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_sections
 
 
-def cf_groupsonenotenotebookssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssectionspages
+def cf_group_onenote_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_sections_pages
 
 
-def cf_groupsonenotenotebookssectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotenotebookssectionsparentsectiongroup
+def cf_group_onenote_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_notebooks_sections_parent_section_group
 
 
-def cf_groupsonenotepage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepages
+def cf_group_onenote_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages
 
 
-def cf_groupsonenotepagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentnotebook
+def cf_group_onenote_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_notebook
 
 
-def cf_groupsonenotepagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentnotebooksectiongroups
+def cf_group_onenote_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_notebook_section_groups
 
 
-def cf_groupsonenotepagesparentnotebooksectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentnotebooksectiongroupssections
+def cf_group_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_notebook_section_groups_sections
 
 
-def cf_groupsonenoteparentnotebooksectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenoteparentnotebooksectiongroupssectionspages
+def cf_group_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_parent_notebook_section_groups_sections_pages
 
 
-def cf_groupsonenotepagesparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentnotebooksections
+def cf_group_onenote_page_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_notebook_sections
 
 
-def cf_groupsonenoteparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenoteparentnotebooksectionspages
+def cf_group_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_parent_notebook_sections_pages
 
 
-def cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentnotebooksectionsparentsectiongroup
+def cf_group_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_notebook_sections_parent_section_group
 
 
-def cf_groupsonenotepagesparentsection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentsection
+def cf_group_onenote_page_parent_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_section
 
 
-def cf_groupsonenoteparentsectionpage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenoteparentsectionpages
+def cf_group_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_parent_section_pages
 
 
-def cf_groupsonenotepagesparentsectionparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentsectionparentnotebook
+def cf_group_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_section_parent_notebook
 
 
-def cf_groupsonenotepagesparentsectionparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentsectionparentnotebooksectiongroups
+def cf_group_onenote_page_parent_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_section_parent_notebook_section_groups
 
 
-def cf_groupsonenotepagesparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentsectionparentsectiongroup
+def cf_group_onenote_page_parent_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_section_parent_section_group
 
 
-def cf_groupsonenotepagesparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotepagesparentsectionparentsectiongroupparentnotebook
+def cf_group_onenote_page_parent_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_pages_parent_section_parent_section_group_parent_notebook
 
 
-def cf_groupsonenotesectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroups
+def cf_group_onenote_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups
 
 
-def cf_groupsonenotesectiongroupsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupsparentnotebook
+def cf_group_onenote_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_parent_notebook
 
 
-def cf_groupsonenotesectiongroupsparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupsparentnotebooksections
+def cf_group_onenote_section_group_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_parent_notebook_sections
 
 
-def cf_groupsonenotesectiongroupsparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupsparentnotebooksectionspages
+def cf_group_onenote_section_group_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_parent_notebook_sections_pages
 
 
-def cf_groupsonenotesectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupssections
+def cf_group_onenote_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_sections
 
 
-def cf_groupsonenotesectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupssectionspages
+def cf_group_onenote_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_sections_pages
 
 
-def cf_groupsonenotesectiongroupssectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupssectionspagesparentnotebook
+def cf_group_onenote_section_group_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_sections_pages_parent_notebook
 
 
-def cf_groupsonenotesectiongroupssectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectiongroupssectionsparentnotebook
+def cf_group_onenote_section_group_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_section_groups_sections_parent_notebook
 
 
-def cf_groupsonenotesection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesections
+def cf_group_onenote_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections
 
 
-def cf_groupsonenotesectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionspages
+def cf_group_onenote_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_pages
 
 
-def cf_groupsonenotesectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionspagesparentnotebook
+def cf_group_onenote_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_pages_parent_notebook
 
 
-def cf_groupsonenotesectionspagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionspagesparentnotebooksectiongroups
+def cf_group_onenote_section_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_pages_parent_notebook_section_groups
 
 
-def cf_groupsonenotesectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionsparentnotebook
+def cf_group_onenote_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_parent_notebook
 
 
-def cf_groupsonenotesectionsparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionsparentnotebooksectiongroups
+def cf_group_onenote_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_parent_notebook_section_groups
 
 
-def cf_groupsonenotesectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionsparentsectiongroup
+def cf_group_onenote_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_parent_section_group
 
 
-def cf_groupsonenotesectionsparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).groupsonenotesectionsparentsectiongroupparentnotebook
+def cf_group_onenote_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).groups_onenote_sections_parent_section_group_parent_notebook
 
 
 def cf_site(cli_ctx, *_):
     return cf_notes_beta_cl(cli_ctx).sites
 
 
-def cf_sitesonenote(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenote
+def cf_site_onenote(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote
 
 
-def cf_sitesonenotenotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebooks
+def cf_site_onenote_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks
 
 
-def cf_sitesonenotenotebookssectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssectiongroups
+def cf_site_onenote_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_section_groups
 
 
-def cf_sitesonenotenotebookssectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssectiongroupssections
+def cf_site_onenote_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_section_groups_sections
 
 
-def cf_sitesonenotenotebookssectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssectiongroupssectionspages
+def cf_site_onenote_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_section_groups_sections_pages
 
 
-def cf_sitesonenotenotebookssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssections
+def cf_site_onenote_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_sections
 
 
-def cf_sitesonenotenotebookssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssectionspages
+def cf_site_onenote_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_sections_pages
 
 
-def cf_sitesonenotenotebookssectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotenotebookssectionsparentsectiongroup
+def cf_site_onenote_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_notebooks_sections_parent_section_group
 
 
-def cf_sitesonenotepage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepages
+def cf_site_onenote_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages
 
 
-def cf_sitesonenotepagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentnotebook
+def cf_site_onenote_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_notebook
 
 
-def cf_sitesonenotepagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentnotebooksectiongroups
+def cf_site_onenote_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_notebook_section_groups
 
 
-def cf_sitesonenotepagesparentnotebooksectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentnotebooksectiongroupssections
+def cf_site_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_notebook_section_groups_sections
 
 
-def cf_sitesonenoteparentnotebooksectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenoteparentnotebooksectiongroupssectionspages
+def cf_site_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_parent_notebook_section_groups_sections_pages
 
 
-def cf_sitesonenotepagesparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentnotebooksections
+def cf_site_onenote_page_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_notebook_sections
 
 
-def cf_sitesonenoteparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenoteparentnotebooksectionspages
+def cf_site_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_parent_notebook_sections_pages
 
 
-def cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentnotebooksectionsparentsectiongroup
+def cf_site_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_notebook_sections_parent_section_group
 
 
-def cf_sitesonenotepagesparentsection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentsection
+def cf_site_onenote_page_parent_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_section
 
 
-def cf_sitesonenoteparentsectionpage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenoteparentsectionpages
+def cf_site_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_parent_section_pages
 
 
-def cf_sitesonenotepagesparentsectionparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentsectionparentnotebook
+def cf_site_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_section_parent_notebook
 
 
-def cf_sitesonenotepagesparentsectionparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentsectionparentnotebooksectiongroups
+def cf_site_onenote_page_parent_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_section_parent_notebook_section_groups
 
 
-def cf_sitesonenotepagesparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentsectionparentsectiongroup
+def cf_site_onenote_page_parent_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_section_parent_section_group
 
 
-def cf_sitesonenotepagesparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotepagesparentsectionparentsectiongroupparentnotebook
+def cf_site_onenote_page_parent_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_pages_parent_section_parent_section_group_parent_notebook
 
 
-def cf_sitesonenotesectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroups
+def cf_site_onenote_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups
 
 
-def cf_sitesonenotesectiongroupsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupsparentnotebook
+def cf_site_onenote_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_parent_notebook
 
 
-def cf_sitesonenotesectiongroupsparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupsparentnotebooksections
+def cf_site_onenote_section_group_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_parent_notebook_sections
 
 
-def cf_sitesonenotesectiongroupsparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupsparentnotebooksectionspages
+def cf_site_onenote_section_group_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_parent_notebook_sections_pages
 
 
-def cf_sitesonenotesectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupssections
+def cf_site_onenote_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_sections
 
 
-def cf_sitesonenotesectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupssectionspages
+def cf_site_onenote_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_sections_pages
 
 
-def cf_sitesonenotesectiongroupssectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupssectionspagesparentnotebook
+def cf_site_onenote_section_group_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_sections_pages_parent_notebook
 
 
-def cf_sitesonenotesectiongroupssectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectiongroupssectionsparentnotebook
+def cf_site_onenote_section_group_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_section_groups_sections_parent_notebook
 
 
-def cf_sitesonenotesection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesections
+def cf_site_onenote_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections
 
 
-def cf_sitesonenotesectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionspages
+def cf_site_onenote_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_pages
 
 
-def cf_sitesonenotesectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionspagesparentnotebook
+def cf_site_onenote_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_pages_parent_notebook
 
 
-def cf_sitesonenotesectionspagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionspagesparentnotebooksectiongroups
+def cf_site_onenote_section_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_pages_parent_notebook_section_groups
 
 
-def cf_sitesonenotesectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionsparentnotebook
+def cf_site_onenote_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_parent_notebook
 
 
-def cf_sitesonenotesectionsparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionsparentnotebooksectiongroups
+def cf_site_onenote_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_parent_notebook_section_groups
 
 
-def cf_sitesonenotesectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionsparentsectiongroup
+def cf_site_onenote_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_parent_section_group
 
 
-def cf_sitesonenotesectionsparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).sitesonenotesectionsparentsectiongroupparentnotebook
+def cf_site_onenote_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).sites_onenote_sections_parent_section_group_parent_notebook
 
 
 def cf_user(cli_ctx, *_):
     return cf_notes_beta_cl(cli_ctx).users
 
 
-def cf_usersonenote(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenote
+def cf_user_onenote(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote
 
 
-def cf_usersonenotenotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebooks
+def cf_user_onenote_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks
 
 
-def cf_usersonenotenotebookssectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssectiongroups
+def cf_user_onenote_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_section_groups
 
 
-def cf_usersonenotenotebookssectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssectiongroupssections
+def cf_user_onenote_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_section_groups_sections
 
 
-def cf_usersonenotenotebookssectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssectiongroupssectionspages
+def cf_user_onenote_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_pages
 
 
-def cf_usersonenotenotebookssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssections
+def cf_user_onenote_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_sections
 
 
-def cf_usersonenotenotebookssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssectionspages
+def cf_user_onenote_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_sections_pages
 
 
-def cf_usersonenotenotebookssectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotenotebookssectionsparentsectiongroup
+def cf_user_onenote_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_notebooks_sections_parent_section_group
 
 
-def cf_usersonenotepage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepages
+def cf_user_onenote_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages
 
 
-def cf_usersonenotepagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentnotebook
+def cf_user_onenote_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_notebook
 
 
-def cf_usersonenotepagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentnotebooksectiongroups
+def cf_user_onenote_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups
 
 
-def cf_usersonenotepagesparentnotebooksectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentnotebooksectiongroupssections
+def cf_user_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_sections
 
 
-def cf_usersonenoteparentnotebooksectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenoteparentnotebooksectiongroupssectionspages
+def cf_user_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_parent_notebook_section_groups_sections_pages
 
 
-def cf_usersonenotepagesparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentnotebooksections
+def cf_user_onenote_page_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_sections
 
 
-def cf_usersonenoteparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenoteparentnotebooksectionspages
+def cf_user_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_parent_notebook_sections_pages
 
 
-def cf_usersonenotepagesparentnotebooksectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentnotebooksectionsparentsectiongroup
+def cf_user_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_parent_section_group
 
 
-def cf_usersonenotepagesparentsection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentsection
+def cf_user_onenote_page_parent_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_section
 
 
-def cf_usersonenoteparentsectionpage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenoteparentsectionpages
+def cf_user_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_parent_section_pages
 
 
-def cf_usersonenotepagesparentsectionparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentsectionparentnotebook
+def cf_user_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook
 
 
-def cf_usersonenotepagesparentsectionparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentsectionparentnotebooksectiongroups
+def cf_user_onenote_page_parent_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook_section_groups
 
 
-def cf_usersonenotepagesparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentsectionparentsectiongroup
+def cf_user_onenote_page_parent_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_section_parent_section_group
 
 
-def cf_usersonenotepagesparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotepagesparentsectionparentsectiongroupparentnotebook
+def cf_user_onenote_page_parent_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_pages_parent_section_parent_section_group_parent_notebook
 
 
-def cf_usersonenotesectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroups
+def cf_user_onenote_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups
 
 
-def cf_usersonenotesectiongroupsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupsparentnotebook
+def cf_user_onenote_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_parent_notebook
 
 
-def cf_usersonenotesectiongroupsparentnotebooksection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupsparentnotebooksections
+def cf_user_onenote_section_group_parent_notebook_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections
 
 
-def cf_usersonenotesectiongroupsparentnotebooksectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupsparentnotebooksectionspages
+def cf_user_onenote_section_group_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_pages
 
 
-def cf_usersonenotesectiongroupssection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupssections
+def cf_user_onenote_section_group_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_sections
 
 
-def cf_usersonenotesectiongroupssectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupssectionspages
+def cf_user_onenote_section_group_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_sections_pages
 
 
-def cf_usersonenotesectiongroupssectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupssectionspagesparentnotebook
+def cf_user_onenote_section_group_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_sections_pages_parent_notebook
 
 
-def cf_usersonenotesectiongroupssectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectiongroupssectionsparentnotebook
+def cf_user_onenote_section_group_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_section_groups_sections_parent_notebook
 
 
-def cf_usersonenotesection(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesections
+def cf_user_onenote_section(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections
 
 
-def cf_usersonenotesectionspage(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionspages
+def cf_user_onenote_section_page(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_pages
 
 
-def cf_usersonenotesectionspagesparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionspagesparentnotebook
+def cf_user_onenote_section_page_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_pages_parent_notebook
 
 
-def cf_usersonenotesectionspagesparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionspagesparentnotebooksectiongroups
+def cf_user_onenote_section_page_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_pages_parent_notebook_section_groups
 
 
-def cf_usersonenotesectionsparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionsparentnotebook
+def cf_user_onenote_section_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_parent_notebook
 
 
-def cf_usersonenotesectionsparentnotebooksectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionsparentnotebooksectiongroups
+def cf_user_onenote_section_parent_notebook_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_parent_notebook_section_groups
 
 
-def cf_usersonenotesectionsparentsectiongroup(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionsparentsectiongroup
+def cf_user_onenote_section_parent_section_group(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_parent_section_group
 
 
-def cf_usersonenotesectionsparentsectiongroupparentnotebook(cli_ctx, *_):
-    return cf_notes_beta_cl(cli_ctx).usersonenotesectionsparentsectiongroupparentnotebook
+def cf_user_onenote_section_parent_section_group_parent_notebook(cli_ctx, *_):
+    return cf_notes_beta_cl(cli_ctx).users_onenote_sections_parent_section_group_parent_notebook

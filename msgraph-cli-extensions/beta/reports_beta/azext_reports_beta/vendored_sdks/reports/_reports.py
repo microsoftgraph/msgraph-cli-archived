@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.core import PipelineClient
+from azure.mgmt.core import ARMPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ReportsConfiguration
-from .operations import auditlogsauditlogrootOperations
-from .operations import auditlogsOperations
-from .operations import reportsreportrootOperations
-from .operations import reportsOperations
+from .operations import AuditLogsAuditLogRootOperations
+from .operations import AuditLogsOperations
+from .operations import ReportsReportRootOperations
+from .operations import ReportsOperations
 from . import models
 
 
 class Reports(object):
     """Reports.
 
-    :ivar auditlogsauditlogroot: auditlogsauditlogrootOperations operations
-    :vartype auditlogsauditlogroot: reports.operations.auditlogsauditlogrootOperations
-    :ivar auditlogs: auditlogsOperations operations
-    :vartype auditlogs: reports.operations.auditlogsOperations
-    :ivar reportsreportroot: reportsreportrootOperations operations
-    :vartype reportsreportroot: reports.operations.reportsreportrootOperations
-    :ivar reports: reportsOperations operations
-    :vartype reports: reports.operations.reportsOperations
+    :ivar audit_logs_audit_log_root: AuditLogsAuditLogRootOperations operations
+    :vartype audit_logs_audit_log_root: reports.operations.AuditLogsAuditLogRootOperations
+    :ivar audit_logs: AuditLogsOperations operations
+    :vartype audit_logs: reports.operations.AuditLogsOperations
+    :ivar reports_report_root: ReportsReportRootOperations operations
+    :vartype reports_report_root: reports.operations.ReportsReportRootOperations
+    :ivar reports: ReportsOperations operations
+    :vartype reports: reports.operations.ReportsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -66,20 +66,20 @@ class Reports(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = ReportsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.auditlogsauditlogroot = auditlogsauditlogrootOperations(
+        self.audit_logs_audit_log_root = AuditLogsAuditLogRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.auditlogs = auditlogsOperations(
+        self.audit_logs = AuditLogsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.reportsreportroot = reportsreportrootOperations(
+        self.reports_report_root = ReportsReportRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.reports = reportsOperations(
+        self.reports = ReportsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

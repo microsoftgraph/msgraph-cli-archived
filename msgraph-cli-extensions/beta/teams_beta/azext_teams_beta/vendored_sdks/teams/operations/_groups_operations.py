@@ -11,6 +11,7 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
+from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -21,8 +22,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class groupsOperations(object):
-    """groupsOperations operations.
+class GroupsOperations(object):
+    """GroupsOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -50,7 +51,7 @@ class groupsOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum54"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.microsoftgraphteam"
+        # type: (...) -> "models.MicrosoftGraphTeam"
         """Get team from groups.
 
         Get team from groups.
@@ -62,11 +63,11 @@ class groupsOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~teams.models.Enum54]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: microsoftgraphteam, or the result of cls(response)
-        :rtype: ~teams.models.microsoftgraphteam
+        :return: MicrosoftGraphTeam, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphTeam
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphteam"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTeam"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -97,10 +98,10 @@ class groupsOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('microsoftgraphteam', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphTeam', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -111,7 +112,7 @@ class groupsOperations(object):
     def update_team(
         self,
         group_id,  # type: str
-        body,  # type: "models.microsoftgraphteam"
+        body,  # type: "models.MicrosoftGraphTeam"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -122,7 +123,7 @@ class groupsOperations(object):
         :param group_id: key: id of group.
         :type group_id: str
         :param body: New navigation property values.
-        :type body: ~teams.models.microsoftgraphteam
+        :type body: ~teams.models.MicrosoftGraphTeam
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -152,7 +153,7 @@ class groupsOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'microsoftgraphteam')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTeam')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -160,8 +161,8 @@ class groupsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -217,8 +218,8 @@ class groupsOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.odataerror, response)
-            raise HttpResponseError(response=response, model=error)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
         if cls:
             return cls(pipeline_response, None, {})

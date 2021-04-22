@@ -14,270 +14,266 @@
 
 from msgraph.cli.core.commands import CliCommandType
 from azext_teams_beta.generated._client_factory import (
-    cf_appcatalog,
-    cf_appcatalogsteamsapp,
-    cf_chatschat,
+    cf_app_catalog,
+    cf_app_catalog_team_app,
+    cf_chat_chat,
     cf_chat,
-    cf_chatsinstalledapp,
-    cf_chatsmember,
-    cf_chatsmessage,
-    cf_chatsmessagesreply,
-    cf_chatstab,
+    cf_chat_installed_app,
+    cf_chat_member,
+    cf_chat_message,
+    cf_chat_message_reply,
+    cf_chat_tab,
     cf_group,
-    cf_teamsteam,
+    cf_team_team,
     cf_team,
-    cf_teamschannel,
-    cf_teamschannelsmember,
-    cf_teamschannelsmessage,
-    cf_teamschannelsmessagesreply,
-    cf_teamschannelstab,
-    cf_teamsinstalledapp,
-    cf_teamsmember,
-    cf_teamsprimarychannel,
-    cf_teamsprimarychannelmember,
-    cf_teamsprimarychannelmessage,
-    cf_teamsprimarychannelmessagesreply,
-    cf_teamsprimarychanneltab,
-    cf_teamsschedule,
-    cf_teamsscheduletimecard,
-    cf_teamwork,
+    cf_team_channel,
+    cf_team_channel_member,
+    cf_team_channel_message,
+    cf_team_channel_message_reply,
+    cf_team_channel_tab,
+    cf_team_installed_app,
+    cf_team_member,
+    cf_team_primary_channel,
+    cf_team_primary_channel_member,
+    cf_team_primary_channel_message,
+    cf_team_primary_channel_message_reply,
+    cf_team_primary_channel_tab,
+    cf_team_schedule,
+    cf_team_schedule_time_card,
+    cf_teamwork_teamwork,
     cf_teamwork,
     cf_user,
-    cf_usersteamwork,
-    cf_usersteamworkinstalledapp,
+    cf_user_teamwork,
+    cf_user_teamwork_installed_app,
 )
 
 
-teams_beta_appcatalog = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._appcatalogs_operations#appcatalogsOperations.{}',
-    client_factory=cf_appcatalog,
+teams_beta_app_catalog = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._app_catalogs_operations#AppCatalogsOperations.{}',
+    client_factory=cf_app_catalog,
 )
 
 
-teams_beta_appcatalogsteamsapp = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._appcatalogsteamsapps_operations#appcatalogsteamsappsOperations.{}',
-    client_factory=cf_appcatalogsteamsapp,
+teams_beta_app_catalog_team_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._app_catalogs_teams_apps_operations#AppCatalogsTeamsAppsOperations.{}',
+    client_factory=cf_app_catalog_team_app,
 )
 
 
-teams_beta_chatschat = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chatschat_operations#chatschatOperations.{}',
-    client_factory=cf_chatschat,
+teams_beta_chat_chat = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_chat_operations#ChatsChatOperations.{}',
+    client_factory=cf_chat_chat,
 )
 
 
 teams_beta_chat = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_operations#chatsOperations.{}',
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_operations#ChatsOperations.{}',
     client_factory=cf_chat,
 )
 
 
-teams_beta_chatsinstalledapp = CliCommandType(
+teams_beta_chat_installed_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_installed_apps_operations#ChatsInstalledAppsOperations.{}',
+    client_factory=cf_chat_installed_app,
+)
+
+
+teams_beta_chat_member = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._chatsinstalledapps_operations#chatsinstalledappsOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._chats_members_operations#ChatsMembersOperations.{}'
     ),
-    client_factory=cf_chatsinstalledapp,
+    client_factory=cf_chat_member,
 )
 
 
-teams_beta_chatsmember = CliCommandType(
+teams_beta_chat_message = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._chatsmembers_operations#chatsmembersOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._chats_messages_operations#ChatsMessagesOperations.{}'
     ),
-    client_factory=cf_chatsmember,
+    client_factory=cf_chat_message,
 )
 
 
-teams_beta_chatsmessage = CliCommandType(
-    operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._chatsmessages_operations#chatsmessagesOperations.{}'
-    ),
-    client_factory=cf_chatsmessage,
+teams_beta_chat_message_reply = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_messages_replies_operations#ChatsMessagesRepliesOperations.{}',
+    client_factory=cf_chat_message_reply,
 )
 
 
-teams_beta_chatsmessagesreply = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chatsmessagesreplies_operations#chatsmessagesrepliesOperations.{}',
-    client_factory=cf_chatsmessagesreply,
-)
-
-
-teams_beta_chatstab = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chatstabs_operations#chatstabsOperations.{}',
-    client_factory=cf_chatstab,
+teams_beta_chat_tab = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chats_tabs_operations#ChatsTabsOperations.{}',
+    client_factory=cf_chat_tab,
 )
 
 
 teams_beta_group = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._groups_operations#groupsOperations.{}',
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
-teams_beta_teamsteam = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsteam_operations#teamsteamOperations.{}',
-    client_factory=cf_teamsteam,
+teams_beta_team_team = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_team_operations#TeamsTeamOperations.{}',
+    client_factory=cf_team_team,
 )
 
 
 teams_beta_team = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_operations#teamsOperations.{}',
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_operations#TeamsOperations.{}',
     client_factory=cf_team,
 )
 
 
-teams_beta_teamschannel = CliCommandType(
+teams_beta_team_channel = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamschannels_operations#teamschannelsOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._teams_channels_operations#TeamsChannelsOperations.{}'
     ),
-    client_factory=cf_teamschannel,
+    client_factory=cf_team_channel,
 )
 
 
-teams_beta_teamschannelsmember = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamschannelsmembers_operations#teamschannelsmembersOperations.{}',
-    client_factory=cf_teamschannelsmember,
+teams_beta_team_channel_member = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_channels_members_operations#TeamsChannelsMembersOperations.{}',
+    client_factory=cf_team_channel_member,
 )
 
 
-teams_beta_teamschannelsmessage = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamschannelsmessages_operations#teamschannelsmessagesOperations.{}',
-    client_factory=cf_teamschannelsmessage,
+teams_beta_team_channel_message = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_channels_messages_operations#TeamsChannelsMessagesOperations.{}',
+    client_factory=cf_team_channel_message,
 )
 
 
-teams_beta_teamschannelsmessagesreply = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamschannelsmessagesreplies_operations#teamschannelsmessagesrepliesOperations.{}',
-    client_factory=cf_teamschannelsmessagesreply,
+teams_beta_team_channel_message_reply = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_channels_messages_replies_operations#TeamsChannelsMessagesRepliesOperations.{}',
+    client_factory=cf_team_channel_message_reply,
 )
 
 
-teams_beta_teamschannelstab = CliCommandType(
+teams_beta_team_channel_tab = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamschannelstabs_operations#teamschannelstabsOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._teams_channels_tabs_operations#TeamsChannelsTabsOperations.{}'
     ),
-    client_factory=cf_teamschannelstab,
+    client_factory=cf_team_channel_tab,
 )
 
 
-teams_beta_teamsinstalledapp = CliCommandType(
+teams_beta_team_installed_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_installed_apps_operations#TeamsInstalledAppsOperations.{}',
+    client_factory=cf_team_installed_app,
+)
+
+
+teams_beta_team_member = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamsinstalledapps_operations#teamsinstalledappsOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._teams_members_operations#TeamsMembersOperations.{}'
     ),
-    client_factory=cf_teamsinstalledapp,
+    client_factory=cf_team_member,
 )
 
 
-teams_beta_teamsmember = CliCommandType(
+teams_beta_team_primary_channel = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_primary_channel_operations#TeamsPrimaryChannelOperations.{}',
+    client_factory=cf_team_primary_channel,
+)
+
+
+teams_beta_team_primary_channel_member = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_primary_channel_members_operations#TeamsPrimaryChannelMembersOperations.{}',
+    client_factory=cf_team_primary_channel_member,
+)
+
+
+teams_beta_team_primary_channel_message = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_primary_channel_messages_operations#TeamsPrimaryChannelMessagesOperations.{}',
+    client_factory=cf_team_primary_channel_message,
+)
+
+
+teams_beta_team_primary_channel_message_reply = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_primary_channel_messages_replies_operations#TeamsPrimaryChannelMessagesRepliesOperations.{}',
+    client_factory=cf_team_primary_channel_message_reply,
+)
+
+
+teams_beta_team_primary_channel_tab = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_primary_channel_tabs_operations#TeamsPrimaryChannelTabsOperations.{}',
+    client_factory=cf_team_primary_channel_tab,
+)
+
+
+teams_beta_team_schedule = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamsmembers_operations#teamsmembersOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._teams_schedule_operations#TeamsScheduleOperations.{}'
     ),
-    client_factory=cf_teamsmember,
+    client_factory=cf_team_schedule,
 )
 
 
-teams_beta_teamsprimarychannel = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsprimarychannel_operations#teamsprimarychannelOperations.{}',
-    client_factory=cf_teamsprimarychannel,
+teams_beta_team_schedule_time_card = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teams_schedule_time_cards_operations#TeamsScheduleTimeCardsOperations.{}',
+    client_factory=cf_team_schedule_time_card,
 )
 
 
-teams_beta_teamsprimarychannelmember = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsprimarychannelmembers_operations#teamsprimarychannelmembersOperations.{}',
-    client_factory=cf_teamsprimarychannelmember,
-)
-
-
-teams_beta_teamsprimarychannelmessage = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsprimarychannelmessages_operations#teamsprimarychannelmessagesOperations.{}',
-    client_factory=cf_teamsprimarychannelmessage,
-)
-
-
-teams_beta_teamsprimarychannelmessagesreply = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsprimarychannelmessagesreplies_operations#teamsprimarychannelmessagesrepliesOperations.{}',
-    client_factory=cf_teamsprimarychannelmessagesreply,
-)
-
-
-teams_beta_teamsprimarychanneltab = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsprimarychanneltabs_operations#teamsprimarychanneltabsOperations.{}',
-    client_factory=cf_teamsprimarychanneltab,
-)
-
-
-teams_beta_teamsschedule = CliCommandType(
+teams_beta_teamwork_teamwork = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamsschedule_operations#teamsscheduleOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._teamwork_teamwork_operations#TeamworkTeamworkOperations.{}'
     ),
-    client_factory=cf_teamsschedule,
-)
-
-
-teams_beta_teamsscheduletimecard = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamsscheduletimecards_operations#teamsscheduletimecardsOperations.{}',
-    client_factory=cf_teamsscheduletimecard,
+    client_factory=cf_teamwork_teamwork,
 )
 
 
 teams_beta_teamwork = CliCommandType(
-    operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._teamworkteamwork_operations#teamworkteamworkOperations.{}'
-    ),
-    client_factory=cf_teamwork,
-)
-
-
-teams_beta_teamwork = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamwork_operations#teamworkOperations.{}',
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamwork_operations#TeamworkOperations.{}',
     client_factory=cf_teamwork,
 )
 
 
 teams_beta_user = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._users_operations#usersOperations.{}',
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
-teams_beta_usersteamwork = CliCommandType(
+teams_beta_user_teamwork = CliCommandType(
     operations_tmpl=(
-        'azext_teams_beta.vendored_sdks.teams.operations._usersteamwork_operations#usersteamworkOperations.{}'
+        'azext_teams_beta.vendored_sdks.teams.operations._users_teamwork_operations#UsersTeamworkOperations.{}'
     ),
-    client_factory=cf_usersteamwork,
+    client_factory=cf_user_teamwork,
 )
 
 
-teams_beta_usersteamworkinstalledapp = CliCommandType(
-    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._usersteamworkinstalledapps_operations#usersteamworkinstalledappsOperations.{}',
-    client_factory=cf_usersteamworkinstalledapp,
+teams_beta_user_teamwork_installed_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._users_teamwork_installed_apps_operations#UsersTeamworkInstalledAppsOperations.{}',
+    client_factory=cf_user_teamwork_installed_app,
 )
 
 
 def load_command_table(self, _):
 
-    with self.command_group('teams appcatalog', teams_beta_appcatalog, client_factory=cf_appcatalog) as g:
-        g.custom_command('create-team-app', 'teams_appcatalog_create_team_app')
-        g.custom_command('delete-team-app', 'teams_appcatalog_delete_team_app')
-        g.custom_command('list-team-app', 'teams_appcatalog_list_team_app')
-        g.custom_command('show-team-app', 'teams_appcatalog_show_team_app')
-        g.custom_command('update-team-app', 'teams_appcatalog_update_team_app')
+    with self.command_group('teams app-catalog', teams_beta_app_catalog, client_factory=cf_app_catalog) as g:
+        g.custom_command('create-team-app', 'teams_app_catalog_create_team_app')
+        g.custom_command('delete-team-app', 'teams_app_catalog_delete_team_app')
+        g.custom_command('list-team-app', 'teams_app_catalog_list_team_app')
+        g.custom_command('show-team-app', 'teams_app_catalog_show_team_app')
+        g.custom_command('update-team-app', 'teams_app_catalog_update_team_app')
 
     with self.command_group(
-        'teams appcatalogsteamsapp', teams_beta_appcatalogsteamsapp, client_factory=cf_appcatalogsteamsapp
+        'teams app-catalog-team-app', teams_beta_app_catalog_team_app, client_factory=cf_app_catalog_team_app
     ) as g:
-        g.custom_command('create-app-definition', 'teams_appcatalogsteamsapp_create_app_definition')
-        g.custom_command('delete-app-definition', 'teams_appcatalogsteamsapp_delete_app_definition')
-        g.custom_command('list-app-definition', 'teams_appcatalogsteamsapp_list_app_definition')
-        g.custom_command('show-app-definition', 'teams_appcatalogsteamsapp_show_app_definition')
-        g.custom_command('update-app-definition', 'teams_appcatalogsteamsapp_update_app_definition')
+        g.custom_command('create-app-definition', 'teams_app_catalog_team_app_create_app_definition')
+        g.custom_command('delete-app-definition', 'teams_app_catalog_team_app_delete_app_definition')
+        g.custom_command('list-app-definition', 'teams_app_catalog_team_app_list_app_definition')
+        g.custom_command('show-app-definition', 'teams_app_catalog_team_app_show_app_definition')
+        g.custom_command('update-app-definition', 'teams_app_catalog_team_app_update_app_definition')
 
-    with self.command_group('teams chatschat', teams_beta_chatschat, client_factory=cf_chatschat) as g:
-        g.custom_command('create-chat', 'teams_chatschat_create_chat')
-        g.custom_command('delete-chat', 'teams_chatschat_delete_chat')
-        g.custom_command('list-chat', 'teams_chatschat_list_chat')
-        g.custom_command('show-chat', 'teams_chatschat_show_chat')
-        g.custom_command('update-chat', 'teams_chatschat_update_chat')
+    with self.command_group('teams chat-chat', teams_beta_chat_chat, client_factory=cf_chat_chat) as g:
+        g.custom_command('create-chat', 'teams_chat_chat_create_chat')
+        g.custom_command('delete-chat', 'teams_chat_chat_delete_chat')
+        g.custom_command('list-chat', 'teams_chat_chat_list_chat')
+        g.custom_command('show-chat', 'teams_chat_chat_show_chat')
+        g.custom_command('update-chat', 'teams_chat_chat_update_chat')
 
     with self.command_group('teams chat', teams_beta_chat, client_factory=cf_chat) as g:
         g.custom_command('all-message', 'teams_chat_all_message')
@@ -305,58 +301,57 @@ def load_command_table(self, _):
         g.custom_command('update-tab', 'teams_chat_update_tab')
 
     with self.command_group(
-        'teams chatsinstalledapp', teams_beta_chatsinstalledapp, client_factory=cf_chatsinstalledapp
+        'teams chat-installed-app', teams_beta_chat_installed_app, client_factory=cf_chat_installed_app
     ) as g:
-        g.custom_command('delete-ref-team-app', 'teams_chatsinstalledapp_delete_ref_team_app')
-        g.custom_command('delete-ref-team-app-definition', 'teams_chatsinstalledapp_delete_ref_team_app_definition')
-        g.custom_command('set-ref-team-app', 'teams_chatsinstalledapp_set_ref_team_app')
-        g.custom_command('set-ref-team-app-definition', 'teams_chatsinstalledapp_set_ref_team_app_definition')
-        g.custom_command('show-ref-team-app', 'teams_chatsinstalledapp_show_ref_team_app')
-        g.custom_command('show-ref-team-app-definition', 'teams_chatsinstalledapp_show_ref_team_app_definition')
-        g.custom_command('show-team-app', 'teams_chatsinstalledapp_show_team_app')
-        g.custom_command('show-team-app-definition', 'teams_chatsinstalledapp_show_team_app_definition')
-        g.custom_command('upgrade', 'teams_chatsinstalledapp_upgrade')
+        g.custom_command('delete-ref-team-app', 'teams_chat_installed_app_delete_ref_team_app')
+        g.custom_command('delete-ref-team-app-definition', 'teams_chat_installed_app_delete_ref_team_app_definition')
+        g.custom_command('set-ref-team-app', 'teams_chat_installed_app_set_ref_team_app')
+        g.custom_command('set-ref-team-app-definition', 'teams_chat_installed_app_set_ref_team_app_definition')
+        g.custom_command('show-ref-team-app', 'teams_chat_installed_app_show_ref_team_app')
+        g.custom_command('show-ref-team-app-definition', 'teams_chat_installed_app_show_ref_team_app_definition')
+        g.custom_command('show-team-app', 'teams_chat_installed_app_show_team_app')
+        g.custom_command('show-team-app-definition', 'teams_chat_installed_app_show_team_app_definition')
+        g.custom_command('upgrade', 'teams_chat_installed_app_upgrade')
 
-    with self.command_group('teams chatsmember', teams_beta_chatsmember, client_factory=cf_chatsmember) as g:
-        g.custom_command('add', 'teams_chatsmember_add')
+    with self.command_group('teams chat-member', teams_beta_chat_member, client_factory=cf_chat_member) as g:
+        g.custom_command('add', 'teams_chat_member_add')
 
-    with self.command_group('teams chatsmessage', teams_beta_chatsmessage, client_factory=cf_chatsmessage) as g:
-        g.custom_command('create-hosted-content', 'teams_chatsmessage_create_hosted_content')
-        g.custom_command('create-reply', 'teams_chatsmessage_create_reply')
-        g.custom_command('delete-hosted-content', 'teams_chatsmessage_delete_hosted_content')
-        g.custom_command('delete-reply', 'teams_chatsmessage_delete_reply')
-        g.custom_command('delta', 'teams_chatsmessage_delta')
-        g.custom_command('list-hosted-content', 'teams_chatsmessage_list_hosted_content')
-        g.custom_command('list-reply', 'teams_chatsmessage_list_reply')
-        g.custom_command('set-hosted-content-content', 'teams_chatsmessage_set_hosted_content_content')
-        g.custom_command('show-hosted-content', 'teams_chatsmessage_show_hosted_content')
-        g.custom_command('show-hosted-content-content', 'teams_chatsmessage_show_hosted_content_content')
-        g.custom_command('show-reply', 'teams_chatsmessage_show_reply')
-        g.custom_command('update-hosted-content', 'teams_chatsmessage_update_hosted_content')
-        g.custom_command('update-reply', 'teams_chatsmessage_update_reply')
+    with self.command_group('teams chat-message', teams_beta_chat_message, client_factory=cf_chat_message) as g:
+        g.custom_command('create-hosted-content', 'teams_chat_message_create_hosted_content')
+        g.custom_command('create-reply', 'teams_chat_message_create_reply')
+        g.custom_command('delete-hosted-content', 'teams_chat_message_delete_hosted_content')
+        g.custom_command('delete-reply', 'teams_chat_message_delete_reply')
+        g.custom_command('delta', 'teams_chat_message_delta')
+        g.custom_command('list-hosted-content', 'teams_chat_message_list_hosted_content')
+        g.custom_command('list-reply', 'teams_chat_message_list_reply')
+        g.custom_command('set-hosted-content-content', 'teams_chat_message_set_hosted_content_content')
+        g.custom_command('show-hosted-content', 'teams_chat_message_show_hosted_content')
+        g.custom_command('show-hosted-content-content', 'teams_chat_message_show_hosted_content_content')
+        g.custom_command('show-reply', 'teams_chat_message_show_reply')
+        g.custom_command('update-hosted-content', 'teams_chat_message_update_hosted_content')
+        g.custom_command('update-reply', 'teams_chat_message_update_reply')
 
     with self.command_group(
-        'teams chatsmessagesreply', teams_beta_chatsmessagesreply, client_factory=cf_chatsmessagesreply
+        'teams chat-message-reply', teams_beta_chat_message_reply, client_factory=cf_chat_message_reply
     ) as g:
-        g.custom_command('delta', 'teams_chatsmessagesreply_delta')
+        g.custom_command('delta', 'teams_chat_message_reply_delta')
 
-    with self.command_group('teams chatstab', teams_beta_chatstab, client_factory=cf_chatstab) as g:
-        g.custom_command('delete-ref-team-app', 'teams_chatstab_delete_ref_team_app')
-        g.custom_command('set-ref-team-app', 'teams_chatstab_set_ref_team_app')
-        g.custom_command('show-ref-team-app', 'teams_chatstab_show_ref_team_app')
-        g.custom_command('show-team-app', 'teams_chatstab_show_team_app')
+    with self.command_group('teams chat-tab', teams_beta_chat_tab, client_factory=cf_chat_tab) as g:
+        g.custom_command('delete-ref-team-app', 'teams_chat_tab_delete_ref_team_app')
+        g.custom_command('set-ref-team-app', 'teams_chat_tab_set_ref_team_app')
+        g.custom_command('show-ref-team-app', 'teams_chat_tab_show_ref_team_app')
+        g.custom_command('show-team-app', 'teams_chat_tab_show_team_app')
 
     with self.command_group('teams group', teams_beta_group, client_factory=cf_group) as g:
         g.custom_command('delete-team', 'teams_group_delete_team')
         g.custom_command('show-team', 'teams_group_show_team')
         g.custom_command('update-team', 'teams_group_update_team')
 
-    with self.command_group('teams teamsteam', teams_beta_teamsteam, client_factory=cf_teamsteam) as g:
-        g.custom_command('create-team', 'teams_teamsteam_create_team')
-        g.custom_command('delete-team', 'teams_teamsteam_delete_team')
-        g.custom_command('list-team', 'teams_teamsteam_list_team')
-        g.custom_command('show-team', 'teams_teamsteam_show_team')
-        g.custom_command('update-team', 'teams_teamsteam_update_team')
+    with self.command_group('teams team', teams_beta_team_team, client_factory=cf_team_team) as g:
+        g.custom_command('list', 'teams_team_list')
+        g.custom_command('create', 'teams_team_create')
+        g.custom_command('delete-team', 'teams_team_delete_team')
+        g.custom_command('show-team', 'teams_team_show_team')
 
     with self.command_group('teams team', teams_beta_team, client_factory=cf_team) as g:
         g.custom_command('all-message', 'teams_team_all_message')
@@ -409,214 +404,220 @@ def load_command_table(self, _):
         g.custom_command('update-primary-channel', 'teams_team_update_primary_channel')
         g.custom_command('update-schedule', 'teams_team_update_schedule')
 
-    with self.command_group('teams teamschannel', teams_beta_teamschannel, client_factory=cf_teamschannel) as g:
-        g.custom_command('all-message', 'teams_teamschannel_all_message')
-        g.custom_command('complete-migration', 'teams_teamschannel_complete_migration')
-        g.custom_command('create-member', 'teams_teamschannel_create_member')
-        g.custom_command('create-message', 'teams_teamschannel_create_message')
-        g.custom_command('create-tab', 'teams_teamschannel_create_tab')
-        g.custom_command('delete-file-folder', 'teams_teamschannel_delete_file_folder')
-        g.custom_command('delete-member', 'teams_teamschannel_delete_member')
-        g.custom_command('delete-message', 'teams_teamschannel_delete_message')
-        g.custom_command('delete-tab', 'teams_teamschannel_delete_tab')
-        g.custom_command('list-member', 'teams_teamschannel_list_member')
-        g.custom_command('list-message', 'teams_teamschannel_list_message')
-        g.custom_command('list-tab', 'teams_teamschannel_list_tab')
-        g.custom_command('set-file-folder-content', 'teams_teamschannel_set_file_folder_content')
-        g.custom_command('show-file-folder', 'teams_teamschannel_show_file_folder')
-        g.custom_command('show-file-folder-content', 'teams_teamschannel_show_file_folder_content')
-        g.custom_command('show-member', 'teams_teamschannel_show_member')
-        g.custom_command('show-message', 'teams_teamschannel_show_message')
-        g.custom_command('show-tab', 'teams_teamschannel_show_tab')
-        g.custom_command('update-file-folder', 'teams_teamschannel_update_file_folder')
-        g.custom_command('update-member', 'teams_teamschannel_update_member')
-        g.custom_command('update-message', 'teams_teamschannel_update_message')
-        g.custom_command('update-tab', 'teams_teamschannel_update_tab')
+    with self.command_group('teams team-channel', teams_beta_team_channel, client_factory=cf_team_channel) as g:
+        g.custom_command('all-message', 'teams_team_channel_all_message')
+        g.custom_command('complete-migration', 'teams_team_channel_complete_migration')
+        g.custom_command('create-member', 'teams_team_channel_create_member')
+        g.custom_command('create-message', 'teams_team_channel_create_message')
+        g.custom_command('create-tab', 'teams_team_channel_create_tab')
+        g.custom_command('delete-file-folder', 'teams_team_channel_delete_file_folder')
+        g.custom_command('delete-member', 'teams_team_channel_delete_member')
+        g.custom_command('delete-message', 'teams_team_channel_delete_message')
+        g.custom_command('delete-tab', 'teams_team_channel_delete_tab')
+        g.custom_command('list-member', 'teams_team_channel_list_member')
+        g.custom_command('list-message', 'teams_team_channel_list_message')
+        g.custom_command('list-tab', 'teams_team_channel_list_tab')
+        g.custom_command('set-file-folder-content', 'teams_team_channel_set_file_folder_content')
+        g.custom_command('show-file-folder', 'teams_team_channel_show_file_folder')
+        g.custom_command('show-file-folder-content', 'teams_team_channel_show_file_folder_content')
+        g.custom_command('show-member', 'teams_team_channel_show_member')
+        g.custom_command('show-message', 'teams_team_channel_show_message')
+        g.custom_command('show-tab', 'teams_team_channel_show_tab')
+        g.custom_command('update-file-folder', 'teams_team_channel_update_file_folder')
+        g.custom_command('update-member', 'teams_team_channel_update_member')
+        g.custom_command('update-message', 'teams_team_channel_update_message')
+        g.custom_command('update-tab', 'teams_team_channel_update_tab')
 
     with self.command_group(
-        'teams teamschannelsmember', teams_beta_teamschannelsmember, client_factory=cf_teamschannelsmember
+        'teams team-channel-member', teams_beta_team_channel_member, client_factory=cf_team_channel_member
     ) as g:
-        g.custom_command('add', 'teams_teamschannelsmember_add')
+        g.custom_command('add', 'teams_team_channel_member_add')
 
     with self.command_group(
-        'teams teamschannelsmessage', teams_beta_teamschannelsmessage, client_factory=cf_teamschannelsmessage
+        'teams team-channel-message', teams_beta_team_channel_message, client_factory=cf_team_channel_message
     ) as g:
-        g.custom_command('create-hosted-content', 'teams_teamschannelsmessage_create_hosted_content')
-        g.custom_command('create-reply', 'teams_teamschannelsmessage_create_reply')
-        g.custom_command('delete-hosted-content', 'teams_teamschannelsmessage_delete_hosted_content')
-        g.custom_command('delete-reply', 'teams_teamschannelsmessage_delete_reply')
-        g.custom_command('delta', 'teams_teamschannelsmessage_delta')
-        g.custom_command('list-hosted-content', 'teams_teamschannelsmessage_list_hosted_content')
-        g.custom_command('list-reply', 'teams_teamschannelsmessage_list_reply')
-        g.custom_command('set-hosted-content-content', 'teams_teamschannelsmessage_set_hosted_content_content')
-        g.custom_command('show-hosted-content', 'teams_teamschannelsmessage_show_hosted_content')
-        g.custom_command('show-hosted-content-content', 'teams_teamschannelsmessage_show_hosted_content_content')
-        g.custom_command('show-reply', 'teams_teamschannelsmessage_show_reply')
-        g.custom_command('update-hosted-content', 'teams_teamschannelsmessage_update_hosted_content')
-        g.custom_command('update-reply', 'teams_teamschannelsmessage_update_reply')
+        g.custom_command('create-hosted-content', 'teams_team_channel_message_create_hosted_content')
+        g.custom_command('create-reply', 'teams_team_channel_message_create_reply')
+        g.custom_command('delete-hosted-content', 'teams_team_channel_message_delete_hosted_content')
+        g.custom_command('delete-reply', 'teams_team_channel_message_delete_reply')
+        g.custom_command('delta', 'teams_team_channel_message_delta')
+        g.custom_command('list-hosted-content', 'teams_team_channel_message_list_hosted_content')
+        g.custom_command('list-reply', 'teams_team_channel_message_list_reply')
+        g.custom_command('set-hosted-content-content', 'teams_team_channel_message_set_hosted_content_content')
+        g.custom_command('show-hosted-content', 'teams_team_channel_message_show_hosted_content')
+        g.custom_command('show-hosted-content-content', 'teams_team_channel_message_show_hosted_content_content')
+        g.custom_command('show-reply', 'teams_team_channel_message_show_reply')
+        g.custom_command('update-hosted-content', 'teams_team_channel_message_update_hosted_content')
+        g.custom_command('update-reply', 'teams_team_channel_message_update_reply')
 
     with self.command_group(
-        'teams teamschannelsmessagesreply',
-        teams_beta_teamschannelsmessagesreply,
-        client_factory=cf_teamschannelsmessagesreply,
+        'teams team-channel-message-reply',
+        teams_beta_team_channel_message_reply,
+        client_factory=cf_team_channel_message_reply,
     ) as g:
-        g.custom_command('delta', 'teams_teamschannelsmessagesreply_delta')
+        g.custom_command('delta', 'teams_team_channel_message_reply_delta')
 
     with self.command_group(
-        'teams teamschannelstab', teams_beta_teamschannelstab, client_factory=cf_teamschannelstab
+        'teams team-channel-tab', teams_beta_team_channel_tab, client_factory=cf_team_channel_tab
     ) as g:
-        g.custom_command('delete-ref-team-app', 'teams_teamschannelstab_delete_ref_team_app')
-        g.custom_command('set-ref-team-app', 'teams_teamschannelstab_set_ref_team_app')
-        g.custom_command('show-ref-team-app', 'teams_teamschannelstab_show_ref_team_app')
-        g.custom_command('show-team-app', 'teams_teamschannelstab_show_team_app')
+        g.custom_command('delete-ref-team-app', 'teams_team_channel_tab_delete_ref_team_app')
+        g.custom_command('set-ref-team-app', 'teams_team_channel_tab_set_ref_team_app')
+        g.custom_command('show-ref-team-app', 'teams_team_channel_tab_show_ref_team_app')
+        g.custom_command('show-team-app', 'teams_team_channel_tab_show_team_app')
 
     with self.command_group(
-        'teams teamsinstalledapp', teams_beta_teamsinstalledapp, client_factory=cf_teamsinstalledapp
+        'teams team-installed-app', teams_beta_team_installed_app, client_factory=cf_team_installed_app
     ) as g:
-        g.custom_command('delete-ref-team-app', 'teams_teamsinstalledapp_delete_ref_team_app')
-        g.custom_command('delete-ref-team-app-definition', 'teams_teamsinstalledapp_delete_ref_team_app_definition')
-        g.custom_command('set-ref-team-app', 'teams_teamsinstalledapp_set_ref_team_app')
-        g.custom_command('set-ref-team-app-definition', 'teams_teamsinstalledapp_set_ref_team_app_definition')
-        g.custom_command('show-ref-team-app', 'teams_teamsinstalledapp_show_ref_team_app')
-        g.custom_command('show-ref-team-app-definition', 'teams_teamsinstalledapp_show_ref_team_app_definition')
-        g.custom_command('show-team-app', 'teams_teamsinstalledapp_show_team_app')
-        g.custom_command('show-team-app-definition', 'teams_teamsinstalledapp_show_team_app_definition')
-        g.custom_command('upgrade', 'teams_teamsinstalledapp_upgrade')
+        g.custom_command('delete-ref-team-app', 'teams_team_installed_app_delete_ref_team_app')
+        g.custom_command('delete-ref-team-app-definition', 'teams_team_installed_app_delete_ref_team_app_definition')
+        g.custom_command('set-ref-team-app', 'teams_team_installed_app_set_ref_team_app')
+        g.custom_command('set-ref-team-app-definition', 'teams_team_installed_app_set_ref_team_app_definition')
+        g.custom_command('show-ref-team-app', 'teams_team_installed_app_show_ref_team_app')
+        g.custom_command('show-ref-team-app-definition', 'teams_team_installed_app_show_ref_team_app_definition')
+        g.custom_command('show-team-app', 'teams_team_installed_app_show_team_app')
+        g.custom_command('show-team-app-definition', 'teams_team_installed_app_show_team_app_definition')
+        g.custom_command('upgrade', 'teams_team_installed_app_upgrade')
 
-    with self.command_group('teams teamsmember', teams_beta_teamsmember, client_factory=cf_teamsmember) as g:
-        g.custom_command('add', 'teams_teamsmember_add')
+    with self.command_group('teams team-member', teams_beta_team_member, client_factory=cf_team_member) as g:
+        g.custom_command('add', 'teams_team_member_add')
 
     with self.command_group(
-        'teams teamsprimarychannel', teams_beta_teamsprimarychannel, client_factory=cf_teamsprimarychannel
+        'teams team-primary-channel', teams_beta_team_primary_channel, client_factory=cf_team_primary_channel
     ) as g:
-        g.custom_command('complete-migration', 'teams_teamsprimarychannel_complete_migration')
-        g.custom_command('create-member', 'teams_teamsprimarychannel_create_member')
-        g.custom_command('create-message', 'teams_teamsprimarychannel_create_message')
-        g.custom_command('create-tab', 'teams_teamsprimarychannel_create_tab')
-        g.custom_command('delete-file-folder', 'teams_teamsprimarychannel_delete_file_folder')
-        g.custom_command('delete-member', 'teams_teamsprimarychannel_delete_member')
-        g.custom_command('delete-message', 'teams_teamsprimarychannel_delete_message')
-        g.custom_command('delete-tab', 'teams_teamsprimarychannel_delete_tab')
-        g.custom_command('list-member', 'teams_teamsprimarychannel_list_member')
-        g.custom_command('list-message', 'teams_teamsprimarychannel_list_message')
-        g.custom_command('list-tab', 'teams_teamsprimarychannel_list_tab')
-        g.custom_command('set-file-folder-content', 'teams_teamsprimarychannel_set_file_folder_content')
-        g.custom_command('show-file-folder', 'teams_teamsprimarychannel_show_file_folder')
-        g.custom_command('show-file-folder-content', 'teams_teamsprimarychannel_show_file_folder_content')
-        g.custom_command('show-member', 'teams_teamsprimarychannel_show_member')
-        g.custom_command('show-message', 'teams_teamsprimarychannel_show_message')
-        g.custom_command('show-tab', 'teams_teamsprimarychannel_show_tab')
-        g.custom_command('update-file-folder', 'teams_teamsprimarychannel_update_file_folder')
-        g.custom_command('update-member', 'teams_teamsprimarychannel_update_member')
-        g.custom_command('update-message', 'teams_teamsprimarychannel_update_message')
-        g.custom_command('update-tab', 'teams_teamsprimarychannel_update_tab')
+        g.custom_command('complete-migration', 'teams_team_primary_channel_complete_migration')
+        g.custom_command('create-member', 'teams_team_primary_channel_create_member')
+        g.custom_command('create-message', 'teams_team_primary_channel_create_message')
+        g.custom_command('create-tab', 'teams_team_primary_channel_create_tab')
+        g.custom_command('delete-file-folder', 'teams_team_primary_channel_delete_file_folder')
+        g.custom_command('delete-member', 'teams_team_primary_channel_delete_member')
+        g.custom_command('delete-message', 'teams_team_primary_channel_delete_message')
+        g.custom_command('delete-tab', 'teams_team_primary_channel_delete_tab')
+        g.custom_command('list-member', 'teams_team_primary_channel_list_member')
+        g.custom_command('list-message', 'teams_team_primary_channel_list_message')
+        g.custom_command('list-tab', 'teams_team_primary_channel_list_tab')
+        g.custom_command('set-file-folder-content', 'teams_team_primary_channel_set_file_folder_content')
+        g.custom_command('show-file-folder', 'teams_team_primary_channel_show_file_folder')
+        g.custom_command('show-file-folder-content', 'teams_team_primary_channel_show_file_folder_content')
+        g.custom_command('show-member', 'teams_team_primary_channel_show_member')
+        g.custom_command('show-message', 'teams_team_primary_channel_show_message')
+        g.custom_command('show-tab', 'teams_team_primary_channel_show_tab')
+        g.custom_command('update-file-folder', 'teams_team_primary_channel_update_file_folder')
+        g.custom_command('update-member', 'teams_team_primary_channel_update_member')
+        g.custom_command('update-message', 'teams_team_primary_channel_update_message')
+        g.custom_command('update-tab', 'teams_team_primary_channel_update_tab')
 
     with self.command_group(
-        'teams teamsprimarychannelmember',
-        teams_beta_teamsprimarychannelmember,
-        client_factory=cf_teamsprimarychannelmember,
+        'teams team-primary-channel-member',
+        teams_beta_team_primary_channel_member,
+        client_factory=cf_team_primary_channel_member,
     ) as g:
-        g.custom_command('add', 'teams_teamsprimarychannelmember_add')
+        g.custom_command('add', 'teams_team_primary_channel_member_add')
 
     with self.command_group(
-        'teams teamsprimarychannelmessage',
-        teams_beta_teamsprimarychannelmessage,
-        client_factory=cf_teamsprimarychannelmessage,
+        'teams team-primary-channel-message',
+        teams_beta_team_primary_channel_message,
+        client_factory=cf_team_primary_channel_message,
     ) as g:
-        g.custom_command('create-hosted-content', 'teams_teamsprimarychannelmessage_create_hosted_content')
-        g.custom_command('create-reply', 'teams_teamsprimarychannelmessage_create_reply')
-        g.custom_command('delete-hosted-content', 'teams_teamsprimarychannelmessage_delete_hosted_content')
-        g.custom_command('delete-reply', 'teams_teamsprimarychannelmessage_delete_reply')
-        g.custom_command('delta', 'teams_teamsprimarychannelmessage_delta')
-        g.custom_command('list-hosted-content', 'teams_teamsprimarychannelmessage_list_hosted_content')
-        g.custom_command('list-reply', 'teams_teamsprimarychannelmessage_list_reply')
-        g.custom_command('set-hosted-content-content', 'teams_teamsprimarychannelmessage_set_hosted_content_content')
-        g.custom_command('show-hosted-content', 'teams_teamsprimarychannelmessage_show_hosted_content')
-        g.custom_command('show-hosted-content-content', 'teams_teamsprimarychannelmessage_show_hosted_content_content')
-        g.custom_command('show-reply', 'teams_teamsprimarychannelmessage_show_reply')
-        g.custom_command('update-hosted-content', 'teams_teamsprimarychannelmessage_update_hosted_content')
-        g.custom_command('update-reply', 'teams_teamsprimarychannelmessage_update_reply')
+        g.custom_command('create-hosted-content', 'teams_team_primary_channel_message_create_hosted_content')
+        g.custom_command('create-reply', 'teams_team_primary_channel_message_create_reply')
+        g.custom_command('delete-hosted-content', 'teams_team_primary_channel_message_delete_hosted_content')
+        g.custom_command('delete-reply', 'teams_team_primary_channel_message_delete_reply')
+        g.custom_command('delta', 'teams_team_primary_channel_message_delta')
+        g.custom_command('list-hosted-content', 'teams_team_primary_channel_message_list_hosted_content')
+        g.custom_command('list-reply', 'teams_team_primary_channel_message_list_reply')
+        g.custom_command('set-hosted-content-content', 'teams_team_primary_channel_message_set_hosted_content_content')
+        g.custom_command('show-hosted-content', 'teams_team_primary_channel_message_show_hosted_content')
+        g.custom_command(
+            'show-hosted-content-content', 'teams_team_primary_channel_message_show_hosted_content_content'
+        )
+        g.custom_command('show-reply', 'teams_team_primary_channel_message_show_reply')
+        g.custom_command('update-hosted-content', 'teams_team_primary_channel_message_update_hosted_content')
+        g.custom_command('update-reply', 'teams_team_primary_channel_message_update_reply')
 
     with self.command_group(
-        'teams teamsprimarychannelmessagesreply',
-        teams_beta_teamsprimarychannelmessagesreply,
-        client_factory=cf_teamsprimarychannelmessagesreply,
+        'teams team-primary-channel-message-reply',
+        teams_beta_team_primary_channel_message_reply,
+        client_factory=cf_team_primary_channel_message_reply,
     ) as g:
-        g.custom_command('delta', 'teams_teamsprimarychannelmessagesreply_delta')
+        g.custom_command('delta', 'teams_team_primary_channel_message_reply_delta')
 
     with self.command_group(
-        'teams teamsprimarychanneltab', teams_beta_teamsprimarychanneltab, client_factory=cf_teamsprimarychanneltab
+        'teams team-primary-channel-tab',
+        teams_beta_team_primary_channel_tab,
+        client_factory=cf_team_primary_channel_tab,
     ) as g:
-        g.custom_command('delete-ref-team-app', 'teams_teamsprimarychanneltab_delete_ref_team_app')
-        g.custom_command('set-ref-team-app', 'teams_teamsprimarychanneltab_set_ref_team_app')
-        g.custom_command('show-ref-team-app', 'teams_teamsprimarychanneltab_show_ref_team_app')
-        g.custom_command('show-team-app', 'teams_teamsprimarychanneltab_show_team_app')
+        g.custom_command('delete-ref-team-app', 'teams_team_primary_channel_tab_delete_ref_team_app')
+        g.custom_command('set-ref-team-app', 'teams_team_primary_channel_tab_set_ref_team_app')
+        g.custom_command('show-ref-team-app', 'teams_team_primary_channel_tab_show_ref_team_app')
+        g.custom_command('show-team-app', 'teams_team_primary_channel_tab_show_team_app')
 
-    with self.command_group('teams teamsschedule', teams_beta_teamsschedule, client_factory=cf_teamsschedule) as g:
-        g.custom_command('create-offer-shift-request', 'teams_teamsschedule_create_offer_shift_request')
-        g.custom_command('create-open-shift', 'teams_teamsschedule_create_open_shift')
-        g.custom_command('create-open-shift-change-request', 'teams_teamsschedule_create_open_shift_change_request')
-        g.custom_command('create-scheduling-group', 'teams_teamsschedule_create_scheduling_group')
-        g.custom_command('create-shift', 'teams_teamsschedule_create_shift')
-        g.custom_command('create-swap-shift-change-request', 'teams_teamsschedule_create_swap_shift_change_request')
-        g.custom_command('create-time-card', 'teams_teamsschedule_create_time_card')
-        g.custom_command('create-time-off', 'teams_teamsschedule_create_time_off')
-        g.custom_command('create-time-off-reason', 'teams_teamsschedule_create_time_off_reason')
-        g.custom_command('create-time-off-request', 'teams_teamsschedule_create_time_off_request')
-        g.custom_command('delete-offer-shift-request', 'teams_teamsschedule_delete_offer_shift_request')
-        g.custom_command('delete-open-shift', 'teams_teamsschedule_delete_open_shift')
-        g.custom_command('delete-open-shift-change-request', 'teams_teamsschedule_delete_open_shift_change_request')
-        g.custom_command('delete-scheduling-group', 'teams_teamsschedule_delete_scheduling_group')
-        g.custom_command('delete-shift', 'teams_teamsschedule_delete_shift')
-        g.custom_command('delete-swap-shift-change-request', 'teams_teamsschedule_delete_swap_shift_change_request')
-        g.custom_command('delete-time-card', 'teams_teamsschedule_delete_time_card')
-        g.custom_command('delete-time-off', 'teams_teamsschedule_delete_time_off')
-        g.custom_command('delete-time-off-reason', 'teams_teamsschedule_delete_time_off_reason')
-        g.custom_command('delete-time-off-request', 'teams_teamsschedule_delete_time_off_request')
-        g.custom_command('list-offer-shift-request', 'teams_teamsschedule_list_offer_shift_request')
-        g.custom_command('list-open-shift', 'teams_teamsschedule_list_open_shift')
-        g.custom_command('list-open-shift-change-request', 'teams_teamsschedule_list_open_shift_change_request')
-        g.custom_command('list-scheduling-group', 'teams_teamsschedule_list_scheduling_group')
-        g.custom_command('list-shift', 'teams_teamsschedule_list_shift')
-        g.custom_command('list-swap-shift-change-request', 'teams_teamsschedule_list_swap_shift_change_request')
-        g.custom_command('list-time-card', 'teams_teamsschedule_list_time_card')
-        g.custom_command('list-time-off', 'teams_teamsschedule_list_time_off')
-        g.custom_command('list-time-off-reason', 'teams_teamsschedule_list_time_off_reason')
-        g.custom_command('list-time-off-request', 'teams_teamsschedule_list_time_off_request')
-        g.custom_command('share', 'teams_teamsschedule_share')
-        g.custom_command('show-offer-shift-request', 'teams_teamsschedule_show_offer_shift_request')
-        g.custom_command('show-open-shift', 'teams_teamsschedule_show_open_shift')
-        g.custom_command('show-open-shift-change-request', 'teams_teamsschedule_show_open_shift_change_request')
-        g.custom_command('show-scheduling-group', 'teams_teamsschedule_show_scheduling_group')
-        g.custom_command('show-shift', 'teams_teamsschedule_show_shift')
-        g.custom_command('show-swap-shift-change-request', 'teams_teamsschedule_show_swap_shift_change_request')
-        g.custom_command('show-time-card', 'teams_teamsschedule_show_time_card')
-        g.custom_command('show-time-off', 'teams_teamsschedule_show_time_off')
-        g.custom_command('show-time-off-reason', 'teams_teamsschedule_show_time_off_reason')
-        g.custom_command('show-time-off-request', 'teams_teamsschedule_show_time_off_request')
-        g.custom_command('update-offer-shift-request', 'teams_teamsschedule_update_offer_shift_request')
-        g.custom_command('update-open-shift', 'teams_teamsschedule_update_open_shift')
-        g.custom_command('update-open-shift-change-request', 'teams_teamsschedule_update_open_shift_change_request')
-        g.custom_command('update-scheduling-group', 'teams_teamsschedule_update_scheduling_group')
-        g.custom_command('update-shift', 'teams_teamsschedule_update_shift')
-        g.custom_command('update-swap-shift-change-request', 'teams_teamsschedule_update_swap_shift_change_request')
-        g.custom_command('update-time-card', 'teams_teamsschedule_update_time_card')
-        g.custom_command('update-time-off', 'teams_teamsschedule_update_time_off')
-        g.custom_command('update-time-off-reason', 'teams_teamsschedule_update_time_off_reason')
-        g.custom_command('update-time-off-request', 'teams_teamsschedule_update_time_off_request')
+    with self.command_group('teams team-schedule', teams_beta_team_schedule, client_factory=cf_team_schedule) as g:
+        g.custom_command('create-offer-shift-request', 'teams_team_schedule_create_offer_shift_request')
+        g.custom_command('create-open-shift', 'teams_team_schedule_create_open_shift')
+        g.custom_command('create-open-shift-change-request', 'teams_team_schedule_create_open_shift_change_request')
+        g.custom_command('create-scheduling-group', 'teams_team_schedule_create_scheduling_group')
+        g.custom_command('create-shift', 'teams_team_schedule_create_shift')
+        g.custom_command('create-swap-shift-change-request', 'teams_team_schedule_create_swap_shift_change_request')
+        g.custom_command('create-time-card', 'teams_team_schedule_create_time_card')
+        g.custom_command('create-time-off', 'teams_team_schedule_create_time_off')
+        g.custom_command('create-time-off-reason', 'teams_team_schedule_create_time_off_reason')
+        g.custom_command('create-time-off-request', 'teams_team_schedule_create_time_off_request')
+        g.custom_command('delete-offer-shift-request', 'teams_team_schedule_delete_offer_shift_request')
+        g.custom_command('delete-open-shift', 'teams_team_schedule_delete_open_shift')
+        g.custom_command('delete-open-shift-change-request', 'teams_team_schedule_delete_open_shift_change_request')
+        g.custom_command('delete-scheduling-group', 'teams_team_schedule_delete_scheduling_group')
+        g.custom_command('delete-shift', 'teams_team_schedule_delete_shift')
+        g.custom_command('delete-swap-shift-change-request', 'teams_team_schedule_delete_swap_shift_change_request')
+        g.custom_command('delete-time-card', 'teams_team_schedule_delete_time_card')
+        g.custom_command('delete-time-off', 'teams_team_schedule_delete_time_off')
+        g.custom_command('delete-time-off-reason', 'teams_team_schedule_delete_time_off_reason')
+        g.custom_command('delete-time-off-request', 'teams_team_schedule_delete_time_off_request')
+        g.custom_command('list-offer-shift-request', 'teams_team_schedule_list_offer_shift_request')
+        g.custom_command('list-open-shift', 'teams_team_schedule_list_open_shift')
+        g.custom_command('list-open-shift-change-request', 'teams_team_schedule_list_open_shift_change_request')
+        g.custom_command('list-scheduling-group', 'teams_team_schedule_list_scheduling_group')
+        g.custom_command('list-shift', 'teams_team_schedule_list_shift')
+        g.custom_command('list-swap-shift-change-request', 'teams_team_schedule_list_swap_shift_change_request')
+        g.custom_command('list-time-card', 'teams_team_schedule_list_time_card')
+        g.custom_command('list-time-off', 'teams_team_schedule_list_time_off')
+        g.custom_command('list-time-off-reason', 'teams_team_schedule_list_time_off_reason')
+        g.custom_command('list-time-off-request', 'teams_team_schedule_list_time_off_request')
+        g.custom_command('share', 'teams_team_schedule_share')
+        g.custom_command('show-offer-shift-request', 'teams_team_schedule_show_offer_shift_request')
+        g.custom_command('show-open-shift', 'teams_team_schedule_show_open_shift')
+        g.custom_command('show-open-shift-change-request', 'teams_team_schedule_show_open_shift_change_request')
+        g.custom_command('show-scheduling-group', 'teams_team_schedule_show_scheduling_group')
+        g.custom_command('show-shift', 'teams_team_schedule_show_shift')
+        g.custom_command('show-swap-shift-change-request', 'teams_team_schedule_show_swap_shift_change_request')
+        g.custom_command('show-time-card', 'teams_team_schedule_show_time_card')
+        g.custom_command('show-time-off', 'teams_team_schedule_show_time_off')
+        g.custom_command('show-time-off-reason', 'teams_team_schedule_show_time_off_reason')
+        g.custom_command('show-time-off-request', 'teams_team_schedule_show_time_off_request')
+        g.custom_command('update-offer-shift-request', 'teams_team_schedule_update_offer_shift_request')
+        g.custom_command('update-open-shift', 'teams_team_schedule_update_open_shift')
+        g.custom_command('update-open-shift-change-request', 'teams_team_schedule_update_open_shift_change_request')
+        g.custom_command('update-scheduling-group', 'teams_team_schedule_update_scheduling_group')
+        g.custom_command('update-shift', 'teams_team_schedule_update_shift')
+        g.custom_command('update-swap-shift-change-request', 'teams_team_schedule_update_swap_shift_change_request')
+        g.custom_command('update-time-card', 'teams_team_schedule_update_time_card')
+        g.custom_command('update-time-off', 'teams_team_schedule_update_time_off')
+        g.custom_command('update-time-off-reason', 'teams_team_schedule_update_time_off_reason')
+        g.custom_command('update-time-off-request', 'teams_team_schedule_update_time_off_request')
 
     with self.command_group(
-        'teams teamsscheduletimecard', teams_beta_teamsscheduletimecard, client_factory=cf_teamsscheduletimecard
+        'teams team-schedule-time-card', teams_beta_team_schedule_time_card, client_factory=cf_team_schedule_time_card
     ) as g:
-        g.custom_command('clock-in', 'teams_teamsscheduletimecard_clock_in')
-        g.custom_command('clock-out', 'teams_teamsscheduletimecard_clock_out')
-        g.custom_command('confirm', 'teams_teamsscheduletimecard_confirm')
-        g.custom_command('end-break', 'teams_teamsscheduletimecard_end_break')
-        g.custom_command('start-break', 'teams_teamsscheduletimecard_start_break')
+        g.custom_command('clock-in', 'teams_team_schedule_time_card_clock_in')
+        g.custom_command('clock-out', 'teams_team_schedule_time_card_clock_out')
+        g.custom_command('confirm', 'teams_team_schedule_time_card_confirm')
+        g.custom_command('end-break', 'teams_team_schedule_time_card_end_break')
+        g.custom_command('start-break', 'teams_team_schedule_time_card_start_break')
 
-    with self.command_group('teams teamwork', teams_beta_teamwork, client_factory=cf_teamwork) as g:
-        g.custom_command('show-teamwork', 'teams_teamwork_show_teamwork')
-        g.custom_command('update-teamwork', 'teams_teamwork_update_teamwork')
+    with self.command_group(
+        'teams teamwork-teamwork', teams_beta_teamwork_teamwork, client_factory=cf_teamwork_teamwork
+    ) as g:
+        g.custom_command('show-teamwork', 'teams_teamwork_teamwork_show_teamwork')
+        g.custom_command('update-teamwork', 'teams_teamwork_teamwork_update_teamwork')
 
     with self.command_group('teams teamwork', teams_beta_teamwork, client_factory=cf_teamwork) as g:
         g.custom_command('create-workforce-integration', 'teams_teamwork_create_workforce_integration')
@@ -640,22 +641,22 @@ def load_command_table(self, _):
         g.custom_command('update-joined-team', 'teams_user_update_joined_team')
         g.custom_command('update-teamwork', 'teams_user_update_teamwork')
 
-    with self.command_group('teams usersteamwork', teams_beta_usersteamwork, client_factory=cf_usersteamwork) as g:
-        g.custom_command('create-installed-app', 'teams_usersteamwork_create_installed_app')
-        g.custom_command('delete-installed-app', 'teams_usersteamwork_delete_installed_app')
-        g.custom_command('list-installed-app', 'teams_usersteamwork_list_installed_app')
-        g.custom_command('show-installed-app', 'teams_usersteamwork_show_installed_app')
-        g.custom_command('update-installed-app', 'teams_usersteamwork_update_installed_app')
+    with self.command_group('teams user-teamwork', teams_beta_user_teamwork, client_factory=cf_user_teamwork) as g:
+        g.custom_command('create-installed-app', 'teams_user_teamwork_create_installed_app')
+        g.custom_command('delete-installed-app', 'teams_user_teamwork_delete_installed_app')
+        g.custom_command('list-installed-app', 'teams_user_teamwork_list_installed_app')
+        g.custom_command('show-installed-app', 'teams_user_teamwork_show_installed_app')
+        g.custom_command('update-installed-app', 'teams_user_teamwork_update_installed_app')
 
     with self.command_group(
-        'teams usersteamworkinstalledapp',
-        teams_beta_usersteamworkinstalledapp,
-        client_factory=cf_usersteamworkinstalledapp,
+        'teams user-teamwork-installed-app',
+        teams_beta_user_teamwork_installed_app,
+        client_factory=cf_user_teamwork_installed_app,
     ) as g:
-        g.custom_command('delete-ref-chat', 'teams_usersteamworkinstalledapp_delete_ref_chat')
-        g.custom_command('set-ref-chat', 'teams_usersteamworkinstalledapp_set_ref_chat')
-        g.custom_command('show-chat', 'teams_usersteamworkinstalledapp_show_chat')
-        g.custom_command('show-ref-chat', 'teams_usersteamworkinstalledapp_show_ref_chat')
+        g.custom_command('delete-ref-chat', 'teams_user_teamwork_installed_app_delete_ref_chat')
+        g.custom_command('set-ref-chat', 'teams_user_teamwork_installed_app_set_ref_chat')
+        g.custom_command('show-chat', 'teams_user_teamwork_installed_app_show_chat')
+        g.custom_command('show-ref-chat', 'teams_user_teamwork_installed_app_show_ref_chat')
 
     with self.command_group('teams_beta', is_experimental=True):
         pass

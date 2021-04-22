@@ -13,21 +13,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class collectionofaccount(msrest.serialization.Model):
+class CollectionOfAccount(msrest.serialization.Model):
     """Collection of account.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphaccount]
+    :type value: list[~financials.models.MicrosoftGraphAccount]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphaccount]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAccount]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -35,31 +35,31 @@ class collectionofaccount(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphaccount"]] = None,
+        value: Optional[List["MicrosoftGraphAccount"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofaccount, self).__init__(**kwargs)
+        super(CollectionOfAccount, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofagedaccountspayable(msrest.serialization.Model):
+class CollectionOfAgedAccountsPayable(msrest.serialization.Model):
     """Collection of agedAccountsPayable.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphagedaccountspayable]
+    :type value: list[~financials.models.MicrosoftGraphAgedAccountsPayable]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphagedaccountspayable]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAgedAccountsPayable]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -67,31 +67,31 @@ class collectionofagedaccountspayable(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphagedaccountspayable"]] = None,
+        value: Optional[List["MicrosoftGraphAgedAccountsPayable"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofagedaccountspayable, self).__init__(**kwargs)
+        super(CollectionOfAgedAccountsPayable, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofagedaccountsreceivable(msrest.serialization.Model):
+class CollectionOfAgedAccountsReceivable(msrest.serialization.Model):
     """Collection of agedAccountsReceivable.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphagedaccountsreceivable]
+    :type value: list[~financials.models.MicrosoftGraphAgedAccountsReceivable]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphagedaccountsreceivable]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphAgedAccountsReceivable]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -99,31 +99,31 @@ class collectionofagedaccountsreceivable(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphagedaccountsreceivable"]] = None,
+        value: Optional[List["MicrosoftGraphAgedAccountsReceivable"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofagedaccountsreceivable, self).__init__(**kwargs)
+        super(CollectionOfAgedAccountsReceivable, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcompany(msrest.serialization.Model):
+class CollectionOfCompany(msrest.serialization.Model):
     """Collection of company.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcompany]
+    :type value: list[~financials.models.MicrosoftGraphCompany]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcompany]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCompany]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -131,31 +131,31 @@ class collectionofcompany(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcompany"]] = None,
+        value: Optional[List["MicrosoftGraphCompany"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcompany, self).__init__(**kwargs)
+        super(CollectionOfCompany, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcompanyinformation(msrest.serialization.Model):
+class CollectionOfCompanyInformation(msrest.serialization.Model):
     """Collection of companyInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcompanyinformation]
+    :type value: list[~financials.models.MicrosoftGraphCompanyInformation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcompanyinformation]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCompanyInformation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -163,31 +163,31 @@ class collectionofcompanyinformation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcompanyinformation"]] = None,
+        value: Optional[List["MicrosoftGraphCompanyInformation"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcompanyinformation, self).__init__(**kwargs)
+        super(CollectionOfCompanyInformation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcountryregion(msrest.serialization.Model):
+class CollectionOfCountryRegion(msrest.serialization.Model):
     """Collection of countryRegion.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcountryregion]
+    :type value: list[~financials.models.MicrosoftGraphCountryRegion]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcountryregion]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCountryRegion]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -195,31 +195,31 @@ class collectionofcountryregion(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcountryregion"]] = None,
+        value: Optional[List["MicrosoftGraphCountryRegion"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcountryregion, self).__init__(**kwargs)
+        super(CollectionOfCountryRegion, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcurrency(msrest.serialization.Model):
+class CollectionOfCurrency(msrest.serialization.Model):
     """Collection of currency.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcurrency]
+    :type value: list[~financials.models.MicrosoftGraphCurrency]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcurrency]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCurrency]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -227,31 +227,31 @@ class collectionofcurrency(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcurrency"]] = None,
+        value: Optional[List["MicrosoftGraphCurrency"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcurrency, self).__init__(**kwargs)
+        super(CollectionOfCurrency, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcustomer(msrest.serialization.Model):
+class CollectionOfCustomer(msrest.serialization.Model):
     """Collection of customer.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcustomer]
+    :type value: list[~financials.models.MicrosoftGraphCustomer]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcustomer]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCustomer]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -259,31 +259,31 @@ class collectionofcustomer(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcustomer"]] = None,
+        value: Optional[List["MicrosoftGraphCustomer"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcustomer, self).__init__(**kwargs)
+        super(CollectionOfCustomer, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcustomerpayment(msrest.serialization.Model):
+class CollectionOfCustomerPayment(msrest.serialization.Model):
     """Collection of customerPayment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcustomerpayment]
+    :type value: list[~financials.models.MicrosoftGraphCustomerPayment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcustomerpayment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCustomerPayment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -291,31 +291,31 @@ class collectionofcustomerpayment(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcustomerpayment"]] = None,
+        value: Optional[List["MicrosoftGraphCustomerPayment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcustomerpayment, self).__init__(**kwargs)
+        super(CollectionOfCustomerPayment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcustomerpayment0(msrest.serialization.Model):
+class CollectionOfCustomerPayment0(msrest.serialization.Model):
     """Collection of customerPayment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcustomerpayment]
+    :type value: list[~financials.models.MicrosoftGraphCustomerPayment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcustomerpayment]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCustomerPayment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -323,31 +323,31 @@ class collectionofcustomerpayment0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcustomerpayment"]] = None,
+        value: Optional[List["MicrosoftGraphCustomerPayment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcustomerpayment0, self).__init__(**kwargs)
+        super(CollectionOfCustomerPayment0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofcustomerpaymentjournal(msrest.serialization.Model):
+class CollectionOfCustomerPaymentJournal(msrest.serialization.Model):
     """Collection of customerPaymentJournal.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphcustomerpaymentjournal]
+    :type value: list[~financials.models.MicrosoftGraphCustomerPaymentJournal]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphcustomerpaymentjournal]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCustomerPaymentJournal]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -355,31 +355,31 @@ class collectionofcustomerpaymentjournal(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphcustomerpaymentjournal"]] = None,
+        value: Optional[List["MicrosoftGraphCustomerPaymentJournal"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofcustomerpaymentjournal, self).__init__(**kwargs)
+        super(CollectionOfCustomerPaymentJournal, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofdimension(msrest.serialization.Model):
+class CollectionOfDimension(msrest.serialization.Model):
     """Collection of dimension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphdimension]
+    :type value: list[~financials.models.MicrosoftGraphDimension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdimension]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDimension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -387,31 +387,31 @@ class collectionofdimension(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphdimension"]] = None,
+        value: Optional[List["MicrosoftGraphDimension"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofdimension, self).__init__(**kwargs)
+        super(CollectionOfDimension, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofdimensionvalue(msrest.serialization.Model):
+class CollectionOfDimensionValue(msrest.serialization.Model):
     """Collection of dimensionValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphdimensionvalue]
+    :type value: list[~financials.models.MicrosoftGraphDimensionValue]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdimensionvalue]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDimensionValue]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -419,31 +419,31 @@ class collectionofdimensionvalue(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphdimensionvalue"]] = None,
+        value: Optional[List["MicrosoftGraphDimensionValue"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofdimensionvalue, self).__init__(**kwargs)
+        super(CollectionOfDimensionValue, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofdimensionvalue0(msrest.serialization.Model):
+class CollectionOfDimensionValue0(msrest.serialization.Model):
     """Collection of dimensionValue.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphdimensionvalue]
+    :type value: list[~financials.models.MicrosoftGraphDimensionValue]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphdimensionvalue]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDimensionValue]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -451,31 +451,31 @@ class collectionofdimensionvalue0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphdimensionvalue"]] = None,
+        value: Optional[List["MicrosoftGraphDimensionValue"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofdimensionvalue0, self).__init__(**kwargs)
+        super(CollectionOfDimensionValue0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofemployee(msrest.serialization.Model):
+class CollectionOfEmployee(msrest.serialization.Model):
     """Collection of employee.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphemployee]
+    :type value: list[~financials.models.MicrosoftGraphEmployee]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphemployee]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphEmployee]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -483,31 +483,31 @@ class collectionofemployee(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphemployee"]] = None,
+        value: Optional[List["MicrosoftGraphEmployee"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofemployee, self).__init__(**kwargs)
+        super(CollectionOfEmployee, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofgeneralledgerentry(msrest.serialization.Model):
+class CollectionOfGeneralLedgerEntry(msrest.serialization.Model):
     """Collection of generalLedgerEntry.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphgeneralledgerentry]
+    :type value: list[~financials.models.MicrosoftGraphGeneralLedgerEntry]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphgeneralledgerentry]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphGeneralLedgerEntry]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -515,31 +515,31 @@ class collectionofgeneralledgerentry(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphgeneralledgerentry"]] = None,
+        value: Optional[List["MicrosoftGraphGeneralLedgerEntry"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofgeneralledgerentry, self).__init__(**kwargs)
+        super(CollectionOfGeneralLedgerEntry, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofitem(msrest.serialization.Model):
+class CollectionOfItem(msrest.serialization.Model):
     """Collection of item.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphitem]
+    :type value: list[~financials.models.MicrosoftGraphItem]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitem]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItem]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -547,31 +547,31 @@ class collectionofitem(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphitem"]] = None,
+        value: Optional[List["MicrosoftGraphItem"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofitem, self).__init__(**kwargs)
+        super(CollectionOfItem, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofitemcategory(msrest.serialization.Model):
+class CollectionOfItemCategory(msrest.serialization.Model):
     """Collection of itemCategory.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphitemcategory]
+    :type value: list[~financials.models.MicrosoftGraphItemCategory]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphitemcategory]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphItemCategory]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -579,31 +579,31 @@ class collectionofitemcategory(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphitemcategory"]] = None,
+        value: Optional[List["MicrosoftGraphItemCategory"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofitemcategory, self).__init__(**kwargs)
+        super(CollectionOfItemCategory, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofjournal(msrest.serialization.Model):
+class CollectionOfJournal(msrest.serialization.Model):
     """Collection of journal.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphjournal]
+    :type value: list[~financials.models.MicrosoftGraphJournal]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphjournal]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphJournal]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -611,31 +611,31 @@ class collectionofjournal(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphjournal"]] = None,
+        value: Optional[List["MicrosoftGraphJournal"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofjournal, self).__init__(**kwargs)
+        super(CollectionOfJournal, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofjournalline(msrest.serialization.Model):
+class CollectionOfJournalLine(msrest.serialization.Model):
     """Collection of journalLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphjournalline]
+    :type value: list[~financials.models.MicrosoftGraphJournalLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphjournalline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphJournalLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -643,31 +643,31 @@ class collectionofjournalline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphjournalline"]] = None,
+        value: Optional[List["MicrosoftGraphJournalLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofjournalline, self).__init__(**kwargs)
+        super(CollectionOfJournalLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofjournalline0(msrest.serialization.Model):
+class CollectionOfJournalLine0(msrest.serialization.Model):
     """Collection of journalLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphjournalline]
+    :type value: list[~financials.models.MicrosoftGraphJournalLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphjournalline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphJournalLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -675,31 +675,31 @@ class collectionofjournalline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphjournalline"]] = None,
+        value: Optional[List["MicrosoftGraphJournalLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofjournalline0, self).__init__(**kwargs)
+        super(CollectionOfJournalLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpaymentmethod(msrest.serialization.Model):
+class CollectionOfPaymentMethod(msrest.serialization.Model):
     """Collection of paymentMethod.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpaymentmethod]
+    :type value: list[~financials.models.MicrosoftGraphPaymentMethod]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpaymentmethod]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPaymentMethod]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -707,31 +707,31 @@ class collectionofpaymentmethod(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpaymentmethod"]] = None,
+        value: Optional[List["MicrosoftGraphPaymentMethod"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpaymentmethod, self).__init__(**kwargs)
+        super(CollectionOfPaymentMethod, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpaymentterm(msrest.serialization.Model):
+class CollectionOfPaymentTerm(msrest.serialization.Model):
     """Collection of paymentTerm.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpaymentterm]
+    :type value: list[~financials.models.MicrosoftGraphPaymentTerm]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpaymentterm]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPaymentTerm]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -739,31 +739,31 @@ class collectionofpaymentterm(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpaymentterm"]] = None,
+        value: Optional[List["MicrosoftGraphPaymentTerm"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpaymentterm, self).__init__(**kwargs)
+        super(CollectionOfPaymentTerm, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture(msrest.serialization.Model):
+class CollectionOfPicture(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -771,31 +771,31 @@ class collectionofpicture(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture, self).__init__(**kwargs)
+        super(CollectionOfPicture, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture0(msrest.serialization.Model):
+class CollectionOfPicture0(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -803,31 +803,31 @@ class collectionofpicture0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture0, self).__init__(**kwargs)
+        super(CollectionOfPicture0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture1(msrest.serialization.Model):
+class CollectionOfPicture1(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -835,31 +835,31 @@ class collectionofpicture1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture1, self).__init__(**kwargs)
+        super(CollectionOfPicture1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture10(msrest.serialization.Model):
+class CollectionOfPicture10(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -867,31 +867,31 @@ class collectionofpicture10(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture10, self).__init__(**kwargs)
+        super(CollectionOfPicture10, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture11(msrest.serialization.Model):
+class CollectionOfPicture11(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -899,31 +899,31 @@ class collectionofpicture11(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture11, self).__init__(**kwargs)
+        super(CollectionOfPicture11, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture12(msrest.serialization.Model):
+class CollectionOfPicture12(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -931,31 +931,31 @@ class collectionofpicture12(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture12, self).__init__(**kwargs)
+        super(CollectionOfPicture12, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture13(msrest.serialization.Model):
+class CollectionOfPicture13(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -963,31 +963,31 @@ class collectionofpicture13(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture13, self).__init__(**kwargs)
+        super(CollectionOfPicture13, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture14(msrest.serialization.Model):
+class CollectionOfPicture14(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -995,31 +995,31 @@ class collectionofpicture14(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture14, self).__init__(**kwargs)
+        super(CollectionOfPicture14, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture15(msrest.serialization.Model):
+class CollectionOfPicture15(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1027,31 +1027,31 @@ class collectionofpicture15(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture15, self).__init__(**kwargs)
+        super(CollectionOfPicture15, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture16(msrest.serialization.Model):
+class CollectionOfPicture16(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1059,31 +1059,31 @@ class collectionofpicture16(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture16, self).__init__(**kwargs)
+        super(CollectionOfPicture16, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture17(msrest.serialization.Model):
+class CollectionOfPicture17(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1091,31 +1091,31 @@ class collectionofpicture17(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture17, self).__init__(**kwargs)
+        super(CollectionOfPicture17, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture18(msrest.serialization.Model):
+class CollectionOfPicture18(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1123,31 +1123,31 @@ class collectionofpicture18(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture18, self).__init__(**kwargs)
+        super(CollectionOfPicture18, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture19(msrest.serialization.Model):
+class CollectionOfPicture19(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1155,31 +1155,31 @@ class collectionofpicture19(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture19, self).__init__(**kwargs)
+        super(CollectionOfPicture19, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture2(msrest.serialization.Model):
+class CollectionOfPicture2(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1187,31 +1187,31 @@ class collectionofpicture2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture2, self).__init__(**kwargs)
+        super(CollectionOfPicture2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture20(msrest.serialization.Model):
+class CollectionOfPicture20(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1219,31 +1219,31 @@ class collectionofpicture20(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture20, self).__init__(**kwargs)
+        super(CollectionOfPicture20, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture3(msrest.serialization.Model):
+class CollectionOfPicture3(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1251,31 +1251,31 @@ class collectionofpicture3(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture3, self).__init__(**kwargs)
+        super(CollectionOfPicture3, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture4(msrest.serialization.Model):
+class CollectionOfPicture4(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1283,31 +1283,31 @@ class collectionofpicture4(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture4, self).__init__(**kwargs)
+        super(CollectionOfPicture4, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture5(msrest.serialization.Model):
+class CollectionOfPicture5(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1315,31 +1315,31 @@ class collectionofpicture5(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture5, self).__init__(**kwargs)
+        super(CollectionOfPicture5, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture6(msrest.serialization.Model):
+class CollectionOfPicture6(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1347,31 +1347,31 @@ class collectionofpicture6(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture6, self).__init__(**kwargs)
+        super(CollectionOfPicture6, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture7(msrest.serialization.Model):
+class CollectionOfPicture7(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1379,31 +1379,31 @@ class collectionofpicture7(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture7, self).__init__(**kwargs)
+        super(CollectionOfPicture7, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture8(msrest.serialization.Model):
+class CollectionOfPicture8(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1411,31 +1411,31 @@ class collectionofpicture8(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture8, self).__init__(**kwargs)
+        super(CollectionOfPicture8, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpicture9(msrest.serialization.Model):
+class CollectionOfPicture9(msrest.serialization.Model):
     """Collection of picture.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpicture]
+    :type value: list[~financials.models.MicrosoftGraphPicture]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpicture]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPicture]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1443,31 +1443,31 @@ class collectionofpicture9(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpicture"]] = None,
+        value: Optional[List["MicrosoftGraphPicture"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpicture9, self).__init__(**kwargs)
+        super(CollectionOfPicture9, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpurchaseinvoice(msrest.serialization.Model):
+class CollectionOfPurchaseInvoice(msrest.serialization.Model):
     """Collection of purchaseInvoice.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpurchaseinvoice]
+    :type value: list[~financials.models.MicrosoftGraphPurchaseInvoice]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpurchaseinvoice]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPurchaseInvoice]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1475,31 +1475,31 @@ class collectionofpurchaseinvoice(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpurchaseinvoice"]] = None,
+        value: Optional[List["MicrosoftGraphPurchaseInvoice"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpurchaseinvoice, self).__init__(**kwargs)
+        super(CollectionOfPurchaseInvoice, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpurchaseinvoiceline(msrest.serialization.Model):
+class CollectionOfPurchaseInvoiceLine(msrest.serialization.Model):
     """Collection of purchaseInvoiceLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpurchaseinvoiceline]
+    :type value: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpurchaseinvoiceline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPurchaseInvoiceLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1507,31 +1507,31 @@ class collectionofpurchaseinvoiceline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpurchaseinvoiceline"]] = None,
+        value: Optional[List["MicrosoftGraphPurchaseInvoiceLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpurchaseinvoiceline, self).__init__(**kwargs)
+        super(CollectionOfPurchaseInvoiceLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofpurchaseinvoiceline0(msrest.serialization.Model):
+class CollectionOfPurchaseInvoiceLine0(msrest.serialization.Model):
     """Collection of purchaseInvoiceLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphpurchaseinvoiceline]
+    :type value: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphpurchaseinvoiceline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphPurchaseInvoiceLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1539,31 +1539,31 @@ class collectionofpurchaseinvoiceline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphpurchaseinvoiceline"]] = None,
+        value: Optional[List["MicrosoftGraphPurchaseInvoiceLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofpurchaseinvoiceline0, self).__init__(**kwargs)
+        super(CollectionOfPurchaseInvoiceLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalescreditmemo(msrest.serialization.Model):
+class CollectionOfSalesCreditMemo(msrest.serialization.Model):
     """Collection of salesCreditMemo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalescreditmemo]
+    :type value: list[~financials.models.MicrosoftGraphSalesCreditMemo]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalescreditmemo]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesCreditMemo]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1571,31 +1571,31 @@ class collectionofsalescreditmemo(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalescreditmemo"]] = None,
+        value: Optional[List["MicrosoftGraphSalesCreditMemo"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalescreditmemo, self).__init__(**kwargs)
+        super(CollectionOfSalesCreditMemo, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalescreditmemoline(msrest.serialization.Model):
+class CollectionOfSalesCreditMemoLine(msrest.serialization.Model):
     """Collection of salesCreditMemoLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalescreditmemoline]
+    :type value: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalescreditmemoline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesCreditMemoLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1603,31 +1603,31 @@ class collectionofsalescreditmemoline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalescreditmemoline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesCreditMemoLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalescreditmemoline, self).__init__(**kwargs)
+        super(CollectionOfSalesCreditMemoLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalescreditmemoline0(msrest.serialization.Model):
+class CollectionOfSalesCreditMemoLine0(msrest.serialization.Model):
     """Collection of salesCreditMemoLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalescreditmemoline]
+    :type value: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalescreditmemoline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesCreditMemoLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1635,31 +1635,31 @@ class collectionofsalescreditmemoline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalescreditmemoline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesCreditMemoLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalescreditmemoline0, self).__init__(**kwargs)
+        super(CollectionOfSalesCreditMemoLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesinvoice(msrest.serialization.Model):
+class CollectionOfSalesInvoice(msrest.serialization.Model):
     """Collection of salesInvoice.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesinvoice]
+    :type value: list[~financials.models.MicrosoftGraphSalesInvoice]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesinvoice]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesInvoice]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1667,31 +1667,31 @@ class collectionofsalesinvoice(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesinvoice"]] = None,
+        value: Optional[List["MicrosoftGraphSalesInvoice"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesinvoice, self).__init__(**kwargs)
+        super(CollectionOfSalesInvoice, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesinvoiceline(msrest.serialization.Model):
+class CollectionOfSalesInvoiceLine(msrest.serialization.Model):
     """Collection of salesInvoiceLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesinvoiceline]
+    :type value: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesinvoiceline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesInvoiceLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1699,31 +1699,31 @@ class collectionofsalesinvoiceline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesinvoiceline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesInvoiceLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesinvoiceline, self).__init__(**kwargs)
+        super(CollectionOfSalesInvoiceLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesinvoiceline0(msrest.serialization.Model):
+class CollectionOfSalesInvoiceLine0(msrest.serialization.Model):
     """Collection of salesInvoiceLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesinvoiceline]
+    :type value: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesinvoiceline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesInvoiceLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1731,31 +1731,31 @@ class collectionofsalesinvoiceline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesinvoiceline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesInvoiceLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesinvoiceline0, self).__init__(**kwargs)
+        super(CollectionOfSalesInvoiceLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesorder(msrest.serialization.Model):
+class CollectionOfSalesOrder(msrest.serialization.Model):
     """Collection of salesOrder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesorder]
+    :type value: list[~financials.models.MicrosoftGraphSalesOrder]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesorder]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesOrder]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1763,31 +1763,31 @@ class collectionofsalesorder(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesorder"]] = None,
+        value: Optional[List["MicrosoftGraphSalesOrder"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesorder, self).__init__(**kwargs)
+        super(CollectionOfSalesOrder, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesorderline(msrest.serialization.Model):
+class CollectionOfSalesOrderLine(msrest.serialization.Model):
     """Collection of salesOrderLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesorderline]
+    :type value: list[~financials.models.MicrosoftGraphSalesOrderLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesorderline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesOrderLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1795,31 +1795,31 @@ class collectionofsalesorderline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesorderline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesOrderLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesorderline, self).__init__(**kwargs)
+        super(CollectionOfSalesOrderLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesorderline0(msrest.serialization.Model):
+class CollectionOfSalesOrderLine0(msrest.serialization.Model):
     """Collection of salesOrderLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesorderline]
+    :type value: list[~financials.models.MicrosoftGraphSalesOrderLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesorderline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesOrderLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1827,31 +1827,31 @@ class collectionofsalesorderline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesorderline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesOrderLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesorderline0, self).__init__(**kwargs)
+        super(CollectionOfSalesOrderLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesquote(msrest.serialization.Model):
+class CollectionOfSalesQuote(msrest.serialization.Model):
     """Collection of salesQuote.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesquote]
+    :type value: list[~financials.models.MicrosoftGraphSalesQuote]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesquote]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesQuote]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1859,31 +1859,31 @@ class collectionofsalesquote(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesquote"]] = None,
+        value: Optional[List["MicrosoftGraphSalesQuote"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesquote, self).__init__(**kwargs)
+        super(CollectionOfSalesQuote, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesquoteline(msrest.serialization.Model):
+class CollectionOfSalesQuoteLine(msrest.serialization.Model):
     """Collection of salesQuoteLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesquoteline]
+    :type value: list[~financials.models.MicrosoftGraphSalesQuoteLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesquoteline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesQuoteLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1891,31 +1891,31 @@ class collectionofsalesquoteline(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesquoteline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesQuoteLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesquoteline, self).__init__(**kwargs)
+        super(CollectionOfSalesQuoteLine, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofsalesquoteline0(msrest.serialization.Model):
+class CollectionOfSalesQuoteLine0(msrest.serialization.Model):
     """Collection of salesQuoteLine.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphsalesquoteline]
+    :type value: list[~financials.models.MicrosoftGraphSalesQuoteLine]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphsalesquoteline]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSalesQuoteLine]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1923,31 +1923,31 @@ class collectionofsalesquoteline0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphsalesquoteline"]] = None,
+        value: Optional[List["MicrosoftGraphSalesQuoteLine"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofsalesquoteline0, self).__init__(**kwargs)
+        super(CollectionOfSalesQuoteLine0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofshipmentmethod(msrest.serialization.Model):
+class CollectionOfShipmentMethod(msrest.serialization.Model):
     """Collection of shipmentMethod.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphshipmentmethod]
+    :type value: list[~financials.models.MicrosoftGraphShipmentMethod]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphshipmentmethod]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphShipmentMethod]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1955,31 +1955,31 @@ class collectionofshipmentmethod(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphshipmentmethod"]] = None,
+        value: Optional[List["MicrosoftGraphShipmentMethod"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofshipmentmethod, self).__init__(**kwargs)
+        super(CollectionOfShipmentMethod, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftaxarea(msrest.serialization.Model):
+class CollectionOfTaxArea(msrest.serialization.Model):
     """Collection of taxArea.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphtaxarea]
+    :type value: list[~financials.models.MicrosoftGraphTaxArea]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtaxarea]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTaxArea]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1987,31 +1987,31 @@ class collectionoftaxarea(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtaxarea"]] = None,
+        value: Optional[List["MicrosoftGraphTaxArea"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftaxarea, self).__init__(**kwargs)
+        super(CollectionOfTaxArea, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionoftaxgroup(msrest.serialization.Model):
+class CollectionOfTaxGroup(msrest.serialization.Model):
     """Collection of taxGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphtaxgroup]
+    :type value: list[~financials.models.MicrosoftGraphTaxGroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphtaxgroup]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTaxGroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2019,31 +2019,31 @@ class collectionoftaxgroup(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphtaxgroup"]] = None,
+        value: Optional[List["MicrosoftGraphTaxGroup"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionoftaxgroup, self).__init__(**kwargs)
+        super(CollectionOfTaxGroup, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofunitofmeasure(msrest.serialization.Model):
+class CollectionOfUnitOfMeasure(msrest.serialization.Model):
     """Collection of unitOfMeasure.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphunitofmeasure]
+    :type value: list[~financials.models.MicrosoftGraphUnitOfMeasure]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphunitofmeasure]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphUnitOfMeasure]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2051,31 +2051,31 @@ class collectionofunitofmeasure(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphunitofmeasure"]] = None,
+        value: Optional[List["MicrosoftGraphUnitOfMeasure"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofunitofmeasure, self).__init__(**kwargs)
+        super(CollectionOfUnitOfMeasure, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class collectionofvendor(msrest.serialization.Model):
+class CollectionOfVendor(msrest.serialization.Model):
     """Collection of vendor.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~financials.models.microsoftgraphvendor]
+    :type value: list[~financials.models.MicrosoftGraphVendor]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[microsoftgraphvendor]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphVendor]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2083,17 +2083,17 @@ class collectionofvendor(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["microsoftgraphvendor"]] = None,
+        value: Optional[List["MicrosoftGraphVendor"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(collectionofvendor, self).__init__(**kwargs)
+        super(CollectionOfVendor, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class microsoftgraphentity(msrest.serialization.Model):
+class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2115,12 +2115,12 @@ class microsoftgraphentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphentity, self).__init__(**kwargs)
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class microsoftgraphaccount(microsoftgraphentity):
+class MicrosoftGraphAccount(MicrosoftGraphEntity):
     """account.
 
     :param id: Read-only.
@@ -2166,7 +2166,7 @@ class microsoftgraphaccount(microsoftgraphentity):
         sub_category: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphaccount, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAccount, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.blocked = blocked
         self.category = category
@@ -2176,7 +2176,7 @@ class microsoftgraphaccount(microsoftgraphentity):
         self.sub_category = sub_category
 
 
-class microsoftgraphagedaccountspayable(microsoftgraphentity):
+class MicrosoftGraphAgedAccountsPayable(MicrosoftGraphEntity):
     """agedAccountsPayable.
 
     :param id: Read-only.
@@ -2238,7 +2238,7 @@ class microsoftgraphagedaccountspayable(microsoftgraphentity):
         vendor_number: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphagedaccountspayable, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAgedAccountsPayable, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.aged_as_of_date = aged_as_of_date
         self.balance_due = balance_due
@@ -2252,7 +2252,7 @@ class microsoftgraphagedaccountspayable(microsoftgraphentity):
         self.vendor_number = vendor_number
 
 
-class microsoftgraphagedaccountsreceivable(microsoftgraphentity):
+class MicrosoftGraphAgedAccountsReceivable(MicrosoftGraphEntity):
     """agedAccountsReceivable.
 
     :param id: Read-only.
@@ -2314,7 +2314,7 @@ class microsoftgraphagedaccountsreceivable(microsoftgraphentity):
         period_length_filter: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphagedaccountsreceivable, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphAgedAccountsReceivable, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.aged_as_of_date = aged_as_of_date
         self.balance_due = balance_due
@@ -2328,7 +2328,7 @@ class microsoftgraphagedaccountsreceivable(microsoftgraphentity):
         self.period_length_filter = period_length_filter
 
 
-class microsoftgraphcompany(microsoftgraphentity):
+class MicrosoftGraphCompany(MicrosoftGraphEntity):
     """company.
 
     :param id: Read-only.
@@ -2345,75 +2345,75 @@ class microsoftgraphcompany(microsoftgraphentity):
     :param system_version:
     :type system_version: str
     :param accounts:
-    :type accounts: list[~financials.models.microsoftgraphaccount]
+    :type accounts: list[~financials.models.MicrosoftGraphAccount]
     :param aged_accounts_payable:
-    :type aged_accounts_payable: list[~financials.models.microsoftgraphagedaccountspayable]
+    :type aged_accounts_payable: list[~financials.models.MicrosoftGraphAgedAccountsPayable]
     :param aged_accounts_receivable:
-    :type aged_accounts_receivable: list[~financials.models.microsoftgraphagedaccountsreceivable]
+    :type aged_accounts_receivable: list[~financials.models.MicrosoftGraphAgedAccountsReceivable]
     :param company_information:
-    :type company_information: list[~financials.models.microsoftgraphcompanyinformation]
+    :type company_information: list[~financials.models.MicrosoftGraphCompanyInformation]
     :param countries_regions:
-    :type countries_regions: list[~financials.models.microsoftgraphcountryregion]
+    :type countries_regions: list[~financials.models.MicrosoftGraphCountryRegion]
     :param currencies:
-    :type currencies: list[~financials.models.microsoftgraphcurrency]
+    :type currencies: list[~financials.models.MicrosoftGraphCurrency]
     :param customer_payment_journals:
-    :type customer_payment_journals: list[~financials.models.microsoftgraphcustomerpaymentjournal]
+    :type customer_payment_journals: list[~financials.models.MicrosoftGraphCustomerPaymentJournal]
     :param customer_payments:
-    :type customer_payments: list[~financials.models.microsoftgraphcustomerpayment]
+    :type customer_payments: list[~financials.models.MicrosoftGraphCustomerPayment]
     :param customers:
-    :type customers: list[~financials.models.microsoftgraphcustomer]
+    :type customers: list[~financials.models.MicrosoftGraphCustomer]
     :param dimensions:
-    :type dimensions: list[~financials.models.microsoftgraphdimension]
+    :type dimensions: list[~financials.models.MicrosoftGraphDimension]
     :param dimension_values:
-    :type dimension_values: list[~financials.models.microsoftgraphdimensionvalue]
+    :type dimension_values: list[~financials.models.MicrosoftGraphDimensionValue]
     :param employees:
-    :type employees: list[~financials.models.microsoftgraphemployee]
+    :type employees: list[~financials.models.MicrosoftGraphEmployee]
     :param general_ledger_entries:
-    :type general_ledger_entries: list[~financials.models.microsoftgraphgeneralledgerentry]
+    :type general_ledger_entries: list[~financials.models.MicrosoftGraphGeneralLedgerEntry]
     :param item_categories:
-    :type item_categories: list[~financials.models.microsoftgraphitemcategory]
+    :type item_categories: list[~financials.models.MicrosoftGraphItemCategory]
     :param items:
-    :type items: list[~financials.models.microsoftgraphitem]
+    :type items: list[~financials.models.MicrosoftGraphItem]
     :param journal_lines:
-    :type journal_lines: list[~financials.models.microsoftgraphjournalline]
+    :type journal_lines: list[~financials.models.MicrosoftGraphJournalLine]
     :param journals:
-    :type journals: list[~financials.models.microsoftgraphjournal]
+    :type journals: list[~financials.models.MicrosoftGraphJournal]
     :param payment_methods:
-    :type payment_methods: list[~financials.models.microsoftgraphpaymentmethod]
+    :type payment_methods: list[~financials.models.MicrosoftGraphPaymentMethod]
     :param payment_terms:
-    :type payment_terms: list[~financials.models.microsoftgraphpaymentterm]
+    :type payment_terms: list[~financials.models.MicrosoftGraphPaymentTerm]
     :param picture:
-    :type picture: list[~financials.models.microsoftgraphpicture]
+    :type picture: list[~financials.models.MicrosoftGraphPicture]
     :param purchase_invoice_lines:
-    :type purchase_invoice_lines: list[~financials.models.microsoftgraphpurchaseinvoiceline]
+    :type purchase_invoice_lines: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
     :param purchase_invoices:
-    :type purchase_invoices: list[~financials.models.microsoftgraphpurchaseinvoice]
+    :type purchase_invoices: list[~financials.models.MicrosoftGraphPurchaseInvoice]
     :param sales_credit_memo_lines:
-    :type sales_credit_memo_lines: list[~financials.models.microsoftgraphsalescreditmemoline]
+    :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
     :param sales_credit_memos:
-    :type sales_credit_memos: list[~financials.models.microsoftgraphsalescreditmemo]
+    :type sales_credit_memos: list[~financials.models.MicrosoftGraphSalesCreditMemo]
     :param sales_invoice_lines:
-    :type sales_invoice_lines: list[~financials.models.microsoftgraphsalesinvoiceline]
+    :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
     :param sales_invoices:
-    :type sales_invoices: list[~financials.models.microsoftgraphsalesinvoice]
+    :type sales_invoices: list[~financials.models.MicrosoftGraphSalesInvoice]
     :param sales_order_lines:
-    :type sales_order_lines: list[~financials.models.microsoftgraphsalesorderline]
+    :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
     :param sales_orders:
-    :type sales_orders: list[~financials.models.microsoftgraphsalesorder]
+    :type sales_orders: list[~financials.models.MicrosoftGraphSalesOrder]
     :param sales_quote_lines:
-    :type sales_quote_lines: list[~financials.models.microsoftgraphsalesquoteline]
+    :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
     :param sales_quotes:
-    :type sales_quotes: list[~financials.models.microsoftgraphsalesquote]
+    :type sales_quotes: list[~financials.models.MicrosoftGraphSalesQuote]
     :param shipment_methods:
-    :type shipment_methods: list[~financials.models.microsoftgraphshipmentmethod]
+    :type shipment_methods: list[~financials.models.MicrosoftGraphShipmentMethod]
     :param tax_areas:
-    :type tax_areas: list[~financials.models.microsoftgraphtaxarea]
+    :type tax_areas: list[~financials.models.MicrosoftGraphTaxArea]
     :param tax_groups:
-    :type tax_groups: list[~financials.models.microsoftgraphtaxgroup]
+    :type tax_groups: list[~financials.models.MicrosoftGraphTaxGroup]
     :param units_of_measure:
-    :type units_of_measure: list[~financials.models.microsoftgraphunitofmeasure]
+    :type units_of_measure: list[~financials.models.MicrosoftGraphUnitOfMeasure]
     :param vendors:
-    :type vendors: list[~financials.models.microsoftgraphvendor]
+    :type vendors: list[~financials.models.MicrosoftGraphVendor]
     """
 
     _attribute_map = {
@@ -2423,41 +2423,41 @@ class microsoftgraphcompany(microsoftgraphentity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
         'system_version': {'key': 'systemVersion', 'type': 'str'},
-        'accounts': {'key': 'accounts', 'type': '[microsoftgraphaccount]'},
-        'aged_accounts_payable': {'key': 'agedAccountsPayable', 'type': '[microsoftgraphagedaccountspayable]'},
-        'aged_accounts_receivable': {'key': 'agedAccountsReceivable', 'type': '[microsoftgraphagedaccountsreceivable]'},
-        'company_information': {'key': 'companyInformation', 'type': '[microsoftgraphcompanyinformation]'},
-        'countries_regions': {'key': 'countriesRegions', 'type': '[microsoftgraphcountryregion]'},
-        'currencies': {'key': 'currencies', 'type': '[microsoftgraphcurrency]'},
-        'customer_payment_journals': {'key': 'customerPaymentJournals', 'type': '[microsoftgraphcustomerpaymentjournal]'},
-        'customer_payments': {'key': 'customerPayments', 'type': '[microsoftgraphcustomerpayment]'},
-        'customers': {'key': 'customers', 'type': '[microsoftgraphcustomer]'},
-        'dimensions': {'key': 'dimensions', 'type': '[microsoftgraphdimension]'},
-        'dimension_values': {'key': 'dimensionValues', 'type': '[microsoftgraphdimensionvalue]'},
-        'employees': {'key': 'employees', 'type': '[microsoftgraphemployee]'},
-        'general_ledger_entries': {'key': 'generalLedgerEntries', 'type': '[microsoftgraphgeneralledgerentry]'},
-        'item_categories': {'key': 'itemCategories', 'type': '[microsoftgraphitemcategory]'},
-        'items': {'key': 'items', 'type': '[microsoftgraphitem]'},
-        'journal_lines': {'key': 'journalLines', 'type': '[microsoftgraphjournalline]'},
-        'journals': {'key': 'journals', 'type': '[microsoftgraphjournal]'},
-        'payment_methods': {'key': 'paymentMethods', 'type': '[microsoftgraphpaymentmethod]'},
-        'payment_terms': {'key': 'paymentTerms', 'type': '[microsoftgraphpaymentterm]'},
-        'picture': {'key': 'picture', 'type': '[microsoftgraphpicture]'},
-        'purchase_invoice_lines': {'key': 'purchaseInvoiceLines', 'type': '[microsoftgraphpurchaseinvoiceline]'},
-        'purchase_invoices': {'key': 'purchaseInvoices', 'type': '[microsoftgraphpurchaseinvoice]'},
-        'sales_credit_memo_lines': {'key': 'salesCreditMemoLines', 'type': '[microsoftgraphsalescreditmemoline]'},
-        'sales_credit_memos': {'key': 'salesCreditMemos', 'type': '[microsoftgraphsalescreditmemo]'},
-        'sales_invoice_lines': {'key': 'salesInvoiceLines', 'type': '[microsoftgraphsalesinvoiceline]'},
-        'sales_invoices': {'key': 'salesInvoices', 'type': '[microsoftgraphsalesinvoice]'},
-        'sales_order_lines': {'key': 'salesOrderLines', 'type': '[microsoftgraphsalesorderline]'},
-        'sales_orders': {'key': 'salesOrders', 'type': '[microsoftgraphsalesorder]'},
-        'sales_quote_lines': {'key': 'salesQuoteLines', 'type': '[microsoftgraphsalesquoteline]'},
-        'sales_quotes': {'key': 'salesQuotes', 'type': '[microsoftgraphsalesquote]'},
-        'shipment_methods': {'key': 'shipmentMethods', 'type': '[microsoftgraphshipmentmethod]'},
-        'tax_areas': {'key': 'taxAreas', 'type': '[microsoftgraphtaxarea]'},
-        'tax_groups': {'key': 'taxGroups', 'type': '[microsoftgraphtaxgroup]'},
-        'units_of_measure': {'key': 'unitsOfMeasure', 'type': '[microsoftgraphunitofmeasure]'},
-        'vendors': {'key': 'vendors', 'type': '[microsoftgraphvendor]'},
+        'accounts': {'key': 'accounts', 'type': '[MicrosoftGraphAccount]'},
+        'aged_accounts_payable': {'key': 'agedAccountsPayable', 'type': '[MicrosoftGraphAgedAccountsPayable]'},
+        'aged_accounts_receivable': {'key': 'agedAccountsReceivable', 'type': '[MicrosoftGraphAgedAccountsReceivable]'},
+        'company_information': {'key': 'companyInformation', 'type': '[MicrosoftGraphCompanyInformation]'},
+        'countries_regions': {'key': 'countriesRegions', 'type': '[MicrosoftGraphCountryRegion]'},
+        'currencies': {'key': 'currencies', 'type': '[MicrosoftGraphCurrency]'},
+        'customer_payment_journals': {'key': 'customerPaymentJournals', 'type': '[MicrosoftGraphCustomerPaymentJournal]'},
+        'customer_payments': {'key': 'customerPayments', 'type': '[MicrosoftGraphCustomerPayment]'},
+        'customers': {'key': 'customers', 'type': '[MicrosoftGraphCustomer]'},
+        'dimensions': {'key': 'dimensions', 'type': '[MicrosoftGraphDimension]'},
+        'dimension_values': {'key': 'dimensionValues', 'type': '[MicrosoftGraphDimensionValue]'},
+        'employees': {'key': 'employees', 'type': '[MicrosoftGraphEmployee]'},
+        'general_ledger_entries': {'key': 'generalLedgerEntries', 'type': '[MicrosoftGraphGeneralLedgerEntry]'},
+        'item_categories': {'key': 'itemCategories', 'type': '[MicrosoftGraphItemCategory]'},
+        'items': {'key': 'items', 'type': '[MicrosoftGraphItem]'},
+        'journal_lines': {'key': 'journalLines', 'type': '[MicrosoftGraphJournalLine]'},
+        'journals': {'key': 'journals', 'type': '[MicrosoftGraphJournal]'},
+        'payment_methods': {'key': 'paymentMethods', 'type': '[MicrosoftGraphPaymentMethod]'},
+        'payment_terms': {'key': 'paymentTerms', 'type': '[MicrosoftGraphPaymentTerm]'},
+        'picture': {'key': 'picture', 'type': '[MicrosoftGraphPicture]'},
+        'purchase_invoice_lines': {'key': 'purchaseInvoiceLines', 'type': '[MicrosoftGraphPurchaseInvoiceLine]'},
+        'purchase_invoices': {'key': 'purchaseInvoices', 'type': '[MicrosoftGraphPurchaseInvoice]'},
+        'sales_credit_memo_lines': {'key': 'salesCreditMemoLines', 'type': '[MicrosoftGraphSalesCreditMemoLine]'},
+        'sales_credit_memos': {'key': 'salesCreditMemos', 'type': '[MicrosoftGraphSalesCreditMemo]'},
+        'sales_invoice_lines': {'key': 'salesInvoiceLines', 'type': '[MicrosoftGraphSalesInvoiceLine]'},
+        'sales_invoices': {'key': 'salesInvoices', 'type': '[MicrosoftGraphSalesInvoice]'},
+        'sales_order_lines': {'key': 'salesOrderLines', 'type': '[MicrosoftGraphSalesOrderLine]'},
+        'sales_orders': {'key': 'salesOrders', 'type': '[MicrosoftGraphSalesOrder]'},
+        'sales_quote_lines': {'key': 'salesQuoteLines', 'type': '[MicrosoftGraphSalesQuoteLine]'},
+        'sales_quotes': {'key': 'salesQuotes', 'type': '[MicrosoftGraphSalesQuote]'},
+        'shipment_methods': {'key': 'shipmentMethods', 'type': '[MicrosoftGraphShipmentMethod]'},
+        'tax_areas': {'key': 'taxAreas', 'type': '[MicrosoftGraphTaxArea]'},
+        'tax_groups': {'key': 'taxGroups', 'type': '[MicrosoftGraphTaxGroup]'},
+        'units_of_measure': {'key': 'unitsOfMeasure', 'type': '[MicrosoftGraphUnitOfMeasure]'},
+        'vendors': {'key': 'vendors', 'type': '[MicrosoftGraphVendor]'},
     }
 
     def __init__(
@@ -2469,44 +2469,44 @@ class microsoftgraphcompany(microsoftgraphentity):
         display_name: Optional[str] = None,
         name: Optional[str] = None,
         system_version: Optional[str] = None,
-        accounts: Optional[List["microsoftgraphaccount"]] = None,
-        aged_accounts_payable: Optional[List["microsoftgraphagedaccountspayable"]] = None,
-        aged_accounts_receivable: Optional[List["microsoftgraphagedaccountsreceivable"]] = None,
-        company_information: Optional[List["microsoftgraphcompanyinformation"]] = None,
-        countries_regions: Optional[List["microsoftgraphcountryregion"]] = None,
-        currencies: Optional[List["microsoftgraphcurrency"]] = None,
-        customer_payment_journals: Optional[List["microsoftgraphcustomerpaymentjournal"]] = None,
-        customer_payments: Optional[List["microsoftgraphcustomerpayment"]] = None,
-        customers: Optional[List["microsoftgraphcustomer"]] = None,
-        dimensions: Optional[List["microsoftgraphdimension"]] = None,
-        dimension_values: Optional[List["microsoftgraphdimensionvalue"]] = None,
-        employees: Optional[List["microsoftgraphemployee"]] = None,
-        general_ledger_entries: Optional[List["microsoftgraphgeneralledgerentry"]] = None,
-        item_categories: Optional[List["microsoftgraphitemcategory"]] = None,
-        items: Optional[List["microsoftgraphitem"]] = None,
-        journal_lines: Optional[List["microsoftgraphjournalline"]] = None,
-        journals: Optional[List["microsoftgraphjournal"]] = None,
-        payment_methods: Optional[List["microsoftgraphpaymentmethod"]] = None,
-        payment_terms: Optional[List["microsoftgraphpaymentterm"]] = None,
-        picture: Optional[List["microsoftgraphpicture"]] = None,
-        purchase_invoice_lines: Optional[List["microsoftgraphpurchaseinvoiceline"]] = None,
-        purchase_invoices: Optional[List["microsoftgraphpurchaseinvoice"]] = None,
-        sales_credit_memo_lines: Optional[List["microsoftgraphsalescreditmemoline"]] = None,
-        sales_credit_memos: Optional[List["microsoftgraphsalescreditmemo"]] = None,
-        sales_invoice_lines: Optional[List["microsoftgraphsalesinvoiceline"]] = None,
-        sales_invoices: Optional[List["microsoftgraphsalesinvoice"]] = None,
-        sales_order_lines: Optional[List["microsoftgraphsalesorderline"]] = None,
-        sales_orders: Optional[List["microsoftgraphsalesorder"]] = None,
-        sales_quote_lines: Optional[List["microsoftgraphsalesquoteline"]] = None,
-        sales_quotes: Optional[List["microsoftgraphsalesquote"]] = None,
-        shipment_methods: Optional[List["microsoftgraphshipmentmethod"]] = None,
-        tax_areas: Optional[List["microsoftgraphtaxarea"]] = None,
-        tax_groups: Optional[List["microsoftgraphtaxgroup"]] = None,
-        units_of_measure: Optional[List["microsoftgraphunitofmeasure"]] = None,
-        vendors: Optional[List["microsoftgraphvendor"]] = None,
+        accounts: Optional[List["MicrosoftGraphAccount"]] = None,
+        aged_accounts_payable: Optional[List["MicrosoftGraphAgedAccountsPayable"]] = None,
+        aged_accounts_receivable: Optional[List["MicrosoftGraphAgedAccountsReceivable"]] = None,
+        company_information: Optional[List["MicrosoftGraphCompanyInformation"]] = None,
+        countries_regions: Optional[List["MicrosoftGraphCountryRegion"]] = None,
+        currencies: Optional[List["MicrosoftGraphCurrency"]] = None,
+        customer_payment_journals: Optional[List["MicrosoftGraphCustomerPaymentJournal"]] = None,
+        customer_payments: Optional[List["MicrosoftGraphCustomerPayment"]] = None,
+        customers: Optional[List["MicrosoftGraphCustomer"]] = None,
+        dimensions: Optional[List["MicrosoftGraphDimension"]] = None,
+        dimension_values: Optional[List["MicrosoftGraphDimensionValue"]] = None,
+        employees: Optional[List["MicrosoftGraphEmployee"]] = None,
+        general_ledger_entries: Optional[List["MicrosoftGraphGeneralLedgerEntry"]] = None,
+        item_categories: Optional[List["MicrosoftGraphItemCategory"]] = None,
+        items: Optional[List["MicrosoftGraphItem"]] = None,
+        journal_lines: Optional[List["MicrosoftGraphJournalLine"]] = None,
+        journals: Optional[List["MicrosoftGraphJournal"]] = None,
+        payment_methods: Optional[List["MicrosoftGraphPaymentMethod"]] = None,
+        payment_terms: Optional[List["MicrosoftGraphPaymentTerm"]] = None,
+        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        purchase_invoice_lines: Optional[List["MicrosoftGraphPurchaseInvoiceLine"]] = None,
+        purchase_invoices: Optional[List["MicrosoftGraphPurchaseInvoice"]] = None,
+        sales_credit_memo_lines: Optional[List["MicrosoftGraphSalesCreditMemoLine"]] = None,
+        sales_credit_memos: Optional[List["MicrosoftGraphSalesCreditMemo"]] = None,
+        sales_invoice_lines: Optional[List["MicrosoftGraphSalesInvoiceLine"]] = None,
+        sales_invoices: Optional[List["MicrosoftGraphSalesInvoice"]] = None,
+        sales_order_lines: Optional[List["MicrosoftGraphSalesOrderLine"]] = None,
+        sales_orders: Optional[List["MicrosoftGraphSalesOrder"]] = None,
+        sales_quote_lines: Optional[List["MicrosoftGraphSalesQuoteLine"]] = None,
+        sales_quotes: Optional[List["MicrosoftGraphSalesQuote"]] = None,
+        shipment_methods: Optional[List["MicrosoftGraphShipmentMethod"]] = None,
+        tax_areas: Optional[List["MicrosoftGraphTaxArea"]] = None,
+        tax_groups: Optional[List["MicrosoftGraphTaxGroup"]] = None,
+        units_of_measure: Optional[List["MicrosoftGraphUnitOfMeasure"]] = None,
+        vendors: Optional[List["MicrosoftGraphVendor"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcompany, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCompany, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.business_profile_id = business_profile_id
         self.display_name = display_name
@@ -2549,7 +2549,7 @@ class microsoftgraphcompany(microsoftgraphentity):
         self.vendors = vendors
 
 
-class microsoftgraphcompanyinformation(microsoftgraphentity):
+class MicrosoftGraphCompanyInformation(MicrosoftGraphEntity):
     """companyInformation.
 
     :param id: Read-only.
@@ -2558,7 +2558,7 @@ class microsoftgraphcompanyinformation(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: postalAddressType.
-    :type address: ~financials.models.microsoftgraphpostaladdresstype
+    :type address: ~financials.models.MicrosoftGraphPostalAddressType
     :param currency_code:
     :type currency_code: str
     :param current_fiscal_year_start_date:
@@ -2586,7 +2586,7 @@ class microsoftgraphcompanyinformation(microsoftgraphentity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphpostaladdresstype'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPostalAddressType'},
         'currency_code': {'key': 'currencyCode', 'type': 'str'},
         'current_fiscal_year_start_date': {'key': 'currentFiscalYearStartDate', 'type': 'date'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2605,7 +2605,7 @@ class microsoftgraphcompanyinformation(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphpostaladdresstype"] = None,
+        address: Optional["MicrosoftGraphPostalAddressType"] = None,
         currency_code: Optional[str] = None,
         current_fiscal_year_start_date: Optional[datetime.date] = None,
         display_name: Optional[str] = None,
@@ -2619,7 +2619,7 @@ class microsoftgraphcompanyinformation(microsoftgraphentity):
         website: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcompanyinformation, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCompanyInformation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.currency_code = currency_code
@@ -2635,7 +2635,7 @@ class microsoftgraphcompanyinformation(microsoftgraphentity):
         self.website = website
 
 
-class microsoftgraphcountryregion(microsoftgraphentity):
+class MicrosoftGraphCountryRegion(MicrosoftGraphEntity):
     """countryRegion.
 
     :param id: Read-only.
@@ -2673,7 +2673,7 @@ class microsoftgraphcountryregion(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphcountryregion, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCountryRegion, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address_format = address_format
         self.code = code
@@ -2681,7 +2681,7 @@ class microsoftgraphcountryregion(microsoftgraphentity):
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphcurrency(microsoftgraphentity):
+class MicrosoftGraphCurrency(MicrosoftGraphEntity):
     """currency.
 
     :param id: Read-only.
@@ -2727,7 +2727,7 @@ class microsoftgraphcurrency(microsoftgraphentity):
         symbol: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphcurrency, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCurrency, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.amount_decimal_places = amount_decimal_places
         self.amount_rounding_precision = amount_rounding_precision
@@ -2737,7 +2737,7 @@ class microsoftgraphcurrency(microsoftgraphentity):
         self.symbol = symbol
 
 
-class microsoftgraphcustomer(microsoftgraphentity):
+class MicrosoftGraphCustomer(MicrosoftGraphEntity):
     """customer.
 
     :param id: Read-only.
@@ -2746,7 +2746,7 @@ class microsoftgraphcustomer(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: postalAddressType.
-    :type address: ~financials.models.microsoftgraphpostaladdresstype
+    :type address: ~financials.models.MicrosoftGraphPostalAddressType
     :param blocked:
     :type blocked: str
     :param currency_code:
@@ -2782,21 +2782,21 @@ class microsoftgraphcustomer(microsoftgraphentity):
     :param website:
     :type website: str
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.microsoftgraphpaymentmethod
+    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param picture:
-    :type picture: list[~financials.models.microsoftgraphpicture]
+    :type picture: list[~financials.models.MicrosoftGraphPicture]
     :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.microsoftgraphshipmentmethod
+    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphpostaladdresstype'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPostalAddressType'},
         'blocked': {'key': 'blocked', 'type': 'str'},
         'currency_code': {'key': 'currencyCode', 'type': 'str'},
         'currency_id': {'key': 'currencyId', 'type': 'str'},
@@ -2814,11 +2814,11 @@ class microsoftgraphcustomer(microsoftgraphentity):
         'tax_registration_number': {'key': 'taxRegistrationNumber', 'type': 'str'},
         'type': {'key': 'type', 'type': 'str'},
         'website': {'key': 'website', 'type': 'str'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'payment_method': {'key': 'paymentMethod', 'type': 'microsoftgraphpaymentmethod'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'picture': {'key': 'picture', 'type': '[microsoftgraphpicture]'},
-        'shipment_method': {'key': 'shipmentMethod', 'type': 'microsoftgraphshipmentmethod'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'payment_method': {'key': 'paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'picture': {'key': 'picture', 'type': '[MicrosoftGraphPicture]'},
+        'shipment_method': {'key': 'shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -2826,7 +2826,7 @@ class microsoftgraphcustomer(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphpostaladdresstype"] = None,
+        address: Optional["MicrosoftGraphPostalAddressType"] = None,
         blocked: Optional[str] = None,
         currency_code: Optional[str] = None,
         currency_id: Optional[str] = None,
@@ -2844,14 +2844,14 @@ class microsoftgraphcustomer(microsoftgraphentity):
         tax_registration_number: Optional[str] = None,
         type: Optional[str] = None,
         website: Optional[str] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        payment_method: Optional["microsoftgraphpaymentmethod"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        picture: Optional[List["microsoftgraphpicture"]] = None,
-        shipment_method: Optional["microsoftgraphshipmentmethod"] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
-        super(microsoftgraphcustomer, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCustomer, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.blocked = blocked
@@ -2878,7 +2878,7 @@ class microsoftgraphcustomer(microsoftgraphentity):
         self.shipment_method = shipment_method
 
 
-class microsoftgraphcustomerpayment(microsoftgraphentity):
+class MicrosoftGraphCustomerPayment(MicrosoftGraphEntity):
     """customerPayment.
 
     :param id: Read-only.
@@ -2915,7 +2915,7 @@ class microsoftgraphcustomerpayment(microsoftgraphentity):
     :param posting_date:
     :type posting_date: ~datetime.date
     :param customer: customer.
-    :type customer: ~financials.models.microsoftgraphcustomer
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     """
 
     _validation = {
@@ -2939,7 +2939,7 @@ class microsoftgraphcustomerpayment(microsoftgraphentity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'line_number': {'key': 'lineNumber', 'type': 'int'},
         'posting_date': {'key': 'postingDate', 'type': 'date'},
-        'customer': {'key': 'customer', 'type': 'microsoftgraphcustomer'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
     }
 
     def __init__(
@@ -2961,10 +2961,10 @@ class microsoftgraphcustomerpayment(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         line_number: Optional[int] = None,
         posting_date: Optional[datetime.date] = None,
-        customer: Optional["microsoftgraphcustomer"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         **kwargs
     ):
-        super(microsoftgraphcustomerpayment, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCustomerPayment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.amount = amount
         self.applies_to_invoice_id = applies_to_invoice_id
@@ -2983,7 +2983,7 @@ class microsoftgraphcustomerpayment(microsoftgraphentity):
         self.customer = customer
 
 
-class microsoftgraphcustomerpaymentjournal(microsoftgraphentity):
+class MicrosoftGraphCustomerPaymentJournal(MicrosoftGraphEntity):
     """customerPaymentJournal.
 
     :param id: Read-only.
@@ -3002,9 +3002,9 @@ class microsoftgraphcustomerpaymentjournal(microsoftgraphentity):
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param customer_payments:
-    :type customer_payments: list[~financials.models.microsoftgraphcustomerpayment]
+    :type customer_payments: list[~financials.models.MicrosoftGraphCustomerPayment]
     """
 
     _attribute_map = {
@@ -3015,8 +3015,8 @@ class microsoftgraphcustomerpaymentjournal(microsoftgraphentity):
         'code': {'key': 'code', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'customer_payments': {'key': 'customerPayments', 'type': '[microsoftgraphcustomerpayment]'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'customer_payments': {'key': 'customerPayments', 'type': '[MicrosoftGraphCustomerPayment]'},
     }
 
     def __init__(
@@ -3029,11 +3029,11 @@ class microsoftgraphcustomerpaymentjournal(microsoftgraphentity):
         code: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        customer_payments: Optional[List["microsoftgraphcustomerpayment"]] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        customer_payments: Optional[List["MicrosoftGraphCustomerPayment"]] = None,
         **kwargs
     ):
-        super(microsoftgraphcustomerpaymentjournal, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphCustomerPaymentJournal, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.balancing_account_id = balancing_account_id
         self.balancing_account_number = balancing_account_number
@@ -3044,7 +3044,7 @@ class microsoftgraphcustomerpaymentjournal(microsoftgraphentity):
         self.customer_payments = customer_payments
 
 
-class microsoftgraphdimension(microsoftgraphentity):
+class MicrosoftGraphDimension(MicrosoftGraphEntity):
     """dimension.
 
     :param id: Read-only.
@@ -3059,7 +3059,7 @@ class microsoftgraphdimension(microsoftgraphentity):
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param dimension_values:
-    :type dimension_values: list[~financials.models.microsoftgraphdimensionvalue]
+    :type dimension_values: list[~financials.models.MicrosoftGraphDimensionValue]
     """
 
     _attribute_map = {
@@ -3068,7 +3068,7 @@ class microsoftgraphdimension(microsoftgraphentity):
         'code': {'key': 'code', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'dimension_values': {'key': 'dimensionValues', 'type': '[microsoftgraphdimensionvalue]'},
+        'dimension_values': {'key': 'dimensionValues', 'type': '[MicrosoftGraphDimensionValue]'},
     }
 
     def __init__(
@@ -3079,10 +3079,10 @@ class microsoftgraphdimension(microsoftgraphentity):
         code: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        dimension_values: Optional[List["microsoftgraphdimensionvalue"]] = None,
+        dimension_values: Optional[List["MicrosoftGraphDimensionValue"]] = None,
         **kwargs
     ):
-        super(microsoftgraphdimension, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDimension, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
@@ -3090,7 +3090,7 @@ class microsoftgraphdimension(microsoftgraphentity):
         self.dimension_values = dimension_values
 
 
-class microsoftgraphdimensionvalue(microsoftgraphentity):
+class MicrosoftGraphDimensionValue(MicrosoftGraphEntity):
     """dimensionValue.
 
     :param id: Read-only.
@@ -3124,14 +3124,14 @@ class microsoftgraphdimensionvalue(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphdimensionvalue, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphDimensionValue, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphemployee(microsoftgraphentity):
+class MicrosoftGraphEmployee(MicrosoftGraphEntity):
     """employee.
 
     :param id: Read-only.
@@ -3140,7 +3140,7 @@ class microsoftgraphemployee(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: postalAddressType.
-    :type address: ~financials.models.microsoftgraphpostaladdresstype
+    :type address: ~financials.models.MicrosoftGraphPostalAddressType
     :param birth_date:
     :type birth_date: ~datetime.date
     :param display_name:
@@ -3174,13 +3174,13 @@ class microsoftgraphemployee(microsoftgraphentity):
     :param termination_date:
     :type termination_date: ~datetime.date
     :param picture:
-    :type picture: list[~financials.models.microsoftgraphpicture]
+    :type picture: list[~financials.models.MicrosoftGraphPicture]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphpostaladdresstype'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPostalAddressType'},
         'birth_date': {'key': 'birthDate', 'type': 'date'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'email': {'key': 'email', 'type': 'str'},
@@ -3197,7 +3197,7 @@ class microsoftgraphemployee(microsoftgraphentity):
         'status': {'key': 'status', 'type': 'str'},
         'surname': {'key': 'surname', 'type': 'str'},
         'termination_date': {'key': 'terminationDate', 'type': 'date'},
-        'picture': {'key': 'picture', 'type': '[microsoftgraphpicture]'},
+        'picture': {'key': 'picture', 'type': '[MicrosoftGraphPicture]'},
     }
 
     def __init__(
@@ -3205,7 +3205,7 @@ class microsoftgraphemployee(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphpostaladdresstype"] = None,
+        address: Optional["MicrosoftGraphPostalAddressType"] = None,
         birth_date: Optional[datetime.date] = None,
         display_name: Optional[str] = None,
         email: Optional[str] = None,
@@ -3222,10 +3222,10 @@ class microsoftgraphemployee(microsoftgraphentity):
         status: Optional[str] = None,
         surname: Optional[str] = None,
         termination_date: Optional[datetime.date] = None,
-        picture: Optional[List["microsoftgraphpicture"]] = None,
+        picture: Optional[List["MicrosoftGraphPicture"]] = None,
         **kwargs
     ):
-        super(microsoftgraphemployee, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphEmployee, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.birth_date = birth_date
@@ -3247,34 +3247,34 @@ class microsoftgraphemployee(microsoftgraphentity):
         self.picture = picture
 
 
-class microsoftgraphfinancials(msrest.serialization.Model):
+class MicrosoftGraphFinancials(msrest.serialization.Model):
     """financials.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param companies:
-    :type companies: list[~financials.models.microsoftgraphcompany]
+    :type companies: list[~financials.models.MicrosoftGraphCompany]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'companies': {'key': 'companies', 'type': '[microsoftgraphcompany]'},
+        'companies': {'key': 'companies', 'type': '[MicrosoftGraphCompany]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        companies: Optional[List["microsoftgraphcompany"]] = None,
+        companies: Optional[List["MicrosoftGraphCompany"]] = None,
         **kwargs
     ):
-        super(microsoftgraphfinancials, self).__init__(**kwargs)
+        super(MicrosoftGraphFinancials, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.companies = companies
 
 
-class microsoftgraphgeneralledgerentry(microsoftgraphentity):
+class MicrosoftGraphGeneralLedgerEntry(MicrosoftGraphEntity):
     """generalLedgerEntry.
 
     :param id: Read-only.
@@ -3301,7 +3301,7 @@ class microsoftgraphgeneralledgerentry(microsoftgraphentity):
     :param posting_date:
     :type posting_date: ~datetime.date
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     """
 
     _attribute_map = {
@@ -3316,7 +3316,7 @@ class microsoftgraphgeneralledgerentry(microsoftgraphentity):
         'document_type': {'key': 'documentType', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'posting_date': {'key': 'postingDate', 'type': 'date'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
     }
 
     def __init__(
@@ -3333,10 +3333,10 @@ class microsoftgraphgeneralledgerentry(microsoftgraphentity):
         document_type: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         posting_date: Optional[datetime.date] = None,
-        account: Optional["microsoftgraphaccount"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
         **kwargs
     ):
-        super(microsoftgraphgeneralledgerentry, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphGeneralLedgerEntry, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.account_number = account_number
@@ -3350,7 +3350,7 @@ class microsoftgraphgeneralledgerentry(microsoftgraphentity):
         self.account = account
 
 
-class microsoftgraphitem(microsoftgraphentity):
+class MicrosoftGraphItem(MicrosoftGraphEntity):
     """item.
 
     :param id: Read-only.
@@ -3389,9 +3389,9 @@ class microsoftgraphitem(microsoftgraphentity):
     :param unit_price:
     :type unit_price: float
     :param item_category: itemCategory.
-    :type item_category: ~financials.models.microsoftgraphitemcategory
+    :type item_category: ~financials.models.MicrosoftGraphItemCategory
     :param picture:
-    :type picture: list[~financials.models.microsoftgraphpicture]
+    :type picture: list[~financials.models.MicrosoftGraphPicture]
     """
 
     _attribute_map = {
@@ -3412,8 +3412,8 @@ class microsoftgraphitem(microsoftgraphentity):
         'type': {'key': 'type', 'type': 'str'},
         'unit_cost': {'key': 'unitCost', 'type': 'float'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
-        'item_category': {'key': 'itemCategory', 'type': 'microsoftgraphitemcategory'},
-        'picture': {'key': 'picture', 'type': '[microsoftgraphpicture]'},
+        'item_category': {'key': 'itemCategory', 'type': 'MicrosoftGraphItemCategory'},
+        'picture': {'key': 'picture', 'type': '[MicrosoftGraphPicture]'},
     }
 
     def __init__(
@@ -3436,11 +3436,11 @@ class microsoftgraphitem(microsoftgraphentity):
         type: Optional[str] = None,
         unit_cost: Optional[float] = None,
         unit_price: Optional[float] = None,
-        item_category: Optional["microsoftgraphitemcategory"] = None,
-        picture: Optional[List["microsoftgraphpicture"]] = None,
+        item_category: Optional["MicrosoftGraphItemCategory"] = None,
+        picture: Optional[List["MicrosoftGraphPicture"]] = None,
         **kwargs
     ):
-        super(microsoftgraphitem, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.base_unit_of_measure_id = base_unit_of_measure_id
         self.blocked = blocked
@@ -3461,7 +3461,7 @@ class microsoftgraphitem(microsoftgraphentity):
         self.picture = picture
 
 
-class microsoftgraphitemcategory(microsoftgraphentity):
+class MicrosoftGraphItemCategory(MicrosoftGraphEntity):
     """itemCategory.
 
     :param id: Read-only.
@@ -3495,14 +3495,14 @@ class microsoftgraphitemcategory(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphitemcategory, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphItemCategory, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphjournal(microsoftgraphentity):
+class MicrosoftGraphJournal(MicrosoftGraphEntity):
     """journal.
 
     :param id: Read-only.
@@ -3521,9 +3521,9 @@ class microsoftgraphjournal(microsoftgraphentity):
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param journal_lines:
-    :type journal_lines: list[~financials.models.microsoftgraphjournalline]
+    :type journal_lines: list[~financials.models.MicrosoftGraphJournalLine]
     """
 
     _attribute_map = {
@@ -3534,8 +3534,8 @@ class microsoftgraphjournal(microsoftgraphentity):
         'code': {'key': 'code', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'journal_lines': {'key': 'journalLines', 'type': '[microsoftgraphjournalline]'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'journal_lines': {'key': 'journalLines', 'type': '[MicrosoftGraphJournalLine]'},
     }
 
     def __init__(
@@ -3548,11 +3548,11 @@ class microsoftgraphjournal(microsoftgraphentity):
         code: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        journal_lines: Optional[List["microsoftgraphjournalline"]] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        journal_lines: Optional[List["MicrosoftGraphJournalLine"]] = None,
         **kwargs
     ):
-        super(microsoftgraphjournal, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphJournal, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.balancing_account_id = balancing_account_id
         self.balancing_account_number = balancing_account_number
@@ -3563,7 +3563,7 @@ class microsoftgraphjournal(microsoftgraphentity):
         self.journal_lines = journal_lines
 
 
-class microsoftgraphjournalline(microsoftgraphentity):
+class MicrosoftGraphJournalLine(MicrosoftGraphEntity):
     """journalLine.
 
     :param id: Read-only.
@@ -3594,7 +3594,7 @@ class microsoftgraphjournalline(microsoftgraphentity):
     :param posting_date:
     :type posting_date: ~datetime.date
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     """
 
     _validation = {
@@ -3615,7 +3615,7 @@ class microsoftgraphjournalline(microsoftgraphentity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'line_number': {'key': 'lineNumber', 'type': 'int'},
         'posting_date': {'key': 'postingDate', 'type': 'date'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
     }
 
     def __init__(
@@ -3634,10 +3634,10 @@ class microsoftgraphjournalline(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         line_number: Optional[int] = None,
         posting_date: Optional[datetime.date] = None,
-        account: Optional["microsoftgraphaccount"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
         **kwargs
     ):
-        super(microsoftgraphjournalline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphJournalLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.account_number = account_number
@@ -3653,7 +3653,7 @@ class microsoftgraphjournalline(microsoftgraphentity):
         self.account = account
 
 
-class microsoftgraphpaymentmethod(microsoftgraphentity):
+class MicrosoftGraphPaymentMethod(MicrosoftGraphEntity):
     """paymentMethod.
 
     :param id: Read-only.
@@ -3687,14 +3687,14 @@ class microsoftgraphpaymentmethod(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphpaymentmethod, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPaymentMethod, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphpaymentterm(microsoftgraphentity):
+class MicrosoftGraphPaymentTerm(MicrosoftGraphEntity):
     """paymentTerm.
 
     :param id: Read-only.
@@ -3744,7 +3744,7 @@ class microsoftgraphpaymentterm(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphpaymentterm, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPaymentTerm, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.calculate_discount_on_credit_memos = calculate_discount_on_credit_memos
         self.code = code
@@ -3755,7 +3755,7 @@ class microsoftgraphpaymentterm(microsoftgraphentity):
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphpicture(microsoftgraphentity):
+class MicrosoftGraphPicture(MicrosoftGraphEntity):
     """picture.
 
     :param id: Read-only.
@@ -3798,7 +3798,7 @@ class microsoftgraphpicture(microsoftgraphentity):
         width: Optional[int] = None,
         **kwargs
     ):
-        super(microsoftgraphpicture, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPicture, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
@@ -3806,7 +3806,7 @@ class microsoftgraphpicture(microsoftgraphentity):
         self.width = width
 
 
-class microsoftgraphpostaladdresstype(msrest.serialization.Model):
+class MicrosoftGraphPostalAddressType(msrest.serialization.Model):
     """postalAddressType.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3844,7 +3844,7 @@ class microsoftgraphpostaladdresstype(msrest.serialization.Model):
         street: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphpostaladdresstype, self).__init__(**kwargs)
+        super(MicrosoftGraphPostalAddressType, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.city = city
         self.country_letter_code = country_letter_code
@@ -3853,7 +3853,7 @@ class microsoftgraphpostaladdresstype(msrest.serialization.Model):
         self.street = street
 
 
-class microsoftgraphpurchaseinvoice(microsoftgraphentity):
+class MicrosoftGraphPurchaseInvoice(MicrosoftGraphEntity):
     """purchaseInvoice.
 
     :param id: Read-only.
@@ -3862,7 +3862,7 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param buy_from_address: postalAddressType.
-    :type buy_from_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type buy_from_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param currency_code:
     :type currency_code: str
     :param currency_id:
@@ -3880,7 +3880,7 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
     :param number:
     :type number: str
     :param pay_to_address: postalAddressType.
-    :type pay_to_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type pay_to_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param pay_to_contact:
     :type pay_to_contact: str
     :param pay_to_name:
@@ -3892,7 +3892,7 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
     :param prices_include_tax:
     :type prices_include_tax: bool
     :param ship_to_address: postalAddressType.
-    :type ship_to_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type ship_to_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param ship_to_contact:
     :type ship_to_contact: str
     :param ship_to_name:
@@ -3914,17 +3914,17 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
     :param vendor_number:
     :type vendor_number: str
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param purchase_invoice_lines:
-    :type purchase_invoice_lines: list[~financials.models.microsoftgraphpurchaseinvoiceline]
+    :type purchase_invoice_lines: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
     :param vendor: vendor.
-    :type vendor: ~financials.models.microsoftgraphvendor
+    :type vendor: ~financials.models.MicrosoftGraphVendor
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'buy_from_address': {'key': 'buyFromAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'buy_from_address': {'key': 'buyFromAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'currency_code': {'key': 'currencyCode', 'type': 'str'},
         'currency_id': {'key': 'currencyId', 'type': 'str'},
         'discount_amount': {'key': 'discountAmount', 'type': 'float'},
@@ -3933,13 +3933,13 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         'invoice_date': {'key': 'invoiceDate', 'type': 'date'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'number': {'key': 'number', 'type': 'str'},
-        'pay_to_address': {'key': 'payToAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'pay_to_address': {'key': 'payToAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'pay_to_contact': {'key': 'payToContact', 'type': 'str'},
         'pay_to_name': {'key': 'payToName', 'type': 'str'},
         'pay_to_vendor_id': {'key': 'payToVendorId', 'type': 'str'},
         'pay_to_vendor_number': {'key': 'payToVendorNumber', 'type': 'str'},
         'prices_include_tax': {'key': 'pricesIncludeTax', 'type': 'bool'},
-        'ship_to_address': {'key': 'shipToAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'ship_to_address': {'key': 'shipToAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'ship_to_contact': {'key': 'shipToContact', 'type': 'str'},
         'ship_to_name': {'key': 'shipToName', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
@@ -3950,9 +3950,9 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         'vendor_invoice_number': {'key': 'vendorInvoiceNumber', 'type': 'str'},
         'vendor_name': {'key': 'vendorName', 'type': 'str'},
         'vendor_number': {'key': 'vendorNumber', 'type': 'str'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'purchase_invoice_lines': {'key': 'purchaseInvoiceLines', 'type': '[microsoftgraphpurchaseinvoiceline]'},
-        'vendor': {'key': 'vendor', 'type': 'microsoftgraphvendor'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'purchase_invoice_lines': {'key': 'purchaseInvoiceLines', 'type': '[MicrosoftGraphPurchaseInvoiceLine]'},
+        'vendor': {'key': 'vendor', 'type': 'MicrosoftGraphVendor'},
     }
 
     def __init__(
@@ -3960,7 +3960,7 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        buy_from_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        buy_from_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         currency_code: Optional[str] = None,
         currency_id: Optional[str] = None,
         discount_amount: Optional[float] = None,
@@ -3969,13 +3969,13 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         invoice_date: Optional[datetime.date] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         number: Optional[str] = None,
-        pay_to_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        pay_to_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         pay_to_contact: Optional[str] = None,
         pay_to_name: Optional[str] = None,
         pay_to_vendor_id: Optional[str] = None,
         pay_to_vendor_number: Optional[str] = None,
         prices_include_tax: Optional[bool] = None,
-        ship_to_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        ship_to_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         ship_to_contact: Optional[str] = None,
         ship_to_name: Optional[str] = None,
         status: Optional[str] = None,
@@ -3986,12 +3986,12 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         vendor_invoice_number: Optional[str] = None,
         vendor_name: Optional[str] = None,
         vendor_number: Optional[str] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        purchase_invoice_lines: Optional[List["microsoftgraphpurchaseinvoiceline"]] = None,
-        vendor: Optional["microsoftgraphvendor"] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        purchase_invoice_lines: Optional[List["MicrosoftGraphPurchaseInvoiceLine"]] = None,
+        vendor: Optional["MicrosoftGraphVendor"] = None,
         **kwargs
     ):
-        super(microsoftgraphpurchaseinvoice, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPurchaseInvoice, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.buy_from_address = buy_from_address
         self.currency_code = currency_code
@@ -4024,7 +4024,7 @@ class microsoftgraphpurchaseinvoice(microsoftgraphentity):
         self.vendor = vendor
 
 
-class microsoftgraphpurchaseinvoiceline(microsoftgraphentity):
+class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
     """purchaseInvoiceLine.
 
     :param id: Read-only.
@@ -4075,9 +4075,9 @@ class microsoftgraphpurchaseinvoiceline(microsoftgraphentity):
     :param unit_cost:
     :type unit_cost: float
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param item: item.
-    :type item: ~financials.models.microsoftgraphitem
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -4108,8 +4108,8 @@ class microsoftgraphpurchaseinvoiceline(microsoftgraphentity):
         'tax_percent': {'key': 'taxPercent', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_cost': {'key': 'unitCost', 'type': 'float'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'item': {'key': 'item', 'type': 'microsoftgraphitem'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -4138,11 +4138,11 @@ class microsoftgraphpurchaseinvoiceline(microsoftgraphentity):
         tax_percent: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
         unit_cost: Optional[float] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        item: Optional["microsoftgraphitem"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphpurchaseinvoiceline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphPurchaseInvoiceLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.amount_excluding_tax = amount_excluding_tax
@@ -4169,7 +4169,7 @@ class microsoftgraphpurchaseinvoiceline(microsoftgraphentity):
         self.item = item
 
 
-class microsoftgraphsalescreditmemo(microsoftgraphentity):
+class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
     """salesCreditMemo.
 
     :param id: Read-only.
@@ -4178,7 +4178,7 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param billing_postal_address: postalAddressType.
-    :type billing_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param bill_to_customer_id:
     :type bill_to_customer_id: str
     :param bill_to_customer_number:
@@ -4224,7 +4224,7 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
     :param salesperson:
     :type salesperson: str
     :param selling_postal_address: postalAddressType.
-    :type selling_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param status:
     :type status: str
     :param total_amount_excluding_tax:
@@ -4234,19 +4234,19 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
     :param total_tax_amount:
     :type total_tax_amount: float
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param customer: customer.
-    :type customer: ~financials.models.microsoftgraphcustomer
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_credit_memo_lines:
-    :type sales_credit_memo_lines: list[~financials.models.microsoftgraphsalescreditmemoline]
+    :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'bill_to_customer_id': {'key': 'billToCustomerId', 'type': 'str'},
         'bill_to_customer_number': {'key': 'billToCustomerNumber', 'type': 'str'},
         'bill_to_name': {'key': 'billToName', 'type': 'str'},
@@ -4269,15 +4269,15 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
         'phone_number': {'key': 'phoneNumber', 'type': 'str'},
         'prices_include_tax': {'key': 'pricesIncludeTax', 'type': 'bool'},
         'salesperson': {'key': 'salesperson', 'type': 'str'},
-        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'status': {'key': 'status', 'type': 'str'},
         'total_amount_excluding_tax': {'key': 'totalAmountExcludingTax', 'type': 'float'},
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'customer': {'key': 'customer', 'type': 'microsoftgraphcustomer'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'sales_credit_memo_lines': {'key': 'salesCreditMemoLines', 'type': '[microsoftgraphsalescreditmemoline]'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'sales_credit_memo_lines': {'key': 'salesCreditMemoLines', 'type': '[MicrosoftGraphSalesCreditMemoLine]'},
     }
 
     def __init__(
@@ -4285,7 +4285,7 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        billing_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        billing_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         bill_to_customer_id: Optional[str] = None,
         bill_to_customer_number: Optional[str] = None,
         bill_to_name: Optional[str] = None,
@@ -4308,18 +4308,18 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
         phone_number: Optional[str] = None,
         prices_include_tax: Optional[bool] = None,
         salesperson: Optional[str] = None,
-        selling_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        selling_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         status: Optional[str] = None,
         total_amount_excluding_tax: Optional[float] = None,
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        customer: Optional["microsoftgraphcustomer"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        sales_credit_memo_lines: Optional[List["microsoftgraphsalescreditmemoline"]] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        sales_credit_memo_lines: Optional[List["MicrosoftGraphSalesCreditMemoLine"]] = None,
         **kwargs
     ):
-        super(microsoftgraphsalescreditmemo, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesCreditMemo, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.billing_postal_address = billing_postal_address
         self.bill_to_customer_id = bill_to_customer_id
@@ -4355,7 +4355,7 @@ class microsoftgraphsalescreditmemo(microsoftgraphentity):
         self.sales_credit_memo_lines = sales_credit_memo_lines
 
 
-class microsoftgraphsalescreditmemoline(microsoftgraphentity):
+class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
     """salesCreditMemoLine.
 
     :param id: Read-only.
@@ -4408,9 +4408,9 @@ class microsoftgraphsalescreditmemoline(microsoftgraphentity):
     :param unit_price:
     :type unit_price: float
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param item: item.
-    :type item: ~financials.models.microsoftgraphitem
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -4442,8 +4442,8 @@ class microsoftgraphsalescreditmemoline(microsoftgraphentity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'item': {'key': 'item', 'type': 'microsoftgraphitem'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -4473,11 +4473,11 @@ class microsoftgraphsalescreditmemoline(microsoftgraphentity):
         total_tax_amount: Optional[float] = None,
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        item: Optional["microsoftgraphitem"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalescreditmemoline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesCreditMemoLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.amount_excluding_tax = amount_excluding_tax
@@ -4505,7 +4505,7 @@ class microsoftgraphsalescreditmemoline(microsoftgraphentity):
         self.item = item
 
 
-class microsoftgraphsalesinvoice(microsoftgraphentity):
+class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
     """salesInvoice.
 
     :param id: Read-only.
@@ -4514,7 +4514,7 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param billing_postal_address: postalAddressType.
-    :type billing_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param bill_to_customer_id:
     :type bill_to_customer_id: str
     :param bill_to_customer_number:
@@ -4562,11 +4562,11 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
     :param salesperson:
     :type salesperson: str
     :param selling_postal_address: postalAddressType.
-    :type selling_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param shipment_method_id:
     :type shipment_method_id: str
     :param shipping_postal_address: postalAddressType.
-    :type shipping_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param ship_to_contact:
     :type ship_to_contact: str
     :param ship_to_name:
@@ -4580,21 +4580,21 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
     :param total_tax_amount:
     :type total_tax_amount: float
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param customer: customer.
-    :type customer: ~financials.models.microsoftgraphcustomer
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_invoice_lines:
-    :type sales_invoice_lines: list[~financials.models.microsoftgraphsalesinvoiceline]
+    :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
     :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.microsoftgraphshipmentmethod
+    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'bill_to_customer_id': {'key': 'billToCustomerId', 'type': 'str'},
         'bill_to_customer_number': {'key': 'billToCustomerNumber', 'type': 'str'},
         'bill_to_name': {'key': 'billToName', 'type': 'str'},
@@ -4618,20 +4618,20 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
         'phone_number': {'key': 'phoneNumber', 'type': 'str'},
         'prices_include_tax': {'key': 'pricesIncludeTax', 'type': 'bool'},
         'salesperson': {'key': 'salesperson', 'type': 'str'},
-        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'shipment_method_id': {'key': 'shipmentMethodId', 'type': 'str'},
-        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'ship_to_contact': {'key': 'shipToContact', 'type': 'str'},
         'ship_to_name': {'key': 'shipToName', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
         'total_amount_excluding_tax': {'key': 'totalAmountExcludingTax', 'type': 'float'},
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'customer': {'key': 'customer', 'type': 'microsoftgraphcustomer'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'sales_invoice_lines': {'key': 'salesInvoiceLines', 'type': '[microsoftgraphsalesinvoiceline]'},
-        'shipment_method': {'key': 'shipmentMethod', 'type': 'microsoftgraphshipmentmethod'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'sales_invoice_lines': {'key': 'salesInvoiceLines', 'type': '[MicrosoftGraphSalesInvoiceLine]'},
+        'shipment_method': {'key': 'shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -4639,7 +4639,7 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        billing_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        billing_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         bill_to_customer_id: Optional[str] = None,
         bill_to_customer_number: Optional[str] = None,
         bill_to_name: Optional[str] = None,
@@ -4663,23 +4663,23 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
         phone_number: Optional[str] = None,
         prices_include_tax: Optional[bool] = None,
         salesperson: Optional[str] = None,
-        selling_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        selling_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         shipment_method_id: Optional[str] = None,
-        shipping_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        shipping_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         ship_to_contact: Optional[str] = None,
         ship_to_name: Optional[str] = None,
         status: Optional[str] = None,
         total_amount_excluding_tax: Optional[float] = None,
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        customer: Optional["microsoftgraphcustomer"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        sales_invoice_lines: Optional[List["microsoftgraphsalesinvoiceline"]] = None,
-        shipment_method: Optional["microsoftgraphshipmentmethod"] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        sales_invoice_lines: Optional[List["MicrosoftGraphSalesInvoiceLine"]] = None,
+        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesinvoice, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesInvoice, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.billing_postal_address = billing_postal_address
         self.bill_to_customer_id = bill_to_customer_id
@@ -4721,7 +4721,7 @@ class microsoftgraphsalesinvoice(microsoftgraphentity):
         self.shipment_method = shipment_method
 
 
-class microsoftgraphsalesinvoiceline(microsoftgraphentity):
+class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
     """salesInvoiceLine.
 
     :param id: Read-only.
@@ -4774,9 +4774,9 @@ class microsoftgraphsalesinvoiceline(microsoftgraphentity):
     :param unit_price:
     :type unit_price: float
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param item: item.
-    :type item: ~financials.models.microsoftgraphitem
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -4808,8 +4808,8 @@ class microsoftgraphsalesinvoiceline(microsoftgraphentity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'item': {'key': 'item', 'type': 'microsoftgraphitem'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -4839,11 +4839,11 @@ class microsoftgraphsalesinvoiceline(microsoftgraphentity):
         total_tax_amount: Optional[float] = None,
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        item: Optional["microsoftgraphitem"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesinvoiceline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesInvoiceLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.amount_excluding_tax = amount_excluding_tax
@@ -4871,7 +4871,7 @@ class microsoftgraphsalesinvoiceline(microsoftgraphentity):
         self.item = item
 
 
-class microsoftgraphsalesorder(microsoftgraphentity):
+class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
     """salesOrder.
 
     :param id: Read-only.
@@ -4880,7 +4880,7 @@ class microsoftgraphsalesorder(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param billing_postal_address: postalAddressType.
-    :type billing_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param bill_to_customer_id:
     :type bill_to_customer_id: str
     :param bill_to_customer_number:
@@ -4926,9 +4926,9 @@ class microsoftgraphsalesorder(microsoftgraphentity):
     :param salesperson:
     :type salesperson: str
     :param selling_postal_address: postalAddressType.
-    :type selling_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param shipping_postal_address: postalAddressType.
-    :type shipping_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param ship_to_contact:
     :type ship_to_contact: str
     :param ship_to_name:
@@ -4942,19 +4942,19 @@ class microsoftgraphsalesorder(microsoftgraphentity):
     :param total_tax_amount:
     :type total_tax_amount: float
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param customer: customer.
-    :type customer: ~financials.models.microsoftgraphcustomer
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_order_lines:
-    :type sales_order_lines: list[~financials.models.microsoftgraphsalesorderline]
+    :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'bill_to_customer_id': {'key': 'billToCustomerId', 'type': 'str'},
         'bill_to_customer_number': {'key': 'billToCustomerNumber', 'type': 'str'},
         'bill_to_name': {'key': 'billToName', 'type': 'str'},
@@ -4977,18 +4977,18 @@ class microsoftgraphsalesorder(microsoftgraphentity):
         'prices_include_tax': {'key': 'pricesIncludeTax', 'type': 'bool'},
         'requested_delivery_date': {'key': 'requestedDeliveryDate', 'type': 'date'},
         'salesperson': {'key': 'salesperson', 'type': 'str'},
-        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
-        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
+        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'ship_to_contact': {'key': 'shipToContact', 'type': 'str'},
         'ship_to_name': {'key': 'shipToName', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
         'total_amount_excluding_tax': {'key': 'totalAmountExcludingTax', 'type': 'float'},
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'customer': {'key': 'customer', 'type': 'microsoftgraphcustomer'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'sales_order_lines': {'key': 'salesOrderLines', 'type': '[microsoftgraphsalesorderline]'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'sales_order_lines': {'key': 'salesOrderLines', 'type': '[MicrosoftGraphSalesOrderLine]'},
     }
 
     def __init__(
@@ -4996,7 +4996,7 @@ class microsoftgraphsalesorder(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        billing_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        billing_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         bill_to_customer_id: Optional[str] = None,
         bill_to_customer_number: Optional[str] = None,
         bill_to_name: Optional[str] = None,
@@ -5019,21 +5019,21 @@ class microsoftgraphsalesorder(microsoftgraphentity):
         prices_include_tax: Optional[bool] = None,
         requested_delivery_date: Optional[datetime.date] = None,
         salesperson: Optional[str] = None,
-        selling_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
-        shipping_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        selling_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
+        shipping_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         ship_to_contact: Optional[str] = None,
         ship_to_name: Optional[str] = None,
         status: Optional[str] = None,
         total_amount_excluding_tax: Optional[float] = None,
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        customer: Optional["microsoftgraphcustomer"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        sales_order_lines: Optional[List["microsoftgraphsalesorderline"]] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        sales_order_lines: Optional[List["MicrosoftGraphSalesOrderLine"]] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesorder, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesOrder, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.billing_postal_address = billing_postal_address
         self.bill_to_customer_id = bill_to_customer_id
@@ -5072,7 +5072,7 @@ class microsoftgraphsalesorder(microsoftgraphentity):
         self.sales_order_lines = sales_order_lines
 
 
-class microsoftgraphsalesorderline(microsoftgraphentity):
+class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
     """salesOrderLine.
 
     :param id: Read-only.
@@ -5133,9 +5133,9 @@ class microsoftgraphsalesorderline(microsoftgraphentity):
     :param unit_price:
     :type unit_price: float
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param item: item.
-    :type item: ~financials.models.microsoftgraphitem
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -5171,8 +5171,8 @@ class microsoftgraphsalesorderline(microsoftgraphentity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'item': {'key': 'item', 'type': 'microsoftgraphitem'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -5206,11 +5206,11 @@ class microsoftgraphsalesorderline(microsoftgraphentity):
         total_tax_amount: Optional[float] = None,
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        item: Optional["microsoftgraphitem"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesorderline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesOrderLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.amount_excluding_tax = amount_excluding_tax
@@ -5242,7 +5242,7 @@ class microsoftgraphsalesorderline(microsoftgraphentity):
         self.item = item
 
 
-class microsoftgraphsalesquote(microsoftgraphentity):
+class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
     """salesQuote.
 
     :param id: Read-only.
@@ -5253,7 +5253,7 @@ class microsoftgraphsalesquote(microsoftgraphentity):
     :param accepted_date:
     :type accepted_date: ~datetime.date
     :param billing_postal_address: postalAddressType.
-    :type billing_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type billing_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param bill_to_customer_id:
     :type bill_to_customer_id: str
     :param bill_to_customer_number:
@@ -5291,13 +5291,13 @@ class microsoftgraphsalesquote(microsoftgraphentity):
     :param salesperson:
     :type salesperson: str
     :param selling_postal_address: postalAddressType.
-    :type selling_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type selling_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param sent_date:
     :type sent_date: ~datetime.datetime
     :param shipment_method_id:
     :type shipment_method_id: str
     :param shipping_postal_address: postalAddressType.
-    :type shipping_postal_address: ~financials.models.microsoftgraphpostaladdresstype
+    :type shipping_postal_address: ~financials.models.MicrosoftGraphPostalAddressType
     :param ship_to_contact:
     :type ship_to_contact: str
     :param ship_to_name:
@@ -5313,22 +5313,22 @@ class microsoftgraphsalesquote(microsoftgraphentity):
     :param valid_until_date:
     :type valid_until_date: ~datetime.date
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param customer: customer.
-    :type customer: ~financials.models.microsoftgraphcustomer
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_quote_lines:
-    :type sales_quote_lines: list[~financials.models.microsoftgraphsalesquoteline]
+    :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
     :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.microsoftgraphshipmentmethod
+    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'accepted_date': {'key': 'acceptedDate', 'type': 'date'},
-        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'billing_postal_address': {'key': 'billingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'bill_to_customer_id': {'key': 'billToCustomerId', 'type': 'str'},
         'bill_to_customer_number': {'key': 'billToCustomerNumber', 'type': 'str'},
         'bill_to_name': {'key': 'billToName', 'type': 'str'},
@@ -5347,10 +5347,10 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         'payment_terms_id': {'key': 'paymentTermsId', 'type': 'str'},
         'phone_number': {'key': 'phoneNumber', 'type': 'str'},
         'salesperson': {'key': 'salesperson', 'type': 'str'},
-        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'selling_postal_address': {'key': 'sellingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'sent_date': {'key': 'sentDate', 'type': 'iso-8601'},
         'shipment_method_id': {'key': 'shipmentMethodId', 'type': 'str'},
-        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'microsoftgraphpostaladdresstype'},
+        'shipping_postal_address': {'key': 'shippingPostalAddress', 'type': 'MicrosoftGraphPostalAddressType'},
         'ship_to_contact': {'key': 'shipToContact', 'type': 'str'},
         'ship_to_name': {'key': 'shipToName', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
@@ -5358,11 +5358,11 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'valid_until_date': {'key': 'validUntilDate', 'type': 'date'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'customer': {'key': 'customer', 'type': 'microsoftgraphcustomer'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'sales_quote_lines': {'key': 'salesQuoteLines', 'type': '[microsoftgraphsalesquoteline]'},
-        'shipment_method': {'key': 'shipmentMethod', 'type': 'microsoftgraphshipmentmethod'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'sales_quote_lines': {'key': 'salesQuoteLines', 'type': '[MicrosoftGraphSalesQuoteLine]'},
+        'shipment_method': {'key': 'shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -5371,7 +5371,7 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         accepted_date: Optional[datetime.date] = None,
-        billing_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        billing_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         bill_to_customer_id: Optional[str] = None,
         bill_to_customer_number: Optional[str] = None,
         bill_to_name: Optional[str] = None,
@@ -5390,10 +5390,10 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         payment_terms_id: Optional[str] = None,
         phone_number: Optional[str] = None,
         salesperson: Optional[str] = None,
-        selling_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        selling_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         sent_date: Optional[datetime.datetime] = None,
         shipment_method_id: Optional[str] = None,
-        shipping_postal_address: Optional["microsoftgraphpostaladdresstype"] = None,
+        shipping_postal_address: Optional["MicrosoftGraphPostalAddressType"] = None,
         ship_to_contact: Optional[str] = None,
         ship_to_name: Optional[str] = None,
         status: Optional[str] = None,
@@ -5401,14 +5401,14 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
         valid_until_date: Optional[datetime.date] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        customer: Optional["microsoftgraphcustomer"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        sales_quote_lines: Optional[List["microsoftgraphsalesquoteline"]] = None,
-        shipment_method: Optional["microsoftgraphshipmentmethod"] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        sales_quote_lines: Optional[List["MicrosoftGraphSalesQuoteLine"]] = None,
+        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesquote, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesQuote, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.accepted_date = accepted_date
         self.billing_postal_address = billing_postal_address
@@ -5448,7 +5448,7 @@ class microsoftgraphsalesquote(microsoftgraphentity):
         self.shipment_method = shipment_method
 
 
-class microsoftgraphsalesquoteline(microsoftgraphentity):
+class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
     """salesQuoteLine.
 
     :param id: Read-only.
@@ -5497,9 +5497,9 @@ class microsoftgraphsalesquoteline(microsoftgraphentity):
     :param unit_price:
     :type unit_price: float
     :param account: account.
-    :type account: ~financials.models.microsoftgraphaccount
+    :type account: ~financials.models.MicrosoftGraphAccount
     :param item: item.
-    :type item: ~financials.models.microsoftgraphitem
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -5529,8 +5529,8 @@ class microsoftgraphsalesquoteline(microsoftgraphentity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
-        'account': {'key': 'account', 'type': 'microsoftgraphaccount'},
-        'item': {'key': 'item', 'type': 'microsoftgraphitem'},
+        'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -5558,11 +5558,11 @@ class microsoftgraphsalesquoteline(microsoftgraphentity):
         total_tax_amount: Optional[float] = None,
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
-        account: Optional["microsoftgraphaccount"] = None,
-        item: Optional["microsoftgraphitem"] = None,
+        account: Optional["MicrosoftGraphAccount"] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
-        super(microsoftgraphsalesquoteline, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphSalesQuoteLine, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.account_id = account_id
         self.amount_excluding_tax = amount_excluding_tax
@@ -5588,7 +5588,7 @@ class microsoftgraphsalesquoteline(microsoftgraphentity):
         self.item = item
 
 
-class microsoftgraphshipmentmethod(microsoftgraphentity):
+class MicrosoftGraphShipmentMethod(MicrosoftGraphEntity):
     """shipmentMethod.
 
     :param id: Read-only.
@@ -5622,14 +5622,14 @@ class microsoftgraphshipmentmethod(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphshipmentmethod, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphShipmentMethod, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphtaxarea(microsoftgraphentity):
+class MicrosoftGraphTaxArea(MicrosoftGraphEntity):
     """taxArea.
 
     :param id: Read-only.
@@ -5667,7 +5667,7 @@ class microsoftgraphtaxarea(microsoftgraphentity):
         tax_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtaxarea, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTaxArea, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
@@ -5675,7 +5675,7 @@ class microsoftgraphtaxarea(microsoftgraphentity):
         self.tax_type = tax_type
 
 
-class microsoftgraphtaxgroup(microsoftgraphentity):
+class MicrosoftGraphTaxGroup(MicrosoftGraphEntity):
     """taxGroup.
 
     :param id: Read-only.
@@ -5713,7 +5713,7 @@ class microsoftgraphtaxgroup(microsoftgraphentity):
         tax_type: Optional[str] = None,
         **kwargs
     ):
-        super(microsoftgraphtaxgroup, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTaxGroup, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
@@ -5721,7 +5721,7 @@ class microsoftgraphtaxgroup(microsoftgraphentity):
         self.tax_type = tax_type
 
 
-class microsoftgraphunitofmeasure(microsoftgraphentity):
+class MicrosoftGraphUnitOfMeasure(MicrosoftGraphEntity):
     """unitOfMeasure.
 
     :param id: Read-only.
@@ -5759,7 +5759,7 @@ class microsoftgraphunitofmeasure(microsoftgraphentity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(microsoftgraphunitofmeasure, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphUnitOfMeasure, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.display_name = display_name
@@ -5767,7 +5767,7 @@ class microsoftgraphunitofmeasure(microsoftgraphentity):
         self.last_modified_date_time = last_modified_date_time
 
 
-class microsoftgraphvendor(microsoftgraphentity):
+class MicrosoftGraphVendor(MicrosoftGraphEntity):
     """vendor.
 
     :param id: Read-only.
@@ -5776,7 +5776,7 @@ class microsoftgraphvendor(microsoftgraphentity):
      collection.
     :type additional_properties: dict[str, object]
     :param address: postalAddressType.
-    :type address: ~financials.models.microsoftgraphpostaladdresstype
+    :type address: ~financials.models.MicrosoftGraphPostalAddressType
     :param balance:
     :type balance: float
     :param blocked:
@@ -5806,19 +5806,19 @@ class microsoftgraphvendor(microsoftgraphentity):
     :param website:
     :type website: str
     :param currency: currency.
-    :type currency: ~financials.models.microsoftgraphcurrency
+    :type currency: ~financials.models.MicrosoftGraphCurrency
     :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.microsoftgraphpaymentmethod
+    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
     :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.microsoftgraphpaymentterm
+    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param picture:
-    :type picture: list[~financials.models.microsoftgraphpicture]
+    :type picture: list[~financials.models.MicrosoftGraphPicture]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'address', 'type': 'microsoftgraphpostaladdresstype'},
+        'address': {'key': 'address', 'type': 'MicrosoftGraphPostalAddressType'},
         'balance': {'key': 'balance', 'type': 'float'},
         'blocked': {'key': 'blocked', 'type': 'str'},
         'currency_code': {'key': 'currencyCode', 'type': 'str'},
@@ -5833,10 +5833,10 @@ class microsoftgraphvendor(microsoftgraphentity):
         'tax_liable': {'key': 'taxLiable', 'type': 'bool'},
         'tax_registration_number': {'key': 'taxRegistrationNumber', 'type': 'str'},
         'website': {'key': 'website', 'type': 'str'},
-        'currency': {'key': 'currency', 'type': 'microsoftgraphcurrency'},
-        'payment_method': {'key': 'paymentMethod', 'type': 'microsoftgraphpaymentmethod'},
-        'payment_term': {'key': 'paymentTerm', 'type': 'microsoftgraphpaymentterm'},
-        'picture': {'key': 'picture', 'type': '[microsoftgraphpicture]'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'payment_method': {'key': 'paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
+        'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
+        'picture': {'key': 'picture', 'type': '[MicrosoftGraphPicture]'},
     }
 
     def __init__(
@@ -5844,7 +5844,7 @@ class microsoftgraphvendor(microsoftgraphentity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional["microsoftgraphpostaladdresstype"] = None,
+        address: Optional["MicrosoftGraphPostalAddressType"] = None,
         balance: Optional[float] = None,
         blocked: Optional[str] = None,
         currency_code: Optional[str] = None,
@@ -5859,13 +5859,13 @@ class microsoftgraphvendor(microsoftgraphentity):
         tax_liable: Optional[bool] = None,
         tax_registration_number: Optional[str] = None,
         website: Optional[str] = None,
-        currency: Optional["microsoftgraphcurrency"] = None,
-        payment_method: Optional["microsoftgraphpaymentmethod"] = None,
-        payment_term: Optional["microsoftgraphpaymentterm"] = None,
-        picture: Optional[List["microsoftgraphpicture"]] = None,
+        currency: Optional["MicrosoftGraphCurrency"] = None,
+        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
+        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
+        picture: Optional[List["MicrosoftGraphPicture"]] = None,
         **kwargs
     ):
-        super(microsoftgraphvendor, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphVendor, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.balance = balance
@@ -5888,8 +5888,8 @@ class microsoftgraphvendor(microsoftgraphentity):
         self.picture = picture
 
 
-class odataerror(msrest.serialization.Model):
-    """odataerror.
+class OdataError(msrest.serialization.Model):
+    """OdataError.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5897,7 +5897,7 @@ class odataerror(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~financials.models.odataerrormain
+    :type error: ~financials.models.OdataErrorMain
     """
 
     _validation = {
@@ -5906,23 +5906,23 @@ class odataerror(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'odataerrormain'},
+        'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
     def __init__(
         self,
         *,
-        error: "odataerrormain",
+        error: "OdataErrorMain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerror, self).__init__(**kwargs)
+        super(OdataError, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class odataerrordetail(msrest.serialization.Model):
-    """odataerrordetail.
+class OdataErrorDetail(msrest.serialization.Model):
+    """OdataErrorDetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5958,15 +5958,15 @@ class odataerrordetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(odataerrordetail, self).__init__(**kwargs)
+        super(OdataErrorDetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class odataerrormain(msrest.serialization.Model):
-    """odataerrormain.
+class OdataErrorMain(msrest.serialization.Model):
+    """OdataErrorMain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5980,7 +5980,7 @@ class odataerrormain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~financials.models.odataerrordetail]
+    :type details: list[~financials.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -5995,7 +5995,7 @@ class odataerrormain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[odataerrordetail]'},
+        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -6006,11 +6006,11 @@ class odataerrormain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["odataerrordetail"]] = None,
+        details: Optional[List["OdataErrorDetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(odataerrormain, self).__init__(**kwargs)
+        super(OdataErrorMain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
