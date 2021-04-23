@@ -20,7 +20,7 @@ def generate_extension_from_open_api_description(version='v1_0'):
             'autorest',
             '--markOpenAPI3ErrorsAsWarning'
             '--version=3.0.6370',
-            '--sdk-flatten',
+            '--clear-output-folder',
             '--az',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',

@@ -3,7 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
+import os
 from knack import CLI
+
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
@@ -15,7 +17,7 @@ from msgraph.cli.core.constants import EXCLUDED_PARAMS
 from msgraph.cli.core.command_loaders import MainCommandsLoader, ExtensionCommandsLoader
 from msgraph.cli.core.mglogging import MgCliLogging
 
-__version__ = '0.1.0'
+__version__ = "0.1.0"
 
 
 class MgCLI(CLI):
