@@ -10,9 +10,9 @@ az extension add --name compliance_beta
 ### Included Features ###
 #### compliance compliance ####
 #### compliance compliance ####
-#### compliance complianceediscovery ####
-#### compliance complianceediscoverycase ####
-#### compliance complianceediscoverycasescustodian ####
-#### compliance complianceediscoverycasescustodianssitesource ####
-#### compliance complianceediscoverycasescustodiansunifiedgroupsource ####
-#### compliance complianceediscoverycasesreviewset ####
+#### compliance compliance-ediscovery ####
+#### compliance compliance-ediscovery-case ####
+#### compliance compliance-ediscovery-case-custodian ####
+#### compliance compliance-ediscovery-case-custodian-site-source ####
+#### compliance compliance-ediscovery-case-custodian-unified-group-source ####
+#### compliance compliance-ediscovery-case-review-set ####

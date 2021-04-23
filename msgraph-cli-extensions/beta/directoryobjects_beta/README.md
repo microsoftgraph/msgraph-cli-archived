@@ -8,5 +8,5 @@ az extension add --name directoryobjects_beta
 ```
 
 ### Included Features ###
-#### directoryobjects directoryobjectsdirectoryobject ####
-#### directoryobjects directoryobject ####
+#### directoryobjects directory-object-directory-object ####
+#### directoryobjects directory-object ####

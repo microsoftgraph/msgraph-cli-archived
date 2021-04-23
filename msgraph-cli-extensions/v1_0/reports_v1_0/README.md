@@ -8,7 +8,7 @@ az extension add --name reports_v1_0
 ```
 
 ### Included Features ###
-#### reports auditlogsauditlogroot ####
-#### reports auditlog ####
-#### reports reportsreportroot ####
+#### reports audit-log-audit-log-root ####
+#### reports audit-log ####
+#### reports report-root ####
 #### reports report ####

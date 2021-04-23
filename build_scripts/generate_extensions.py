@@ -18,7 +18,6 @@ def generate_extension_from_open_api_description(version='v1_0'):
 
         subprocess.run([
             'autorest',
-            '--markOpenAPI3ErrorsAsWarning'
             '--version=3.0.6370',
             '--clear-output-folder',
             '--az',
